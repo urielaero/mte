@@ -7,11 +7,11 @@ class sonny_config extends default_config{
 		$this->mxnphp_dir = "c:/wamp/www/mxnphp/";
 		
 
-
+		/*
 		$this->db_host = '***REMOVED***';
 		$this->db_name = '***REMOVED***';
 		$this->db_user = '***REMOVED***';
-		$this->db_pass = '***REMOVED***';
+		$this->db_pass = '***REMOVED***';*/
 
 		//Database
 		$this->db_host = '***REMOVED***';
