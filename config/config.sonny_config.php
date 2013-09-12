@@ -14,11 +14,11 @@ class sonny_config extends default_config{
 		$this->db_pass = '***REMOVED***';
 
 		//Database
-		/*$this->db_host = '***REMOVED***';
+		$this->db_host = '***REMOVED***';
 		$this->db_name = 'compara';
 		$this->db_user = 'root';
 		$this->db_pass = '';
-*/
+
 		
 		//MXNPHP
 		$this->dev_mode = true;
