@@ -6,7 +6,7 @@ class sonny_config extends default_config{
 		$this->http_address = 'http://comparatuescuela/';
 		$this->mxnphp_dir = "c:/wamp/www/mxnphp/";
 		
-		$this->blog_address = 'http://blog.mejoratuescuela.org/';
+		$this->blog_address = 'http://comparatuescuela-blog.proyects.spaceshiplabs.com/';
 		
 		$this->db_host = '***REMOVED***';
 		$this->db_name = '***REMOVED***';
