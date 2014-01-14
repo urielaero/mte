@@ -7,7 +7,8 @@ class luis_config extends default_config{
 		$this->http_address = 'http://mte.local/';
 		$this->mxnphp_dir = "c:/wamp/www/framework/";
 
-		$this->blog_address = 'http://blog.mejoratuescuela.org/';
+		//$this->blog_address = 'http://blog.mejoratuescuela.org/';
+		$this->blog_address = 'http://comparatuescuelablog.projects.spaceshiplabs.com/';
 		
 		//Database
 		/*
