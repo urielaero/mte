@@ -26,7 +26,7 @@ class luis_config extends default_config{
 
 		//sweetcaptcha
 		$this->SWEETCAPTCHA_APP_ID = 40382; // your application id (change me)
-		$this->SWEETCAPTCHA_KEY = '6db20e6903f3add7fbd64e2f9341d0c7'; // your application key (change me)
+		$this->SWEETCAPTCHA_KEY = '6db20e6903f3add7fbd64e2f9341d0cd'; // your application key (change me)
 		$this->SWEETCAPTCHA_SECRET = '1de81134590566f83cb616481120221c'; // your application secret (change me)
 		$this->SWEETCAPTCHA_PUBLIC_URL ='sweetcaptcha.php'; // public http url to this file
 
