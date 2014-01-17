@@ -2,7 +2,7 @@
 class luis_config extends default_config{
 	public function luis_config(){
 		parent::__construct();
-		error_reporting(0);
+		//error_reporting(0);
 		//Site
 		$this->http_address = 'http://mte.local/';
 		$this->mxnphp_dir = "c:/wamp/www/framework/";
