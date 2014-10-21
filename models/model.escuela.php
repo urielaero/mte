@@ -81,6 +81,10 @@ class escuela extends memcached_table{
             $this->semaforo = 7;
             return;
         }
+        if(preg_match('/^..BB/', $this->cct)){
+            $this->semaforo = 8;
+            return;
+        }
 
         //deprecado ya no deberia usar este atributo , todas las escuelas vienen por turno
         if (isset($this->rank) && count($this->rank) > 0) {
