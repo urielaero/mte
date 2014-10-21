@@ -29,7 +29,7 @@
 					echo "<option $selected value='{$nivel->id}'>".$this->capitalize($nivel->nombre)."</option>";
 				}
                 $selected = $this->request('nivel') == 1 && $this->request('nivel') != '' ? "selected='selected'" : '';
-                echo "<option $selected value='1'>Bibliotecas</option>";
+                //echo "<option $selected value='1'>Bibliotecas</option>";
                 ?>
 			</select>
 		</p>
