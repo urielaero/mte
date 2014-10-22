@@ -67,6 +67,13 @@ class escuelas extends main{
 				$this->include_theme('index','perfil_b');
 			}
 			else if( preg_match('/^..BB/', $this->escuela->cct ) ){
+				
+				$tmp = $this->escuelas_digest->escuelas;
+				foreach($tmp as $k=>$esc){
+					if(!preg_match('/^..BB/',$k))
+						unset($this->escuelas_digest->escuelas[$k]);
+				}
+
 				$this->include_theme('index','biblioteca');
 			}
 			else{
