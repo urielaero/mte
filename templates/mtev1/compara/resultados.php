@@ -25,8 +25,8 @@
             $esc->eval_entre_programados = $escuela->eval_entre_programados;
 			$esc->nivel->id = $escuela->nivel;
 			$esc->nivel->nombre = $escuela->nom_nivel;
-			$esc->rank_entidad = $escuela->rank_entidad > 0 ? number_format($escuela->rank_entidad,0) : '';
-			$esc->rank_nacional = $escuela->rank_nacional > 0 ? number_format($escuela->rank_nacional,0) : '';
+			$esc->rank_entidad = $escuela->rank_entidad > 0 ? $escuela->rank_entidad : '';
+			$esc->rank_nacional = $escuela->rank_nacional > 0 ? $escuela->rank_nacional : '';
 
 			$esc->grados = $escuela->grados;
 			$esc->semaforo = $esc->get_semaforo_new($esc);
