@@ -636,10 +636,10 @@ $(document).ready(function(){
 		name='MÉXICO';
 	
 	var es = $('.estado_'+name).attr('class').split(' '),
-	ele = $('path.'+es[1]);
-	ele.css("fill","#359044");
+	ele = d3.select('path.'+es[1]);
+	ele.style("fill","#359044");
 	setTimeout(function(){
-		ele.css("fill", "#C4EAD1");
+		ele.style("fill", "#C4EAD1");
 	},950);
 	
     });

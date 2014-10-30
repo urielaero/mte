@@ -69,7 +69,7 @@
             //var_dump($this->programa->entidad_escuelas_count);
             foreach ($this->entidades as $key => $estado) {
                 if(isset($this->programa->entidad_escuelas_count[$estado->id]) && $this->programa->entidad_escuelas_count[$estado->id] > 0){?>
-                <div class='statemarker e<?=$estado->id?> <?="estado_".$estado->nombre?>' >
+                <div class='statemarker e<?=$estado->id?> <?="estado_".strtoupper($estado->nombre)?>' >
                     <div class="info">
                         <h4><?=$estado->nombre?></h4>
                         <p>Participa en (<?= $this->programa->entidad_escuelas_count[$estado->id]?>) Escuelas <br><a class='estado_escuela_link' href='<?= $this->config->http_address ?>programas/estado_escuelas?id=<?=$this->programa->id ?>&es=<?=$estado->id?>'>Ver lista de escuelas</a></p>
