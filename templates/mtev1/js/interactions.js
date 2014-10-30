@@ -627,6 +627,22 @@ $(document).ready(function(){
             window.location = url;
         });
     }
+
+    $('.zonas_coberturas a').click(function(e){
+    	e.preventDefault()
+	var name = ($(this).attr('href') || '').toUpperCase();
+	$('path').css("fill", "#C4EAD1");
+	if(name == 'Estado de México')
+		name='MÉXICO';
+	
+	var es = $('.estado_'+name).attr('class'),
+	ele = $('path.'+es[1]);
+	ele.css("fill","#359044");
+	setTimeout(function(){
+		ele.css("fill", "#C4EAD1");
+	},50);
+	
+    });
 });
 
 var page_of_blog = 1;

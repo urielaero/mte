@@ -48,6 +48,19 @@
 		</div>
 
 	<h2 class="title">Zonas de cobertura</h2>
+	<div class="white-box">
+		<p class='zonas_coberturas'>
+			<?php
+			$values = explode(',',$this->programa->zonas);
+			$lvalues = count($values)-1;
+			foreach($values as $c => $v){
+				echo "<a href='$v' >$v</a>";
+				if($c<$lvalues)
+					echo ", ";
+			}
+			?>
+		</p>
+	</div>
         <div id="map-programas">
             <script src="http://d3js.org/d3.v3.min.js"></script>
             <script src="http://d3js.org/topojson.v0.min.js"></script>
@@ -56,7 +69,7 @@
             //var_dump($this->programa->entidad_escuelas_count);
             foreach ($this->entidades as $key => $estado) {
                 if(isset($this->programa->entidad_escuelas_count[$estado->id]) && $this->programa->entidad_escuelas_count[$estado->id] > 0){?>
-                <div class='statemarker e<?=$estado->id?>'>
+                <div class='statemarker e<?=$estado->id?> <?="estado_".$estado->nombre?>' >
                     <div class="info">
                         <h4><?=$estado->nombre?></h4>
                         <p>Participa en (<?= $this->programa->entidad_escuelas_count[$estado->id]?>) Escuelas <br><a class='estado_escuela_link' href='<?= $this->config->http_address ?>programas/estado_escuelas?id=<?=$this->programa->id ?>&es=<?=$estado->id?>'>Ver lista de escuelas</a></p>
