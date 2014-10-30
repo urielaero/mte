@@ -631,11 +631,15 @@ $(document).ready(function(){
     $('.zonas_coberturas a').click(function(e){
     	e.preventDefault()
 	var name = ($(this).attr('href') || '').toUpperCase();
-	$('path').css("fill", "#C4EAD1");
-	if(name == 'Estado de México')
-		name='MÉXICO';
-	
-	var es = $('.estado_'+name).attr('class').split(' '),
+	//$('path').css("fill", "#C4EAD1");
+	if(name == 'ESTADO DE MÉXICO')
+		name='MéXICO';
+	name = name.split(' ');
+	var n = name[0]
+	for(var i=1;i<name.length;i++){
+		n+='_'+name[i];
+	}
+	var es = $('.estado_'+n).attr('class').split(' '),
 	ele = d3.select('path.'+es[1]);
 	ele.style("fill","#359044");
 	setTimeout(function(){
