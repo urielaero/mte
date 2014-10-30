@@ -635,12 +635,12 @@ $(document).ready(function(){
 	if(name == 'Estado de México')
 		name='MÉXICO';
 	
-	var es = $('.estado_'+name).attr('class'),
+	var es = $('.estado_'+name).attr('class').split(' '),
 	ele = $('path.'+es[1]);
 	ele.css("fill","#359044");
 	setTimeout(function(){
 		ele.css("fill", "#C4EAD1");
-	},50);
+	},950);
 	
     });
 });
