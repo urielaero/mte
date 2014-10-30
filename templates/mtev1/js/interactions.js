@@ -637,7 +637,7 @@ $(document).ready(function(){
 	name = name.split(' ');
 	var n = name[0]
 	for(var i=1;i<name.length;i++){
-		n+='_'+name[i];
+		n+='.'+name[i];
 	}
 	var es = $('.estado_'+n).attr('class').split(' '),
 	ele = d3.select('path.'+es[1]);
