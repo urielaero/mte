@@ -742,7 +742,7 @@ class main extends controler{
                         localidades.nombre localidades_nombre,localidades.id localidades_id,
                         entidades.nombre entidades_nombre,entidades.id entidades_id,
                         niveles.nombre niveles_nombre,niveles.id niveles_id,
-                        escuelas_para_rankeo.promedio_matematicas rank_promedio_matematicas,escuelas_para_rankeo.promedio_espaniol rank_promedio_espaniol,escuelas_para_rankeo.promedio_general rank_promedio_general,escuelas_para_rankeo.rank_entidad rank_rank_entidad,escuelas_para_rankeo.rank_nacional rank_rank_nacional,escuelas_para_rankeo.total_evaluados rank_total_evaluados,escuelas_para_rankeo.poco_confiables rank_poco_confiables,escuelas_para_rankeo.turnos_eval rank_turnos_eval,escuelas_para_rankeo.anio,escuelas_para_rankeo.eval_entre_programados rank_eval_entre_programados,
+                        escuelas_para_rankeo.promedio_matematicas rank_promedio_matematicas,escuelas_para_rankeo.promedio_espaniol rank_promedio_espaniol,escuelas_para_rankeo.promedio_general rank_promedio_general,escuelas_para_rankeo.rank_entidad rank_rank_entidad,escuelas_para_rankeo.rank_nacional rank_rank_nacional,escuelas_para_rankeo.total_evaluados rank_total_evaluados,escuelas_para_rankeo.poco_confiables rank_poco_confiables,escuelas_para_rankeo.turnos_eval rank_turnos_eval,escuelas_para_rankeo.anio,escuelas_para_rankeo.eval_entre_programados rank_eval_entre_programados,escuelas_para_rankeo.anio rank_anio,
                         controles.id controles_id,controles.nombre controles_nombre,
                         municipios.nombre municipios_nombre,municipios.id municipios_id
                         from escuelas
@@ -753,14 +753,16 @@ class main extends controler{
                         left join controles on controles.id = escuelas.control
                         left join escuelas_para_rankeo on escuelas_para_rankeo.id = escuelas.id
                         left join turnos on turnos.id = escuelas_para_rankeo.turnos_eval
-                        where ((escuelas_para_rankeo.id is not null and ((niveles.id = 22 and escuelas_para_rankeo.anio = 2014) or niveles.id != 22 )) or escuelas_para_rankeo.id is null)
-                ";
+                        where ((escuelas_para_rankeo.id is not null and ((niveles.id = 22 and (escuelas_para_rankeo.anio = (select anio from escuelas_para_rankeo epk where epk.id = escuelas.id order by anio desc limit 1))) or niveles.id != 22 )) or escuelas_para_rankeo.id is null) ";
+
         if ($escuelas->search_clause) {
             $sql .= " AND ".$escuelas->search_clause;
         }
 
+        $sql .= ' order by escuelas_para_rankeo.anio desc';
+
         if ($escuelas->order_by) {
-            $sql .= ' order by '.$escuelas->order_by;
+            $sql .= ','.$escuelas->order_by;
         }
 
         if ($escuelas->limit) {
@@ -804,6 +806,7 @@ class main extends controler{
                 $escuela->poco_confiables = isset($row['rank_poco_confiables']) ? $row['rank_poco_confiables'] : "";
                 $escuela->turnos_eval = isset($row['rank_turnos_eval']) ? $row['rank_turnos_eval'] : "";
                 $escuela->eval_entre_programados = isset($row['rank_eval_entre_programados']) ? $row['rank_eval_entre_programados'] : "";
+                $escuela->anio = isset($row['rank_anio']) ? $row['rank_anio'] : 0;
                 $escuela->control = new control(isset($row['controles_id']) ? $row['controles_id'] : "");
                 $escuela->control->nombre = isset($row['controles_nombre']) ? $row['controles_nombre'] : "";
                 $escuela->municipio = new municipio(isset($row['municipios_id']) ? $row['municipios_id'] : "");

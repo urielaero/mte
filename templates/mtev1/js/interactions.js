@@ -627,6 +627,26 @@ $(document).ready(function(){
             window.location = url;
         });
     }
+
+    $('.zonas_coberturas a').click(function(e){
+    	e.preventDefault()
+	var name = ($(this).attr('href') || '').toUpperCase();
+	//$('path').css("fill", "#C4EAD1");
+	if(name == 'ESTADO DE MÉXICO')
+		name='MéXICO';
+	name = name.split(' ');
+	var n = name[0]
+	for(var i=1;i<name.length;i++){
+		n+='.'+name[i];
+	}
+	var es = $('.estado_'+n).attr('class').split(' '),
+	ele = d3.select('path.'+es[1]);
+	ele.style("fill","#359044");
+	setTimeout(function(){
+		ele.style("fill", "#C4EAD1");
+	},950);
+	
+    });
 });
 
 var page_of_blog = 1;
