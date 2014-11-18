@@ -68,7 +68,7 @@ class peticiones extends main{
 	public function sienlace_firmas(){
 		date_default_timezone_set('America/Mexico_City');
 		$change = new ApiChange($this->config->change_api_key,$this->config->change_secret_token);
-		$petition_url = "https://www.change.org/es-LA/peticiones/queremos-que-se-aplique-la-prueba-enlace-este-2014-s%C3%ADenlace2014";
+		$petition_url = "https://www.change.org/p/queremos-que-se-aplique-la-prueba-enlace-este-2014-s%C3%ADenlace2014";
 		$petition_info = $change->regresa_info_peticion($petition_url);
 		echo number_format($petition_info['signature_count']);
 	}

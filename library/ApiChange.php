@@ -51,28 +51,28 @@ class ApiChange{
 	function regresa_info_peticion( $petition_url ){
 		$petition_id = $this->regresa_id_peticion( $petition_url );
 		$request_url = 'v1/petitions/'.$petition_id;
+		//var_dump($petition_id);
 		$parameters = array(
-		    'api_key' => $this->api_key
+		    'api_key' => $this->api_key,
+		    'petition_url' => $petition_url,
 		);
-
 		$query_string = http_build_query( $parameters );
 		$final_request_url = "{$this->base_url}$request_url?$query_string";
-
 		$response = file_get_contents($final_request_url);
-
 		$json_response = json_decode($response, true);
-
 		return $json_response;
 	}
 	function regresa_firmas_peticion( $petition_url ){
 		$petition_id = $this->regresa_id_peticion( $petition_url );
 		$request_url = 'v1/petitions/'.$petition_id.'/signatures';
+		var_dump($petition_id);
 		$parameters = array(
-		    'api_key' => $this->api_key
+		    'api_key' => $this->api_key,
+		    'petition_url' => $petition_url,
 		);
-
 		$query_string = http_build_query( $parameters );
 		$final_request_url = "{$this->base_url}$request_url?$query_string";
+		var_dump($final_request_url);
 
 		$response = file_get_contents($final_request_url);
 
@@ -176,6 +176,7 @@ class ApiChange{
 
 		$petition_id = false;
 		$request_url = 'v1/petitions/get_id';
+
 		$parameters = array(
 		    'api_key' => $this->api_key,
 		    'petition_url' => $petition_url
@@ -183,13 +184,12 @@ class ApiChange{
 
 		$query_string = http_build_query( $parameters );
 		$final_request_url = "{$this->base_url}$request_url?$query_string";
-
+		//echo($final_request_url);
 		if($this->is_url_online($final_request_url)){
 			$response = file_get_contents($final_request_url);
 			$json_response = json_decode($response, true);
 			$petition_id = $json_response['petition_id'];
 		}
-
 		return $petition_id;
 	}
 

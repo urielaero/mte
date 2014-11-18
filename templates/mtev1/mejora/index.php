@@ -39,7 +39,7 @@ $infografias = array('entorno'=>'Entorno',
 			<div class="header">
 				<span class="icon"></span>
 				<p>3 temas para platicar con el maestro de tus hijos</p>
-				<a class="download" href="">Descargar PDF</a>
+				<a class="download download-pdf" href="">Descargar PDF</a>
 			</div>
 			<div class="wrap_content">
 				<p>

@@ -266,8 +266,9 @@ $(document).ready(function(){
 		add_escuelas_cookie();
 		$(window).off();
 		var url = $.cookie('escuelas') || '';
+		ga('send', 'event', 'interaciones', 'compara', url);
 		location.href = '/compara/escuelas/' + url;
-		console.log(url);
+		//console.log(url);
 	});
 
 	$('a[href="/califica-tu-escuela/califica/"]').click(function(e){
@@ -647,6 +648,36 @@ $(document).ready(function(){
 	},950);
 	
     });
+
+    /* Analytic Event Logging */
+    //Infografia PDF Download
+    $('.download-pdf').on('click',function(e){
+    	ga('send', 'event', 'descarga', 'infografía', $(this).prev().html());
+    });
+    //Infografia Image Download
+    $('.mejorar .download').on('click',function(e){
+    	e.preventDefault();
+    	ga('send', 'event', 'descarga', 'infografía', $(this).parent().parent().children('h2').html());
+    });
+    $('#general-search').submit(function(e){
+    	e.preventDefault();
+    	var text = false;
+    	var filter = false;
+    	var category = 'en blanco';
+    	var filters = '';
+    	var selects = $(this).find('select').each(function(i,select){
+    		if($(select).val() !== ""){
+    			filter = true;
+    			filters += $(select).attr('name')+'='+$(select).val()+'&';
+    		}
+    	});
+    	if($(this).find('#name-input').val() !== '') text = true;
+    	category = text && !filter ? 'texto' : category;
+    	category = !text && filter ? 'filtros' : category;
+    	category = text && filter ? 'texto y filtros' : category;
+    	var label = $(this).find('#name-input').val()+filters;
+    	ga('send', 'event', 'búsqueda', category,label);
+    });
 });
 
 var page_of_blog = 1;
@@ -716,6 +747,7 @@ function toggle_escuela(cct){
 			$.cookie('escuelas_vistas',escuelas_vistas.join('-'));
 		}
 	}else{
+		ga('send', 'event', 'interaciones', 'agregar a comparador', cct);
 		escuelas.push(cct);
 		escuelas.sort();
 	}
@@ -794,7 +826,6 @@ function replaceMentions(text) {
 
 
 function add_escuelas_cookie(){
-	//var selector_table = $('.resultados.container table'),
 	if($('.container').hasClass('comparar resultados'))
 		return 0;
 	var selector_table = $('.resultados table'),
@@ -903,7 +934,6 @@ function load_map_mexico(){
 		});
     });
 
-
-
+    
 
 }
