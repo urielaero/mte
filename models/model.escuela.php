@@ -344,6 +344,9 @@ class escuela extends memcached_table{
                 $this->programas[$programaName] = $programa;
             }
             $this->programas[$programaName]->anios[] = $res['anio'];
+            if(isset($res['ganador']) && $res['ganador'] == 1){
+                $this->ganador_disena_el_cambio = $res['ganador'];
+            }
         }
     }
 }

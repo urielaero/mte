@@ -1,7 +1,7 @@
 <div class='perfil container B'>
     <?php 
     //var_dump($this->escuela->programas);
-    if(isset($this->escuela->programas['escuelas_de_excelencia']))
+    if(isset($this->escuela->programas['escuelas_de_excelencia']) || $this->escuela->ganador_disena_el_cambio)
         $this->include_template('escuelas_excelencia','global');
     ?>
 	<div class="box-head">
