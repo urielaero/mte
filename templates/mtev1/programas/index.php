@@ -54,7 +54,7 @@
 			$values = explode(',',$this->programa->zonas);
 			$lvalues = count($values)-1;
 			foreach($values as $c => $v){
-				echo "<a href='$v' >$v</a>";
+				echo "<a >$v</a>";
 				if($c<$lvalues)
 					echo ", ";
 			}
