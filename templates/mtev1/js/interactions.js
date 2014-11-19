@@ -32,7 +32,8 @@ $(document).ready(function(){
 	});
 
 	$(".escuelas_excelencia").fadeIn();
-	$(".escuelas_excelencia .close").click(function(){
+	$(".escuelas_excelencia .close").click(function(e){
+		e.preventDefault();
 		$(".escuelas_excelencia").fadeOut();
 	});
 

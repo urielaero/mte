@@ -28,7 +28,6 @@ class default_config{
                 ]');
                //MTE
                 $this->semaforos = array('Reprobado','De panzazo','Bien','Excelente','No toma la <br /> prueba <br />ENLACE','Poco confiable','Esta escuela no toma la prueba ENLACE para todos los años','La prueba ENLACE no esta disponible para este nivel escolar');
-                error_reporting(E_ALL);
                 
         }
 
