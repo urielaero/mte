@@ -656,11 +656,9 @@ $(document).ready(function(){
     });
     //Infografia Image Download
     $('.mejorar .download').on('click',function(e){
-    	e.preventDefault();
     	ga('send', 'event', 'descarga', 'infografía', $(this).parent().parent().children('h2').html());
     });
     $('#general-search').submit(function(e){
-    	e.preventDefault();
     	var text = false;
     	var filter = false;
     	var category = 'en blanco';

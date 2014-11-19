@@ -3,7 +3,7 @@ class ApiChange{
 	private $api_key;
 	private $secret_token;
 	private $base_url;
-
+ 
 
 	function __construct( $api_key, $secret_token = '', $base_url = 'https://api.change.org/' ){
 		$this->api_key = $api_key;
