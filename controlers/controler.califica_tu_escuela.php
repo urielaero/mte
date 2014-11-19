@@ -28,19 +28,17 @@ class califica_tu_escuela extends main{
 	* Si la cookie esta vacía muestra un buscador para encontrar la escuela que el usuario desea calificar
 	*/
 	public function califica(){
-		$tipo_encuesta = 'escuelas';
-		if(preg_match('/^..BB/', $this->escuela->cct))
-			$tipo_encuesta = 'bibliotecas';
-		$this->get_metadata();
-		if($tipo_encuesta == 'escuelas'){
-			$this->title_header = 'Califica tu escuela';
-		}else{
-			$this->title_header = 'Califica tu biblioteca';
-		}
-			
+		$this->get_metadata();	
+		$this->title_header = 'Califica tu escuela';
 		$this->subtitle_header = 'Una vez que conoces y has comparado tu escuela, te invitamos a<br />que califiques algunos aspectos de la misma. Las calificaciones<br />ayudan a detectar áreas de mejora y a reconocer los<br />logros alcanzados.';
 		$this->header_folder = 'compara';
 		if($this->escuela_info()){
+			$tipo_encuesta = 'escuelas';	
+			if(preg_match('/^..BB/', $this->escuela->cct)){
+				$tipo_encuesta = 'bibliotecas';
+				$this->title_header = 'Califica tu biblioteca';
+			}
+
 			$this->breadcrumb = array('/califica-tu-escuela/'=>'Califica tu escuela','#'=>$this->escuela->nombre);
 			$this->simulateP = rand()%15;
 			$tipo_p = new tipo_pregunta();

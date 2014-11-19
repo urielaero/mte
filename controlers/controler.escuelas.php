@@ -135,7 +135,15 @@ class escuelas extends main{
             if (isset($this->escuela->calificaciones) && $this->escuela->calificaciones) {
                 $this->preguntas = $aux->getPreguntasConPromedio($this->escuela->cct);
             } else {
-                $aux->search_clause = " 1 = 1 ";
+		$tipo_encuesta = 'escuelas';	
+		if(preg_match('/^..BB/', $this->escuela->cct)){
+			$tipo_encuesta = 'bibliotecas';
+		}
+		$tipo_p = new tipo_pregunta();
+		$tipo_p->search_clause = "nombre = '{$tipo_encuesta}'";
+		$tipo_preguntas = $tipo_p->read('id,nombre');
+		$tipo_pregunta = $tipo_preguntas[0];
+		$aux->search_clause = "tipo_pregunta = {$tipo_pregunta->id}";
                 $this->preguntas = $aux->read('id,titulo');
             }
 			return true;

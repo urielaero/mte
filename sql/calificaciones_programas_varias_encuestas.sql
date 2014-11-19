@@ -1,17 +1,17 @@
-CREATE TABLE `cte_optimizada`.`tipo_preguntas` (
+CREATE TABLE `imco_cte_optimizada`.`tipo_preguntas` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nombre` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
   );
 
-INSERT INTO `cte_optimizada`.`tipo_preguntas` (`nombre`) values ('escuelas');
-INSERT INTO `cte_optimizada`.`tipo_preguntas` (`nombre`) values ('bibliotecas');
+INSERT INTO `imco_cte_optimizada`.`tipo_preguntas` (`nombre`) values ('escuelas');
+INSERT INTO `imco_cte_optimizada`.`tipo_preguntas` (`nombre`) values ('bibliotecas');
 
-  ALTER TABLE `cte_optimizada`.`preguntas` 
+  ALTER TABLE `imco_cte_optimizada`.`preguntas` 
   ADD tipo_pregunta INT NOT NULL DEFAULT 1,
-ADD FOREIGN KEY (tipo_pregunta) REFERENCES `cte_optimizada`.`tipo_preguntas`(id);
+ADD FOREIGN KEY (tipo_pregunta) REFERENCES `imco_cte_optimizada`.`tipo_preguntas`(id);
 
-INSERT INTO `cte_optimizada`.`preguntas` (`titulo`,`pregunta`,`descripcion_valor_minimo`,`descripcion_valor_maximo`,`tipo_pregunta`) values 
+INSERT INTO `imco_cte_optimizada`.`preguntas` (`titulo`,`pregunta`,`descripcion_valor_minimo`,`descripcion_valor_maximo`,`tipo_pregunta`) values 
 ('Atención','¿El personal que atiende la biblioteca responde de forma adecuada a los usuarios?','1 = Responde de forma inadecuada','10= Muy adecuada',2),
 ('Horario','¿Los horarios que tiene la biblioteca son adecuados?','1 = No son adecuados','10 = Muy adecuados',2),
 
