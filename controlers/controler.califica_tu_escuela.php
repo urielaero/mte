@@ -28,18 +28,29 @@ class califica_tu_escuela extends main{
 	* Si la cookie esta vacía muestra un buscador para encontrar la escuela que el usuario desea calificar
 	*/
 	public function califica(){
+		$tipo_encuesta = 'escuelas';
+		if(preg_match('/^..BB/', $this->escuela->cct))
+			$tipo_encuesta = 'bibliotecas';
 		$this->get_metadata();
-		$this->title_header = 'Califica tu escuela';
+		if($tipo_encuesta == 'escuelas'){
+			$this->title_header = 'Califica tu escuela';
+		}else{
+			$this->title_header = 'Califica tu biblioteca';
+		}
+			
 		$this->subtitle_header = 'Una vez que conoces y has comparado tu escuela, te invitamos a<br />que califiques algunos aspectos de la misma. Las calificaciones<br />ayudan a detectar áreas de mejora y a reconocer los<br />logros alcanzados.';
 		$this->header_folder = 'compara';
 		if($this->escuela_info()){
 			$this->breadcrumb = array('/califica-tu-escuela/'=>'Califica tu escuela','#'=>$this->escuela->nombre);
-			$aux = new pregunta();
-			$aux->search_clause = "1 = 1";
-			$this->preguntas = $aux->read('id,titulo,pregunta,descripcion_valor_minimo,descripcion_valor_maximo');
-            //$this->escuela = new escuela($this->get('id'));
-            //$this->escuela->read('');
 			$this->simulateP = rand()%15;
+			$tipo_p = new tipo_pregunta();
+			$tipo_p->search_clause = "nombre = '{$tipo_encuesta}'";
+			$tipo_preguntas = $tipo_p->read('id,nombre');
+			$tipo_pregunta = $tipo_preguntas[0];
+			$aux = new pregunta();
+			$aux->search_clause = "tipo_pregunta = {$tipo_pregunta->id}";
+			$this->preguntas = $aux->read('id,titulo,pregunta,descripcion_valor_minimo,descripcion_valor_maximo');
+			$this->tipo_encuesta = $tipo_encuesta;
 			$this->include_theme('index','califica');
 		
 		}else{
@@ -100,6 +111,7 @@ class califica_tu_escuela extends main{
 		$this->escuela->fields['cct'] = $this->get('id');
 		//$this->escuela->control->id
 		$this->escuela->read("cct,nombre,nivel=>nombre,turno=>nombre,entidad=>nombre,control=>id");
+		return true;
 		if(isset($this->escuela->cct)){
 			return true;
 		}else{
