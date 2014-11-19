@@ -152,6 +152,11 @@ class pregunta extends table {
         return count($preguntas) ? $preguntas:false;
     }
 }
+class tipo_pregunta extends table{
+    function info(){
+        $this->table_name = 'tipo_preguntas';
+    }
+}
 class reporte_ciudadano extends table{
 	function info(){
 		$this->table_name = 'reportes_ciudadanos';

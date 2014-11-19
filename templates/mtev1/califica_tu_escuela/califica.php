@@ -1,10 +1,19 @@
 <div class='container califica'>
-	<?php $controles = array(1=>'Pública', 2=>'Privada'); ?>
-	<h1>Estás calificando la escuela: <?=$this->capitalize($this->escuela->nombre)?> | <?=$this->capitalize($this->escuela->entidad->nombre)?> | <?=$this->capitalize($this->escuela->nivel->nombre)?> | <?=$this->capitalize($this->escuela->turno->nombre)?> | <?=$controles[$this->escuela->control->id]?></h1>
-	<h2>Califica tu escuela seleccionando para cada campo una calificación del 1-10.
-	<br />
-	Estas calificaciones se promedian para generar la calificación general de tu escuela.
-	</h2>
+	<?php if($this->tipo_encuesta == 'escuelas'){
+		$controles = array(1=>'Pública', 2=>'Privada'); ?>
+		<h1>Estás calificando la escuela: <?=$this->capitalize($this->escuela->nombre)?> | <?=$this->capitalize($this->escuela->entidad->nombre)?> | <?=$this->capitalize($this->escuela->nivel->nombre)?> | <?=$this->capitalize($this->escuela->turno->nombre)?> | <?=$controles[$this->escuela->control->id]?></h1>
+		<h2>Califica tu escuela seleccionando para cada campo una calificación del 1-10.
+		<br />
+		Estas calificaciones se promedian para generar la calificación general de tu escuela.
+		</h2>
+	<?php }else{ ?>
+		<h1>Estas calificando la biblioteca: <?=$this->capitalize($this->escuela->nombre)?> | <?=$this->capitalize($this->escuela->entidad->nombre)?></h1>	
+		<h2>Califica tu biblioteca seleccionando para cada campo una calificación del 1-10.
+		<br />
+		Estas calificaciones se promedian para generar la calificación general de la biblioteca.
+		</h2>
+		
+	<?php } ?>
 
     <?php
         if ($this->preguntas) {
