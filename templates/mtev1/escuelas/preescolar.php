@@ -1,4 +1,9 @@
 <div class='perfil container B perfil-custom'>
+	<?php 
+    //var_dump($this->escuela->programas);
+    if(isset($this->escuela->programas['escuelas_de_excelencia']) || $this->escuela->ganador_disena_el_cambio)
+        $this->include_template('escuelas_excelencia','global');
+    ?>
 	<div class="box-head">
 		<div class='head'>
 			<h1 class='main-name'><?=$this->capitalize($this->escuela->nombre)?></h1>
@@ -125,47 +130,14 @@
 					Comentarios 
 					y reportes
 				</a></li>
-				<?php //if($this->escuela->infraestructura){ ?>
 					<li class="on"><a href='#tab-infraescructura' class='result'>
 						<span class='triangle'></span>
 						Infraestructura escolar
 					</a></li>
-				<? //} ?>
 				<div class='clear'></div>
 			</ul>
 
 		<div class='tab-container'>
-			<!--  jscrollpane-->
-
-			<!--<?php 
-			if($this->escuela->infraestructura){
-					$aulas = $fields = '';
-					foreach($this->escuela->infraestructura as $key => $item){
-						if(isset($item[1]) && $key > 1 && $key!=8 && $key<11){
-							$val = strtolower($item[1]);
-							$k = trim(preg_replace('/  1\z/i','',$item[0]));
-							//var_dump($k);
-							if($k == 'Total de aulas') $aulas = $val;
-							else $fields .= "<tr><td>{$k}</td><td><span class='{$val} cel'>{$val}</span></td></tr>";
-						}
-					}
-			?>
-				<div class='head t-tabs'><p class='title-tabs'>Infraestructura escolar</p></div>
-				<div class='tab on infraestructura-tab' id='tab-infraescructura'>
-					<h2>Información disponible corresponde al ciclo 2007</h2>
-					<?php if($aulas){ ?><p class="border_b">Total de aulas en uso <?=$aulas?></p><?}?>
-					<p class="question">¿Con qué instalaciones cuenta esta escuela?</p>
-					<table class='info_table'>
-						<tbody>
-							<tr>
-								<th>Instalaciones</th>
-								<th></th>
-							</tr>
-							<?=$fields?>
-						</tbody>
-					</table>
-				</div>
-			<?php } ?>-->
 		<?php if($this->escuela->censo && ($infra = $this->escuela->censo['infraestructura'])){  ?>
 			<div class='head t-tabs'><p class='title-tabs'>Infraestructura escolar</p></div>
 			<div class='tab on infraestructura-tab' id='tab-infraescructura'>
