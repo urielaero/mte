@@ -163,6 +163,7 @@ class escuelas extends main{
 			                'body' => $comment
 				)) && $this->isTokenSimulatesValid()){
 					//$calificacion->debug = true;
+
 					$calificacion->create('nombre,email,cct,comentario,ocupacion,calificacion,user_agent,acepta_nombre',array(
 						$this->post('nombre'),
 						$this->post('email'),
@@ -307,32 +308,6 @@ class escuelas extends main{
 		}
 	}
 
-	public function getSimulatedToken($p,$pk = 0.345){
-		$t = sha1($p*$pk+$pk);
-		return $t;
-	}
-
-	private function isTokenSimulatesValid($pk = 0.345){
-		$p = $this->post('last_name');
-		$tk = $this->post('tk');
-		if(isset($p)){
-			$t = sha1($p*$pk+$pk);
-			if($tk == $t){
-				return true;
-			}
-		}
-		return false;
-	}
-
-	private function isValidCalificaForm(){
-		$check = array('e_mail'=>0,'mail'=>0,'correo'=>0,'email'=>1,'ocupacion'=>1,'cct'=>1,'last_name'=>1,'comentario'=>1,'recaptcha_challenge_field'=>1);
-		foreach($check as $field => $f){
-			if(($f && $this->post($field)=='') || !$f && $this->post($field) != ''){
-				return false;
-			}
-		}
-		return true;
-	}
 
 	private function set_turno_map(){
 		if(isset($this->escuela->rank)){

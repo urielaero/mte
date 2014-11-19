@@ -44,12 +44,16 @@
 		<br />
 		<span></span>
 	</p>
-
+	<span class="hidden pk"><?=$this->simulateP?></span>
 	<form method='post' action='/escuelas/calificar/' accept-charstet='utf-8' class='calificacion-form B container'>
 		<fieldset>
 			<p>Deja aquí un comentario sobre esta escuela</p>
 			<input type='text' placeholder='Nombre' name='nombre' class='required' />
 			<input type='text' class='required email' placeholder='Correo electrónico (obligatorio)' name='email' />
+			<input type="text" name="last_name" class='required hidden spk'/>
+			<input type="text" name="e_mail" class='hidden'/>
+			<input type="text" name="mail" class='hidden'/>
+			<input type="text" name="correo" class='hidden'/>
 			<select class='custom-select required' name='ocupacion' >
 				<option value=''>¿Quién eres?</option>
 				<option value='alumno'>Alumno</option>
@@ -80,6 +84,7 @@
 					Si no quieres que tu comentario se publique en el perfil de la escuela, escríbenos  <br>
 					a: contacto@mejoratuescuela.org
 				</p>
+				<input name="tk" type="hidden" value="<?=$this->getSimulatedToken($this->simulateP)?>"/>
 			</div>
 		</fieldset>		
 	</form>

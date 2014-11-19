@@ -34,11 +34,12 @@ class califica_tu_escuela extends main{
 		$this->header_folder = 'compara';
 		if($this->escuela_info()){
 			$this->breadcrumb = array('/califica-tu-escuela/'=>'Califica tu escuela','#'=>$this->escuela->nombre);
-            $aux = new pregunta();
-            $aux->search_clause = "1 = 1";
-            $this->preguntas = $aux->read('id,titulo,pregunta,descripcion_valor_minimo,descripcion_valor_maximo');
+			$aux = new pregunta();
+			$aux->search_clause = "1 = 1";
+			$this->preguntas = $aux->read('id,titulo,pregunta,descripcion_valor_minimo,descripcion_valor_maximo');
             //$this->escuela = new escuela($this->get('id'));
             //$this->escuela->read('');
+			$this->simulateP = rand()%15;
 			$this->include_theme('index','califica');
 		
 		}else{
