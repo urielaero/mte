@@ -324,7 +324,7 @@ EOD;
 				
 				<div class="box-hidden">
 					<input type='text' placeholder='Nombre' name='nombre' />
-					<input type='text' class='required email' placeholder='Correo electronico (obligatorio)' name='email' />
+					<input type='text' class='required email' placeholder='Correo electrónico (obligatorio)' name='email' />
 					<select class='custom-select required' name='ocupacion' >
 						<option value=''>¿Quién eres?</option>
 						<option value='alumno'>Alumno</option>

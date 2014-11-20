@@ -73,7 +73,8 @@ class escuelas extends main{
 					if(!preg_match('/^..BB/',$k))
 						unset($this->escuelas_digest->escuelas[$k]);
 				}
-
+				$this->title_header = 'Conoce tu biblioteca';
+				$this->subtitle_header = 'El primer paso para poder mejorar biblioteca es saber cómo está. Te invitamos a que conozcas y compartas esta información.';
 				$this->include_theme('index','biblioteca');
 			}
 			else{

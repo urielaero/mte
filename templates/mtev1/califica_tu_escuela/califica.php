@@ -7,7 +7,7 @@
 		Estas calificaciones se promedian para generar la calificación general de tu escuela.
 		</h2>
 	<?php }else{ ?>
-		<h1>Estas calificando la biblioteca: <?=$this->capitalize($this->escuela->nombre)?> | <?=$this->capitalize($this->escuela->entidad->nombre)?></h1>	
+		<h1>Estás calificando: <?=$this->capitalize($this->escuela->nombre)?> | <?=$this->capitalize($this->escuela->entidad->nombre)?></h1>	
 		<h2>Califica tu biblioteca seleccionando para cada campo una calificación del 1-10.
 		<br />
 		Estas calificaciones se promedian para generar la calificación general de la biblioteca.

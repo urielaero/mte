@@ -37,6 +37,7 @@ class califica_tu_escuela extends main{
 			if(preg_match('/^..BB/', $this->escuela->cct)){
 				$tipo_encuesta = 'bibliotecas';
 				$this->title_header = 'Califica tu biblioteca';
+				$this->subtitle_header = 'Una vez que conoces y has comparado tu biblioteca, te invitamos a<br />que califiques algunos aspectos de la misma. Las calificaciones<br />ayudan a detectar áreas de mejora y a reconocer los<br />logros alcanzados.';
 			}
 
 			$this->breadcrumb = array('/califica-tu-escuela/'=>'Califica tu escuela','#'=>$this->escuela->nombre);

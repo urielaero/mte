@@ -7,7 +7,6 @@
 	<hr />
 	<h2 class='sb-title'>
 			El primer paso para poder mejorar tu centro escolar es saber cómo está. <br />
-
 			Te invitamos a que conozcas y compartas esta información.
 	</h2>
 	<?php $this->include_template('general_search','global'); ?>

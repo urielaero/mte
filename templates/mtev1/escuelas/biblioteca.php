@@ -27,7 +27,7 @@
 							</span>
 						</li>
 						<li><span>Teléfono: <?=$this->escuela->telefono?></span></li>
-						<li><span>Correo electronico: <?=$this->str_limit($this->escuela->correoelectronico,24);?></span></li>
+						<li><span>Correo electrónico: <?=$this->str_limit($this->escuela->correoelectronico,24);?></span></li>
 						<?php if($this->escuela->paginaweb){ ?>
 							<li><a href="<?=$this->escuela->paginaweb?>"><?=$this->str_limit($this->escuela->paginaweb,21) ?></a></li>
 						<?php } ?>

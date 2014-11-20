@@ -25,7 +25,7 @@ class contacto extends main{
 			$this->post('recaptcha_response_field'))){
 				$this->contact_status = $this->send_email(
 				$this->config->contact_email,
-				'Correo electronico desde Mejora tu escuela de: '.$this->post('email'),
+				'Correo electrónico desde Mejora tu escuela de: '.$this->post('email'),
 				$this->post('mensaje'),
 				'system@mejoratuescuela.org',
 				$this->post('nombre')
