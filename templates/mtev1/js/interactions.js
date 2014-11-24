@@ -681,7 +681,9 @@ $(document).ready(function(){
 
 var page_of_blog = 1;
 function ajax_blog(e){
-        var contentSize = $('.mejorar').last().offset.top-750;//causaba error con offset()
+	if($('.mejorar').size()==0)
+		return;
+        var contentSize = $('.mejorar').last().offset().top-750;//causaba error con offset()
         if($(this).scrollTop() > contentSize){
 		$(window).off('scroll')
 		var url = $('.hidden.blog_address').html()+'/mejora/';
