@@ -11,11 +11,11 @@ class home extends main{
 	* Obtiene los datos necesarios para el correcto funcionamiento de las vistas.
 	*/
 	public function index(){
-		$this->load_niveles();
+		/*$this->load_niveles();
 		$this->load_entidades();
 		$this->load_municipios();
 		$this->load_localidades();
-		$this->load_escuelas();
+		$this->load_escuelas();*/
 		$this->get_metadata();
 		if(!$this->cookie('user_location'))
 			$this->draw_map = true;
@@ -165,5 +165,10 @@ class home extends main{
 		$this->user_location->nombre = $this->capitalize($name_entidad);
 		$this->include_template("top5","home/single"); 
 	}
+
+	public function e404(){
+		$this->include_theme('index','index');
+	}
+
 }
 ?>
