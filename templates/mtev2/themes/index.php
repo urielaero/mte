@@ -1,10 +1,14 @@
+fffffffook
+
 <!DOCTYPE html>
 <html lang="es" ng-app='mte'>
  <head>
 	<meta charset="utf-8"/>
-	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-	<link rel="shortcut icon" href="<?=$this->config->http_address?>/templates/<?=$this->config->theme?>/img/home/favicon.ico" />
 	<script src="/templates/mtev2/bower_components/webcomponentsjs/webcomponents.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	
+	<link rel="shortcut icon" href="<?=$this->config->http_address?>/templates/<?=$this->config->theme?>/img/home/favicon.ico" />
+	
 	<link rel="import" href="/templates/mtev2/bower_components/core-elements/core-elements.html">
 	<link rel="import" href="/templates/mtev2/home/sub-header.html">
 	<link rel="import" href="/templates/mtev2/global/header-element.html">

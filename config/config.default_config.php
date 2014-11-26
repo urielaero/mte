@@ -15,7 +15,6 @@ class default_config{
                 $this->lang = "en";
                 $this->dev_mode = true;
                 $this->search_location = false;
-                $this->memcache_host = '***REMOVED***';                
                 $this->contact_email = 'contacto@mejoratuescuela.org';
                 $this->image_email = 'sonny@spaceshiplabs.com';
                 $this->image_email = 'ariadna.camargo@imco.org.mx';
