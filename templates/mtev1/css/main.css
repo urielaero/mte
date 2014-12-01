@@ -865,6 +865,7 @@ line-height: 45px;}
 #content .resultados table td.semaforo.sem6 span.icon-popup .infor.I{width:159px;}
 #content .resultados table td.semaforo.sem6 span.icon-popup .title_semaforo{margin-left:17px;padding:20px 4px 0;}
 /*#content  #compara-main-button span.button:before{content: "";background: url(http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/compara_regla.png) no-repeat center;display: block;height: 43px;margin: 0 auto -10px;width: 115px;}*/
+#content .resultados table td.semaforo.sem8 span.sprit2{background:url(http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/pins_8o.png) center center no-repeat;background-size:43px;width:72px;height:56px;top:-91px;}
 
 /*Popup compartir*/
 #content .share-bt{float:right;position:relative;margin:8px 0 -35px;z-index:10;}

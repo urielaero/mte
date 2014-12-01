@@ -15,7 +15,6 @@ class default_config{
                 $this->lang = "en";
                 $this->dev_mode = true;
                 $this->search_location = false;
-                $this->memcache_host = '***REMOVED***';                
                 $this->contact_email = 'contacto@mejoratuescuela.org';
                 $this->image_email = 'sonny@spaceshiplabs.com';
                 $this->image_email = 'ariadna.camargo@imco.org.mx';
@@ -27,7 +26,7 @@ class default_config{
                         {"width":"156","height":"112","slug":"signs" ,"resize_type":"best fit"}
                 ]');
                //MTE
-                $this->semaforos = array('Reprobado','De panzazo','Bien','Excelente','No toma la <br /> prueba <br />ENLACE','Poco confiable','Esta escuela no toma la prueba ENLACE para todos los años','La prueba ENLACE no esta disponible para este nivel escolar');
+                $this->semaforos = array('Reprobado','De panzazo','Bien','Excelente','No toma la <br /> prueba <br />ENLACE','Poco confiable','Esta escuela no toma la prueba ENLACE para todos los años','La prueba ENLACE no esta disponible para este nivel escolar','No aplica');
                 
         }
 
