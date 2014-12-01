@@ -167,7 +167,8 @@ class home extends main{
 	}
 
 	public function e404(){
-		$this->include_theme('index','index');
+		$this->header_folder = '';
+		$this->include_theme('index','e404');
 	}
 
 }

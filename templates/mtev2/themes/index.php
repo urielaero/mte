@@ -4,16 +4,14 @@
 	<meta charset="utf-8"/>
 	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 	<link rel="shortcut icon" href="<?=$this->config->http_address?>/templates/<?=$this->config->theme?>/img/home/favicon.ico" />
-	<script src="/templates/mtev2/bower_components/webcomponentsjs/webcomponents.js"></script>
-	<link rel="import" href="/templates/mtev2/bower_components/core-elements/core-elements.html">
-	<link rel="import" href="/templates/mtev2/home/sub-header.html">
-	<link rel="import" href="/templates/mtev2/global/header-element.html">
-	<link rel="stylesheet" href="/templates/mtev2/css/main.css" shim-shadowdom >
 	<?php
 		$css_scripts = array(
 			"reset.css",
-		);
+			"main.css"		);
 		$js_scripts = array(
+			"jquery.js",
+			'school-charts.js',
+			'imagesloaded.pkgd.min.js'
 		);
 		if($this->location == 'escuelas'){
 			//$js_scripts[] = 'school-charts.js'; // si no hay cambios en el js no renderizara 
@@ -49,34 +47,36 @@
 	
 <?php
 $canonical = $this->config->http_address.(isset($_GET['controler'])?$_GET['controler']:'').(isset($_GET['action'])?"/".$_GET['action']:'').(isset($_GET['id'])?"/".$_GET['id']:'');					
+$e404 = $this->get('action') == 'e404' ? 'e404' : '';
+
 ?>
 	<meta property='og:title' content='Mejora tu escuela'>
 	<meta property='og:url' content='<?=$canonical?>'>
 	<link rel="canonical" href="<?=$canonical?>" />
  </head>
- <body>
- 	<div id="wrap"><div id="main" class="clearfix"><div id="topBackRepeat">
- 		
-		<?php //$this->include_template('comparador_select','global'); ?>
+ <body class="<?=$e404?>">
+ 	<div id="wrap"><div id="main" class="clearfix"><div id="topBackRepeat"> 		
 		<div id='header'>
-			<header-element></header-element>
-			<sub-header></sub-header>
 			<?php 
-			//$this->include_template('header','global'); 
-			//$this->include_template('header',$this->header_folder); 
+			$this->include_template('header','global'); 
+			if($this->get('action') != 'e404'){
+				$this->include_template('header',$this->header_folder); 
+			}
 			?>
 		</div>
 		<div id='content'>
-			<my-element></my-element>
-			<?php //$this->include_template('banner_space','global'); ?>
-			<?php //$this->include_template($this->template,$this->location);?>
+			<?php $this->include_template($this->template,$this->location);?>
 		</div>
 	</div></div></div>	
-	<div id='footer'><?php $this->include_template('footer','global'); ?></div>	 
-
+	<?php 
+		if($this->get('action') == 'e404'){
+			$this->include_template('footer-e404','home'); 
+		}else{
+			$this->include_template('footer','global'); 
+		}
+	?>
 	<?php 
 	$jsmin->tag('js'); 
-	//if(isset($this->config->tynt) && $this->config->tynt) $this->include_template('tynt','global');
 	?>
  </body>
  </html>
