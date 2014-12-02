@@ -1,17 +1,30 @@
 <!DOCTYPE html>
-<html lang="es" ng-app='mte'>
+<html lang="es">
  <head>
 	<meta charset="utf-8"/>
-	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 	<link rel="shortcut icon" href="<?=$this->config->http_address?>/templates/<?=$this->config->theme?>/img/home/favicon.ico" />
 	<?php
 		$css_scripts = array(
 			"reset.css",
-			"main.css"		);
+			"main.css",
+			"angular-material.min.css",
+			"perfect-scrollbar.min.css"
+		);
 		$js_scripts = array(
-			"jquery.js",
+			"jquery-1.11.1.min.js",
 			'school-charts.js',
-			'imagesloaded.pkgd.min.js'
+			'imagesloaded.pkgd.min.js',
+			'angular.min.js',
+			'angular-animate.min.js',
+			'angular-aria.min.js',
+			'hammer.min.js',
+			'angular-material.min.js',
+			'perfect-scrollbar.min.js',
+			'perfect-scrollbar.with-mousewheel.min.js',
+			'angular-perfect-scrollbar.js',
+			'controller.js'
+
 		);
 		if($this->location == 'escuelas'){
 			//$js_scripts[] = 'school-charts.js'; // si no hay cambios en el js no renderizara 
@@ -54,7 +67,7 @@ $e404 = $this->get('action') == 'e404' ? 'e404' : '';
 	<meta property='og:url' content='<?=$canonical?>'>
 	<link rel="canonical" href="<?=$canonical?>" />
  </head>
- <body class="<?=$e404?>">
+ <body class="<?=$e404?>" ng-app="mejoratuescuela">
  	<div id="wrap"><div id="main" class="clearfix"><div id="topBackRepeat"> 		
 		<div id='header'>
 			<?php 
