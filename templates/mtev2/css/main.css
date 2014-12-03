@@ -71,6 +71,8 @@ strong{font-weight: 700}
 #header .menu a.logo:hover{background-color:transparent;}
 #header .menu a.logo img{max-width: 100%}
 #header .menu a[href$='/compara/']{margin-left:-4px;}
+#header .menu .social-icons{padding-top: 30px}
+#header .menu .social-icons i{color: #17B9F3;font-size: 30px;}
 
 #header #sub-header{background: #08863D;padding-top: 10px}
 #header #sub-header .column-left .kid-image{max-width: 100%}

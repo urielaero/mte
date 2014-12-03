@@ -19,6 +19,11 @@
 				<i class="icon-mejora"></i>
 				<strong>4</strong> MEJORA
 			</a>
+			<div flex hide-sm class="social-icons">
+				<a href="https://www.facebook.com/MejoraTuEscuela"><i class="icon-fb"></i></a>
+				<a href="https://twitter.com/mejoratuescuela"><i class="icon-twitter-01"></i></a>
+
+			</div>
 			<div class='clear'></div>
 		</div>
 	</div>
