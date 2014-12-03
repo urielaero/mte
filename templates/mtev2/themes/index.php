@@ -9,7 +9,9 @@
 			"reset.css",
 			"main.css",
 			"angular-material.min.css",
-			"perfect-scrollbar.min.css"
+			"perfect-scrollbar.min.css",
+			"fontello.css",
+			"fontello-ie7.css"
 		);
 		$js_scripts = array(
 			"jquery-1.11.1.min.js",
@@ -67,8 +69,8 @@ $e404 = $this->get('action') == 'e404' ? 'e404' : '';
 	<meta property='og:url' content='<?=$canonical?>'>
 	<link rel="canonical" href="<?=$canonical?>" />
  </head>
- <body class="<?=$e404?>" ng-app="mejoratuescuela">
- 	<div id="wrap"><div id="main" class="clearfix"><div id="topBackRepeat"> 		
+ <body ng-app="mejoratuescuela">
+ 	<div id="wrap"><div id="main" class="clearfix <?=$e404?>"><div id="topBackRepeat"> 		
 		<div id='header'>
 			<?php 
 			$this->include_template('header','global'); 

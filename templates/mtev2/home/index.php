@@ -1,5 +1,5 @@
 <div class='container home'>
-	<div layout="row" class="space-between">
+	<div layout="row" layout-sm="column" class="space-between">
 		<div flex="65" id="home-content">
 			<div class="video-container">
 				<iframe width="595" height="335" src="//www.youtube.com/embed/G4FOZyoB74Y" frameborder="0" allowfullscreen="" id="home-video"></iframe>

@@ -1,5 +1,18 @@
 var app = angular.module("mejoratuescuela", ['ngMaterial','perfect_scrollbar']);
 
+app.controller("headerCTL", ['$scope','$timeout','$mdSidenav',function ($scope, $timeout, $mdSidenav) {
+	$scope.toggleLeft = function() {
+		$mdSidenav('left').toggle();
+	};
+}]);
+
+app.controller("sidebarCTL", ['$scope','$timeout','$mdSidenav',function ($scope, $timeout, $mdSidenav) {
+	$scope.close = function() {
+		$mdSidenav('left').close();
+	};
+}]);
+
+
 app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
 	
 	$scope.replaceURLWithHTMLLinks = function(text) {
@@ -28,3 +41,4 @@ app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
 	}
 	$scope.twitterIni();
 }]);
+
