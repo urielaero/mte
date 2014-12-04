@@ -54,6 +54,8 @@
 		//$jsmin->tag('js'); js abajo.
 		if(isset($this->meta_description)) echo "<meta name='description' content='{$this->meta_description}' />";
 	?>
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title><?=$this->page_title;?></title>
 
 	<meta property='og:image:type' content='image/png'>
