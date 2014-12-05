@@ -279,13 +279,22 @@ class escuelas extends main{
 	* Contiene los datos a mostrar en el meta tag description a las vistas que pertenezcan a este controlador
 	*/
 	public function get_metadata(){
-		if(isset($this->escuela->rank_nacional)){
-			if($this->escuela->rank_entidad<=5){
+		if(!isset($this->escuela->rank_nacional) && isset($this->escuela->rank)){
+			foreach($this->escuela->rank as $r){
+				$rank = $r;
+				break;
+			}
+		}else{
+			$rank = $this->escuela;
+		}
+
+		if(isset($rank->rank_nacional)){
+			if($rank->rank_entidad<=5){
 				$description="La escuela ".$this->capitalize($this->escuela->nombre)." es una de las cinco mejores ".strtolower($this->escuela->nivel->nombre)."s en el estado de ".$this->capitalize($this->escuela->entidad->nombre);
 				$description=$description.". Consulta las calificaciones de ENLACE en español y matemáticas, desempeño por alumno, datos de infraestructura y opiniones de otros padres de familia.";
 			}else{
 				$description = "La escuela ".strtolower($this->escuela->nivel->nombre)." ".strtolower($this->escuela->control->nombre)." ".$this->capitalize($this->escuela->nombre)." ocupa el lugar ";
-				$description = $description.(isset($this->escuela->rank_entidad) ? number_format($this->escuela->rank_entidad ,0): '--')." de ".number_format($this->entidad_cct_count,0);
+				$description = $description.(isset($rank->rank_entidad) ? number_format($rank->rank_entidad ,0): '--')." de ".number_format($this->entidad_cct_count,0);
 				if($this->escuela->entidad->id!=9){
 					$description=$description." en el estado de ";
 				}
