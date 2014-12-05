@@ -7,21 +7,21 @@
 		<a href="#">Colegio Ecab</a>
 	</div>
 	<div class="menu">
-		<div layout="row" layout-sm="column">
-			<div class="profile-title" flex="55">
+		<div layout="row" layout-sm="column" class="menu-row">
+			<div class="profile-title" flex="55" flex-sm="100">
 				<div class="title-container" layout="row">
-					<div flex="25" class="icon-container">
+					<div flex="25" class="icon-container" hide-sm>
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
 							<i class="icon-escuela-01"></i>
 						</div>
 					</div>
-					<div flex="75">
+					<div flex="75" flex-sm="100">
 						<h1>Octavio Paz Locazon</h1>
 						<p>Posición estatal 3 de 95</p>
 					</div>
 				</div>			
 			</div>
-			<div class="tabs" flex="30">
+			<div class="tabs" flex="30" flex-sm="100">
 			    <md-tabs md-selected="selectedIndex">
 			    	<md-tab id="matutino-tab" aria-controls="tab1-content">
 			    		<i class="icon-matutino"></i>
@@ -33,7 +33,7 @@
 			      	</md-tab>
 			    </md-tabs>				
 			</div>
-			<div flex="15" class="compare-link">
+			<div flex="15" flex-sm="100" class="compare-link">
 				<a href="#" class="full-size-link"></a>
 				<div class="icon-wrapper vertical-align-center horizontal-align-center">
 					<div flex="column">
@@ -48,11 +48,11 @@
 
     <ng-switch on="selectedIndex" class="tabpanel-container">
         <div role="tabpanel" id="profile-content" aria-labelledby="tab1" ng-switch-when="0" md-swipe-left="next()" md-swipe-right="previous()" >
-			<div class="space-between" layout="row">
-				<div class="main-info" flex="73">
-					<div layout="row">
+			<div class="space-between" layout="row" layout-sm="column">
+				<div class="main-info" flex="73" flex-sm="100">
+					<div layout="row" layout-sm="column">
 						<div id="map" flex="50"></div>
-						<div class="info" flex="50">
+						<div class="info" flex="50" flex-sm="100">
 							<div class="califica" layout="row">
 								<div flex="35" class="icon-container">
  									<div class="icon-wrapper vertical-align-center horizontal-align-center">
@@ -76,36 +76,36 @@
 							</div>
 						</div>
 					</div>
-					<div class="address" layout="row">
-						<div flex="50">
+					<div class="address" layout="row" layout-sm="column">
+						<div flex>
 							<ul>
 								<li>Calle: Josefa Ortiz de Dominguez Num. 64</li>
 								<li>Municipio: Villa de Alvarez</li>
 							</ul>
 						</div>
-						<div flex="50">
+						<div flex>
 							<ul>
 								<li>Localidad: Ciudad de Villa de Alvarez</li>
 								<li>Entidad: Colima</li>
 							</ul>
 						</div>
 					</div>
-					<div class="counters" layout="row">
-						<div flex="30"><div layout="row">
-							<div flex="50">Número de alumnos:</div>
-							<div flex="50" class="number">73</div>
+					<div class="counters" layout="row" layout-sm="column">
+						<div flex><div layout="row">
+							<div flex>Número de alumnos:</div>
+							<div flex class="number">73</div>
 						</div></div>
-						<div flex="30"><div layout="row">
-							<div flex="50">Número de alumnos:</div>
-							<div flex="50" class="number">73</div>
+						<div flex><div layout="row">
+							<div flex>Número de alumnos:</div>
+							<div flex class="number">73</div>
 						</div></div>
-						<div flex="30"><div layout="row">
-							<div flex="50">Número de alumnos:</div>
-							<div flex="50" class="number">73</div>
+						<div flex><div layout="row">
+							<div flex>Número de alumnos:</div>
+							<div flex class="number">73</div>
 						</div></div>
 					</div>
 				</div>
-				<div class="semaphore" flex="25">
+				<div class="semaphore" flex="25" flex-sm="100">
 					<h4>Semáforo educativo</h4>
 					<ul>
 						<li class="rank1 on">
@@ -141,6 +141,16 @@
 							</div>
 						</li>
 					</ul>
+					<div class="options space-between" layout="row" layout-md="column">
+						<div flex="49" class="option">
+								<p><i class="icon-print-01"></i></p>
+								<p>Imprimir</p>
+						</div>
+						<div flex="49" class="option">
+								<p><i class="icon-share-01"></i></p>
+								<p>Compartir</p>
+						</div>
+					</div>
 				</div>
 			</div>	
         </div>

@@ -1,4 +1,4 @@
-		<div flex="30" id="sidebar">
+		<div flex="30" flex-sm="100" id="sidebar">
 			<div class="email-box">
 				<h4><strong><i class="icon-mail-01"></i> Mantente informado</strong></h4>
 				<form action="#">

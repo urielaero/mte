@@ -2,7 +2,7 @@
 	<div id="button-menu-mobile" ng-click="toggleLeft()"></div>
 	<div class='container'>
 		<div layout="row" class="row-links">
-			<a flex="25" href='/' class='logo'><img src='/templates/mtev2/img/logo_mejora.png' /></a>
+			<a flex="25" flex-sm="100" href='/' class='logo'><img src='/templates/mtev2/img/logo_mejora.png' /></a>
 			<a flex="15" class='principal' href='/compara/' hide-sm>
 				<i class="icon-conoce-01"></i>
 				<strong>1</strong> CONOCE

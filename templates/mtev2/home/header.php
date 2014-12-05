@@ -11,7 +11,7 @@
 					?>		
 				</div>				
 			</div>
-			<div class="column-right" flex="60">
+			<div class="column-right" flex="60" flex-sm="100">
 				<div class='titles'>
 					<h1>
 						<strong>MejoraTuEscuela.org</strong> es una plataforma de participación ciudadana
