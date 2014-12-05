@@ -42,3 +42,12 @@ app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
 	$scope.twitterIni();
 }]);
 
+app.controller("escuelaCTL", ['$scope',function ($scope) {
+	$scope.selectedIndex = 0;
+    $scope.next = function() {
+      $scope.selectedIndex = Math.min($scope.selectedIndex + 1, 2) ;
+    };
+    $scope.previous = function() {
+      $scope.selectedIndex = Math.max($scope.selectedIndex - 1, 0);
+    };
+}]);

@@ -71,7 +71,7 @@ $e404 = $this->get('action') == 'e404' ? 'e404' : '';
 	<meta property='og:url' content='<?=$canonical?>'>
 	<link rel="canonical" href="<?=$canonical?>" />
  </head>
- <body ng-app="mejoratuescuela">
+ <body ng-app="mejoratuescuela" ng-cloak>
  	<div id="wrap"><div id="main" class="clearfix <?=$e404?>"><div id="topBackRepeat"> 		
 		<div id='header'>
 			<?php 

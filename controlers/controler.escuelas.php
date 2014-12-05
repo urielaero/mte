@@ -9,7 +9,11 @@ class escuelas extends main{
 	* Funcion Publica index.
 	*/
 	public function index(){
-		if($this->escuela_info()){
+		if($this->config->theme == 'mtev2'){
+			$this->header_folder = 'escuelas';
+			$this->include_theme('index','index');	
+		}	
+		else if($this->escuela_info()){
 			$params = new stdClass();
 			$params->limit = '0,8';
 			$params->localidad = $this->escuela->localidad->id;

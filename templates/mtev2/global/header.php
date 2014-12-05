@@ -38,24 +38,32 @@
 		<md-content class="md-padding">
 			<ul>
 				<li>
-					<a href='/compara/'>
-						<i class="icon-conoce-01"></i> 1 CONOCE
-					</a>
+					<md-button class="md-primary">
+						<a class="md-raised md-primary" href='/compara/'>
+							<i class="icon-conoce-01"></i> 1 CONOCE
+						</a>
+					</md-button>
 				</li>
 				<li>
-					<a href='/compara/escuelas/'>
-						<i class="icon-compara"></i> 2 COMPARA
-					</a>	
+					<md-button class="md-primary">
+						<a class="md-raised md-primary" href='/compara/escuelas/'>
+							<i class="icon-compara"></i> 2 COMPARA
+						</a>
+					</md-button>	
 				</li>
 				<li>
-					<a href='/califica-tu-escuela/califica/'>
-						<i class="icon-califica2-01"></i> 3 CALIFICA
-					</a>	
+					<md-button class="md-primary">
+						<a class="md-raised md-primary" href='/califica-tu-escuela/califica/'>
+							<i class="icon-califica2-01"></i> 3 CALIFICA
+						</a>
+					</md-button>	
 				</li>
 				<li>
-					<a href='/mejora'>
-						<i class="icon-mejora"></i> 4 MEJORA
-					</a>	
+					<md-button class="md-primary">
+						<a class="md-raised md-primary" href='/mejora'>
+							<i class="icon-mejora"></i> 4 MEJORA
+						</a>
+					</md-button>	
 				</li>
 			</ul>
 		</md-content>
