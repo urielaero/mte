@@ -1,5 +1,7 @@
 <div class='menu' ng-controller="headerCTL">
-	<div id="button-menu-mobile" ng-click="toggleLeft()"></div>
+	<div id="button-menu-mobile" ng-click="toggleLeft()">
+		<hr><hr><hr>
+	</div>
 	<div class='container'>
 		<div layout="row" class="row-links">
 			<a flex="25" flex-sm="100" href='/' class='logo'><img src='/templates/mtev2/img/logo_mejora.png' /></a>
