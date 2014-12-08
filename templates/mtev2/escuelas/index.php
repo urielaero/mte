@@ -236,8 +236,8 @@
 				        <div role="tabpanel" class="infraestructura tables-box" id="profile-content" aria-labelledby="tab1" ng-switch-when="1">
 							<h2>Infraestructura escolar</h2>
 							<div class="table-top" layout="row">
-								<div flex="10" class="i-cont"><i class="icon-instalaciones-01"></i></div>
-								<div flex="90"><p>Instalaciones</p></div>
+								<div flex="10" flex-sm="15" class="i-cont"><i class="icon-instalaciones-01"></i></div>
+								<div flex="90" flex-sm="85"><p>Instalaciones</p></div>
 							</div>
 							<table>
 								<tr><td>Aulas para clase</td><td>12</td></tr>
@@ -248,8 +248,8 @@
 								<tr><td>Tazas sanitarios</td><td>17</td></tr>
 							</table>
 							<div class="table-top" layout="row">
-								<div flex="10" class="i-cont"><i class="icon-servicios-01"></i></div>
-								<div flex="90"><p>Servicios</p></div>
+								<div flex="10" flex-sm="15" class="i-cont"><i class="icon-servicios-01"></i></div>
+								<div flex="90" flex-sm="85"><p>Servicios</p></div>
 							</div>
 							<table>
 								<tr><td>Energia eléctrica</td><td><i class="icon-check-01"></i></td></tr>
@@ -260,8 +260,8 @@
 								<tr><td>Télefono</td><td><i class="icon-check-01"></i></td></tr>
 							</table>
 							<div class="table-top" layout="row">
-								<div flex="10" class="i-cont"><i class="icon-seguridad-01"></i></div>
-								<div flex="90"><p>Seguridad</p></div>
+								<div flex="10" flex-sm="15" class="i-cont"><i class="icon-seguridad-01"></i></div>
+								<div flex="90" flex-sm="85"><p>Seguridad</p></div>
 							</div>
 							<table>
 								<tr><td>Señales de protección civil</td><td><i class="icon-tache-01"></i></td></tr>
@@ -273,15 +273,15 @@
 				        <div role="tabpanel" class="comentarios tables-box" id="profile-content" aria-labelledby="tab1" ng-switch-when="2">
 							<h2>Comentarios</h2>
 							<div class="table-top" layout="row">
-								<div flex="10" class="i-cont"><i class="icon-estrella-01"></i></div>
-								<div flex="90"><p>Calificación global de la escuela según usuarios</p></div>
+								<div flex="10" flex-sm="15" class="i-cont"><i class="icon-estrella-01"></i></div>
+								<div flex="90" flex-sm="85"><p>Calificación global de la escuela según usuarios</p></div>
 							</div>
 							<table>
 								<tr><td>Calificación global</td><td>10.0</td></tr>
 							</table>
 							<div class="table-top" layout="row">
-								<div flex="10" class="i-cont"><i class="icon-pregunta-01"></i></div>
-								<div flex="90"><p>Calificación promedio por pregunta</p></div>
+								<div flex="10" flex-sm="15" class="i-cont"><i class="icon-pregunta-01"></i></div>
+								<div flex="90" flex-sm="85"><p>Calificación promedio por pregunta</p></div>
 							</div>
 							<table>
 								<tr><td>Preparación de maestros</td><td>10.0</td></tr>
@@ -289,8 +289,8 @@
 								<tr><td>Relación con los padres de familia</td><td>10.0</td></tr>
 							</table>
 							<div class="table-top" layout="row">
-								<div flex="10" class="i-cont"><i class="icon-comentario2-01"></i></div>
-								<div flex="90"><p>Calificación promedio por pregunta</p></div>
+								<div flex="10" flex-sm="15" class="i-cont"><i class="icon-comentario2-01"></i></div>
+								<div flex="90" flex-sm="85"><p>Calificación promedio por pregunta</p></div>
 							</div>
 							<ul class="comments-list">
 								<li>
@@ -330,6 +330,46 @@
 						<p>¿Esta escuela fue censada?</p>
 						<div class="yes on"><span class="circle"></span>Sí</div>
 						<div class="no"><span class="circle"></span>No</div>
+					</div>
+					<div class="programs">
+						<h5>Programas Federales</h5>
+						<ul>
+							<li layout="row">
+								<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuela Segura</div>
+							</li>
+							<li layout="row" class="on">
+								<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuelas de Calidad</div>
+							</li>
+							<li layout="row">
+								<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuelas de Tiempo Completo</div>
+							</li>
+							<li layout="row" class="on">
+								<div flex="25"><i class="icon-"></i></div><div flex="75">Sistema de Alerta Temprana</div>
+							</li>
+							<li layout="row">
+								<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuelas dignas</div>
+							</li>
+						</ul>
+					</div>
+					<div class="programs">
+						<h5>Programas Federales</h5>
+						<ul>
+							<li layout="row">
+								<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuela Segura</div>
+							</li>
+							<li layout="row" class="on">
+								<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuelas de Calidad</div>
+							</li>
+							<li layout="row">
+								<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuelas de Tiempo Completo</div>
+							</li>
+							<li layout="row" class="on">
+								<div flex="25"><i class="icon-"></i></div><div flex="75">Sistema de Alerta Temprana</div>
+							</li>
+							<li layout="row">
+								<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuelas dignas</div>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>	
