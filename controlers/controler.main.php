@@ -590,46 +590,46 @@ class main extends controler{
 
 
     public function get_data_compara_float(){
-	if(!$this->request('json')){
-		$this->load_compara_cookie();
-		$cookie = explode('-',$this->cookie('escuelas_vistas'));
-	    	if($this->get('controler') == 'escuelas'){
-			$cookie[] = $this->get('id');
-		}else if($this->get('controler') == 'compara' && $this->get('action')=='escuelas'){
-			$forGet = explode('-',$this->get('id'));
-			//$forGet = array_merge($this->compara_cookie,$forGet);
-			$this->compara_cookie = array_unique($forGet);
-			$this->set_cookie('escuelas',implode("-",$this->compara_cookie));	
-		}
-		//$this->load_compara_cookie();
-		$params = new stdClass();
-		if($this->compara_cookie){
-			$params->ccts = $this->compara_cookie;
-            $params->one_turn = true;
-			$this->get_escuelas($params);
-			//$this->escuelas
-
-		}
-		$this->school_to_compare = isset($this->escuelas)?$this->escuelas:array();
-		$this->school_view = array();
-		$compare_cookie = $this->compara_cookie?$this->compara_cookie:array();
-		if($cookie){
-			//no en ambos;
-			for($i=count($cookie)-1;$i>=0;$i--){
-				if(in_array($cookie[$i],$compare_cookie)){
-					unset($cookie[$i]);
-				}
+		if(!$this->request('json')){
+			$this->load_compara_cookie();
+			$cookie = explode('-',$this->cookie('escuelas_vistas'));
+		    	if($this->get('controler') == 'escuelas'){
+				$cookie[] = $this->get('id');
+			}else if($this->get('controler') == 'compara' && $this->get('action')=='escuelas'){
+				$forGet = explode('-',$this->get('id'));
+				//$forGet = array_merge($this->compara_cookie,$forGet);
+				$this->compara_cookie = array_unique($forGet);
+				$this->set_cookie('escuelas',implode("-",$this->compara_cookie));	
 			}
-			$cookie = array_values($cookie);
-			if(count($cookie)){
-				$params->ccts = $cookie;
-                $params->one_turn = true;
+			//$this->load_compara_cookie();
+			$params = new stdClass();
+			if($this->compara_cookie){
+				$params->ccts = $this->compara_cookie;
+	            $params->one_turn = true;
 				$this->get_escuelas($params);
-				$this->school_view = $this->escuelas?$this->escuelas:array();	
+				//$this->escuelas
+
 			}
-	
+			$this->school_to_compare = isset($this->escuelas)?$this->escuelas:array();
+			$this->school_view = array();
+			$compare_cookie = $this->compara_cookie?$this->compara_cookie:array();
+			if($cookie){
+				//no en ambos;
+				for($i=count($cookie)-1;$i>=0;$i--){
+					if(in_array($cookie[$i],$compare_cookie)){
+						unset($cookie[$i]);
+					}
+				}
+				$cookie = array_values($cookie);
+				if(count($cookie)){
+					$params->ccts = $cookie;
+	                $params->one_turn = true;
+					$this->get_escuelas($params);
+					$this->school_view = $this->escuelas?$this->escuelas:array();	
+				}
+		
+			}
 		}
-	}
     }
 
     public function send_email($to,$subject,$message,$from,$from_name,$attachment_path = false, $attachment_name = false, $logo_path = false, $logo_name = false, $isHtml = true){
