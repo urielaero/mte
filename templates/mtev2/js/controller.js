@@ -52,5 +52,8 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
     };
     $(document).ready(function(){
 	    $('.footable').footable();
+	    $('.footable tr td').click(function(){
+	    	$(this).trigger('footable_toggle_row');
+	    });
     });
 }]);

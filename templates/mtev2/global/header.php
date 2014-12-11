@@ -10,7 +10,7 @@
 				<strong>1</strong> CONOCE
 			</a>
 			<a flex="15" class='principal' href='/compara/escuelas/' hide-sm>
-				<i class="icon-compara"></i>
+				<i class="icon-compara-01"></i>
 				<strong>2</strong> COMPARA
 			</a>
 			<a flex="15" class='principal' href='/califica-tu-escuela/califica/' hide-sm>
@@ -22,8 +22,8 @@
 				<strong>4</strong> MEJORA
 			</a>
 			<div flex hide-sm class="social-icons">
-				<a href="https://www.facebook.com/MejoraTuEscuela"><i class="icon-fb"></i></a>
-				<a href="https://twitter.com/mejoratuescuela"><i class="icon-twitter-01"></i></a>
+				<a href="https://www.facebook.com/MejoraTuEscuela"><i class="icon-facebook"></i></a>
+				<a href="https://twitter.com/mejoratuescuela"><i class="icon-twitter"></i></a>
 
 			</div>
 			<div class='clear'></div>

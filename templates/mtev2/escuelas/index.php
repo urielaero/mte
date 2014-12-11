@@ -37,7 +37,7 @@
 				<a href="#" class="full-size-link"></a>
 				<div class="icon-wrapper vertical-align-center horizontal-align-center">
 					<div flex="column">
-						<div><i class="icon-compara"></i></div>
+						<div><i class="icon-compara-01"></i></div>
 						<div><a href="">Comparar</a></div>
 					</div>
 				</div>
