@@ -197,7 +197,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.profile #profile-content .semaphore ul li .label{background: #D3D3D3;color: #838383;padding: 12px 15px}
 #content .container.profile #profile-content .semaphore ul li + li{margin-top: 2px}
 #content .container.profile #profile-content .semaphore ul li .circle{text-align: center;}
-#content .container.profile #profile-content .semaphore ul li .circle .md-button{cursor: default;height: 42px;width: 42px;}
+#content .container.profile #profile-content .semaphore ul li .circle .md-button{color: #fff;cursor: default;height: 42px;width: 42px;}
 #content .container.profile #profile-content .semaphore ul li.rank1.on .label,
 #content .container.profile #profile-content .semaphore ul li.rank1 .md-button{background: #0BBC3A;color: #fff}
 #content .container.profile #profile-content .semaphore ul li.rank2.on .label,
@@ -286,6 +286,41 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.profile #profile-content .sidebar .programs ul li i{background: transparent;border: 2px solid #1CA5F5;display: block;border-radius: 50%;font-size: 11px;margin: 0 auto;padding: 6px 0;height: 24px;width: 24px;}
 #content .container.profile #profile-content .sidebar .programs ul li.on i{background: #fff;border: 2px solid #FFF;color: #1CA5F5;}
 #content .container.profile #profile-content .sidebar .programs ul li.on i:before{content: '\e813';}
+
+#content .container.profile #profile-content .compare-table{margin-top: 10px}
+#content .container.profile #profile-content .compare-table table{border-spacing: 2px;}
+#content .container.profile #profile-content .compare-table th{background: #C8C8C8;color: #4C4C4C;font-size: 18px;padding: 25px;width: 22%}
+#content .container.profile #profile-content .compare-table th + th{background: #1CA5F5;color: #fff;font-size: 12px;font-weight: 700;text-align: center;width: auto}
+#content .container.profile #profile-content .compare-table table th,
+#content .container.profile #profile-content .compare-table table td,
+#content .container.profile #profile-content .compare-table table td p{line-height: 1.2;}
+#content .container.profile #profile-content .compare-table table td p small{font-size: 10px}
+#content .container.profile #profile-content .compare-table table td{background: #E2E2E2;color: #4C4C4C;font-size: 12px;padding: 12px}
+#content .container.profile #profile-content .compare-table table td + td{background: #ECECEC;text-align: center;padding: 0}
+
+#content .container.profile #profile-content .compare-table table td .md-button{color: #fff;cursor: default;height: 42px;width: 42px;}
+#content .container.profile #profile-content .compare-table table td .md-button.rank1{background: #0BBC3A;color: #fff}
+#content .container.profile #profile-content .compare-table table td .md-button.rank2{background: #FBFF00;color: #fff}
+#content .container.profile #profile-content .compare-table table td .md-button.rank3{background: #FA9200;color: #fff}
+#content .container.profile #profile-content .compare-table table td .md-button.rank4{background: #ED4F43;color: #fff}
+
+
+#content .container.profile #profile-content .compare-table .footable.breakpoint>tbody>tr>td>span.footable-toggle:before{
+	content: '\e807';
+	font-family: "fontello";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1em;
+	margin-left: .2em;
+}
 
 /*Footer*/
 #footer{background: #20B45E;color: #fff;padding: 10px 0;text-align: center;min-height: 83px;height: auto}

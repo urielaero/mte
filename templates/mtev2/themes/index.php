@@ -11,7 +11,8 @@
 			"angular-material.min.css",
 			"perfect-scrollbar.min.css",
 			"fontello.css",
-			"fontello-ie7.css"
+			"fontello-ie7.css",
+			"footable.core.min.css"
 		);
 		$js_scripts = array(
 			"jquery-1.11.1.min.js",
@@ -23,6 +24,7 @@
 			'hammer.min.js',
 			'angular-material.min.js',
 			'perfect-scrollbar.min.js',
+			'footable.js',
 			'perfect-scrollbar.with-mousewheel.min.js',
 			'angular-perfect-scrollbar.js',
 			'controller.js'

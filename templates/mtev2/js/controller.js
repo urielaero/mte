@@ -50,4 +50,7 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
     $scope.previous = function() {
       $scope.selectedIndex = Math.max($scope.selectedIndex - 1, 0);
     };
+    $(document).ready(function(){
+	    $('.footable').footable();
+    });
 }]);
