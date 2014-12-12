@@ -5,16 +5,20 @@
 
 	<p>Aquí puedes descargar:</p>
 	<ol>
-		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Alumnos/ALUMNOS_CT_CENSADOS.zip">Alumnos</a> Fuente: <a href="http://www.siged.sep.gob.mx/">Siged</a></li>
-		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Escuelas/CATALOGO_CT.zip">Escuelas</a> Fuente: <a href="http://www.siged.sep.gob.mx/">Siged</a></li>
-		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Personal/PERSONAL_CT_CENSADOS.zip">Personal Censado</a> Fuente: <a href="http://www.siged.sep.gob.mx/">Siged</a></li>
-		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Personal/PERSONAL_FUNCIONES_CT_CENSADOS.zip">Personal Funciones</a> Fuente: <a href="http://www.siged.sep.gob.mx/">Siged</a></li>
-		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Personal/PERSONAL_MATERIAS_CT_CENSADOS.zip">Personal Materias</a> Fuente: <a href="http://www.siged.sep.gob.mx/">Siged</a></li>
-		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Personal/PERSONAL_PLAZAS_CT_CENSADOS.zip">Personal Plazas</a> Fuente: <a href="http://www.siged.sep.gob.mx/">Siged</a></li>
+		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Alumnos/ALUMNOS_CT_CENSADOS.zip">Alumnos</a>
+		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Escuelas/CATALOGO_CT.zip">Escuelas</a>
+		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Personal/PERSONAL_CT_CENSADOS.zip">Personal Censado</a>
+		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Personal/PERSONAL_FUNCIONES_CT_CENSADOS.zip">Personal Funciones</a>
+		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Personal/PERSONAL_MATERIAS_CT_CENSADOS.zip">Personal Materias</a>
+		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Personal/PERSONAL_PLAZAS_CT_CENSADOS.zip">Personal Plazas</a>
+		<li>Fuente: SIGED, SEP. 2014</li>
+		<hr>
+		<br>
 		<li><a href="http://storage.googleapis.com/cemabe/TR_INMUEBLES.DBF.zip">Archivo Inmueble</a>: Datos sobre características del inmueble de todas las escuelas excepto CONAFE.</li>
 		<li><a href="http://storage.googleapis.com/cemabe/TR_CENTROS.DBF.zip">Archivo Centros de Trabajo</a>: Datos sobre características de los centros de trabajo (escuelas) excepto CONAFE. </li>
 		<li><a href="http://storage.googleapis.com/cemabe/TR_CONAFE.DBF.zip">Archivo CONAFE</a>: Datos sobre características del inmueble y centros de trabajo de esta modalidad.</li>
 		<li><a href="http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/Diccionario_CEMABE.xlsx">Descripción de variables de cuestionarios</a></li>
+		<li>Fuente: INEGI. 2014</li>
 		<li>¿No puedes abrir los archivos? Visita nuestra sección de <a href="http://www.mejoratuescuela.org/preguntas-frecuentes#pregunta14" target="_blank">preguntas frecuentes</a>.</li>
 	</ol>
 	</div></div>
