@@ -14,8 +14,8 @@ class home extends main{
 		/*$this->load_niveles();
 		$this->load_entidades();
 		$this->load_municipios();
-		$this->load_localidades();
-		$this->load_escuelas();*/
+		$this->load_localidades();*/
+		$this->load_escuelas();
 		$this->get_metadata();
 		if(!$this->cookie('user_location'))
 			$this->draw_map = true;
