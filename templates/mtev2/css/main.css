@@ -159,25 +159,30 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container .breadcrumb a + a{margin-left: -4px}
 #content .container .breadcrumb a.start{background: #05A6EE;color: #fff}
 
+/*Menu titulo y tabs*/
+#content .container .menu-top .icon-container{position: relative;}
+#content .container .menu-top .icon-wrapper{height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
+#content .container .menu-top .profile-title .icon-container{background: #1B97ED;color: #fff;position: relative;}
+#content .container .menu-top .profile-title .icon-container .icon-wrapper i{font-size: 60px}
+#content .container .menu-top .profile-title h1{background: #30B6FD;color: #fff;font-size: 1.4em;font-weight: 700;line-height: 1.4;margin: 0;padding: 20px}
+#content .container .menu-top .profile-title p{background: #30A5F5;color: #fff;font-weight: 700;padding: 5px 20px;text-transform: uppercase;}
+#content .container .menu-top .compare-link{background: #0BBC3A;color: #fff;position: relative;text-align: center;}
+#content .container .menu-top .compare-link a{color: #fff;font-size: 18px;font-weight: 700;}
+#content .container .menu-top .compare-link i{font-size: 44px;font-size: 20px;margin-left: -48px; margin-bottom: 8px; display: block;}
+#content .container .menu-top .tabs{position: relative;}
+#content .container .menu-top md-tabs{height: 100%;left: 0;position: absolute;top: 0}
+#content .container .menu-top md-tabs .md-header{height: 100%}
+#content .container .menu-top md-tabs md-tab{font-weight: 700}
+#content .container .menu-top md-tabs md-tab i{display: block;font-size: 32px}
+#content .container .menu-top md-tabs #matutino-tab{background: #E90C8F}
+#content .container .menu-top md-tabs #vespertino-tab{background: #8F49CD}
+#content .container .menu-top md-tabs.md-default-theme md-tabs-ink-bar{height: 4px}
+
+
 /*Perfil escuela*/
 #content .container.profile{}
 #content .container.profile .icon-container{position: relative;}
 #content .container.profile .icon-wrapper{height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
-#content .container.profile .menu .profile-title .icon-container{background: #1B97ED;color: #fff;position: relative;}
-#content .container.profile .menu .profile-title .icon-container .icon-wrapper i{font-size: 60px}
-#content .container.profile .menu .profile-title h1{background: #30B6FD;color: #fff;font-size: 1.4em;font-weight: 700;line-height: 1.4;margin: 0;padding: 20px}
-#content .container.profile .menu .profile-title p{background: #30A5F5;color: #fff;font-weight: 700;padding: 5px 20px;text-transform: uppercase;}
-#content .container.profile .menu .compare-link{background: #0BBC3A;color: #fff;position: relative;text-align: center;}
-#content .container.profile .menu .compare-link a{color: #fff;font-size: 18px;font-weight: 700;}
-#content .container.profile .menu .compare-link i{font-size: 44px;font-size: 20px;margin-left: -48px; margin-bottom: 8px; display: block;}
-#content .container.profile .menu .tabs{position: relative;}
-#content .container.profile .menu md-tabs{height: 100%;left: 0;position: absolute;top: 0}
-#content .container.profile .menu md-tabs .md-header{height: 100%}
-#content .container.profile .menu md-tabs md-tab{font-weight: 700}
-#content .container.profile .menu md-tabs md-tab i{display: block;font-size: 32px}
-#content .container.profile .menu md-tabs #matutino-tab{background: #E90C8F}
-#content .container.profile .menu md-tabs #vespertino-tab{background: #8F49CD}
-#content .container.profile .menu md-tabs.md-default-theme md-tabs-ink-bar{height: 4px}
 #content .container.profile #profile-content{margin-top: 10px}
 #content .container.profile #profile-content .main-info{-webkit-flex: 0 0 73%; -ms-flex: 0 0 73%; flex: 0 0 73%; max-width: 73%;}
 #content .container.profile #profile-content .main-info .info .califica{position: relative;}
@@ -225,6 +230,17 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.profile #profile-content .additional-info .data .comment-form md-checkbox{margin: 5px;overflow: hidden;}
 #content .container.profile #profile-content .additional-info .data .comment-form md-checkbox .md-label{font-size: 10px; line-height: 1.4; padding: 2px; }
 #content .container.profile #profile-content .additional-info .data .comment-form p{font-size: 11px}
+
+#content .container.profile #profile-content .additional-info .data .comment-form .extra[aria-hidden="true"]{
+    max-height:  0;
+}
+#content .container.profile #profile-content .additional-info .data .comment-form .extra[aria-hidden="false"]{
+    overflow-y: hidden ;
+    max-height:  600px;
+     transition-property:  all;
+     transition-duration:  .5s;
+     transition-timing-function:  cubic-bezier(0,  1,  0.5,  1);
+}
 
 #content .container.profile #profile-content .additional-info .tabs-data{margin-top: 10px}
 #content .container.profile #profile-content .additional-info .tabs-data md-tab md-tab-label{line-height: 1.4}
@@ -303,8 +319,6 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.profile #profile-content .compare-table table td .md-button.rank2{background: #FBFF00;color: #fff}
 #content .container.profile #profile-content .compare-table table td .md-button.rank3{background: #FA9200;color: #fff}
 #content .container.profile #profile-content .compare-table table td .md-button.rank4{background: #ED4F43;color: #fff}
-
-
 #content .container.profile #profile-content .compare-table .footable.breakpoint>tbody>tr>td>span.footable-toggle:before{
 	content: '\e809';
 	font-family: "fontello";
@@ -321,6 +335,10 @@ md-toolbar.md-default-theme{background: #08863D!important}
 	line-height: 1em;
 	margin-left: .2em;
 }
+
+
+/*Califica*/
+#content .container.califica{}
 
 /*Footer*/
 #footer{background: #20B45E;color: #fff;padding: 10px 0;text-align: center;min-height: 83px;height: auto}
