@@ -73,7 +73,7 @@ class peticiones extends main{
 		echo number_format($petition_info['signature_count']);
 	}
 	public function aprobar_imagen(){
-		$img = new firma_img($this->get('id'));
+		$img = new firma_img($this->get('id'),$this->conn);
 		$img->update('activo',array(1));
 		$img->read('id,filename,email,activo');
 		$this->get_photo_cdn();
@@ -84,7 +84,7 @@ class peticiones extends main{
 	}
 	public function sienlace(){
 		$firma = new firma();
-		$this->firmas = number_format($firma->count());
+		$this->firmas = number_format($firma->count(),$this->conn);
 		$this->photos = $this->searchPhotos();
 		$this->get_photo_cdn();
 		if( $this->get('img') ){
@@ -119,7 +119,7 @@ class peticiones extends main{
 			
 	}
 	private function searchPhotos(){
-		$result = new firma_img();
+		$result = new firma_img(NULL,$this->conn);
 		$result->search_clause = " activo = '1' ";
 		$result->order_by = " rand() ";
 		$result = $result->read('id,filename,email,activo');

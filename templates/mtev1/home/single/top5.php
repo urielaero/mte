@@ -11,7 +11,7 @@ $niveles = array(12 => 'primarias',13 => 'secundarias',22 => 'bachilleratos')
 				</p>
 			<ol class='mejores'>
 				<?php
-				if($this->escuelas_digest->escuelas){
+				if($this->escuelas_digest && $this->escuelas_digest->escuelas){
 					foreach($this->escuelas_digest->escuelas as $escuela){
 					echo "
 						<li>

@@ -1,16 +1,25 @@
 <div class="container bases" ng-controller='fileController'>
 	<img src="http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/banner.jpg" alt="Bases de datos censo" style='margin-bottom:-2px' />
 	<div class='container quienes_somos'><div class='wrap_text'>
-	<p>El 31 de marzo la SEP anunció los resultados definitivos del Censo Educativo y el portal en el que la ciudadanía podría consultar estos resultados. Sin embargo el IMCO ha precisado que sólo podía conocerse el 16% de los datos que se recabaron a nivel escuela. Con el objetivo de obtener la totalidad de los datos, realizamos una solicitud de información a la SEP y al INEGI, a través del IFAI, para que los pusieran a disposición de la ciudadanía.  </p>
-	<p>A diferencia de la SEP, el INEGI respondió a nuestra solicitud de manera favorable mediante el oficio 201/30/2014. Hoy el IMCO, con la información proporcionada por el INEGI, da a conocer el 77% de los datos del Censo. </p>
+	<p>El pasado 8 de diciembre, la Secretaría de Educación Pública, para dar cumplimiento a uno de los mandatos de la Reforma Educativa, puso en marcha el portal del Sistema de Información y Gestión Educativa, en el cual se da a conocer información sobre el sistema educativo nacional. Este sistema, entre otras cosas, liberó bases de datos adicionales del Censo de Escuelas, Maestros y Alumnos de Educación Básica y Especial, entre las que destaca la base de datos de personal.</p>
 
 	<p>Aquí puedes descargar:</p>
 	<ol>
-	<li><a href="http://storage.googleapis.com/cemabe/TR_INMUEBLES.DBF.zip">Archivo Inmueble</a>: Datos sobre características del inmueble de todas las escuelas excepto CONAFE.</li>
-	<li><a href="http://storage.googleapis.com/cemabe/TR_CENTROS.DBF.zip">Archivo Centros de Trabajo</a>: Datos sobre características de los centros de trabajo (escuelas) excepto CONAFE. </li>
-	<li><a href="http://storage.googleapis.com/cemabe/TR_CONAFE.DBF.zip">Archivo CONAFE</a>: Datos sobre características del inmueble y centros de trabajo de esta modalidad.</li>
-	<li><a href="http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/Diccionario_CEMABE.xlsx">Descripción de variables de cuestionarios</a></li>
-	<li>¿No puedes abrir los archivos? Visita nuestra sección de <a href="http://www.mejoratuescuela.org/preguntas-frecuentes#pregunta14" target="_blank">preguntas frecuentes</a>.</li>
+		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Alumnos/ALUMNOS_CT_CENSADOS.zip">Alumnos</a>
+		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Escuelas/CATALOGO_CT.zip">Escuelas</a>
+		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Personal/PERSONAL_CT_CENSADOS.zip">Personal Censado</a>
+		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Personal/PERSONAL_FUNCIONES_CT_CENSADOS.zip">Personal Funciones</a>
+		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Personal/PERSONAL_MATERIAS_CT_CENSADOS.zip">Personal Materias</a>
+		<li><a href="http://siged.sep.gob.mx/SIGED/content/conn/WCPortalUCM/path/Contribution%20Folders/PortalSIGED/Descargas/Datos%20Abiertos/Censo/Personal/PERSONAL_PLAZAS_CT_CENSADOS.zip">Personal Plazas</a>
+		<li>Fuente: SIGED, SEP. 2014</li>
+		<hr>
+		<br>
+		<li><a href="http://storage.googleapis.com/cemabe/TR_INMUEBLES.DBF.zip">Archivo Inmueble</a>: Datos sobre características del inmueble de todas las escuelas excepto CONAFE.</li>
+		<li><a href="http://storage.googleapis.com/cemabe/TR_CENTROS.DBF.zip">Archivo Centros de Trabajo</a>: Datos sobre características de los centros de trabajo (escuelas) excepto CONAFE. </li>
+		<li><a href="http://storage.googleapis.com/cemabe/TR_CONAFE.DBF.zip">Archivo CONAFE</a>: Datos sobre características del inmueble y centros de trabajo de esta modalidad.</li>
+		<li><a href="http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/Diccionario_CEMABE.xlsx">Descripción de variables de cuestionarios</a></li>
+		<li>Fuente: INEGI. 2014</li>
+		<li>¿No puedes abrir los archivos? Visita nuestra sección de <a href="http://www.mejoratuescuela.org/preguntas-frecuentes#pregunta14" target="_blank">preguntas frecuentes</a>.</li>
 	</ol>
 	</div></div>
 

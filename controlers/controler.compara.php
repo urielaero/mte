@@ -126,7 +126,7 @@ class compara extends main{
 			if($this->config->search_location)
 				$this->resultados_title = 'Mejores escuelas en '.$this->capitalize($this->user_location->nombre);
 			else if(($entidad = $this->get('entidad'))){
-				$municipio = new entidad($entidad);
+				$municipio = new entidad($entidad,$this->conn);
 				$municipio->read('nombre');
 				$this->resultados_title = 'Mejores escuelas en '.$this->capitalize($municipio->nombre);
 			}
@@ -146,7 +146,7 @@ class compara extends main{
 
 	public function get_data_table(){
 		$name_entidad = $this->request('name_entidad');
-		$entidad = new entidad();
+		$entidad = new entidad(NULL,$this->conn);
 		$entidad->search_clause = " entidades.nombre = \"$name_entidad\"";
 		$en = $entidad->read('id,nombre');
 		$params = new stdClass();

@@ -14,8 +14,8 @@ class home extends main{
 		/*$this->load_niveles();
 		$this->load_entidades();
 		$this->load_municipios();
-		$this->load_localidades();
-		$this->load_escuelas();*/
+		$this->load_localidades();*/
+		$this->load_escuelas();
 		$this->get_metadata();
 		if(!$this->cookie('user_location'))
 			$this->draw_map = true;
@@ -33,10 +33,10 @@ class home extends main{
 		//$params->order_by = ' ISNULL(escuelas.rank_entidad), escuelas.rank_entidad ASC, escuelas.promedio_general DESC';
 		$params = new stdClass();
 		
-		$params->order_by = ' ISNULL(escuelas_para_rankeo.rank_entidad), escuelas_para_rankeo.rank_entidad ASC';
+		$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC';
 		$this->nivel_5 = $params->nivel = $niveles[rand(0,2)];
 		$params->entidad = $this->user_location->id;
-		$params->limit = '0,5';
+		$params->limit = '5 OFFSET 0';
 		//$this->debug = true;
 		$this->get_escuelas($params);
 		$this->process_escuelas();
@@ -128,7 +128,7 @@ class home extends main{
 		//include_once $_SERVER['DOCUMENT_ROOT'].'/library/SendGrid_loader.php';
 
 		//$sendgrid = new SendGrid('***REMOVED***', '***REMOVED***');
-		//var_dump($_SERVER['DOCUMENT_ROOT'].'/library/SendGrid_loader.php', $sendgrid);exit;
+		//var_dump($_SERVER['DOCUMENT_ROOT'].'/library/SendGrid_loader.php', $sendgrid);exit();
 		//exit;
 		header("location: $location");
 	}
@@ -147,8 +147,8 @@ class home extends main{
 		$params = new stdClass();
 		$this->nivel_5 = $params->nivel = $niveles[rand(0,2)];
 		$name_entidad = $this->request('name_entidad');
-		$params->order_by = ' ISNULL(escuelas_para_rankeo.rank_entidad), escuelas_para_rankeo.rank_entidad ASC';
-		$entidad = new entidad();
+		$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC';
+		$entidad = new entidad(NULL,$this->conn);
 		$entidad->search_clause = " entidades.nombre = \"$name_entidad\"";
 		$en = $entidad->read('id,nombre');
 		$params->entidad = $en[0]->id;
@@ -158,12 +158,12 @@ class home extends main{
 			$params->entidad = $this->user_location->id;
 			$name_entidad = $this->user_location->nombre;
 		}
-		$params->limit = '0,5';
+		$params->limit = '5 OFFSET 0';
 		$this->get_escuelas($params);
 		$this->process_escuelas();
 		$this->set_cookie('user_location',$name_entidad."-".$params->entidad);
 		$this->user_location->nombre = $this->capitalize($name_entidad);
-		$this->include_template("top5","home/single"); 
+		//$this->include_template("top5","home/single"); 
 	}
 
 	public function e404(){

@@ -242,16 +242,19 @@ class escuela extends memcached_table{
 		}
 	}
 	public function get_turnos(){
-        $sql = "select distinct e.turnos_eval,t.nombre from escuelas_para_rankeo e inner join turnos t on t.id = e.turnos_eval where e.id = {$this->id}";
-        //echo $sql;
-        $result = mysql_query($sql);
-        $this->turnos = array();
-        while ($row = mysql_fetch_assoc($result)){
-            $turno = new stdClass();
-            $turno->id = $row['turnos_eval'];
-            $turno->nombre = $row['nombre'];
-            $this->turnos[] = $turno;
-        };
+        $sql = "select distinct e.turnos_eval,t.nombre from escuelas_para_rankeo e inner join turnos t on t.id = e.turnos_eval where e.id ={$this->id}";
+        $q = pg_query($this->conn,$sql);
+        #if the search don't return any column but there was no error, a insert/update/delete query was used.
+        if( pg_num_rows($q)==0 )
+            $resp = true;
+        else{
+            while ($row =pg_fetch_assoc($q) ){
+                $turno = new stdClass();
+                $turno->id = $row['turnos_eval'];
+                $turno->nombre = $row['nombre'];
+                $this->turnos[] = $turno;
+            }
+        }
     }
     public function get_charts(){
         $this->line_chart_espaniol = $this->get_chart('espaniol');
@@ -307,7 +310,7 @@ class escuela extends memcached_table{
         return $variable;
     }
     public function get_turnos_rank(){
-        $rank = new rank();
+        $rank = new rank(NULL,$this->conn);
         //$rank->debug = true;
         $rank->search_clause = "escuelas_para_rankeo.id = {$this->id}";
         $ranks = $rank->read('id,turnos_eval,promedio_general,promedio_matematicas,promedio_espaniol,total_evaluados,pct_reprobados,poco_confiables,rank_entidad,rank_nacional,eval_entre_programados');

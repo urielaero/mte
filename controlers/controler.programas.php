@@ -24,7 +24,7 @@ class programas extends main{
 	}
 
 	private function programa_info(){
-		$this->programa = new programa($this->get('id'));
+		$this->programa = new programa($this->get('id'),$this->conn);
 		$this->programa->read("id,nombre,tema,descripcion,zonas,requisitos,direccion,telefono,mail,telefono_contacto,sitio_web,m_collection,tema_especifico");
 	    $this->programa->entidad_escuelas_count = $this->get_estado_escuelas_count($this->programa->m_collection);
 	}
@@ -100,7 +100,7 @@ class programas extends main{
 
     protected function get_estado_escuelascct($programa,$estado_id,$skip=0,$limit=20){
         $escuelas = array();
-        $this->programa = new programa($programa);
+        $this->programa = new programa($programa,$this->conn);
         $this->programa->read("id,m_collection");
 
         if (!$this->programa->m_collection) return false;

@@ -16,7 +16,7 @@ class comments extends main{
 	* Funcion Publica search.
 	*/
 	public function search($patron){
-		$calificacion = new calificacion();
+		$calificacion = new calificacion(NULL,$this->conn);
 		$calificacion->search_clause .= ' 1 ';
 		$calificaciones = $calificacion->read('id,cct,comentario');
 		#var_dump($calificaciones);
