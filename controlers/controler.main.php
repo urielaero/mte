@@ -120,8 +120,8 @@ class main extends controler{
 	public function load_municipios(){
 
 		$q = new municipio(NULL,$this->conn);
-		//$q->debug = true;
-		$q->search_clause = $this->request('entidad') ? 'municipios.entidad = "'.$this->request('entidad').'"' : '1';
+		#$q->debug = true;
+		$q->search_clause = $this->request('entidad') ? 'municipios.entidad = \''.$this->request('entidad').'\'' : 'true';
 		$q->search_clause .= ' AND municipios.entidad > 0';
 		$q->order_by = 'municipios.nombre';
 		$this->municipios = $q->read('id,nombre,entidad=>nombre,entidad=>id');
@@ -146,8 +146,8 @@ class main extends controler{
 		
 		if($this->request('entidad') || $this->request('municipio')){
 			$q = new localidad(NULL,$this->conn);
-			$q->search_clause = $this->request('entidad') ? 'localidades.entidad = "'.$this->request('entidad').'"' : '1';
-			$q->search_clause = $this->request('municipio') ? 'localidades.municipio = "'.$this->request('municipio').'"' : $q->search_clause;
+			$q->search_clause = $this->request('entidad') ? 'localidades.entidad = \''.$this->request('entidad').'\'' : '1';
+			$q->search_clause = $this->request('municipio') ? 'localidades.municipio = \''.$this->request('municipio').'\'' : $q->search_clause;
 			$q->order_by = 'localidades.nombre';
 			//$q->debug = true;
 			$this->localidades = $q->read('id,nombre,entidad=>nombre,entidad=>id');
@@ -175,42 +175,43 @@ class main extends controler{
 	*/
 	public function get_escuelas($params = false){
 		$q = new escuela(NULL,$this->conn);
-		$q->search_clause .= ' 1 = 1 ';
+		$q->search_clause .= ' TRUE ';
+		$this->debug=true;
 		
 		$q->search_clause .= $this->request('term') ? " AND escuelas.nombre LIKE '".$this->request('term')."%' " : '';
 		if(isset($params->entidad) && $params->entidad){
 			$q->search_clause .= " AND escuelas.entidad = '{$params->entidad}' ";
 		}else{
-			$q->search_clause .= $this->request('entidad') ? ' AND escuelas.entidad = "'.$this->request('entidad').'" ' : '';
+			$q->search_clause .= $this->request('entidad') ? ' AND escuelas.entidad = \''.$this->request('entidad').'\' ' : '';
 		}
-		$q->search_clause .= $this->request('municipio') ? ' AND escuelas.municipio = "'.$this->request('municipio').'" ' : '';
+		$q->search_clause .= $this->request('municipio') ? ' AND escuelas.municipio = \''.$this->request('municipio').'\' ' : '';
 		if(isset($params->localidad) && $params->localidad){
 			$q->search_clause .= " AND escuelas.localidad = '{$params->localidad}' ";
 		}else{
-			$q->search_clause .= $this->request('localidad') ? ' AND escuelas.localidad = "'.$this->request('localidad').'" ' : '';
+			$q->search_clause .= $this->request('localidad') ? ' AND escuelas.localidad = \''.$this->request('localidad').'\' ' : '';
 		}
 		if(isset($params->nivel) && $params->nivel !== false){
             if($params->nivel=='1') {//si es biblioteca
-                $q->search_clause .= ' AND SUBSTR(escuelas.cct,3,2) = "BB" ';
+                $q->search_clause .= ' AND SUBSTR(escuelas.cct,3,2) = \'BB\' ';
             } else {
                 $q->search_clause .= " AND escuelas.nivel = '{$params->nivel}' ";
             }
 		}else{
 			#$q->search_clause .= $this->request('nivel') === false || $this->request('nivel') === '' ? 'AND (escuelas.nivel = "12" || escuelas.nivel = "13" || escuelas.nivel="21" || escuelas.nivel = "22") ' : ' AND escuelas.nivel = "'.$this->request('nivel').'" ';
 			if( $this->request('nivel') === false || $this->request('nivel') === '')
-				$q->search_clause .=' AND (escuelas.nivel = "12" || escuelas.nivel = "13" || escuelas.nivel="21" || escuelas.nivel = "22" || SUBSTR(escuelas.cct,3,2) = "BB") ';
+				$q->search_clause .=' AND (escuelas.nivel = \'12\' or escuelas.nivel = \'13\' or escuelas.nivel=\'21\' or escuelas.nivel = \'22\' or SUBSTR(escuelas.cct,3,2) = \'BB\') ';
             elseif($this->request('nivel')=='1')//si es biblioteca
-                $q->search_clause .= ' AND SUBSTR(escuelas.cct,3,2) = "BB" ';
+                $q->search_clause .= ' AND SUBSTR(escuelas.cct,3,2) = \'BB\' ';
             elseif($this->request('nivel')!='22')
-				$q->search_clause .= ' AND escuelas.nivel = "'.$this->request('nivel').'" ';
+				$q->search_clause .= ' AND escuelas.nivel = \''.$this->request('nivel').'\' ';
             elseif($this->request('nivel')=='22')
-				$q->search_clause .= ' AND (escuelas.nivel = "'.$this->request('nivel').'" || escuelas.nivel="21") ';
+				$q->search_clause .= ' AND (escuelas.nivel = \''.$this->request('nivel').'\' or escuelas.nivel=\'21\') ';
 		}
 
 		if(isset($params->control) && $params->control){
 			$q->search_clause .= " AND escuelas.control = '{$params->control}' ";
 		}else{
-			$q->search_clause .= $this->request('control') ? ' AND escuelas.control = "'.$this->request('control').'" ' : '';
+			$q->search_clause .= $this->request('control') ? ' AND escuelas.control = \''.$this->request('control').'\' ' : '';
 		}
 		
 		if(isset($params->rank_nacional)){
@@ -238,6 +239,7 @@ class main extends controler{
 			$this->pagination = new pagination('escuela',$params->pagination,$q->search_clause,NULL,$this->conn);
 			$q->limit = $this->pagination->limit;
 		}
+		
 		$q->debug = isset($this->debug) ? $this->debug : false;
 
         $this->process_custom_get_escuelas($q,$params);
@@ -324,7 +326,7 @@ class main extends controler{
 	public function load_niveles(){
 		
 		$q = new nivel(NULL,$this->conn);
-		$q->search_clause = 'niveles.id = "12" || niveles.id = "13" || niveles.id = "22" || niveles.id = "11"';
+		$q->search_clause = 'niveles.id = \'12\' or niveles.id = \'13\' or niveles.id = \'22\' or niveles.id = \'11\'';
 		$this->niveles = $q->read('id,nombre');
 	}
 
@@ -447,21 +449,21 @@ class main extends controler{
 	*/
     protected function cct_count_entidad(){
     	if(isset($this->escuelas)){
-		
-		foreach($this->escuelas as $escuela){
-			$id_entidad = isset($escuela->entidad->id)?$escuela->entidad->id:$escuela->entidad;
-			$entidad = new entidad($id_entidad,$this->conn);
-			$nivelNombre = isset($escuela->nivel->nombre)?$escuela->nivel->nombre:$escuela->nom_nivel;
-			if($nivelNombre == "TECNICO PROFESIONAL")
-				$nivelNombre = "BACHILLERATO";
-			$nivel = "numero_escuelas_".strtolower($nivelNombre);
-			$nivelNacional = "numero_nacional_escuelas_".strtolower($nivelNombre);
-			$entidad->read($nivel.",".$nivelNacional);
-			$escuela->entidad_cct_count = isset($entidad->$nivel) ? $entidad->$nivel : 0;
-			$escuela->nacional_cct_count = isset($entidad->$nivelNacional) ? $entidad->$nivelNacional : 0;
-			//var_dump($entidad);
+			foreach($this->escuelas as $escuela){
+				$id_entidad = isset($escuela->entidad->id)?$escuela->entidad->id:$escuela->entidad;
+				$entidad = new entidad($id_entidad,$this->conn);
+				$nivelNombre = isset($escuela->nivel->nombre)?strtolower($escuela->nivel->nombre):strtolower($escuela->nom_nivel);
+				if($nivelNombre!="no aplica" && $nivelNombre!="preescolar" && $nivelNombre!='tecnico profesional'){
+					if($nivelNombre == "TECNICO PROFESIONAL")
+						$nivelNombre = "BACHILLERATO";
+					$nivel = "numero_escuelas_".$nivelNombre;
+					$nivelNacional = "numero_nacional_escuelas_".$nivelNombre;
+					$entidad->read($nivel.",".$nivelNacional);
+					$escuela->entidad_cct_count = isset($entidad->$nivel) ? $entidad->$nivel : 0;
+					$escuela->nacional_cct_count = isset($entidad->$nivelNacional) ? $entidad->$nivelNacional : 0;
+				}
+			}
 		}
-	}
     }
 
     /**
