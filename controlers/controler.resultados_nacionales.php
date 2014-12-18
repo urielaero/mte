@@ -40,7 +40,7 @@ class resultados_nacionales extends main{
 			$this->index();
 		}
 	}
-
+ 
 	/**
 	* Funcion Privada load_escuelas.
 	* Guarda en el atributo 'mejores_escuelas' los resultados de las 5 mejores escuelas pertenecientes al estado que se esta revisando
