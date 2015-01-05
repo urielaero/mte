@@ -71,7 +71,6 @@ class califica_tu_escuela extends main{
 				$params->localidad = $this->get('localidad');
 				$p = $this->get('p') ? $this->get('p') : 1;
 				$this->get_escuelas_new($params,$p);
-			
 				$this->cct_count_entidad();
 				$this->resultados_title = 'Resultados de tu búsqueda';
 				$this->set_info_user_search($this->num_results);

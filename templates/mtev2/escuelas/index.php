@@ -6,7 +6,7 @@
 		<a href="#">Benito Juarez</a>
 		<a href="#">Colegio Ecab</a>
 	</div>
-	<div class="menu">
+	<div class="menu-top">
 		<div layout="row" layout-sm="column" class="menu-row">
 			<div class="profile-title" flex="55" flex-sm="100">
 				<div class="title-container" layout="row">
@@ -37,7 +37,7 @@
 				<a href="#" class="full-size-link"></a>
 				<div class="icon-wrapper vertical-align-center horizontal-align-center">
 					<div flex="column">
-						<div><i class="icon-compara"></i></div>
+						<div><i class="icon-compara-01"></i></div>
 						<div><a href="">Comparar</a></div>
 					</div>
 				</div>
@@ -156,31 +156,33 @@
 			<div class="additional-info space-between" layout="row" layout-sm="column">
 				<div class="data" flex="73" flex-sm="100">
 					<form action="/" method="GET" class="comment-form">
-						<div layout="row">
+						<div layout="row" ng-click="toggleFormEvent()">
 							<div flex="10" class="icon-container" hide-sm>
 								<i class="icon-comentario-01"></i>
 							</div>						
 							<textarea flex="90" flex-sm="100" placeholder="Deja un comentario de esta escuela aquí"></textarea>
 						</div>
-						<div class="fields" layout="row" layout-margin layout-fill layout-padding>
-							<input type="text" name="nombre" flex placeholder="Nombre">
-							<input type="email" name="correo" flex placeholder="Correo electrónico">
-							<select flex>
-								<option value="">¿Quien eres?</option>
-							</select>
-						</div>
-						<div class="sumbit-fields space-between" layout="row" layout-sm="column">
-							<div class="captcha" flex="33" flex-sm="100"></div>
-							<div flex="66" flex-sm="100">
-								<div layout="row" class="space-between">
-									<md-button type="submit" class="md-raised" flex="49">Enviar</md-button>
-									<div flex="49" class="check">
-										<md-checkbox name="check" value="1" aria-label="Checkbox 1">*Quiero que mi nombre se publique junto con mi comentario</md-checkbox>
+						<div class="extra animated fadeInDown" ng-show="toggleForm">
+							<div class="fields" layout="row" layout-margin layout-fill layout-padding>
+								<input type="text" name="nombre" flex placeholder="Nombre">
+								<input type="email" name="correo" flex placeholder="Correo electrónico">
+								<select flex>
+									<option value="">¿Quien eres?</option>
+								</select>
+							</div>
+							<div class="sumbit-fields space-between" layout="row" layout-sm="column">
+								<div class="captcha" flex="33" flex-sm="100"></div>
+								<div flex="66" flex-sm="100">
+									<div layout="row" class="space-between">
+										<md-button type="submit" class="md-raised" flex="49">Enviar</md-button>
+										<div flex="49" class="check">
+											<md-checkbox name="check" value="1" aria-label="Checkbox 1">*Quiero que mi nombre se publique junto con mi comentario</md-checkbox>
+										</div>
 									</div>
-								</div>
-								<div class="msg">
-									<p>*Tu correo electronico NO aparecerá con tu comentario.</p>
-									<p>Si no quieres que tu comentario se publique en el perfil de la escuela, escribenos a:contacto@mejoratuesceual.org</p>
+									<div class="msg">
+										<p>*Tu correo electronico NO aparecerá con tu comentario.</p>
+										<p>Si no quieres que tu comentario se publique en el perfil de la escuela, escribenos a:contacto@mejoratuesceual.org</p>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -372,6 +374,81 @@
 						</ul>
 					</div>
 				</div>
+			</div>
+			<div class="compare-table">
+				<table class="footable">
+					<thead>
+						<tr>
+							<th class="footable-first-column">Escuelas</th>
+							<th data-hide="phone">Calificación Español</th>
+							<th data-hide="phone">Calificiación Matemáticas</th>
+							<th data-hide="phone">Nivel Escolar</th>
+							<th data-hide="phone">Turno</th>
+							<th data-hide="phone">Privada publica</th>
+							<th>Posicion Estatal</th>
+							<th class="footable-last-column">Semáforo Educativo</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<strong>Jean Piaget</strong>
+								<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
+								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
+							</td>
+							<td>777</td>
+							<td>739</td>
+							<td>Primaria</td>
+							<td>Matutino</td>
+							<td>Privada</td>
+							<td><strong>1</strong> de <strong>548</strong></td>
+							<td><md-button class="md-fab rank1" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
+						</tr>
+						<tr>
+							<td>
+								<strong>Jean Piaget</strong>
+								<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
+								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
+							</td>
+							<td>777</td>
+							<td>739</td>
+							<td>Primaria</td>
+							<td>Matutino</td>
+							<td>Privada</td>
+							<td><strong>1</strong> de <strong>548</strong></td>
+							<td><md-button class="md-fab rank2" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
+						</tr>
+						<tr>
+							<td>
+								<strong>Jean Piaget</strong>
+								<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
+								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
+							</td>
+							<td>777</td>
+							<td>739</td>
+							<td>Primaria</td>
+							<td>Matutino</td>
+							<td>Privada</td>
+							<td><strong>1</strong> de <strong>548</strong></td>
+							<td><md-button class="md-fab rank3" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
+						</tr>
+						<tr>
+							<td>
+								<strong>Jean Piaget</strong>
+								<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
+								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
+							</td>
+							<td>777</td>
+							<td>739</td>
+							<td>Primaria</td>
+							<td>Matutino</td>
+							<td>Privada</td>
+							<td><strong>1</strong> de <strong>548</strong></td>
+							<td><md-button class="md-fab rank4" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
+						</tr>
+					</tbody>
+				</table>
+				
 			</div>	
         </div>
         <div role="tabpanel" id="tab3-content" aria-labelledby="tab2" ng-switch-when="1" md-swipe-left="next()" md-swipe-right="previous()">

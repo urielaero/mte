@@ -46,7 +46,6 @@ class escuela extends memcached_table{
 		if($this->nivel->nombre=="PREESCOLAR"){
 			$this->semaforo = 7;		
 		}
-
 		if(isset($this->grados) && $this->grados>0 ){
 			if($this->nivel->nombre != "BACHILLERATO"  && ($this->grados < 4 * $turnos && $this->nivel->nombre == "PRIMARIA") || ($this->grados < 3 * $turnos && $this->nivel->nombre == "SECUNDARIA") ){
 				$this->semaforo = 6;//no se cuentan
@@ -115,7 +114,7 @@ class escuela extends memcached_table{
         else{
             if(isset($rank->promedio_general) && $rank->promedio_general != ''){
                 if($rank->promedio_general > 0) {//si todos los anios fueron evaluados
-                    if ((!isset($rank->rank_entidad) && !isset($rank->rank_nacional)) || (!ctype_digit($rank->rank_entidad) && !ctype_digit($rank->rank_nacional))){
+                    if ((!isset($rank->rank_entidad) && !isset($rank->rank_nacional)) || (!ctype_digit((string)$rank->rank_entidad) && !ctype_digit((string)$rank->rank_nacional))){
                         $semaforo = 5;//poco confiable
                     }
                     else if( $rank->promedio_general < $this->semaforo_rangos[$nivel][0])
