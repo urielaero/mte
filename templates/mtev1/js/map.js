@@ -80,7 +80,7 @@ function initialize_map(turno){
 function add_marker(escuela,map){
 	var position = new google.maps.LatLng(escuela.latitud,escuela.longitud);
 	if(typeof($('#map-selected').val()) != 'undefined'){
-		var icon = $('#map-selected').val() == escuela.cct ? escuela.semaforo : escuela.semaforo+'o';
+		var icon = $('#map-selected').val() == escuela.cct ? escuela.semaforo : escuela.semaforo+'op';
 	}else{
 		var icon = escuela.semaforo;
 	};

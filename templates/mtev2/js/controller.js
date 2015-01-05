@@ -44,10 +44,23 @@ app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
 
 app.controller("escuelaCTL", ['$scope',function ($scope) {
 	$scope.selectedIndex = 0;
+	$scope.countToggle = 0;
+	$scope.toggleForm = false;
     $scope.next = function() {
       $scope.selectedIndex = Math.min($scope.selectedIndex + 1, 2) ;
     };
     $scope.previous = function() {
       $scope.selectedIndex = Math.max($scope.selectedIndex - 1, 0);
     };
+    $scope.toggleFormEvent = function(){
+    	if($scope.countToggle == 0){
+    		$scope.toggleForm = true;
+    	}
+    }
+    $(document).ready(function(){
+	    $('.footable').footable();
+	    $('.footable tr td').click(function(){
+	    	$(this).trigger('footable_toggle_row');
+	    });
+    });
 }]);

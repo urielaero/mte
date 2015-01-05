@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'fontello';
-  src: url('../font/fontello.eot?54344749');
-  src: url('../font/fontello.eot?54344749#iefix') format('embedded-opentype'),
-       url('../font/fontello.woff?54344749') format('woff'),
-       url('../font/fontello.ttf?54344749') format('truetype'),
-       url('../font/fontello.svg?54344749#fontello') format('svg');
+  src: url('../font/fontello.eot?21063052');
+  src: url('../font/fontello.eot?21063052#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff?21063052') format('woff'),
+       url('../font/fontello.ttf?21063052') format('truetype'),
+       url('../font/fontello.svg?21063052#fontello') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fontello';
-    src: url('../font/fontello.svg?54344749#fontello') format('svg');
+    src: url('../font/fontello.svg?21063052#fontello') format('svg');
   }
 }
 */
@@ -50,40 +50,44 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
-.icon-compara-1:before { content: '\e800'; } /* '' */
-.icon-twitter-01:before { content: '\e801'; } /* '' */
-.icon-blog-01:before { content: '\e802'; } /* '' */
-.icon-instalaciones-01:before { content: '\e803'; } /* '' */
-.icon-mail-01:before { content: '\e804'; } /* '' */
-.icon-matutino:before { content: '\e805'; } /* '' */
-.icon-mejora:before { content: '\e806'; } /* '' */
-.icon-flecha-01:before { content: '\e807'; } /* '' */
-.icon-tache-01:before { content: '\e808'; } /* '' */
-.icon-share-01:before { content: '\e809'; } /* '' */
-.icon-servicios-01:before { content: '\e80a'; } /* '' */
-.icon-seguridad-01:before { content: '\e80b'; } /* '' */
-.icon-programaapoyo-01:before { content: '\e80c'; } /* '' */
-.icon-print-01:before { content: '\e80d'; } /* '' */
-.icon-pregunta-01:before { content: '\e80e'; } /* '' */
-.icon-califica-01:before { content: '\e80f'; } /* '' */
-.icon-calculadora-01:before { content: '\e810'; } /* '' */
-.icon-buscar-01:before { content: '\e811'; } /* '' */
-.icon-califica2-01:before { content: '\e812'; } /* '' */
-.icon-check-01:before { content: '\e813'; } /* '' */
-.icon-comentario-01:before { content: '\e814'; } /* '' */
-.icon-comentario2-01:before { content: '\e815'; } /* '' */
-.icon-twitter-01-01:before { content: '\e816'; } /* '' */
-.icon-conoce-01:before { content: '\e817'; } /* '' */
-.icon-desk-01:before { content: '\e818'; } /* '' */
-.icon-enlace-01:before { content: '\e819'; } /* '' */
-.icon-estrella-01:before { content: '\e81a'; } /* '' */
-.icon-escuela-01:before { content: '\e81b'; } /* '' */
-.icon-familia-01:before { content: '\e81c'; } /* '' */
-.icon-fb-01:before { content: '\e81d'; } /* '' */
-.icon-fb:before { content: '\e81e'; } /* '' */
-.icon-vespertino-01:before { content: '\e81f'; } /* '' */
-.icon-compara:before { content: '\e820'; } /* '' */
-.icon-escritorio-01:before { content: '\e821'; } /* '' */
-.icon-chat-empty:before { content: '\e822'; } /* '' */
-.icon-plus-circled:before { content: '\e823'; } /* '' */
-.icon-file-audio:before { content: '\e824'; } /* '' */
+.icon-facebook:before { content: '\e800'; } /* '' */
+.icon-twitter:before { content: '\e801'; } /* '' */
+.icon-yelp:before { content: '\e802'; } /* '' */
+.icon-foursquare:before { content: '\e803'; } /* '' */
+.icon-gplus:before { content: '\e804'; } /* '' */
+.icon-linkedin:before { content: '\e805'; } /* '' */
+.icon-instagram:before { content: '\e806'; } /* '' */
+.icon-export:before { content: '\e807'; } /* '' */
+.icon-youtube:before { content: '\e808'; } /* '' */
+.icon-flecha-01:before { content: '\e809'; } /* '' */
+.icon-fb-01:before { content: '\e80a'; } /* '' */
+.icon-familia-01:before { content: '\e80b'; } /* '' */
+.icon-estrella-01:before { content: '\e80c'; } /* '' */
+.icon-escuela-01:before { content: '\e80d'; } /* '' */
+.icon-escritorio-01:before { content: '\e80e'; } /* '' */
+.icon-vespertino-01:before { content: '\e80f'; } /* '' */
+.icon-twitter-01-01:before { content: '\e810'; } /* '' */
+.icon-enlace-01:before { content: '\e811'; } /* '' */
+.icon-desk-01:before { content: '\e812'; } /* '' */
+.icon-conoce-01:before { content: '\e813'; } /* '' */
+.icon-share-01:before { content: '\e814'; } /* '' */
+.icon-tache-01:before { content: '\e815'; } /* '' */
+.icon-compara:before { content: '\e816'; } /* '' */
+.icon-servicios-01:before { content: '\e817'; } /* '' */
+.icon-seguridad-01:before { content: '\e818'; } /* '' */
+.icon-comentario2-01:before { content: '\e819'; } /* '' */
+.icon-compara-01:before { content: '\e81a'; } /* '' */
+.icon-comentario-01:before { content: '\e81b'; } /* '' */
+.icon-programaapoyo-01:before { content: '\e81c'; } /* '' */
+.icon-print-01:before { content: '\e81d'; } /* '' */
+.icon-check-01:before { content: '\e81e'; } /* '' */
+.icon-califica2-01:before { content: '\e81f'; } /* '' */
+.icon-pregunta-01:before { content: '\e820'; } /* '' */
+.icon-mejora:before { content: '\e821'; } /* '' */
+.icon-califica-01:before { content: '\e822'; } /* '' */
+.icon-calculadora-01:before { content: '\e823'; } /* '' */
+.icon-matutino:before { content: '\e824'; } /* '' */
+.icon-mail-01:before { content: '\e825'; } /* '' */
+.icon-buscar-01:before { content: '\e826'; } /* '' */
+.icon-blog-01:before { content: '\e827'; } /* '' */
+.icon-instalaciones-01:before { content: '\e828'; } /* '' */
