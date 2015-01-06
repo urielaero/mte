@@ -121,7 +121,6 @@ class escuelas extends main{
 				rank=>promedio_general,rank=>promedio_matematicas,rank=>promedio_espaniol,rank=>total_evaluados,rank=>pct_reprobados,rank=>poco_confiables,rank=>turnos_eval,rank=>rank_entidad,rank=>rank_nacional,rank=>anio, rank=>eval_entre_programados
 			");
 			#$this->debug = true;
-            var_dump($this->escuela->enlaces);
             $this->escuela->get_mongo_info($this->mongo_connect());
             $this->escuela->get_turnos();
 			$this->escuela->get_semaforos();
