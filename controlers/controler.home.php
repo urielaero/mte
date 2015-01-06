@@ -142,7 +142,6 @@ class home extends main{
 	}
 
 	public function get_top5(){
-		return false;
         $this->debug = true;
 		$niveles = array(12,13,22);
 		$params = new stdClass();
