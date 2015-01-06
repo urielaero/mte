@@ -142,14 +142,17 @@ class home extends main{
 	}
 
 	public function get_top5(){
-        //$this->debug = true;
+		return false;
+        $this->debug = true;
 		$niveles = array(12,13,22);
 		$params = new stdClass();
 		$this->nivel_5 = $params->nivel = $niveles[rand(0,2)];
 		$name_entidad = $this->request('name_entidad');
 		$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC';
 		$entidad = new entidad(NULL,$this->conn);
-		$entidad->search_clause = " entidades.nombre = \"$name_entidad\"";
+		$entidad->search_clause = " entidades.nombre = '$name_entidad'";
+
+		//echo $name_entidad."<br>";
 		$en = $entidad->read('id,nombre');
 		$params->entidad = $en[0]->id;
 		$name_entidad = $en[0]->nombre;

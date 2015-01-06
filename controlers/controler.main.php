@@ -176,7 +176,7 @@ class main extends controler{
 	public function get_escuelas($params = false){
 		$q = new escuela(NULL,$this->conn);
 		$q->search_clause .= ' TRUE ';
-		$this->debug=true;
+		//$this->debug=true;
 		
 		$q->search_clause .= $this->request('term') ? " AND escuelas.nombre LIKE '".$this->request('term')."%' " : '';
 		if(isset($params->entidad) && $params->entidad){
