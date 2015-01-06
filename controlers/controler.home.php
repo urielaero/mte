@@ -145,7 +145,7 @@ class home extends main{
 		$niveles = array(12,13,22);
 		$params = new stdClass();
 		$this->nivel_5 = $params->nivel = $niveles[rand(0,2)];
-		$name_entidad = $_REQUEST['name_entidad'];
+		$name_entidad = $this->request('name_entidad');
 		$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC';
 		$entidad = new entidad(NULL,$this->conn);
 		$entidad->search_clause = " LOWER(entidades.nombre) = LOWER('$name_entidad')";
