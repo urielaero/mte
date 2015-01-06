@@ -770,7 +770,7 @@ class main extends controler{
         }
 
         if ($this->debug) {
-            echo $sql."<br><br><br>";
+            //echo $sql."<br><br><br>";
         }
 
         $result = pg_query($this->conn, $sql);
