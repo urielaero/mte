@@ -147,7 +147,7 @@ class compara extends main{
 	public function get_data_table(){
 		$name_entidad = $this->request('name_entidad');
 		$entidad = new entidad(NULL,$this->conn);
-		$entidad->search_clause = " entidades.nombre = \"$name_entidad\"";
+		$entidad->search_clause = " LOWER(entidades.nombre) = LOWER('$name_entidad')";
 		$en = $entidad->read('id,nombre');
 		$params = new stdClass();
 		$params->entidad = $en[0]->id;

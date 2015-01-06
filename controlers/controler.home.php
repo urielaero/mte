@@ -142,19 +142,19 @@ class home extends main{
 	}
 
 	public function get_top5(){
-        $this->debug = true;
 		$niveles = array(12,13,22);
 		$params = new stdClass();
 		$this->nivel_5 = $params->nivel = $niveles[rand(0,2)];
 		$name_entidad = $this->request('name_entidad');
 		$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC';
 		$entidad = new entidad(NULL,$this->conn);
-		$entidad->search_clause = " entidades.nombre = '$name_entidad'";
+		$entidad->search_clause = " LOWER(entidades.nombre) = LOWER('$name_entidad')";
+		//TODO: pg_query falla con comillas dobles!
 
-		//echo $name_entidad."<br>";
 		$en = $entidad->read('id,nombre');
 		$params->entidad = $en[0]->id;
 		$name_entidad = $en[0]->nombre;
+
 		if(!$params->entidad){
 			$this->get_location();
 			$params->entidad = $this->user_location->id;
@@ -165,7 +165,7 @@ class home extends main{
 		$this->process_escuelas();
 		$this->set_cookie('user_location',$name_entidad."-".$params->entidad);
 		$this->user_location->nombre = $this->capitalize($name_entidad);
-		//$this->include_template("top5","home/single"); 
+		$this->include_template("top5","home/single"); 
 	}
 
 	public function e404(){
