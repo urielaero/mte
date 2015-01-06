@@ -54,7 +54,6 @@ class compara extends main{
 			$params->pagination = 6;
 			$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
 			$this->get_escuelas($params);
-
 			$this->set_info_user_search(isset($this->pagination->total_results) ? $this->pagination->total_results : 0);
 			$this->process_escuelas();
 			$this->cct_count_entidad();
@@ -150,7 +149,8 @@ class compara extends main{
 		$entidad->search_clause = " LOWER(entidades.nombre) = LOWER('$name_entidad')";
 		$en = $entidad->read('id,nombre');
 		$params = new stdClass();
-		$params->entidad = $en[0]->id;
+		$params->entidad = (isset($en)?$en[0]->id:false);
+		
 		if(!$params->entidad){
 			$this->get_location();
 			$params->entidad = $this->user_location->id;

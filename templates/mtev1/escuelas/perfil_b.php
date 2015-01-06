@@ -1,7 +1,6 @@
 <div class='perfil container B'>
     <?php 
-    //var_dump($this->escuela->programas);
-    if(isset($this->escuela->programas['escuelas_de_excelencia']) || $this->escuela->ganador_disena_el_cambio)
+    if(isset($this->escuela->programas['escuelas_de_excelencia']) || isset($this->escuela->ganador_disena_el_cambio))
         $this->include_template('escuelas_excelencia','global');
     ?>
 	<div class="box-head">
@@ -69,10 +68,10 @@
 						<li><span><?=$controles[$this->escuela->control->id]?></span></li>
 						<li><span>Teléfonos:</span> <?=$this->escuela->telefono?></li>
 						<li><span>Correo electrónico:</span> <?=$this->str_limit($this->escuela->correoelectronico,24);?></li>
-                        <?php if($this->escuela->director){ ?>
+                        <?php if(isset($this->escuela->director)){ ?>
                             <li><span>Representante: </span><?=$this->str_limit($this->capitalize($this->escuela->director),21) ?></a></li>
                         <?php } ?>
-						<?php if($this->escuela->paginaweb){ ?>
+						<?php if(isset($this->escuela->paginaweb)){ ?>
 							<li><a href="<?=$this->escuela->paginaweb?>"><?=$this->str_limit($this->escuela->paginaweb,21) ?></a></li>
 						<?php } ?>
 						<div class="clear"></div>
@@ -266,11 +265,11 @@
                 <div class='chart-box'>
                     <div class="n_alumnos border_b">
                         <p>Número de alumnos evaluados</p>
-                        <span class="number"><?=$this->escuela->total_evaluados?></span>
+                        <span class="number"><?=isset($this->escuela->total_evaluados)?$this->escuela->total_evaluados:'N/D'?></span>
                     </div>
                     <div class="n_alumnos border_b">
                         <p>Porcentaje de alumnos en nivel reprobado</p>
-                        <span class="number"><?=$this->escuela->pct_reprobados."%"?></span>
+                        <span class="number"><?=isset($this->escuela->pct_reprobados)?$this->escuela->pct_reprobados."%":'N/D'?></span>
                     </div>
                     <div class="wrap_chart border_b">
                         <div class="info_chart">

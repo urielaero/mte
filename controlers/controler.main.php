@@ -176,7 +176,6 @@ class main extends controler{
 	public function get_escuelas($params = false){
 		$q = new escuela(NULL,$this->conn);
 		$q->search_clause .= ' TRUE ';
-		//$this->debug=true;
 		
 		$q->search_clause .= $this->request('term') ? " AND escuelas.nombre LIKE '".$this->request('term')."%' " : '';
 		if(isset($params->entidad) && $params->entidad){
@@ -500,7 +499,6 @@ class main extends controler{
     * \param $escuelas_num es la cantidad de resultados devueltos
 	*/
     protected function set_info_user_search($escuelas_num){
-    		
 		$params= array();
 		if($this->get('search')){
 		    $params[] = $this->get('term')?$this->get('term'):"";
@@ -772,7 +770,6 @@ class main extends controler{
         if ($this->debug) {
             //echo $sql."<br><br><br>";
         }
-
         $result = pg_query($this->conn, $sql);
 
         $this->escuelas = array();
