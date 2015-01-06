@@ -83,6 +83,7 @@ strong{font-weight: 700}
 #header #sub-header .column-left .kid-image{max-width: 100%}
 #header #sub-header .column-right .titles{color: #fff;}
 #header #sub-header .column-right .titles h1{margin: 0;font-weight: 400;font-size: 16px;line-height: 22px;margin-top: 20px}
+#header #sub-header .column-right .titles p{line-height: 1.4}
 /*Buscador subheader*/
 #simple_search{margin-top: 10px;padding: 10px 0}
 #simple_search .input-field{position: relative;}
@@ -354,6 +355,9 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.califica .question-content .text h3{margin: 0}
 #content .container.califica .question-content .ans{background: #A3A4A6;cursor: pointer;padding: 10px;text-align: center;}
 #content .container.califica .question-content .ans:hover{background: #30B6FD;color: #fff}
+#content .container.califica .result{background: #1CA344;color: #fff;font-weight: 700;margin: 20px auto;max-width: 460px;padding: 20px;text-align: center;}
+#content .container.califica .result p{text-transform: uppercase;}
+#content .container.califica .result .number{background: #fff;color: #7D7E80;max-width: 90px;margin: 10px auto;padding: 5px}
 
 /*Footer*/
 #footer{background: #20B45E;color: #fff;padding: 10px 0;text-align: center;min-height: 83px;height: auto}
