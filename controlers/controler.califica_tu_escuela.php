@@ -52,6 +52,9 @@ class califica_tu_escuela extends main{
 			$this->tipo_encuesta = $tipo_encuesta;
 			$this->include_theme('index','califica');
 		
+		}
+		else if($this->config->theme == 'mtev2'){
+			$this->include_theme('index','califica');
 		}else{
 			#header("location: /compara/");
 			$this->breadcrumb = array('#'=>'Califica');
