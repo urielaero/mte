@@ -32,6 +32,10 @@ class califica_tu_escuela extends main{
 		$this->title_header = 'Califica tu escuela';
 		$this->subtitle_header = 'Una vez que conoces y has comparado tu escuela, te invitamos a<br />que califiques algunos aspectos de la misma. Las calificaciones<br />ayudan a detectar áreas de mejora y a reconocer los<br />logros alcanzados.';
 		$this->header_folder = 'compara';
+		if($this->config->theme == 'mtev2'){
+			$this->include_theme('index','califica');
+			return;
+		}
 		if($this->escuela_info()){
 			$tipo_encuesta = 'escuelas';	
 			if(preg_match('/^..BB/', $this->escuela->cct)){
@@ -52,9 +56,6 @@ class califica_tu_escuela extends main{
 			$this->tipo_encuesta = $tipo_encuesta;
 			$this->include_theme('index','califica');
 		
-		}
-		else if($this->config->theme == 'mtev2'){
-			$this->include_theme('index','califica');
 		}else{
 			#header("location: /compara/");
 			$this->breadcrumb = array('#'=>'Califica');
