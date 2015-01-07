@@ -105,7 +105,6 @@ class calificacion extends table{
     function setCalificaciones($preguntas,$calificaciones){
         $calicacion_list = json_decode($calificaciones);
         $preguntas_list = json_decode($preguntas);
-
         $sql = "insert into calificaciones_preguntas (pregunta,calificacion,calificacion_pregunta) values ";
 
         foreach ($calicacion_list as $key => $calificacion) {
@@ -114,7 +113,8 @@ class calificacion extends table{
         }
         $sql = rtrim($sql,",");
 
-        mysql_query($sql);
+        pg_query($this->conn,$sql);
+        exit('guardo '.$sql);
     }
 
 }
@@ -137,12 +137,12 @@ class pregunta extends table {
                 where c.cct = '{$escuela}'
                 group by  p.id,p.titulo";
 
-        $result = mysql_query($sql);
+        $result = pg_query($this->conn,$sql);
 
         $preguntas = array();
         $i = 0;
-        if($result && mysql_num_rows($result)){
-            while($row = mysql_fetch_row($result)){
+        if($result && pg_num_rows($result)){
+            while($row = pg_fetch_row($result)){
                 $pregunta = new pregunta($row[0]);
                 $pregunta->titulo = $row[1];
                 $pregunta->promedio = number_format($row[2], 1, '.', ',');
@@ -192,7 +192,7 @@ class firma extends table{
 		$sql = "SELECT COUNT(*) FROM firmas WHERE 1";
 		$result = $this->execute_sql($sql);
 		if($result){
-			$row = mysql_fetch_row($result);
+			$row = pg_fetch_row($result);
 			return $row[0];
 		}else{
 			return false;

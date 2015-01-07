@@ -121,7 +121,6 @@ class escuelas extends main{
 			");
 			#$this->debug = true;
             $this->escuela->get_mongo_info($this->mongo_connect());
-            #echo 'aaaa';exit('controler escuelas');
             $this->escuela->get_turnos();
 			$this->escuela->get_semaforos();
             $this->escuela->get_charts();
@@ -177,16 +176,17 @@ class escuelas extends main{
 				)) && $this->isTokenSimulatesValid()){
 					//$calificacion->debug = true;
 
-					$calificacion->create('nombre,email,cct,comentario,ocupacion,calificacion,user_agent,acepta_nombre',array(
+					$calificacion->create('nombre,email,id_cct,cct,comentario,ocupacion,calificacion,user_agent,acepta_nombre',array(
 						$this->post('nombre'),
 						$this->post('email'),
+						"0",
 						$this->post('cct'),
 						$comment,
 						$this->post('ocupacion'),
 						stripslashes($this->post('calificacion')),
 						$_SERVER['HTTP_USER_AGENT'],
 						$accept_name
-					));
+					),'id');
 					if($this->post("calificaciones")) $calificacion->setCalificaciones($this->post('preguntas'),$this->post('calificaciones'));				
 				}else{					
 					//spam
