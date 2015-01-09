@@ -168,7 +168,7 @@ class escuelas extends main{
 			$this->post('recaptcha_response_field'))){
 				$comment = strip_tags($this->post('comentario'));
 				$accept_name = ($this->post('accept')!=null) ? 1 : 0;
-				$calificacion = new calificacion();
+				$calificacion = new calificacion(NULL,$this->conn);
 				if(!$this->isSpam(array(
 			                'author' => $this->post('nombre'),
 	        		        'email' => $this->post('email'),

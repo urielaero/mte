@@ -113,7 +113,8 @@ class home extends main{
 		$location = "/home/";
 		if($this->post('aviso')){
 			$correo = $this->post('correo');
-			$news = new newsletters();
+			$news = new newsletters(NULL,$this->conn);
+			$news->check_sequence();
 			$news->create('email_input',array($correo));
 			$location = $news->id ? "/home/index?news=true" : "/home/index?news=false";
 		}
