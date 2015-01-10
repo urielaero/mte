@@ -64,3 +64,15 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
 	    });
     });
 }]);
+
+app.controller("faqCTL", ['$scope',function ($scope) {
+	$scope.toggleQuestion = function(e){
+		var elem = angular.element(e.target);
+		var content = elem.parent().find('.question-content');
+		if(content.hasClass('on')){
+			content.removeClass('on');
+		}else{
+			content.addClass('on');
+		}
+	}
+}]);
