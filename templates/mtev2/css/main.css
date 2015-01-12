@@ -41,6 +41,21 @@ strong{font-weight: 700}
 	align-self: flex-end;
 }
 
+md-tabs.md-default-theme md-tabs-ink-bar:before{
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	bottom: 4px;
+	width: 0;
+	height: 0;
+	background: #ffff85;
+	border-style: solid;
+	border-width: 0 7.5px 8px 7.5px;
+	border-color: transparent transparent #007bff transparent;
+}
+
 /*Header*/
 #header{background: #fff}
 #header .menu{background-color:white;height:90px;z-index: 2;position: relative;}
@@ -84,6 +99,7 @@ strong{font-weight: 700}
 #header #sub-header .column-right .titles{color: #fff;}
 #header #sub-header .column-right .titles h1{margin: 0;font-weight: 400;font-size: 16px;line-height: 22px;margin-top: 20px}
 #header #sub-header .column-right .titles p{line-height: 1.4}
+#header #sub-header .column-right.center-content{padding-bottom: 25px;text-align: center;}
 /*Buscador subheader*/
 #simple_search{margin-top: 10px;padding: 10px 0}
 #simple_search .input-field{position: relative;}
@@ -206,6 +222,41 @@ md-toolbar.md-default-theme{background: #08863D!important}
      transition-timing-function:  cubic-bezier(0,  1,  0.5,  1);
 }
 
+/*Tabla global de comparacion*/
+#content .container .compare-table{margin-top: 10px}
+#content .container .compare-table table{border-spacing: 2px;}
+#content .container .compare-table th{background: #C8C8C8;color: #4C4C4C;font-size: 18px;padding: 25px;width: 22%}
+#content .container .compare-table th + th{background: #1CA5F5;color: #fff;font-size: 12px;font-weight: 700;text-align: center;width: auto}
+#content .container .compare-table table th,
+#content .container .compare-table table td,
+#content .container .compare-table table td p{line-height: 1.2;}
+#content .container .compare-table table td p small{font-size: 10px}
+#content .container .compare-table table td{background: #E2E2E2;color: #4C4C4C;font-size: 12px;padding: 12px}
+#content .container .compare-table table td + td{background: #ECECEC;text-align: center;padding: 0}
+#content .container .compare-table table .footable-row-detail-cell{background: #1B97ED;color: #fff}
+
+#content .container .compare-table table td .md-button{color: #fff;cursor: default;height: 42px;width: 42px;}
+#content .container .compare-table table td .md-button.rank1{background: #0BBC3A;color: #fff}
+#content .container .compare-table table td .md-button.rank2{background: #FBFF00;color: #fff}
+#content .container .compare-table table td .md-button.rank3{background: #FA9200;color: #fff}
+#content .container .compare-table table td .md-button.rank4{background: #ED4F43;color: #fff}
+#content .container .compare-table .footable.breakpoint>tbody>tr>td>span.footable-toggle:before{
+	content: '\e809';
+	font-family: "fontello";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1em;
+	margin-left: .2em;
+}
+
 
 /*Perfil escuela*/
 #content .container.profile{}
@@ -307,40 +358,6 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.profile #profile-content .sidebar .programs ul li.on i{background: #fff;border: 2px solid #FFF;color: #1CA5F5;}
 #content .container.profile #profile-content .sidebar .programs ul li.on i:before{content: '\e81e';}
 
-#content .container.profile #profile-content .compare-table{margin-top: 10px}
-#content .container.profile #profile-content .compare-table table{border-spacing: 2px;}
-#content .container.profile #profile-content .compare-table th{background: #C8C8C8;color: #4C4C4C;font-size: 18px;padding: 25px;width: 22%}
-#content .container.profile #profile-content .compare-table th + th{background: #1CA5F5;color: #fff;font-size: 12px;font-weight: 700;text-align: center;width: auto}
-#content .container.profile #profile-content .compare-table table th,
-#content .container.profile #profile-content .compare-table table td,
-#content .container.profile #profile-content .compare-table table td p{line-height: 1.2;}
-#content .container.profile #profile-content .compare-table table td p small{font-size: 10px}
-#content .container.profile #profile-content .compare-table table td{background: #E2E2E2;color: #4C4C4C;font-size: 12px;padding: 12px}
-#content .container.profile #profile-content .compare-table table td + td{background: #ECECEC;text-align: center;padding: 0}
-#content .container.profile #profile-content .compare-table table .footable-row-detail-cell{background: #1B97ED;color: #fff}
-
-#content .container.profile #profile-content .compare-table table td .md-button{color: #fff;cursor: default;height: 42px;width: 42px;}
-#content .container.profile #profile-content .compare-table table td .md-button.rank1{background: #0BBC3A;color: #fff}
-#content .container.profile #profile-content .compare-table table td .md-button.rank2{background: #FBFF00;color: #fff}
-#content .container.profile #profile-content .compare-table table td .md-button.rank3{background: #FA9200;color: #fff}
-#content .container.profile #profile-content .compare-table table td .md-button.rank4{background: #ED4F43;color: #fff}
-#content .container.profile #profile-content .compare-table .footable.breakpoint>tbody>tr>td>span.footable-toggle:before{
-	content: '\e809';
-	font-family: "fontello";
-	font-style: normal;
-	font-weight: normal;
-	speak: none;
-	display: inline-block;
-	text-decoration: inherit;
-	width: 1em;
-	margin-right: .2em;
-	text-align: center;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1em;
-	margin-left: .2em;
-}
-
 
 /*Califica*/
 #content .container.califica{}
@@ -361,6 +378,40 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.califica .result{background: #1CA344;color: #fff;font-weight: 700;margin: 20px auto;max-width: 460px;padding: 20px;text-align: center;}
 #content .container.califica .result p{text-transform: uppercase;}
 #content .container.califica .result .number{background: #fff;color: #7D7E80;max-width: 90px;margin: 10px auto;padding: 5px}
+
+/*Califica*/
+#content .container.compare .menu-top .tabs{height: 80px}
+#content .container.compare .menu-top .tabs .general-tab{background: #E850A7}
+#content .container.compare .menu-top .tabs .results-tab{background: #22B461}
+#content .container.compare .menu-top .tabs .student-tab{background: #F3910C}
+#content .container.compare .menu-top .tabs .map-tab{background: #8E62C1}
+#content .container.compare .compare-table.general th + th{background: #E850A7}
+#content .container.compare .compare-table.years th + th{background: #22B461}
+#content .container.compare .add-school{background: #00AFF0;color: #fff;display: block;margin: 10px auto;max-width: 300px;font-weight: 700;padding: 8px;text-align: center;text-transform: uppercase;}
+
+
+/*Califica*/
+#content .container.results #filters{
+	-webkit-flex: 0 0 28%;
+	-ms-flex: 0 0 28%;
+	flex: 0 0 28%;
+	max-width: 28%;
+}
+#content .container.results #filters .text-field input{border: 0;padding: 10px}
+#content .container.results #filters .text-field input[type="submit"]{background: #00AFF0;}
+#content .container.results #filters select{display: block; background: #fff; color: #636363;width: 100%; border: 0; padding: 6px 8px;}
+#content .container.results #filters label{display: block;margin-top: 8px;font-weight: 700}
+#content .container.results #filters md-checkbox{margin: 0}
+#content .container.results #results{}
+#content .container.results #results h2{margin: 0}
+#content .container.results #results .order-by select{float: right;margin-top: 2px;background: #fff; color: #636363;border: 0; padding: 6px 8px;}
+#content .container.results #results .order-by label{float: right;font-weight: 700;margin-top: 6px;margin-right: 6px}
+#content .container.results #results .compare-button{background: #20B45E;color: #fff;font-weight: 700;float: left;margin-top: 10px;width: 25%;padding: 5px;text-align: center;}
+#content .container.results #results .pagination{float: right;margin-top: 10px;}
+#content .container.results #results .pagination a{background: transparent;border: 2px solid #636363;color: #636363;padding: 4px 8px;text-align: center;}
+#content .container.results #results .pagination a + a{margin-left: 4px}
+#content .container.results #results .pagination a.on,
+#content .container.results #results .pagination a:hover{background: #1CA5F5;border: 2px solid #1CA5F5;color: #fff}
 
 /*Post*/
 #content .container.post{}
@@ -408,6 +459,8 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.about .about-content .tab-content p{margin-bottom: 0}
 #content .container.about .about-content .tab-content a{color: #fff;text-decoration: underline;}
 
+
+/*Contact*/
 #content .container.contact{background: #00AFF0}
 #content .container.contact form{padding: 25px}
 #content .container.contact form input{border: 0;padding: 12px 8px}
