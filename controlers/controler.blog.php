@@ -14,5 +14,9 @@ class blog extends main{
 		$this->header_folder = 'escuelas';
 		$this->include_theme('index','index');
 	}
+	public function publicacion(){		
+		$this->header_folder = 'escuelas';
+		$this->include_theme('index','publicacion');
+	}
 }
 ?>

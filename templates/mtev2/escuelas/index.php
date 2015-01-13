@@ -448,7 +448,6 @@
 						</tr>
 					</tbody>
 				</table>
-				
 			</div>	
         </div>
         <div role="tabpanel" id="tab3-content" aria-labelledby="tab2" ng-switch-when="1" md-swipe-left="next()" md-swipe-right="previous()">
