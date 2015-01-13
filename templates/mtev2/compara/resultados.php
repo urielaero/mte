@@ -40,8 +40,8 @@
 			<div layout="row" layout-sm="column">
 				<h2 flex="40" flex-sm="100">34,598 Resultados</h2>
 				<div class="order-by" flex="60" flex-sm="100">
-					<select><option>ORDEN ALFABÉTICO</option></select>
-					<label>ORDENAR POR:</label>
+					<select><option>Orden alfabético</option></select>
+					<label>Ordenar por:</label>
 					<div class="clear"></div>
 				</div>
 			</div>
@@ -50,10 +50,10 @@
 					<thead>
 						<tr>
 							<th class="footable-first-column">Escuelas</th>
-							<th data-hide="phone">Nivel Escolar</th>
+							<th data-hide="phone">Nivel escolar</th>
 							<th data-hide="phone">Turno</th>
 							<th data-hide="phone">Privada / Pública</th>
-							<th class="footable-last-column">Semáforo Educativo</th>
+							<th class="footable-last-column">Semáforo educativo</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -117,13 +117,13 @@
 					</tbody>
 				</table>
 			</div>
-			<a href="#" class="compare-button">COMPARAR</a>
+			<a href="#" class="compare-button">Comparar</a>
 			<div class="pagination">
 				<a href="#">1</a>
 				<a href="#">2</a>
 				<a href="#">3</a>
 				<a href="#">&gt;</a>
-				<a href="#">ULTIMAS &gt;</a>
+				<a href="#">Últimas &gt;</a>
 			</div>	
 		</div>
 	</div>
