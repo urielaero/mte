@@ -184,6 +184,11 @@
 					</div>
 				</ng-switch>
 			</div>
+
+			<div class="result">
+				<p>En promedio, calificas a tu escuela con:</p>
+				<p class="number">8</p>
+			</div>
 			
 			<form action="/" method="GET" class="comment-form">
 				<div layout="row" ng-click="toggleFormEvent()">
