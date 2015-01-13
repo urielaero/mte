@@ -9,11 +9,14 @@ class escuelas extends main{
 	* Funcion Publica index.
 	*/
 	public function index(){
+		/*
 		if($this->config->theme == 'mtev2'){
 			$this->header_folder = 'escuelas';
 			$this->include_theme('index','index');	
 		}	
-		else if($this->escuela_info()){
+		else 
+		*/
+		if($this->escuela_info()){
 			$params = new stdClass();
 			$params->limit = '0,8';
 			$params->localidad = $this->escuela->localidad->id;
@@ -68,7 +71,12 @@ class escuelas extends main{
 			}
 			$this->simulateP = rand()%15;
 			if($this->escuela->nivel->nombre != 'PREESCOLAR' && !preg_match('/^..BB/', $this->escuela->cct ) ){
-				$this->include_theme('index','perfil_b');
+				if($this->config->theme == 'mtev2'){
+					$this->header_folder = 'escuelas';
+					$this->include_theme('index','index');	
+				}else{
+					$this->include_theme('index','perfil_b');
+				}
 			}
 			else if( preg_match('/^..BB/', $this->escuela->cct ) ){
 				
