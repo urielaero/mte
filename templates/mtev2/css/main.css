@@ -471,6 +471,12 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.blog .sidebar-blog .email-box a{color: #fff}
 #content .container.blog .pagination{margin-top: 20px;text-align: center;}
 
+/*Blog Post individual*/
+#content .container.post-individual .top{background: #08863D;}
+#content .container.post-individual .top p{color: #fff;line-height: 1.2}
+#content .container.post-individual .top .search-field input[type="submit"]{background: #086829}
+#content .container.post-individual .post-content{background: #fff;padding: 20px}
+#content .container.post-individual .post-content img{max-width: 100%}
 
 /*FAQ*/
 #content .container.faq .questions li{margin-bottom: 10px;overflow: hidden;}
