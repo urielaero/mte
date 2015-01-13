@@ -527,7 +527,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 /*Footer*/
 #footer{background: #20B45E;color: #fff;padding: 10px 0;text-align: center;min-height: 83px;height: auto}
 #footer a{color: #fff}
-#footer .menu a{font-weight: 700;font-size: 14px;text-transform: uppercase;}
+#footer .menu a{font-weight: 700;font-size: 14px;}
 
 /*Error 404*/
 #main.e404{background: #00AEF5}
