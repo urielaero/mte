@@ -74,6 +74,14 @@ $e404 = $this->get('action') == 'e404' ? 'e404' : '';
 	<link rel="canonical" href="<?=$canonical?>" />
  </head>
  <body ng-app="mejoratuescuela" ng-cloak>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=1496831027206997&version=v2.0";
+	fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
  	<div id="wrap"><div id="main" class="clearfix <?=$e404?>"><div id="topBackRepeat"> 		
 		<div id='header'>
 			<?php 
