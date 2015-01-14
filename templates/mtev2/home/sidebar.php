@@ -48,7 +48,7 @@
 							<i class="icon-facebook"></i>
 						</div>
 					</div>	
-					<div flex="75" class="text-container"><p>/MejoraTuEscuela</p></div>
+					<div flex="75" class="text-container"><p><a href="http://www.facebook.com/MejoraTuEscuela">/MejoraTuEscuela</a></p></div>
 				</div>
 			</div>
 			<div class="box box-tw">
@@ -59,7 +59,7 @@
 							<i class="icon-twitter"></i>
 						</div>
 					</div>	
-					<div flex="75" class="text-container"><p>@MejoraTuEscuela</p></div>
+					<div flex="75" class="text-container"><p><a href="http://www.twitter.com/MejoraTuEscuela">@MejoraTuEscuela</a></p></div>
 				</div>
 			</div>
 			<div id="tweets" ng-controller="twitterCTL">
