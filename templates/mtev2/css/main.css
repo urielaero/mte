@@ -155,6 +155,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #sidebar .box .icon-container .icon-wrapper{height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
 #sidebar .box .icon-container .icon-wrapper i{font-size: 32px}
 #sidebar .box .text-container{padding: 20px 10px}
+#sidebar .box .text-container a {color:white;}
 #sidebar .box-orange{background: #F6911B}
 #sidebar .box-green{background: #0A9E48}
 #sidebar .box-purple{background: #A633AA}
