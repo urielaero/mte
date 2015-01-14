@@ -11,6 +11,7 @@ class metodologia extends main{
 	*/
 	public function index(){
 		$this->breadcrumb = array('#'=>'Metodología');
+		$this->page_title = 'Metodología - Mejora tu Escuela';
 		$this->include_theme('index','index');		
 	}
 }

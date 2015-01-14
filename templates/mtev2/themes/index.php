@@ -58,7 +58,7 @@
 	?>
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title><?=$this->page_title;?> | Beta</title>
+	<title><?=$this->page_title;?></title>
 
 	<meta property='og:image:type' content='image/png'>
 	<meta property='og:image' content='http://www.mejoratuescuela.org/templates/mtev1/img/logo200_200.jpg' />	
