@@ -27,7 +27,7 @@
 								<h3><a href="#">Consejos de Participación y Asociación de Padres, ¿son lo mismo?</a></h3>
 							</div>
 							<div layout="row" class="more">
-								<a href="#" flex="50">LEER MÁS</a>
+								<a href="#" flex="50">Leer más</a>
 								<a href="#" flex="50"><i class="icon-mail-01"></i></a>
 							</div>
 						</div>
@@ -40,11 +40,11 @@
 								<h3><a href="#">Día de muertos en México</a></h3>
 							</div>
 							<div layout="row" class="more">
-								<a href="#" flex="50">LEER MÁS</a>
+								<a href="#" flex="50">Leer más</a>
 								<a href="#" flex="50"><i class="icon-mail-01"></i></a>
 							</div>
 						</div>
-						<a href="#" class="button-bordered">CONSULTA MÁS INFORMACIÓN EN NUESTRO BLOG</a>
+						<a href="#" class="button-bordered">Consulta más información en nuestro blog</a>
 					</div>
 				</div>
         		<div role="tabpanel" class="tab-content programs-content" aria-labelledby="tab1" ng-switch-when="1" md-swipe-left="next()" md-swipe-right="previous()" >
