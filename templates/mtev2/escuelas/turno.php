@@ -1,3 +1,4 @@
+<?php $controles = array(1=>'Pública', 2=>'Privada'); ?>
 <div class="space-between" layout="row" layout-sm="column">
 	<div class="main-info" flex="73" flex-sm="100">
 		<div layout="row" layout-sm="column">
@@ -45,22 +46,23 @@
 		<div class="counters" layout="row" layout-sm="column">
 			<div flex><div layout="row" layout-margin>
 				<div flex>Número de alumnos:</div>
-				<div flex class="number">73</div>
+				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
 			</div></div>
 			<div flex><div layout="row" layout-margin>
 				<div flex>Número de alumnos:</div>
-				<div flex class="number">73</div>
+				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
 			</div></div>
 			<div flex><div layout="row" layout-margin>
 				<div flex>Número de alumnos:</div>
-				<div flex class="number">73</div>
+				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
 			</div></div>
 		</div>
 	</div>
 	<div class="semaphore" flex="25" flex-sm="100">
 		<h4>Semáforo educativo</h4>
+		<?php $on = $this->escuela_per_turno->semaforo?>
 		<ul>
-			<li class="rank1 on">
+			<li class="rank1<?=$on=='Excelente'?' on':''?>">
 				<div layout="row">
 					<div flex="70" class="label">Excelente</div>
 					<div flex="30" class="circle">
@@ -68,7 +70,7 @@
 					</div>
 				</div>
 			</li>
-			<li class="rank2">
+			<li class="rank2<?=$on=='Bien'?' on':''?>">
 				<div layout="row">
 					<div flex="70" class="label">Bien</div>
 					<div flex="30" class="circle">
@@ -76,7 +78,7 @@
 					</div>
 				</div>
 			</li>
-			<li class="rank3">
+			<li class="rank3<?=$on=='De panzazo'?' on':''?>">
 				<div layout="row">
 					<div flex="70" class="label">De panzazo</div>
 					<div flex="30" class="circle">
@@ -84,7 +86,7 @@
 					</div>
 				</div>
 			</li>
-			<li class="rank4">
+			<li class="rank4<?=$on=='Reprobado'?' on':''?>">
 				<div layout="row">
 					<div flex="70" class="label">Reprobado</div>
 					<div flex="30" class="circle">
@@ -158,13 +160,13 @@
 					<div flex>
 						<div layout="row">
 							<div flex="70"><p>Número de alumnos evaluados</p></div>
-							<div flex="30" class="number"><p>73</p></div>
+							<div flex="30" class="number"><p><?=$this->escuela_per_turno->total_evaluados?></p></div>
 						</div>
 					</div>
 					<div flex>
 						<div layout="row">
 							<div flex="70"><p>Porcentaje de alumnos en nivel reprobatorio</p></div>
-							<div flex="30" class="number"><p>0.00%</p></div>
+							<div flex="30" class="number"><p><?=$this->escuela_per_turno->pct_reprobados?>%</p></div>
 						</div>
 					</div>								
 				</div>
@@ -175,7 +177,15 @@
 						<p>ENLACE</p>
 						<div class="label"><p>Matemáticas</p></div>
 					</div>
-					<div flex="75" class="chart"></div>
+					<div flex="75" class="chart">
+
+						<?php
+			                                echo "<div id='line-chart-data-matematicas' class='hidden'>".json_encode($this->escuela_per_turno->chart_ma)."</div><div id='profile-line-chart-matematicas' class='chart'></div>";
+						
+						?>
+
+					
+					</div>
 				</div>
 				<div class="chart-block espanol" layout="row">
 					<div class="purple" flex="25">
@@ -184,7 +194,12 @@
 						<p>ENLACE</p>
 						<div class="label"><p>Español</p></div>
 					</div>
-					<div flex="75" class="chart"></div>
+					<div flex="75" class="chart">
+						<?php 
+			                                echo "<div id='line-chart-data-espaniol' class='hidden'>".json_encode($this->escuela_per_turno->chart_es)."</div><div id='profile-line-chart-espaniol' class='chart'></div>";
+						
+						?>
+					</div>
 				</div>
 			</div>
 	        <div role="tabpanel" class="infraestructura tables-box" id="profile-content" aria-labelledby="tab1" ng-switch-when="1">
