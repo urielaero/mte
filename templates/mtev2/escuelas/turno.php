@@ -188,10 +188,11 @@
 				</div>
 			</div>
 	        <div role="tabpanel" class="infraestructura tables-box" id="profile-content" aria-labelledby="tab1" ng-switch-when="1">
-				<h2>Infraestructura escolar</h2>
+				<h2>Infraestructura escolar <span>Información correspondiente al ciclo 2013/2014</span></h2>
 				<div class="table-top" layout="row">
 					<div flex="10" flex-sm="15" class="i-cont"><i class="icon-instalaciones-01"></i></div>
-					<div flex="90" flex-sm="85"><p>Instalaciones</p></div>
+					<div flex="65" flex-sm="65"><p>Instalaciones</p></div>
+					<div flex="25" flex-sm="25"><p>En esta escuela</p></div>
 				</div>
 				<table>
 					<tr><td>Aulas para clase</td><td>12</td></tr>
@@ -203,7 +204,8 @@
 				</table>
 				<div class="table-top" layout="row">
 					<div flex="10" flex-sm="15" class="i-cont"><i class="icon-servicios-01"></i></div>
-					<div flex="90" flex-sm="85"><p>Servicios</p></div>
+					<div flex="65" flex-sm="65"><p>Servicios</p></div>
+					<div flex="25" flex-sm="25"><p>En esta escuela</p></div>
 				</div>
 				<table>
 					<tr><td>Energia eléctrica</td><td><i class="icon-check-01"></i></td></tr>
@@ -215,7 +217,8 @@
 				</table>
 				<div class="table-top" layout="row">
 					<div flex="10" flex-sm="15" class="i-cont"><i class="icon-seguridad-01"></i></div>
-					<div flex="90" flex-sm="85"><p>Seguridad</p></div>
+					<div flex="65" flex-sm="65"><p>Seguridad</p></div>
+					<div flex="25" flex-sm="25"><p>En esta escuela</p></div>
 				</div>
 				<table>
 					<tr><td>Señales de protección civil</td><td><i class="icon-tache-01"></i></td></tr>
@@ -265,6 +268,74 @@
 				</ul>
 			</div>
 		</ng-switch>
+		<div class="compare-table">
+			<table class="footable">
+				<thead>
+					<tr>
+						<th class="footable-first-column">Escuelas similares</th>
+						<th data-hide="phone">Nivel Escolar</th>
+						<th data-hide="phone">Turno</th>
+						<th data-hide="phone">Privada/publica</th>
+						<th class="footable-last-column">Semáforo Educativo</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<strong>Jean Piaget</strong>
+							<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
+							<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
+						</td>
+						<td>Primaria</td>
+						<td>Matutino</td>
+						<td>Privada</td>
+						<td><md-button class="md-fab rank1" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Jean Piaget</strong>
+							<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
+							<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
+						</td>
+						<td>Primaria</td>
+						<td>Matutino</td>
+						<td>Privada</td>
+						<td><md-button class="md-fab rank2" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Jean Piaget</strong>
+							<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
+							<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
+						</td>
+						<td>Primaria</td>
+						<td>Matutino</td>
+						<td>Privada</td>
+						<td><md-button class="md-fab rank3" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Jean Piaget</strong>
+							<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
+							<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
+						</td>
+						<td>Primaria</td>
+						<td>Matutino</td>
+						<td>Privada</td>
+						<td><md-button class="md-fab rank4" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
+					</tr>
+				</tbody>
+			</table>
+			<a href="#" class="compare-button">COMPARAR</a>
+			<div class="pagination">
+				<a href="#">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">&gt;</a>
+				<a href="#">ULTIMAS &gt;</a>
+			</div>
+			<div class="clear"></div>	
+		</div>
 
 	</div>
 	<div flex="25" flex-sm="100" class="sidebar">
@@ -327,78 +398,5 @@
 		</div>
 	</div>
 </div>
-<div class="compare-table">
-	<table class="footable">
-		<thead>
-			<tr>
-				<th class="footable-first-column">Escuelas</th>
-				<th data-hide="phone">Calificación Español</th>
-				<th data-hide="phone">Calificiación Matemáticas</th>
-				<th data-hide="phone">Nivel Escolar</th>
-				<th data-hide="phone">Turno</th>
-				<th data-hide="phone">Privada publica</th>
-				<th>Posicion Estatal</th>
-				<th class="footable-last-column">Semáforo Educativo</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>
-					<strong>Jean Piaget</strong>
-					<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
-					<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-				</td>
-				<td>777</td>
-				<td>739</td>
-				<td>Primaria</td>
-				<td>Matutino</td>
-				<td>Privada</td>
-				<td><strong>1</strong> de <strong>548</strong></td>
-				<td><md-button class="md-fab rank1" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
-			</tr>
-			<tr>
-				<td>
-					<strong>Jean Piaget</strong>
-					<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
-					<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-				</td>
-				<td>777</td>
-				<td>739</td>
-				<td>Primaria</td>
-				<td>Matutino</td>
-				<td>Privada</td>
-				<td><strong>1</strong> de <strong>548</strong></td>
-				<td><md-button class="md-fab rank2" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
-			</tr>
-			<tr>
-				<td>
-					<strong>Jean Piaget</strong>
-					<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
-					<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-				</td>
-				<td>777</td>
-				<td>739</td>
-				<td>Primaria</td>
-				<td>Matutino</td>
-				<td>Privada</td>
-				<td><strong>1</strong> de <strong>548</strong></td>
-				<td><md-button class="md-fab rank3" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
-			</tr>
-			<tr>
-				<td>
-					<strong>Jean Piaget</strong>
-					<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
-					<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-				</td>
-				<td>777</td>
-				<td>739</td>
-				<td>Primaria</td>
-				<td>Matutino</td>
-				<td>Privada</td>
-				<td><strong>1</strong> de <strong>548</strong></td>
-				<td><md-button class="md-fab rank4" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
-			</tr>
-		</tbody>
-	</table>
-</div>	
+
 
