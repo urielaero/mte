@@ -8,18 +8,18 @@
 				</form>
 			</div>
 			<div class="box box-orange">
-				<a href="#" class="full-size-link"></a>
+				<a href="<?=$this->blog_address?>" class="full-size-link"></a>
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
 							<i class="icon-blog-01"></i>
 						</div>
 					</div>	
-					<div flex="75" class="text-container"><p><a href="<?=$this->blog_address?>">Blog</a></p></div>
+					<div flex="75" class="text-container"><p>Blog</p></div>
 				</div>
 			</div>
 			<div class="box box-green">
-				<a href="#" class="full-size-link"></a>
+				<a href="/mejora" class="full-size-link"></a>
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
@@ -30,7 +30,7 @@
 				</div>
 			</div>
 			<div class="box box-purple">
-				<a href="#" class="full-size-link"></a>				
+				<a href="/mejora/programas" class="full-size-link"></a>				
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
@@ -41,25 +41,25 @@
 				</div>
 			</div>
 			<div class="box box-fb">
-				<a href="#" class="full-size-link"></a>
+				<a href="http://www.facebook.com/MejoraTuEscuela" class="full-size-link"></a>
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
 							<i class="icon-facebook"></i>
 						</div>
 					</div>	
-					<div flex="75" class="text-container"><p><a href="http://www.facebook.com/MejoraTuEscuela">/MejoraTuEscuela</a></p></div>
+					<div flex="75" class="text-container"><p>/MejoraTuEscuela</p></div>
 				</div>
 			</div>
 			<div class="box box-tw">
-				<a href="#" class="full-size-link"></a>
+				<a href="http://www.twitter.com/MejoraTuEscuela" class="full-size-link"></a>
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
 							<i class="icon-twitter"></i>
 						</div>
 					</div>	
-					<div flex="75" class="text-container"><p><a href="http://www.twitter.com/MejoraTuEscuela">@MejoraTuEscuela</a></p></div>
+					<div flex="75" class="text-container"><p>@MejoraTuEscuela</p></div>
 				</div>
 			</div>
 			<div id="tweets" ng-controller="twitterCTL">

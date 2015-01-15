@@ -2,6 +2,7 @@
     <p class='menu'>
     	<a href='/metodologia'>Metodología</a> |
     	<a href='/aviso-de-privacidad'>Aviso legal y de privacidad</a> |
+      <a href='/quienes-somos'>¿Quiénes somos?</a> |
     	<a href='/contacto'>Contáctanos</a> |
       <a href='/bases'>Datos abiertos</a>
     	<!--
