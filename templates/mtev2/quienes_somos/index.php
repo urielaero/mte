@@ -38,8 +38,8 @@
 			</div>
     		<ng-switch on="selectedIndex" class="tabpanel-container">
         		<div role="tabpanel" class="tab-content phone-content" aria-labelledby="tab1" ng-switch-when="0" md-swipe-left="next()" md-swipe-right="previous()" >
-					<p>Comunicate a los teléfonos de:</p>
-					<p>IMCO con Alexandra Zapata: (55)5985-1017 al 19.</p>
+					<p>Para más información, comunícate a los teléfonos de <b>IMCO</b></p>
+					<p> con el equipo de Mejora tu Escuela al <b>(55)5985-1017 al 19</b>.</p>
 				</div>
         		<div role="tabpanel" class="tab-content mail-content" aria-labelledby="tab1" ng-switch-when="1" md-swipe-left="next()" md-swipe-right="previous()" >
 					<p>Para más información, escríbenos a: <a href="#">contacto@mejoratuescuela.org</a></p>
