@@ -58,6 +58,15 @@
 			</div></div>
 		</div>
 	</div>
+	<?php if($this->escuela->nivel->nombre == 'PREESCOLAR'){ ?>
+	<div flex="25" flex-sm="100">
+		<div class="section-image">
+			<img src="/templates/mtev1/img/cubitos.png" alt="Preescolar">			
+		</div>
+	</div>	
+	<?php 
+		}else{
+	?>
 	<div class="semaphore" flex="25" flex-sm="100">
 		<h4>Semáforo educativo</h4>
 		<?php $on = $this->escuela_per_turno->semaforo?>
@@ -106,6 +115,7 @@
 			</div>
 		</div>
 	</div>
+	<?php } ?>
 </div>
 <div class="additional-info space-between" layout="row" layout-sm="column">
 	<div class="data" flex="73" flex-sm="100">
@@ -304,7 +314,10 @@
 						<td>Primaria</td>
 						<td>Matutino</td>
 						<td>Privada</td>
-						<td><md-button class="md-fab rank1" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
+						<td>
+							<md-button class="md-fab rank1" aria-label="Time"><i class="icon-tache-01"></i></md-button>
+							<p>Excelente</p>
+						</td>
 					</tr>
 					<tr>
 						<td>
@@ -315,7 +328,10 @@
 						<td>Primaria</td>
 						<td>Matutino</td>
 						<td>Privada</td>
-						<td><md-button class="md-fab rank2" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
+						<td>
+							<md-button class="md-fab rank2" aria-label="Time"><i class="icon-check-01"></i></md-button>
+							<p>Bien</p>
+						</td>
 					</tr>
 					<tr>
 						<td>
@@ -326,7 +342,10 @@
 						<td>Primaria</td>
 						<td>Matutino</td>
 						<td>Privada</td>
-						<td><md-button class="md-fab rank3" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
+						<td>
+							<md-button class="md-fab rank3" aria-label="Time"><i class="icon-check-01"></i></md-button>
+							<p>De panzazo</p>
+						</td>
 					</tr>
 					<tr>
 						<td>
@@ -337,7 +356,10 @@
 						<td>Primaria</td>
 						<td>Matutino</td>
 						<td>Privada</td>
-						<td><md-button class="md-fab rank4" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
+						<td>
+							<md-button class="md-fab rank4" aria-label="Time"><i class="icon-tache-01"></i></md-button>
+							<p>Reprobado</p>
+						</td>
 					</tr>
 				</tbody>
 			</table>

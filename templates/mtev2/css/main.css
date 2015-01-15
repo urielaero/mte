@@ -240,14 +240,14 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container .compare-table table td p{line-height: 1.2;}
 #content .container .compare-table table td p small{font-size: 10px}
 #content .container .compare-table table td{background: #E2E2E2;color: #4C4C4C;font-size: 12px;padding: 12px}
-#content .container .compare-table table td + td{background: #ECECEC;text-align: center;padding: 0}
+#content .container .compare-table table td + td{background: #ECECEC;text-align: center;padding: 0;vertical-align: middle;}
 #content .container .compare-table table .footable-row-detail-cell{background: #1B97ED;color: #fff}
 
-#content .container .compare-table table td .md-button{color: #fff;cursor: default;height: 42px;width: 42px;}
-#content .container .compare-table table td .md-button.rank1{background: #0BBC3A;color: #fff}
-#content .container .compare-table table td .md-button.rank2{background: #FBFF00;color: #fff}
-#content .container .compare-table table td .md-button.rank3{background: #FA9200;color: #fff}
-#content .container .compare-table table td .md-button.rank4{background: #ED4F43;color: #fff}
+#content .container .compare-table table td .md-button{box-shadow: none;color: #4C4C4C;cursor: default;height: 32px;width: 32px;}
+#content .container .compare-table table td .md-button.rank1{background: #0BBC3A;color: #4C4C4C}
+#content .container .compare-table table td .md-button.rank2{background: #FBFF00;color: #4C4C4C}
+#content .container .compare-table table td .md-button.rank3{background: #FA9200;color: #4C4C4C}
+#content .container .compare-table table td .md-button.rank4{background: #ED4F43;color: #4C4C4C}
 #content .container .compare-table .footable.breakpoint>tbody>tr>td>span.footable-toggle:before{
 	content: '\e809';
 	font-family: "fontello";
@@ -288,15 +288,16 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.profile #profile-content .semaphore ul li .label{background: #D3D3D3;color: #838383;padding: 12px 15px}
 #content .container.profile #profile-content .semaphore ul li + li{margin-top: 2px}
 #content .container.profile #profile-content .semaphore ul li .circle{text-align: center;}
-#content .container.profile #profile-content .semaphore ul li .circle .md-button{color: #fff;cursor: default;height: 42px;width: 42px;}
+#content .container.profile #profile-content .semaphore ul li .circle .md-button{box-shadow: none;color: #4C4C4C;cursor: default;margin-top: 6px;height: 36px;width: 36px;}
 #content .container.profile #profile-content .semaphore ul li.rank1.on .label,
-#content .container.profile #profile-content .semaphore ul li.rank1 .md-button{background: #0BBC3A;color: #fff}
+#content .container.profile #profile-content .semaphore ul li.rank1 .md-button{background: #0BBC3A;color: #4C4C4C}
 #content .container.profile #profile-content .semaphore ul li.rank2.on .label,
-#content .container.profile #profile-content .semaphore ul li.rank2 .md-button{background: #FBFF00;color: #fff}
+#content .container.profile #profile-content .semaphore ul li.rank2 .md-button{background: #FBFF00;color: #4C4C4C}
 #content .container.profile #profile-content .semaphore ul li.rank3.on .label,
-#content .container.profile #profile-content .semaphore ul li.rank3 .md-button{background: #FA9200;color: #fff}
+#content .container.profile #profile-content .semaphore ul li.rank3 .md-button{background: #FA9200;color: #4C4C4C}
 #content .container.profile #profile-content .semaphore ul li.rank4.on .label,
-#content .container.profile #profile-content .semaphore ul li.rank4 .md-button{background: #ED4F43;color: #fff}
+#content .container.profile #profile-content .semaphore ul li.rank4 .md-button{background: #ED4F43;color: #4C4C4C}
+#content .container.profile #profile-content .semaphore ul li.on .label{color: #fff}
 #content .container.profile #profile-content .semaphore .options{margin-top: 20px}
 #content .container.profile #profile-content .semaphore .options .option{
 	background: #1CA5F5;color: #fff;font-size: 18px;text-align: center;padding: 30px 5px;
@@ -348,6 +349,11 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.profile #profile-content .compare-button{background: #20B45E;color: #fff;font-weight: 700;float: left;margin-top: 10px;width: 25%;padding: 5px;text-align: center;}
 #content .container.profile #profile-content .pagination{float: right;margin-top: 10px;}
 
+#content .container.profile .section-image{background: #fff;padding: 24px 0;text-align: center;}
+#content .container.profile .section-image h3{color: #339DD1;font-size: 24px}
+#content .container.profile .section-image img{margin:30px 0;width: 85%}
+/*Perfil biblioteca*/
+#content .container.profile .section-image img{margin-top: 25px}
 
 #content .container.profile #profile-content .sidebar .box-yesno{background-color: #E9068B;color: #fff;font-size: 15px;margin-top: 10px;padding: 10px;text-align: center;}
 #content .container.profile #profile-content .sidebar .box-yesno.orange{background-color: #F6911B}
@@ -448,16 +454,16 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.blog .top{background: #F7921C;padding: 15px 25px}
 #content .container.blog .top h2{color: #fff;font-size: 18px;margin: 4px 0 0}
 #content .container.blog .top .search-field input{border: 0;padding: 10px}
-#content .container.blog .top .search-field input[type="submit"]{background: #F66814;}
+#content .container.blog .top .search-field input[type="submit"]{background: #F66814 url(../img/lupa_blanca.png) center no-repeat;}
 #content .container.blog .feed{margin-top: 20px}
 #content .container.blog .feed .post + .post{margin-top: 15px}
-#content .container.blog .post .post-top .post-title{background: #E90689;color: #fff;display: block;font-size: 15px;padding: 15px}
-#content .container.blog .post .post-top .post-prev{background: #A8A9AB;color: #fff;display: block;padding: 15px 10px;line-height: 1.2}
+#content .container.blog .post .post-top .post-title{background: #0087F0;border-bottom: 2px solid #EEEEEE;color: #fff;display: block;font-size: 15px;padding: 15px}
+#content .container.blog .post .post-top .post-prev{background: #fff;border-bottom: 2px solid #EEEEEE;color: #8F8F8F;display: block;padding: 15px 10px;line-height: 1.2}
 #content .container.blog .post .post-top .share{background: #00AFF0;color: #fff;padding: 15px 20px;text-align: center;}
 #content .container.blog .post .post-top .social-icons{font-size: 24px;position: relative;}
 #content .container.blog .post .post-top .social-icons .row-icons{height: 100%;left: 0;position: absolute;top: 0;width: 100%;}
-#content .container.blog .post .post-top .social-icon{background: #0086EF;border-left: 2px solid #fff;color: #fff;}
-#content .container.blog .post .post-top .stars-wrap{background: #22B461;border-left: 2px solid #fff;}
+#content .container.blog .post .post-top .social-icon{background: #fff;border-left: 2px solid #EEEEEE;color: #00AFF0;}
+#content .container.blog .post .post-top .stars-wrap{background: #fff;border-left: 2px solid #EEEEEE;}
 #content .container.blog .sidebar-blog{
 	margin-top: 20px;
 	-webkit-flex: 0 0 28%;
@@ -471,7 +477,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.blog .sidebar-blog .recent-posts li{position: relative;}
 #content .container.blog .sidebar-blog .recent-posts li + li{margin-top: 4px}
 #content .container.blog .sidebar-blog .recent-posts .photo img{max-width: 100%;float: left;}
-#content .container.blog .sidebar-blog .recent-posts .post-prev{background: #A8A9AB;color: #fff;padding: 10px}
+#content .container.blog .sidebar-blog .recent-posts .post-prev{background: #fff;color: #A2A2A2;padding: 10px}
 #content .container.blog .sidebar-blog .recent-posts .post-prev p{line-height: 1.2}
 #content .container.blog .sidebar-blog .tags{background: #A8A9AB;color: #fff;margin-bottom: 20px}
 #content .container.blog .sidebar-blog .tags a{color: #fff}
@@ -494,8 +500,8 @@ md-toolbar.md-default-theme{background: #08863D!important}
 /*Blog Post individual*/
 #content .container.post-individual .top{background: #08863D;}
 #content .container.post-individual .top p{color: #fff;line-height: 1.2}
-#content .container.post-individual .top .search-field input[type="submit"]{background: #086829}
-#content .container.post-individual .post-content{background: #fff;padding: 20px}
+#content .container.post-individual .top .search-field input[type="submit"]{background: #086829 url(../img/lupa_blanca.png) center no-repeat;}
+#content .container.post-individual .post-content{background: #fff;margin-top: 20px;padding: 20px}
 #content .container.post-individual .post-content img{max-width: 100%}
 
 /*FAQ*/
