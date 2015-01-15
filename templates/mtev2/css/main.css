@@ -99,7 +99,7 @@ md-tabs.md-default-theme md-tabs-ink-bar:before{
 #header #sub-header .column-right .titles{color: #fff;}
 #header #sub-header .column-right .titles h1{margin: 0;font-weight: 400;font-size: 16px;line-height: 22px;margin-top: 20px}
 #header #sub-header .column-right .titles p{line-height: 1.4}
-#header #sub-header .column-right.center-content{padding-bottom: 25px;text-align: center;}
+#header #sub-header .column-right.center-content{padding:0px 10px 25px 10px;text-align: center;}
 /*Buscador subheader*/
 #simple_search{margin-top: 10px;padding: 10px 0}
 #simple_search .input-field{position: relative;}
@@ -143,7 +143,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 /*Sidebar(home)*/
 #sidebar .email-box{background: #E850A7;color: #fff;margin-bottom: 5px;padding: 10px 12%;text-align: center;}
 #sidebar .email-box h4{font-size: 1.1em;margin-bottom: 5px}
-#sidebar .email-box input[type="text"]{display: block;margin: 0 auto 5px;padding: 3px 4px;width: 100%;}
+#sidebar .email-box input[type="text"]{border: 0;display: block;margin: 0 auto 5px;padding: 3px 4px;width: 100%;}
 #sidebar .email-box input[type="submit"]{width: 100%;}
 #sidebar .email-box md-checkbox{display: inline-block;margin: 5px 0}
 #sidebar .email-box md-checkbox.md-default-theme .md-icon{border-color:#fff;}
@@ -166,6 +166,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #sidebar .box-purple .icon-container{background: #9C2B9F}
 #sidebar .box-fb .icon-container{background: #2E4C8A}
 #sidebar .box-tw .icon-container{background: #1BA9F5}
+#sidebar .box.box-form{text-align: center;}
 #sidebar #tweets{background: #fff}
 #sidebar .ps-scrollbar-y{background:#30B6FD;}
 #sidebar .scroller{height: 500px;overflow-y: hidden;position: relative;}
@@ -398,7 +399,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.compare .add-school{background: #00AFF0;color: #fff;display: block;margin: 10px auto;max-width: 300px;font-weight: 700;padding: 8px;text-align: center;}
 
 
-/*Califica*/
+/*Compara*/
 #content .container.results #filters{
 	-webkit-flex: 0 0 28%;
 	-ms-flex: 0 0 28%;
@@ -457,19 +458,26 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.blog .sidebar-blog h3.no-margin{margin: 0}
 #content .container.blog .sidebar-blog .recent-posts{margin-bottom: 20px}
 #content .container.blog .sidebar-blog .recent-posts li{position: relative;}
-#content .container.blog .sidebar-blog .recent-posts li + li{margin-top: 10px}
+#content .container.blog .sidebar-blog .recent-posts li + li{margin-top: 4px}
 #content .container.blog .sidebar-blog .recent-posts .photo img{max-width: 100%;float: left;}
 #content .container.blog .sidebar-blog .recent-posts .post-prev{background: #A8A9AB;color: #fff;padding: 10px}
 #content .container.blog .sidebar-blog .recent-posts .post-prev p{line-height: 1.2}
 #content .container.blog .sidebar-blog .tags{background: #A8A9AB;color: #fff;margin-bottom: 20px}
 #content .container.blog .sidebar-blog .tags a{color: #fff}
-#content .container.blog .sidebar-blog .email-box{background: #A8A9AB;color: #fff;margin-bottom: 5px;padding: 10px 12%;text-align: center;}
+#content .container.blog .sidebar-blog .email-box{background: #A8A9AB;color: #fff;margin-bottom: 25px;padding: 10px 12%;text-align: center;}
 #content .container.blog .sidebar-blog .email-box input[type="text"]{display: block;margin: 0 auto 5px;padding: 3px 4px;width: 100%;}
 #content .container.blog .sidebar-blog .email-box input[type="submit"]{width: 100%;}
 #content .container.blog .sidebar-blog .email-box md-checkbox{display: inline-block;margin: 5px 0}
 #content .container.blog .sidebar-blog .email-box md-checkbox.md-default-theme .md-icon{border-color:#fff;}
 #content .container.blog .sidebar-blog .email-box md-checkbox.md-default-theme.md-checked .md-icon{background: #fff;}
 #content .container.blog .sidebar-blog .email-box a{color: #fff}
+#content .container.blog .sidebar-blog .box {margin: 15px 0;position: relative;}
+#content .container.blog .sidebar-blog .box .icon-container .icon-wrapper i{font-size: 32px}
+#content .container.blog .sidebar-blog .box .text-container{padding: 20px 10px;text-align: center;}
+#content .container.blog .sidebar-blog .box.download{background:#E90689;color: #fff} 
+#content .container.blog .sidebar-blog .box.download .icon-container{background: #C10E72}
+
+
 #content .container.blog .pagination{margin-top: 20px;text-align: center;}
 
 /*Blog Post individual*/
@@ -525,6 +533,28 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.contact form textarea{border: 0;margin-top: 15px;padding: 8px;resize:none;width: 100%;}
 #content .container.contact form input[type="submit"]{background: #0086EF;color: #fff;margin-top: 15px;text-align: center;font-size: 19px;float: right;padding: 15px;width: 50%;}
 
+/*Mejora*/
+#content .container #mejora-content{-webkit-flex: 0 0 68%; -ms-flex: 0 0 68%; flex: 0 0 68%; max-width: 68%; }
+#content .container #mejora-content .menu-top .tabs{height: 80px;margin-bottom: 15px}
+#content .container #mejora-content .menu-top .tabs #tool-tab{background: #E80D8F}
+#content .container #mejora-content .menu-top .tabs #programs-tab{background: #8C49CC}
+#content .container #mejora-content .post .more{font-weight: 700;text-align: center;}
+#content .container #mejora-content .post .more a{background: #FE7A0E;color: #fff;padding: 10px}
+#content .container #mejora-content .post .more a + a{background: #F36C00}
+#content .container #mejora-content .post + .post .more a{background: #1B9AE9}
+#content .container #mejora-content .post + .post .more a + a{background: #0485D6}
+#content .container #mejora-content .post .more i{font-size: 22px}
+#content .container #sidebar.mejora-sidebar .box-form{background: #F6911B;padding-top: 10px}
+#content .container #sidebar.mejora-sidebar .box-form p{line-height: 1.4;padding: 10px}
+#content .container #sidebar.mejora-sidebar .box-form p i{font-size: 26px}
+#content .container #sidebar.mejora-sidebar .box-form p.icon-p{padding: 0}
+#content .container #sidebar.mejora-sidebar .write-us{background: #F2780B}
+#content .container #sidebar.mejora-sidebar .write-us .trigger{cursor: pointer;font-weight: 400}
+#content .container #sidebar.mejora-sidebar .write-us form{padding: 0 20px 20px 20px}
+#content .container #sidebar.mejora-sidebar .write-us input[type="text"],
+#content .container #sidebar.mejora-sidebar .write-us input[type="email"]{border: 0;display: block;margin: 0 auto 5px;padding: 6px;width: 100%;}
+#content .container #sidebar.mejora-sidebar .write-us .button-bordered{margin-top: 6px;padding: 6px;}
+
 /*Footer*/
 #footer{background: #20B45E;color: #fff;padding: 10px 0;text-align: center;min-height: 83px;height: auto}
 #footer a{color: #fff}
@@ -540,6 +570,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #footer.bottom-e404{background: #009FE1;padding: 12px 0}
 #footer.bottom-e404 .container.e404 .link{color: #fff;font-size: 18px;float: left;text-align: center;width: 33%;}
 #footer.bottom-e404 .container.e404 .link a{color: #fff}
+#footer.bottom-e404 .container.e404 .link i{font-size: 28px}
 
 @media(max-width: 960px){
 	#content{padding: 0 12px}
@@ -581,6 +612,10 @@ md-toolbar.md-default-theme{background: #08863D!important}
 	#content .container.profile #profile-content .semaphore .options .option{padding: 0px 5px;}
 	#content .container.profile #profile-content .additional-info .data .comment-form md-checkbox .md-label{font-size: 12px}
 	#content .container.profile #profile-content .additional-info .data .comment-form .msg{padding: 4px}
+
+	/*Buscador*/
+	#content .container.results #results .compare-button{display: block;float: none;margin: 10px auto;width: auto}
+
 }
 
 @media (max-width: 380px){

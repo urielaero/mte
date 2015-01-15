@@ -65,6 +65,17 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
     });
 }]);
 
+app.controller("mejoraCTL", ['$scope',function ($scope) {
+	$scope.countToggle = 0;
+	$scope.toggleForm = false;
+    $scope.toggleFormEvent = function(){
+    	if($scope.countToggle == 0){
+    		$scope.toggleForm = true;
+    	}
+    }
+}]);
+
+
 app.controller("compareCTL", ['$scope',function ($scope) {
 	$scope.selectedIndex = 0;
 	$scope.countToggle = 0;

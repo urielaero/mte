@@ -30,7 +30,7 @@
 					    		<i class="icon-matutino"></i>
 					      	</md-tab>
 					      	<md-tab id="mail-tab" aria-controls="tab2-content">
-					      		<i class="icon-vespertino-01"></i>
+					      		<i class="icon-mail-01"></i>
 					      	</md-tab>
 					    </md-tabs>				
 					</div>
@@ -44,7 +44,7 @@
         		<div role="tabpanel" class="tab-content mail-content" aria-labelledby="tab1" ng-switch-when="1" md-swipe-left="next()" md-swipe-right="previous()" >
 					<p>Para más información, escríbenos a: <a href="#">contacto@mejoratuescuela.org</a></p>
 				</div>
-
+			</ng-switch> 
 		</div>
 		<?php $this->include_template('sidebar','home');  ?>
 	</div>
