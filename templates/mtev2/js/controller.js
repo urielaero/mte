@@ -33,7 +33,6 @@ app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
         $http({method: 'GET', url: page_proxy})
         .success(function(tweets){
             tweets.forEach(function(tweet,index) {
-            	console.log(tweets[index]);
             	//tweets[index] = $scope.replaceMentions($scope.replaceHashTags($scope.replaceURLWithHTMLLinks(tweet.text)));
             });
             $scope.tweets = tweets;
