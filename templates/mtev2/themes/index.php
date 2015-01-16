@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
  <head>
- 	<script src="/templates/mtev2/js/modernizr.js"></script>
+ 	<script  src="/templates/mtev2/js/modernizr.js"></script>
 	<meta charset="utf-8"/>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 	<link rel="shortcut icon" href="<?=$this->config->http_address?>/templates/<?=$this->config->theme?>/img/favicon.ico" />
