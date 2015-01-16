@@ -193,14 +193,14 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container .menu-top .profile-title .icon-container{background: #1B97ED;color: #fff;position: relative;}
 #content .container .menu-top .profile-title .icon-container .icon-wrapper i{font-size: 60px}
 #content .container .menu-top .profile-title h1{background: #30B6FD;color: #fff;font-size: 1.4em;font-weight: 700;line-height: 1.4;margin: 0;padding: 20px}
-#content .container .menu-top .profile-title p{background: #30A5F5;color: #fff;font-weight: 700;padding: 5px 20px;text-transform: uppercase;}
+#content .container .menu-top .profile-title p{background: #30A5F5;color: #fff;font-weight: 700;padding: 5px 20px;/*text-transform: uppercase;*/}
 #content .container .menu-top .compare-link{background: #0BBC3A;color: #fff;position: relative;text-align: center;}
 #content .container .menu-top .compare-link a{color: #fff;font-size: 18px;font-weight: 700;}
 #content .container .menu-top .compare-link i{font-size: 44px;font-size: 20px;margin-left: -48px; margin-bottom: 8px; display: block;}
 #content .container .menu-top .tabs{position: relative;}
 #content .container .menu-top md-tabs{height: 100%;left: 0;position: absolute;top: 0}
 #content .container .menu-top md-tabs .md-header{height: 100%}
-#content .container .menu-top md-tabs md-tab{font-weight: 700}
+#content .container .menu-top md-tabs md-tab{font-weight: 700;text-transform: initial}
 #content .container .menu-top md-tabs md-tab i{display: block;font-size: 32px}
 #content .container .menu-top md-tabs #matutino-tab{background: #E90C8F}
 #content .container .menu-top md-tabs #vespertino-tab{background: #8F49CD}
@@ -308,7 +308,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.profile #profile-content .additional-info .data{-webkit-flex: 0 0 73%; -ms-flex: 0 0 73%; flex: 0 0 73%; max-width: 73%;}
 
 #content .container.profile #profile-content .additional-info .tabs-data{margin-top: 10px}
-#content .container.profile #profile-content .additional-info .tabs-data md-tab md-tab-label{line-height: 1.4}
+#content .container.profile #profile-content .additional-info .tabs-data md-tab md-tab-label{line-height: 1.4;text-transform: initial}
 #content .container.profile #profile-content .additional-info .tabs-data .desempeno-tab{background: #8E62C1;}
 #content .container.profile #profile-content .additional-info .tabs-data .infraestructura-tab{background: #E850A7;}
 #content .container.profile #profile-content .additional-info .tabs-data .comentarios-tab{background: #0BBC3A;}
@@ -405,7 +405,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.califica .result p{text-transform: uppercase;}
 #content .container.califica .result .number{background: #fff;color: #7D7E80;max-width: 90px;margin: 10px auto;padding: 5px}
 
-/*Califica*/
+/*Compara/escuelas*/
 #content .container.compare .menu-top .tabs{height: 80px}
 #content .container.compare .menu-top .tabs .general-tab{background: #E850A7}
 #content .container.compare .menu-top .tabs .results-tab{background: #22B461}
@@ -413,10 +413,28 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.compare .menu-top .tabs .map-tab{background: #8E62C1}
 #content .container.compare .compare-table.general th + th{background: #E850A7}
 #content .container.compare .compare-table.years th + th{background: #22B461}
-#content .container.compare .add-school{background: #00AFF0;color: #fff;display: block;margin: 10px auto;max-width: 300px;font-weight: 700;padding: 8px;text-align: center;text-transform: uppercase;}
+#content .container.compare .add-school{background: #00AFF0;color: #fff;display: block;margin: 10px auto;max-width: 300px;font-weight: 700;padding: 8px;text-align: center;/*text-transform: uppercase;*/}
+#content .container.compare .search-form{background: #00AFF0;margin-top: 20px;padding: 20px}
+#content .container.compare .search-form div[flex="30"]{
+	-webkit-flex: 0 0 30%;
+	-ms-flex: 0 0 30%;
+	flex: 0 0 30%;
+	max-width: 30%;	
+}
+#content .container.compare .search-form .input-row + .input-row{margin-top: 5px}
+#content .container.compare .search-form input[type="text"],
+#content .container.compare .search-form select{background: #fff;border: 0;color: #818181;display: block;margin-top: 5px;padding: 8px;width: 100%}
+#content .container.compare .search-form .submit-row{margin-top: 5px}
+#content .container.compare .search-form .s-btn{background: #006FED;border: 0;color: #fff;font-weight: 700;font-size: 16px;margin-top: 10px;padding: 10px;text-align: center;
+	-webkit-flex: 0 0 48%;
+	-ms-flex: 0 0 48%;
+	flex: 0 0 48%;
+	max-width: 48%;	
+}
+#content .container.compare .search-form .s-btn.green-button{background: #22B461}
 
 
-/*Compara*/
+/*Compara resultados*/
 #content .container.results #filters{
 	-webkit-flex: 0 0 28%;
 	-ms-flex: 0 0 28%;
@@ -438,10 +456,10 @@ md-toolbar.md-default-theme{background: #08863D!important}
 /*Post(normal)*/
 #content .container.post{}
 #content .container.post .post-title .icon-container{background: #1E98EB}
-#content .container.post .post-title{background: #30B6FD;color: #fff;text-transform: uppercase;}
+#content .container.post .post-title{background: #30B6FD;color: #fff;/*text-transform: uppercase;*/}
 #content .container.post .post-title h1{font-size: 22px;padding: 0 15px}
 #content .container.post .post-content{background: #fff;color: #808080;;margin-top: 20px;padding: 35px}
-#content .container.post .post-content h2{color: #18B3DF;margin: 0;text-transform: uppercase;}
+#content .container.post .post-content h2{color: #18B3DF;margin: 0;/*text-transform: uppercase;*/}
 #content .container.post .post-content p{margin-bottom: 10px;line-height: 1.4}
 #content .container.post .post-content a.link{color: #E9036F}
 #content .container.post .post-content ul{margin-left: 10%}
@@ -471,7 +489,9 @@ md-toolbar.md-default-theme{background: #08863D!important}
 	flex: 0 0 28%;
 	max-width: 28%;
 }
-#content .container.blog .sidebar-blog h3{background: #00AFF0;color: #fff;font-weight: 400;font-size: 14px;margin: 0 0 10px 0;padding: 12px 0;text-align: center;text-transform: uppercase;}
+#content .container.blog .sidebar-blog h3{background: #00AFF0;color: #fff;font-weight: 400;font-size: 14px;margin: 0 0 10px 0;padding: 12px 0;text-align: center;/*text-transform: uppercase;*/}
+#content .container.blog .sidebar-blog h3.link{background: #0086EF}
+#content .container.blog .sidebar-blog h3.link a{color: #fff}
 #content .container.blog .sidebar-blog h3.no-margin{margin: 0}
 #content .container.blog .sidebar-blog .recent-posts{margin-bottom: 20px}
 #content .container.blog .sidebar-blog .recent-posts li{position: relative;}
@@ -508,7 +528,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.faq .questions li{margin-bottom: 10px;overflow: hidden;}
 #content .container.faq .questions .question{background: #F3910C;color: #fff;cursor: pointer;padding: 10px 25px;}
 #content .container.faq .questions .question .number{margin-right: 20px}
-#content .container.faq .questions .question-content{background: #D2D4D3;color: #505050;height: 0;padding: 0;
+#content .container.faq .questions .question-content{background: #fff;color: #505050;height: 0;padding: 0;
 	-webkit-transition: height .3s;
 	-moz-transition: height .3s;
 	-o-transition: height .3s;
@@ -575,7 +595,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 /*Footer*/
 #footer{background: #20B45E;color: #fff;padding: 10px 0;text-align: center;min-height: 83px;height: auto}
 #footer a{color: #fff}
-#footer .menu a{font-weight: 700;font-size: 14px;text-transform: uppercase;}
+#footer .menu a{font-weight: 700;font-size: 14px;/*text-transform: uppercase;*/}
 
 /*Error 404*/
 #main.e404{background: #00AEF5}

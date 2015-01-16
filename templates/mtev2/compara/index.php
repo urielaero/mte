@@ -33,20 +33,20 @@
 					<thead>
 						<tr>
 							<th class="footable-first-column">Escuelas</th>
-							<th data-hide="phone">Calificación Español</th>
-							<th data-hide="phone">Calificiación Matemáticas</th>
-							<th data-hide="phone">Nivel Escolar</th>
+							<th data-hide="phone">Calificación español</th>
+							<th data-hide="phone">Calificiación matemáticas</th>
+							<th data-hide="phone">Nivel escolar</th>
 							<th data-hide="phone">Turno</th>
-							<th data-hide="phone">Privada publica</th>
-							<th>Posicion Estatal</th>
-							<th class="footable-last-column">Semáforo Educativo</th>
+							<th data-hide="phone">Privada pública</th>
+							<th>Posicion estatal</th>
+							<th class="footable-last-column">Semáforo educativo</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>
 								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
+								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
 								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
 							</td>
 							<td>777</td>
@@ -63,7 +63,7 @@
 						<tr>
 							<td>
 								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
+								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
 								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
 							</td>
 							<td>777</td>
@@ -80,7 +80,7 @@
 						<tr>
 							<td>
 								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
+								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
 								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
 							</td>
 							<td>777</td>
@@ -97,7 +97,7 @@
 						<tr>
 							<td>
 								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
+								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
 								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
 							</td>
 							<td>777</td>
@@ -136,7 +136,7 @@
 						<tr>
 							<td>
 								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
+								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
 								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
 							</td>
 							<td>385</td>
@@ -152,7 +152,7 @@
 						<tr>
 							<td>
 								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
+								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
 								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
 							</td>
 							<td>385</td>
@@ -167,9 +167,7 @@
 						</tr>
 						<tr>
 							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
+								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
 							</td>
 							<td>385</td>
 							<td>--</td>
@@ -184,7 +182,7 @@
 						<tr>
 							<td>
 								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
+								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
 								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
 							</td>
 							<td>385</td>
@@ -203,5 +201,33 @@
 			</div>
 		</div>
 	</ng-switch>
+	<div class="search-form">
+		<form action="#">
+			<div layout="row" class="space-between input-row" layout-sm="column">
+				<div flex="30" flex-sm="100"><input type="text" placeholder="Nombre de la escuela"></div>
+				<div flex="30" flex-sm="100"><select>
+					<option value="">Estado</option>
+				</select></div>
+				<div flex="30" flex-sm="100"><select>
+					<option value="">Municipio</option>
+				</select></div>
+			</div>
+			<div layout="row" class="space-between input-row" layout-sm="column">
+				<div flex="30" flex-sm="100"><select>
+					<option value="">Nivel escolar</option>
+				</select></div>
+				<div flex="30" flex-sm="100"><select>
+					<option value="">Publica | Privada</option>
+				</select></div>
+				<div flex="30" flex-sm="100"><select>
+					<option value="">Localidad</option>
+				</select></div>
+			</div>
+			<div class="space-between submit-row" layout="row" layout-sm="column">
+				<input flex="48" flex-sm="100" type="submit" value="Buscar" class="s-btn">
+				<a href="#" flex="48" flex-sm="100" class="s-btn green-button">Ver en mapa</a>
+			</div>
+		</form>
+	</div>
 	<a href="#" class="add-school">Agregar otra escuela</a>	
 </div>

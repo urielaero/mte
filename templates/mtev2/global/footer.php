@@ -8,7 +8,7 @@
     	  <a href='https://github.com/mekler/cte-v2.0/wiki/API'>API</a>
     	  -->
     </p>
-    <p class='sole'>Todos los derechos reservados. | <a href='http://spaceshiplabs.com'>Diseño y Desarollo web</a> por <a href='http://spaceshiplabs.com'>Spaceshiplabs.</a></p>
+    <p class='sole'>Todos los derechos reservados. | <a href='http://spaceshiplabs.com'>Diseño y desarollo web</a> por <a href='http://spaceshiplabs.com'>Spaceshiplabs.</a></p>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

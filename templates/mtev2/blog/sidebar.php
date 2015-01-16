@@ -6,7 +6,7 @@
 				<a href="#" class="full-size-link"></a>
 				<div class="photo" flex="30"><img src="/templates/mtev2/img/blog-post1.jpg" alt=""></div>
 				<div class="post-prev" flex="70">
-					<p>Los derechos humanos y la educacion</p>
+					<p>Los derechos humanos y la educación</p>
 				</div>
 			</li>
 			<li layout="row">
@@ -27,7 +27,7 @@
 		<div class="box download">
 			<a href="#" class="full-size-link"></a>
 			<div layout="row">
-				<div flex="75" class="text-container"><p>DESCARGAR PDF</p></div>
+				<div flex="75" class="text-container"><p>Descargar PDF</p></div>
 				<div flex="25" class="icon-container">
 					<div class="icon-wrapper vertical-align-center horizontal-align-center">
 						<i class="icon-mejora"></i>
@@ -35,7 +35,11 @@
 				</div>	
 			</div>
 		</div>
-		<h3>Temas de interes</h3>
+		<?php if($_GET['action'] == 'publicacion'){ ?>
+		<h3 class="link"><a href="/blog">Histórico de notas</a></h3>
+		<?php } ?>
+
+		<h3>Temas de interés</h3>
 		<div class="tags"></div>
 		<h3 clasS="no-margin"><strong><i class="icon-mail-01"></i> Recibe nuestras noticias</strong></h3>
 		<div class="email-box">

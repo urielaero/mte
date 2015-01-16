@@ -18,7 +18,7 @@
 				</form>
 			</div>
 			<div layout="row">
-				<div flex="25" class="share">COMPARTIR</div>
+				<div flex="25" class="share">Compartir</div>
 				<div class="social-icons" flex="40">
 					<div layout="row" class="row-icons">
 						<a href="#" flex class="icon-container social-icon"><div class="icon-wrapper vertical-align-center horizontal-align-center">

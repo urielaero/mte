@@ -24,7 +24,7 @@
 						<p>El día de muertos es una de las tradiciones más importantes y antiguas en el país. Cada año, el 1 y 2 de noviembre se levantan altares para honrar a los difuntos.</p>
 					</div>
 				</div>
-				<a href="#" class="button-bordered">CONSULTA MÁS INFORMACIÓN EN NUESTRO BLOG</a>
+				<a href="#" class="button-bordered">Consulta más información en nuestro blog</a>
 			</div>
 		</div>
 		<?php $this->include_template('sidebar','home');  ?>

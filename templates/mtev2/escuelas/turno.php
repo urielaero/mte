@@ -11,14 +11,14 @@
 						</div>
 					</div>
 					<div flex="65">
-						<h4>CALIFICA TU ESCUELA</h4>
+						<h4>Califica tu escuela</h4>
 					</div>
 					<a href="#" class="full-size-link"></a>
 				</div>
 				<div class="block">
 					<ul>
 						<li>Clave: <?=$this->escuela->cct?></li>
-						<li><?=$this->capitalize($this->escuela->nivel->nombre)?></li>
+						<li>Nivel: <?=$this->capitalize($this->escuela->nivel->nombre)?></li>
 						<li>Turno: <?=$this->capitalize($this->escuela->turno->nombre)?></li>
 						<li><?=$controles[$this->escuela->control->id]?></li>
 						<li>Télefonos: <?=$this->escuela->telefono?></li>
@@ -165,7 +165,7 @@
 
 	    <ng-switch on="selectedData" class="tabpanel-container">
 	        <div role="tabpanel" class="desempeno" id="profile-content" aria-labelledby="tab1" ng-switch-when="0">
-				<h2>Desempeño Académico Matutino</h2>
+				<h2>Desempeño académico matutino</h2>
 				<div class="block" layout="row" layout-sm="column" layout-margin layout-fill layout-padding>
 					<div flex>
 						<div layout="row">
@@ -363,13 +363,13 @@
 					</tr>
 				</tbody>
 			</table>
-			<a href="#" class="compare-button">COMPARAR</a>
+			<a href="#" class="compare-button">Comparar</a>
 			<div class="pagination">
 				<a href="#">1</a>
 				<a href="#">2</a>
 				<a href="#">3</a>
 				<a href="#">&gt;</a>
-				<a href="#">ULTIMAS &gt;</a>
+				<a href="#">Últimas &gt;</a>
 			</div>
 			<div class="clear"></div>	
 		</div>
@@ -394,7 +394,7 @@
 			<div class="no"><span class="circle"></span>No</div>
 		</div>
 		<div class="programs">
-			<h5>Programas Federales</h5>
+			<h5>Programas federales</h5>
 			<ul>
 				<li layout="row">
 					<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuela Segura</div>
@@ -414,7 +414,7 @@
 			</ul>
 		</div>
 		<div class="programs">
-			<h5>Programas Federales</h5>
+			<h5>Programas OSC's</h5>
 			<ul>
 				<li layout="row">
 					<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuela Segura</div>
