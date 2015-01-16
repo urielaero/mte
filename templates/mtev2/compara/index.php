@@ -55,7 +55,10 @@
 							<td>Matutino</td>
 							<td>Privada</td>
 							<td><strong>1</strong> de <strong>548</strong></td>
-							<td><md-button class="md-fab rank1" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
+							<td>
+								<md-button class="md-fab rank1" aria-label="Time"><i class="icon-tache-01"></i></md-button>
+								<p>Excelente</p>
+							</td>
 						</tr>
 						<tr>
 							<td>
@@ -69,7 +72,10 @@
 							<td>Matutino</td>
 							<td>Privada</td>
 							<td><strong>1</strong> de <strong>548</strong></td>
-							<td><md-button class="md-fab rank2" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
+							<td>
+								<md-button class="md-fab rank2" aria-label="Time"><i class="icon-check-01"></i></md-button>
+								<p>Bien</p>
+							</td>
 						</tr>
 						<tr>
 							<td>
@@ -83,7 +89,10 @@
 							<td>Matutino</td>
 							<td>Privada</td>
 							<td><strong>1</strong> de <strong>548</strong></td>
-							<td><md-button class="md-fab rank3" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
+							<td>
+								<md-button class="md-fab rank3" aria-label="Time"><i class="icon-check-01"></i></md-button>
+								<p>De panzazo</p>
+							</td>
 						</tr>
 						<tr>
 							<td>
@@ -97,7 +106,10 @@
 							<td>Matutino</td>
 							<td>Privada</td>
 							<td><strong>1</strong> de <strong>548</strong></td>
-							<td><md-button class="md-fab rank4" aria-label="Time"><i class="icon-check-01"></i></md-button></td>
+							<td>
+								<md-button class="md-fab rank4" aria-label="Time"><i class="icon-tache-01"></i></md-button>
+								<p>Reprobado</p>
+							</td>
 						</tr>
 					</tbody>
 				</table>

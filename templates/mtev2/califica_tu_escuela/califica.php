@@ -37,34 +37,19 @@
     <ng-switch on="selectedIndex" class="tabpanel-container">
         <div role="tabpanel" id="califica-content" aria-labelledby="tab1" ng-switch-when="0" md-swipe-left="next()" md-swipe-right="previous()" >
 			<h1 class="green-title">Califica tu escuela seleccionando para cada campo una calificación del <strong>1-10</strong>.<br/>Estas calificaciones se promedian para generar la calificación general de tu escuela</h1>
-
-			<div class="tabs">
-			    <md-tabs md-selected="selectedQuestion">
-			    	<md-tab aria-controls="tab1-content">
-			    		<i class="icon-check-01"></i>
-			      	</md-tab>
-			      	<md-tab class="q2" aria-controls="tab2-content">
-			      		<i class="icon-programaapoyo-01"></i>
-			      	</md-tab>
-			      	<md-tab class="q3" aria-controls="tab2-content">
-			      		<i class="icon-desk-01"></i>
-			      	</md-tab>
-			      	<md-tab class="q4" aria-controls="tab2-content">
-			      		<i class="icon-familia-01"></i>
-			      	</md-tab>
-			      	<md-tab class="q5" aria-controls="tab2-content">
-			      		<i class="icon-buscar-01"></i>
-			      	</md-tab>
-			      	<md-tab class="q6" aria-controls="tab2-content">
-			      		<i class="icon-escuela-01"></i>
-			      	</md-tab>
-			    </md-tabs>				
-			</div>
-			<div class="questions-box">
-			    <ng-switch on="selectedQuestion" class="tabpanel-container">
-			        <div role="tabpanel" class="question-content" aria-labelledby="tab1" ng-switch-when="0">
+			
+			<div class="questions-box space-between" layout="row">
+				<div class="question">
+					<div class="question-content">
+		        		<div class="question-title q1" layout="row">
+		        			<div class="icon-container" flex="20">
+								<div  class="icon-wrapper vertical-align-center horizontal-align-center">
+									<i class="icon-check-01"></i>
+								</div>		        				
+		        			</div>
+		        			<h3 flex="80">Asistencia de los maestros</h3>
+		        		</div>
 			        	<div class="text">
-			        		<h3>Asistencia de los maestros</h3>
 							<p>¿Los maestros faltan a clases constantemente o siempre estan en el aula?</p>
 							<p>1 = "Faltan constantemente"</p>
 							<p>10 = "Nunca faltan"</p>
@@ -80,13 +65,22 @@
 							<div flex class="ans">8</div>
 							<div flex class="ans">9</div>
 							<div flex class="ans">10</div>
-						</div>
+						</div>			
 					</div>
-			        <div role="tabpanel" class="question-content" aria-labelledby="tab1" ng-switch-when="1">
+				</div>
+				<div class="question">
+					<div class="question-content">
+		        		<div class="question-title q1" layout="row">
+		        			<div class="icon-container" flex="20">
+								<div  class="icon-wrapper vertical-align-center horizontal-align-center">
+									<i class="icon-programaapoyo-01"></i>
+								</div>		        				
+		        			</div>
+		        			<h3 flex="80">Preparación de los maestros</h3>
+		        		</div>
 			        	<div class="text">
-			        		<h3>Preparacion de los maestros</h3>
 							<p>¿Qué tan preparados y capacitados están los maestros de tu escuela?</p>
-							<p>1 = "Poco preparados"</p>
+							<p>1 = "Poco preparados" </p>
 							<p>10 = "Muy preparados"</p>
 						</div>
 						<div class="ans-row" layout="row">
@@ -100,11 +94,23 @@
 							<div flex class="ans">8</div>
 							<div flex class="ans">9</div>
 							<div flex class="ans">10</div>
-						</div>
+						</div>			
 					</div>
-			        <div role="tabpanel" class="question-content" aria-labelledby="tab1" ng-switch-when="2">
+				</div>
+			</div>
+
+			<div class="questions-box space-between" layout="row">
+				<div class="question">
+					<div class="question-content">
+		        		<div class="question-title q2" layout="row">
+		        			<div class="icon-container" flex="20">
+								<div  class="icon-wrapper vertical-align-center horizontal-align-center">
+									<i class="icon-escuela-01"></i>
+								</div>		        				
+		        			</div>
+		        			<h3 flex="80">Infraestructura de la escuela</h3>
+		        		</div>
 			        	<div class="text">
-			        		<h3>Participación de padres de familia</h3>
 							<p>¿La escuela cuenta con las instalaciones necesarias para dar clases?</p>
 							<p>1 = "Inadecuadas"</p>
 							<p>10 = "Muy buenas"</p>
@@ -120,11 +126,20 @@
 							<div flex class="ans">8</div>
 							<div flex class="ans">9</div>
 							<div flex class="ans">10</div>
-						</div>
+						</div>			
 					</div>
-			        <div role="tabpanel" class="question-content" aria-labelledby="tab1" ng-switch-when="3">
+				</div>
+				<div class="question">
+					<div class="question-content">
+		        		<div class="question-title q2" layout="row">
+		        			<div class="icon-container" flex="20">
+								<div  class="icon-wrapper vertical-align-center horizontal-align-center">
+									<i class="icon-familia-01"></i>
+								</div>		        				
+		        			</div>
+		        			<h3 flex="80">Relación con padres de familia</h3>
+		        		</div>
 			        	<div class="text">
-			        		<h3>Relación con padres de familia</h3>
 							<p>¿Cómo es la relación de los maestros y director con los padres de familia?</p>
 							<p>1 = "Mala"</p>
 							<p>10 = "Muy buena"</p>
@@ -140,14 +155,26 @@
 							<div flex class="ans">8</div>
 							<div flex class="ans">9</div>
 							<div flex class="ans">10</div>
-						</div>
+						</div>			
 					</div>
-			        <div role="tabpanel" class="question-content" aria-labelledby="tab1" ng-switch-when="4">
+				</div>
+			</div>
+
+			<div class="questions-box space-between" layout="row">
+				<div class="question">
+					<div class="question-content">
+		        		<div class="question-title q3" layout="row">
+		        			<div class="icon-container" flex="20">
+								<div  class="icon-wrapper vertical-align-center horizontal-align-center">
+									<i class="icon-buscar-01"></i>
+								</div>		        				
+		        			</div>
+		        			<h3 flex="80">Honestidad y transparencia</h3>
+		        		</div>
 			        	<div class="text">
-			        		<h3>Honestidad y transparencia</h3>
-							<p>¿Los maestros faltan a clases constantemente o siempre estan en el aula?</p>
-							<p>1 = "Faltan constantemente"</p>
-							<p>10 = "Nunca faltan"</p>
+							<p>¿Las evaluaciones y exámenes se administran de manera honesta y transparente?</p>
+							<p>1 = "Hay copia y trampa" </p>
+							<p>10 = "Con honestidad"</p>
 						</div>
 						<div class="ans-row" layout="row">
 							<div flex class="ans">1</div>
@@ -160,14 +187,23 @@
 							<div flex class="ans">8</div>
 							<div flex class="ans">9</div>
 							<div flex class="ans">10</div>
-						</div>
+						</div>			
 					</div>
-			        <div role="tabpanel" class="question-content" aria-labelledby="tab1" ng-switch-when="5">
+				</div>
+				<div class="question">
+					<div class="question-content">
+		        		<div class="question-title q3" layout="row">
+		        			<div class="icon-container" flex="20">
+								<div  class="icon-wrapper vertical-align-center horizontal-align-center">
+									<i class="icon-desk-01"></i>
+								</div>		        				
+		        			</div>
+		        			<h3 flex="80">Participación de padres de familia</h3>
+		        		</div>
 			        	<div class="text">
-			        		<h3>Infraestructura de la escuela</h3>
-							<p>¿Los maestros faltan a clases constantemente o siempre estan en el aula?</p>
-							<p>1 = "Faltan constantemente"</p>
-							<p>10 = "Nunca faltan"</p>
+							<p>¿Los padres de familia participan de manera activa y organizada en la escuela?</p>
+							<p>1 = "No participan"</p>
+							<p>10 = "Participación activa"</p>
 						</div>
 						<div class="ans-row" layout="row">
 							<div flex class="ans">1</div>
@@ -180,9 +216,9 @@
 							<div flex class="ans">8</div>
 							<div flex class="ans">9</div>
 							<div flex class="ans">10</div>
-						</div>
+						</div>			
 					</div>
-				</ng-switch>
+				</div>
 			</div>
 
 			<div class="result">
