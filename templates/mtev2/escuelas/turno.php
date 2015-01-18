@@ -190,8 +190,18 @@
 					<div flex="75" class="chart" 
 					ng-init='chart[<?=$this->escuela_per_turno_index?>].matematicas=<?=json_encode($this->escuela_per_turno->chart_ma)?>'
 					>
-						<div id='profile-line-chart-matematicas'></div>
-
+						<div id='profile-line-chart-matematicas' class="content_chart"></div>
+			                        <div class="legend_chart">
+			                            <div class="wrap_lc">
+			                                <p ng-repeat="year in chart[<?=$this->escuela_per_turno_index?>].matematicas[0]" ng-if="year!='Año'">
+								<span class="circle" style='background:{{chart_colors[$index-1]}}'></span>
+								{{year}}
+							</p>
+			                            </div>
+	
+			                            <p class="under">_ _ _ _</p>
+			                            <p>Promedio nacional</p>
+			                        </div>
 					
 					</div>
 				</div>
@@ -205,7 +215,18 @@
 					<div flex="75" class="chart"
 					ng-init='chart[<?=$this->escuela_per_turno_index?>].espaniol=<?=json_encode($this->escuela_per_turno->chart_es)?>'
 					>
-						<div id='profile-line-chart-espaniol'></div>
+						<div id='profile-line-chart-espaniol' class="content_chart"></div>
+			                        <div class="legend_chart">
+			                            <div class="wrap_lc">
+			                                <p ng-repeat="year in chart[<?=$this->escuela_per_turno_index?>].espaniol[0]" ng-if="year!='Año'">
+								<span class="circle" style='background:{{chart_colors[$index-1]}}'></span>
+								{{year}}
+							</p>
+			                            </div>
+	
+			                            <p class="under">_ _ _ _</p>
+			                            <p>Promedio nacional</p>
+			                        </div>
 					</div>
 				</div>
 			</div>

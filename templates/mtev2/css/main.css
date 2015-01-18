@@ -375,6 +375,13 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.profile #profile-content .sidebar .programs ul li.on i{background: #fff;border: 2px solid #FFF;color: #1CA5F5;}
 #content .container.profile #profile-content .sidebar .programs ul li.on i:before{content: '\e81e';}
 
+/*charts escuela*/
+#content .container.profile .chart .legend_chart{display:inline-block;vertical-align:top;margin-top:19px;background:#ECECEC;width:80px;height:127px;padding-top:15px;}
+#content .container.profile .chart .legend_chart p{margin-left:23px;font-size:15px;line-height:14px;margin-bottom:5px;color:#A7A7A7;}
+#content .container.profile .legend_chart p .circle{width:13px;height:13px;display:inline-block;vertical-align:top;background:white;border-radius:50%;margin-right:6px;}
+#content .container.profile .legend_chart .under{margin:-8px 0 9px 8px;font-size:21px;color:#919191;}
+#content .container.profile .legend_chart .under + p{margin:0 0 0 0px;font-size:14px;text-align:center;}
+#content .container.profile .content_chart{overflow:hidden;width:351px;display:inline-block;height:145px;}
 
 /*Califica*/
 #content .container.califica{}
