@@ -187,12 +187,10 @@
 						<p>ENLACE</p>
 						<div class="label"><p>Matemáticas</p></div>
 					</div>
-					<div flex="75" class="chart">
-
-						<?php
-			                                echo "<div id='line-chart-data-matematicas' class='hidden'>".json_encode($this->escuela_per_turno->chart_ma)."</div><div id='profile-line-chart-matematicas' class='chart'></div>";
-						
-						?>
+					<div flex="75" class="chart" 
+					ng-init='chart[<?=$this->escuela_per_turno_index?>].matematicas=<?=json_encode($this->escuela_per_turno->chart_ma)?>'
+					>
+						<div id='profile-line-chart-matematicas'></div>
 
 					
 					</div>
@@ -204,11 +202,10 @@
 						<p>ENLACE</p>
 						<div class="label"><p>Español</p></div>
 					</div>
-					<div flex="75" class="chart">
-						<?php 
-			                                echo "<div id='line-chart-data-espaniol' class='hidden'>".json_encode($this->escuela_per_turno->chart_es)."</div><div id='profile-line-chart-espaniol' class='chart'></div>";
-						
-						?>
+					<div flex="75" class="chart"
+					ng-init='chart[<?=$this->escuela_per_turno_index?>].espaniol=<?=json_encode($this->escuela_per_turno->chart_es)?>'
+					>
+						<div id='profile-line-chart-espaniol'></div>
 					</div>
 				</div>
 			</div>

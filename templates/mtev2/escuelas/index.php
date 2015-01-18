@@ -52,7 +52,7 @@ if(!empty($this->escuela->rank)){
 				</div>			
 			</div>
 			<div class="tabs" flex="30" flex-sm="100">
-			    <md-tabs md-selected="selectedIndex">
+			    <md-tabs md-selected="selectedIndex" ng-click="loadCharts()">
 			    	<?php foreach($escuela_per_turnos as $i=>$escuela){?>
 				    	<md-tab id="<?=$escuela->nombre_icon?>-tab" aria-controls="tab<?=$i?>-content">
 				    		<i class="icon-<?=$escuela->nombre_icon?>"></i>
@@ -76,6 +76,7 @@ if(!empty($this->escuela->rank)){
     <ng-switch on="selectedIndex" class="tabpanel-container">
     	<?php foreach($escuela_per_turnos as $i=>$escuela){
 		$this->escuela_per_turno = $escuela;
+        $this->escuela_per_turno_index = $i;
 	?>
 	        <div role="tabpanel" id="profile-content" aria-labelledby="tab<?=$i?>" ng-switch-when="<?=$i?>" md-swipe-left="next()" md-swipe-right="previous()" >
 			<?php 

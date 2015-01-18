@@ -62,6 +62,34 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
 	    	$(this).trigger('footable_toggle_row');
 	    });
     });
+    $scope.chart = [];
+    if(window.onLoadCallbackChart)
+        onLoadCallbackChart.doneAngular(function(){
+            console.log("adasd");
+            console.log($scope.chart)
+            $scope.loadCharts();
+        });
+
+    $scope.loadCharts = function(index){
+        console.log('RUN!!',$scope.selectedIndex)
+        index = index || $scope.selectedIndex;
+        var colors = ["#16A452","#339DD1","#E9068B","#F6911B","#990099","#888888"],	
+            options = {
+                chartArea : {width:295,height:94,left:40,top:35}
+                ,legend: {position:'none'}
+                ,colors:colors
+            };
+        Object.keys($scope.chart[index]).forEach(function(materia){
+            var raw_data = $scope.chart[index][materia],
+            data = google.visualization.arrayToDataTable(raw_data),
+            nLine = raw_data[0].length-1,
+            template = "<p><span class='circle' style='background:C'></span>N</p>",
+            content =$('.legend_chart .wrap_lc').html(""),
+            temp;
+            var chart = new google.visualization.LineChart(document.getElementById('profile-line-chart-'+materia));
+            chart.draw(data, options);
+        });    
+    };
 }]);
 
 app.controller("mejoraCTL", ['$scope',function ($scope) {
