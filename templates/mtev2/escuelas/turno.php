@@ -151,7 +151,7 @@
 				</div>
 			</div>
 		</form>
-	    <md-tabs class="tabs-data" md-selected="selectedData">
+	    <md-tabs class="tabs-data" md-selected="selectedData"  ng-click="loadCharts($event)">
 	    	<md-tab class="desempeno-tab" aria-controls="tab1-content">
 	        	Desempeño<br/>academico
 	      	</md-tab>

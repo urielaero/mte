@@ -69,9 +69,11 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
 
     $scope.chart_colors = ["#16A452","#339DD1","#E9068B","#F6911B","#990099","#888888"];
     $scope.chart = [];
-    $scope.loadCharts = function(index){
-        index = index || $scope.selectedIndex;
-        var	options = {
+    $scope.loadCharts = function($event){
+        if($event && angular.element($event.target).text().trim()!='Desempeñoacademico')
+            return;
+        var index = $scope.selectedIndex,
+        	options = {
                 chartArea : {width:295,height:94,left:40,top:35},
                 legend: {position:'none'},
                 colors:$scope.chart_colors
