@@ -45,15 +45,18 @@
 			</div>
 		</div>
 		<div class="counters" layout="row" layout-sm="column">
-			<div flex><div layout="row" layout-margin>
+			<div flex><div layout="row">
+				<div flex class="icon-box"><i class="icon-student"></i></div>
 				<div flex>Número de alumnos:</div>
 				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
 			</div></div>
-			<div flex><div layout="row" layout-margin>
+			<div flex><div layout="row">
+				<div flex class="icon-box small"><i class="icon-desk-01"></i></div>
 				<div flex>Número de alumnos:</div>
 				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
 			</div></div>
-			<div flex><div layout="row" layout-margin>
+			<div flex><div layout="row">
+				<div flex class="icon-box small"><i class="icon-desk-01"></i></div>
 				<div flex>Número de alumnos:</div>
 				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
 			</div></div>
@@ -316,9 +319,9 @@
 				<div flex="50">Comentarios</div>
 				<div flex="50">
 					<div layout="row" class="total">
-						<div flex="20"></div>
+						<div flex="20" class="icon-box"><i class="icon-desk-01"></i></div>
 						<div flex="60">Total de personas que evaluaron esta escuela</div>
-						<div flex="20"></div>
+						<div flex="20"><strong>456</strong></div>
 				</div>
 			</h2>
 			<div class="table-top" layout="row">
