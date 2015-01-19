@@ -18,17 +18,23 @@
 						<div class="social-icons" flex="40">
 							<div layout="row" class="row-icons">
 								<a href="#" flex class="icon-container social-icon"><div class="icon-wrapper vertical-align-center horizontal-align-center">
-									<i class="icon-facebook"></i>
+									<i class="icon-fb-01"></i>
 								</div></a>
 								<a href="#" flex class="icon-container social-icon"><div class="icon-wrapper vertical-align-center horizontal-align-center">
-									<i class="icon-twitter"></i>
+									<i class="icon-twitter-01-01"></i>
 								</div></a>
 								<a href="#" flex class="icon-container social-icon"><div class="icon-wrapper vertical-align-center horizontal-align-center">
 									<i class="icon-mail-01"></i>
 								</div></a>								
 							</div>
 						</div>
-						<div flex="35" class="stars-wrap"></div>
+						<div flex="35" class="stars-wrap">
+							<i class="icon-estrella-01"></i>
+							<i class="icon-estrella-01"></i>
+							<i class="icon-estrella-01"></i>
+							<i class="icon-estrella-01"></i>
+							<i class="icon-estrella-01"></i>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -41,17 +47,23 @@
 						<div class="social-icons" flex="40">
 							<div layout="row" class="row-icons">
 								<a href="#" flex class="icon-container social-icon"><div class="icon-wrapper vertical-align-center horizontal-align-center">
-									<i class="icon-facebook"></i>
+									<i class="icon-fb-01"></i>
 								</div></a>
 								<a href="#" flex class="icon-container social-icon"><div class="icon-wrapper vertical-align-center horizontal-align-center">
-									<i class="icon-twitter"></i>
+									<i class="icon-twitter-01-01"></i>
 								</div></a>
 								<a href="#" flex class="icon-container social-icon"><div class="icon-wrapper vertical-align-center horizontal-align-center">
 									<i class="icon-mail-01"></i>
 								</div></a>								
 							</div>
 						</div>
-						<div flex="35" class="stars-wrap"></div>
+						<div flex="35" class="stars-wrap">
+							<i class="icon-estrella-01"></i>
+							<i class="icon-estrella-01"></i>
+							<i class="icon-estrella-01"></i>
+							<i class="icon-estrella-01"></i>
+							<i class="icon-estrella-01"></i>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -64,17 +76,23 @@
 						<div class="social-icons" flex="40">
 							<div layout="row" class="row-icons">
 								<a href="#" flex class="icon-container social-icon"><div class="icon-wrapper vertical-align-center horizontal-align-center">
-									<i class="icon-facebook"></i>
+									<i class="icon-fb-01"></i>
 								</div></a>
 								<a href="#" flex class="icon-container social-icon"><div class="icon-wrapper vertical-align-center horizontal-align-center">
-									<i class="icon-twitter"></i>
+									<i class="icon-twitter-01-01"></i>
 								</div></a>
 								<a href="#" flex class="icon-container social-icon"><div class="icon-wrapper vertical-align-center horizontal-align-center">
 									<i class="icon-mail-01"></i>
 								</div></a>								
 							</div>
 						</div>
-						<div flex="35" class="stars-wrap"></div>
+						<div flex="35" class="stars-wrap">
+							<i class="icon-estrella-01"></i>
+							<i class="icon-estrella-01"></i>
+							<i class="icon-estrella-01"></i>
+							<i class="icon-estrella-01"></i>
+							<i class="icon-estrella-01"></i>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -86,17 +104,23 @@
 						<div class="social-icons" flex="40">
 							<div layout="row" class="row-icons">
 								<a href="#" flex class="icon-container social-icon"><div class="icon-wrapper vertical-align-center horizontal-align-center">
-									<i class="icon-facebook"></i>
+									<i class="icon-fb-01"></i>
 								</div></a>
 								<a href="#" flex class="icon-container social-icon"><div class="icon-wrapper vertical-align-center horizontal-align-center">
-									<i class="icon-twitter"></i>
+									<i class="icon-twitter-01-01"></i>
 								</div></a>
 								<a href="#" flex class="icon-container social-icon"><div class="icon-wrapper vertical-align-center horizontal-align-center">
 									<i class="icon-mail-01"></i>
 								</div></a>								
 							</div>
 						</div>
-						<div flex="35" class="stars-wrap"></div>
+						<div flex="35" class="stars-wrap">
+							<i class="icon-estrella-01"></i>
+							<i class="icon-estrella-01"></i>
+							<i class="icon-estrella-01"></i>
+							<i class="icon-estrella-01"></i>
+							<i class="icon-estrella-01"></i>
+						</div>
 					</div>
 				</div>
 			</div>

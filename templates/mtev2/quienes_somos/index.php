@@ -31,7 +31,7 @@
 					<div class="tabs" flex="45" flex-sm="100">
 					    <md-tabs md-selected="selectedIndex">
 					    	<md-tab id="phone-tab" aria-controls="tab1-content">
-					    		<i class="icon-matutino"></i>
+					    		<i class="icon-telefono-01"></i>
 					      	</md-tab>
 					      	<md-tab id="mail-tab" aria-controls="tab2-content">
 					      		<i class="icon-mail-01"></i>

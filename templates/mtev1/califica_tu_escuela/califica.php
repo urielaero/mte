@@ -18,6 +18,7 @@
     <?php
         if ($this->preguntas) {
             foreach($this->preguntas as $pregunta) {
+            	echo 'hey listen';
                 echo "<div class='calificacion'>
                     <input type='hidden' class='pregunta' value='{$pregunta->id}' />
                     <h2>{$pregunta->titulo}</h2>
