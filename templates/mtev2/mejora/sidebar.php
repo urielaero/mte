@@ -1,4 +1,8 @@
 		<div flex="30" flex-sm="100" id="sidebar" class="mejora-sidebar">
+			<form class="search-form" layout="row" layout-sm="column">
+				<input type="text" placeholder="Búsca una infografia" flex="80">
+				<input type="submit" value="" flex="20">
+			</form>
 			<div class="email-box">
 				<h4><strong><i class="icon-mail-01"></i> Mantente informado</strong></h4>
 				<form action="#">

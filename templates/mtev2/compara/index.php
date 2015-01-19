@@ -8,19 +8,19 @@
 		<div class="tabs">
 		    <md-tabs md-selected="selectedIndex">
 		    	<md-tab class="general-tab" aria-controls="tab1-content">
-		    		<i class="icon-matutino"></i>
+		    		<i class="icon-general-01"></i>
 		    		<p>General</p>
 		      	</md-tab>
 		      	<md-tab class="results-tab" aria-controls="tab2-content">
-		      		<i class="icon-vespertino-01"></i>
+		      		<i class="icon-calendar"></i>
 		      		<p>Resultados por año</p>
 		      	</md-tab>
 		    	<md-tab class="student-tab" aria-controls="tab1-content">
-		    		<i class="icon-matutino"></i>
+		    		<i class="icon-student"></i>
 		    		<p>Desempeño por alumno</p>
 		      	</md-tab>
 		      	<md-tab class="map-tab" aria-controls="tab2-content">
-		      		<i class="icon-vespertino-01"></i>
+		      		<i class="icon-mapa"></i>
 		      		<p>Mapa</p>
 		      	</md-tab>
 		    </md-tabs>				

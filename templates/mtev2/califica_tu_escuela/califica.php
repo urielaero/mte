@@ -38,8 +38,8 @@
         <div role="tabpanel" id="califica-content" aria-labelledby="tab1" ng-switch-when="0" md-swipe-left="next()" md-swipe-right="previous()" >
 			<h1 class="green-title">Califica tu escuela seleccionando para cada campo una calificación del <strong>1-10</strong>.<br/>Estas calificaciones se promedian para generar la calificación general de tu escuela</h1>
 			
-			<div class="questions-box space-between" layout="row">
-				<div class="question">
+			<div class="questions-box space-between" layout="row" layout-sm="column">
+				<div class="question" flex-sm="100" >
 					<div class="question-content">
 		        		<div class="question-title q1" layout="row">
 		        			<div class="icon-container" flex="20">
@@ -68,7 +68,7 @@
 						</div>			
 					</div>
 				</div>
-				<div class="question">
+				<div class="question" flex-sm="100" >
 					<div class="question-content">
 		        		<div class="question-title q1" layout="row">
 		        			<div class="icon-container" flex="20">
@@ -99,8 +99,8 @@
 				</div>
 			</div>
 
-			<div class="questions-box space-between" layout="row">
-				<div class="question">
+			<div class="questions-box space-between" layout="row" layout-sm="column">
+				<div class="question" flex-sm="100" >
 					<div class="question-content">
 		        		<div class="question-title q2" layout="row">
 		        			<div class="icon-container" flex="20">
@@ -129,7 +129,7 @@
 						</div>			
 					</div>
 				</div>
-				<div class="question">
+				<div class="question" flex-sm="100" >
 					<div class="question-content">
 		        		<div class="question-title q2" layout="row">
 		        			<div class="icon-container" flex="20">
@@ -160,8 +160,8 @@
 				</div>
 			</div>
 
-			<div class="questions-box space-between" layout="row">
-				<div class="question">
+			<div class="questions-box space-between" layout="row" layout-sm="column">
+				<div class="question" flex-sm="100" >
 					<div class="question-content">
 		        		<div class="question-title q3" layout="row">
 		        			<div class="icon-container" flex="20">
@@ -190,7 +190,7 @@
 						</div>			
 					</div>
 				</div>
-				<div class="question">
+				<div class="question" flex-sm="100" >
 					<div class="question-content">
 		        		<div class="question-title q3" layout="row">
 		        			<div class="icon-container" flex="20">
@@ -221,9 +221,9 @@
 				</div>
 			</div>
 
-			<div class="result">
-				<p>En promedio, calificas a tu escuela con:</p>
-				<p class="number">8</p>
+			<div class="result" layout="row">
+				<div flex="70" class="desc">En promedio, calificas a tu escuela con:</div>
+				<div flex="30" class="number">8</div>
 			</div>
 			
 			<form action="/" method="GET" class="comment-form">
