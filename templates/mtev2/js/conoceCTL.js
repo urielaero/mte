@@ -1,0 +1,57 @@
+app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
+    $scope.entidades = [{nombre:'Todos'}].concat(entidades);
+    $scope.entidad = $scope.entidades[0];
+    $scope.municipios = [{nombre:'Todos'}].concat(municipios);
+    $scope.municipio = $scope.municipios[0];
+    $scope.localidades = [{nombre:'Todas'}].concat(localidades);
+    $scope.localidad = $scope.localidades[0];
+    $scope.semaforos = semaforos;
+    $scope.loading = true;
+
+    $scope.getLocalidades = function(){
+        $scope.localidades = [{nombre:'Todas'}];
+        var params  = {
+            entidad : $scope.entidad.id || null,
+            municipio : $scope.municipio.id || null,
+        };
+        $http({method:'POST',url:'/api/localidades',data:params}).then(function(response){
+            $scope.loading = false;
+            $scope.localidades = $scope.localidades.concat(response.data);
+            $scope.localidad = $scope.localidades[0];
+        });
+    }
+
+    $scope.entidadChange = function(){
+        if($scope.municipio && $scope.entidad.id != $scope.municipio.id){
+            $scope.municipio = $scope.municipios[0];
+        }
+        $scope.getLocalidades();
+    }
+    $scope.municipioChange = function(){
+        if($scope.localidad && $scope.entidad.id != $scope.localidad.id){
+            $scope.localidad = $scope.localidades[0];
+        }
+        $scope.getLocalidades();
+    }
+    $scope.getEscuelas = function(){
+        var params  = {
+            entidad : $scope.entidad.id || null,
+            municipio : $scope.municipio.id || null,
+        };
+        $scope.loading = true;
+        $http({method:'POST',url:'/api/escuelas',data:params}).then(function(response){
+            console.log(response.data);
+            $scope.escuelas = response.data.escuelas;
+            $scope.loading = false;
+        });
+    }
+    $scope.getEscuelas();
+}]);
+
+app.filter('municipiosFilter', function () {
+  return function (municipios,entidad) {
+    return municipios.filter(function (mun) {
+      return !entidad.id || !mun.entidad || mun.entidad.id == entidad.id
+    });
+  };
+});

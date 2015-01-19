@@ -18,6 +18,8 @@ class municipio extends table{
 class localidad extends table{
 	function info(){
 		$this->table_name = "localidades";
+		$this->objects['entidad'] = 'entidad';
+		$this->objects['municipio'] = 'municipio';
 		$this->has_many['escuelas'] = "escuela";
 		$this->has_many_keys['escuelas'] = "localidad";
 	}

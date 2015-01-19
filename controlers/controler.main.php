@@ -25,7 +25,7 @@ class main extends controler{
 		$this->draw_charts = false; 
 		$this->angular = false;
 		$this->get_data_compara_float();
-		$this->load_entidades();
+		//$this->load_entidades();
 		#$this->testMail();
 	}
 
@@ -68,6 +68,7 @@ class main extends controler{
 				$escuelas[$escuela->cct]->rank = $escuela->rank_entidad;
 				$escuelas[$escuela->cct]->rank_nacional = $escuela->rank_nacional;
 				$escuelas[$escuela->cct]->direccion = $this->capitalize($escuela->localidad->nombre).', '.$this->capitalize($escuela->entidad->nombre);
+				$escuelas[$escuela->cct]->turno = $escuela->turno;
 			}
 			$width = $this->distance($maxlat,$minlong,$maxlat,$maxlong);
 			$height = $this->distance($maxlat,$minlong,$minlat,$minlong);
@@ -129,15 +130,18 @@ class main extends controler{
 		$q->search_clause .= ' AND municipios.entidad > 0';
 		$q->order_by = 'municipios.nombre';
 		$this->municipios = $q->read('id,nombre,entidad=>nombre,entidad=>id');
-		if($this->request('json') || true){
-			$response = array();
-			foreach($this->municipios as $key => $municipio){
-				$response[$key] = new stdClass();
-				$response[$key]->id = $municipio->id;
-				$response[$key]->nombre = $this->capitalize($municipio->nombre).", ".$this->capitalize($municipio->entidad->nombre);
-			}
-			if($this->request('json')) echo json_encode($response);
+		
+		$response = array();
+		foreach($this->municipios as $key => $municipio){
+			$response[$key] = new stdClass();
+			$response[$key]->id = $municipio->id;
+			$response[$key]->nombre = $this->capitalize($municipio->nombre).", ".$this->capitalize($municipio->entidad->nombre);
+			$response[$key]->entidad = new stdClass();
+			$response[$key]->entidad->id = $municipio->entidad->id;
+			$response[$key]->entidad->nombre = $municipio->entidad->nombre;
 		}
+		//if($this->request('json')) echo json_encode($response);
+		return $response;
     }
 
 	/**
@@ -146,29 +150,38 @@ class main extends controler{
 	* al momento de la llamada por POST se especifica la variable "entidad" o "municipio" son regresados las localidades 
 	* con esos filtros, si no es así se muestran todos los municipios además si es especificado la variable json se regresan los resultados en este formato.
 	*/
-	public function load_localidades(){
-		
-		if($this->request('entidad') || $this->request('municipio')){
+	public function load_localidades(){		
+		$entidad = $this->request('entidad');
+		$municipio = $this->request('municipio');
+		if($entidad || $municipio){
 			$q = new localidad();
-			$q->search_clause = $this->request('entidad') ? 'localidades.entidad = "'.$this->request('entidad').'"' : '1';
-			$q->search_clause = $this->request('municipio') ? 'localidades.municipio = "'.$this->request('municipio').'"' : $q->search_clause;
+			$q->search_clause = $entidad ? 'localidades.entidad = "'.$entidad.'"' : '1';
+			$q->search_clause = $municipio ? 'localidades.municipio = "'.$municipio.'"' : $q->search_clause;
 			$q->order_by = 'localidades.nombre';
 			//$q->debug = true;
-			$this->localidades = $q->read('id,nombre,entidad=>nombre,entidad=>id');
-			if($this->request('json')){
-				$response = array();
-				foreach($this->localidades as $key => $localidad){
-					$response[$key] = new StdClass();
-					$response[$key]->id = $localidad->id;
-					$response[$key]->nombre = $this->capitalize($localidad->nombre);
-				}
-				echo json_encode($response);
+			$this->localidades = $q->read('id,nombre,entidad=>nombre,entidad=>id,municipio=>nombre,municipio=>id');
+			
+
+			$response = array();
+			foreach($this->localidades as $key => $localidad){
+				$response[$key] = new StdClass();
+				$response[$key]->id = $localidad->id;
+				$response[$key]->nombre = $this->capitalize($localidad->nombre);
+				$response[$key]->entidad = new stdClass();
+				$response[$key]->entidad->id = $localidad->entidad->id;
+				$response[$key]->entidad->nombre = $localidad->entidad->nombre;
+				$response[$key]->municipio = new stdClass();
+				$response[$key]->municipio->id = $localidad->municipio->id;
+				$response[$key]->municipio->nombre = $localidad->municipio->nombre;
 			}
+			return $response;
+
 		}else{
 			$this->localidades = false;
 		}
 		
 	}
+	
 
 	/**
 	* Funcion Publica get_escuelas.
@@ -265,7 +278,8 @@ class main extends controler{
 					$response[$key]->cct = $escuela->cct;
 				}
 			}
-			echo json_encode($response);
+			//echo json_encode($response);
+			return $response;
 		}
 	}
 
@@ -339,6 +353,8 @@ class main extends controler{
 		$q->search_clause = 'rank > 0';
 		if($order_by) $q->order_by = $order_by;
 		$this->entidades = $q->read('id,nombre,cct_count,promedio_general,rank');
+		$api = new api($this->config);
+		if($this->config->jsonMode) return $api->jsonify($this->entidades,["id","nombre","cct_count","promedio_general","rank"]);
 	}
 
 	/**
@@ -450,20 +466,20 @@ class main extends controler{
     protected function cct_count_entidad(){
     	if(isset($this->escuelas)){
 		
-		foreach($this->escuelas as $escuela){
-			$id_entidad = isset($escuela->entidad->id)?$escuela->entidad->id:$escuela->entidad;
-			$entidad = new entidad($id_entidad);
-			$nivelNombre = isset($escuela->nivel->nombre)?$escuela->nivel->nombre:$escuela->nom_nivel;
-			if($nivelNombre == "TECNICO PROFESIONAL")
-				$nivelNombre = "BACHILLERATO";
-			$nivel = "numero_escuelas_".strtolower($nivelNombre);
-			$nivelNacional = "numero_nacional_escuelas_".strtolower($nivelNombre);
-			$entidad->read($nivel.",".$nivelNacional);
-			$escuela->entidad_cct_count = isset($entidad->$nivel) ? $entidad->$nivel : 0;
-			$escuela->nacional_cct_count = isset($entidad->$nivelNacional) ? $entidad->$nivelNacional : 0;
-			//var_dump($entidad);
+			foreach($this->escuelas as $escuela){
+				$id_entidad = isset($escuela->entidad->id)?$escuela->entidad->id:$escuela->entidad;
+				$entidad = new entidad($id_entidad);
+				$nivelNombre = isset($escuela->nivel->nombre)?$escuela->nivel->nombre:$escuela->nom_nivel;
+				if($nivelNombre == "TECNICO PROFESIONAL")
+					$nivelNombre = "BACHILLERATO";
+				$nivel = "numero_escuelas_".strtolower($nivelNombre);
+				$nivelNacional = "numero_nacional_escuelas_".strtolower($nivelNombre);
+				$entidad->read($nivel.",".$nivelNacional);
+				$escuela->entidad_cct_count = isset($entidad->$nivel) ? $entidad->$nivel : 0;
+				$escuela->nacional_cct_count = isset($entidad->$nivelNacional) ? $entidad->$nivelNacional : 0;
+				//var_dump($entidad);
+			}
 		}
-	}
     }
 
     /**

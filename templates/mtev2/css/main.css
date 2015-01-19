@@ -244,10 +244,10 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container .compare-table table .footable-row-detail-cell{background: #1B97ED;color: #fff}
 
 #content .container .compare-table table td .md-button{box-shadow: none;color: #4C4C4C;cursor: default;height: 32px;width: 32px;}
-#content .container .compare-table table td .md-button.rank1{background: #0BBC3A;color: #4C4C4C}
-#content .container .compare-table table td .md-button.rank2{background: #FBFF00;color: #4C4C4C}
-#content .container .compare-table table td .md-button.rank3{background: #FA9200;color: #4C4C4C}
-#content .container .compare-table table td .md-button.rank4{background: #ED4F43;color: #4C4C4C}
+#content .container .compare-table table td .md-button.rank4{background: #0BBC3A;color: #4C4C4C}
+#content .container .compare-table table td .md-button.rank3{background: #FBFF00;color: #4C4C4C}
+#content .container .compare-table table td .md-button.rank2{background: #FA9200;color: #4C4C4C}
+#content .container .compare-table table td .md-button.rank1{background: #ED4F43;color: #4C4C4C}
 #content .container .compare-table .footable.breakpoint>tbody>tr>td>span.footable-toggle:before{
 	content: '\e809';
 	font-family: "fontello";
@@ -451,6 +451,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.results #filters .text-field input{border: 0;padding: 10px}
 #content .container.results #filters .text-field input[type="submit"]{background: #00AFF0;}
 #content .container.results #filters select{display: block; background: #fff; color: #636363;width: 100%; border: 0; padding: 6px 8px;}
+#content .container.results #filters select:disabled{opacity: .5}
 #content .container.results #filters label{display: block;margin-top: 8px;font-weight: 700}
 #content .container.results #filters md-checkbox{margin: 0}
 #content .container.results #results{}
