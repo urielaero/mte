@@ -44,7 +44,7 @@
 								<a href="#" flex="50"><i class="icon-mail-01"></i></a>
 							</div>
 						</div>
-						<a href="#" class="button-bordered">Consulta más información en nuestro blog</a>
+						<a href="#" class="button-bordered">Consulta más información</a>
 					</div>
 				</div>
         		<div role="tabpanel" class="tab-content programs-content" aria-labelledby="tab1" ng-switch-when="1" md-swipe-left="next()" md-swipe-right="previous()" >

@@ -42,7 +42,7 @@
 			</div>
 			<div class="box box-form">
 				<p class="icon-p"><i class="icon-comentario-01"></i></p>
-				<p>Si te interesa algún otro tema que no aparezca en nuestra seccion</p>
+				<p>Si te interesa algún otro tema que no aparezca en nuestra sección</p>
 				<div class="write-us">
 					<p class="trigger" ng-click="toggleFormEvent()">Escríbenos</p>
 					<form action="#" ng-show="toggleForm">

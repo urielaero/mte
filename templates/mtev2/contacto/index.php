@@ -6,7 +6,7 @@
 		</div>
 		<textarea placeholder="Mensaje" cols="30" rows="7"></textarea>
 		<p>
-			<input type="submit" value="ENVIAR">
+			<input type="submit" value="Enviar">
 			<div class="clear"></div>
 		</p>
 	</form>

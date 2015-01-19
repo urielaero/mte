@@ -1,4 +1,8 @@
 <div class='container about' ng-controller="escuelaCTL">
+	<div class="breadcrumb">
+		<a href="#" class="start"><i class="icon-mejora"></i></a>
+		<a href="#">Quiénes somos</a>
+	</div>
 	<div layout="row" layout-sm="column" class="space-between">
 		<div flex="65" flex-sm="100" class="about-content">
 			<div class="about-text">
@@ -20,7 +24,7 @@
 					<div class="profile-title" flex="55" flex-sm="100">
 						<div class="title-container" layout="row">
 							<div flex="100" flex-sm="100" class="more-info">
-								<h2>PARA MÁS INFORMACIÓN</h2>
+								<h2>Para más información</h2>
 							</div>
 						</div>			
 					</div>

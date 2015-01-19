@@ -238,7 +238,7 @@
 						<input type="text" name="nombre" flex placeholder="Nombre">
 						<input type="email" name="correo" flex placeholder="Correo electrónico">
 						<select flex>
-							<option value="">¿Quien eres?</option>
+							<option value="">¿Quién eres?</option>
 						</select>
 					</div>
 					<div class="sumbit-fields space-between" layout="row" layout-sm="column">

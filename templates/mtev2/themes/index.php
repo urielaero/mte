@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
  <head>
+ 	<script  src="/templates/mtev2/js/modernizr.js"></script>
 	<meta charset="utf-8"/>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
-	<link rel="shortcut icon" href="<?=$this->config->http_address?>/templates/<?=$this->config->theme?>/img/home/favicon.ico" />
+	<link rel="shortcut icon" href="<?=$this->config->http_address?>/templates/<?=$this->config->theme?>/img/favicon.ico" />
 	<?php
 		$css_scripts = array(
 			"reset.css",
@@ -27,8 +28,8 @@
 			'footable.js',
 			'perfect-scrollbar.with-mousewheel.min.js',
 			'angular-perfect-scrollbar.js',
-			'controller.js'
-
+            'charts.js',
+			'controller.js',
 		);
 		if($this->location == 'escuelas'){
 			//$js_scripts[] = 'school-charts.js'; // si no hay cambios en el js no renderizara 

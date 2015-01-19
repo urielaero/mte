@@ -18,7 +18,7 @@
 				<div class="block">
 					<ul>
 						<li>Clave: <?=$this->escuela->cct?></li>
-						<li><?=$this->capitalize($this->escuela->nivel->nombre)?></li>
+						<li>Nivel: <?=$this->capitalize($this->escuela->nivel->nombre)?></li>
 						<li>Turno: <?=$this->capitalize($this->escuela->turno->nombre)?></li>
 						<li><?=$controles[$this->escuela->control->id]?></li>
 						<li>Télefonos: <?=$this->escuela->telefono?></li>
@@ -151,7 +151,7 @@
 				</div>
 			</div>
 		</form>
-	    <md-tabs class="tabs-data" md-selected="selectedData">
+	    <md-tabs class="tabs-data" md-selected="selectedData"  ng-click="loadCharts($event)">
 	    	<md-tab class="desempeno-tab" aria-controls="tab1-content">
 	        	Desempeño<br/>academico
 	      	</md-tab>
@@ -165,7 +165,7 @@
 
 	    <ng-switch on="selectedData" class="tabpanel-container">
 	        <div role="tabpanel" class="desempeno" id="profile-content" aria-labelledby="tab1" ng-switch-when="0">
-				<h2>Desempeño Académico Matutino</h2>
+				<h2>Desempeño académico matutino</h2>
 				<div class="block" layout="row" layout-sm="column" layout-margin layout-fill layout-padding>
 					<div flex>
 						<div layout="row">
@@ -187,13 +187,21 @@
 						<p>ENLACE</p>
 						<div class="label"><p>Matemáticas</p></div>
 					</div>
-					<div flex="75" class="chart">
-
-						<?php
-			                                echo "<div id='line-chart-data-matematicas' class='hidden'>".json_encode($this->escuela_per_turno->chart_ma)."</div><div id='profile-line-chart-matematicas' class='chart'></div>";
-						
-						?>
-
+					<div flex="75" class="chart" 
+					ng-init='chart[<?=$this->escuela_per_turno_index?>].matematicas=<?=json_encode($this->escuela_per_turno->chart_ma)?>'
+					>
+						<div id='profile-line-chart-matematicas' class="content_chart"></div>
+			                        <div class="legend_chart">
+			                            <div class="wrap_lc">
+			                                <p ng-repeat="year in chart[<?=$this->escuela_per_turno_index?>].matematicas[0]" ng-if="year!='Año'">
+								<span class="circle" style='background:{{chart_colors[$index-1]}}'></span>
+								{{year}}
+							</p>
+			                            </div>
+	
+			                            <p class="under">_ _ _ _</p>
+			                            <p>Promedio nacional</p>
+			                        </div>
 					
 					</div>
 				</div>
@@ -204,11 +212,21 @@
 						<p>ENLACE</p>
 						<div class="label"><p>Español</p></div>
 					</div>
-					<div flex="75" class="chart">
-						<?php 
-			                                echo "<div id='line-chart-data-espaniol' class='hidden'>".json_encode($this->escuela_per_turno->chart_es)."</div><div id='profile-line-chart-espaniol' class='chart'></div>";
-						
-						?>
+					<div flex="75" class="chart"
+					ng-init='chart[<?=$this->escuela_per_turno_index?>].espaniol=<?=json_encode($this->escuela_per_turno->chart_es)?>'
+					>
+						<div id='profile-line-chart-espaniol' class="content_chart"></div>
+			                        <div class="legend_chart">
+			                            <div class="wrap_lc">
+			                                <p ng-repeat="year in chart[<?=$this->escuela_per_turno_index?>].espaniol[0]" ng-if="year!='Año'">
+								<span class="circle" style='background:{{chart_colors[$index-1]}}'></span>
+								{{year}}
+							</p>
+			                            </div>
+	
+			                            <p class="under">_ _ _ _</p>
+			                            <p>Promedio nacional</p>
+			                        </div>
 					</div>
 				</div>
 			</div>
@@ -363,13 +381,13 @@
 					</tr>
 				</tbody>
 			</table>
-			<a href="#" class="compare-button">COMPARAR</a>
+			<a href="#" class="compare-button">Comparar</a>
 			<div class="pagination">
 				<a href="#">1</a>
 				<a href="#">2</a>
 				<a href="#">3</a>
 				<a href="#">&gt;</a>
-				<a href="#">ULTIMAS &gt;</a>
+				<a href="#">Últimas &gt;</a>
 			</div>
 			<div class="clear"></div>	
 		</div>
@@ -394,7 +412,7 @@
 			<div class="no"><span class="circle"></span>No</div>
 		</div>
 		<div class="programs">
-			<h5>Programas Federales</h5>
+			<h5>Programas federales</h5>
 			<ul>
 				<li layout="row">
 					<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuela Segura</div>
@@ -414,7 +432,7 @@
 			</ul>
 		</div>
 		<div class="programs">
-			<h5>Programas Federales</h5>
+			<h5>Programas OSC's</h5>
 			<ul>
 				<li layout="row">
 					<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuela Segura</div>

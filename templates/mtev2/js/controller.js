@@ -33,7 +33,6 @@ app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
         $http({method: 'GET', url: page_proxy})
         .success(function(tweets){
             tweets.forEach(function(tweet,index) {
-            	console.log(tweets[index]);
             	//tweets[index] = $scope.replaceMentions($scope.replaceHashTags($scope.replaceURLWithHTMLLinks(tweet.text)));
             });
             $scope.tweets = tweets;
@@ -63,6 +62,29 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
 	    	$(this).trigger('footable_toggle_row');
 	    });
     });
+    if(window.onLoadCallbackChart)
+        onLoadCallbackChart.doneAngular(function(){
+            $scope.loadCharts();
+        });
+
+    $scope.chart_colors = ["#16A452","#339DD1","#E9068B","#F6911B","#990099","#888888"];
+    $scope.chart = [];
+    $scope.loadCharts = function($event){
+        if($event && angular.element($event.target).text().trim()!='Desempeñoacademico')
+            return;
+        var index = $scope.selectedIndex,
+        	options = {
+                chartArea : {width:295,height:94,left:40,top:35},
+                legend: {position:'none'},
+                colors:$scope.chart_colors
+            };
+        Object.keys($scope.chart[index]).forEach(function(materia){
+            var raw_data = $scope.chart[index][materia],
+            data = google.visualization.arrayToDataTable(raw_data),
+            chart = new google.visualization.LineChart(document.getElementById('profile-line-chart-'+materia));
+            chart.draw(data, options);
+        });    
+    };
 }]);
 
 app.controller("mejoraCTL", ['$scope',function ($scope) {
