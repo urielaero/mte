@@ -221,9 +221,9 @@
 				</div>
 			</div>
 
-			<div class="result">
-				<p>En promedio, calificas a tu escuela con:</p>
-				<p class="number">8</p>
+			<div class="result" layout="row">
+				<div flex="70" class="desc">En promedio, calificas a tu escuela con:</div>
+				<div flex="30" class="number">8</div>
 			</div>
 			
 			<form action="/" method="GET" class="comment-form">

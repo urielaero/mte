@@ -55,6 +55,8 @@ md-tabs.md-default-theme md-tabs-ink-bar:before{
 	border-width: 0 7.5px 8px 7.5px;
 	border-color: transparent transparent #007bff transparent;
 }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip{background: none;box-shadow: none}
+.leaflet-container a.leaflet-popup-close-button{color: #5D5D5D;top: 15px;right: 21px;z-index: 99}
 
 /*Header*/
 #header{background: #fff}
@@ -307,11 +309,12 @@ md-toolbar.md-default-theme{background: #08863D!important}
 
 #content .container.profile #profile-content .additional-info .data{-webkit-flex: 0 0 73%; -ms-flex: 0 0 73%; flex: 0 0 73%; max-width: 73%;}
 
-#content .container.profile #profile-content .additional-info .tabs-data{margin-top: 10px}
-#content .container.profile #profile-content .additional-info .tabs-data md-tab md-tab-label{line-height: 1.4;text-transform: initial}
-#content .container.profile #profile-content .additional-info .tabs-data .desempeno-tab{background: #8E62C1;}
-#content .container.profile #profile-content .additional-info .tabs-data .infraestructura-tab{background: #E850A7;}
-#content .container.profile #profile-content .additional-info .tabs-data .comentarios-tab{background: #0BBC3A;}
+#content .container.profile #profile-content .additional-info .scroll-links{margin-top: 10px}
+#content .container.profile #profile-content .additional-info .scroll-links .link{line-height: 1.4;text-transform: initial; padding: 4px;text-align: center;max-width: 48%;-webkit-flex: 0 0 48%; -ms-flex: 0 0 48%; flex: 0 0 48%;}
+#content .container.profile #profile-content .additional-info .scroll-links .link[flex="32"]{max-width: 32%;-webkit-flex: 0 0 32%; -ms-flex: 0 0 32%; flex: 0 0 32%;}
+#content .container.profile #profile-content .additional-info .scroll-links .desempeno-tab{border:2px solid #8E62C1;color:#8E62C1;}
+#content .container.profile #profile-content .additional-info .scroll-links .infraestructura-tab{border:2px solid #E850A7;color:#E850A7;}
+#content .container.profile #profile-content .additional-info .scroll-links .comentarios-tab{border:2px solid #0BBC3A;color:#0BBC3A;}
 
 
 #content .container.profile #profile-content .additional-info .desempeno h2{background: #8E62C1;color: #fff;font-size: 14px;font-weight: 700;padding: 6px 12px;}
@@ -340,6 +343,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.profile #profile-content .additional-info .infraestructura .table-top .i-cont{background: #E8299A;}
 
 #content .container.profile #profile-content .additional-info .comentarios h2{background: #0BBC3A;color: #fff;font-size: 14px;font-weight: 700;padding: 6px 12px;}
+#content .container.profile #profile-content .additional-info .comentarios h2 .total{background: #009247;font-size: 12px;line-height: 1.2;padding: 4px}
 #content .container.profile #profile-content .additional-info .comentarios .table-top .i-cont{background: #00A650;}
 #content .container.profile #profile-content .additional-info .comentarios .comments-list li{background: #fff;padding: 14px;}
 #content .container.profile #profile-content .additional-info .comentarios .comments-list li + li{border-top: 1px solid #F5F5F5}
@@ -425,9 +429,10 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.califica .question-content .ans{background: #BBBBBC;color: #fff;cursor: pointer;padding: 10px;text-align: center;}
 #content .container.califica .question-content .ans + .ans{border-left: 1px solid}
 #content .container.califica .question-content .ans:hover{background: #30B6FD;color: #fff}
-#content .container.califica .result{background: #1CA344;color: #fff;font-weight: 700;margin: 20px auto;max-width: 460px;padding: 20px;text-align: center;}
-#content .container.califica .result p{text-transform: uppercase;}
-#content .container.califica .result .number{background: #fff;color: #7D7E80;max-width: 90px;margin: 10px auto;padding: 5px}
+#content .container.califica .result{background: #1CA344;color: #fff;font-weight: 700;margin: 20px auto 0;text-align: center;}
+#content .container.califica .result p{}
+#content .container.califica .result .desc{font-weight: 400;font-size: 16px;padding: 15px;text-align: left;}
+#content .container.califica .result .number{background: #009247;color: #fff;font-size: 28px;text-align: center;}
 
 /*Compara/escuelas*/
 #content .container.compare .menu-top .tabs{height: 80px}
