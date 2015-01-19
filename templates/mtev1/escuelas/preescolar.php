@@ -1,7 +1,7 @@
 <div class='perfil container B perfil-custom'>
 	<?php 
     //var_dump($this->escuela->programas);
-    if(isset($this->escuela->programas['escuelas_de_excelencia']) || $this->escuela->ganador_disena_el_cambio)
+    if(isset($this->escuela->programas['escuelas_de_excelencia']) || isset($this->escuela->ganador_disena_el_cambio))
         $this->include_template('escuelas_excelencia','global');
     ?>
 	<div class="box-head">
@@ -362,7 +362,7 @@ EOD;
 					<br />
 					nivel "Reprobado"
 					<br />
-					<span><?=number_format($this->escuela->pct_reprobados*100,1)?> %</span>
+					<span><?=(isset($this->escuela->pct_reprobados)?number_format($this->escuela->pct_reprobados*100,1):'')?> %</span>
 					</p>
 				</div>
 				<div class="section-image">

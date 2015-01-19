@@ -114,7 +114,6 @@ class calificacion extends table{
         $sql = rtrim($sql,",");
 
         pg_query($this->conn,$sql);
-        exit('guardo '.$sql);
     }
 
 }

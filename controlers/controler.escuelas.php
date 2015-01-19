@@ -134,16 +134,19 @@ class escuelas extends main{
 			$this->escuela->get_semaforos();
             $this->escuela->get_charts();
             $this->escuela->clean_ranks();
-			$nivel = "numero_escuelas_".strtolower($this->escuela->nivel->nombre);
-			$entidad_info = new entidad($this->escuela->entidad->id,$this->conn);
-			$entidad_info->debug = false;
-			if($this->escuela->nivel->id == 21)
-				$nivel='numero_escuelas_bachillerato';
-			$entidad_info->read($nivel);
-			if($this->escuela->nivel->id == 12  || $this->escuela->nivel->id ==  13 || $this->escuela->nivel->id == 22 || $this->escuela->nivel->id == 21)
-				$this->entidad_cct_count = $entidad_info->$nivel;
-			else
-				$this->entidad_cct_count = 0;
+			
+			$this->entidad_cct_count = 0;
+            if($this->escuela->nivel->id == 12  || $this->escuela->nivel->id ==  13 || $this->escuela->nivel->id == 22 || $this->escuela->nivel->id == 21){
+				$nivel = "numero_escuelas_".strtolower($this->escuela->nivel->nombre);
+				
+				$entidad_info = new entidad($this->escuela->entidad->id,$this->conn);
+				$entidad_info->debug = false;
+				if($this->escuela->nivel->id == 21)
+					$nivel='numero_escuelas_bachillerato';
+				$entidad_info->read($nivel);
+				if($this->escuela->nivel->id == 12  || $this->escuela->nivel->id ==  13 || $this->escuela->nivel->id == 22 || $this->escuela->nivel->id == 21)
+					$this->entidad_cct_count = $entidad_info->$nivel;
+            }
             $aux = new pregunta(NULL,$this->conn);
             if (isset($this->escuela->calificaciones) && $this->escuela->calificaciones) {
                 $this->preguntas = $aux->getPreguntasConPromedio($this->escuela->cct);
