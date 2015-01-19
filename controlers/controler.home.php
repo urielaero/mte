@@ -114,8 +114,8 @@ class home extends main{
 		if($this->post('aviso')){
 			$correo = $this->post('correo');
 			$news = new newsletters(NULL,$this->conn);
-			$news->check_sequence();
-			$news->create('email_input',array($correo));
+			$news->debug = true;
+			$news->create('email_input',array($correo),'id');
 			$location = $news->id ? "/home/index?news=true" : "/home/index?news=false";
 		}
 		$this->send_email(
