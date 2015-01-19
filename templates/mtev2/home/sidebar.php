@@ -8,7 +8,7 @@
 				</form>
 			</div>
 			<div class="box box-orange">
-				<a href="<?=$this->blog_address?>" class="full-size-link"></a>
+				<a target="blank" href="<?=$this->config->blog_address?>" class="full-size-link"></a>
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
