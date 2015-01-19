@@ -6,7 +6,7 @@
 	<div layout="row" class="post-title">
 		<div flex="10" class="icon-container" hide-sm>
 			<div class="icon-wrapper vertical-align-center horizontal-align-center">
-				<i class="icon-escuela-01"></i>
+				<i class="icon-metodologia"></i>
 			</div>
 		</div>
 		<h1 flex="90"><strong>Metodología</strong></h1>

@@ -30,7 +30,7 @@
 				<div flex="75" class="text-container"><p>Descargar PDF</p></div>
 				<div flex="25" class="icon-container">
 					<div class="icon-wrapper vertical-align-center horizontal-align-center">
-						<i class="icon-mejora"></i>
+						<i class="icon-descargas-01"></i>
 					</div>
 				</div>	
 			</div>
