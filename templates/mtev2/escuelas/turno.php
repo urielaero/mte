@@ -2,7 +2,8 @@
 <div class="space-between" layout="row" layout-sm="column">
 	<div class="main-info" flex="73" flex-sm="100">
 		<div layout="row" layout-sm="column">
-			<div id="map" flex="50"></div>
+			<leaflet id="map" center="center" markers="markers"  flex="50"
+            ng-init='loadMap(<?=json_encode($this->escuelas_digest)?>,"<?=$this->escuela->cct?>")'></leaflet>	
 			<div class="info" flex="50" flex-sm="100">
 				<div class="califica" layout="row">
 					<div flex="35" class="icon-container">
