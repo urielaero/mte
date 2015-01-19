@@ -231,6 +231,11 @@
 				</div>
 			</div>
 	        <div role="tabpanel" class="infraestructura tables-box" id="profile-content" aria-labelledby="tab1" ng-switch-when="1">
+
+			<?php if($this->escuela->censo && ($infra = $this->escuela->censo['infraestructura'])){  
+				$check = 'icon-check-01';
+				$uncheck = 'icon-tache-01';
+			?>
 				<h2>Infraestructura escolar <span>Información correspondiente al ciclo 2013/2014</span></h2>
 				<div class="table-top" layout="row">
 					<div flex="10" flex-sm="15" class="i-cont"><i class="icon-instalaciones-01"></i></div>
@@ -238,12 +243,15 @@
 					<div flex="25" flex-sm="25"><p>En esta escuela</p></div>
 				</div>
 				<table>
-					<tr><td>Aulas para clase</td><td>12</td></tr>
-					<tr><td>Áreas deportivas o recreativas</td><td><i class="icon-check-01"></i></td></tr>
-					<tr><td>Patio o plaza cívica</td><td><i class="icon-check-01"></i></td></tr>
-					<tr><td>Sala de computo</td><td>0</td></tr>
-					<tr><td>Cuartos para baño o sanitarios</td><td>8</td></tr>
-					<tr><td>Tazas sanitarios</td><td>17</td></tr>
+					<tr><td>Aulas para clase</td><td><?=$infra['Aulas para impartir clase']?></td></tr>
+					<?php $on = $infra['Áreas deportivas y recreativas'] ?>
+					<tr><td>Áreas deportivas o recreativas</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
+					<?php $on = $infra['Áreas deportivas y recreativas'] ?>
+					<tr><td>Patio o plaza cívica</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
+
+					<tr><td>Sala de computo</td><td><?=$infra['Aulas de cómputo']?></td></tr>
+					<tr><td>Cuartos para baño o sanitarios</td><td><?=$infra['Cuartos para baños o sanitarios']?></td></tr>
+					<tr><td>Tazas sanitarios</td><td><?=$infra['Tazas sanitarias']?></td></tr>
 				</table>
 				<div class="table-top" layout="row">
 					<div flex="10" flex-sm="15" class="i-cont"><i class="icon-servicios-01"></i></div>
@@ -251,12 +259,18 @@
 					<div flex="25" flex-sm="25"><p>En esta escuela</p></div>
 				</div>
 				<table>
-					<tr><td>Energia eléctrica</td><td><i class="icon-check-01"></i></td></tr>
-					<tr><td>Servicio de agua de la red pública</td><td><i class="icon-check-01"></i></td></tr>
-					<tr><td>Drenaje</td><td><i class="icon-check-01"></i></td></tr>
-					<tr><td>Cisterna o alijibe</td><td><i class="icon-check-01"></i></td></tr>
-					<tr><td>Servicio de internet</td><td><i class="icon-tache-01"></i></td></tr>
-					<tr><td>Télefono</td><td><i class="icon-check-01"></i></td></tr>
+					<?php $on = $infra['Energía eléctrica'] ?>
+					<tr><td>Energia eléctrica</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
+					<?php $on = $infra['Servicio de agua de la red pública'] ?>
+					<tr><td>Servicio de agua de la red pública</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
+					<?php $on = $infra['Drenaje'] ?>
+					<tr><td>Drenaje</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
+					<?php $on = $infra['Cisterna o aljibe'] ?>
+					<tr><td>Cisterna o alijibe</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
+					<?php $on = $infra['Servicio de internet'] ?>
+					<tr><td>Servicio de internet</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
+					<?php $on = $infra['Teléfono'] ?>
+					<tr><td>Télefono</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
 				</table>
 				<div class="table-top" layout="row">
 					<div flex="10" flex-sm="15" class="i-cont"><i class="icon-seguridad-01"></i></div>
@@ -264,51 +278,92 @@
 					<div flex="25" flex-sm="25"><p>En esta escuela</p></div>
 				</div>
 				<table>
-					<tr><td>Señales de protección civil</td><td><i class="icon-tache-01"></i></td></tr>
-					<tr><td>Rutas de evacuación</td><td><i class="icon-check-01"></i></td></tr>
-					<tr><td>Salidas de emergencia</td><td><i class="icon-check-01"></i></td></tr>
-					<tr><td>Zonas de seguridad</td><td><i class="icon-tache-01"></i></td></tr>
+					<?php $on = $infra['Señales de protección civil'] ?>
+					<tr><td>Señales de protección civil</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
+					<?php $on = $infra['Rutas de evacuación'] ?>
+					<tr><td>Rutas de evacuación</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
+					<?php $on = $infra['Salidas de emergencia'] ?>
+					<tr><td>Salidas de emergencia</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
+					<?php $on = $infra['Zonas de seguridad'] ?>
+					<tr><td>Zonas de seguridad</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
 				</table>
+
+			<?php } ?>
 			</div>
 	        <div role="tabpanel" class="comentarios tables-box" id="profile-content" aria-labelledby="tab1" ng-switch-when="2">
+		<?php
+			$cp = 0;
+			$pt = 0;
+			if($this->escuela->calificaciones){
+				foreach($this->escuela->calificaciones as $calificacion){
+					if(isset($calificacion->calificacion)){
+						$cp++;
+						$pt += $calificacion->calificacion;
+					}
+				}
+				$pro = $pt/$cp;
+				$pro = number_format($pro,2);
+			}else{
+				$pro = "n/a";
+			}
+		?>
+
 				<h2>Comentarios</h2>
 				<div class="table-top" layout="row">
 					<div flex="10" flex-sm="15" class="i-cont"><i class="icon-estrella-01"></i></div>
 					<div flex="90" flex-sm="85"><p>Calificación global de la escuela según usuarios</p></div>
 				</div>
 				<table>
-					<tr><td>Calificación global</td><td>10.0</td></tr>
+					<tr><td>Calificación global</td><td><?=$pro?></td></tr>
 				</table>
 				<div class="table-top" layout="row">
 					<div flex="10" flex-sm="15" class="i-cont"><i class="icon-pregunta-01"></i></div>
 					<div flex="90" flex-sm="85"><p>Calificación promedio por pregunta</p></div>
 				</div>
 				<table>
-					<tr><td>Preparación de maestros</td><td>10.0</td></tr>
-					<tr><td>Asistencia de los maestros</td><td>10.0</td></tr>
-					<tr><td>Relación con los padres de familia</td><td>10.0</td></tr>
+				<?php
+				if($this->preguntas){
+					foreach($this->preguntas as $pregunta){
+						echo "<tr>
+							<td>{$pregunta->titulo}</td>
+							<td>".(isset($pregunta->promedio) ? $pregunta->promedio:"n/a")."</td>
+						</tr>";
+					}
+				}
+				?>
 				</table>
 				<div class="table-top" layout="row">
 					<div flex="10" flex-sm="15" class="i-cont"><i class="icon-comentario2-01"></i></div>
 					<div flex="90" flex-sm="85"><p>Calificación promedio por pregunta</p></div>
 				</div>
+
+				<?php if($this->escuela->calificaciones){?>
 				<ul class="comments-list">
+					<?php 
+					foreach($this->escuela->calificaciones as $calificacion){
+						if(isset($calificacion->activo) && $calificacion->activo){
+							$coment = preg_replace('/\v+|\\\[rn]/','<br/>',$calificacion->comentario);
+	                			        $coment = stripslashes($coment);
+							$text_calificacion = isset($calificacion->calificacion)?'<span>Calificación <br /> otorgada</span>':'';
+							$ocupacion = $calificacion->ocupacion =='padredefamilia' || $calificacion->ocupacion == 'Padre de familia' ? 'Padre de familia':($this->capitalize($calificacion->ocupacion));
+							$cali = $calificacion->calificacion;
+							$cali = $cali > 10?$cali/10:$cali;//error cuendo en la db se calificaba de a 100
+							$nombreCalificacion  = ($calificacion->acepta_nombre == 1) ? $calificacion->nombre : ''; 
+							date_default_timezone_set('America/Mexico_City');
+							$time = date("d M Y",strtotime($calificacion->timestamp));
+							echo <<<EOD
 					<li>
-						<p><strong class="green">Calificación: 10 | </strong>Felipe (Padre de familia)</p>
-						<p>14 Ago 2014</p>
-						<p>La verdad es que esta escuela me parece de las mejores, muy recomendado</p>
+						<p><strong class="green">Calificación: {$cali} | </strong>{$nombreCalificacion} ({$ocupacion})</p>
+						<p>{$time}</p>
+						<p>{$calificacion->comentario}</p>
 					</li>
-					<li>
-						<p><strong class="green">Calificación: 10 | </strong>Felipe (Padre de familia)</p>
-						<p>14 Ago 2014</p>
-						<p>La verdad es que esta escuela me parece de las mejores, muy recomendado</p>
-					</li>
-					<li>
-						<p><strong class="green">Calificación: 10 | </strong>Felipe (Padre de familia)</p>
-						<p>14 Ago 2014</p>
-						<p>La verdad es que esta escuela me parece de las mejores, muy recomendado</p>
-					</li>
+EOD;
+							}
+						}
+					
+					?>
 				</ul>
+				<?php } ?>
 			</div>
 		</ng-switch>
 		<div class="compare-table">
@@ -394,61 +449,52 @@
 
 	</div>
 	<div flex="25" flex-sm="100" class="sidebar">
+	<?php if($this->escuela->censo){ ?>
 		<div class="box-yesno ">
 			<p><i class="icon-familia-01"></i></p>
 			<p>¿Cuenta con Asociación de padres de familia?</p>
-			<div class="yes on"><span class="circle"></span>Sí</div>
-			<div class="no"><span class="circle"></span>No</div>
+			<?php $on = $this->escuela->censo['infraestructura']['Asociación de padres de familia']; ?>
+			<div class="yes <?=$on=='S'?'on':'';?>"><span class="circle"></span>Sí</div>
+			<div class="no <?=$on!='S'?'on':'';?>"><span class="circle"></span>No</div>
 		</div>
 		<div class="box-yesno orange">
 			<p><i class="icon-desk-01"></i></p>
 			<p>¿Cuenta con Consejo de participacion social?</p>
-			<div class="yes on"><span class="circle"></span>Sí</div>
-			<div class="no"><span class="circle"></span>No</div>
+			<?php $on = $this->escuela->censo['infraestructura']['Consejo de participación social']; ?>
+			<div class="yes <?=$on=='S'?'on':'';?>"><span class="circle"></span>Sí</div>
+			<div class="no <?=$on!='S'?'on':'';?>"><span class="circle"></span>No</div>
 		</div>
 		<div class="box-yesno green">
 			<p>¿Esta escuela fue censada?</p>
-			<div class="yes on"><span class="circle"></span>Sí</div>
-			<div class="no"><span class="circle"></span>No</div>
+			<?php $on = $this->escuela->censo['status'];?>
+			<div class="yes <?=$on=='Censado'?'on':'';?>"><span class="circle"></span>Sí</div>
+			<div class="no <?=$on!='Censado'?'on':'';?>"><span class="circle"></span>No</div>
 		</div>
+	<?php } ?>
 		<div class="programs">
 			<h5>Programas federales</h5>
 			<ul>
-				<li layout="row">
-					<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuela Segura</div>
-				</li>
-				<li layout="row" class="on">
-					<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuelas de Calidad</div>
-				</li>
-				<li layout="row">
-					<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuelas de Tiempo Completo</div>
-				</li>
-				<li layout="row" class="on">
-					<div flex="25"><i class="icon-"></i></div><div flex="75">Sistema de Alerta Temprana</div>
-				</li>
-				<li layout="row">
-					<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuelas dignas</div>
-				</li>
+				<?php
+				foreach($this->programas_federales as $programa){
+				?>
+					<li layout='row' <?=isset($this->escuela->programas[$programa->m_collection])?"class='on'":""?>>
+		
+						<div flex="25"><i class="icon-"></i></div><div flex="75"><?=$programa->nombre?></div>
+					</li>
+				<? } ?>
 			</ul>
 		</div>
 		<div class="programs">
 			<h5>Programas OSC's</h5>
 			<ul>
-				<li layout="row">
-					<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuela Segura</div>
-				</li>
-				<li layout="row" class="on">
-					<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuelas de Calidad</div>
-				</li>
-				<li layout="row">
-					<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuelas de Tiempo Completo</div>
-				</li>
-				<li layout="row" class="on">
-					<div flex="25"><i class="icon-"></i></div><div flex="75">Sistema de Alerta Temprana</div>
-				</li>
-				<li layout="row">
-					<div flex="25"><i class="icon-"></i></div><div flex="75">Programa Escuelas dignas</div>
-				</li>
+				<?php
+				foreach($this->programas_osc as $programa){
+				?>
+					<li layout='row' <?=isset($this->escuela->programas[$programa->m_collection])?"class='on'":""?>>
+		
+						<div flex="25"><i class="icon-"></i></div><div flex="75"><?=$programa->nombre?></div>
+					</li>
+				<? } ?>
 			</ul>
 		</div>
 	</div>
