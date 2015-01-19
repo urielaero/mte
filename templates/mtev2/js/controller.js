@@ -1,4 +1,4 @@
-var app = angular.module("mejoratuescuela", ['ngMaterial','perfect_scrollbar']);
+var app = angular.module("mejoratuescuela",['ngMaterial','perfect_scrollbar','leaflet-directive']);
 
 app.controller("headerCTL", ['$scope','$timeout','$mdSidenav',function ($scope, $timeout, $mdSidenav) {
 	$scope.toggleLeft = function() {
@@ -73,7 +73,7 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
         if($event && angular.element($event.target).text().trim()!='Desempeñoacademico')
             return;
         var index = $scope.selectedIndex,
-        	options = {
+            options = {
                 chartArea : {width:295,height:94,left:40,top:35},
                 legend: {position:'none'},
                 colors:$scope.chart_colors
@@ -84,6 +84,39 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
             chart = new google.visualization.LineChart(document.getElementById('profile-line-chart-'+materia));
             chart.draw(data, options);
         });    
+    };
+
+    $scope.center = {
+        zoom:12
+    };
+    $scope.markers = {lat:0,lng:0}
+    $scope.loadMap = function(data){
+        console.log(data)
+        angular.extend($scope,{
+            center:{
+                lat:+data.centerlat,
+                lng:+data.centerlong,
+                zoom:data.zoom
+            },
+            dafaults:{
+                scrollWheelZoom: false
+            },
+            markers:Object.keys(data.escuelas).map(function(e){
+                var current = data.escuelas[e];
+                current.lat = +current.latitud;
+                current.lng = +current.longitud;
+                current.message = "<div id='sample-infobox' class='infoBox'>"+
+                                "<a href='' >"+current.nombre+"</a>"+
+                            	"<p>"+current.direccion+"</p>"+
+                            	"<div class='semafo sem"+current.semaforo+"'></div>"+
+                            	"<div class='cup'></div>"+
+                            	"<div class='rank'>"+current.rank+"</div>"+
+                            	"<div class='pos'>Posición nivel estatal</div>"+
+                                "<div class='clear'></div>"+
+                                "</div>";
+                return current;
+            })
+        });
     };
 }]);
 

@@ -28,13 +28,17 @@
 			'footable.js',
 			'perfect-scrollbar.with-mousewheel.min.js',
 			'angular-perfect-scrollbar.js',
-            'charts.js',
+			'charts.js',
+            'leaflet.js',
+			'angular-leaflet-directive.min.js',
 			'controller.js',
 		);
 		if($this->location == 'escuelas'){
 			//$js_scripts[] = 'school-charts.js'; // si no hay cambios en el js no renderizara 
 			//correctamente el min.
 			echo '<script type="text/javascript" src="https://www.google.com/jsapi"></script>';
+			echo '<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css">';
+
 		}
 		if($this->draw_charts){
 			//$js_scripts[] = 'entidad-charts.js';
