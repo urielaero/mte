@@ -25,6 +25,7 @@ class api extends main{
 	}
 
 	public function escuelas(){
+		//var_dump($this->request('niveles'));
 		$params = new stdClass();
 		$params->order_by = ' ISNULL(escuelas_para_rankeo.rank_entidad), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
 		$params->pagination = 6;

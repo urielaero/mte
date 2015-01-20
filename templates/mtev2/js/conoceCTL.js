@@ -13,54 +13,56 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
         {
             id : 11,
             label : 'Preescolar',
-            checked : true,
+            checked : false,
         },
         {
             id : 12,
             label : 'Primaria',
-            checked : true,
+            checked : false,
         },
         {
             id : 13,
             label : 'Secundaria',
-            checked : true,
+            checked : false,
         },
         {
             id : 22,
             label : 'Bachillerato',
-            checked : true,
+            checked : false,
         },
         {
             id : 'BB',
             label : 'Biblioteca',
-            checked : true,
+            checked : false,
         },
     ];
     $scope.turnos = [
         {
             id : 11,
             label : 'Matutino',
-            checked : true,
+            checked : false,
         },
         {
             id : 12,
             label : 'Vespertino',
-            checked : true,
+            checked : false,
         },
     ];
     $scope.controles = [
         {
             id : 1,
             label : 'Público',
-            checked : true,
+            checked : false,
         },
         {
             id : 2,
             label : 'Privado',
-            checked : true,
+            checked : false,
         },
     ];
-
+    $scope.checkBoxChange = function(){
+        $scope.getEscuelas();
+    }
     $scope.getLocalidades = function(){
         $scope.localidades = [{nombre:'Todas'}];
         var params  = {
@@ -114,10 +116,20 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
             localidad : $scope.localidad.id || null,
             p : $scope.pagination.current_page || 1,
         };
+        $scope.params.niveles = processCheckBoxes($scope.niveles);
+        $scope.params.turnos = processCheckBoxes($scope.turnos);
+        $scope.params.controles = processCheckBoxes($scope.controles);
     };
     $scope.getEscuelas();
 }]);
 
+function processCheckBoxes(set){
+    var items =[];
+    set.forEach(function(item){
+        if(item.checked) items.push(item.id);
+    });
+    return items.join(',');
+}
 app.filter('municipiosFilter', function () {
   return function (municipios,entidad) {
     return municipios.filter(function (mun) {
