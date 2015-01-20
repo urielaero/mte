@@ -252,7 +252,7 @@ class main extends controler{
 		$q->limit= isset($params->limit) ? $params->limit : "10 OFFSET 0";
 		
 		if(isset($params->pagination)){
-			$this->pagination = new pagination('escuela',$params->pagination,$q->search_clause,NULL,$this->conn);
+			$this->pagination = new pagination('escuela',$params->pagination,$q->search_clause,"p",$this->conn);
 			$q->limit = $this->pagination->limit;
 			//var_dump($q->limit);
 		}
