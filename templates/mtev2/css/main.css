@@ -717,4 +717,9 @@ md-toolbar.md-default-theme{background: #08863D!important}
 @media (max-width: 380px){
 	#content .container #blog-posts{flex-direction:column;}
 	#content .container #blog-posts .post{margin-bottom: 6px;-webkit-flex: none;-ms-flex: none;flex:none;max-width: none}
+	#buscar-info{width: 10px}
+}
+
+@media (max-width: 200px){
+	#general-search #name-input{width: 10px}
 }

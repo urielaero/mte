@@ -63,10 +63,11 @@
 							<td>
 								<strong>{{escuela.nombre}}</strong>
 								<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
-								<p><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
+								<p ng-show='escuela.turno.nombre'><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
 							</td>
 							<td>{{escuela.nivel}}</td>
-							<td>{{escuela.turno.nombre.capitalize()}}</td>
+							<td ng-show='escuela.turno.nombre'>{{escuela.turno.nombre.capitalize()}}</td>
+							<td ng-show='!escuela.turno.nombre'>No Aplica</td>
 							<td>{{escuela.control}}</td>
 							<td>
 								<md-button ng-class="semaforos[escuela.semaforo].class" class="md-fab" aria-label="Time">

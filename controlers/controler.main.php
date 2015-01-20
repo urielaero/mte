@@ -249,7 +249,7 @@ class main extends controler{
         if(isset($params->turno)) {
             $q->search_clause .= " AND escuelas_para_rankeo.turnos_eval = {$params->turno}";
         }else if($this->request('turno')){
-        	$q->search_clause .= " AND escuelas_para_rankeo.turnos_eval = ".$this->request('turno'); 
+        	$q->search_clause .= " AND escuelas.turno = ".$this->request('turno'); 
         }
 
 		if(isset($params->ccts) && $params->ccts){

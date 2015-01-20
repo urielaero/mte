@@ -86,7 +86,7 @@ $infografias = array('entorno'=>'Entorno',
 		<div class="gray-box form">
 			<form action='<?=$this->config->blog_address; ?>' method='GET' accept-charset='utf-8' class='general-search' id='general-search'>
 					<input name='s' id='name-input' type='text' placeholder="Busca una infografia" />
-					<input type='submit' value='BUSCAR' />
+					<input  type='submit' value='BUSCAR' />
 			</form>
 		</div>
 

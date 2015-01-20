@@ -65,6 +65,7 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
     }
     $scope.getLocalidades = function(){
         $scope.localidades = [{nombre:'Todas'}];
+        $scope.localidad = $scope.localidades[0];
         var params  = {
             entidad : $scope.entidad.id || null,
             municipio : $scope.municipio.id || null,
@@ -97,7 +98,7 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
         $scope.buildParams();
         $scope.loading = true;
         $http({method:'POST',url:'/api/escuelas',data:$scope.params}).then(function(response){
-            console.log(response.data);
+            //console.log(response.data);
             $scope.pagination = response.data.pagination;
             $scope.escuelas = response.data.escuelas;
             $scope.loading = false;
@@ -121,7 +122,6 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
         if(controles.length == 1) $scope.params.control = controles[0];
         var turnos = processCheckBoxes($scope.turnos);
         if(turnos.length == 1) $scope.params.turno = turnos[0];
-        console.log($scope.params);
     };
     $scope.getEscuelas();
 }]);
