@@ -39,7 +39,8 @@ class api extends main{
 		if(isset($headers['Content-Type']) && $headers['Content-Type'] == 'application/json;charset=UTF-8'){
 			$data = json_decode(file_get_contents("php://input"));
 			foreach($data as $key => $val){
-				$_POST[$key] = $val;
+				if($key == 'p') $_REQUEST[$key] = $val;
+				else $_POST[$key] = $val;
 			}
 			$_POST['json'] = true;
 			return $data;
