@@ -13,43 +13,56 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
         {
             id : 11,
             label : 'Preescolar',
-            checked : true,
+            checked : false,
         },
         {
             id : 12,
             label : 'Primaria',
-            checked : true,
+            checked : false,
         },
         {
             id : 13,
             label : 'Secundaria',
-            checked : true,
+            checked : false,
         },
         {
             id : 22,
             label : 'Bachillerato',
-            checked : true,
+            checked : false,
         },
         {
             id : 'BB',
             label : 'Biblioteca',
-            checked : true,
+            checked : false,
         },
     ];
     $scope.turnos = [
         {
-            id : 11,
+            id : 100,
             label : 'Matutino',
-            checked : true,
+            checked : false,
         },
         {
-            id : 12,
+            id : 200,
             label : 'Vespertino',
-            checked : true,
+            checked : false,
         },
-    ];;
-    $scope.control = {privado:true,publica:true};
-
+    ];
+    $scope.controles = [
+        {
+            id : 1,
+            label : 'Público',
+            checked : false,
+        },
+        {
+            id : 2,
+            label : 'Privado',
+            checked : false,
+        },
+    ];
+    $scope.checkBoxChange = function(){
+        $scope.getEscuelas();
+    }
     $scope.getLocalidades = function(){
         $scope.localidades = [{nombre:'Todas'}];
         var params  = {
@@ -81,14 +94,9 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
         $scope.getEscuelas();
     }
     $scope.getEscuelas = function(){
-        var params  = {
-            entidad : $scope.entidad.id || null,
-            municipio : $scope.municipio.id || null,
-            localidad : $scope.localidad.id || null,
-            p : $scope.pagination.current_page || 1,
-        };
+        $scope.buildParams();
         $scope.loading = true;
-        $http({method:'POST',url:'/api/escuelas',data:params}).then(function(response){
+        $http({method:'POST',url:'/api/escuelas',data:$scope.params}).then(function(response){
             console.log(response.data);
             $scope.pagination = response.data.pagination;
             $scope.escuelas = response.data.escuelas;
@@ -101,9 +109,30 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
         }
         return new Intl.NumberFormat().format(number.toFixed(2));
     }
+    $scope.buildParams = function(){
+        $scope.params  = {
+            entidad : $scope.entidad.id || null,
+            municipio : $scope.municipio.id || null,
+            localidad : $scope.localidad.id || null,
+            p : $scope.pagination.current_page || 1,
+        };
+        $scope.params.niveles = processCheckBoxes($scope.niveles).join(',');
+        var controles = processCheckBoxes($scope.controles);
+        if(controles.length == 1) $scope.params.control = controles[0];
+        var turnos = processCheckBoxes($scope.turnos);
+        if(turnos.length == 1) $scope.params.turno = turnos[0];
+        console.log($scope.params);
+    };
     $scope.getEscuelas();
 }]);
 
+function processCheckBoxes(set){
+    var items =[];
+    set.forEach(function(item){
+        if(item.checked) items.push(item.id);
+    });
+    return items;
+}
 app.filter('municipiosFilter', function () {
   return function (municipios,entidad) {
     return municipios.filter(function (mun) {
