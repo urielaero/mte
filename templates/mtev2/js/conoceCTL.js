@@ -47,8 +47,19 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
             label : 'Vespertino',
             checked : true,
         },
-    ];;
-    $scope.control = {privado:true,publica:true};
+    ];
+    $scope.controles = [
+        {
+            id : 1,
+            label : 'Público',
+            checked : true,
+        },
+        {
+            id : 2,
+            label : 'Privado',
+            checked : true,
+        },
+    ];
 
     $scope.getLocalidades = function(){
         $scope.localidades = [{nombre:'Todas'}];
@@ -81,14 +92,9 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
         $scope.getEscuelas();
     }
     $scope.getEscuelas = function(){
-        var params  = {
-            entidad : $scope.entidad.id || null,
-            municipio : $scope.municipio.id || null,
-            localidad : $scope.localidad.id || null,
-            p : $scope.pagination.current_page || 1,
-        };
+        $scope.buildParams();
         $scope.loading = true;
-        $http({method:'POST',url:'/api/escuelas',data:params}).then(function(response){
+        $http({method:'POST',url:'/api/escuelas',data:$scope.params}).then(function(response){
             console.log(response.data);
             $scope.pagination = response.data.pagination;
             $scope.escuelas = response.data.escuelas;
@@ -101,6 +107,14 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
         }
         return new Intl.NumberFormat().format(number.toFixed(2));
     }
+    $scope.buildParams = function(){
+        $scope.params  = {
+            entidad : $scope.entidad.id || null,
+            municipio : $scope.municipio.id || null,
+            localidad : $scope.localidad.id || null,
+            p : $scope.pagination.current_page || 1,
+        };
+    };
     $scope.getEscuelas();
 }]);
 
