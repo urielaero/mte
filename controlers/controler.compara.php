@@ -12,7 +12,7 @@ class compara extends main{
 	*/
 	public function index(){
 		$this->debug = false;
-		$this->load_niveles();
+		//s$this->load_niveles();
 		$this->entidades = $this->load_entidades(false);
 		$this->municipios = $this->load_municipios();
 		$this->localidades = $this->load_localidades();
