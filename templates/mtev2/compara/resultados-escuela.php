@@ -4,7 +4,7 @@
     window.localidades = <?= json_encode($this->localidades)?>;
     window.semaforos = <?= json_encode($this->config->semaforos2)?>;
 </script>
-<div class='container results' ng-controller="conoceCTL">
+<div class='container results main-search' ng-controller="conoceCTL">
 	<div class="breadcrumb">
 		<a href="#" class="start"><i class="icon-mejora"></i></a>
 		<a href="#">Conoce</a>
