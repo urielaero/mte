@@ -25,6 +25,7 @@ class api extends main{
 	}
 
 	public function escuelas(){
+		//var_dump($this->request('niveles'));
 		$params = new stdClass();
 		$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
 		$params->pagination = 6;
@@ -39,7 +40,8 @@ class api extends main{
 		if(isset($headers['Content-Type']) && $headers['Content-Type'] == 'application/json;charset=UTF-8'){
 			$data = json_decode(file_get_contents("php://input"));
 			foreach($data as $key => $val){
-				$_POST[$key] = $val;
+				if($key == 'p') $_REQUEST[$key] = $val;
+				else $_POST[$key] = $val;
 			}
 			$_POST['json'] = true;
 			return $data;
