@@ -65,6 +65,7 @@ class main extends controler{
 				$escuelas[$key]->rank_nacional = $escuela->rank_nacional;
 				$escuelas[$key]->direccion = $this->capitalize($escuela->localidad->nombre).', '.$this->capitalize($escuela->entidad->nombre);
 				$escuelas[$key]->turno = $escuela->turno;
+				$escuelas[$key]->turno->conn = null;
 				$escuelas[$key]->turnos_eval = $escuela->turnos_eval;
 			}
 			$width = $this->distance($maxlat,$minlong,$maxlat,$maxlong);
