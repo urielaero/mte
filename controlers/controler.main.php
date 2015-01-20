@@ -214,9 +214,20 @@ class main extends controler{
                 $q->search_clause .= " AND escuelas.nivel = '{$params->nivel}' ";
             }
 		}else if($this->request('niveles')){
-			//Este else es si la busqueda viene de angular, cambia ya que puedes selecionar varios niveles a la vez
-			var_dump($this->request('niveles'));
-
+			//este se ejecuta si la busqueda pidio multiples niveles
+			$niveles = explode(',', $this->request('niveles'));
+			$aux = array();
+			if(count($niveles)){
+				foreach($niveles as $nivel){
+					if($nivel != 'BB') $aux[] = 'escuelas.nivel = "'.$nivel.'"';
+					else  $aux[] = 'SUBSTR(escuelas.cct,3,2) = "BB"';
+					if($nivel == '22') $aux[] = 'escuelas.nivel = "21"';
+				}
+				$clause = implode(' || ',$aux);
+				$q->search_clause .= 'AND ('.$clause.') ';
+			}else{
+				$q->search_clause .= 'AND (escuelas.nivel = "12" || escuelas.nivel = "13" || escuelas.nivel="21" || escuelas.nivel = "22" || SUBSTR(escuelas.cct,3,2) = "BB") ';
+			}
 		}else{
 			#$q->search_clause .= $this->request('nivel') === false || $this->request('nivel') === '' ? 'AND (escuelas.nivel = "12" || escuelas.nivel = "13" || escuelas.nivel="21" || escuelas.nivel = "22") ' : ' AND escuelas.nivel = "'.$this->request('nivel').'" ';
 			if( $this->request('nivel') === false || $this->request('nivel') === '')
@@ -241,6 +252,8 @@ class main extends controler{
 
         if(isset($params->turno)) {
             $q->search_clause .= " AND escuelas_para_rankeo.turnos_eval = {$params->turno}";
+        }else if($this->request('turno')){
+        	$q->search_clause .= " AND escuelas_para_rankeo.turnos_eval = ".$this->request('turno'); 
         }
 
 		if(isset($params->ccts) && $params->ccts){
