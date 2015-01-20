@@ -215,14 +215,14 @@ class main extends controler{
 			$aux = array();
 			if(count($niveles)){
 				foreach($niveles as $nivel){
-					if($nivel != 'BB') $aux[] = 'escuelas.nivel = "'.$nivel.'"';
-					else  $aux[] = 'SUBSTR(escuelas.cct,3,2) = "BB"';
-					if($nivel == '22') $aux[] = 'escuelas.nivel = "21"';
+					if($nivel != 'BB') $aux[] = 'escuelas.nivel = \''.$nivel.'\'';
+					else  $aux[] = 'SUBSTR(escuelas.cct,3,2) = \'BB\'';
+					if($nivel == '22') $aux[] = 'escuelas.nivel = \'21\'';
 				}
 				$clause = implode(' || ',$aux);
 				$q->search_clause .= 'AND ('.$clause.') ';
 			}else{
-				$q->search_clause .= 'AND (escuelas.nivel = "12" || escuelas.nivel = "13" || escuelas.nivel="21" || escuelas.nivel = "22" || SUBSTR(escuelas.cct,3,2) = "BB") ';
+				$q->search_clause .= 'AND (escuelas.nivel = \'12\' || escuelas.nivel = \'13\' || escuelas.nivel=\'21\' || escuelas.nivel = \'22\' || SUBSTR(escuelas.cct,3,2) = \'BB\') ';
 			}
 		}else{
 			#$q->search_clause .= $this->request('nivel') === false || $this->request('nivel') === '' ? 'AND (escuelas.nivel = "12" || escuelas.nivel = "13" || escuelas.nivel="21" || escuelas.nivel = "22") ' : ' AND escuelas.nivel = "'.$this->request('nivel').'" ';
