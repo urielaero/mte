@@ -1,4 +1,4 @@
-<div class='container results' ng-controller="compareCTL">
+<div class='container results' ng-controller="comparaCTL">
 	<div class="breadcrumb">
 		<a href="#" class="start"><i class="icon-mejora"></i></a>
 		<a href="#">Conoce</a>
