@@ -14,7 +14,7 @@ class api extends main{
 
 	public function api($config){
 		$this->config = $config; 
-		$this->dbConnect(); 
+		$this->conn = $this->dbConnect(); 
 		$this->serializeAngular();
 
 	}
@@ -27,12 +27,13 @@ class api extends main{
 	public function escuelas(){
 		//var_dump($this->request('niveles'));
 		$params = new stdClass();
-		$params->order_by = ' ISNULL(escuelas_para_rankeo.rank_entidad), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
+		$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
 		$params->pagination = 6;
 		$this->get_escuelas($params);
 		$this->process_escuelas();
 		$this->escuelas_digest->pagination = $this->pagination;
-		echo json_encode($this->escuelas_digest);	
+		$this->escuelas_digest->pagination->conn = NULL;
+		echo json_encode($this->escuelas_digest);
 	}
 	public function serializeAngular(){
 		$headers = getallheaders();
