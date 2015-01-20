@@ -61,12 +61,12 @@
 					<tbody>
 						<tr ng-repeat='escuela in escuelas'>
 							<td>
-								<strong>{{escuela.nombre}}</strong>
+								<strong><a ng-href='/escuelas/index/{{escuela.cct}}' ng-bind='escuela.nombre' ></a></strong>
 								<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
 								<p ng-show='escuela.turno.nombre'><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
 							</td>
 							<td>{{escuela.nivel}}</td>
-							<td ng-show='escuela.turno.nombre'><a ng-href='/escuelas/index/{{escuela.cct}}' ng-bind='escuela.turno.nombre.capitalize()' ></a></td>
+							<td ng-show='escuela.turno.nombre'>{{escuela.turno.nombre.capitalize()}}</td>
 							<td ng-show='!escuela.turno.nombre'>No Aplica</td>
 							<td>{{escuela.control}}</td>
 							<td>
