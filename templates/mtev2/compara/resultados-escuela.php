@@ -41,7 +41,7 @@
 			<div layout="row" layout-sm="column">
 				<h2 flex="40" flex-sm="100">{{numberFormat(pagination.count)}} Resultados</h2>
 				<div class="order-by" flex="60" flex-sm="100">
-					<select ng-options=''></select>
+					<select ng-change='getEscuelas()' ng-options='option for option in sortOptions' ng-model='sort'></select>
 
 					<label>Ordenar por:</label>
 					<div class="clear"></div>
