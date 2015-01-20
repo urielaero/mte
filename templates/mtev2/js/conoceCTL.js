@@ -38,12 +38,12 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
     ];
     $scope.turnos = [
         {
-            id : 11,
+            id : 100,
             label : 'Matutino',
             checked : false,
         },
         {
-            id : 12,
+            id : 200,
             label : 'Vespertino',
             checked : false,
         },
@@ -116,9 +116,12 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
             localidad : $scope.localidad.id || null,
             p : $scope.pagination.current_page || 1,
         };
-        $scope.params.niveles = processCheckBoxes($scope.niveles);
-        $scope.params.turnos = processCheckBoxes($scope.turnos);
-        $scope.params.controles = processCheckBoxes($scope.controles);
+        $scope.params.niveles = processCheckBoxes($scope.niveles).join(',');
+        var controles = processCheckBoxes($scope.controles);
+        if(controles.length == 1) $scope.params.control = controles[0];
+        var turnos = processCheckBoxes($scope.turnos);
+        if(turnos.length == 1) $scope.params.turno = turnos[0];
+        console.log($scope.params);
     };
     $scope.getEscuelas();
 }]);
@@ -128,7 +131,7 @@ function processCheckBoxes(set){
     set.forEach(function(item){
         if(item.checked) items.push(item.id);
     });
-    return items.join(',');
+    return items;
 }
 app.filter('municipiosFilter', function () {
   return function (municipios,entidad) {
