@@ -11,6 +11,7 @@ class compara extends main{
 	* Obtiene los datos necesarios para mostrar adecuadamente la vista compara/index
 	*/
 	public function index(){
+		$this->debug = false;
 		$this->load_niveles();
 		$this->entidades = $this->load_entidades(false);
 		$this->municipios = $this->load_municipios();
