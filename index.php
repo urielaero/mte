@@ -1,6 +1,6 @@
 <?php
 //error_reporting(0);
-error_reporting(E_ALL ^ E_DEPRECATED ^ E_WARNING);
+#error_reporting(E_ALL ^ E_DEPRECATED ^ E_WARNING);
 ini_set('display_errors', '1');
 ini_set('post_max_size', '5M');
 ini_set('upload_max_filesize', '5M');

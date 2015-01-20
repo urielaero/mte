@@ -219,10 +219,10 @@ class main extends controler{
 					else  $aux[] = 'SUBSTR(escuelas.cct,3,2) = \'BB\'';
 					if($nivel == '22') $aux[] = 'escuelas.nivel = \'21\'';
 				}
-				$clause = implode(' || ',$aux);
+				$clause = implode(' OR ',$aux);
 				$q->search_clause .= 'AND ('.$clause.') ';
 			}else{
-				$q->search_clause .= 'AND (escuelas.nivel = \'12\' || escuelas.nivel = \'13\' || escuelas.nivel=\'21\' || escuelas.nivel = \'22\' || SUBSTR(escuelas.cct,3,2) = \'BB\') ';
+				$q->search_clause .= 'AND (escuelas.nivel = \'12\' OR escuelas.nivel = \'13\' OR escuelas.nivel=\'21\' OR escuelas.nivel = \'22\' OR SUBSTR(escuelas.cct,3,2) = \'BB\') ';
 			}
 		}else{
 			#$q->search_clause .= $this->request('nivel') === false || $this->request('nivel') === '' ? 'AND (escuelas.nivel = "12" || escuelas.nivel = "13" || escuelas.nivel="21" || escuelas.nivel = "22") ' : ' AND escuelas.nivel = "'.$this->request('nivel').'" ';
@@ -372,6 +372,7 @@ class main extends controler{
 		if($order_by) $q->order_by = $order_by;
 		$this->entidades = $q->read('id,nombre,cct_count,promedio_general,rank');
 		$api = new api($this->config);
+
 		if($this->config->jsonMode) return $api->jsonify($this->entidades,["id","nombre","cct_count","promedio_general","rank"]);
 	}
 
