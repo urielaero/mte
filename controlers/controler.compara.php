@@ -12,9 +12,9 @@ class compara extends main{
 	*/
 	public function index(){
 		$this->load_niveles();
-		$this->load_entidades();
-		$this->load_municipios();
-		$this->load_localidades();
+		$this->entidades = $this->load_entidades(false);
+		$this->municipios = $this->load_municipios();
+		$this->localidades = $this->load_localidades();
 		$this->load_compara_cookie();
 		$this->get_metadata();
 		$this->breadcrumb = array('#'=> 'Comparador');
@@ -60,6 +60,7 @@ class compara extends main{
 			if(!$this->cookie('user_location')){
 				$this->draw_map = true;
 			}
+
 			$this->include_theme('index','resultados-escuela');
 		}
 	}

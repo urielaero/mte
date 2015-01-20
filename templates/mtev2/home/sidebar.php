@@ -45,7 +45,7 @@
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
-							<i class="icon-facebook"></i>
+							<i class="icon-fb-01"></i>
 						</div>
 					</div>	
 					<div flex="75" class="text-container"><p>/MejoraTuEscuela</p></div>
@@ -56,7 +56,7 @@
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
-							<i class="icon-twitter"></i>
+							<i class="icon-twitter-01-01"></i>
 						</div>
 					</div>	
 					<div flex="75" class="text-container"><p>@MejoraTuEscuela</p></div>

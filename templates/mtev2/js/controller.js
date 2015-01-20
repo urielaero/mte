@@ -133,6 +133,17 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
             })
         });
     };
+    $scope.scrollTo = function(target,event){
+        event.preventDefault();
+        setTimeout(
+            function(){
+                $('html, body').animate({
+                    scrollTop: $('#' + target).offset().top
+                }, 600);
+            },
+            300           
+        );
+    }
 }]);
 
 app.controller("mejoraCTL", ['$scope',function ($scope) {
@@ -180,3 +191,9 @@ app.controller("faqCTL", ['$scope',function ($scope) {
 		}
 	}
 }]);
+
+
+///Global functions
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
+}

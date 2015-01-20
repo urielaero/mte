@@ -28,7 +28,7 @@
 							</div>
 							<div layout="row" class="more">
 								<a href="#" flex="50">Leer más</a>
-								<a href="#" flex="50"><i class="icon-mail-01"></i></a>
+								<a href="#" flex="50"><i class="icon-descargas-01"></i></a>
 							</div>
 						</div>
 						<div class="post">
@@ -41,7 +41,7 @@
 							</div>
 							<div layout="row" class="more">
 								<a href="#" flex="50">Leer más</a>
-								<a href="#" flex="50"><i class="icon-mail-01"></i></a>
+								<a href="#" flex="50"><i class="icon-descargas-01"></i></a>
 							</div>
 						</div>
 						<a href="#" class="button-bordered">Consulta más información</a>

@@ -45,15 +45,18 @@
 			</div>
 		</div>
 		<div class="counters" layout="row" layout-sm="column">
-			<div flex><div layout="row" layout-margin>
+			<div flex><div layout="row">
+				<div flex class="icon-box"><i class="icon-student"></i></div>
 				<div flex>Número de alumnos:</div>
 				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
 			</div></div>
-			<div flex><div layout="row" layout-margin>
+			<div flex><div layout="row">
+				<div flex class="icon-box small"><i class="icon-desk-01"></i></div>
 				<div flex>Número de alumnos:</div>
 				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
 			</div></div>
-			<div flex><div layout="row" layout-margin>
+			<div flex><div layout="row">
+				<div flex class="icon-box small"><i class="icon-desk-01"></i></div>
 				<div flex>Número de alumnos:</div>
 				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
 			</div></div>
@@ -152,87 +155,89 @@
 				</div>
 			</div>
 		</form>
-	    <md-tabs class="tabs-data" md-selected="selectedData"  ng-click="loadCharts($event)">
-	    	<md-tab class="desempeno-tab" aria-controls="tab1-content">
-	        	Desempeño<br/>academico
-	      	</md-tab>
-	      	<md-tab class="infraestructura-tab" aria-controls="tab2-content">
-	        	Infraestructura<br/>escolar
-	      	</md-tab>
-	      	<md-tab class="comentarios-tab" aria-controls="tab2-content">
-	        	Comentarios y<br/>reportes
-	      	</md-tab>
-	    </md-tabs>
 
-	    <ng-switch on="selectedData" class="tabpanel-container">
-	        <div role="tabpanel" class="desempeno" id="profile-content" aria-labelledby="tab1" ng-switch-when="0">
-				<h2>Desempeño académico matutino</h2>
-				<div class="block" layout="row" layout-sm="column" layout-margin layout-fill layout-padding>
-					<div flex>
-						<div layout="row">
-							<div flex="70"><p>Número de alumnos evaluados</p></div>
-							<div flex="30" class="number"><p><?=$this->escuela_per_turno->total_evaluados?></p></div>
-						</div>
-					</div>
-					<div flex>
-						<div layout="row">
-							<div flex="70"><p>Porcentaje de alumnos en nivel reprobatorio</p></div>
-							<div flex="30" class="number"><p><?=$this->escuela_per_turno->pct_reprobados?>%</p></div>
-						</div>
-					</div>								
-				</div>
-				<div class="chart-block mate" layout="row">
-					<div class="purple" flex="25">
-						<p class="i-cont"><i class="icon-calculadora-01"></i></p>
-						<p>Resultados</p>
-						<p>ENLACE</p>
-						<div class="label"><p>Matemáticas</p></div>
-					</div>
-					<div flex="75" class="chart" 
-					ng-init='chart[<?=$this->escuela_per_turno_index?>].matematicas=<?=json_encode($this->escuela_per_turno->chart_ma)?>'
-					>
-						<div id='profile-line-chart-matematicas' class="content_chart"></div>
-			                        <div class="legend_chart">
-			                            <div class="wrap_lc">
-			                                <p ng-repeat="year in chart[<?=$this->escuela_per_turno_index?>].matematicas[0]" ng-if="year!='Año'">
-								<span class="circle" style='background:{{chart_colors[$index-1]}}'></span>
-								{{year}}
-							</p>
-			                            </div>
-	
-			                            <p class="under">_ _ _ _</p>
-			                            <p>Promedio nacional</p>
-			                        </div>
-					
+		<?php if($this->escuela->infraestructura): ?>
+		    <div layout="row" class="scroll-links space-between">
+		    	<a href="#desempeno" ng-click="scrollTo('desempeno',$event)" class="link desempeno-tab" flex="32">Desempeño<br/>academico</a>
+		    	<a href="#infraestructura" ng-click="scrollTo('infraestructura',$event)" class="link infraestructura-tab" flex="32">Infraestructura<br/>escolar</a>
+		    	<a href="#comentarios" ng-click="scrollTo('comentarios',$event)" class="link comentarios-tab" flex="32">Comentarios y<br/>reportes</a>
+		    </div>	
+		<?php else: ?>	
+		    <div layout="row" class="scroll-links space-between">
+		    	<a href="#desempeno" ng-click="scrollTo('desempeno',$event)" class="link desempeno-tab" flex="48">Desempeño<br/>academico</a>
+		    	<a href="#comentarios" ng-click="scrollTo('comentarios',$event)" class="link comentarios-tab" flex="48">Comentarios y<br/>reportes</a>
+		    </div>		
+		<?php endif; ?>
+
+
+        <div  class="desempeno" id="desempeno">
+			<h2>Desempeño académico matutino</h2>
+			<div class="block" layout="row" layout-sm="column" layout-margin layout-fill layout-padding>
+				<div flex>
+					<div layout="row">
+						<div flex="70"><p>Número de alumnos evaluados</p></div>
+						<div flex="30" class="number"><p><?=$this->escuela_per_turno->total_evaluados?></p></div>
 					</div>
 				</div>
-				<div class="chart-block espanol" layout="row">
-					<div class="purple" flex="25">
-						<p class="i-cont"><i class="icon-enlace-01"></i></p>
-						<p>Resultados</p>
-						<p>ENLACE</p>
-						<div class="label"><p>Español</p></div>
+				<div flex>
+					<div layout="row">
+						<div flex="70"><p>Porcentaje de alumnos en nivel reprobatorio</p></div>
+						<div flex="30" class="number"><p><?=$this->escuela_per_turno->pct_reprobados?>%</p></div>
 					</div>
-					<div flex="75" class="chart"
-					ng-init='chart[<?=$this->escuela_per_turno_index?>].espaniol=<?=json_encode($this->escuela_per_turno->chart_es)?>'
-					>
-						<div id='profile-line-chart-espaniol' class="content_chart"></div>
-			                        <div class="legend_chart">
-			                            <div class="wrap_lc">
-			                                <p ng-repeat="year in chart[<?=$this->escuela_per_turno_index?>].espaniol[0]" ng-if="year!='Año'">
-								<span class="circle" style='background:{{chart_colors[$index-1]}}'></span>
-								{{year}}
-							</p>
-			                            </div>
-	
-			                            <p class="under">_ _ _ _</p>
-			                            <p>Promedio nacional</p>
-			                        </div>
-					</div>
+				</div>								
+			</div>
+			<div class="chart-block mate" layout="row">
+				<div class="purple" flex="25">
+					<p class="i-cont"><i class="icon-calculadora-01"></i></p>
+					<p>Resultados</p>
+					<p>ENLACE</p>
+					<div class="label"><p>Matemáticas</p></div>
+				</div>
+				<div flex="75" class="chart" 
+				ng-init='chart[<?=$this->escuela_per_turno_index?>].matematicas=<?=json_encode($this->escuela_per_turno->chart_ma)?>'
+				>
+					<div id='profile-line-chart-matematicas' class="content_chart"></div>
+		                        <div class="legend_chart">
+		                            <div class="wrap_lc">
+		                                <p ng-repeat="year in chart[<?=$this->escuela_per_turno_index?>].matematicas[0]" ng-if="year!='Año'">
+							<span class="circle" style='background:{{chart_colors[$index-1]}}'></span>
+							{{year}}
+						</p>
+		                            </div>
+
+		                            <p class="under">_ _ _ _</p>
+		                            <p>Promedio nacional</p>
+		                        </div>
+				
 				</div>
 			</div>
-	        <div role="tabpanel" class="infraestructura tables-box" id="profile-content" aria-labelledby="tab1" ng-switch-when="1">
+			<div class="chart-block espanol" layout="row">
+				<div class="purple" flex="25">
+					<p class="i-cont"><i class="icon-enlace-01"></i></p>
+					<p>Resultados</p>
+					<p>ENLACE</p>
+					<div class="label"><p>Español</p></div>
+				</div>
+				<div flex="75" class="chart"
+				ng-init='chart[<?=$this->escuela_per_turno_index?>].espaniol=<?=json_encode($this->escuela_per_turno->chart_es)?>'
+				>
+					<div id='profile-line-chart-espaniol' class="content_chart"></div>
+		                        <div class="legend_chart">
+		                            <div class="wrap_lc">
+		                                <p ng-repeat="year in chart[<?=$this->escuela_per_turno_index?>].espaniol[0]" ng-if="year!='Año'">
+							<span class="circle" style='background:{{chart_colors[$index-1]}}'></span>
+							{{year}}
+						</p>
+		                            </div>
 
+		                            <p class="under">_ _ _ _</p>
+		                            <p>Promedio nacional</p>
+		                        </div>
+				</div>
+			</div>
+		</div>
+        
+        <div class="infraestructura tables-box" id="infraestructura">
 			<?php if($this->escuela->censo && ($infra = $this->escuela->censo['infraestructura'])){  
 				$check = 'icon-check-01';
 				$uncheck = 'icon-tache-01';
@@ -290,83 +295,92 @@
 				</table>
 
 			<?php } ?>
-			</div>
-	        <div role="tabpanel" class="comentarios tables-box" id="profile-content" aria-labelledby="tab1" ng-switch-when="2">
-		<?php
-			$cp = 0;
-			$pt = 0;
-			if($this->escuela->calificaciones){
-				foreach($this->escuela->calificaciones as $calificacion){
-					if(isset($calificacion->calificacion)){
-						$cp++;
-						$pt += $calificacion->calificacion;
-					}
-				}
-				$pro = $pt/$cp;
-				$pro = number_format($pro,2);
-			}else{
-				$pro = "n/a";
-			}
-		?>
+		</div>
 
-				<h2>Comentarios</h2>
-				<div class="table-top" layout="row">
-					<div flex="10" flex-sm="15" class="i-cont"><i class="icon-estrella-01"></i></div>
-					<div flex="90" flex-sm="85"><p>Calificación global de la escuela según usuarios</p></div>
-				</div>
-				<table>
-					<tr><td>Calificación global</td><td><?=$pro?></td></tr>
-				</table>
-				<div class="table-top" layout="row">
-					<div flex="10" flex-sm="15" class="i-cont"><i class="icon-pregunta-01"></i></div>
-					<div flex="90" flex-sm="85"><p>Calificación promedio por pregunta</p></div>
-				</div>
-				<table>
-				<?php
-				if($this->preguntas){
-					foreach($this->preguntas as $pregunta){
-						echo "<tr>
-							<td>{$pregunta->titulo}</td>
-							<td>".(isset($pregunta->promedio) ? $pregunta->promedio:"n/a")."</td>
-						</tr>";
-					}
-				}
-				?>
-				</table>
-				<div class="table-top" layout="row">
-					<div flex="10" flex-sm="15" class="i-cont"><i class="icon-comentario2-01"></i></div>
-					<div flex="90" flex-sm="85"><p>Calificación promedio por pregunta</p></div>
-				</div>
-
-				<?php if($this->escuela->calificaciones){?>
-				<ul class="comments-list">
-					<?php 
+        <div  class="comentarios tables-box" id="comentarios">
+			<?php
+				$cp = 0;
+				$pt = 0;
+				if($this->escuela->calificaciones){
 					foreach($this->escuela->calificaciones as $calificacion){
-						if(isset($calificacion->activo) && $calificacion->activo){
-							$coment = preg_replace('/\v+|\\\[rn]/','<br/>',$calificacion->comentario);
-	                			        $coment = stripslashes($coment);
-							$text_calificacion = isset($calificacion->calificacion)?'<span>Calificación <br /> otorgada</span>':'';
-							$ocupacion = $calificacion->ocupacion =='padredefamilia' || $calificacion->ocupacion == 'Padre de familia' ? 'Padre de familia':($this->capitalize($calificacion->ocupacion));
-							$cali = $calificacion->calificacion;
-							$cali = $cali > 10?$cali/10:$cali;//error cuendo en la db se calificaba de a 100
-							$nombreCalificacion  = ($calificacion->acepta_nombre == 1) ? $calificacion->nombre : ''; 
-							date_default_timezone_set('America/Mexico_City');
-							$time = date("d M Y",strtotime($calificacion->timestamp));
-							echo <<<EOD
-					<li>
-						<p><strong class="green">Calificación: {$cali} | </strong>{$nombreCalificacion} ({$ocupacion})</p>
-						<p>{$time}</p>
-						<p>{$calificacion->comentario}</p>
-					</li>
-EOD;
-							}
+						if(isset($calificacion->calificacion)){
+							$cp++;
+							$pt += $calificacion->calificacion;
 						}
-					
-					?>
-				</ul>
-				<?php } ?>
+					}
+					$pro = $pt/$cp;
+					$pro = number_format($pro,2);
+				}else{
+					$pro = "n/a";
+				}
+			?>
+
+			<h2 layout="row">
+				<div flex="50">Comentarios</div>
+				<div flex="50">
+					<div layout="row" class="total">
+						<div flex="20" class="icon-box"><i class="icon-desk-01"></i></div>
+						<div flex="60">Total de personas que evaluaron esta escuela</div>
+						<div flex="20"><strong>456</strong></div>
+				</div>
+			</h2>
+			<div class="table-top" layout="row">
+				<div flex="10" flex-sm="15" class="i-cont"><i class="icon-estrella-01"></i></div>
+				<div flex="90" flex-sm="85"><p>Calificación global de la escuela según usuarios</p></div>
 			</div>
-		</ng-switch>
+			<table>
+				<tr><td>Calificación global</td><td><?=$pro?></td></tr>
+			</table>
+			<div class="table-top" layout="row">
+				<div flex="10" flex-sm="15" class="i-cont"><i class="icon-pregunta-01"></i></div>
+				<div flex="90" flex-sm="85"><p>Calificación promedio por pregunta</p></div>
+			</div>
+			<table>
+			<?php
+			if($this->preguntas){
+				foreach($this->preguntas as $pregunta){
+					echo "<tr>
+						<td>{$pregunta->titulo}</td>
+						<td>".(isset($pregunta->promedio) ? $pregunta->promedio:"n/a")."</td>
+					</tr>";
+				}
+			}
+			?>
+			</table>
+			<div class="table-top" layout="row">
+				<div flex="10" flex-sm="15" class="i-cont"><i class="icon-comentario2-01"></i></div>
+				<div flex="90" flex-sm="85"><p>Calificación promedio por pregunta</p></div>
+			</div>
+
+			<?php if($this->escuela->calificaciones){?>
+			<ul class="comments-list">
+				<?php 
+				foreach($this->escuela->calificaciones as $calificacion){
+					if(isset($calificacion->activo) && $calificacion->activo){
+						$coment = preg_replace('/\v+|\\\[rn]/','<br/>',$calificacion->comentario);
+                			        $coment = stripslashes($coment);
+						$text_calificacion = isset($calificacion->calificacion)?'<span>Calificación <br /> otorgada</span>':'';
+						$ocupacion = $calificacion->ocupacion =='padredefamilia' || $calificacion->ocupacion == 'Padre de familia' ? 'Padre de familia':($this->capitalize($calificacion->ocupacion));
+						$cali = $calificacion->calificacion;
+						$cali = $cali > 10?$cali/10:$cali;//error cuendo en la db se calificaba de a 100
+						$nombreCalificacion  = ($calificacion->acepta_nombre == 1) ? $calificacion->nombre : ''; 
+						date_default_timezone_set('America/Mexico_City');
+						$time = date("d M Y",strtotime($calificacion->timestamp));
+						echo <<<EOD
+				<li>
+					<p><strong class="green">Calificación: {$cali} | </strong>{$nombreCalificacion} ({$ocupacion})</p>
+					<p>{$time}</p>
+					<p>{$calificacion->comentario}</p>
+				</li>
+EOD;
+						}
+					}
+				
+				?>
+			</ul>
+			<?php } ?>
+		</div>
+
 		<div class="compare-table">
 			<table class="footable">
 				<thead>
