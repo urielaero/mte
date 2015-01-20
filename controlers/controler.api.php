@@ -27,8 +27,10 @@ class api extends main{
 	public function escuelas(){
 		$params = new stdClass();
 		$params->order_by = ' ISNULL(escuelas_para_rankeo.rank_entidad), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
+		$params->pagination = 6;
 		$this->get_escuelas($params);
 		$this->process_escuelas();
+		$this->escuelas_digest->pagination = $this->pagination;
 		echo json_encode($this->escuelas_digest);	
 	}
 	public function serializeAngular(){

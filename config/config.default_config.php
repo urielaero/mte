@@ -26,55 +26,56 @@ class default_config{
                         {"width":"50","height":"50","slug":"tiny"},
                         {"width":"156","height":"112","slug":"signs" ,"resize_type":"best fit"}
                 ]');
-               //MTE
+                
+                //MTE
                 $this->semaforos = array('Reprobado','De panzazo','Bien','Excelente','No toma la <br /> prueba <br />ENLACE','Poco confiable','Esta escuela no toma la prueba ENLACE para todos los años','La prueba ENLACE no esta disponible para este nivel escolar','No aplica');
-                $this->semaforos2 = '[
+                $this->semaforos2 = json_decode('[
                     {
                         "label" : "Reprobado",
-                        "icon" : "icon-check-01",
-                        "class" : "rank1",
+                        "icon" : "icon-tache-01",
+                        "class" : "rank1"
                     },
                     {
                         "label" : "De panzazo",
-                        "icon" : "icon-check-01",
-                        "class" : "rank2",
+                        "icon" : "icon-tache-01",
+                        "class" : "rank2"
                     },
                     {
                         "label" : "Bien",
                         "icon" : "icon-check-01",
-                        "class" : "rank3",
+                        "class" : "rank3"
                     },
                     {
                         "label" : "Excelente",
                         "icon" : "icon-check-01",
-                        "class" : "rank4",
+                        "class" : "rank4"
                     },
                     {
-                        "label" : "No toma la <br /> prueba <br />ENLACE",
-                        "icon" : "icon-check-01",
-                        "class" : "rank5",
+                        "label" : "No toma la prueba ENLACE",
+                        "icon" : "icon-tache-01",
+                        "class" : "rank5"
                     },
                     {
                         "label" : "Poco confiable",
-                        "icon" : "icon-check-01",
-                        "class" : "rank6",
+                        "icon" : "icon-tache-01",
+                        "class" : "rank6"
                     },
                     {
                         "label" : "Esta escuela no toma la prueba ENLACE para todos los años",
-                        "icon" : "icon-check-01",
-                        "class" : "rank7",
+                        "icon" : "icon-tache-01",
+                        "class" : "rank7"
                     },
                     {
                         "label" : "La prueba ENLACE no esta disponible para este nivel escolar",
-                        "icon" : "icon-check-01",
-                        "class" : "rank8",
+                        "icon" : "icon-tache-01",
+                        "class" : "rank8"
                     },
                     {
                         "label" : "No aplica",
-                        "icon" : "icon-check-01",
-                        "class" : "rank9",
+                        "icon" : "icon-tache-01",
+                        "class" : "rank9"
                     }
-                ]';
+                ]');
         }
 
                 

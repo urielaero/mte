@@ -52,23 +52,24 @@ class main extends controler{
 				}
 				$escuela->get_turnos();
 				$escuela->get_semaforos();
-				$escuelas[$escuela->cct] = new stdClass();
-				$escuelas[$escuela->cct]->cct = $escuela->cct;
-				$escuelas[$escuela->cct]->latitud = $escuela->latitud;
-				$escuelas[$escuela->cct]->longitud = $escuela->longitud;
-				$escuelas[$escuela->cct]->nombre = $this->capitalize($escuela->nombre);
-				$escuelas[$escuela->cct]->localidad = $this->capitalize($escuela->localidad->nombre);
-				$escuelas[$escuela->cct]->entidad = $this->capitalize($escuela->entidad->nombre);
-				$escuelas[$escuela->cct]->nivel = $this->capitalize($escuela->nivel->nombre);
-				$escuelas[$escuela->cct]->control = $this->capitalize($escuela->control->nombre);
-				$escuelas[$escuela->cct]->semaforo = $escuela->semaforo;
-				$escuelas[$escuela->cct]->promedio_general = $escuela->promedio_general;
-				$escuelas[$escuela->cct]->promedio_matematicas = $escuela->promedio_matematicas;
-				$escuelas[$escuela->cct]->promedio_espaniol = $escuela->promedio_espaniol;
-				$escuelas[$escuela->cct]->rank = $escuela->rank_entidad;
-				$escuelas[$escuela->cct]->rank_nacional = $escuela->rank_nacional;
-				$escuelas[$escuela->cct]->direccion = $this->capitalize($escuela->localidad->nombre).', '.$this->capitalize($escuela->entidad->nombre);
-				$escuelas[$escuela->cct]->turno = $escuela->turno;
+				$escuelas[$key] = new stdClass();
+				$escuelas[$key]->cct = $escuela->cct;
+				$escuelas[$key]->latitud = $escuela->latitud;
+				$escuelas[$key]->longitud = $escuela->longitud;
+				$escuelas[$key]->nombre = $this->capitalize($escuela->nombre);
+				$escuelas[$key]->localidad = $this->capitalize($escuela->localidad->nombre);
+				$escuelas[$key]->entidad = $this->capitalize($escuela->entidad->nombre);
+				$escuelas[$key]->nivel = $this->capitalize($escuela->nivel->nombre);
+				$escuelas[$key]->control = $this->capitalize($escuela->control->nombre);
+				$escuelas[$key]->semaforo = $escuela->semaforo;
+				$escuelas[$key]->promedio_general = $escuela->promedio_general;
+				$escuelas[$key]->promedio_matematicas = $escuela->promedio_matematicas;
+				$escuelas[$key]->promedio_espaniol = $escuela->promedio_espaniol;
+				$escuelas[$key]->rank = $escuela->rank_entidad;
+				$escuelas[$key]->rank_nacional = $escuela->rank_nacional;
+				$escuelas[$key]->direccion = $this->capitalize($escuela->localidad->nombre).', '.$this->capitalize($escuela->entidad->nombre);
+				$escuelas[$key]->turno = $escuela->turno;
+				$escuelas[$key]->turnos_eval = $escuela->turnos_eval;
 			}
 			$width = $this->distance($maxlat,$minlong,$maxlat,$maxlong);
 			$height = $this->distance($maxlat,$minlong,$minlat,$minlong);
@@ -212,10 +213,14 @@ class main extends controler{
             } else {
                 $q->search_clause .= " AND escuelas.nivel = '{$params->nivel}' ";
             }
+		}else if($this->request('niveles')){
+			//Este else es si la busqueda viene de angular, cambia ya que puedes selecionar varios niveles a la vez
+			var_dump($this->request('niveles'));
+
 		}else{
 			#$q->search_clause .= $this->request('nivel') === false || $this->request('nivel') === '' ? 'AND (escuelas.nivel = "12" || escuelas.nivel = "13" || escuelas.nivel="21" || escuelas.nivel = "22") ' : ' AND escuelas.nivel = "'.$this->request('nivel').'" ';
 			if( $this->request('nivel') === false || $this->request('nivel') === '')
-				$q->search_clause .=' AND (escuelas.nivel = "12" || escuelas.nivel = "13" || escuelas.nivel="21" || escuelas.nivel = "22" || SUBSTR(escuelas.cct,3,2) = "BB") ';
+				$q->search_clause .= ' AND (escuelas.nivel = "12" || escuelas.nivel = "13" || escuelas.nivel="21" || escuelas.nivel = "22" || SUBSTR(escuelas.cct,3,2) = "BB") ';
             elseif($this->request('nivel')=='1')//si es biblioteca
                 $q->search_clause .= ' AND SUBSTR(escuelas.cct,3,2) = "BB" ';
             elseif($this->request('nivel')!='22')
@@ -254,6 +259,7 @@ class main extends controler{
 		if(isset($params->pagination)){
 			$this->pagination = new pagination('escuela',$params->pagination,$q->search_clause);
 			$q->limit = $this->pagination->limit;
+			//var_dump($q->limit);
 		}
 		$q->debug = isset($this->debug) ? $this->debug : false;
 

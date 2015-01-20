@@ -7,6 +7,48 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
     $scope.localidad = $scope.localidades[0];
     $scope.semaforos = semaforos;
     $scope.loading = true;
+    $scope.pagination = {count:0,current_page:1};
+
+    $scope.niveles = [
+        {
+            id : 11,
+            label : 'Preescolar',
+            checked : true,
+        },
+        {
+            id : 12,
+            label : 'Primaria',
+            checked : true,
+        },
+        {
+            id : 13,
+            label : 'Secundaria',
+            checked : true,
+        },
+        {
+            id : 22,
+            label : 'Bachillerato',
+            checked : true,
+        },
+        {
+            id : 'BB',
+            label : 'Biblioteca',
+            checked : true,
+        },
+    ];
+    $scope.turnos = [
+        {
+            id : 11,
+            label : 'Matutino',
+            checked : true,
+        },
+        {
+            id : 12,
+            label : 'Vespertino',
+            checked : true,
+        },
+    ];;
+    $scope.control = {privado:true,publica:true};
 
     $scope.getLocalidades = function(){
         $scope.localidades = [{nombre:'Todas'}];
@@ -25,25 +67,39 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
         if($scope.municipio && $scope.entidad.id != $scope.municipio.id){
             $scope.municipio = $scope.municipios[0];
         }
+
+        $scope.pagination.current_page = 1;
         $scope.getLocalidades();
+        $scope.getEscuelas();
     }
     $scope.municipioChange = function(){
         if($scope.localidad && $scope.entidad.id != $scope.localidad.id){
             $scope.localidad = $scope.localidades[0];
         }
+        $scope.pagination.current_page = 1;
         $scope.getLocalidades();
+        $scope.getEscuelas();
     }
     $scope.getEscuelas = function(){
         var params  = {
             entidad : $scope.entidad.id || null,
             municipio : $scope.municipio.id || null,
+            localidad : $scope.localidad.id || null,
+            p : $scope.pagination.current_page || 1,
         };
         $scope.loading = true;
         $http({method:'POST',url:'/api/escuelas',data:params}).then(function(response){
             console.log(response.data);
+            $scope.pagination = response.data.pagination;
             $scope.escuelas = response.data.escuelas;
             $scope.loading = false;
         });
+    }
+    $scope.numberFormat = function(number){
+        if(typeof(number) == 'string'){
+            number = parseInt(number);
+        }
+        return new Intl.NumberFormat().format(number.toFixed(2));
     }
     $scope.getEscuelas();
 }]);

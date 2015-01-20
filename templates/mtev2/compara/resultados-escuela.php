@@ -24,19 +24,18 @@
 				<select ng-model='municipio' ng-change='municipioChange()' ng-options='municipio as municipio.nombre for municipio in municipios | municipiosFilter:entidad' ></select>
 				
 				<label>Localidad</label>
-				<select ng-model='localidad' ng-disabled='!localidades[1]	' ng-options='localidad as localidad.nombre.capitalize() for localidad in localidades' ></select>
+				<select ng-model='localidad' ng-change='$scope.pagination.current_page = 1;getEscuelas();' ng-disabled='!localidades[1]	' ng-options='localidad as localidad.nombre.capitalize() for localidad in localidades' ></select>
 
 				<label>Nivel escolar</label>
-				<p><md-checkbox aria-label="Checkbox 1">Prescolar</md-checkbox></p>
-				<p><md-checkbox aria-label="Checkbox 1">Primaria</md-checkbox></p>
-				<p><md-checkbox aria-label="Checkbox 1">Secundaria</md-checkbox></p>
-				<p><md-checkbox aria-label="Checkbox 1">Bachillerato</md-checkbox></p>
+
+				<p><md-checkbox ng-repeat='nivel in niveles' ng-model='nivel.checked' aria-label="Checkbox 1" >{{nivel.label}}</md-checkbox></p>
 				<label>Turno</label>
-				<p><md-checkbox aria-label="Checkbox 1">Matutino</md-checkbox></p>
-				<p><md-checkbox aria-label="Checkbox 1">Vespertino</md-checkbox></p>
+				<p><md-checkbox ng-model='turno.matutino' aria-label="Checkbox 1">Matutino</md-checkbox></p>
+				<p><md-checkbox ng-model='turno.vespertino' aria-label="Checkbox 1">Vespertino</md-checkbox></p>
+
 				<label>Sector</label>
-				<p><md-checkbox aria-label="Checkbox 1">Privado</md-checkbox></p>
-				<p><md-checkbox aria-label="Checkbox 1">Público</md-checkbox></p>
+				<p><md-checkbox ng-model='control.privado' aria-label="Checkbox 1">Privado</md-checkbox></p>
+				<p><md-checkbox ng-model='control.publica' aria-label="Checkbox 1">Público</md-checkbox></p>
 			</form>
 		</div>
 		<div layout='row' ng-show='loading' flex="70" flex-sm="100" layout-align='center center'>
@@ -44,12 +43,13 @@
 		</div>
 		<div ng-hide='loading' flex="70" flex-sm="100" id="results">
 			<div layout="row" layout-sm="column">
-				<h2 flex="40" flex-sm="100">34,598 Resultados</h2>
+				<h2 flex="40" flex-sm="100">{{numberFormat(pagination.count)}} Resultados</h2>
 				<div class="order-by" flex="60" flex-sm="100">
-					<select><option>Orden alfabético</option></select>
+					<select ng-options=''></select>
+
 					<label>Ordenar por:</label>
 					<div class="clear"></div>
-				</div>semaforos
+				</div>
 			</div>
 			<div class="compare-table">
 				<table class="footable">
@@ -74,64 +74,63 @@
 							<td>{{escuela.control}}</td>
 							<td>
 								<md-button ng-class="semaforos[escuela.semaforo].class" class="md-fab" aria-label="Time">
-									<i class="semaforos[escuela.semaforo].icon"></i>
+									<i ng-class="semaforos[escuela.semaforo].icon"></i>
 								</md-button>
 								<p>{{semaforos[escuela.semaforo].label}}</p>
 							</td>
 						</tr>
-						<tr>
-							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-							</td>
-							<td>Bachillerato</td>
-							<td>Vespertino</td>
-							<td>Pública</td>
-							<td>
-								<md-button class="md-fab rank3" aria-label="Time"><i class="icon-check-01"></i></md-button>
-								<p>De panzazo</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-							</td>
-							<td>Primaria</td>
-							<td>Matutino</td>
-							<td>Privada</td>
-							<td>
-								<md-button class="md-fab rank1" aria-label="Time"><i class="icon-tache-01"></i></md-button>
-								<p>Excelente</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-							</td>
-							<td>Primaria</td>
-							<td>Vespertino</td>
-							<td>Pública</td>
-							<td>
-								<md-button class="md-fab rank4" aria-label="Time"><i class="icon-tache-01"></i></md-button>
-								<p>Reprobado</p>
-							</td>
-						</tr>
-
 					</tbody>
 				</table>
 			</div>
 			<a href="#" class="compare-button">Comparar</a>
-			<div class="pagination">
-				<a href="#">1</a>
-				<a href="#">2</a>
-				<a href="#">3</a>
-				<a href="#">&gt;</a>
-				<a href="#">Últimas &gt;</a>
+			<div class="pagination">			
+
+				<a href="" 
+				   ng-show='pagination.current_page - 3 > 1' 
+				   ng-click='pagination.current_page = 1; getEscuelas()' >
+					   &lt; Primeras 
+				</a>
+				<a  href="" 
+					ng-show='pagination.current_page > 3' 
+					ng-click='pagination.current_page = pagination.current_page - 3; getEscuelas()' >
+						&lt;
+				</a>				
+				<a  href="" 
+					ng-bind='pagination.current_page - 2 ' 
+					ng-show='pagination.current_page > 1 && pagination.current_page + 1 >= pagination.document_pages'
+					ng-click='pagination.current_page = pagination.current_page - 2; getEscuelas()' >
+				</a>
+				<a  href="" 
+					ng-bind='pagination.current_page - 1 ' 
+					ng-show='pagination.current_page > 1'
+					ng-click='pagination.current_page = pagination.current_page - 1; getEscuelas()' >
+				</a>
+				
+				<a href="" ng-show='pagination.document_pages > 1' ng-bind='pagination.current_page' class='on'></a>
+				
+				<a href="" 
+					ng-bind='pagination.current_page + 1'
+					ng-show='pagination.current_page + 1 <= pagination.document_pages'
+					ng-click='pagination.current_page = pagination.current_page + 1; getEscuelas()' >
+				</a>
+				
+				<a  href="" 
+					ng-bind='pagination.current_page + 2'
+					ng-show='pagination.current_page + 2 <= pagination.document_pages && pagination.current_page == 1'
+					ng-click='pagination.current_page = pagination.current_page + 2; getEscuelas()' >
+				</a>
+
+				<a  href="" 
+					ng-show='pagination.current_page + 3 <=  pagination.document_pages'
+					ng-click='pagination.current_page = pagination.current_page + 3; getEscuelas()' >
+						&gt;
+				</a>
+				<a  href="" 
+					ng-show='pagination.current_page + 2 < pagination.document_pages' 
+					ng-click='pagination.current_page = pagination.document_pages; getEscuelas()' >
+						Últimas &gt;
+				</a>
+
 			</div>	
 		</div>
 	</div>
