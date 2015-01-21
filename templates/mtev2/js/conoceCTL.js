@@ -8,6 +8,8 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
     $scope.semaforos = semaforos;
     $scope.loading = true;
     $scope.pagination = {count:0,current_page:1};
+    $scope.sortOptions = ['Semáforo educativo','Nombre de la escuela'];
+    $scope.sort = $scope.sortOptions[0];
 
     $scope.niveles = [
         {
@@ -65,6 +67,7 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
     }
     $scope.getLocalidades = function(){
         $scope.localidades = [{nombre:'Todas'}];
+        $scope.localidad = $scope.localidades[0];
         var params  = {
             entidad : $scope.entidad.id || null,
             municipio : $scope.municipio.id || null,
@@ -97,7 +100,7 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
         $scope.buildParams();
         $scope.loading = true;
         $http({method:'POST',url:'/api/escuelas',data:$scope.params}).then(function(response){
-            console.log(response.data);
+            //console.log(response.data);
             $scope.pagination = response.data.pagination;
             $scope.escuelas = response.data.escuelas;
             $scope.loading = false;
@@ -115,13 +118,13 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
             municipio : $scope.municipio.id || null,
             localidad : $scope.localidad.id || null,
             p : $scope.pagination.current_page || 1,
+            sort : $scope.sort,
         };
         $scope.params.niveles = processCheckBoxes($scope.niveles).join(',');
         var controles = processCheckBoxes($scope.controles);
         if(controles.length == 1) $scope.params.control = controles[0];
         var turnos = processCheckBoxes($scope.turnos);
         if(turnos.length == 1) $scope.params.turno = turnos[0];
-        console.log($scope.params);
     };
     $scope.getEscuelas();
 }]);
