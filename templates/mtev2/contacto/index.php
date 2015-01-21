@@ -6,7 +6,7 @@
 	  <div class="items-header-contact ico-contact icotelefono-contactanos"><h1 class="h3-contactanos"><i class="icon-telefono-01"></i></h1></div>
 	  <div class="items-header-contact telefono-contactanos"><h4 class="h3-contactanos">5985-1017</h4></div>
 	</div>
-		<form action="#">
+		<form action="#" class="form-contacto">
 			<div layout="row" class="space-between">
 				<input type="text" class="text-input" placeholder="Nombre" flex="45">
 				<input type="mail" class="mail-input" placeholder="Correo electrónico" flex="45">

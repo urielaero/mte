@@ -60,10 +60,12 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat='escuela in escuelas'>
-							<td>
-								<strong><a ng-href='/escuelas/index/{{escuela.cct}}' ng-bind='escuela.nombre' ></a></strong>
-								<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
-								<p ng-show='escuela.turno.nombre'><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
+							<td class='link'>
+								<a  ng-href='/escuelas/index/{{escuela.cct}}'>
+									<strong  ng-bind='escuela.nombre'></strong>
+									<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
+									<p ng-show='escuela.turno.nombre'><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
+								</a>
 							</td>
 							<td>{{escuela.nivel}}</td>
 							<td ng-show='escuela.turno.nombre'>{{escuela.turno.nombre.capitalize()}}</td>

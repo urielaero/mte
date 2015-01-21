@@ -238,7 +238,7 @@
 		</div>
         
         <div class="infraestructura tables-box" id="infraestructura">
-			<?php if($this->escuela->censo && ($infra = $this->escuela->censo['infraestructura'])){  
+			<?php if(isset($this->escuela->censo) && ($infra = $this->escuela->censo['infraestructura'])){  
 				$check = 'icon-check-01';
 				$uncheck = 'icon-tache-01';
 			?>
@@ -321,7 +321,7 @@
 					<div layout="row" class="total">
 						<div flex="20" class="icon-box"><i class="icon-desk-01"></i></div>
 						<div flex="60">Total de personas que evaluaron esta escuela</div>
-						<div flex="20"><strong>456</strong></div>
+						<div flex="20"><strong><?=isset($this->escuela->calificaciones)?count($this->escuela->calificaciones):0 ?></strong></div>
 				</div>
 			</h2>
 			<div class="table-top" layout="row">
@@ -352,7 +352,7 @@
 				<div flex="90" flex-sm="85"><p>Calificación promedio por pregunta</p></div>
 			</div>
 
-			<?php if($this->escuela->calificaciones){?>
+			<?php if(isset($this->escuela->calificaciones)){?>
 			<ul class="comments-list">
 				<?php 
 				foreach($this->escuela->calificaciones as $calificacion){
@@ -464,7 +464,7 @@ EOD;
 
 	</div>
 	<div flex="25" flex-sm="100" class="sidebar">
-	<?php if($this->escuela->censo){ ?>
+	<?php if(isset($this->escuela->censo)){ ?>
 		<div class="box-yesno ">
 			<p><i class="icon-familia-01"></i></p>
 			<p>¿Cuenta con Asociación de padres de familia?</p>

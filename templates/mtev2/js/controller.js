@@ -79,10 +79,12 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
                 colors:$scope.chart_colors
             };
         Object.keys($scope.chart[index]).forEach(function(materia){
-            var raw_data = $scope.chart[index][materia],
-            data = google.visualization.arrayToDataTable(raw_data),
-            chart = new google.visualization.LineChart(document.getElementById('profile-line-chart-'+materia));
-            chart.draw(data, options);
+            var raw_data = $scope.chart[index][materia];
+            if(raw_data){
+                var data = google.visualization.arrayToDataTable(raw_data),
+                chart = new google.visualization.LineChart(document.getElementById('profile-line-chart-'+materia));
+                chart.draw(data, options);
+            }
         });    
     };
 
@@ -91,16 +93,20 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
     };
     $scope.markers = {lat:0,lng:0}
     $scope.loadMap = function(data,currentCct){
-        var markers = Object.keys(data.escuelas).map(function(e,i,arr){
+        var markers = data.escuelas.map(function(escuela,i,arr){
+            var e = escuela.cct,
+            escuelaRank1 = arr[arr.length-1],
+            escuelaRank2 = arr[arr.length-2];
+            
             if(e.indexOf('#')!=-1)
                 return false;
             var current;
-            if(e==currentCct && $scope.selectedIndex==0 && arr.indexOf("#100"))
-                current = data.escuelas["#100"];
-            else if(e==currentCct && $scope.selectedIndex==1 && arr.indexOf("#200"))
-                current = data.escuelas["#200"];
+            if(e==currentCct && $scope.selectedIndex==0 && (escuelaRank1.cctRank == "#100" || escuelaRank1.cctRank=="#100"))
+                current = escuelaRank1.cctRank=="#100"?escuelaRank1:escuelaRank2;
+            else if(e==currentCct && $scope.selectedIndex==1 && (escuelaRank1.cctRank == "#200" || escuelaRank2.cctRank=="#200"))
+                current = escuelaRank1.cctRank=="#200"?escuelaRank1:escuelaRank2;
             else
-                current = data.escuelas[e];
+                current = escuela;
             current.lat = +current.latitud;
             current.lng = +current.longitud;
             current.message = "<div id='sample-infobox' class='infoBox'>"+
@@ -118,7 +124,7 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
                     iconSize:[28, 57],
             };
             return current;
-        })
+        });
         angular.extend($scope,{
             center:{
                 lat:+data.centerlat,

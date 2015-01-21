@@ -250,6 +250,11 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container .compare-table table td p{line-height: 1.2;}
 #content .container .compare-table table td p small{font-size: 10px}
 #content .container .compare-table table td{background: #E2E2E2;color: #4C4C4C;font-size: 12px;padding: 12px}
+#content .container .compare-table table td.link{padding:0;}
+#content .container .compare-table table .link > a{display: block;width: 100%;height: 100%;padding:12px; transition: background .5s linear;}
+#content .container .compare-table table .link > a:hover{background:#1CA5F5;color:white;cursor: pointer;}
+#content .container .compare-table table .link > a:hover a{color:white;}
+#content .container .compare-table table td a{color:#4C4C4C;}
 #content .container .compare-table table td + td{background: #ECECEC;text-align: center;padding: 0;vertical-align: middle;}
 #content .container .compare-table table .footable-row-detail-cell{background: #1B97ED;color: #fff}
 
@@ -726,7 +731,7 @@ ok
 .mail-contactanos{width: 50px;display: table;}
 .correo-contactanos{width: 200px;display: table;}
 .icotelefono-contactanos{width: 50px;display: table;}
-.telefono-contactanos{width: 100px;display: table;}
+.telefono-contactanos{width: 70px;display: table;}
 .h3-contactanos{display: table-cell;vertical-align: middle;}
 .ico-contact{background-color:#00C160}
 /*Carlos Barahona*/
