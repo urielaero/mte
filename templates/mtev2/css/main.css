@@ -622,7 +622,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 	max-width: 49%;
 }
 #content .container.contact form textarea{border: 0;margin-top: 15px;padding: 8px;resize:none;width: 100%;}
-#content .container.contact form input[type="submit"]{background: #0086EF;color: #fff;margin-top: 15px;text-align: center;font-size: 19px;float: right;padding: 15px;width: 50%;}
+#content .container.contact form input[type="submit"]{background: #3E6DF3;color: #fff;margin-top: 15px;text-align: center;font-size: 19px;float: right;padding: 15px;width: 20%;}
 ok
 /*Mejora*/
 #content .container #mejora-content{-webkit-flex: 0 0 68%; -ms-flex: 0 0 68%; flex: 0 0 68%; max-width: 68%; }
@@ -734,4 +734,6 @@ ok
 .telefono-contactanos{width: 70px;display: table;}
 .h3-contactanos{display: table-cell;vertical-align: middle;}
 .ico-contact{background-color:#00C160}
+.form-contacto{background-color: white}
+.enviar-btn-contactos{background-color: #3E6DF3;width: 200px;float: left;}
 /*Carlos Barahona*/

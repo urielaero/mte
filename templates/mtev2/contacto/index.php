@@ -12,8 +12,8 @@
 				<input type="mail" class="mail-input" placeholder="Correo electrónico" flex="45">
 			</div>
 			<textarea placeholder="Mensaje" cols="30" rows="7"></textarea>
-			<p>
-				<input type="submit" value="Enviar">
+			<p >
+				<input type="submit" value="Enviar" >
 				<div class="clear"></div>
 			</p>
 		</form>
