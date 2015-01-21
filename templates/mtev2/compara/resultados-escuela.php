@@ -4,7 +4,7 @@
     window.localidades = <?= json_encode($this->localidades)?>;
     window.semaforos = <?= json_encode($this->config->semaforos2)?>;
 </script>
-<div class='container results' ng-controller="conoceCTL">
+<div class='container results main-search' ng-controller="conoceCTL">
 	<div class="breadcrumb">
 		<a href="#" class="start"><i class="icon-mejora"></i></a>
 		<a href="#">Conoce</a>
@@ -41,7 +41,7 @@
 			<div layout="row" layout-sm="column">
 				<h2 flex="40" flex-sm="100">{{numberFormat(pagination.count)}} Resultados</h2>
 				<div class="order-by" flex="60" flex-sm="100">
-					<select ng-options=''></select>
+					<select ng-change='getEscuelas()' ng-options='option for option in sortOptions' ng-model='sort'></select>
 
 					<label>Ordenar por:</label>
 					<div class="clear"></div>
@@ -61,7 +61,7 @@
 					<tbody>
 						<tr ng-repeat='escuela in escuelas'>
 							<td>
-								<strong>{{escuela.nombre}}</strong>
+								<strong><a ng-href='/escuelas/index/{{escuela.cct}}' ng-bind='escuela.nombre' ></a></strong>
 								<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
 								<p ng-show='escuela.turno.nombre'><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
 							</td>

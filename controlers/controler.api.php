@@ -27,7 +27,12 @@ class api extends main{
 	public function escuelas(){
 		//var_dump($this->request('niveles'));
 		$params = new stdClass();
-		$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
+//<<<<<<< HEAD
+//		$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
+//=======
+		if($this->request('sort') == 'Semáforo educativo')
+			$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
+//>>>>>>> 58ace7c9f81e4c6a68f10703570775100291f7c3
 		$params->pagination = 6;
 		$this->get_escuelas($params);
 		$this->process_escuelas();

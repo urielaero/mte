@@ -486,7 +486,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 	flex: 0 0 28%;
 	max-width: 28%;
 }
-#content .container.results{width:100%;max-width:100%;padding:0 20px;}
+#content .container.results.main-search{width:100%;max-width:1450px;padding:0 20px;}
 #content .container.results #filters .text-field input{border: 0;padding: 10px}
 #content .container.results #filters .text-field input[type="submit"]{background: #00AFF0 url(../img/lupa_blanca.png) center no-repeat;background-size: 20px}
 #content .container.results #filters select{display: block; background: #fff; color: #636363;width: 100%; border: 0; padding: 6px 8px;}
@@ -600,7 +600,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.about .about-content #phone-tab,
 #content .container.about .about-content .phone-content{background: #E90C8F;color: #fff;}
 #content .container.about .about-content #mail-tab,
-#content .container.about .about-content .mail-content{background: #8F49CD;color: #fff}
+#content .container.about .about-content .mail-content{backgroundok: #8F49CD;color: #fff}
 #content .container.about .about-content .tab-content{padding: 20px;}
 #content .container.about .about-content .tab-content p{margin-bottom: 0}
 #content .container.about .about-content .tab-content a{color: #fff;text-decoration: underline;}
@@ -619,7 +619,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 }
 #content .container.contact form textarea{border: 0;margin-top: 15px;padding: 8px;resize:none;width: 100%;}
 #content .container.contact form input[type="submit"]{background: #0086EF;color: #fff;margin-top: 15px;text-align: center;font-size: 19px;float: right;padding: 15px;width: 50%;}
-
+ok
 /*Mejora*/
 #content .container #mejora-content{-webkit-flex: 0 0 68%; -ms-flex: 0 0 68%; flex: 0 0 68%; max-width: 68%; }
 #content .container #mejora-content .menu-top .tabs{height: 80px;margin-bottom: 15px}
