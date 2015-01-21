@@ -10,7 +10,7 @@
 				<p>Nuestro equipo está integrado por miembros del Instituto Mexicano para la Competitividad A.C. (IMCO) con apoyo de la fundación Omidyar Network.</p>
 				<p>A través de esta plataforma queremos promover la participación ciudadana para mejorar la educación en México. Estamos convencidos que la educación en nuestro país sólo mejorará con el compromiso activo de todos los miembros de la comunidad educativa, en particular los padres de familia.</p>
 				<p>MejoraTuEscuela.org te invita a buscar y conocer cómo está la escuela de tus hijos, compararla con otras escuelas en tu zona, calificarla y darnos tu opinión sobre las cosas que necesitan mejorar y las que ya se están haciendo bien. Finalmente, te damos herramientas para que te vuelvas un miembro activo y comprometido que gestione cambios positivos y mejoras en tu comunidad educativa.</p>
-				<p>MejoraTuEscuela.org es una plataforma de todos y para todos los mexicanos. Te invitamos a que la uses y nos ayudes a difundirla. ¡Gracias!</p>
+				<p>MejoraTuEscuela.org es una plataforma de todos y para todos los mexicanos. Te invitamos a que la uses y nos ayudes a difundirla.</p>
 				<p class="green"><strong>¡Gracias!</strong></p>
 				<div class="logos">
 					<?php $this->print_img_tag('quienes_somos/imco_qs.png');
@@ -42,11 +42,11 @@
 			</div>
     		<ng-switch on="selectedIndex" class="tabpanel-container">
         		<div role="tabpanel" class="tab-content phone-content" aria-labelledby="tab1" ng-switch-when="0" md-swipe-left="next()" md-swipe-right="previous()" >
-					<p>Para más información, comunícate a los teléfonos de <b>IMCO</b></p>
+					<p>Comunícate a los teléfonos de <b>IMCO</b></p>
 					<p> con el equipo de Mejora tu Escuela al <b>(55)5985-1017 al 19</b>.</p>
 				</div>
         		<div role="tabpanel" class="tab-content mail-content" aria-labelledby="tab1" ng-switch-when="1" md-swipe-left="next()" md-swipe-right="previous()" >
-					<p>Para más información, escríbenos a: <a href="#">contacto@mejoratuescuela.org</a></p>
+					<p>Escríbenos a: <a href="#">contacto@mejoratuescuela.org</a></p>
 				</div>
 			</ng-switch> 
 		</div>
