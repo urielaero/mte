@@ -42,8 +42,8 @@
 			<tr $on>
 				<td class='school'>
 				<div class='checkbox'><a class='compara-escuela' href='{$escuela->cct}'></a></div>
-				<a href='/escuelas/index/{$escuela->cct}'>".
-					$this->capitalize($escuela->nombre)." | ".
+				<a href='/escuelas/index/{$escuela->cct}'>"
+				.$this->capitalize($escuela->nombre)." | ".
 					"<span>".$this->capitalize($escuela->nom_localidad).", ".$this->capitalize($escuela->nom_entidad)." | ".$this->capitalize($escuela->turno)."</span>".
 				"</a></td>
 
