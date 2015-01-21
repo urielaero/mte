@@ -345,12 +345,28 @@ class escuelas extends main{
 
 	private function set_turno_map(){
 		if(isset($this->escuela->rank)){
+			$current = false;
 			foreach($this->escuela->rank as $rank){
+				if(!$current)
+					foreach($this->escuelas_digest->escuelas as $escuela){
+						if($escuela->cct == $this->escuela->cct)
+							$current = $escuela;
+					}				
+				/*
 				$tmp = clone $this->escuelas_digest->escuelas[$this->escuela->cct];
 				$tmp->semaforo = $rank->semaforo;
 				$tmp->rank = $rank->rank_entidad;
 				$tmp->rank_nacional = $rank->rank_nacional;
 				$this->escuelas_digest->escuelas["#".$rank->turnos_eval] = $tmp;
+				*/
+				if($current){
+					$tmp = clone $current;
+					$tmp->semaforo = $rank->semaforo;
+					$tmp->rank = $rank->rank_entidad;
+					$tmp->rank_nacional = $rank->rank_nacional;
+					$tmp->cctRank = "#".$rank->turnos_eval;
+					$this->escuelas_digest->escuelas[] = $tmp;			
+				}
 			}
 		
 		}	

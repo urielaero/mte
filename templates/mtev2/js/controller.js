@@ -91,16 +91,22 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
     };
     $scope.markers = {lat:0,lng:0}
     $scope.loadMap = function(data,currentCct){
-        var markers = Object.keys(data.escuelas).map(function(e,i,arr){
+        console.log(data);
+        var markers = data.escuelas.map(function(escuela,i,arr){
+            console.log(e,i,arr);
+            var e = escuela.cct,
+            escuelaRank1 = arr[arr.length-1],
+            escuelaRank2 = arr[arr.length-2];
+            
             if(e.indexOf('#')!=-1)
                 return false;
             var current;
-            if(e==currentCct && $scope.selectedIndex==0 && arr.indexOf("#100"))
-                current = data.escuelas["#100"];
-            else if(e==currentCct && $scope.selectedIndex==1 && arr.indexOf("#200"))
-                current = data.escuelas["#200"];
+            if(e==currentCct && $scope.selectedIndex==0 && (escuelaRank1.cctRank == "#100" || escuelaRank1.cctRank=="#100"))
+                current = escuelaRank1.cctRank=="#100"?escuelaRank1:escuelaRank2;
+            else if(e==currentCct && $scope.selectedIndex==1 && (escuelaRank1.cctRank == "#200" || escuelaRank2.cctRank=="#200"))
+                current = escuelaRank1.cctRank=="#200"?escuelaRank1:escuelaRank2;
             else
-                current = data.escuelas[e];
+                current = escuela;
             current.lat = +current.latitud;
             current.lng = +current.longitud;
             current.message = "<div id='sample-infobox' class='infoBox'>"+
@@ -112,6 +118,7 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
                         	"<div class='pos'>Posición nivel estatal</div>"+
                             "<div class='clear'></div>"+
                             "</div>";
+            console.log(currentCct,current)
             var icon = currentCct==current.cct?current.semaforo:current.semaforo+'o';
             current.icon ={
                     iconUrl:'http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/pins_'+icon+'.png',
