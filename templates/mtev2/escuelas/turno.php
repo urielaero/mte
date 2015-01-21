@@ -321,7 +321,7 @@
 					<div layout="row" class="total">
 						<div flex="20" class="icon-box"><i class="icon-desk-01"></i></div>
 						<div flex="60">Total de personas que evaluaron esta escuela</div>
-						<div flex="20"><strong>456</strong></div>
+						<div flex="20"><strong><?=isset($this->escuela->calificaciones)?count($this->escuela->calificaciones):0 ?></strong></div>
 				</div>
 			</h2>
 			<div class="table-top" layout="row">
@@ -352,7 +352,7 @@
 				<div flex="90" flex-sm="85"><p>Calificación promedio por pregunta</p></div>
 			</div>
 
-			<?php if($this->escuela->calificaciones){?>
+			<?php if(isset($this->escuela->calificaciones)){?>
 			<ul class="comments-list">
 				<?php 
 				foreach($this->escuela->calificaciones as $calificacion){
