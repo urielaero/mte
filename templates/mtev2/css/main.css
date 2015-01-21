@@ -723,3 +723,14 @@ ok
 @media (max-width: 200px){
 	#general-search #name-input{width: 10px}
 }
+
+/*Carlos Barahona*/
+.header-form-contactanos{height: 50px;background-color: #00B759;}
+.items-header-contact{float: left;text-align: center;margin-left: 3px;margin-right: 3px;height: 100%;color: white}
+.contactanos-contactanos{background-color: #3E6DF3;width: 130px;display: table;}
+.mail-contactanos{width: 70px;display: table;}
+.correo-contactanos{width: 200px;display: table;}
+.icotelefono-contactanos{width: 70px;display: table;}
+.telefono-contactanos{width: 100px;display: table;}
+.h3-contactanos{display: table-cell;vertical-align: middle;}
+/*Carlos Barahona*/
