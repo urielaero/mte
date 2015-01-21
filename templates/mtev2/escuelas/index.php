@@ -21,10 +21,11 @@ if(!empty($this->escuela->rank)){
 	$tmp->nombre = $this->capitalize('matutino');
         $tmp->rank = isset($this->escuela->rank_entidad) ? number_format($this->escuela->rank_entidad ,0): '--';
 	$tmp->rank_total = number_format($this->entidad_cct_count,0);
-	$tmp->total_evaluados = $this->escuela->total_evaluados?$this->escuela->total_evaluados:'N/D';
-	$tmp->pct_reprobados = $this->escuela->pct_reprobados?$this->escuela->pct_reprobados:'N/D';
+	$tmp->total_evaluados = isset($this->escuela->total_evaluados)?$this->escuela->total_evaluados:'N/D';
+	$tmp->pct_reprobados = isset($this->escuela->pct_reprobados)?$this->escuela->pct_reprobados:'N/D';
 	$tmp->chart_ma = $this->escuela->line_chart_matematicas;
 	$tmp->chart_es = $this->escuela->line_chart_espaniol;
+	$tmp->semaforo = false;
 	$escuela_per_turnos[] = $tmp;
 }
 ?>
