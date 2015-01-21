@@ -238,7 +238,7 @@
 		</div>
         
         <div class="infraestructura tables-box" id="infraestructura">
-			<?php if($this->escuela->censo && ($infra = $this->escuela->censo['infraestructura'])){  
+			<?php if(isset($this->escuela->censo) && ($infra = $this->escuela->censo['infraestructura'])){  
 				$check = 'icon-check-01';
 				$uncheck = 'icon-tache-01';
 			?>
@@ -464,7 +464,7 @@ EOD;
 
 	</div>
 	<div flex="25" flex-sm="100" class="sidebar">
-	<?php if($this->escuela->censo){ ?>
+	<?php if(isset($this->escuela->censo)){ ?>
 		<div class="box-yesno ">
 			<p><i class="icon-familia-01"></i></p>
 			<p>¿Cuenta con Asociación de padres de familia?</p>
