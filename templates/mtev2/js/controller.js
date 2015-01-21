@@ -79,10 +79,12 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
                 colors:$scope.chart_colors
             };
         Object.keys($scope.chart[index]).forEach(function(materia){
-            var raw_data = $scope.chart[index][materia],
-            data = google.visualization.arrayToDataTable(raw_data),
-            chart = new google.visualization.LineChart(document.getElementById('profile-line-chart-'+materia));
-            chart.draw(data, options);
+            var raw_data = $scope.chart[index][materia];
+            if(raw_data){
+                var data = google.visualization.arrayToDataTable(raw_data),
+                chart = new google.visualization.LineChart(document.getElementById('profile-line-chart-'+materia));
+                chart.draw(data, options);
+            }
         });    
     };
 
@@ -91,9 +93,7 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
     };
     $scope.markers = {lat:0,lng:0}
     $scope.loadMap = function(data,currentCct){
-        console.log(data);
         var markers = data.escuelas.map(function(escuela,i,arr){
-            console.log(e,i,arr);
             var e = escuela.cct,
             escuelaRank1 = arr[arr.length-1],
             escuelaRank2 = arr[arr.length-2];
@@ -118,14 +118,13 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
                         	"<div class='pos'>Posición nivel estatal</div>"+
                             "<div class='clear'></div>"+
                             "</div>";
-            console.log(currentCct,current)
             var icon = currentCct==current.cct?current.semaforo:current.semaforo+'o';
             current.icon ={
                     iconUrl:'http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/pins_'+icon+'.png',
                     iconSize:[28, 57],
             };
             return current;
-        })
+        });
         angular.extend($scope,{
             center:{
                 lat:+data.centerlat,
