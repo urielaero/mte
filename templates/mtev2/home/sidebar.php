@@ -15,7 +15,7 @@
 							<i class="icon-blog-01"></i>
 						</div>
 					</div>	
-					<div flex="75" class="text-container"><p>Blog</p></div>
+					<div flex="75" class="text-container"><p>Blogjj</p></div>
 				</div>
 			</div>
 			<div class="box box-green">
