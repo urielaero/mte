@@ -34,7 +34,7 @@
 				<label>Localidad</label>
 				<select ng-model='localidad' ng-change='$scope.pagination.current_page = 1;getEscuelas();' ng-disabled='!localidades[1]	' ng-options='localidad as localidad.nombre.capitalize() for localidad in localidades' ></select>
 
-				<label>Nivel escolar</label>
+				<label>Nivel escolar o tipo de establecimiento</label>
 				<p><md-checkbox ng-change='checkBoxChange()' ng-disabled='loading' ng-repeat='nivel in niveles' ng-model='nivel.checked' aria-label="Checkbox 1" >{{nivel.label}}</md-checkbox></p>
 				<label>Turno</label>
 				<p><md-checkbox ng-change='checkBoxChange()' ng-disabled='loading' ng-repeat='turno in turnos' ng-model='turno.checked' aria-label="Checkbox 1" >{{turno.label}}</md-checkbox></p>
@@ -71,13 +71,13 @@
 						<tr ng-repeat='escuela in escuelas'>
 								<td class='link mi-link'>
 								<div class="cont-datos-escuela">
-									<div class="cont-ico-compara">
+									<!--<div class="cont-ico-compara">
 										<div class="h3-iconmejora">
 											<div class="circulo-icon-mejora" ng-click="ShowForm(escuela)" >
 											   <i class="icon-check-01 mejora-icon"></i>
 											</div>
 										</div>
-									</div>
+									</div>-->
 									<div class="datos-escuela">
 										<a class="datos-esc"  ng-href='/escuelas/index/{{escuela.cct}}'>
 											<strong  ng-bind='escuela.nombre'></strong>
@@ -96,7 +96,7 @@
 								</td>
 							<td>{{escuela.nivel}}</td>
 							<td ng-show='escuela.turno.nombre'>{{escuela.turno.nombre.capitalize()}}</td>
-							<td ng-show='!escuela.turno.nombre'>No Aplica</td>
+							<td ng-show='!escuela.turno.nombre'>No aplica</td>
 							<td>{{escuela.control}}</td>
 							<td>
 								<md-button ng-class="semaforos[escuela.semaforo].class" class="md-fab" aria-label="Time">
