@@ -464,7 +464,8 @@ EOD;
 
 	</div>
 	<div flex="25" flex-sm="100" class="sidebar">
-	<?php if(isset($this->escuela->censo)){ ?>
+	<?php $censo_only = array('SECUNDARIA','PREESCOLAR','PRIMARIA');
+	if(isset($this->escuela->censo) && in_array($this->escuela->nivel->nombre,$censo_only)){ ?>
 		<div class="box-yesno ">
 			<p><i class="icon-familia-01"></i></p>
 			<p>¿Cuenta con Asociación de padres de familia?</p>
