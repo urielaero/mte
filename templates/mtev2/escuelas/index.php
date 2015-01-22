@@ -46,9 +46,14 @@ if(!empty($this->escuela->rank)){
 							<i class="icon-escuela-01"></i>
 						</div>
 					</div>
+					<?php 
+					?>
+
 					<div flex="75" flex-sm="100">
 						<h1><?=$this->capitalize($this->escuela->nombre)?></h1>
-						<p>Posición estatal <?=isset($rank->rank_entidad) ? number_format($rank->rank_entidad ,0): '--' ?> <span>de</span> <?=number_format($this->entidad_cct_count,0)?></p>
+				    	<?php foreach($escuela_per_turnos as $i=>$escuela){?>
+							<p ng-if="selectedIndex==<?=$i?>">Posición estatal <?=$escuela->rank?> <span>de</span> <?=number_format($this->entidad_cct_count,0)?></p>
+					<?php } ?>
 					</div>
 				</div>			
 			</div>

@@ -95,13 +95,13 @@ app.controller("escuelaCTL", ['$scope',function ($scope) {
     $scope.loadMap = function(data,currentCct){
         var markers = data.escuelas.map(function(escuela,i,arr){
             var e = escuela.cct,
-            escuelaRank1 = arr[arr.length-1],
-            escuelaRank2 = arr[arr.length-2];
+            escuelaRank1 = arr[arr.length-1] || {},
+            escuelaRank2 = arr[arr.length-2] || {};
             
             if(e.indexOf('#')!=-1)
                 return false;
             var current;
-            if(e==currentCct && $scope.selectedIndex==0 && (escuelaRank1.cctRank == "#100" || escuelaRank1.cctRank=="#100"))
+            if(e==currentCct && $scope.selectedIndex==0 && (escuelaRank1.cctRank == "#100" || escuelaRank2.cctRank=="#100"))
                 current = escuelaRank1.cctRank=="#100"?escuelaRank1:escuelaRank2;
             else if(e==currentCct && $scope.selectedIndex==1 && (escuelaRank1.cctRank == "#200" || escuelaRank2.cctRank=="#200"))
                 current = escuelaRank1.cctRank=="#200"?escuelaRank1:escuelaRank2;
