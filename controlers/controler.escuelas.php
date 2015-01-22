@@ -89,8 +89,13 @@ class escuelas extends main{
 				$this->subtitle_header = 'El primer paso para poder mejorar biblioteca es saber cómo está. Te invitamos a que conozcas y compartas esta información.';
 				$this->include_theme('index','biblioteca');
 			}
-			else{
-				$this->include_theme('index','preescolar');
+			else{ 
+				if($this->config->theme == 'mtev2'){
+					$this->header_folder = 'escuelas';
+					$this->include_theme('index','index');	
+				}else{
+					$this->include_theme('index','preescolar');
+				}
 			}
 		}else{
 			header('HTTP/1.0 404 Not Found');
