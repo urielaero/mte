@@ -6,7 +6,7 @@
 	<div layout="row" layout-sm="column" class="space-between">
 		<div flex="25" flex-sm="100" id="filters">
 			<form>
-				<label>Escuela o bibilioteca</label>
+				<label>Escuela o biblioteca</label>
 				<div layout="row" class="text-field">
 					<input type="text" flex="80" placeholder="Ej. Jean Piaget">
 					<input type="submit" value="" flex="20">
