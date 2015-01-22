@@ -37,14 +37,17 @@ class api extends main{
 	}
 	public function serializeAngular(){
 		$headers = getallheaders();
-		if(isset($headers['Content-Type']) && $headers['Content-Type'] == 'application/json;charset=UTF-8'){
-			$data = json_decode(file_get_contents("php://input"));
-			foreach($data as $key => $val){
-				if($key == 'p') $_REQUEST[$key] = $val;
-				else $_POST[$key] = $val;
-			}
-			$_POST['json'] = true;
-			return $data;
+		if(isset($headers['Content-Type'])){
+			$ctype = explode(';',$headers['Content-Type']);
+			if($ctype[0] == 'application/json'){
+				$data = json_decode(file_get_contents("php://input"));
+				foreach($data as $key => $val){
+					if($key == 'p') $_REQUEST[$key] = $val;
+					else $_POST[$key] = $val;
+				}
+				$_POST['json'] = true;
+				return $data;
+			}else return false;
 		}else{
 			return false;
 		}

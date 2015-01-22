@@ -3,15 +3,6 @@
     window.municipios = <?= json_encode($this->municipios)?>;
     window.localidades = <?= json_encode($this->localidades)?>;
     window.semaforos = <?= json_encode($this->config->semaforos2)?>;
-
-       $(function(){
-          
-          $(".activar").click(function(){
-            $(this).find('.mejora-icon').toggleClass("normal");
-          });
-
-        });
-
 </script>
 <div class='container results main-search' ng-controller="conoceCTL">
 	<div class="breadcrumb">
