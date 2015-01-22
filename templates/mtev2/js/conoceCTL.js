@@ -79,20 +79,6 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
         });
     }
 
-/*carlos barahona*/
-
-    /*funcion para seleccionar escuelas en resultados-escuela.php*/
-    $scope.ShowForm=function(escuela){
-        if (typeof(escuela) != "undefined")   {
-             escuela.formVisibility=!escuela.formVisibility;
-            console.log($scope.formVisibility)
-        }else{
-            escuela.formVisibility=false;
-        }
-       
-    }
-/*carlos barahona*/
-
     $scope.entidadChange = function(){
         if($scope.municipio && $scope.entidad.id != $scope.municipio.id){
             $scope.municipio = $scope.municipios[0];
