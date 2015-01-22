@@ -3,6 +3,15 @@
     window.municipios = <?= json_encode($this->municipios)?>;
     window.localidades = <?= json_encode($this->localidades)?>;
     window.semaforos = <?= json_encode($this->config->semaforos2)?>;
+
+       $(function(){
+          
+          $(".activar").click(function(){
+            $(this).find('.mejora-icon').toggleClass("normal");
+          });
+
+        });
+
 </script>
 <div class='container results main-search' ng-controller="conoceCTL">
 	<div class="breadcrumb">
@@ -60,13 +69,31 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat='escuela in escuelas'>
-							<td class='link'>
-								<a  ng-href='/escuelas/index/{{escuela.cct}}'>
-									<strong  ng-bind='escuela.nombre'></strong>
-									<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
-									<p ng-show='escuela.turno.nombre'><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
-								</a>
-							</td>
+								<td class='link mi-link'>
+								<div class="cont-datos-escuela">
+									<div class="cont-ico-compara">
+										<div class="h3-iconmejora">
+											<div class="circulo-icon-mejora" ng-click="ShowForm(escuela)" >
+											   <i class="icon-check-01 mejora-icon"></i>
+											</div>
+										</div>
+									</div>
+									<div class="datos-escuela">
+										<a class="datos-esc"  ng-href='/escuelas/index/{{escuela.cct}}'>
+											<strong  ng-bind='escuela.nombre'></strong>
+											<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
+											<p ng-show='escuela.turno.nombre'><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
+									    </a>
+									</div>
+								<!--<div class=""><i class="icon-mejora"></div>
+									<a  ng-href='/escuelas/index/{{escuela.cct}}'>
+										<strong  ng-bind='escuela.nombre'></strong>
+										<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
+										<p ng-show='escuela.turno.nombre'><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
+									</a>-->
+								</div>
+
+								</td>
 							<td>{{escuela.nivel}}</td>
 							<td ng-show='escuela.turno.nombre'>{{escuela.turno.nombre.capitalize()}}</td>
 							<td ng-show='!escuela.turno.nombre'>No Aplica</td>

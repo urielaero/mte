@@ -742,4 +742,12 @@ ok
 .ico-contact{background-color:#00C160}
 .form-contacto{background-color: white}
 .enviar-btn-contactos{background-color: #3E6DF3;width: 200px;float: left;}
+.cont-datos-escuela{width: 100%;height: 100%;}
+.cont-ico-compara{height: 80px;display: table;float: left;}
+.h3-iconmejora{display: table-cell;vertical-align: middle;text-align: center;color: #00AFF0;}
+.datos-escuela{width: 162px;height: 80px;float: left;display: table;}
+.datos-esc{display: table-cell;vertical-align: middle;}
+.mejora-icon{font-size: 10px;}
+.circulo-icon-mejora{width: 20px;height: 20px;border-radius: 50% 50% 50% 50%;border:solid 2px #1CA5F5;}
+.mi-link{height: 80px}
 /*Carlos Barahona*/
