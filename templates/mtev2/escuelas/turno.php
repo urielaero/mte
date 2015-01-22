@@ -1,4 +1,4 @@
-<?php $controles = array(1=>'Pública', 2=>'Privada'); ?>
+	<?php $controles = array(1=>'Pública', 2=>'Privada'); ?>
 <div class="space-between" layout="row" layout-sm="column">
 	<div class="main-info" flex="73" flex-sm="100">
 		<div layout="row" layout-sm="column">
@@ -52,12 +52,12 @@
 			</div></div>
 			<div flex><div layout="row">
 				<div flex class="icon-box small"><i class="icon-desk-01"></i></div>
-				<div flex>Número de alumnos:</div>
+				<div flex>Total de personas:</div>
 				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
 			</div></div>
 			<div flex><div layout="row">
 				<div flex class="icon-box small"><i class="icon-desk-01"></i></div>
-				<div flex>Número de alumnos:</div>
+				<div flex>Grupos:</div>
 				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
 			</div></div>
 		</div>
