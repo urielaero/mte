@@ -259,6 +259,15 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container .compare-table table .footable-row-detail-cell{background: #1B97ED;color: #fff}
 
 #content .container .compare-table table td .md-button{box-shadow: none;color: #4C4C4C;cursor: default;height: 32px;width: 32px;}
+
+/*Carlos Barahona*/
+#content .container .compare-table table td .md-button.rank9{background: #D92FEC;color: #FFFFFF;}/*biblioteca*/
+#content .container .compare-table table td .md-button.rank7 .icon-notodoslosanos,#content .container .compare-table table td .md-button.rank5 .icon-notomaenlace,#content .container .compare-table table td .md-button.rank9 .icon-notomaenlace, #content .container .compare-table table td .md-button.rank9 .icon-notomaenlace{font-size: 20px}/*ajustando el icono notomaenlace*/
+#content .container .compare-table table td .md-button.rank8{background: #7C7DEB;color: #FFFFFF;}/*preescolar*/
+#content .container .compare-table table td .md-button.rank7{background: #3896F8;color: #FFFFFF;}/*no disponible*/
+#content .container .compare-table table td .md-button.rank6{background: #FF5D60;color: #FFFFFF}/*poco confiable*/
+#content .container .compare-table table td .md-button.rank5{background: #FF5E63;color: #FFFFFF;}/*no toma la prueba enlace*/
+/*Carlos Barahona*/
 #content .container .compare-table table td .md-button.rank4{background: #0BBC3A;color: #4C4C4C}
 #content .container .compare-table table td .md-button.rank3{background: #FBFF00;color: #4C4C4C}
 #content .container .compare-table table td .md-button.rank2{background: #FA9200;color: #4C4C4C}
