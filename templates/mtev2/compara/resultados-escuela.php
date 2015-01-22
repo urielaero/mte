@@ -74,7 +74,7 @@
 									<div class="cont-ico-compara">
 										<div class="h3-iconmejora">
 											<div class="circulo-icon-mejora" ng-click="ShowForm(escuela)" >
-											   <i ng-show="escuela.formVisibility" class="icon-check-01 mejora-icon"></i>
+											   <i class="icon-check-01 mejora-icon"></i>
 											</div>
 										</div>
 									</div>

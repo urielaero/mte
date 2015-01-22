@@ -79,16 +79,6 @@ app.controller("conoceCTL", ['$scope','$http',function ($scope,$http) {
         });
     }
 
-    $scope.ShowForm=function(escuela){
-        if (typeof(escuela) != "undefined")   {
-             escuela.formVisibility=!escuela.formVisibility;
-            console.log($scope.formVisibility)
-        }else{
-            escuela.formVisibility=false;
-        }
-       
-    }
-
     $scope.entidadChange = function(){
         if($scope.municipio && $scope.entidad.id != $scope.municipio.id){
             $scope.municipio = $scope.municipios[0];
