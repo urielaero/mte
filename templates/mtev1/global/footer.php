@@ -1,5 +1,5 @@
 <p class='menu'>
-  <a href='/quienes-somos'>Quienes Somos</a> |
+  <a href='/quienes-somos'>Quiénes somos</a> |
 	<a href='/metodologia'>Metodología</a> |
 	<a href='/aviso-de-privacidad'>Aviso legal y de privacidad</a> |
 	<a href='/contacto'>Contáctanos</a> |
