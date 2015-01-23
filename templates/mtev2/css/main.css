@@ -354,7 +354,7 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.profile #profile-content .additional-info .tables-box .table-top p{padding: 12px 14px;}
 #content .container.profile #profile-content .additional-info .tables-box .table-top div + div + div{text-align: center;}
 #content .container.profile #profile-content .additional-info .tables-box table{width: 100%}
-#content .container.profile #profile-content .additional-info .tables-box table td{background: #D5D5D5;border-bottom: 2px solid #F4F4F4;color: #757575;font-size: 12px;padding: 10px 15px;width: 75%;}
+#content .container.profile #profile-content .additional-info .tables-box table td{background: #D5D5D5;border-bottom: 2px solid #F4F4F4;color: #757575;font-size: 14px;padding: 10px 15px;width: 75%;}
 #content .container.profile #profile-content .additional-info .tables-box table td + td{background: #CBCBCB;padding: 10px;width: 25%;text-align: center;}
 
 
