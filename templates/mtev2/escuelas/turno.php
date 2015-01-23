@@ -45,11 +45,21 @@
 			</div>
 		</div>
 		<div class="contenedor-counters">
-			<div class="cont-counters">
-				<div class="datos-counters datos-counters-1"></div>
-				<div class="datos-counters datos-counters-2"></div>
-				<div class="datos-counters datos-counters-3"></div>			
-			</div>
+				<div class="datos-counters datos-counters-1">
+					<div class="icono-counters-1"></div>
+					<div class="texto-counters-1"></div>
+					<div class="numero-counters-1"></div>
+				</div>
+				<div class="datos-counters datos-counters-2">
+					<div class="icono-counters-2"></div>
+					<div class="texto-counters-2"></div>
+					<div class="numero-counters-2"></div>
+				</div>
+				<div class="datos-counters datos-counters-3">
+					<div class="icono-counters-3"></div>
+					<div class="texto-counters-3"></div>
+					<div class="numero-counters-3"></div>
+				</div>			
 		</div>
 		<!--<div class="counters " layout="row" layout-sm="column">
 			<div class="cont-counters">

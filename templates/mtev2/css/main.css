@@ -755,12 +755,21 @@ ok
 .mi-link{height: 80px}
 
 /*turno.php*/
-.contenedor-counters{width: 100%;height: 70px;background-color: blue}
-.div-conusters-1{background-color: #3896F8;border: 1px solid white}
-.cont-counters{width: 80%;height: 50px;background-color: green}
-.datos-counters{float: left;}
-.datos-counters-1{height: 50px;background-color: orange}
-.datos-counters-2{height: 50px;background-color: red}
-.datos-counters-3{height: 50px;background-color: yellow}
+.contenedor-counters{width: 100%;height: auto;min-height: 70px;background-color: #2F86DC;text-align: center;}
+.datos-counters{float: left;width: 215px;height: 70px;display: inline-block;display: table}
+.datos-counters-1{background-color: #3896F8}
+.icono-counters-1{}
+.texto-counters-1{}
+.numero-counters-1{}
+
+.datos-counters-2{background-color: #338DE8}
+.icono-counters-2{}
+.texto-counters-2{}
+.numero-counters-2{}
+
+.datos-counters-3{background-color: #2F86DC}
+.icono-counters-3{}
+.texto-counters-3{}
+.numero-counters-3{}
 /*turno.php*/
 /*Carlos Barahona*/
