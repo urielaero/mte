@@ -1,16 +1,6 @@
 <?php
-	/** 
-	* Clase Principal main.
-	* Clase que hereda las utilidades necesarias para conectar los controladores
-	* Contiene métodos y atributos que podrán ser usados por todos los controladores.
-	*/
+	
 class api extends main{
-	/** 
-	* Constructor de la Clase main.
-	* Realiza la conexión con la base de datos y deja disponible variables que se usaran en todas los controladores
-	* Constructor main recive el parametro $config
-	* \param $config 
-	*/
 
 	public function api($config){
 		$this->config = $config; 
