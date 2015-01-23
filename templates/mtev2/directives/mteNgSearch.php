@@ -41,7 +41,7 @@
 							<th data-hide="phone">Nivel escolar</th>
 							<th data-hide="phone">Turno</th>
 							<th data-hide="phone">Privada / Pública</th>
-							<th class="footable-last-column">Semáforo educativo</th>
+							<th style="max-width: 130px" class="footable-last-column">Semáforo educativo</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -69,7 +69,7 @@
 							<td ng-show='escuela.turno.nombre'>{{escuela.turno.nombre.capitalize()}}</td>
 							<td ng-show='!escuela.turno.nombre'>No Aplica</td>
 							<td>{{escuela.control}}</td>
-							<td>
+							<td style="max-width:130px">
 								<md-button ng-class="semaforos[escuela.semaforo].class" class="md-fab" aria-label="Time">
 									<i ng-class="semaforos[escuela.semaforo].icon"></i>
 								</md-button>
