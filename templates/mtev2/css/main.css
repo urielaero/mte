@@ -672,6 +672,33 @@ ok
 #content .container.programas .post-title{background: #8C49CC;color: #fff;/*text-transform: uppercase;*/}
 #content .container.programas .post-title h1{font-size: 22px;padding: 0 15px}
 
+/*Programas, detalle del programa*/
+#content .container.programa .programa-content{-webkit-flex: 0 0 73%; -ms-flex: 0 0 73%; flex: 0 0 73%; max-width: 73%;}
+#content .container.programa .title{background: #FFA02C;color: #fff;margin: 0}
+#content .container.programa .title .icon-container{background: #FFAF50;font-size: 26px}
+#content .container.programa .title .programa-thumb{background: #fff;}
+#content .container.programa .title .programa-thumb img{max-width: 100%;float: left;}
+#content .container.programa .title h1{font-size: 22px;margin: 0;padding: 5px 15px}
+#content .container.programa .title.web-page{margin-bottom: 5px}
+#content .container.programa h3.title,
+#content .container.programa .title h3{font-size: 14px;margin: 0;padding: 10px 16px;}
+#content .container.programa .title p{background: #DADADA;color:#606060;font-size: 12px;padding: 10px 15px;}
+#content .container.programa .title .light{color:#fff;font-weight: 400;margin-left: 20px}
+#content .container.programa .description{margin-top: 10px}
+#content .container.programa .description .text{background: #fff;color:#838383;padding: 20px}
+#content .container.programa .description .map-section{margin-top: 5px}
+#content .container.programa .sidebar{margin-top: 0}
+#content .container.programa .sidebar .programs{margin-top: 14px}
+#content .container.programa .sidebar .programs h5{background: #B0B0B0;color: #6E6E6E;font-weight:700;margin: 0;padding: 10px;text-align: center;}
+#content .container.programa .sidebar .programs ul li{background: #DADADA;color: #999999;font-size: 12px;font-weight:700;line-height: 1.2;padding: 5px 4px}
+#content .container.programa .sidebar .programs ul li div[flex="75"]{padding: 8px 0}
+#content .container.programa .sidebar .programs ul li.on{background: #1CA5F5;color: #fff}
+#content .container.programa .sidebar .programs ul li.on div[flex="25"]{padding: 10px 0;text-align: center;}
+#content .container.programa .sidebar .programs ul li i{background: transparent;border: 2px solid #1CA5F5;display: block;border-radius: 50%;font-size: 11px;margin: 0 auto;padding: 6px 0;height: 24px;width: 24px;}
+#content .container.programa .sidebar .programs ul li.on i{background: #fff;border: 2px solid #FFF;color: #1CA5F5;}
+#content .container.programa .sidebar .programs ul li.on i:before{content: '\e81e';}
+
+
 
 /*Footer*/
 #footer{background: #20B45E;color: #fff;padding: 10px 0;text-align: center;min-height: 83px;height: auto}
