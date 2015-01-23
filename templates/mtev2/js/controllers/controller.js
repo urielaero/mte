@@ -178,12 +178,6 @@ app.controller("compareCTL", ['$scope',function ($scope) {
     		$scope.toggleForm = true;
     	}
     }
-    $(document).ready(function(){
-	    $('.footable').footable();
-	    $('.footable tr td').click(function(){
-	    	$(this).trigger('footable_toggle_row');
-	    });
-    });
 }]);
 
 app.controller("faqCTL", ['$scope',function ($scope) {
@@ -203,3 +197,9 @@ app.controller("faqCTL", ['$scope',function ($scope) {
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
 }
+$(document).ready(function(){
+    $('.footable').footable();
+    $('.footable tr td').click(function(){
+        $(this).trigger('footable_toggle_row');
+    });
+});
