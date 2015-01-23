@@ -756,4 +756,18 @@ ok
 .mejora-icon{font-size: 10px;}
 .circulo-icon-mejora{width: 20px;height: 20px;border-radius: 50% 50% 50% 50%;border:solid 2px #1CA5F5;}
 .mi-link{height: 80px}
+
+/*turno.php*/
+.cont-info-turno{background-color:blue;text-align: center;}
+.datos-counters-1{background-color: #3896F8;text-align: center;display: inline-block;}
+.datos-counters-2{background-color: #338DE8;text-align: center;display: inline-block;}
+.datos-counters-3{background-color: #2F86DC;text-align: center;display: inline-block;}
+.cont-datos{display: table;text-align: center;width: 100%;height: 80px;}
+.seccion-datos{width: 210px;height: 70px;margin: 0 auto;margin-top: 5px;}
+.icono-datos{width: 40px;height: 100%;float: left;color:#286FBB;display: table}
+.h3-icono-turno{font-size: 35px;display: table-cell;vertical-align: middle;}
+.text-datos{width: 90px;height: 100%;float: left;color:#286FBB;display: table}
+.h3-text-datos{font-size: 13px;color: white;display: table-cell;vertical-align: middle;text-align: left;padding-left: 7px}
+.num-datos{width: 60px;height: 100%;float: left;color:#286FBB;color: white;}
+/*turno.php*/
 /*Carlos Barahona*/
