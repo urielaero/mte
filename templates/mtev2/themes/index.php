@@ -33,6 +33,7 @@
 			'angular-leaflet-directive.min.js',
 			'controller.js',
 			'conoceCTL.js',
+			'directives/mteNgSearch.js',
 		);
 		if($this->location == 'escuelas'){
 			//$js_scripts[] = 'school-charts.js'; // si no hay cambios en el js no renderizara 
