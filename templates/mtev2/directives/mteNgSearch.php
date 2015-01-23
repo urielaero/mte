@@ -71,7 +71,7 @@
 							<td>{{escuela.control}}</td>
 							<td style="max-width:130px">
 								<md-button ng-class="semaforos[escuela.semaforo].class" class="md-fab" aria-label="Time">
-									<i ng-class="semaforos[escuela.semaforo].icon"></i>
+									<i class="semaforos-buscador" ng-class="semaforos[escuela.semaforo].icon"></i>
 								</md-button>
 								<p>{{semaforos[escuela.semaforo].label}}</p>
 							</td>
