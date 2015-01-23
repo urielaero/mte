@@ -1,3 +1,8 @@
+<script type='text/javascript'>
+    window.entidades = <?= json_encode($this->entidades)?>;
+    window.municipios = <?= json_encode($this->municipios)?>;
+    window.localidades = <?= json_encode($this->localidades)?>;
+</script>
 <script type="text/ng-template" id="mteNgSearch.html">
 	<?php $this->include_template('mteNgSearch','directives'); ?>
 </script>
