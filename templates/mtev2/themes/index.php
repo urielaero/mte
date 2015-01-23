@@ -29,8 +29,8 @@
 			'charts.js',
             'leaflet.js',
 			'angular-leaflet-directive.min.js',
-			'/controllers/controller.js',
-			'/controllers/conoceCTL.js',
+			'controllers/controller.js',
+			'controllers/conoceCTL.js',
 			'directives/mteNgSearch.js',
 		);
 		if($this->location == 'escuelas'){
