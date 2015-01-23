@@ -1,14 +1,4 @@
-<script type='text/javascript'>
-    window.entidades = <?= json_encode($this->entidades)?>;
-    window.municipios = <?= json_encode($this->municipios)?>;
-    window.localidades = <?= json_encode($this->localidades)?>;
-</script>
-<!-- HEAD CONFLICT
-<div class='container results main-search' ng-controller="conoceCTL">
-	<div class="breadcrumb">
-		<a href="#" class="start"><i class="icon-mejora"></i></a>
-		<a href="#">Conoce</a>
-	</div>
+<div class='container results mteNgSearch'>
 	<div layout="row" layout-sm="column" class="space-between">
 		<div flex="25" flex-sm="100" id="filters">
 			<form>
@@ -25,7 +15,7 @@
 				<label>Localidad</label>
 				<select ng-model='localidad' ng-change='$scope.pagination.current_page = 1;getEscuelas();' ng-disabled='!localidades[1]	' ng-options='localidad as localidad.nombre.capitalize() for localidad in localidades' ></select>
 
-				<label>Nivel escolar o tipo de establecimiento</label>
+				<label>Nivel escolar</label>
 				<p><md-checkbox ng-change='checkBoxChange()' ng-disabled='loading' ng-repeat='nivel in niveles' ng-model='nivel.checked' aria-label="Checkbox 1" >{{nivel.label}}</md-checkbox></p>
 				<label>Turno</label>
 				<p><md-checkbox ng-change='checkBoxChange()' ng-disabled='loading' ng-repeat='turno in turnos' ng-model='turno.checked' aria-label="Checkbox 1" >{{turno.label}}</md-checkbox></p>
@@ -62,7 +52,13 @@
 						<tr ng-repeat='escuela in escuelas'>
 								<td class='link mi-link'>
 								<div class="cont-datos-escuela">
-
+									<div class="cont-ico-compara">
+										<div class="h3-iconmejora">
+											<div class="circulo-icon-mejora" ng-click="ShowForm(escuela)" >
+											   <i class="icon-check-01 mejora-icon"></i>
+											</div>
+										</div>
+									</div>
 									<div class="datos-escuela">
 										<a class="datos-esc"  ng-href='/escuelas/index/{{escuela.cct}}'>
 											<strong  ng-bind='escuela.nombre'></strong>
@@ -70,13 +66,12 @@
 											<p ng-show='escuela.turno.nombre'><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
 									    </a>
 									</div>
-
 								</div>
 
 								</td>
 							<td>{{escuela.nivel}}</td>
 							<td ng-show='escuela.turno.nombre'>{{escuela.turno.nombre.capitalize()}}</td>
-							<td ng-show='!escuela.turno.nombre'>No aplica</td>
+							<td ng-show='!escuela.turno.nombre'>No Aplica</td>
 							<td>{{escuela.control}}</td>
 							<td>
 								<md-button ng-class="semaforos[escuela.semaforo].class" class="md-fab" aria-label="Time">
@@ -138,16 +133,6 @@
 				</a>
 
 			</div>	
--->
-<script type="text/ng-template" id="mteNgSearch.html">
-	<?php $this->include_template('mteNgSearch','directives'); ?>
-</script>
-<div ng-controller='conoceCTL'>
-	<div class='container results mteNgSearch'>
-		<div class="breadcrumb">
-			<a href="#" class="start"><i class="icon-mejora"></i></a>
-			<a href="#">Conoce</a>
 		</div>
 	</div>
-	<div mte-ng-search objects='{municipios:municipios,entidades:entidades,localidades:localidades}'></div>
 </div>

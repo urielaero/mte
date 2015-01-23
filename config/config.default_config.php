@@ -28,7 +28,7 @@ class default_config{
                 ]');
                 
                 //MTE
-                $this->semaforos = array('Reprobado','De panzazo','Bien','Excelente','No toma la <br /> prueba <br />ENLACE','Poco confiable','Esta escuela no toma la prueba ENLACE para todos los años','La prueba ENLACE no esta disponible para este nivel escolar','No aplica');
+                $this->semaforos = array('Reprobado','De panzazo','Bien','Excelente','No toma la <br /> prueba <br />ENLACE','Poco confiable','Esta escuela no toma la prueba ENLACE para todos los años','La prueba ENLACE no esta disponible para este nivel escolar','No aplica',);
                 $this->semaforos2 = json_decode('[
                     {
                         "label" : "Reprobado",
@@ -52,27 +52,27 @@ class default_config{
                     },
                     {
                         "label" : "No toma la prueba ENLACE",
-                        "icon" : "icon-tache-01",
+                        "icon" : "icon-notomaenlace",
                         "class" : "rank5"
                     },
                     {
                         "label" : "Poco confiable",
-                        "icon" : "icon-tache-01",
+                        "icon" : "icon-pococonfiable",
                         "class" : "rank6"
                     },
                     {
                         "label" : "Esta escuela no toma la prueba ENLACE para todos los años",
-                        "icon" : "icon-tache-01",
+                        "icon" : "icon-notodoslosanos",
                         "class" : "rank7"
                     },
                     {
-                        "label" : "La prueba ENLACE no esta disponible para este nivel escolar",
-                        "icon" : "icon-tache-01",
+                        "label" : "Prueba ENLACE no disponible para este nivel escolar",
+                        "icon" : "icon-notomaenlace",
                         "class" : "rank8"
                     },
                     {
-                        "label" : "No aplica",
-                        "icon" : "icon-tache-01",
+                        "label" : "Prueba ENLACE no disponible para este nivel escolar",
+                        "icon" : "icon-notomaenlace",
                         "class" : "rank9"
                     }
                 ]');
