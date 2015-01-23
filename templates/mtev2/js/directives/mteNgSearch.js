@@ -51,7 +51,6 @@
         }
         $scope.getEscuelas = function(){
             $scope.buildParams();
-            console.log($scope.params);
             $scope.loading = true;
             $http({method:'POST',url:'/api/escuelas',data:$scope.params}).then(function(response){
                 //console.log(response.data);
