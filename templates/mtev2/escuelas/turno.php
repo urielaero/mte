@@ -158,13 +158,13 @@
 
 		<?php if($this->escuela->infraestructura): ?>
 		    <div layout="row" class="scroll-links space-between">
-		    	<a href="#desempeno" ng-click="scrollTo('desempeno',$event)" class="link desempeno-tab" flex="32">Desempeño<br/>academico</a>
+		    	<a href="#desempeno" ng-click="scrollTo('desempeno',$event)" class="link desempeno-tab" flex="32">Desempeño<br/>académico</a>
 		    	<a href="#infraestructura" ng-click="scrollTo('infraestructura',$event)" class="link infraestructura-tab" flex="32">Infraestructura<br/>escolar</a>
 		    	<a href="#comentarios" ng-click="scrollTo('comentarios',$event)" class="link comentarios-tab" flex="32">Comentarios y<br/>reportes</a>
 		    </div>	
 		<?php else: ?>	
 		    <div layout="row" class="scroll-links space-between">
-		    	<a href="#desempeno" ng-click="scrollTo('desempeno',$event)" class="link desempeno-tab" flex="48">Desempeño<br/>academico</a>
+		    	<a href="#desempeno" ng-click="scrollTo('desempeno',$event)" class="link desempeno-tab" flex="48">Desempeño<br/>académico</a>
 		    	<a href="#comentarios" ng-click="scrollTo('comentarios',$event)" class="link comentarios-tab" flex="48">Comentarios y<br/>reportes</a>
 		    </div>		
 		<?php endif; ?>
