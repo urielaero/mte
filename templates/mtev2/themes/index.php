@@ -7,9 +7,7 @@
 	<link rel="shortcut icon" href="<?=$this->config->http_address?>/templates/<?=$this->config->theme?>/img/favicon.ico" />
 	<?php
 		$css_scripts = array(
-			"reset.css",
-			"main.css",
-			"angular-material.min.css",
+			"importer.css",
 			"perfect-scrollbar.min.css",
 			"fontello.css",
 			"fontello-ie7.css",
@@ -19,11 +17,11 @@
 			"jquery-1.11.1.min.js",
 			'school-charts.js',
 			'imagesloaded.pkgd.min.js',
-			'angular.min.js',
-			'angular-animate.min.js',
-			'angular-aria.min.js',
-			'hammer.min.js',
-			'angular-material.min.js',
+			'bower_components/angular/angular.min.js',
+			'bower_components/angular-animate/angular-animate.min.js',
+			'bower_components/angular-aria/angular-aria.min.js',
+			'bower_components/hammerjs/hammer.min.js',
+			'bower_components/angular-material/angular-material.min.js',
 			'perfect-scrollbar.min.js',
 			'footable.js',
 			'perfect-scrollbar.with-mousewheel.min.js',
@@ -31,8 +29,8 @@
 			'charts.js',
             'leaflet.js',
 			'angular-leaflet-directive.min.js',
-			'controller.js',
-			'conoceCTL.js',
+			'/controllers/controller.js',
+			'/controllers/conoceCTL.js',
 			'directives/mteNgSearch.js',
 		);
 		if($this->location == 'escuelas'){

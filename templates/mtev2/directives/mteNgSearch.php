@@ -1,8 +1,4 @@
 <div class='container results mteNgSearch'>
-	<div class="breadcrumb">
-		<a href="#" class="start"><i class="icon-mejora"></i></a>
-		<a href="#">Conoce</a>
-	</div>
 	<div layout="row" layout-sm="column" class="space-between">
 		<div flex="25" flex-sm="100" id="filters">
 			<form>
