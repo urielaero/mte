@@ -44,23 +44,33 @@
 				</ul>
 			</div>
 		</div>
-		<div class="counters" layout="row" layout-sm="column">
-			<div flex><div layout="row">
-				<div flex class="icon-box"><i class="icon-student"></i></div>
-				<div flex>Número de alumnos:</div>
-				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
-			</div></div>
-			<div flex><div layout="row">
-				<div flex class="icon-box small"><i class="icon-desk-01"></i></div>
-				<div flex>Número de alumnos:</div>
-				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
-			</div></div>
-			<div flex><div layout="row">
-				<div flex class="icon-box small"><i class="icon-desk-01"></i></div>
-				<div flex>Número de alumnos:</div>
-				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
-			</div></div>
+		<div class="contenedor-counters">
+			<div class="cont-counters">
+				<div class="datos-counters datos-counters-1"></div>
+				<div class="datos-counters datos-counters-2"></div>
+				<div class="datos-counters datos-counters-3"></div>			
+			</div>
 		</div>
+		<!--<div class="counters " layout="row" layout-sm="column">
+			<div class="cont-counters">
+				
+			</div>
+			<div class="div-conusters-1"><div flex><div layout="row">
+				<div flex class="icon-box"><i class="icon-familia-01"></i></div>
+				<div flex>Número de alumnos:</div>
+				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
+			</div></div></div>
+			<div flex><div layout="row">
+				<div flex class="icon-box small"><i class="icon-desk-01"></i></div>
+				<div flex>Número de alumnos:</div>
+				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
+			</div></div>
+			<div flex><div layout="row">
+				<div flex class="icon-box small"><i class="icon-desk-01"></i></div>
+				<div flex>Número de alumnos:</div>
+				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
+			</div></div> 
+		</div>-->
 	</div>
 	<?php if($this->escuela->nivel->nombre == 'PREESCOLAR'){ ?>
 	<div flex="25" flex-sm="100">
