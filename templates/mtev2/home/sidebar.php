@@ -8,7 +8,7 @@
 				</form>
 			</div>
 			<div class="box box-orange">
-				<a href="#" class="full-size-link"></a>
+				<a target="blank" href="<?=$this->config->blog_address?>" class="full-size-link"></a>
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
@@ -19,7 +19,7 @@
 				</div>
 			</div>
 			<div class="box box-green">
-				<a href="#" class="full-size-link"></a>
+				<a href="/mejora" class="full-size-link"></a>
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
@@ -30,7 +30,7 @@
 				</div>
 			</div>
 			<div class="box box-purple">
-				<a href="#" class="full-size-link"></a>				
+				<a href="/mejora/programas" class="full-size-link"></a>				
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
@@ -41,7 +41,7 @@
 				</div>
 			</div>
 			<div class="box box-fb">
-				<a href="#" class="full-size-link"></a>
+				<a target="_blank" href="http://www.facebook.com/MejoraTuEscuela" class="full-size-link"></a>
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
@@ -52,7 +52,7 @@
 				</div>
 			</div>
 			<div class="box box-tw">
-				<a href="#" class="full-size-link"></a>
+				<a target="_blank" href="http://www.twitter.com/MejoraTuEscuela" class="full-size-link"></a>
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">

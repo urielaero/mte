@@ -44,7 +44,7 @@ class compara extends main{
 			$params->eval_entre_programados = $this->get('eval_entre_programados');
 			$p = $this->get('p') ? $this->get('p') : 1;
 			$this->get_escuelas_new($params,$p);
-			
+
 			$this->cct_count_entidad();
 			$this->resultados_title = 'Resultados de tu búsqueda';
 			$this->set_info_user_search($this->num_results);
@@ -52,9 +52,8 @@ class compara extends main{
 		}else{
 			$params = isset($params)?$params:new stdClass();
 			$params->pagination = 6;
-			$params->order_by = ' ISNULL(escuelas_para_rankeo.rank_entidad), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
+			$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
 			$this->get_escuelas($params);
-
 			$this->set_info_user_search(isset($this->pagination->total_results) ? $this->pagination->total_results : 0);
 			$this->process_escuelas();
 			$this->cct_count_entidad();
@@ -114,7 +113,7 @@ class compara extends main{
 		$params = new stdClass();
 		$params->ccts = explode('-',$this->get('id'));
 		$params->order_by = 'escuelas_para_rankeo.promedio_general DESC';
-		$params->limit =  '0,100';
+		$params->limit =  '100';
 		if(count($params->ccts)){
             $params->one_turn = true;
 			$this->get_escuelas($params);		
@@ -131,7 +130,7 @@ class compara extends main{
 			if($this->config->search_location)
 				$this->resultados_title = 'Mejores escuelas en '.$this->capitalize($this->user_location->nombre);
 			else if(($entidad = $this->get('entidad'))){
-				$municipio = new entidad($entidad);
+				$municipio = new entidad($entidad,$this->conn);
 				$municipio->read('nombre');
 				$this->resultados_title = 'Mejores escuelas en '.$this->capitalize($municipio->nombre);
 			}
@@ -151,18 +150,19 @@ class compara extends main{
 
 	public function get_data_table(){
 		$name_entidad = $this->request('name_entidad');
-		$entidad = new entidad();
-		$entidad->search_clause = " entidades.nombre = \"$name_entidad\"";
+		$entidad = new entidad(NULL,$this->conn);
+		$entidad->search_clause = " LOWER(entidades.nombre) = LOWER('$name_entidad')";
 		$en = $entidad->read('id,nombre');
 		$params = new stdClass();
-		$params->entidad = $en[0]->id;
+		$params->entidad = (isset($en)?$en[0]->id:false);
+		
 		if(!$params->entidad){
 			$this->get_location();
 			$params->entidad = $this->user_location->id;
 			$name_entidad = $this->user_location->nombre;
 		}
 		$params->pagination = 6;
-		$params->order_by = ' ISNULL(escuelas_para_rankeo.rank_entidad), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
+		$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
 		$this->get_escuelas($params);
 		$this->process_escuelas();
 		$this->cct_count_entidad();

@@ -3,8 +3,9 @@ class memcached_table extends table{
 	function read($fields){
 		//$time_start = microtime(true);
 		if(class_exists('Memcache')){
-			$memcache = new Memcache;	
-			$memcache->connect('10.208.226.251', 11211) or die ("Could not connect memcache");
+			$memcache = new Memcache;
+			#Site shouldn't die just because memcached isn't working, right?
+			$memcache->connect('10.208.226.251', 11211);
 			$this->execute = false;
 			parent::read($fields);
 			$this->execute = true;

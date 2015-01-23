@@ -26,7 +26,7 @@ class stats extends main{
 	*/
 	public function rank_states(){
 		/* Actualiza los datos del rank para cada entidad. */
-		$q = new entidad();
+		$q = new entidad(NULL,$this->conn);
 		$q->search_clause = '1';
 		$q->debug = true;
 		$q->order_by = 'promedio_general DESC';

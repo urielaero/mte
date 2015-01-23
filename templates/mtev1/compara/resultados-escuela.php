@@ -39,13 +39,13 @@
 				<td class='turno'>".$this->capitalize($escuela->turno->nombre)."</td>
 				<td class='control'>".$controles[$escuela->control->id]."</td>
 				<td class='rank'><span>".$rank_entidad."</span>
-					<span>de ".number_format($escuela->entidad_cct_count,0)."</span>
+					<span>de ".(isset($escuela->entidad_cct_count)?number_format($escuela->entidad_cct_count,0):'')."</span>
 				</td>
 				<td class='semaforo sem{$escuela->semaforo}'><span class='sprit2'></span>
 					<div class='icon'><span class='triangle'></span><span class='icon-popup'>
 						<!--<p class='infor I'>i</p>-->
 						<p class='title_semaforo'>
-							".$this->config->semaforos[$escuela->semaforo]."
+							".(isset($this->config->semaforos[$escuela->semaforo])?$this->config->semaforos[$escuela->semaforo]:'')."
 						</p>
 						"/*
 						descripcion del semáforo

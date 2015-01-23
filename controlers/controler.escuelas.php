@@ -13,15 +13,16 @@ class escuelas extends main{
 		if($this->config->theme == 'mtev2'){
 			$this->header_folder = 'escuelas';
 			$this->include_theme('index','index');	
-		}	
-		else 
+		}
+		else if($this->escuela_info()){
+		}
 		*/
 		if($this->escuela_info()){
 			$params = new stdClass();
-			$params->limit = '0,8';
+			$params->limit = '8 OFFSET 0';
 			$params->localidad = $this->escuela->localidad->id;
 			$params->nivel = $this->escuela->nivel->id;
-			$params->order_by = ' ISNULL(escuelas_para_rankeo.rank_entidad), escuelas_para_rankeo.rank_entidad ASC';
+			$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC';
 			$this->load_compara_cookie();
 			$this->get_escuelas($params);
 			if($this->compara_cookie){
@@ -109,8 +110,8 @@ class escuelas extends main{
 	public function escuela_info($id=false){
 		if(!$id)
 			$id = $this->get('id');
-		$this->escuela = new escuela($id);
-		$this->escuela->debug = false;
+		$this->escuela = new escuela($id,$this->conn);
+		#$this->escuela->debug = true;
 		$this->escuela->has_many_order_by['calificaciones'] = 'calificaciones.timestamp DESC';
 		$this->escuela->key = 'cct';
         $this->escuela->cct = $id;
@@ -119,7 +120,6 @@ class escuelas extends main{
         $this->escuela->key = 'id';
         $this->escuela->has_many_keys["enlaces"] = "id_cct";
         //$this->escuela->has_many_keys["calificaciones"] = "id_cct";
-
         if(isset($this->escuela->cct)){
 			$this->escuela->read("
 				id,nombre,domicilio,paginaweb,
@@ -139,17 +139,20 @@ class escuelas extends main{
 			$this->escuela->get_semaforos();
             $this->escuela->get_charts();
             $this->escuela->clean_ranks();
-			$nivel = "numero_escuelas_".strtolower($this->escuela->nivel->nombre);
-			$entidad_info = new entidad($this->escuela->entidad->id);
-			$entidad_info->debug = false;
-			if($this->escuela->nivel->id == 21)
-				$nivel='numero_escuelas_bachillerato';
-			$entidad_info->read($nivel);
-			if($this->escuela->nivel->id == 12  || $this->escuela->nivel->id ==  13 || $this->escuela->nivel->id == 22 || $this->escuela->nivel->id == 21)
-				$this->entidad_cct_count = $entidad_info->$nivel;
-			else
-				$this->entidad_cct_count = 0;
-            $aux = new pregunta();
+			
+			$this->entidad_cct_count = 0;
+            if($this->escuela->nivel->id == 12  || $this->escuela->nivel->id ==  13 || $this->escuela->nivel->id == 22 || $this->escuela->nivel->id == 21){
+				$nivel = "numero_escuelas_".strtolower($this->escuela->nivel->nombre);
+				
+				$entidad_info = new entidad($this->escuela->entidad->id,$this->conn);
+				$entidad_info->debug = false;
+				if($this->escuela->nivel->id == 21)
+					$nivel='numero_escuelas_bachillerato';
+				$entidad_info->read($nivel);
+				if($this->escuela->nivel->id == 12  || $this->escuela->nivel->id ==  13 || $this->escuela->nivel->id == 22 || $this->escuela->nivel->id == 21)
+					$this->entidad_cct_count = $entidad_info->$nivel;
+            }
+            $aux = new pregunta(NULL,$this->conn);
             if (isset($this->escuela->calificaciones) && $this->escuela->calificaciones) {
                 $this->preguntas = $aux->getPreguntasConPromedio($this->escuela->cct);
             } else {
@@ -157,7 +160,7 @@ class escuelas extends main{
 		if(preg_match('/^..BB/', $this->escuela->cct)){
 			$tipo_encuesta = 'bibliotecas';
 		}
-		$tipo_p = new tipo_pregunta();
+		$tipo_p = new tipo_pregunta(NULL,$this->conn);
 		$tipo_p->search_clause = "nombre = '{$tipo_encuesta}'";
 		$tipo_preguntas = $tipo_p->read('id,nombre');
 		$tipo_pregunta = $tipo_preguntas[0];
@@ -182,7 +185,7 @@ class escuelas extends main{
 			$this->post('recaptcha_response_field'))){
 				$comment = strip_tags($this->post('comentario'));
 				$accept_name = ($this->post('accept')!=null) ? 1 : 0;
-				$calificacion = new calificacion();
+				$calificacion = new calificacion(NULL,$this->conn);
 				if(!$this->isSpam(array(
 			                'author' => $this->post('nombre'),
 	        		        'email' => $this->post('email'),
@@ -190,16 +193,17 @@ class escuelas extends main{
 				)) && $this->isTokenSimulatesValid()){
 					//$calificacion->debug = true;
 
-					$calificacion->create('nombre,email,cct,comentario,ocupacion,calificacion,user_agent,acepta_nombre',array(
+					$calificacion->create('nombre,email,id_cct,cct,comentario,ocupacion,calificacion,user_agent,acepta_nombre',array(
 						$this->post('nombre'),
 						$this->post('email'),
+						"0",
 						$this->post('cct'),
 						$comment,
 						$this->post('ocupacion'),
 						stripslashes($this->post('calificacion')),
 						$_SERVER['HTTP_USER_AGENT'],
 						$accept_name
-					));
+					),'id');
 					if($this->post("calificaciones")) $calificacion->setCalificaciones($this->post('preguntas'),$this->post('calificaciones'));				
 				}else{					
 					//spam
@@ -219,10 +223,10 @@ class escuelas extends main{
 	* Obtienen metadatos del usuario que se almacenan en la tabla calificación_like e incrementa en uno el campo 'like' de la calificación elegida
 	*/
 	public function like_calificacion(){
-		$calif = new calificacion($this->get('id'));
+		$calif = new calificacion($this->get('id'),$this->conn);
 		$calif->read('id,cct,likes=>id,likes=>ip');
 		$calif->update('likes',array(count($calif->likes)+1));
-		$like = new calificacion_like();
+		$like = new calificacion_like(NULL,$this->conn);
 		$like->create('calificacion,ip,user_agent',array(
 			$calif->id,
 			$_SERVER['REMOTE_ADDR'],
@@ -257,10 +261,10 @@ class escuelas extends main{
 	* Obtienen la calificación brindada por el usuario y se guarda en la tabla reportes_ciudadanos
 	*/
 	public function like_reportar(){
-		$reporte = new reporte_ciudadano($this->get('id'));
+		$reporte = new reporte_ciudadano($this->get('id'),$this->conn);
 		$reporte->read('id,cct=>cct,likes=>id,likes=>ip');
 		$reporte->update('likes',array(count($reporte->likes)+1));
-		$like = new reporte_ciudadano_like();
+		$like = new reporte_ciudadano_like(NULL,$this->conn);
 		$like->create('denuncia,ip,user_agent',array(
 			$reporte->id,
 			$_SERVER['REMOTE_ADDR'],

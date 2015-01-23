@@ -52,7 +52,7 @@
 					<form action="#" ng-show="toggleForm">
 						<input type="text" placeholder="Mensaje">
 						<input type="email" placeholder="Tu correo">
-						<input type="submit" class="button-bordered" value="Envia al equipo de MTE">
+						<input type="submit" class="button-bordered" value="Envía al equipo de MTE">
 					</form>
 				</div>
 			</div>

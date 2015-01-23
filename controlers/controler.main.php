@@ -13,10 +13,8 @@ class main extends controler{
 	*/
 
 	public function main($config){
-		//error_reporting(1);
-		//ini_set('display_errors', '1');
-		$this->config = $config; 
-		$this->dbConnect(); 
+		$this->config = $config;
+		$this->conn = $this->dbConnect();
 		$this->location = get_class($this); 
 		$this->header_folder = 'home'; 
 		$this->page_title = 'Mejora tu Escuela'; 
@@ -25,8 +23,7 @@ class main extends controler{
 		$this->draw_charts = false; 
 		$this->angular = false;
 		$this->get_data_compara_float();
-		//$this->load_entidades();
-		#$this->testMail();
+		$this->load_entidades();
 	}
 
 	/** 
@@ -36,7 +33,6 @@ class main extends controler{
 	* dicho objeto es la información que es usada de las escuelas.
 	*/
 	protected function process_escuelas(){
-		
 		$this->escuelas_digest = false;
 		if($this->escuelas){
 			$escuelas = array();
@@ -69,6 +65,7 @@ class main extends controler{
 				$escuelas[$key]->rank_nacional = $escuela->rank_nacional;
 				$escuelas[$key]->direccion = $this->capitalize($escuela->localidad->nombre).', '.$this->capitalize($escuela->entidad->nombre);
 				$escuelas[$key]->turno = $escuela->turno;
+				$escuelas[$key]->turno->conn = null;
 				$escuelas[$key]->turnos_eval = $escuela->turnos_eval;
 			}
 			$width = $this->distance($maxlat,$minlong,$maxlat,$maxlong);
@@ -125,9 +122,9 @@ class main extends controler{
 	*/
 	public function load_municipios(){
 
-		$q = new municipio();
-		//$q->debug = true;
-		$q->search_clause = $this->request('entidad') ? 'municipios.entidad = "'.$this->request('entidad').'"' : '1';
+		$q = new municipio(NULL,$this->conn);
+		#$q->debug = true;
+		$q->search_clause = $this->request('entidad') ? 'municipios.entidad = \''.$this->request('entidad').'\'' : 'true';
 		$q->search_clause .= ' AND municipios.entidad > 0';
 		$q->order_by = 'municipios.nombre';
 		$this->municipios = $q->read('id,nombre,entidad=>nombre,entidad=>id');
@@ -151,13 +148,12 @@ class main extends controler{
 	* al momento de la llamada por POST se especifica la variable "entidad" o "municipio" son regresados las localidades 
 	* con esos filtros, si no es así se muestran todos los municipios además si es especificado la variable json se regresan los resultados en este formato.
 	*/
-	public function load_localidades(){		
-		$entidad = $this->request('entidad');
-		$municipio = $this->request('municipio');
-		if($entidad || $municipio){
-			$q = new localidad();
-			$q->search_clause = $entidad ? 'localidades.entidad = "'.$entidad.'"' : '1';
-			$q->search_clause = $municipio ? 'localidades.municipio = "'.$municipio.'"' : $q->search_clause;
+	public function load_localidades(){
+		
+		if($this->request('entidad') || $this->request('municipio')){
+			$q = new localidad(NULL,$this->conn);
+			$q->search_clause = $this->request('entidad') ? 'localidades.entidad = \''.$this->request('entidad').'\'' : '1';
+			$q->search_clause = $this->request('municipio') ? 'localidades.municipio = \''.$this->request('municipio').'\'' : $q->search_clause;
 			$q->order_by = 'localidades.nombre';
 			//$q->debug = true;
 			$this->localidades = $q->read('id,nombre,entidad=>nombre,entidad=>id,municipio=>nombre,municipio=>id');
@@ -192,24 +188,24 @@ class main extends controler{
 	* \param $param establecida false
 	*/
 	public function get_escuelas($params = false){
-		$q = new escuela();
-		$q->search_clause .= ' 1 ';
+		$q = new escuela(NULL,$this->conn);
+		$q->search_clause .= ' TRUE ';
 		
 		$q->search_clause .= $this->request('term') ? " AND escuelas.nombre LIKE '".$this->request('term')."%' " : '';
 		if(isset($params->entidad) && $params->entidad){
 			$q->search_clause .= " AND escuelas.entidad = '{$params->entidad}' ";
 		}else{
-			$q->search_clause .= $this->request('entidad') ? ' AND escuelas.entidad = "'.$this->request('entidad').'" ' : '';
+			$q->search_clause .= $this->request('entidad') ? ' AND escuelas.entidad = \''.$this->request('entidad').'\' ' : '';
 		}
-		$q->search_clause .= $this->request('municipio') ? ' AND escuelas.municipio = "'.$this->request('municipio').'" ' : '';
+		$q->search_clause .= $this->request('municipio') ? ' AND escuelas.municipio = \''.$this->request('municipio').'\' ' : '';
 		if(isset($params->localidad) && $params->localidad){
 			$q->search_clause .= " AND escuelas.localidad = '{$params->localidad}' ";
 		}else{
-			$q->search_clause .= $this->request('localidad') ? ' AND escuelas.localidad = "'.$this->request('localidad').'" ' : '';
+			$q->search_clause .= $this->request('localidad') ? ' AND escuelas.localidad = \''.$this->request('localidad').'\' ' : '';
 		}
 		if(isset($params->nivel) && $params->nivel !== false){
             if($params->nivel=='1') {//si es biblioteca
-                $q->search_clause .= ' AND SUBSTR(escuelas.cct,3,2) = "BB" ';
+                $q->search_clause .= ' AND SUBSTR(escuelas.cct,3,2) = \'BB\' ';
             } else {
                 $q->search_clause .= " AND escuelas.nivel = '{$params->nivel}' ";
             }
@@ -219,31 +215,31 @@ class main extends controler{
 			$aux = array();
 			if(count($niveles)){
 				foreach($niveles as $nivel){
-					if($nivel != 'BB') $aux[] = 'escuelas.nivel = "'.$nivel.'"';
-					else  $aux[] = 'SUBSTR(escuelas.cct,3,2) = "BB"';
-					if($nivel == '22') $aux[] = 'escuelas.nivel = "21"';
+					if($nivel != 'BB') $aux[] = 'escuelas.nivel = \''.$nivel.'\'';
+					else  $aux[] = 'SUBSTR(escuelas.cct,3,2) = \'BB\'';
+					if($nivel == '22') $aux[] = 'escuelas.nivel = \'21\'';
 				}
-				$clause = implode(' || ',$aux);
+				$clause = implode(' OR ',$aux);
 				$q->search_clause .= 'AND ('.$clause.') ';
 			}else{
-				$q->search_clause .= 'AND (escuelas.nivel = "12" || escuelas.nivel = "13" || escuelas.nivel="21" || escuelas.nivel = "22" || SUBSTR(escuelas.cct,3,2) = "BB") ';
+				$q->search_clause .= 'AND (escuelas.nivel = \'12\' OR escuelas.nivel = \'13\' OR escuelas.nivel=\'21\' OR escuelas.nivel = \'22\' OR SUBSTR(escuelas.cct,3,2) = \'BB\') ';
 			}
 		}else{
 			#$q->search_clause .= $this->request('nivel') === false || $this->request('nivel') === '' ? 'AND (escuelas.nivel = "12" || escuelas.nivel = "13" || escuelas.nivel="21" || escuelas.nivel = "22") ' : ' AND escuelas.nivel = "'.$this->request('nivel').'" ';
 			if( $this->request('nivel') === false || $this->request('nivel') === '')
-				$q->search_clause .= ' AND (escuelas.nivel = "12" || escuelas.nivel = "13" || escuelas.nivel="21" || escuelas.nivel = "22" || SUBSTR(escuelas.cct,3,2) = "BB") ';
+				$q->search_clause .=' AND (escuelas.nivel = \'12\' or escuelas.nivel = \'13\' or escuelas.nivel=\'21\' or escuelas.nivel = \'22\' or SUBSTR(escuelas.cct,3,2) = \'BB\') ';
             elseif($this->request('nivel')=='1')//si es biblioteca
-                $q->search_clause .= ' AND SUBSTR(escuelas.cct,3,2) = "BB" ';
+                $q->search_clause .= ' AND SUBSTR(escuelas.cct,3,2) = \'BB\' ';
             elseif($this->request('nivel')!='22')
-				$q->search_clause .= ' AND escuelas.nivel = "'.$this->request('nivel').'" ';
+				$q->search_clause .= ' AND escuelas.nivel = \''.$this->request('nivel').'\' ';
             elseif($this->request('nivel')=='22')
-				$q->search_clause .= ' AND (escuelas.nivel = "'.$this->request('nivel').'" || escuelas.nivel="21") ';
+				$q->search_clause .= ' AND (escuelas.nivel = \''.$this->request('nivel').'\' or escuelas.nivel=\'21\') ';
 		}
 
 		if(isset($params->control) && $params->control){
 			$q->search_clause .= " AND escuelas.control = '{$params->control}' ";
 		}else{
-			$q->search_clause .= $this->request('control') ? ' AND escuelas.control = "'.$this->request('control').'" ' : '';
+			$q->search_clause .= $this->request('control') ? ' AND escuelas.control = \''.$this->request('control').'\' ' : '';
 		}
 		
 		if(isset($params->rank_nacional)){
@@ -267,13 +263,14 @@ class main extends controler{
 			}
 		}
 		$q->order_by = isset($params->order_by) ? $params->order_by : 'escuelas.nombre';
-		$q->limit= isset($params->limit) ? $params->limit : "0 ,10";
+		$q->limit= isset($params->limit) ? $params->limit : "10 OFFSET 0";
 		
 		if(isset($params->pagination)){
-			$this->pagination = new pagination('escuela',$params->pagination,$q->search_clause);
+			$this->pagination = new pagination('escuela',$params->pagination,$q->search_clause,"p",$this->conn);
 			$q->limit = $this->pagination->limit;
 			//var_dump($q->limit);
 		}
+		
 		$q->debug = isset($this->debug) ? $this->debug : false;
 
         $this->process_custom_get_escuelas($q,$params);
@@ -333,23 +330,25 @@ class main extends controler{
     public function set_turnos_ranked($escuelasList,$escuelas){
         if (count($escuelasList) > 0 && $escuelas) {
             $escuelasQuery = implode(",",$escuelas);
-            $ranks = new rank();
-            //$ranks->debug = true;
+            $ranks = new rank(NULL,$this->conn);
+            $ranks->debug = false;
             $ranks->search_clause = "escuelas_para_rankeo.id in ({$escuelasQuery})";
             $ranks->order_by = "rank_entidad asc";
             $total_ranks = $ranks->read('id,promedio_general,promedio_matematicas,promedio_espaniol,rank_entidad,rank_nacional,turnos_eval,anio,total_evaluados,eval_entre_programados');
-            foreach($escuelas as $escuela) {
-                $escuela->rank = array();
-                foreach($total_ranks as $key=>$rank) {
-                    if ($rank->id == $escuela->id) {
-                        $escuela->rank[] = $rank;
-                    }
-                    if ($key == 0) {
-                        $escuela->selected_rank = $rank;
-                    }
-                }
-                $escuela->clean_ranks();
-            }
+            if($total_ranks!=false){
+	            foreach($escuelas as $escuela) {
+	                $escuela->rank = array();
+	                foreach($total_ranks as $key=>$rank) {
+	                    if ($rank->id == $escuela->id) {
+	                        $escuela->rank[] = $rank;
+	                    }
+	                    if ($key == 0) {
+	                        $escuela->selected_rank = $rank;
+	                    }
+	                }
+	                $escuela->clean_ranks();
+	            }
+        	}
         }
     }
 	/**
@@ -358,8 +357,8 @@ class main extends controler{
 	*/
 	public function load_niveles(){
 		
-		$q = new nivel();
-		$q->search_clause = 'niveles.id = "12" || niveles.id = "13" || niveles.id = "22" || niveles.id = "11"';
+		$q = new nivel(NULL,$this->conn);
+		$q->search_clause = 'niveles.id = \'12\' or niveles.id = \'13\' or niveles.id = \'22\' or niveles.id = \'11\'';
 		$this->niveles = $q->read('id,nombre');
 	}
 
@@ -368,11 +367,12 @@ class main extends controler{
 	* Lee la información de la tabla entidades aplicando opcionalmente el orden con el que se guardaran los datos en el atributo 'entidades'.
 	*/
 	public function load_entidades($order_by = false){
-		$q = new entidad();
+		$q = new entidad(NULL,$this->conn);
 		$q->search_clause = 'rank > 0';
 		if($order_by) $q->order_by = $order_by;
 		$this->entidades = $q->read('id,nombre,cct_count,promedio_general,rank');
 		$api = new api($this->config);
+
 		if($this->config->jsonMode) return $api->jsonify($this->entidades,["id","nombre","cct_count","promedio_general","rank"]);
 	}
 
@@ -445,10 +445,10 @@ class main extends controler{
 		//var_dump($location);
     		if(isset($location) && $location->region_code != '' && $location->country_code == 'MX'){
 			//$this->user_location = new entidad(9);
-			$this->user_location = new entidad($location->region_code);
+			$this->user_location = new entidad($location->region_code,$this->conn);
 			$this->user_location->read('id,nombre');
 		}else{
-			$this->user_location = new entidad(rand(1,32));
+			$this->user_location = new entidad(rand(1,32),$this->conn);
 			$this->user_location->read('nombre,id');
 		}
 		$this->set_cookie('user_location',$this->user_location->nombre."-".$this->user_location->id);
@@ -458,7 +458,7 @@ class main extends controler{
 		$this->user_location->nombre = $temp[0];
 		$this->user_location->id = $temp[1];
 	}else{
-		$this->user_location = new entidad(rand(1,32));
+		$this->user_location = new entidad(rand(1,32),$this->conn);
 		$this->user_location->read('nombre,id');
 	}
 
@@ -484,19 +484,19 @@ class main extends controler{
 	*/
     protected function cct_count_entidad(){
     	if(isset($this->escuelas)){
-		
 			foreach($this->escuelas as $escuela){
 				$id_entidad = isset($escuela->entidad->id)?$escuela->entidad->id:$escuela->entidad;
-				$entidad = new entidad($id_entidad);
-				$nivelNombre = isset($escuela->nivel->nombre)?$escuela->nivel->nombre:$escuela->nom_nivel;
-				if($nivelNombre == "TECNICO PROFESIONAL")
-					$nivelNombre = "BACHILLERATO";
-				$nivel = "numero_escuelas_".strtolower($nivelNombre);
-				$nivelNacional = "numero_nacional_escuelas_".strtolower($nivelNombre);
-				$entidad->read($nivel.",".$nivelNacional);
-				$escuela->entidad_cct_count = isset($entidad->$nivel) ? $entidad->$nivel : 0;
-				$escuela->nacional_cct_count = isset($entidad->$nivelNacional) ? $entidad->$nivelNacional : 0;
-				//var_dump($entidad);
+				$entidad = new entidad($id_entidad,$this->conn);
+				$nivelNombre = isset($escuela->nivel->nombre)?strtolower($escuela->nivel->nombre):strtolower($escuela->nom_nivel);
+				if($nivelNombre!="no aplica" && $nivelNombre!="preescolar" && $nivelNombre!='tecnico profesional'){
+					if($nivelNombre == "TECNICO PROFESIONAL")
+						$nivelNombre = "BACHILLERATO";
+					$nivel = "numero_escuelas_".$nivelNombre;
+					$nivelNacional = "numero_nacional_escuelas_".$nivelNombre;
+					$entidad->read($nivel.",".$nivelNacional);
+					$escuela->entidad_cct_count = isset($entidad->$nivel) ? $entidad->$nivel : 0;
+					$escuela->nacional_cct_count = isset($entidad->$nivelNacional) ? $entidad->$nivelNacional : 0;
+				}
 			}
 		}
     }
@@ -508,7 +508,7 @@ class main extends controler{
     * \param $estado string
 	*/
     public function load_estado_petitions($estado){
-    		$estado = $this->get('estado_petition')?$this->get('estado_petition'):$estado;
+    	$estado = $this->get('estado_petition')?$this->get('estado_petition'):$estado;
 		date_default_timezone_set('America/Mexico_City');
 		$change = new ApiChange($this->config->change_api_key,$this->config->change_secret_token);
 		$petition_info = $change->regresa_info_peticiones_organizacion('http://www.change.org/organizaciones/mejora_tu_escuela');
@@ -535,7 +535,6 @@ class main extends controler{
     * \param $escuelas_num es la cantidad de resultados devueltos
 	*/
     protected function set_info_user_search($escuelas_num){
-    		
 		$params= array();
 		if($this->get('search')){
 		    $params[] = $this->get('term')?$this->get('term'):"";
@@ -557,7 +556,7 @@ class main extends controler{
 			$params[] = $_SERVER['HTTP_USER_AGENT'];
 			$params[] = $_SERVER['REMOTE_ADDR'];
 			$params[] = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : '';
-			$user_search = new user_search();
+			$user_search = new user_search(NULL,$this->conn);
 			//$user_search->debug = true;
 			$user_search->create(
 				'term,control,nivel,entidad,municipio,localidad,cct_count,useragent,remote_addr,http_x_forwarded_for',$params
@@ -616,55 +615,55 @@ class main extends controler{
     }
 
     protected function load_programas(){
-    	$q = new programa();
-    	$q->search_clause =  'federal = "1"';
+    	$q = new programa(NULL,$this->conn);
+    	$q->search_clause =  'federal = \'1\'';
     	$this->programas_federales = $q->read('id,nombre,m_collection,tema_especifico');
-    	$q->search_clause = 'federal = "0"';
+    	$q->search_clause = 'federal = \'0\'';
     	$this->programas_osc = $q->read('id,nombre,m_collection,tema_especifico');
     }
 
 
     public function get_data_compara_float(){
-	if(!$this->request('json')){
-		$this->load_compara_cookie();
-		$cookie = explode('-',$this->cookie('escuelas_vistas'));
-	    	if($this->get('controler') == 'escuelas'){
-			$cookie[] = $this->get('id');
-		}else if($this->get('controler') == 'compara' && $this->get('action')=='escuelas'){
-			$forGet = explode('-',$this->get('id'));
-			//$forGet = array_merge($this->compara_cookie,$forGet);
-			$this->compara_cookie = array_unique($forGet);
-			$this->set_cookie('escuelas',implode("-",$this->compara_cookie));	
-		}
-		//$this->load_compara_cookie();
-		$params = new stdClass();
-		if($this->compara_cookie){
-			$params->ccts = $this->compara_cookie;
-            $params->one_turn = true;
-			$this->get_escuelas($params);
-			//$this->escuelas
-
-		}
-		$this->school_to_compare = isset($this->escuelas)?$this->escuelas:array();
-		$this->school_view = array();
-		$compare_cookie = $this->compara_cookie?$this->compara_cookie:array();
-		if($cookie){
-			//no en ambos;
-			for($i=count($cookie)-1;$i>=0;$i--){
-				if(in_array($cookie[$i],$compare_cookie)){
-					unset($cookie[$i]);
-				}
+		if(!$this->request('json')){
+			$this->load_compara_cookie();
+			$cookie = explode('-',$this->cookie('escuelas_vistas'));
+		    	if($this->get('controler') == 'escuelas'){
+				$cookie[] = $this->get('id');
+			}else if($this->get('controler') == 'compara' && $this->get('action')=='escuelas'){
+				$forGet = explode('-',$this->get('id'));
+				//$forGet = array_merge($this->compara_cookie,$forGet);
+				$this->compara_cookie = array_unique($forGet);
+				$this->set_cookie('escuelas',implode("-",$this->compara_cookie));	
 			}
-			$cookie = array_values($cookie);
-			if(count($cookie)){
-				$params->ccts = $cookie;
-                $params->one_turn = true;
+			//$this->load_compara_cookie();
+			$params = new stdClass();
+			if($this->compara_cookie){
+				$params->ccts = $this->compara_cookie;
+	            $params->one_turn = true;
 				$this->get_escuelas($params);
-				$this->school_view = $this->escuelas?$this->escuelas:array();	
+				//$this->escuelas
+
 			}
-	
+			$this->school_to_compare = isset($this->escuelas)?$this->escuelas:array();
+			$this->school_view = array();
+			$compare_cookie = $this->compara_cookie?$this->compara_cookie:array();
+			if($cookie){
+				//no en ambos;
+				for($i=count($cookie)-1;$i>=0;$i--){
+					if(in_array($cookie[$i],$compare_cookie)){
+						unset($cookie[$i]);
+					}
+				}
+				$cookie = array_values($cookie);
+				if(count($cookie)){
+					$params->ccts = $cookie;
+	                $params->one_turn = true;
+					$this->get_escuelas($params);
+					$this->school_view = $this->escuelas?$this->escuelas:array();	
+				}
+		
+			}
 		}
-	}
     }
 
     public function send_email($to,$subject,$message,$from,$from_name,$attachment_path = false, $attachment_name = false, $logo_path = false, $logo_name = false, $isHtml = true){
@@ -697,8 +696,8 @@ class main extends controler{
 	}
 
 	public function set_banners(){
-	    	$banners = array("FACEBOOK.jpg"=>array("home","https://www.facebook.com/MejoraTuEscuela"),"mejora2.jpg"=>array("mejora","http://blog.mejoratuescuela.org/?s=lectura"),"mejora4.jpg" => array("mejora","http://blog.mejoratuescuela.org/en-que-te-debes-fijar-de-la-infraestructura-de-la-escuela/"),"mejora1.jpg"=>array("mejora","http://blog.mejoratuescuela.org/?s=programa+apoyo"), "mejora3.jpg"=>array("mejora","http://blog.mejoratuescuela.org/?s=bullying"),"sienlace.png"=>array("home","http://www.mejoratuescuela.org/peticiones/sienlace"));
-		$pBanner = new page_banner();
+	    $banners = array("FACEBOOK.jpg"=>array("home","https://www.facebook.com/MejoraTuEscuela"),"mejora2.jpg"=>array("mejora","http://blog.mejoratuescuela.org/?s=lectura"),"mejora4.jpg" => array("mejora","http://blog.mejoratuescuela.org/en-que-te-debes-fijar-de-la-infraestructura-de-la-escuela/"),"mejora1.jpg"=>array("mejora","http://blog.mejoratuescuela.org/?s=programa+apoyo"), "mejora3.jpg"=>array("mejora","http://blog.mejoratuescuela.org/?s=bullying"),"sienlace.png"=>array("home","http://www.mejoratuescuela.org/peticiones/sienlace"));
+		$pBanner = new page_banner(NULL,$this->conn);
 		$pBanner->search_clause = " 1";
 		$pBanners = $pBanner->read('pagina,banner=>imagen');
 		$pages = array();
@@ -713,14 +712,14 @@ class main extends controler{
 			$url = $pageA[1];
 			$insert = true;
 			if(!in_array($banner_name,$imgs)){
-				$banner = new banner();
+				$banner = new banner(NULL,$this->conn);
 				$banner->debug = false;
 				$banner->create('imagen,url',array($banner_name,$url));
 				$insert = true;
 				//
 				$id = $banner->id;
 			}else{
-				$b = new page_banner();
+				$b = new page_banner(NULL,$this->conn);
 			    	$b->search_clause = "pagina = '$page' "; 
 				$bs = $b->read('pagina,banner=>imagen');
 				if($bs!=NULL){
@@ -733,14 +732,14 @@ class main extends controler{
 					}
 				}
 				if($insert){
-					$banner = new banner();
+					$banner = new banner(NULL,$this->conn);
 					$banner->search_clause = " imagen ='$banner_name'";
 					$banner = $banner->read('id');
 					$id = $banner[0]->id;		
 				}	
 			}
 			if($insert){
-				$pBanner = new page_banner();
+				$pBanner = new page_banner(NULL,$this->conn);
 				$pBanner->create('pagina,banner',array($page,$id));
 			}
 		}
@@ -749,8 +748,8 @@ class main extends controler{
 	public function get_banners(){
 		$page = explode('_',$this->location);
 		$page = implode('-',$page);
-		$b = new page_banner();
-		$b->search_clause = "pagina = '$page' "; 
+		$b = new page_banner(NULL,$this->conn);
+		$b->search_clause = "pagina = '$page' ";
 		$bs = $b->read('pagina,banner=>imagen,banner=>url');
 		$imgs = array();
 		if($bs!=NULL)
@@ -805,16 +804,15 @@ class main extends controler{
         }
 
         if ($this->debug) {
-            echo $sql;
+            //echo $sql."<br><br><br>";
         }
-
-        $result = mysql_query($sql);
+        $result = pg_query($this->conn, $sql);
 
         $this->escuelas = array();
         $i = 0;
         if ($result) {
-            while ($row = mysql_fetch_assoc($result)){
-                $escuela = new escuela($row['id']);
+            while ($row = pg_fetch_assoc($result)){
+                $escuela = new escuela($row['id'],$this->conn);
                 $escuela->cct = $row['cct'];
                 $escuela->nombre = $row['nombre'];
                 $escuela->codigopostal = $row['codigopostal'];
@@ -824,13 +822,13 @@ class main extends controler{
                 $escuela->domicilio = $row['domicilio'];
                 $escuela->latitud = $row['latitud'];
                 $escuela->longitud = $row['longitud'];
-                $escuela->turno = new turno(isset($row['turnos_id']) ? $row['turnos_id'] : "");
+                $escuela->turno = new turno(isset($row['turnos_id']) ? $row['turnos_id'] : "",$this->conn);
                 $escuela->turno->nombre = isset($row['turnos_nombre']) ? $row['turnos_nombre'] : "";
-                $escuela->localidad = new localidad(isset($row['localidades_id']) ? $row['localidades_id'] : "");
+                $escuela->localidad = new localidad(isset($row['localidades_id']) ? $row['localidades_id'] : "",$this->conn);
                 $escuela->localidad->nombre = isset($row['localidades_nombre']) ? $row['localidades_nombre'] : "";
-                $escuela->entidad = new entidad(isset($row['entidades_id']) ? $row['entidades_id'] : "");
+                $escuela->entidad = new entidad(isset($row['entidades_id']) ? $row['entidades_id'] : "",$this->conn);
                 $escuela->entidad->nombre = isset($row['entidades_nombre']) ? $row['entidades_nombre'] : "";
-                $escuela->nivel = new nivel(isset($row['niveles_id']) ? $row['niveles_id'] : "");
+                $escuela->nivel = new nivel(isset($row['niveles_id']) ? $row['niveles_id'] : "",$this->conn);
                 $escuela->nivel->nombre = isset($row['niveles_nombre']) ? $row['niveles_nombre'] : "";
                 $escuela->promedio_matematicas = isset($row['rank_promedio_matematicas']) ? $row['rank_promedio_matematicas'] : "";
                 $escuela->promedio_espaniol = isset($row['rank_promedio_espaniol']) ? $row['rank_promedio_espaniol'] : "";
@@ -842,9 +840,9 @@ class main extends controler{
                 $escuela->turnos_eval = isset($row['rank_turnos_eval']) ? $row['rank_turnos_eval'] : "";
                 $escuela->eval_entre_programados = isset($row['rank_eval_entre_programados']) ? $row['rank_eval_entre_programados'] : "";
                 $escuela->anio = isset($row['rank_anio']) ? $row['rank_anio'] : 0;
-                $escuela->control = new control(isset($row['controles_id']) ? $row['controles_id'] : "");
+                $escuela->control = new control(isset($row['controles_id']) ? $row['controles_id'] : "",$this->conn);
                 $escuela->control->nombre = isset($row['controles_nombre']) ? $row['controles_nombre'] : "";
-                $escuela->municipio = new municipio(isset($row['municipios_id']) ? $row['municipios_id'] : "");
+                $escuela->municipio = new municipio(isset($row['municipios_id']) ? $row['municipios_id'] : "",$this->conn);
                 $escuela->municipio->nombre = isset($row['municipios_nombre']) ? $row['municipios_nombre'] : "";
 
                 if (isset($params->one_turn) && $params->one_turn) {

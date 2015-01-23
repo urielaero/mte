@@ -12,6 +12,7 @@ class mejora extends main{
 	public function index(){
 		/* Obtiene los datos necesarios para el correcto funcionamiento de las vistas. */
 		$this->common_mejora();
+		$this->page_title = 'Herramientas de mejora - Mejora tu Escuela';
 		$this->include_theme('index','index');
 	}
 
@@ -55,7 +56,7 @@ class mejora extends main{
                 if ($estado < 10) $estado = '0'.$estado;
                 for($i=2;$i<16;$i++){
                     $add = true;
-                    $p = new programa($i);
+                    $p = new programa($i,$this->conn);
                     $p->read('id,nombre,m_collection,tema_especifico,federal');
 
                     if ($niv) {

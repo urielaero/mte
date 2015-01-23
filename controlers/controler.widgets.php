@@ -42,7 +42,7 @@ class widgets extends main{
 
 	public function escuelas(){
 		$this->page_title = 'Mejoratuescuela.org widget';
-		$this->escuela = new escuela($this->get('id'));
+		$this->escuela = new escuela($this->get('id'),$this->conn);
 		#$this->escuela->debug = true;
 		$names = array(12=>'numero_escuelas_primaria',13=>'numero_escuelas_secundaria',22=>'numero_escuelas_bachillerato');
 		$this->escuela->key = 'cct';
@@ -56,7 +56,7 @@ class widgets extends main{
 
 	public function escuelas_small(){
 		$this->page_title = 'Mejoratuescuela.org widget';
-		$this->escuela = new escuela($this->get('id'));
+		$this->escuela = new escuela($this->get('id'),$this->conn);
 		#$this->escuela->debug = true;
 		$names = array(12=>'numero_escuelas_primaria',13=>'numero_escuelas_secundaria',22=>'numero_escuelas_bachillerato');
 		$this->escuela->key = 'cct';

@@ -19,7 +19,7 @@
 		$controles = array(1=>'Pública', 2=>'Privada');
 		//$slug = $this->current_rank->slug;
 		//$slugTotal = $this->current_rank->name=="Nacional"?"nacional_cct_count":"entidad_cct_count";
-        $count_semaforos = count($escuela->rank) ? count($escuela->rank) : 1;
+        $count_semaforos = isset($escuela->rank) && count($escuela->rank) ? count($escuela->rank) : 1;
 		echo "<tr class='on'>";
 		echo "<td class='checkbox compara_table' rowspan='{$count_semaforos}'><a class='compara-escuela' href='{$escuela->cct}'></a>
                 <div class='icon'>

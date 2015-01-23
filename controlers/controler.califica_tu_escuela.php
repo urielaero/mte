@@ -32,6 +32,7 @@ class califica_tu_escuela extends main{
 		$this->title_header = 'Califica tu escuela';
 		$this->subtitle_header = 'Una vez que conoces y has comparado tu escuela, te invitamos a<br />que califiques algunos aspectos de la misma. Las calificaciones<br />ayudan a detectar áreas de mejora y a reconocer los<br />logros alcanzados.';
 		$this->header_folder = 'compara';
+		
 		if($this->escuela_info()){
 			$tipo_encuesta = 'escuelas';	
 			if(preg_match('/^..BB/', $this->escuela->cct)){
@@ -42,11 +43,11 @@ class califica_tu_escuela extends main{
 
 			$this->breadcrumb = array('/califica-tu-escuela/'=>'Califica tu escuela','#'=>$this->escuela->nombre);
 			$this->simulateP = rand()%15;
-			$tipo_p = new tipo_pregunta();
+			$tipo_p = new tipo_pregunta(NULL,$this->conn);
 			$tipo_p->search_clause = "nombre = '{$tipo_encuesta}'";
 			$tipo_preguntas = $tipo_p->read('id,nombre');
 			$tipo_pregunta = $tipo_preguntas[0];
-			$aux = new pregunta();
+			$aux = new pregunta(NULL,$this->conn);
 			$aux->search_clause = "tipo_pregunta = {$tipo_pregunta->id}";
 			$this->preguntas = $aux->read('id,titulo,pregunta,descripcion_valor_minimo,descripcion_valor_maximo');
 			$this->tipo_encuesta = $tipo_encuesta;
@@ -70,7 +71,6 @@ class califica_tu_escuela extends main{
 				$params->localidad = $this->get('localidad');
 				$p = $this->get('p') ? $this->get('p') : 1;
 				$this->get_escuelas_new($params,$p);
-			
 				$this->cct_count_entidad();
 				$this->resultados_title = 'Resultados de tu búsqueda';
 				$this->set_info_user_search($this->num_results);
@@ -105,7 +105,7 @@ class califica_tu_escuela extends main{
 	* Lee la información de la escuela que se calificara y la guarda en el atributo 'escuela'.
 	*/
 	public function escuela_info(){
-		$this->escuela = new escuela($this->get('id'));
+		$this->escuela = new escuela($this->get('id'),$this->conn);
 		$this->escuela->key = 'cct';
 		$this->escuela->fields['cct'] = $this->get('id');
 		//$this->escuela->control->id
@@ -123,7 +123,7 @@ class califica_tu_escuela extends main{
 	* Guarda en el atributo 'calificaciones' todas las calificaciones de todas las escuelas ordenadas en forma descendente.
 	*/
 	private function load_calificaciones(){
-		$q = new calificacion();
+		$q = new calificacion(NULL,$this->conn);
 		$q->search_clause = '1';
 		$q->order_by = 'califica_tu_escuela.likes DESC';
 		$this->calificaciones = $q->read('cct=>cct,cct=>nombre,cct=>entidad=>id,nombre_input,ocupacion,denuncia,likes,publicar,id');
