@@ -44,32 +44,50 @@
 				</ul>
 			</div>
 		</div>
-		<div class="contenedor-counters">
-				<div class="datos-counters datos-counters-1">
-					<div class="icono-counters-1"></div>
-					<div class="texto-counters-1"></div>
-					<div class="numero-counters-1"></div>
+		<div class="cont-info-turno" layout="row" layout-sm="column" layout-md="column">
+			<div class="datos-counters-1" flex="100">
+				<div class="cont-datos">
+					<div class="seccion-datos">
+						<div class="icono-datos">
+							<h3 class="h3-icono-turno"><i class="icon-familia-01"></i></h3>
+						</div>
+						<div class="text-datos"><h3 class="h3-text-datos">Número de Alumnos</h3></div>
+						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->total_evaluados?></h3></div>
+					</div>
 				</div>
-				<div class="datos-counters datos-counters-2">
-					<div class="icono-counters-2"></div>
-					<div class="texto-counters-2"></div>
-					<div class="numero-counters-2"></div>
+			</div>
+			<div class="datos-counters-2" flex="100">
+				<div class="cont-datos">
+					<div class="seccion-datos">
+						<div class="icono-datos">
+							<h3 class="h3-icono-turno"><i class="icon-familia-01"></i></h3>
+						</div>
+						<div class="text-datos"><h3 class="h3-text-datos">Total de personal</h3></div>
+						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->total_evaluados?></h3></div>
+					</div>
 				</div>
-				<div class="datos-counters datos-counters-3">
-					<div class="icono-counters-3"></div>
-					<div class="texto-counters-3"></div>
-					<div class="numero-counters-3"></div>
-				</div>			
+			</div>
+			<div class="datos-counters-3" flex="100">
+				<div class="cont-datos">
+					<div class="seccion-datos">
+						<div class="icono-datos">
+							<h3 class="h3-icono-turno"><i class="icon-familia-01"></i></h3>
+						</div>
+						<div class="text-datos"><h3 class="h3-text-datos">Grupos</h3></div>
+						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->total_evaluados?></h3></div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<!--<div class="counters " layout="row" layout-sm="column">
 			<div class="cont-counters">
 				
 			</div>
-			<div class="div-conusters-1"><div flex><div layout="row">
+			<div flex><div layout="row">
 				<div flex class="icon-box"><i class="icon-familia-01"></i></div>
 				<div flex>Número de alumnos:</div>
 				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
-			</div></div></div>
+			</div></div>
 			<div flex><div layout="row">
 				<div flex class="icon-box small"><i class="icon-desk-01"></i></div>
 				<div flex>Número de alumnos:</div>
