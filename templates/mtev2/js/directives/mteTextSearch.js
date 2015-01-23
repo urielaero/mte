@@ -7,7 +7,7 @@
         return {
             controller : controller,
             scope : {
-                
+                model : '=',
             },
             templateUrl : 'mteTextSearch.html'
         };

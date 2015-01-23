@@ -6,7 +6,6 @@ class api extends main{
 		$this->config = $config; 
 		$this->dbConnect(); 
 		$this->serializeAngular();
-
 	}
 
 	public function localidades(){
