@@ -25,7 +25,7 @@
 		</div>
 		<div ng-hide='loading' flex="70" flex-sm="100" id="results">
 			<div layout="row" layout-sm="column">
-				<h2 flex="40" flex-sm="100">{{numberFormat(pagination.count)}} Resultados</h2>
+				<h2 flex="40" flex-sm="100">{{numberFormat(pagination.count)}} Resultado<span ng-show='pagination.count > 1'>s</span></h2>
 				<div class="order-by" flex="60" flex-sm="100">
 					<select ng-change='getEscuelas()' ng-options='option for option in sortOptions' ng-model='sort'></select>
 

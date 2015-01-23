@@ -64,7 +64,10 @@
                 number = parseInt(number);
             }
             //Todo un IF que cheque si el navegador cuenta con esta funcion o cambiar a plugin de preferencia
-            return new Intl.NumberFormat().format(number.toFixed(2));
+            if(typeof(number) == 'number')
+                return new Intl.NumberFormat().format(number.toFixed(2));
+            else
+                return false;
         }
         $scope.processCheckBoxes = function(set){
             var items =[];
