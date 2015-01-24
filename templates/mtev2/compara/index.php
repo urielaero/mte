@@ -1,8 +1,7 @@
 <div class='container compare' ng-controller="compareCTL">
 	<div class="breadcrumb">
-		<a href="#" class="start"><i class="icon-mejora"></i></a>
-		<a href="#">Escuela</a>
-		<a href="#">Quintana Roo</a>
+		<a href="/" class="start"><i class="icon-mejora"></i></a>
+		<a href="/compara">Compara</a>
 	</div>	
 	<div class="menu-top">
 		<div class="tabs">

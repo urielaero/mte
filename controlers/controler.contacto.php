@@ -11,6 +11,7 @@ class contacto extends main{
 	public function index(){
 		$this->header_folder ='contacto';		
 		$this->breadcrumb = array('#'=>'Contacto');
+		$this->debug = true;
 		$this->include_theme('index','index');
 	}
 
