@@ -1,19 +1,19 @@
 (function () {
-    var controller = function ($scope,$http,userInfo) {
+    var controller = function ($scope,$http,userInfo,templateData) {
         $scope.entidades = [{nombre:'Todos'}].concat(entidades);
         $scope.entidad = $scope.entidades[0];
         $scope.municipios = [{nombre:'Todos'}].concat(municipios);
-        $scope.municipio = $scope.municipios[33];
+        $scope.municipio = $scope.municipios[0];
         $scope.localidades = [{nombre:'Todas'}].concat(localidades);
         $scope.localidad = $scope.localidades[0];
         $scope.loading = true;
         $scope.pagination = {count:0,current_page:1};
         $scope.sortOptions = ['Semáforo educativo','Nombre de la escuela'];
         $scope.sort = $scope.sortOptions[0];
-        $scope.semaforos = semaforos;
-        $scope.niveles = niveles;
-        $scope.turnos = turnos;
-        $scope.controles = controles;
+        $scope.semaforos = templateData.getVar('semaforos');
+        $scope.niveles = templateData.getVar('niveles');
+        $scope.turnos = templateData.getVar('turnos');
+        $scope.controles = templateData.getVar('controles');
 
         //Funciones que usan el servicio de usuario (comparacion)
         //recibe una escuela y regresa la clase apropiada para el icono de comparar
@@ -98,7 +98,7 @@
                 p : $scope.pagination.current_page || 1,
                 sort : $scope.sort,
             };
-
+            console.log($scope.params);
             $scope.params.niveles = $scope.processCheckBoxes($scope.niveles).join(',');
             var controles = $scope.processCheckBoxes($scope.controles);
             if(controles.length == 1) $scope.params.control = controles[0];
@@ -109,7 +109,7 @@
         $scope.getEscuelas();
     };
     
-    controller.$inject = ['$scope','$http','userInfo'];
+    controller.$inject = ['$scope','$http','userInfo','templateData'];
     var directive = function () {
         return {
             controller : controller,
@@ -128,106 +128,6 @@
         });
       };
     });  
-   
 
-
-    var semaforos = [
-        {
-            "label" : "Reprobado",
-            "icon" : "icon-tache-01",
-            "class" : "rank1"
-        },
-        {
-            "label" : "De panzazo",
-            "icon" : "icon-tache-01",
-            "class" : "rank2"
-        },
-        {
-            "label" : "Bien",
-            "icon" : "icon-check-01",
-            "class" : "rank3"
-        },
-        {
-            "label" : "Excelente",
-            "icon" : "icon-check-01",
-            "class" : "rank4"
-        },
-        {
-            "label" : "No toma la prueba ENLACE",
-            "icon" : "icon-notomaenlace",
-            "class" : "rank5"
-        },
-        {
-            "label" : "Poco confiable",
-            "icon" : "icon-pococonfiable",
-            "class" : "rank6"
-        },
-        {
-            "label" : "Esta escuela no toma la prueba ENLACE para todos los años",
-            "icon" : "icon-notodoslosanos",
-            "class" : "rank7"
-        },
-        {
-            "label" : "Prueba ENLACE no disponible para este nivel escolar",
-            "icon" : "icon-notomaenlace",
-            "class" : "rank8"
-        },
-        {
-            "label" : "Prueba ENLACE no disponible para este nivel escolar",
-            "icon" : "icon-notomaenlace",
-            "class" : "rank9"
-        }
-    ];
-
-    var niveles = [
-        {
-            id : 11,
-            label : 'Preescolar',
-            checked : false,
-        },
-        {
-            id : 12,
-            label : 'Primaria',
-            checked : false,
-        },
-        {
-            id : 13,
-            label : 'Secundaria',
-            checked : false,
-        },
-        {
-            id : 22,
-            label : 'Bachillerato',
-            checked : false,
-        },
-        {
-            id : 'BB',
-            label : 'Biblioteca',
-            checked : false,
-        },
-    ];
-    var turnos = [
-        {
-            id : 100,
-            label : 'Matutino',
-            checked : false,
-        },
-        {
-            id : 200,
-            label : 'Vespertino',
-            checked : false,
-        },
-    ];
-    var controles = [
-        {
-            id : 1,
-            label : 'Público',
-            checked : false,
-        },
-        {
-            id : 2,
-            label : 'Privado',
-            checked : false,
-        },
-    ];
+    
 }());

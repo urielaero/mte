@@ -1,4 +1,4 @@
-<div class='container compare' ng-controller="compareCTL">
+<div class='container compare' ng-controller="comparaCTL">
 	<div class="breadcrumb">
 		<a href="/" class="start"><i class="icon-mejora"></i></a>
 		<a href="/compara">Compara</a>
@@ -42,72 +42,23 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
+						<tr ng-repeat='escuela in escuelas'>
 							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
+								<strong ng-bind='escuela.nombre'></strong>
+								<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
+								<p><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
 							</td>
-							<td>777</td>
-							<td>739</td>
-							<td>Primaria</td>
-							<td>Matutino</td>
-							<td>Privada</td>
-							<td><strong>1</strong> de <strong>548</strong></td>
+							<td ng-bind='escuela.promedio_espaniol || "--"'></td>
+							<td ng-bind='escuela.promedio_matematicas || "--"'></td>
+							<td>{{escuela.nivel}}</td>
+							<td>{{escuela.turno.nombre}}</td>
+							<td>{{escuela.control}}</td>
+							<td><strong ng-bind='escuela.rank || "--"'></strong> de <strong ng-bind='escuela.entidad_cct_count'></strong></td>
 							<td>
-								<md-button class="md-fab rank1" aria-label="Time"><i class="icon-tache-01"></i></md-button>
-								<p>Excelente</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-							</td>
-							<td>777</td>
-							<td>739</td>
-							<td>Primaria</td>
-							<td>Matutino</td>
-							<td>Privada</td>
-							<td><strong>1</strong> de <strong>548</strong></td>
-							<td>
-								<md-button class="md-fab rank2" aria-label="Time"><i class="icon-check-01"></i></md-button>
-								<p>Bien</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-							</td>
-							<td>777</td>
-							<td>739</td>
-							<td>Primaria</td>
-							<td>Matutino</td>
-							<td>Privada</td>
-							<td><strong>1</strong> de <strong>548</strong></td>
-							<td>
-								<md-button class="md-fab rank3" aria-label="Time"><i class="icon-check-01"></i></md-button>
-								<p>De panzazo</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-							</td>
-							<td>777</td>
-							<td>739</td>
-							<td>Primaria</td>
-							<td>Matutino</td>
-							<td>Privada</td>
-							<td><strong>1</strong> de <strong>548</strong></td>
-							<td>
-								<md-button class="md-fab rank4" aria-label="Time"><i class="icon-tache-01"></i></md-button>
-								<p>Reprobado</p>
+								<md-button ng-class="semaforos[escuela.semaforo].class" class="md-fab" aria-label="Time">
+									<i class="semaforos-buscador" ng-class="semaforos[escuela.semaforo].icon"></i>
+								</md-button>
+								<p>{{semaforos[escuela.semaforo].label}}</p>
 							</td>
 						</tr>
 					</tbody>

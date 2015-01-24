@@ -67,6 +67,10 @@ class main extends controler{
 				$escuelas[$key]->turno = $escuela->turno;
 				$escuelas[$key]->turno->conn = null;
 				$escuelas[$key]->turnos_eval = $escuela->turnos_eval;
+				if(isset($escuela->entidad_cct_count))
+					$escuelas[$key]->entidad_cct_count = $escuela->entidad_cct_count;
+				if(isset($escuela->nacional_cct_count))
+					$escuelas[$key]->nacional_cct_count = $escuela->nacional_cct_count;
 			}
 			$width = $this->distance($maxlat,$minlong,$maxlat,$maxlong);
 			$height = $this->distance($maxlat,$minlong,$minlat,$minlong);
@@ -251,7 +255,6 @@ class main extends controler{
         }else if($this->request('turno')){
         	$q->search_clause .= " AND escuelas.turno = ".$this->request('turno'); 
         }
-
 		if(isset($params->ccts) && $params->ccts){
 			if(count($params->ccts)){
 				$q->search_clause = '';

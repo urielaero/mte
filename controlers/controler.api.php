@@ -18,12 +18,19 @@ class api extends main{
 		$params = new stdClass();
 		if($this->request('sort') == 'Semáforo educativo')
 			$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
-		$params->pagination = 6;
+		else if($this->request('sort') == 'Promedio general')
+			$params->order_by = 'escuelas_para_rankeo.promedio_general DESC';
+		if($this->request('ccts')) $params->ccts = explode(',',$this->request('ccts')); 
+		$params->pagination = $this->request('pagination') || 6;
 		$this->get_escuelas($params);
+		if($this->request('cct_count_entidad')) $this->cct_count_entidad();
 		$this->process_escuelas();
 		$this->escuelas_digest->pagination = $this->pagination;
 		$this->escuelas_digest->pagination->conn = NULL;
 		echo json_encode($this->escuelas_digest);
+	}
+	public function escuelaDetail(){
+		
 	}
 	public function serializeAngular(){
 		$headers = getallheaders();
