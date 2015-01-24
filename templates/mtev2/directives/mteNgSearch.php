@@ -25,7 +25,7 @@
 		</div>
 		<div ng-hide='loading' flex="70" flex-sm="100" id="results">
 			<div layout="row" layout-sm="column">
-				<h2 flex="40" flex-sm="100">{{numberFormat(pagination.count)}} Resultados</h2>
+				<h2 flex="40" flex-sm="100">{{numberFormat(pagination.count)}} Resultado<span ng-show='pagination.count > 1'>s</span></h2>
 				<div class="order-by" flex="60" flex-sm="100">
 					<select ng-change='getEscuelas()' ng-options='option for option in sortOptions' ng-model='sort'></select>
 
@@ -50,8 +50,8 @@
 								<div class="cont-datos-escuela">
 									<div class="cont-ico-compara">
 										<div class="h3-iconmejora">
-											<div class="circulo-icon-mejora" ng-click="ShowForm(escuela)" >
-											   <i class="icon-check-01 mejora-icon"></i>
+											<div class="circulo-icon-mejora" ng-click='toggleSchool(escuela)'  >
+											   <i ng-class='isChecked(escuela)' class="mejora-icon"></i>
 											</div>
 										</div>
 									</div>
@@ -79,7 +79,7 @@
 					</tbody>
 				</table>
 			</div>
-			<a href="#" class="compare-button">Comparar</a>
+			<a href="/compara/escuelas/" class="compare-button" ng-show='hasSelected()'>Comparar</a>
 			<div class="pagination">			
 
 				<a href="" 

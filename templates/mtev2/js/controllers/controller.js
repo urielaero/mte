@@ -1,4 +1,4 @@
-var app = angular.module("mejoratuescuela",['ngMaterial','perfect_scrollbar','leaflet-directive']);
+var app = angular.module("mejoratuescuela",['ngMaterial','perfect_scrollbar','leaflet-directive','ngCookies']);
 
 app.controller("headerCTL", ['$scope','$timeout','$mdSidenav',function ($scope, $timeout, $mdSidenav) {
 	$scope.toggleLeft = function() {
@@ -41,10 +41,13 @@ app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
 	$scope.twitterIni();
 }]);
 
-app.controller("escuelaCTL", ['$scope',function ($scope) {
+app.controller("escuelaCTL", ['$scope', '$mdSidenav',function ($scope, $mdSidenav) {
 	$scope.selectedIndex = 0;
 	$scope.countToggle = 0;
 	$scope.toggleForm = false;
+    $scope.toggleLeft = function() {
+        $mdSidenav('comparaSidenav').toggle();
+    };
     $scope.next = function() {
       $scope.selectedIndex = Math.min($scope.selectedIndex + 1, 2) ;
     };
@@ -162,6 +165,12 @@ app.controller("mejoraCTL", ['$scope',function ($scope) {
     }
 }]);
 
+
+app.controller("compareSidebarCTL", ['$scope', '$mdSidenav',function ($scope, $mdSidenav) {
+    $scope.close = function() {
+        $mdSidenav('comparaSidenav').close();
+    };
+}]);
 
 app.controller("compareCTL", ['$scope',function ($scope) {
 	$scope.selectedIndex = 0;

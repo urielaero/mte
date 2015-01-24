@@ -68,7 +68,7 @@ if(!empty($this->escuela->rank)){
 			    </md-tabs>				
 			</div>
 			<div flex="15" flex-sm="100" class="compare-link">
-				<a href="#" class="full-size-link"></a>
+				<a href="#" ng-click="toggleLeft()" class="full-size-link"></a>
 				<div class="icon-wrapper vertical-align-center horizontal-align-center">
 					<div flex="column">
 						<div><i class="icon-compara-01"></i></div>
@@ -90,16 +90,5 @@ if(!empty($this->escuela->rank)){
 			?>
 	        </div>
 	<?php } ?>
-	<!--
-        <div role="tabpanel" id="profile-content" aria-labelledby="tab1" ng-switch-when="0" md-swipe-left="next()" md-swipe-right="previous()" >
-		<?php 
-			$this->include_template('turno','escuelas');
-		?>
-        </div>
-        <div role="tabpanel" id="tab3-content" aria-labelledby="tab2" ng-switch-when="1" md-swipe-left="next()" md-swipe-right="previous()">
-            View for Item #3<br/>
-            data.selectedIndex = 2
-        </div>
-	-->
     </ng-switch>
 </div>

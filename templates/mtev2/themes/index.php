@@ -22,6 +22,7 @@
 			'bower_components/angular-aria/angular-aria.min.js',
 			'bower_components/hammerjs/hammer.min.js',
 			'bower_components/angular-material/angular-material.min.js',
+			'bower_components/angular-cookies/angular-cookies.min.js',
 			'perfect-scrollbar.min.js',
 			'footable.js',
 			'perfect-scrollbar.with-mousewheel.min.js',
@@ -31,6 +32,7 @@
 			'angular-leaflet-directive.min.js',
 			'controllers/controller.js',
 			'controllers/conoceCTL.js',
+			'services/userInfo.js',
 			'directives/mteNgSearch.js',
 			'directives/mteTextSearch.js',
 		);
