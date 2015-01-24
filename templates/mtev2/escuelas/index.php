@@ -90,16 +90,5 @@ if(!empty($this->escuela->rank)){
 			?>
 	        </div>
 	<?php } ?>
-	<!--
-        <div role="tabpanel" id="profile-content" aria-labelledby="tab1" ng-switch-when="0" md-swipe-left="next()" md-swipe-right="previous()" >
-		<?php 
-			$this->include_template('turno','escuelas');
-		?>
-        </div>
-        <div role="tabpanel" id="tab3-content" aria-labelledby="tab2" ng-switch-when="1" md-swipe-left="next()" md-swipe-right="previous()">
-            View for Item #3<br/>
-            data.selectedIndex = 2
-        </div>
-	-->
     </ng-switch>
 </div>
