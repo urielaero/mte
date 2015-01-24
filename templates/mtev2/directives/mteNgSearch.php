@@ -2,9 +2,7 @@
 	<div layout="row" layout-sm="column" class="space-between">
 		<div flex="25" flex-sm="100" id="filters">
 			<form>
-
 				<div mte-text-search object='textSearch' ></div>
-
 
 				<label>Estado</label>
 				<select ng-model='entidad' ng-disabled='loading' ng-change='entidadChange()' ng-options='entidad as entidad.nombre.capitalize() for entidad in entidades' ></select>
