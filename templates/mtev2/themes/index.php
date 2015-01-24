@@ -29,7 +29,7 @@
 			'charts.js',
             'leaflet.js',
 			'angular-leaflet-directive.min.js',
-			'controller.js',
+			'controllers/controller.js',
 			'controllers/conoceCTL.js',
 			'directives/mteNgSearch.js',
 			'directives/mteTextSearch.js',
