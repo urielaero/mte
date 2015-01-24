@@ -533,7 +533,8 @@ EOD;
 				?>
 					<li layout='row' <?=isset($this->escuela->programas[$programa->m_collection])?"class='on'":""?>>
 		
-						<div flex="25"><i class="icon-"></i></div><div flex="75"><?=$programa->nombre?></div>
+						<div flex="25"><i class="icon-"></i></div>
+						<div flex="75"><a href="/programas/index/<?php echo $programa->id ?>"><?=$programa->nombre?></a></div>
 					</li>
 				<? } ?>
 			</ul>
@@ -546,7 +547,8 @@ EOD;
 				?>
 					<li layout='row' <?=isset($this->escuela->programas[$programa->m_collection])?"class='on'":""?>>
 		
-						<div flex="25"><i class="icon-"></i></div><div flex="75"><?=$programa->nombre?></div>
+						<div flex="25"><i class="icon-"></i></div>
+						<div flex="75"><a href="/programas/index/<?php echo $programa->id ?>"><?=$programa->nombre?></a></div>
 					</li>
 				<? } ?>
 			</ul>
