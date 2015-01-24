@@ -803,7 +803,7 @@ ok
 .circulo-icon-mejora{width: 20px;height: 20px;border-radius: 50% 50% 50% 50%;border:solid 2px #1CA5F5;}
 .mi-link{height: 80px}
 
-.forms-contactanos{background-color: #F6F6F6}
+.forms-contactanos{background-color: #F6F6F6;margin-top: -10px;margin-left: 5px}
 
 /*turno.php*/
 .cont-info-turno{background-color:blue;text-align: center;}
@@ -821,11 +821,9 @@ ok
 /*turno.php*/
 .semaforos-buscador{ display: block; margin: 0 0 0 -1px;}
 /*Pixel Perfec*/
-/*header*/
 .perfect-menu{margin-bottom: 0px;}
 .prefect-sub-header{margin-top: -5px}
 .container .perfect-breadcrumb{ margin-top: -13px}
-.perfect-menu-row{margin-top: 10px}
-/*header*/	
+.perfect-menu-row{margin-top: 10px}	
 /*Pixel Perfec*/	
 /*Carlos Barahona*/
