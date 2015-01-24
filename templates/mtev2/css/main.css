@@ -780,15 +780,16 @@ ok
 }
 
 /*Carlos Barahona*/
+.contact{width: 887px}
 .header-form-contactanos{height: 50px;background-color: #00B759;}
-.items-header-contact{float: left;text-align: center;margin-right: 6px;height: 100%;color: white}
-.contactanos-contactanos{background-color: #3E6DF3;width: 130px;display: table;}
+.items-header-contact{float: left;text-align: center;margin-right: 6px;height: 100%;color: white;border:}
+.contactanos-contactanos{background-color: #3E6DF3;width: 170px;display: table;}
 .mail-contactanos{width: 50px;display: table;}
-.correo-contactanos{width: 200px;display: table;}
-.icotelefono-contactanos{width: 50px;display: table;}
-.telefono-contactanos{width: 70px;display: table;}
+.correo-contactanos{width: 240px;display: table;}
+.icotelefono-contactanos{width: 40px;display: table;}
+.telefono-contactanos{width: 100px;display: table;}
 .h3-contactanos{display: table-cell;vertical-align: middle;}
-.h3-contactanos-contacto{display: table-cell;vertical-align: middle;text-transform: uppercase;;font-size: 15px}
+.h3-contactanos-contacto{display: table-cell;vertical-align: middle;text-transform: uppercase;font-size: 15px}
 
 .ico-contact{background-color:#00C160}
 .form-contacto{background-color: white}
