@@ -802,6 +802,8 @@ class main extends controler{
 	
         if ($escuelas->limit) {
             $sql .= ' Limit '.$escuelas->limit;
+        }else{
+        	$sql .= ' Limit 6 OFFSET 0';
         }
 
         if ($this->debug) {
