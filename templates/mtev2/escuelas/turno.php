@@ -1,4 +1,4 @@
-	<?php $controles = array(1=>'Pública', 2=>'Privada'); ?>
+<?php $controles = array(1=>'Pública', 2=>'Privada'); ?>
 <div class="space-between" layout="row" layout-sm="column">
 	<div class="main-info" flex="73" flex-sm="100">
 		<div layout="row" layout-sm="column">
