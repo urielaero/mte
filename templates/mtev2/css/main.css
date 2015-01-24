@@ -682,7 +682,7 @@ ok
 #content .container.programa .title .icon-container{background: #FFAF50;font-size: 26px}
 #content .container.programa .title .programa-thumb{background: #fff;}
 #content .container.programa .title .programa-thumb img{max-width: 100%;float: left;}
-#content .container.programa .title h1{font-size: 22px;margin: 0;padding: 5px 15px}
+#content .container.programa .title h1{font-size: 22px;line-height: 1.4;margin: 0;padding: 5px 15px}
 #content .container.programa .title.web-page{margin-bottom: 5px}
 #content .container.programa h3.title,
 #content .container.programa .title h3{font-size: 14px;margin: 0;padding: 10px 16px;}
