@@ -10,7 +10,7 @@
 				<strong>1</strong> CONOCE
 			</a>
 			<a flex="15" class='principal' href='/compara/escuelas/' hide-sm>
-				<i class="icon-compara-01"></i>
+				<i class="icon-compara-01 icon-compara-header" style="margin: auto; font-size: 50px; margin-top: -10px;padding-right:10px"></i>
 				<strong>2</strong> COMPARA
 			</a>
 			<a flex="15" class='principal' href='/califica-tu-escuela/califica/' hide-sm>

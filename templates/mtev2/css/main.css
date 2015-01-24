@@ -819,10 +819,6 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 .circulo-icon-mejora{width: 20px;height: 20px;border-radius: 50% 50% 50% 50%;border:solid 2px #1CA5F5;}
 .mi-link{height: 80px}
 
-.forms-contactanos{background-color: #F6F6F6;margin-top: -10px;margin-left: 5px}
-.boton-contatos{width: 200px;}
-.cont-semaforos-results{margin-top: -15px}
-
 /*turno.php*/
 .cont-info-turno{background-color:blue;text-align: center;}
 .datos-counters-1{background-color: #3896F8;text-align: center;display: inline-block;}
@@ -843,5 +839,9 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 .prefect-sub-header{margin-top: -5px}
 .container .perfect-breadcrumb{ margin-top: -13px}
 .perfect-menu-row{margin-top: 10px}	
+.forms-contactanos{background-color: #F6F6F6;margin-top: -10px;margin-left: 5px;}
+.boton-contatos{width: 200px;}
+.cont-semaforos-results{margin-top: -15px}
+/*.container .row-links a i{margin: auto; font-size: 50px; margin-top: -10px;}*/
 /*Pixel Perfec*/	
 /*Carlos Barahona*/
