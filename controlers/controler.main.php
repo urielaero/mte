@@ -793,12 +793,13 @@ class main extends controler{
             $sql .= " AND ".$escuelas->search_clause;
         }
 
-        $sql .= ' order by escuelas_para_rankeo.anio desc';
-
+	$sql .= ' order by ';
         if ($escuelas->order_by) {
-            $sql .= ','.$escuelas->order_by;
+            $sql .=  $escuelas->order_by.' ,';
         }
 
+        $sql .= ' escuelas_para_rankeo.anio desc';
+	
         if ($escuelas->limit) {
             $sql .= ' Limit '.$escuelas->limit;
         }
