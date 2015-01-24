@@ -2,11 +2,15 @@
 	<div layout="row" layout-sm="column" class="space-between">
 		<div flex="25" flex-sm="100" id="filters">
 			<form>
+<!--<<<<<<< HEAD-->
 				<label>Escuela o biblioteca</label>
 				<div layout="row" class="text-field">
 					<input type="text" flex="80" placeholder="Ej. Jean Piaget">
 					<input type="submit" value="" flex="20">
 				</div>
+<!--=======
+				<div mte-text-search object='textSearch' ></div>
+>>>>>>> bc6ce5cea22e9293e2cc067b7101b7f44d8495d2-->
 
 				<label>Estado</label>
 				<select ng-model='entidad' ng-disabled='loading' ng-change='entidadChange()' ng-options='entidad as entidad.nombre.capitalize() for entidad in entidades' ></select>
@@ -45,7 +49,7 @@
 							<th data-hide="phone">Nivel escolar</th>
 							<th data-hide="phone">Turno</th>
 							<th data-hide="phone">Privada / Pública</th>
-							<th class="footable-last-column">Semáforo educativo</th>
+							<th style="max-width: 130px" class="footable-last-column">Semáforo educativo</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -73,9 +77,9 @@
 							<td ng-show='escuela.turno.nombre'>{{escuela.turno.nombre.capitalize()}}</td>
 							<td ng-show='!escuela.turno.nombre'>No Aplica</td>
 							<td>{{escuela.control}}</td>
-							<td>
+							<td style="max-width:130px">
 								<md-button ng-class="semaforos[escuela.semaforo].class" class="md-fab" aria-label="Time">
-									<i ng-class="semaforos[escuela.semaforo].icon"></i>
+									<i class="semaforos-buscador" ng-class="semaforos[escuela.semaforo].icon"></i>
 								</md-button>
 								<p>{{semaforos[escuela.semaforo].label}}</p>
 							</td>
