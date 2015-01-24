@@ -95,7 +95,7 @@ md-tabs.md-default-theme md-tabs-ink-bar:before{
 #header .menu a.logo{width:auto;margin:6px 18px 0 14px;padding:0;background-color:transparent;}
 #header .menu a.logo:before{background-color:transparent;}
 #header .menu a.logo:hover{background-color:transparent;}
-#header .menu a.logo img{max-width: 100%}
+#header .menu a.logo img{max-width: 90%}
 #header .menu a[href$='/compara/']{margin-left:-4px;}
 #header .menu .social-icons{padding-top: 30px}
 #header .menu .social-icons i{color: #17B9F3;font-size: 30px;}
@@ -809,11 +809,19 @@ ok
 .cont-datos{display: table;text-align: center;width: 100%;height: 80px;}
 .seccion-datos{width: 210px;height: 70px;margin: 0 auto;margin-top: 5px;}
 .icono-datos{width: 40px;height: 100%;float: left;color:#286FBB;display: table}
-.h3-icono-turno{width: auto;font-size: 35px;display: table-cell;vertical-align: middle;margin: 0 auto}
+.h3-icono-turno{width: auto;font-size: 20px;display: table-cell;vertical-align: middle;margin: 0 auto;color: white}
 .text-datos{width: 90px;height: 100%;float: left;color:#286FBB;display: table}
 .h3-text-datos{width: auto;font-size: 13px;color: white;display: table-cell;vertical-align: middle;text-align: left;margin: 0 auto}
 .num-datos{width: 60px;height: 100%;float: left;color:#286FBB;color: white;}
 .centrar-text{margin: 0 auto}
 /*turno.php*/
 .semaforos-buscador{ display: block; margin: 0 0 0 -1px;}
+/*Pixel Perfec*/
+/*header*/
+.perfect-menu{margin-bottom: 0px;}
+.prefect-sub-header{margin-top: -5px}
+.container .perfect-breadcrumb{ margin-top: -13px}
+.perfect-menu-row{margin-top: 10px}
+/*header*/	
+/*Pixel Perfec*/	
 /*Carlos Barahona*/

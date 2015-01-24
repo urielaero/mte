@@ -31,14 +31,14 @@ if(!empty($this->escuela->rank)){
 ?>
 
 <div class="container profile profile-escuela" ng-controller="escuelaCTL">
-	<div class="breadcrumb">
+	<div class="breadcrumb perfect-breadcrumb">
 		<a href="/" class="start"><i class="icon-mejora"></i></a>
 		<?php foreach($this->breadcrumb as $url => $breadcrumb){ ?>
 			<a href="<?=$url ?>"><?=$breadcrumb ?></a>
 		<?php } ?>
 	</div>
 	<div class="menu-top">
-		<div layout="row" layout-sm="column" class="menu-row">
+		<div layout="row" layout-sm="column" class="menu-row perfect-menu-row">
 			<div class="profile-title" flex="55" flex-sm="100">
 				<div class="title-container" layout="row">
 					<div flex="25" class="icon-container" hide-sm>

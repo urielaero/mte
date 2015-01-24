@@ -1,6 +1,6 @@
 <div class='menu <?= ($this->get('action')=='escuelas')?' resultados':($this->location=='escuelas' && $this->get('action')=='index'?'compara':$this->location)?>'><div class='container'>
 	<a href='/' class='logo'><?php $this->print_img_tag('logo_mejora.png'); ?></a>
-	<a class='prncipal' href='/compara/'>1 CONOCE
+	<a class='prncipal ' href='/compara/'>1 CONOCE
 		<span class='icon'></span>
 	</a>
 	<a class='prncipal' href='/compara/escuelas/'>2 COMPARA
