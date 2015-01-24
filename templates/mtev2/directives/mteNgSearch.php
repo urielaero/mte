@@ -50,8 +50,8 @@
 								<div class="cont-datos-escuela">
 									<div class="cont-ico-compara">
 										<div class="h3-iconmejora">
-											<div class="circulo-icon-mejora" ng-click="ShowForm(escuela)" >
-											   <i class="icon-check-01 mejora-icon"></i>
+											<div class="circulo-icon-mejora" ng-click='toggleSchool(escuela)'  >
+											   <i ng-class='isChecked(escuela)' class="mejora-icon"></i>
 											</div>
 										</div>
 									</div>
@@ -79,7 +79,7 @@
 					</tbody>
 				</table>
 			</div>
-			<a href="#" class="compare-button">Comparar</a>
+			<a href="/compara/escuelas/" class="compare-button" ng-show='hasSelected()'>Comparar</a>
 			<div class="pagination">			
 
 				<a href="" 
