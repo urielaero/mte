@@ -16,5 +16,5 @@
 			<a href="#">Conoce</a>
 		</div>
 	</div>
-	<div mte-ng-search objects='{municipios:municipios,entidades:entidades,localidades:localidades}'></div>
+	<div class="cont-semaforos-results" mte-ng-search objects='{municipios:municipios,entidades:entidades,localidades:localidades}'></div>
 </div>
