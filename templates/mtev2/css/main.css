@@ -182,6 +182,18 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #sidebar #tweets .tweet .tweet-content strong a{color: #636363}
 #sidebar #tweets .tweet .tweet-content p{color: #636363;font-size: 12px;line-height: 16px;}
 
+#content .container .sidebar .programs{margin-top: 14px}
+#content .container .sidebar .programs h5{background: #B0B0B0;color: #6E6E6E;font-weight:700;margin: 0;padding: 10px;text-align: center;}
+#content .container .sidebar .programs ul li{background: #DADADA;color: #999999;font-size: 12px;font-weight:700;line-height: 1.2;padding: 5px 4px}
+#content .container .sidebar .programs ul li div[flex="75"]{padding: 8px 0}
+#content .container .sidebar .programs ul li a{color: inherit;}
+#content .container .sidebar .programs ul li.on{background: #1CA5F5;color: #fff}
+#content .container .sidebar .programs ul li.on div[flex="25"]{/*padding: 10px 0;*/text-align: center;}
+#content .container .sidebar .programs ul li i{background: transparent;border: 2px solid #1CA5F5;display: block;border-radius: 50%;font-size: 11px;margin: 10px auto;padding: 6px 0;height: 24px;width: 24px;}
+#content .container .sidebar .programs ul li.on i{background: #fff;border: 2px solid #FFF;color: #1CA5F5;}
+#content .container .sidebar .programs ul li.on i:before{content: '\e81e';}
+
+
 /*Breadcrumb*/
 #content .container .breadcrumb{margin-bottom: 10px}
 #content .container .breadcrumb a{border: 1px solid #05A6EE;color: #05A6EE;padding: 4px 6px}
@@ -396,15 +408,6 @@ md-toolbar.md-default-theme{background: #08863D!important}
 #content .container.profile #profile-content .sidebar .box-yesno .no{display: inline-block;margin-top: 8px}
 #content .container.profile #profile-content .sidebar .box-yesno .circle{border: 2px solid #fff;border-radius: 50%;display: block;height: 14px;width: 14px}
 #content .container.profile #profile-content .sidebar .box-yesno .on .circle{background: #fff}
-#content .container.profile #profile-content .sidebar .programs{margin-top: 14px}
-#content .container.profile #profile-content .sidebar .programs h5{background: #B0B0B0;color: #6E6E6E;font-weight:700;margin: 0;padding: 10px;text-align: center;}
-#content .container.profile #profile-content .sidebar .programs ul li{background: #DADADA;color: #999999;font-size: 12px;font-weight:700;line-height: 1.2;padding: 5px 4px}
-#content .container.profile #profile-content .sidebar .programs ul li div[flex="75"]{padding: 8px 0}
-#content .container.profile #profile-content .sidebar .programs ul li.on{background: #1CA5F5;color: #fff}
-#content .container.profile #profile-content .sidebar .programs ul li.on div[flex="25"]{padding: 10px 0;text-align: center;}
-#content .container.profile #profile-content .sidebar .programs ul li i{background: transparent;border: 2px solid #1CA5F5;display: block;border-radius: 50%;font-size: 11px;margin: 0 auto;padding: 6px 0;height: 24px;width: 24px;}
-#content .container.profile #profile-content .sidebar .programs ul li.on i{background: #fff;border: 2px solid #FFF;color: #1CA5F5;}
-#content .container.profile #profile-content .sidebar .programs ul li.on i:before{content: '\e81e';}
 
 /*charts escuela*/
 #content .container.profile .chart .legend_chart{display:inline-block;vertical-align:top;margin-top:19px;background:#ECECEC;width:80px;height:127px;padding-top:15px;}
@@ -689,15 +692,7 @@ ok
 #content .container.programa .description .text{background: #fff;color:#838383;padding: 20px}
 #content .container.programa .description .map-section{margin-top: 5px}
 #content .container.programa .sidebar{margin-top: 0}
-#content .container.programa .sidebar .programs{margin-top: 14px}
-#content .container.programa .sidebar .programs h5{background: #B0B0B0;color: #6E6E6E;font-weight:700;margin: 0;padding: 10px;text-align: center;}
-#content .container.programa .sidebar .programs ul li{background: #DADADA;color: #999999;font-size: 12px;font-weight:700;line-height: 1.2;padding: 5px 4px}
-#content .container.programa .sidebar .programs ul li div[flex="75"]{padding: 8px 0}
-#content .container.programa .sidebar .programs ul li.on{background: #1CA5F5;color: #fff}
-#content .container.programa .sidebar .programs ul li.on div[flex="25"]{padding: 10px 0;text-align: center;}
-#content .container.programa .sidebar .programs ul li i{background: transparent;border: 2px solid #1CA5F5;display: block;border-radius: 50%;font-size: 11px;margin: 0 auto;padding: 6px 0;height: 24px;width: 24px;}
-#content .container.programa .sidebar .programs ul li.on i{background: #fff;border: 2px solid #FFF;color: #1CA5F5;}
-#content .container.programa .sidebar .programs ul li.on i:before{content: '\e81e';}
+#content .container.programa .sidebar .programs{margin-top: 0}
 
 
 
