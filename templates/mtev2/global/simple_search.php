@@ -3,6 +3,6 @@
 		<input type="text" placeholder="Busca una escuela">
 		<button type="submit"><i class="icon-buscar-01"></i></button>
 	</div>
-	<a href="#" class="button-bordered" flex="30" flex-sm="100">Búsqueda avanzada</a>
+	<a href="/compara" class="button-bordered" flex="30" flex-sm="100">Búsqueda avanzada</a>
 	<div class='clear'></div>
 </form>

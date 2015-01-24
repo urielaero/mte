@@ -23,6 +23,16 @@ class programas extends main{
 		$this->include_theme('index','index');
 	}
 
+    public function buscador(){
+        $this->title_header = 'Programas';
+        $this->header_folder = 'compara';
+        $this->subtitle_header = '
+            MejoraTuEscuela.org es una plataforma que busca <br />
+            promover la participación ciudadana para transformar <br />
+            la educación en México.';
+        $this->include_theme('index','buscador');
+    }
+
 	private function programa_info(){
 		$this->programa = new programa($this->get('id'),$this->conn);
 		$this->programa->read("id,nombre,tema,descripcion,zonas,requisitos,direccion,telefono,mail,telefono_contacto,sitio_web,m_collection,tema_especifico");

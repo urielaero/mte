@@ -32,7 +32,7 @@
 						</div></a>								
 					</div>
 				</div>
-				<div flex="35" class="stars-wrap">
+				<div flex="35" class="stars-wrap indiv-stars">
 					<i class="icon-estrella-01"></i>
 					<i class="icon-estrella-01"></i>
 					<i class="icon-estrella-01"></i>
