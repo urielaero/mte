@@ -788,6 +788,7 @@ ok
 .icotelefono-contactanos{width: 50px;display: table;}
 .telefono-contactanos{width: 70px;display: table;}
 .h3-contactanos{display: table-cell;vertical-align: middle;}
+.h3-contactanos-contacto{display: table-cell;vertical-align: middle;text-transform: uppercase;;font-size: 15px}
 
 .ico-contact{background-color:#00C160}
 .form-contacto{background-color: white}
@@ -800,6 +801,8 @@ ok
 .mejora-icon{font-size: 10px;}
 .circulo-icon-mejora{width: 20px;height: 20px;border-radius: 50% 50% 50% 50%;border:solid 2px #1CA5F5;}
 .mi-link{height: 80px}
+
+.forms-contactanos{background-color: #F6F6F6}
 
 /*turno.php*/
 .cont-info-turno{background-color:blue;text-align: center;}
