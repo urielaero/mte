@@ -13,7 +13,7 @@
 			</div>
 			<textarea placeholder="Mensaje" class=" forms-contactanos" cols="30" rows="7"></textarea>
 			<p >
-				<input type="submit" value="Enviar" >
+				<input class="boton-contatos" type="submit" value="Enviar" >
 				<div class="clear"></div>
 			</p>
 		</form>
