@@ -3,7 +3,7 @@
         $scope.entidades = [{nombre:'Todos'}].concat(entidades);
         $scope.entidad = $scope.entidades[0];
         $scope.municipios = [{nombre:'Todos'}].concat(municipios);
-        $scope.municipio = $scope.municipios[33];
+        $scope.municipio = $scope.municipios[0];
         $scope.localidades = [{nombre:'Todas'}].concat(localidades);
         $scope.localidad = $scope.localidades[0];
         $scope.loading = true;
