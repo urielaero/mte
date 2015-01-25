@@ -5,19 +5,19 @@
 	<div class='container'>
 		<div layout="row" class="row-links">
 			<a flex="25" flex-sm="100" href='/' class='logo'><img src='/templates/mtev2/img/logo_mejora.png' /></a>
-			<a flex="15" class='principal perfect-principal' href='/compara/' hide-sm>
-				<i class="icon-conoce-01"></i>
+			<a flex="15" class="principal perfect-principal <?php if(strstr($_SERVER['REQUEST_URI'], 'compara/escuelas')){ echo 'none';}elseif(strstr($_SERVER['REQUEST_URI'], 'compara')){ echo 'active';} ?>  " href='/compara/' hide-sm>
+				<i class="icon-conoce-01 "></i>
 				<strong>1</strong> CONOCE
 			</a>
-			<a flex="15" class='principal' href='/compara/escuelas/' hide-sm>
+			<a flex="15" class='principal <?php if(strstr($_SERVER['REQUEST_URI'], 'compara/escuelas')){ echo 'active';} ?> ' href='/compara/escuelas/' hide-sm>
 				<i class="icon-compara-01 icon-compara-header" style="margin: auto; font-size: 50px; margin-top: -10px;padding-right:10px"></i>
 				<strong>2</strong> COMPARA
 			</a>
-			<a flex="15" class='principal' href='/califica-tu-escuela/califica/' hide-sm>
+			<a flex="15" class='principal <?php if(strstr($_SERVER['REQUEST_URI'], '/califica-tu-escuela/')){ echo 'active';} ?>' href='/califica-tu-escuela/califica/' hide-sm>
 				<i class="icon-califica2-01"></i>
 				<strong>3</strong> CALIFICA
 			</a>
-			<a flex="15" class='principal' href='/mejora' hide-sm>
+			<a flex="15" class='principal <?php if(strstr($_SERVER['REQUEST_URI'], '/mejora')){ echo 'active';} ?>' href='/mejora/' hide-sm>
 				<i class="icon-mejora"></i>
 				<strong>4</strong> MEJORA
 			</a>
@@ -49,7 +49,7 @@
 			<li>
 				<md-button class="md-primary">
 					<a class="md-raised md-primary" href='/compara/escuelas/'>
-						<i class="icon-compara"></i> 2 COMPARA
+						<i class="icon-compara-01"></i> 2 COMPARA
 					</a>
 				</md-button>	
 			</li>

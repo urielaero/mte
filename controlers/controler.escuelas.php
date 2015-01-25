@@ -88,7 +88,11 @@ class escuelas extends main{
 				}
 				$this->title_header = 'Conoce tu biblioteca';
 				$this->subtitle_header = 'El primer paso para poder mejorar biblioteca es saber cómo está. Te invitamos a que conozcas y compartas esta información.';
-				$this->include_theme('index','biblioteca');
+				if($this->config->theme == 'mtev2'){
+					$this->include_theme('index','index');
+				}else{
+					$this->include_theme('index','biblioteca');
+				}
 			}
 			else{ 
 				if($this->config->theme == 'mtev2'){
