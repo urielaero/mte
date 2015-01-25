@@ -3,7 +3,7 @@
         $scope.entidades = [{nombre:'Todos'}].concat(entidades);
         $scope.entidad = $scope.entidades[0];
         $scope.municipios = [{nombre:'Todos'}].concat(municipios);
-        $scope.municipio = $scope.municipios[0];
+        $scope.municipio = $scope.municipios[33];
         $scope.localidades = [{nombre:'Todas'}].concat(localidades);
         $scope.localidad = $scope.localidades[0];
         $scope.loading = true;
@@ -27,6 +27,8 @@
         $scope.hasSelected = function(){
             return userInfo.hasSelected();
         }
+        //terminan funciones de comparador
+
 
         $scope.checkBoxChange = function(){
             $scope.getEscuelas();
@@ -65,6 +67,7 @@
         
         $scope.getEscuelas = function(){
             $scope.buildParams();
+            //console.log($scope.params);
             $scope.loading = true;
             $http({method:'POST',url:'/api/escuelas',data:$scope.params}).then(function(response){
                 //console.log(response.data);
@@ -98,7 +101,7 @@
                 p : $scope.pagination.current_page || 1,
                 sort : $scope.sort,
             };
-            console.log($scope.params);
+           // console.log($scope.params);
             $scope.params.niveles = $scope.processCheckBoxes($scope.niveles).join(',');
             var controles = $scope.processCheckBoxes($scope.controles);
             if(controles.length == 1) $scope.params.control = controles[0];

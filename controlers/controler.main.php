@@ -22,8 +22,10 @@ class main extends controler{
 		$this->draw_map = false; 
 		$this->draw_charts = false; 
 		$this->angular = false;
-		$this->get_data_compara_float();
-		$this->load_entidades();
+		if($this->config->theme == 'mtev1'){
+			$this->get_data_compara_float();
+			$this->load_entidades();
+		}
 	}
 
 	/** 
@@ -808,8 +810,9 @@ class main extends controler{
         }
 
         if ($this->debug) {
-            //echo $sql."<br><br><br>";
+            echo $sql."<br><br><br>";
         }
+
         $result = pg_query($this->conn, $sql);
 
         $this->escuelas = array();
