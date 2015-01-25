@@ -1,4 +1,4 @@
-	<?php $controles = array(1=>'Pública', 2=>'Privada'); ?>
+<?php $controles = array(1=>'Pública', 2=>'Privada'); ?>
 <div class="space-between" layout="row" layout-sm="column">
 	<div class="main-info" flex="73" flex-sm="100">
 		<div layout="row" layout-sm="column">
@@ -533,7 +533,8 @@ EOD;
 				?>
 					<li layout='row' <?=isset($this->escuela->programas[$programa->m_collection])?"class='on'":""?>>
 		
-						<div flex="25"><i class="icon-"></i></div><div flex="75"><?=$programa->nombre?></div>
+						<div flex="25"><i class="icon-"></i></div>
+						<div flex="75"><a href="/programas/index/<?php echo $programa->id ?>"><?=$programa->nombre?></a></div>
 					</li>
 				<? } ?>
 			</ul>
@@ -546,7 +547,8 @@ EOD;
 				?>
 					<li layout='row' <?=isset($this->escuela->programas[$programa->m_collection])?"class='on'":""?>>
 		
-						<div flex="25"><i class="icon-"></i></div><div flex="75"><?=$programa->nombre?></div>
+						<div flex="25"><i class="icon-"></i></div>
+						<div flex="75"><a href="/programas/index/<?php echo $programa->id ?>"><?=$programa->nombre?></a></div>
 					</li>
 				<? } ?>
 			</ul>

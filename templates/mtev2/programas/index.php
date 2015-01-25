@@ -6,28 +6,40 @@
 	</div>
 	<div layout="row" layout-sm="column" class="space-between">
 		<div flex="75" flex-sm="100" class="programa-content">
+			<?php
+			$idImg = $this->get('id'); 
+			$existsImg = file_exists($this->config->document_root."templates/mtev2/img/programas/{$idImg}.jpg");
+			?>
 			<div layout="row" class="title">
+				<?php if($existsImg){ ?>
 				<div class="programa-thumb" flex="20">
-					<img src="/templates/mtev2/img/programas/12.jpg" alt="">
+					<img src="/templates/mtev2/img/programas/<?php echo $idImg ?>.jpg" alt="">
 				</div>
+				<?php } ?>
 				<div flex="10" class="icon-container" hide-sm>
 					<div class="icon-wrapper vertical-align-center horizontal-align-center">
 						<i class="icon-programas"></i>
 					</div>
 				</div>
-				<div flex="70">
-					<h1><strong>Programa escuela segura</strong></h1>
-					<p><strong>Tema especifico que atiende el programa: Seguridad escolar</strong></p>				
+				<?php $flex = $existsImg ? '70' : '100' ?>
+				<div flex="<?php echo $flex ?>">
+				<?php 
+					$datoExtra = "";
+					if($this->programa->id==5) $datoExtra = " (datos del 2012)";
+				 ?>
+					<h1><strong><?php echo $this->programa->nombre.$datoExtra; ?></strong></h1>
+					<p><strong>Tema especifico que atiende el programa: <?php echo $this->programa->tema_especifico; ?></strong></p>				
 				</div>
 			</div>
 			<div class="description">
 				<h3 class="title">Descripción del programa</h3>
 				<div class="text">
-					<p>El programa otorga apoyo económico y técnico a las escuelas participantes que podrán invertir en: -Materiales educativos sobre gestión de la seguridad escolar. -Asesoría y acompañamiento sobre el tema. - Promoción de espacios de diálogo para fomentar la participación social en favor de la seguridad escolar. -Acciones de difusión sobre prevención y seguridad escolar. - Actividades de capacitación y enseñanza sobre prevención y seguridad escolar. -Compra de insumos de seguridad (por ejemplo, cámaras de vigilancia).</p>
+					<?php $desc = $this->programa->descripcion;?>
+					<p><?=$this->programa->id==20?nl2br($desc):$desc; ?></p>
 				</div>
 				<h3 class="title">¿Qué debe hacer una escuela que está interesada en participar en el proyecto?</h3>
 				<div class="text">
-					<p>Las escuelas deben ubicarse en los municipios que las autoridades señalen como de atención prioritaria. Si la escuela no se encuentra en alguno de estos pero desea participar, deben canalizar su petición a través del Consejo Escolar de Participación Social o la autoridad de la escuela.</p>
+					<p><?php echo $this->programa->requisitos; ?></p>
 				</div>
 				<div class="title web-page" layout="row">
 					<div flex="10" class="icon-container" hide-sm>
@@ -36,7 +48,7 @@
 						</div>
 					</div>
 					<div flex="90">
-						<h3>Página web del programa <a href="#" target="_blank" class="light">http://basica.sep.gob.mx/escuelasegura/</a></h3>			
+						<h3>Página web del programa <a target="_blank" href="http://<?=$this->programa->sitio_web;?>" class="light" ><?php echo $this->programa->sitio_web; ?></a></h3>			
 					</div>					
 				</div>
 				<div class="title" layout="row">
@@ -50,7 +62,11 @@
 					</div>					
 				</div>
 				<div class="text">
-					<p>36 01 60 00 (Ciudad de México) 01 800 767 8368	|	|36 01 60 00 (Ciudad de México) o desde los Estados al 01 800 767 8368 o vía correo electrónico: quejas@sep.gob.mx con copia para escuelasegura@sep.gob.mx</p>
+					<p>
+						<?php echo $this->programa->telefono; ?>
+						|<?php echo $this->programa->telefono_contacto; ?>
+						|<?php echo $this->programa->mail; ?>
+					</p>
 				</div>
 				<div class="map-section">
 					<div class="title" layout="row">
@@ -72,10 +88,11 @@
 				<ul>
 					<?php
 					foreach($this->programas_federales as $programa){
+						$on = $programa->id == $this->programa->id ? 'on' : '';
 					?>
-						<li layout='row' <?=isset($this->escuela->programas[$programa->m_collection])?"class='on'":""?>>
-			
-							<div flex="25"><i class="icon-"></i></div><div flex="75"><?=$programa->nombre?></div>
+						<li layout='row' class="<?php echo $on; ?>">
+							<div flex="25"><i class="icon-"></i></div>
+							<div flex="75"><a href="/programas/index/<?php echo $programa->id ?>"><?=$programa->nombre?></a></div>
 						</li>
 					<? } ?>
 				</ul>
@@ -85,10 +102,11 @@
 				<ul>
 					<?php
 					foreach($this->programas_osc as $programa){
+						$on = $programa->id == $this->programa->id ? 'on' : '';
 					?>
-						<li layout='row' <?=isset($this->escuela->programas[$programa->m_collection])?"class='on'":""?>>
-			
-							<div flex="25"><i class="icon-"></i></div><div flex="75"><?=$programa->nombre?></div>
+						<li layout='row' class="<?php echo $on; ?>">
+							<div flex="25"><i class="icon-"></i></div>
+							<div flex="75"><a href="/programas/index/<?php echo $programa->id ?>"><?=$programa->nombre?></a></div>
 						</li>
 					<? } ?>
 				</ul>

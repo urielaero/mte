@@ -1,20 +1,33 @@
 (function () {
-    var controller = function ($scope,$http) {
+    var controller = function ($scope,$http,userInfo) {
         $scope.entidades = [{nombre:'Todos'}].concat(entidades);
         $scope.entidad = $scope.entidades[0];
         $scope.municipios = [{nombre:'Todos'}].concat(municipios);
-        $scope.municipio = $scope.municipios[0];
+        $scope.municipio = $scope.municipios[33];
         $scope.localidades = [{nombre:'Todas'}].concat(localidades);
         $scope.localidad = $scope.localidades[0];
         $scope.loading = true;
         $scope.pagination = {count:0,current_page:1};
         $scope.sortOptions = ['Semáforo educativo','Nombre de la escuela'];
         $scope.sort = $scope.sortOptions[0];
-
         $scope.semaforos = semaforos;
         $scope.niveles = niveles;
         $scope.turnos = turnos;
         $scope.controles = controles;
+
+        //Funciones que usan el servicio de usuario (comparacion)
+        //recibe una escuela y regresa la clase apropiada para el icono de comparar
+        $scope.isChecked = function(escuela){
+            return userInfo.isSelected(escuela) ? 'icon-check-01': '';
+            //return ;
+        }
+        $scope.toggleSchool = function(escuela){
+            userInfo.toggleSchool(escuela);
+        }
+        $scope.hasSelected = function(){
+            return userInfo.hasSelected();
+        }
+
         $scope.checkBoxChange = function(){
             $scope.getEscuelas();
         }
@@ -49,6 +62,7 @@
             $scope.getLocalidades();
             $scope.getEscuelas();
         }
+        
         $scope.getEscuelas = function(){
             $scope.buildParams();
             $scope.loading = true;
@@ -64,7 +78,10 @@
                 number = parseInt(number);
             }
             //Todo un IF que cheque si el navegador cuenta con esta funcion o cambiar a plugin de preferencia
-            return new Intl.NumberFormat().format(number.toFixed(2));
+            if(typeof(number) == 'number')
+                return new Intl.NumberFormat().format(number.toFixed(2));
+            else
+                return false;
         }
         $scope.processCheckBoxes = function(set){
             var items =[];
@@ -92,7 +109,7 @@
         $scope.getEscuelas();
     };
     
-    controller.$inject = ['$scope','$http'];
+    controller.$inject = ['$scope','$http','userInfo'];
     var directive = function () {
         return {
             controller : controller,

@@ -15,52 +15,56 @@ class compara extends main{
 		$this->entidades = $this->load_entidades(false);
 		$this->municipios = $this->load_municipios();
 		$this->localidades = $this->load_localidades();
-		$this->load_compara_cookie();
-		$this->get_metadata();
-		$this->breadcrumb = array('#'=> 'Comparador');
-		$this->resultados_title = 'Resultados';
-		$this->header_folder = 'compara';				
-		$this->principal = true;
-		$this->title_header = 'Conoce tu escuela';
-		$this->meta_description = "Consulta información sobre las características de las escuelas de México. Datos de contacto, información sobre desempeño, infraestructura, programas de apoyo y conoce las opiniones de otros padres de familia.";
-		if(!$this->get('search')){ 
-			$this->get_location();
-			$params = new stdClass();
-			$params->entidad = $this->user_location->id; 
-			if($this->config->search_location)
-				$this->resultados_title = 'Mejores escuelas en '.$this->capitalize($this->user_location->nombre);
-		}else{
-			$this->breadcrumb = array('/compara'=> 'Comparador','#'=> 'Busqueda');
-		}
-		if($this->get('term') && isset($this->config->solr_server)){
-			$params = new StdClass();
-			$params->term = $this->get('term');
-			$params->control = $this->get('control');
-			$params->nivel = $this->get('nivel');
-			$params->entidad = $this->get('entidad');
-			$params->municipio = $this->get('municipio');
-			$params->localidad = $this->get('localidad');
-			$params->poco_confiables = $this->get('poco_confiables');
-			$params->eval_entre_programados = $this->get('eval_entre_programados');
-			$p = $this->get('p') ? $this->get('p') : 1;
-			$this->get_escuelas_new($params,$p);
-
-			$this->cct_count_entidad();
-			$this->resultados_title = 'Resultados de tu búsqueda';
-			$this->set_info_user_search($this->num_results);
-			$this->include_theme('index','resultados');
-		}else{
-			$params = isset($params)?$params:new stdClass();
-			$params->pagination = 6;
-			$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
-			$this->get_escuelas($params);
-			$this->set_info_user_search(isset($this->pagination->total_results) ? $this->pagination->total_results : 0);
-			$this->process_escuelas();
-			$this->cct_count_entidad();
-			if(!$this->cookie('user_location')){
-				$this->draw_map = true;
+		if($this->config->theme =='mtev1'){
+			$this->load_compara_cookie();
+			$this->get_metadata();
+			$this->breadcrumb = array('#'=> 'Comparador');
+			$this->resultados_title = 'Resultados';
+			$this->header_folder = 'compara';				
+			$this->principal = true;
+			$this->title_header = 'Conoce tu escuela';
+			$this->meta_description = "Consulta información sobre las características de las escuelas de México. Datos de contacto, información sobre desempeño, infraestructura, programas de apoyo y conoce las opiniones de otros padres de familia.";
+			if(!$this->get('search')){ 
+				$this->get_location();
+				$params = new stdClass();
+				$params->entidad = $this->user_location->id; 
+				if($this->config->search_location)
+					$this->resultados_title = 'Mejores escuelas en '.$this->capitalize($this->user_location->nombre);
+			}else{
+				$this->breadcrumb = array('/compara'=> 'Comparador','#'=> 'Busqueda');
 			}
+			if($this->get('term') && isset($this->config->solr_server)){
+				$params = new StdClass();
+				$params->term = $this->get('term');
+				$params->control = $this->get('control');
+				$params->nivel = $this->get('nivel');
+				$params->entidad = $this->get('entidad');
+				$params->municipio = $this->get('municipio');
+				$params->localidad = $this->get('localidad');
+				$params->poco_confiables = $this->get('poco_confiables');
+				$params->eval_entre_programados = $this->get('eval_entre_programados');
+				$p = $this->get('p') ? $this->get('p') : 1;
+				$this->get_escuelas_new($params,$p);
 
+				$this->cct_count_entidad();
+				$this->resultados_title = 'Resultados de tu búsqueda';
+				$this->set_info_user_search($this->num_results);
+				$this->include_theme('index','resultados');
+			}else{
+				$params = isset($params)?$params:new stdClass();
+				$params->pagination = 6;
+				$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
+				$this->get_escuelas($params);
+				$this->set_info_user_search(isset($this->pagination->total_results) ? $this->pagination->total_results : 0);
+				$this->process_escuelas();
+				$this->cct_count_entidad();
+				if(!$this->cookie('user_location')){
+					$this->draw_map = true;
+				}
+
+				$this->include_theme('index','resultados-escuela');
+			}
+		}else if($this->config->theme == 'mtev2'){
 			$this->include_theme('index','resultados-escuela');
 		}
 	}
