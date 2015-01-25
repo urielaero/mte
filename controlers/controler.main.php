@@ -34,7 +34,7 @@ class main extends controler{
 	* mostrar el mapa y además contiene un arreglo asociativo de objetos donde la llave es el CCT y los datos contenidos en 
 	* dicho objeto es la información que es usada de las escuelas.
 	*/
-	protected function process_escuelas(){
+	protected function process_escuelas($getAvgs = false){
 		$this->escuelas_digest = false;
 		if($this->escuelas){
 			$escuelas = array();
@@ -50,6 +50,9 @@ class main extends controler{
 				}
 				$escuela->get_turnos();
 				$escuela->get_semaforos();
+				if($getAvgs){ 
+					$escuela->yearAvgs();
+				}
 				$escuelas[$key] = new stdClass();
 				$escuelas[$key]->cct = $escuela->cct;
 				$escuelas[$key]->latitud = $escuela->latitud;
@@ -73,6 +76,8 @@ class main extends controler{
 					$escuelas[$key]->entidad_cct_count = $escuela->entidad_cct_count;
 				if(isset($escuela->nacional_cct_count))
 					$escuelas[$key]->nacional_cct_count = $escuela->nacional_cct_count;
+				if(isset($escuela->avgs))
+					$escuelas[$key]->avgs = $escuela->avgs;
 			}
 			$width = $this->distance($maxlat,$minlong,$maxlat,$maxlong);
 			$height = $this->distance($maxlat,$minlong,$minlat,$minlong);

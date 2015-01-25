@@ -44,7 +44,7 @@
 					<tbody>
 						<tr ng-repeat='escuela in escuelas'>
 							<td>
-								<strong ng-bind='escuela.nombre'></strong>
+								<a ng-href='/escuelas/index/{{escuela.cct}}'><strong ng-bind='escuela.nombre'></strong></a>
 								<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
 								<p><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
 							</td>
@@ -70,81 +70,24 @@
 				<table class="footable">
 					<thead>
 						<tr>
+
 							<th class="footable-first-column">Escuelas</th>
-							<th data-hide="phone">2006</th>
-							<th data-hide="phone">2007</th>
-							<th data-hide="phone">2008</th>
-							<th data-hide="phone">2009</th>
-							<th data-hide="phone">2010</th>
-							<th data-hide="phone">2011</th>
-							<th data-hide="phone">2012</th>
-							<th data-hide="phone">2013</th>
-							<th class="footable-last-column">2014</th>
+							<th 
+								data-hide="phone"
+								ng-bind='year'
+								ng-repeat='(key,year) in years'
+								ng-class='key == years.length-1 ? "" : "footable-last-column"'>
+							</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
+						<tr ng-repeat='escuela in escuelas'>						
 							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
+								<a ng-href='/escuelas/index/{{escuela.cct}}'><strong ng-bind='escuela.nombre'></strong></a>
+								<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
+								<p><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
 							</td>
-							<td>385</td>
-							<td>385</td>
-							<td>542</td>
-							<td>542</td>
-							<td>--</td>
-							<td>542</td>
-							<td>322</td>
-							<td>525</td>
-							<td>418</td>
-						</tr>
-						<tr>
-							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-							</td>
-							<td>385</td>
-							<td>385</td>
-							<td>542</td>
-							<td>542</td>
-							<td>--</td>
-							<td>542</td>
-							<td>322</td>
-							<td>--</td>
-							<td>418</td>
-						</tr>
-						<tr>
-							<td>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-							</td>
-							<td>385</td>
-							<td>--</td>
-							<td>542</td>
-							<td>542</td>
-							<td>--</td>
-							<td>542</td>
-							<td>322</td>
-							<td>--</td>
-							<td>418</td>
-						</tr>
-						<tr>
-							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-							</td>
-							<td>385</td>
-							<td>385</td>
-							<td>542</td>
-							<td>542</td>
-							<td>--</td>
-							<td>542</td>
-							<td>322</td>
-							<td>--</td>
-							<td>418</td>
-
+							<td ng-repeat='year in years' ng-bind='escuela.avgs[year] || "--"'></td>
 						</tr>
 					</tbody>
 				</table>

@@ -27,13 +27,10 @@ class api extends main{
 			$params->pagination = 6;
 		$this->get_escuelas($params);
 		if($this->request('cct_count_entidad')) $this->cct_count_entidad();
-		$this->process_escuelas();
+		$this->process_escuelas($this->request('detail'));
 		$this->escuelas_digest->pagination = $this->pagination;
 		$this->escuelas_digest->pagination->conn = NULL;
 		echo json_encode($this->escuelas_digest);
-	}
-	public function escuelaDetail(){
-
 	}
 	public function serializeAngular(){
 		$headers = getallheaders();
