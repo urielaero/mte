@@ -1,4 +1,17 @@
-<div class="container programa">
+<div class="container programa" ng-controller="programaCTL">
+    <?php
+    $estados_programa = array();
+    foreach ($this->entidades as $key => $estado) {
+        if(isset($this->programa->entidad_escuelas_count[$estado->id]) && $this->programa->entidad_escuelas_count[$estado->id] > 0){
+        	$estado->count_participa = $this->programa->entidad_escuelas_count[$estado->id];
+        	array_push($estados_programa, $estado);
+        }
+    }
+   	$array_estados_js = json_encode($estados_programa);
+    ?>
+	<script type='text/javascript'>
+	    window.entidadesParticipantes = <?= $array_estados_js?>;
+	</script>	
 	<div class="breadcrumb">
 		<a href="#" class="start"><i class="icon-mejora"></i></a>
 		<a href="#">Programas</a>
@@ -10,7 +23,7 @@
 			$idImg = $this->get('id'); 
 			$existsImg = file_exists($this->config->document_root."templates/mtev2/img/programas/{$idImg}.jpg");
 			?>
-			<div layout="row" class="title">
+			<div layout="row" class="title main-title">
 				<?php if($existsImg){ ?>
 				<div class="programa-thumb" flex="20">
 					<img src="/templates/mtev2/img/programas/<?php echo $idImg ?>.jpg" alt="">
@@ -78,7 +91,8 @@
 						<div flex="90">
 							<h3>Zonas de cobertura nacional</h3>			
 						</div>					
-					</div>					
+					</div>
+					<leaflet id="map" center="center" markers="markers" ng-init='loadMap(states)'></leaflet>										
 				</div>
 			</div>
 		</div>

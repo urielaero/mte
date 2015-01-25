@@ -44,12 +44,13 @@
 				</ul>
 			</div>
 		</div>
+		<!--Carlos Barahona-->
 		<div class="cont-info-turno" layout="row" layout-sm="column" layout-md="column">
 			<div class="datos-counters-1" flex="100">
 				<div class="cont-datos">
 					<div class="seccion-datos">
 						<div class="icono-datos">
-							<h3 class="h3-icono-turno"><i class="icon-familia-01"></i></h3>
+							<h3 class="h3-icono-turno"><i class="icon-numeroalumnos"></i></h3>
 						</div>
 						<div class="text-datos"><h3 class="h3-text-datos">Número de Alumnos</h3></div>
 						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->total_evaluados?></h3></div>
@@ -60,7 +61,7 @@
 				<div class="cont-datos">
 					<div class="seccion-datos">
 						<div class="icono-datos">
-							<h3 class="h3-icono-turno"><i class="icon-familia-01"></i></h3>
+							<h3 class="h3-icono-turno"><i class="icon-personal"></i></h3>
 						</div>
 						<div class="text-datos"><h3 class="h3-text-datos">Total de personal</h3></div>
 						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->total_evaluados?></h3></div>
@@ -71,7 +72,7 @@
 				<div class="cont-datos">
 					<div class="seccion-datos">
 						<div class="icono-datos">
-							<h3 class="h3-icono-turno"><i class="icon-familia-01"></i></h3>
+							<h3 class="h3-icono-turno"><i class="icon-grupos"></i></h3>
 						</div>
 						<div class="text-datos"><h3 class="h3-text-datos">Grupos</h3></div>
 						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->total_evaluados?></h3></div>
@@ -79,6 +80,7 @@
 				</div>
 			</div>
 		</div>
+		<!--Carlos Barahona-->
 		<!--<div class="counters " layout="row" layout-sm="column">
 			<div class="cont-counters">
 				
@@ -101,9 +103,19 @@
 		</div>-->
 	</div>
 	<?php if($this->escuela->nivel->nombre == 'PREESCOLAR'){ ?>
-	<div flex="25" flex-sm="100">
+	<div flex="25" class="semaphore" flex-sm="100">
 		<div class="section-image">
 			<img src="/templates/mtev1/img/cubitos.png" alt="Preescolar">			
+		</div>
+		<div class="options space-between" layout="row" layout-md="column">
+			<div flex="49" class="option">
+					<p><i class="icon-print-01"></i></p>
+					<p>Imprimir</p>
+			</div>
+			<div flex="49" class="option">
+					<p><i class="icon-share-01"></i></p>
+					<p>Compartir</p>
+			</div>
 		</div>
 	</div>	
 	<?php 

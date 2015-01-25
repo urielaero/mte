@@ -1,4 +1,4 @@
-<div id="sub-header">
+<div id="sub-header" class="prefect-sub-header">
 	<div class="home container">
 		<?php if(isset($this->principal) && $this->principal){?>
 			<div class="column-right center-content">

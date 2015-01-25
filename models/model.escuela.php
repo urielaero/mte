@@ -351,5 +351,36 @@ class escuela extends memcached_table{
             }
         }
     }
+    public function yearAvgs(){
+        if($this->id){
+            $this->key = 'id';
+            $this->has_many_keys['enlaces'] = 'id_cct';
+            $this->avgs = [];
+            $this->read('
+                enlaces=>puntaje_espaniol,enlaces=>puntaje_matematicas,enlaces=>anio,enlaces=>id,
+                enlaces=>alumnos_en_nivel0_matematicas,enlaces=>alumnos_en_nivel1_matematicas,enlaces=>alumnos_en_nivel2_matematicas,enlaces=>alumnos_en_nivel3_matematicas,
+                enlaces=>alumnos_en_nivel0_espaniol,enlaces=>alumnos_en_nivel1_espaniol,enlaces=>alumnos_en_nivel2_espaniol,enlaces=>alumnos_en_nivel3_espaniol,
+                enlaces=>alumnos_que_contestaron_total
+            ');
+            if($this->enlaces){
+                $scores = [];
+                foreach($this->enlaces as $enlace){
+                    if($enlace->puntaje_espaniol != 0 || $enlace->puntaje_matematicas != 0){
+                        if(!isset($scores[$enlace->anio])){
+                            $scores[$enlace->anio] = new stdClass();
+                            $scores[$enlace->anio]->sum = 0;
+                            $scores[$enlace->anio]->count = 0;
+                        }
+                        $scores[$enlace->anio]->sum += $enlace->puntaje_espaniol + $enlace->puntaje_matematicas;
+                        $scores[$enlace->anio]->count++;
+                    }
+                }
+                foreach($scores as $year => $score){
+                    $this->avgs[$year] = $score->count ? round($score->sum/($score->count*2)) : '--';
+                }
+
+            }
+        }
+    }
 }
 ?>

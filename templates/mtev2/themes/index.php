@@ -11,7 +11,8 @@
 			"perfect-scrollbar.min.css",
 			"fontello.css",
 			"fontello-ie7.css",
-			"footable.core.min.css"
+			"footable.core.min.css",
+			"leaflet.css",
 		);
 		$js_scripts = array(
 			"jquery-1.11.1.min.js",
@@ -23,16 +24,19 @@
 			'bower_components/hammerjs/hammer.min.js',
 			'bower_components/angular-material/angular-material.min.js',
 			'bower_components/angular-cookies/angular-cookies.min.js',
+			'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
 			'perfect-scrollbar.min.js',
 			'footable.js',
 			'perfect-scrollbar.with-mousewheel.min.js',
 			'angular-perfect-scrollbar.js',
 			'charts.js',
-            'leaflet.js',
+			'leaflet.js',
 			'angular-leaflet-directive.min.js',
 			'controllers/controller.js',
 			'controllers/conoceCTL.js',
+			'controllers/comparaCTL.js',
 			'services/userInfo.js',
+			'services/templateData.js',
 			'directives/mteNgSearch.js',
 			'directives/mteTextSearch.js',
 		);

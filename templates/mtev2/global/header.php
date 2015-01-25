@@ -1,16 +1,16 @@
-<div class='menu' ng-controller="headerCTL">
+<div class='menu perfect-menu' ng-controller="headerCTL">
 	<div id="button-menu-mobile" ng-click="toggleLeft()">
 		<hr><hr><hr>
 	</div>
 	<div class='container'>
 		<div layout="row" class="row-links">
 			<a flex="25" flex-sm="100" href='/' class='logo'><img src='/templates/mtev2/img/logo_mejora.png' /></a>
-			<a flex="15" class='principal' href='/compara/' hide-sm>
+			<a flex="15" class='principal perfect-principal' href='/compara/' hide-sm>
 				<i class="icon-conoce-01"></i>
 				<strong>1</strong> CONOCE
 			</a>
 			<a flex="15" class='principal' href='/compara/escuelas/' hide-sm>
-				<i class="icon-compara-01"></i>
+				<i class="icon-compara-01 icon-compara-header" style="margin: auto; font-size: 50px; margin-top: -10px;padding-right:10px"></i>
 				<strong>2</strong> COMPARA
 			</a>
 			<a flex="15" class='principal' href='/califica-tu-escuela/califica/' hide-sm>
@@ -49,7 +49,7 @@
 			<li>
 				<md-button class="md-primary">
 					<a class="md-raised md-primary" href='/compara/escuelas/'>
-						<i class="icon-compara"></i> 2 COMPARA
+						<i class="icon-compara-01"></i> 2 COMPARA
 					</a>
 				</md-button>	
 			</li>
