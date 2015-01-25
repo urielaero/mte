@@ -1,38 +1,36 @@
 (function () {
-    var controller = function ($scope,$http,userInfo,templateData) {
-        $scope.entidades = [{nombre:'Todos'}].concat(entidades);
-        $scope.entidad = $scope.entidades[0];
-        $scope.municipios = [{nombre:'Todos'}].concat(municipios);
-        $scope.municipio = $scope.municipios[0];
-        $scope.localidades = [{nombre:'Todas'}].concat(localidades);
-        $scope.localidad = $scope.localidades[0];
-        $scope.loading = true;
-        $scope.pagination = {count:0,current_page:1};
-        $scope.sortOptions = ['Semáforo educativo','Nombre de la escuela'];
-        $scope.sort = $scope.sortOptions[0];
-        $scope.semaforos = templateData.getVar('semaforos');
-        $scope.niveles = templateData.getVar('niveles');
-        $scope.turnos = templateData.getVar('turnos');
-        $scope.controles = templateData.getVar('controles');
-
+var controller = function ($scope,$http,userInfo,templateData) {                
+        //inicializa la directiva
+        $scope.init = function(){
+            $scope.showSearch = typeof($scope.showSearch) == 'undefined' ? true : $scope.showSearch;
+            $scope.loadDefaults();
+            $scope.getEscuelas();
+        }
         //Funciones que usan el servicio de usuario (comparacion)
         //recibe una escuela y regresa la clase apropiada para el icono de comparar
         $scope.isChecked = function(escuela){
             return userInfo.isSelected(escuela) ? 'icon-check-01': '';
             //return ;
         }
-        $scope.toggleSchool = function(escuela){
+        $scope.toggleSchool = function(escuela,$event){
+            if ($event.stopPropagation) $event.stopPropagation();
+            if ($event.preventDefault) $event.preventDefault();
+            $event.cancelBubble = true;
+            $event.returnValue = false;
             userInfo.toggleSchool(escuela);
         }
         $scope.hasSelected = function(){
             return userInfo.hasSelected();
         }
-        //terminan funciones de comparador
+        /////////////////////////////////////////////////////////////////////////////
 
 
+        // Cuando cambia un checkbox en el comparador re-cargamos las escuelas
         $scope.checkBoxChange = function(){
             $scope.getEscuelas();
         }
+
+        // Cargar localidades desde el API cuando cambia la entidad o municipio
         $scope.getLocalidades = function(){
             $scope.localidades = [{nombre:'Todas'}];
             $scope.localidad = $scope.localidades[0];
@@ -66,7 +64,7 @@
         }
         
         $scope.getEscuelas = function(){
-            $scope.buildParams();
+            if($scope.showSearch) $scope.buildParams();
             //console.log($scope.params);
             $scope.loading = true;
             $http({method:'POST',url:'/api/escuelas',data:$scope.params}).then(function(response){
@@ -109,7 +107,45 @@
             if(turnos.length == 1) $scope.params.turno = turnos[0];
 
         };
-        $scope.getEscuelas();
+        $scope.loadDefaults = function(){
+            // Todo cargar estos datos mediant un servicio
+            if($scope.showSearch){
+                entidades = [{nombre:'Todos'}].concat(entidades);
+                municipios = [{nombre:'Todos'}].concat(municipios);
+                localidades = [{nombre:'Todas'}].concat(localidades);
+                var defaults = {
+                    entidades : entidades,
+                    municipios : municipios,
+                    localidades : localidades,
+                    entidad : entidades[0],
+                    municipio : municipios[0],
+                    localidad : localidades[0],
+                    niveles : templateData.getVar('niveles'),
+                    turnos : templateData.getVar('turnos'),
+                    controles : templateData.getVar('controles'),
+                };
+            }else{
+                var defaults = {
+                    entidades : [],
+                    municipios : [],
+                    localidades : [],
+                    localidad : [],
+                    niveles : [],
+                    turnos : [],
+                    controles : [],
+                };
+            }            
+            angular.extend($scope,defaults);
+
+            $scope.tableTitle = $scope.tableTitle || 'Escuelas';
+            $scope.loading = true;
+            $scope.pagination = {count:0,current_page:1};
+            $scope.sortOptions = ['Semáforo educativo','Nombre de la escuela'];
+            $scope.sort = $scope.sortOptions[0];
+            $scope.semaforos = templateData.getVar('semaforos');
+            
+        }
+        $scope.init();
     };
     
     controller.$inject = ['$scope','$http','userInfo','templateData'];
@@ -117,7 +153,9 @@
         return {
             controller : controller,
             scope : {
-                objects : '=',
+                objects : '=?',
+                showSearch : '=?',
+                tableTitle : '@',
             },
             templateUrl : 'mteNgSearch.html'
         };

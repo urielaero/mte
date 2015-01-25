@@ -50,12 +50,12 @@
 								<td>
 									<a ng-href='/escuelas/index/{{escuela.cct}}'><strong ng-bind='escuela.nombre'></strong></a>
 									<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
-									<p><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
+									<p><small><i class="icon-enlace-01" ng-show='escuela.turno.nombre' ></i> {{escuela.turno.nombre}}</small></p>
 								</td>
 								<td ng-bind='escuela.promedio_espaniol || "--"'></td>
 								<td ng-bind='escuela.promedio_matematicas || "--"'></td>
 								<td>{{escuela.nivel}}</td>
-								<td>{{escuela.turno.nombre}}</td>
+								<td>{{escuela.turno.nombre.capitalize()}}</td>
 								<td>{{escuela.control}}</td>
 								<td><strong ng-bind='escuela.rank || "--"'></strong> de <strong ng-bind='escuela.entidad_cct_count'></strong></td>
 								<td>

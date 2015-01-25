@@ -1,6 +1,6 @@
 <div class='container results mteNgSearch'>
 	<div layout="row" layout-sm="column" class="space-between">
-		<div flex="25" flex-sm="100" id="filters">
+		<div ng-show='showSearch' flex="25" flex-sm="100" id="filters">
 			<form>
 				<div mte-text-search object='textSearch' ></div>
 
@@ -20,11 +20,11 @@
 
 			</form>
 		</div>
-		<div layout='row' ng-show='loading' flex="70" flex-sm="100" layout-align='center center'>
+		<div layout='row' ng-show='loading' flex flex-sm="100" layout-align='center center'>
 			<md-progress-circular md-mode="indeterminate"></md-progress-circular>
 		</div>
-		<div ng-hide='loading' flex="70" flex-sm="100" id="results">
-			<div layout="row" layout-sm="column">
+		<div ng-hide='loading' flex flex-sm="100" id="results">
+			<div ng-show='showSearch' layout="row" layout-sm="column">
 				<h2 flex="40" flex-sm="100">{{numberFormat(pagination.count)}} Resultado<span ng-show='pagination.count > 1'>s</span></h2>
 				<div class="order-by" flex="60" flex-sm="100">
 					<select ng-change='getEscuelas()' ng-options='option for option in sortOptions' ng-model='sort'></select>
@@ -37,7 +37,7 @@
 				<table class="footable">
 					<thead>
 						<tr>
-							<th class="footable-first-column">Escuelas</th>
+							<th class="footable-first-column" ng-bind='tableTitle'></th>
 							<th data-hide="phone">Nivel escolar</th>
 							<th data-hide="phone">Turno</th>
 							<th data-hide="phone">Privada / Pública</th>
@@ -46,23 +46,21 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat='escuela in escuelas'>
-								<td class='link mi-link'>
-								<div class="cont-datos-escuela">
-									<div class="cont-ico-compara">
-										<div class="h3-iconmejora">
-											<div class="circulo-icon-mejora" ng-click='toggleSchool(escuela)'  >
-											   <i ng-class='isChecked(escuela)' class="mejora-icon"></i>
-											</div>
-										</div>
-									</div>
-									<div class="datos-escuela">
-										<a class="datos-esc"  ng-href='/escuelas/index/{{escuela.cct}}'>
+								<td class='link'>
+									<a layout='row' ng-href='/escuelas/index/{{escuela.cct}}' class="cont-datos-escuela">
+										<span class="cont-ico-compara" layout='row' layout-align='center center'>
+											<span class="h3-iconmejora">
+												<span class="circulo-icon-mejora" ng-click='toggleSchool(escuela,$event)'  >
+												   <i ng-class='isChecked(escuela)' class="mejora-icon"></i>
+												</span>
+											</span>
+										</span>
+										<span flex class="datos-escuela">
 											<strong  ng-bind='escuela.nombre'></strong>
 											<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
 											<p ng-show='escuela.turno.nombre'><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
-									    </a>
-									</div>
-								</div>
+										</span>
+									</a>
 
 								</td>
 							<td>{{escuela.nivel}}</td>

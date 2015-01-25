@@ -276,7 +276,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 /*Tabla global de comparacion*/
 #content .container .compare-table{margin-top: 10px}
 #content .container .compare-table table{border-spacing: 2px;}
-#content .container .compare-table th{background: #C8C8C8;color: #4C4C4C;font-size: 18px;padding: 25px;width: 22%}
+#content .container .compare-table th{background: #C8C8C8;color: #4C4C4C;font-size: 18px;padding: 25px;}
 #content .container .compare-table th + th{background: #1CA5F5;color: #fff;font-size: 12px;font-weight: 700;text-align: center;width: auto}
 #content .container .compare-table table th,
 #content .container .compare-table table td,
@@ -284,7 +284,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #content .container .compare-table table td p small{font-size: 10px}
 #content .container .compare-table table td{background: #E2E2E2;color: #4C4C4C;font-size: 12px;padding: 12px}
 #content .container .compare-table table td.link{padding:0;}
-#content .container .compare-table table .link > a{display: block;width: 100%;height: 100%;padding:12px; transition: background .5s linear;}
+#content .container .compare-table table .link > a{padding:12px; transition: background .5s linear;}
 #content .container .compare-table table .link > a:hover{background:#1CA5F5;color:white;cursor: pointer;}
 #content .container .compare-table table .link > a:hover a{color:white;}
 #content .container .compare-table table td a{color:#4C4C4C;}
@@ -418,9 +418,9 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #content .container.profile .section-image{background: #fff;padding: 24px 0;text-align: center;}
 #content .container.profile .section-image h3{color: #339DD1;font-size: 24px}
 #content .container.profile .section-image img{margin:30px 0;width: 85%}
+
 /*Perfil biblioteca*/
 #content .container.profile .section-image img{margin-top: 25px}
-
 #content .container.profile #profile-content .sidebar .box-yesno{background-color: #E9068B;color: #fff;font-size: 15px;margin-top: 10px;padding: 10px;text-align: center;}
 #content .container.profile #profile-content .sidebar .box-yesno.orange{background-color: #F6911B}
 #content .container.profile #profile-content .sidebar .box-yesno.green{background-color: #16A452;}
@@ -528,8 +528,12 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 	-ms-flex: 0 0 28%;
 	flex: 0 0 28%;
 	max-width: 28%;
+	padding:0 30px 0 0;
 }
-#content .container.results.mteNgSearch{width:100%;max-width:1450px;padding:0 20px;}
+
+#content .cont-semaforos-results{margin-top: -15px;width:100%;max-width:1450px;padding: 0 20px}
+#content .mteNgSearch{width:100%;max-width:100%;}
+#content .mteNgSearch .breadcrumb{padding:0 20px;}
 #content .container.results #filters .text-field input{border: 0;padding: 10px}
 #content .container.results #filters .text-field input[type="submit"]{background: #00AFF0 url(../img/lupa_blanca.png) center no-repeat;background-size: 20px}
 #content .container.results #filters select{display: block; background: #fff; color: #636363;width: 100%; border: 0; padding: 6px 8px;}
@@ -542,6 +546,18 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #content .container.results #results .order-by label{float: right;font-weight: 700;margin-top: 6px;margin-right: 6px}
 #content .container.results #results .compare-button{background: #20B45E;color: #fff;font-weight: 700;float: left;margin-top: 10px;width: 25%;padding: 5px;text-align: center;}
 #content .container.results #results .pagination{float: right;margin-top: 10px;}
+
+#content .container.results .cont-datos-escuela{width: 100%;height: 100%;}
+#content .container.results .cont-ico-compara{margin:0 10px 0 0;}
+#content .container.results .h3-iconmejora{color: #00AFF0;}
+#content .container.results .datos-escuela{}
+#content .container.results .mejora-icon{font-size: 10px;}
+#content .container.results .circulo-icon-mejora{display:block;width: 20px;height: 20px;border-radius: 50% 50% 50% 50%;border:solid 2px #1CA5F5;}
+#content .container.results .cont-datos-escuela:hover .circulo-icon-mejora{border: 2px solid white;}
+#content .container.results .cont-datos-escuela:hover .mejora-icon{color: white;}
+
+
+
 
 /*Post(normal)*/
 #content .container.post{}
@@ -820,14 +836,8 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 .ico-contact{background-color:#00C160}
 .form-contacto{background-color: white}
 .enviar-btn-contactos{background-color: #3E6DF3;width: 200px;float: left;}
-.cont-datos-escuela{width: 100%;height: 100%;}
-.cont-ico-compara{height: 80px;display: table;float: left;}
-.h3-iconmejora{display: table-cell;vertical-align: middle;text-align: center;color: #00AFF0;}
-.datos-escuela{width: 162px;height: 80px;float: left;display: table;}
-.datos-esc{display: table-cell;vertical-align: middle;}
-.mejora-icon{font-size: 10px;}
-.circulo-icon-mejora{width: 20px;height: 20px;border-radius: 50% 50% 50% 50%;border:solid 2px #1CA5F5;}
-.mi-link{height: 80px}
+
+
 
 /*turno.php*/
 .cont-info-turno{background-color:blue;text-align: center;}
@@ -836,7 +846,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 .datos-counters-3{background-color: #2F86DC;text-align: center;display: inline-block;}
 .cont-datos{display: table;text-align: center;width: 100%;height: 80px;}
 .seccion-datos{width: 210px;height: 70px;margin: 0 auto;margin-top: 5px;}
-.icono-datos{width: 40px;height: 100%;float: left;color:#286FBB;display: table}
+.icono-datos{width: 40px;height: 100%;float: left;color:#286FBB;display: table#content .mteNgSearch}
 .h3-icono-turno{width: auto;font-size: 20px;display: table-cell;vertical-align: middle;margin: 0 auto;color: white}
 .text-datos{width: 90px;height: 100%;float: left;color:#286FBB;display: table}
 .h3-text-datos{width: auto;font-size: 13px;color: white;display: table-cell;vertical-align: middle;text-align: left;margin: 0 auto}
@@ -854,7 +864,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 .perfect-menu-row{margin-top: 10px}	
 .forms-contactanos{background-color: #F6F6F6;margin-top: -10px;margin-left: 5px;}
 .boton-contatos{width: 200px;}
-.cont-semaforos-results{margin-top: -15px}
+
 /*.container .row-links a i{margin: auto; font-size: 50px; margin-top: -10px;}*/
 /*Pixel Perfec*/	
 /*Carlos Barahona*/

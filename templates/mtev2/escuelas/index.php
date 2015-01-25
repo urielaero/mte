@@ -85,10 +85,18 @@ if(!empty($this->escuela->rank)){
         $this->escuela_per_turno_index = $i;
 	?>
 	        <div role="tabpanel" id="profile-content" aria-labelledby="tab<?=$i?>" ng-switch-when="<?=$i?>" md-swipe-left="next()" md-swipe-right="previous()" >
-			<?php 
-				$this->include_template('turno','escuelas');
-			?>
+				<?php $this->include_template('turno','escuelas'); ?>
 	        </div>
 	<?php } ?>
     </ng-switch>
+
+    <script type="text/ng-template" id="mteNgSearch.html">
+		<?php $this->include_template('mteNgSearch','directives'); ?>
+	</script>
+	<script type="text/ng-template" id="mteTextSearch.html">
+		<?php $this->include_template('mteTextSearch','directives'); ?>
+	</script>
+	
+	
+
 </div>
