@@ -50,12 +50,12 @@
 								<td>
 									<a ng-href='/escuelas/index/{{escuela.cct}}'><strong ng-bind='escuela.nombre'></strong></a>
 									<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
-									<p><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
+									<p><small><i class="icon-enlace-01" ng-show='escuela.turno.nombre' ></i> {{escuela.turno.nombre}}</small></p>
 								</td>
 								<td ng-bind='escuela.promedio_espaniol || "--"'></td>
 								<td ng-bind='escuela.promedio_matematicas || "--"'></td>
 								<td>{{escuela.nivel}}</td>
-								<td>{{escuela.turno.nombre}}</td>
+								<td>{{escuela.turno.nombre.capitalize()}}</td>
 								<td>{{escuela.control}}</td>
 								<td><strong ng-bind='escuela.rank || "--"'></strong> de <strong ng-bind='escuela.entidad_cct_count'></strong></td>
 								<td>
@@ -95,6 +95,75 @@
 							</tr>
 						</tbody>
 					</table>
+				</div>
+			</div>
+			<div role="tabpanel" class="tab-content phone-content" aria-labelledby="tab1" ng-switch-when="2" md-swipe-left="next()" md-swipe-right="previous()" >
+				<div class="compare-table student-table">
+					<table class="desemp">
+						<thead>
+							<tr>
+								<th class="school" rowspan="2">Escuelas comparadas</th>
+								<th colspan="4">Español</th>
+								<th colspan="4">Matemáticas</th>
+								<th rowspan="2" class="calificacion">Alumnos que tomaron la prueba</th>
+								<th rowspan="2" class="calificacion">Muestras poco confiables</th>
+							</tr>
+							<tr>
+								<th class="calificacion">
+									<md-button class="md-fab rank1" aria-label="Time"><i class="icon-tache-01"></i></md-button>
+									<p>Reprobado</p>
+								</th>
+								<th class="calificacion">
+									<md-button class="md-fab rank2" aria-label="Time"><i class="icon-tache-01"></i></md-button>
+									<p>De panzazo</p>
+								</th>
+								<th class="calificacion">
+									<md-button class="md-fab rank3" aria-label="Time"><i class="icon-check-01"></i></md-button>
+									<p>Bien</p>
+								</th>
+								<th class="calificacion">
+									<md-button class="md-fab rank4" aria-label="Time"><i class="icon-check-01"></i></md-button>
+									<p>Excelente</p>
+								</th>
+								<th class="calificacion">
+									<md-button class="md-fab rank1" aria-label="Time"><i class="icon-tache-01"></i></md-button>
+									<p>Reprobado</p>
+								</th>
+								<th class="calificacion">
+									<md-button class="md-fab rank2" aria-label="Time"><i class="icon-tache-01"></i></md-button>
+									<p>De panzazo</p>
+								</th>
+								<th class="calificacion">
+									<md-button class="md-fab rank3" aria-label="Time"><i class="icon-check-01"></i></md-button>
+									<p>Bien</p>
+								</th>
+								<th class="calificacion">
+									<md-button class="md-fab rank4" aria-label="Time"><i class="icon-check-01"></i></md-button>
+									<p>Excelente</p>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="school"><a href="/escuelas/index/24SBC0059C">Soldado Damian Carmona</a></td>
+								<td class="rank">25%</td>
+								<td class="rank">48%</td>
+								<td class="rank">27%</td>
+								<td class="rank">0%</td>
+								<td class="rank">62%</td>
+								<td class="rank">32%</td>
+								<td class="rank">6%</td>
+								<td class="rank">0%</td>
+								<td class="rank">81</td>
+								<td class="rank">0%</td>
+							</tr>
+						</tbody>
+					</table>				
+				</div>
+			</div>
+			<div role="tabpanel" class="tab-content phone-content" aria-labelledby="tab1" ng-switch-when="3" md-swipe-left="next()" md-swipe-right="previous()" >
+				<div id="map">
+					<leaflet id="map" center="center" markers="markers"></leaflet>	
 				</div>
 			</div>
 		</ng-switch>

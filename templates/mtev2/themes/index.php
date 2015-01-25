@@ -3,6 +3,7 @@
  <head>
  	<script  src="/templates/mtev2/js/modernizr.js"></script>
 	<meta charset="utf-8"/>
+	<base href="/">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 	<link rel="shortcut icon" href="<?=$this->config->http_address?>/templates/<?=$this->config->theme?>/img/favicon.ico" />
 	<?php
@@ -24,12 +25,13 @@
 			'bower_components/hammerjs/hammer.min.js',
 			'bower_components/angular-material/angular-material.min.js',
 			'bower_components/angular-cookies/angular-cookies.min.js',
+			'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
 			'perfect-scrollbar.min.js',
 			'footable.js',
 			'perfect-scrollbar.with-mousewheel.min.js',
 			'angular-perfect-scrollbar.js',
 			'charts.js',
-            'leaflet.js',
+			'leaflet.js',
 			'angular-leaflet-directive.min.js',
 			'controllers/controller.js',
 			'controllers/conoceCTL.js',
@@ -38,6 +40,7 @@
 			'services/templateData.js',
 			'directives/mteNgSearch.js',
 			'directives/mteTextSearch.js',
+			'directives/comparaSidebar.js',
 		);
 		if($this->location == 'escuelas'){
 			//$js_scripts[] = 'school-charts.js'; // si no hay cambios en el js no renderizara 

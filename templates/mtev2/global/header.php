@@ -70,49 +70,7 @@
 		</ul>
 	</md-content>
 </md-sidenav>
-
-<md-sidenav  class="md-sidenav-left md-whiteframe-z2"  id="sidebar-compare" md-component-id="comparaSidenav">
-	<md-toolbar class="md-theme-light" ng-controller="compareSidebarCTL">
-		<a href="#" ng-click="close()" id="close-button-compara"><i class="icon-tache-01"></i></a>
-		<h3>Compara escuelas</h3>
-	</md-toolbar>
-	<md-content >
-		<div class="block search-box">
-			<p><label for="search_input"><strong>Busca una escuela</strong></label></p>
-			<p><input type="text" placeholder="Nombre de la escuela"></p>
-		</div>
-		<div class="block to-compare">
-			<p><label><strong>Escuelas para comparar</strong></label></p>
-			<ul>
-				<li>
-					<a href="#" class="check on"><i class="icon-check-01"></i></a>
-					<p><strong>Mi patria es primero</strong></p>
-					<p><i class="icon-mapa"></i> Chihuahua, Chihuahua, Calle No. 22</p>
-				</li>
-				<li>
-					<a href="#" class="check on"><i class="icon-check-01"></i></a>
-					<p><strong>Mi patria es primero</strong></p>
-					<p><i class="icon-mapa"></i> Chihuahua, Chihuahua, Calle No. 22</p>
-				</li>
-			</ul>
-			<a href="#" class="button-bordered">Comparar</a>
-		</div>
-		<div class="block visited">
-			<p><label><strong>Escuelas visitadas</strong></label></p>
-			<p>Selecciona alguna para comparar</p>
-			<ul>
-				<li>
-					<a href="#" class="check"><i class="icon-check-01"></i></a>
-					<p><strong>Mi patria es primero</strong></p>
-					<p><i class="icon-mapa"></i> Chihuahua, Chihuahua, Calle No. 22</p>
-				</li>
-				<li>
-					<a href="#" class="check"><i class="icon-check-01"></i></a>
-					<p><strong>Mi patria es primero</strong></p>
-					<p><i class="icon-mapa"></i> Chihuahua, Chihuahua, Calle No. 22</p>
-				</li>
-			</ul>
-			<a href="#" class="button-bordered">Comparar</a>
-		</div>
-	</md-content>
-</md-sidenav>
+<script type="text/ng-template" id="comparaSidebar.html">
+	<?php $this->include_template('comparaSidebar','directives'); ?>
+</script>
+<div compara-sidebar></div>

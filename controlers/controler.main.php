@@ -202,7 +202,7 @@ class main extends controler{
 		$q = new escuela(NULL,$this->conn);
 		$q->search_clause .= ' TRUE ';
 		
-		$q->search_clause .= $this->request('term') ? " AND escuelas.nombre LIKE '".$this->request('term')."%' " : '';
+		$q->search_clause .= $this->request('term') ? " AND LOWER(escuelas.nombre) LIKE LOWER('".$this->request('term')."%') " : '';
 		if(isset($params->entidad) && $params->entidad){
 			$q->search_clause .= " AND escuelas.entidad = '{$params->entidad}' ";
 		}else{
@@ -282,7 +282,6 @@ class main extends controler{
 		}
 		
 		$q->debug = isset($this->debug) ? $this->debug : false;
-
         $this->process_custom_get_escuelas($q,$params);
 
         if ($this->escuelas && (isset($params->one_turn) && $params->one_turn)) {
