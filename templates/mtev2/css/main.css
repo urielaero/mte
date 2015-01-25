@@ -492,6 +492,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #content .container.califica .result .number{background: #009247;color: #fff;font-size: 28px;text-align: center;}
 
 /*Compara/escuelas*/
+#content .container.compare .loader{height:400px;}
 #content .container.compare .menu-top .tabs{height: 80px}
 #content .container.compare .menu-top .tabs .general-tab{background: #E850A7}
 #content .container.compare .menu-top .tabs .results-tab{background: #22B461}

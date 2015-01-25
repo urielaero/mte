@@ -2,6 +2,7 @@ app.controller("comparaCTL", ['$scope','$http','userInfo','templateData',functio
     $scope.escuelas = [];
     $scope.semaforos = templateData.getVar('semaforos');
     $scope.years = templateData.getVar('enlaceYears');
+    $scope.loading = true;
     $scope.getEscuelas = function(){
         var ccts = userInfo.getCCTs().join(',');
         var params  = {
@@ -12,8 +13,9 @@ app.controller("comparaCTL", ['$scope','$http','userInfo','templateData',functio
             detail : true,
         };
         $http({method:'POST',url:'/api/escuelas',data:params}).then(function(response){
-            console.log(response);
+            //console.log(response);
             $scope.escuelas = response.data.escuelas;
+            $scope.loading = false;
         });
     }
     $scope.getEscuelas();
