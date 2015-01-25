@@ -290,8 +290,8 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #content .container .compare-table table td a{color:#4C4C4C;}
 #content .container .compare-table table td + td{background: #ECECEC;text-align: center;padding: 0;vertical-align: middle;}
 #content .container .compare-table table .footable-row-detail-cell{background: #1B97ED;color: #fff}
-
-#content .container .compare-table table td .md-button{box-shadow: none;color: #4C4C4C;cursor: default;height: 32px;width: 32px;}
+#content .container .compare-table table td .md-button,
+#content .container .compare-table table th .md-button{box-shadow: none;color: #4C4C4C;cursor: default;height: 32px;width: 32px;}
 
 /*Carlos Barahona*/
 #content .container .compare-table table td .md-button.rank9{background: #D92FEC;color: #FFFFFF;}/*biblioteca*/
@@ -301,9 +301,13 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #content .container .compare-table table td .md-button.rank6{background: #FF5D60;color: #FFFFFF}/*poco confiable*/
 #content .container .compare-table table td .md-button.rank5{background: #FF5E63;color: #FFFFFF;}/*no toma la prueba enlace*/
 /*Carlos Barahona*/
+#content .container .compare-table table th .md-button.rank4,
 #content .container .compare-table table td .md-button.rank4{background: #0BBC3A;color: #4C4C4C}
+#content .container .compare-table table th .md-button.rank3,
 #content .container .compare-table table td .md-button.rank3{background: #FBFF00;color: #4C4C4C}
+#content .container .compare-table table th .md-button.rank2,
 #content .container .compare-table table td .md-button.rank2{background: #FA9200;color: #4C4C4C}
+#content .container .compare-table table th .md-button.rank1,
 #content .container .compare-table table td .md-button.rank1{background: #ED4F43;color: #4C4C4C}
 #content .container .compare-table .footable.breakpoint>tbody>tr>td>span.footable-toggle:before{
 	content: '\e809';
@@ -322,6 +326,12 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 	margin-left: .2em;
 }
 
+/*Tabla desempeno por alumno*/
+#content .container .compare-table.student-table tr + tr th{background: #F3910C;color: #fff;font-size: 12px;font-weight: 700;text-align: center;width: auto}
+#content .container .compare-table.student-table tr th + th{background: #F3910C;}
+#content .container .compare-table.student-table th{padding: 10px}
+#content .container .compare-table.student-table th p{line-height: 1.2}
+#content .container .compare-table.student-table table th .md-button{border: 1px solid #4C4C4C}
 
 /*Perfil escuela*/
 #content .container.profile{}
@@ -520,7 +530,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 	max-width: 48%;	
 }
 #content .container.compare .search-form .s-btn.green-button{background: #22B461}
-
+#content .container.compare #map{height: 450px}
 
 /*Compara resultados*/
 #content .container.results #filters{

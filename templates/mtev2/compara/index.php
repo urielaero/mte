@@ -97,6 +97,75 @@
 					</table>
 				</div>
 			</div>
+			<div role="tabpanel" class="tab-content phone-content" aria-labelledby="tab1" ng-switch-when="2" md-swipe-left="next()" md-swipe-right="previous()" >
+				<div class="compare-table student-table">
+					<table class="desemp">
+						<thead>
+							<tr>
+								<th class="school" rowspan="2">Escuelas comparadas</th>
+								<th colspan="4">Español</th>
+								<th colspan="4">Matemáticas</th>
+								<th rowspan="2" class="calificacion">Alumnos que tomaron la prueba</th>
+								<th rowspan="2" class="calificacion">Muestras poco confiables</th>
+							</tr>
+							<tr>
+								<th class="calificacion">
+									<md-button class="md-fab rank1" aria-label="Time"><i class="icon-tache-01"></i></md-button>
+									<p>Reprobado</p>
+								</th>
+								<th class="calificacion">
+									<md-button class="md-fab rank2" aria-label="Time"><i class="icon-tache-01"></i></md-button>
+									<p>De panzazo</p>
+								</th>
+								<th class="calificacion">
+									<md-button class="md-fab rank3" aria-label="Time"><i class="icon-check-01"></i></md-button>
+									<p>Bien</p>
+								</th>
+								<th class="calificacion">
+									<md-button class="md-fab rank4" aria-label="Time"><i class="icon-check-01"></i></md-button>
+									<p>Excelente</p>
+								</th>
+								<th class="calificacion">
+									<md-button class="md-fab rank1" aria-label="Time"><i class="icon-tache-01"></i></md-button>
+									<p>Reprobado</p>
+								</th>
+								<th class="calificacion">
+									<md-button class="md-fab rank2" aria-label="Time"><i class="icon-tache-01"></i></md-button>
+									<p>De panzazo</p>
+								</th>
+								<th class="calificacion">
+									<md-button class="md-fab rank3" aria-label="Time"><i class="icon-check-01"></i></md-button>
+									<p>Bien</p>
+								</th>
+								<th class="calificacion">
+									<md-button class="md-fab rank4" aria-label="Time"><i class="icon-check-01"></i></md-button>
+									<p>Excelente</p>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="school"><a href="/escuelas/index/24SBC0059C">Soldado Damian Carmona</a></td>
+								<td class="rank">25%</td>
+								<td class="rank">48%</td>
+								<td class="rank">27%</td>
+								<td class="rank">0%</td>
+								<td class="rank">62%</td>
+								<td class="rank">32%</td>
+								<td class="rank">6%</td>
+								<td class="rank">0%</td>
+								<td class="rank">81</td>
+								<td class="rank">0%</td>
+							</tr>
+						</tbody>
+					</table>				
+				</div>
+			</div>
+			<div role="tabpanel" class="tab-content phone-content" aria-labelledby="tab1" ng-switch-when="3" md-swipe-left="next()" md-swipe-right="previous()" >
+				<div id="map">
+					<leaflet id="map" center="center" markers="markers"></leaflet>	
+				</div>
+			</div>
 		</ng-switch>
 	
 	<!-- <div class="search-form">
