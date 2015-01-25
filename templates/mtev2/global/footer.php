@@ -19,5 +19,6 @@
   
       ga('create', 'UA-4404650-7', 'mejoratuescuela.org');
       ga('send', 'pageview');
+
     </script>
 </div>

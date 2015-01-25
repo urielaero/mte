@@ -68,7 +68,7 @@ if(!empty($this->escuela->rank)){
 			    </md-tabs>				
 			</div>
 			<div flex="15" flex-sm="100" class="compare-link">
-				<a href="#" ng-click="toggleLeft()" class="full-size-link"></a>
+				<a href="" ng-click="toggleLeft()" class="full-size-link"></a>
 				<div class="icon-wrapper vertical-align-center horizontal-align-center">
 					<div flex="column">
 						<div><i class="icon-compara-01"></i></div>

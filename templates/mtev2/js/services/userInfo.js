@@ -1,7 +1,8 @@
-app.service('userInfo',['$http','$cookieStore', function($http,$cookieStore	) {
-	//$cookieStore.put('schools','');
-	this.schools = $cookieStore.get('schools') || {visited:[],selected:[]};
+app.service('userInfo',['$rootScope','$http','$cookieStore', function($rootScope,$http,$cookieStore	) {
+	//$cookieStore.put(this.cookiename,'');
+	this.cookiename = 'escuelas';
 	//console.log(this.schools);
+    this.listeners = [];
     this.getCCTs = function(){
         var ccts = [];
         this.schools.selected.forEach(function(school){
@@ -9,13 +10,19 @@ app.service('userInfo',['$http','$cookieStore', function($http,$cookieStore	) {
         });
         return ccts;
     }
+    this.getSchools = function(){
+        this.schools = $cookieStore.get(this.cookiename) || {visited:[],selected:[]};
+        console.log(this.schools);
+        return this.schools;
+    }
     this.toggleSchool = function(escuela){
     	this.addSchool(escuela,this.schools.selected,true);
-    	$cookieStore.put('schools',this.schools);
+    	$cookieStore.put(this.cookiename,this.schools);
+        this.emit('userInfo.schoolsChange');
     }
     this.visitSchool = function(escuela){
     	this.addSchool(escuela,this.schools.visited,false);
-    	$cookieStore.put('schools',this.schools);
+    	$cookieStore.put(this.cookiename,this.schools);
     }
     this.isSelected = function(escuela){
     	return this.indexOf(escuela,this.schools.selected) >= 0;
@@ -32,10 +39,12 @@ app.service('userInfo',['$http','$cookieStore', function($http,$cookieStore	) {
     			localidad : escuela.localidad,
     			entidad : escuela.entidad,
     		});
-    	}
-    	else if(toggle)	
+    	}else if(toggle)	
     		array.splice(index,1);
     	return array;
+    }
+    this.addListener = function(scope){
+        this.listeners.push(scope);
     }
     this.indexOf = function(escuela,array){
     	for(var i=0;i<array.length;i++){
@@ -43,5 +52,12 @@ app.service('userInfo',['$http','$cookieStore', function($http,$cookieStore	) {
     	}
     	return -1;
     }
+    this.emit = function(event,data){
+        this.listeners.forEach(function(listener){
+            //console.log('emmiting '+event);
+            listener.$emit('userInfo.schoolsChange',data);
+        });
+    }
+    this.getSchools();
     
 }]);

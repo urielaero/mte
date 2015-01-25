@@ -5,19 +5,19 @@
 	<div class='container'>
 		<div layout="row" class="row-links">
 			<a flex="25" flex-sm="100" href='/' class='logo'><img src='/templates/mtev2/img/logo_mejora.png' /></a>
-			<a flex="15" class='principal perfect-principal' href='/compara/' hide-sm>
-				<i class="icon-conoce-01"></i>
+			<a flex="15" class="principal perfect-principal <?php if(strstr($_SERVER['REQUEST_URI'], 'compara/escuelas')){ echo 'none';}elseif(strstr($_SERVER['REQUEST_URI'], 'compara')){ echo 'active';} ?>  " href='/compara/' hide-sm>
+				<i class="icon-conoce-01 "></i>
 				<strong>1</strong> CONOCE
 			</a>
-			<a flex="15" class='principal' href='/compara/escuelas/' hide-sm>
+			<a flex="15" class='principal <?php if(strstr($_SERVER['REQUEST_URI'], 'compara/escuelas')){ echo 'active';} ?> ' href='/compara/escuelas/' hide-sm>
 				<i class="icon-compara-01 icon-compara-header" style="margin: auto; font-size: 50px; margin-top: -10px;padding-right:10px"></i>
 				<strong>2</strong> COMPARA
 			</a>
-			<a flex="15" class='principal' href='/califica-tu-escuela/califica/' hide-sm>
+			<a flex="15" class='principal <?php if(strstr($_SERVER['REQUEST_URI'], '/califica-tu-escuela/')){ echo 'active';} ?>' href='/califica-tu-escuela/califica/' hide-sm>
 				<i class="icon-califica2-01"></i>
 				<strong>3</strong> CALIFICA
 			</a>
-			<a flex="15" class='principal' href='/mejora' hide-sm>
+			<a flex="15" class='principal <?php if(strstr($_SERVER['REQUEST_URI'], '/mejora')){ echo 'active';} ?>' href='/mejora/' hide-sm>
 				<i class="icon-mejora"></i>
 				<strong>4</strong> MEJORA
 			</a>
@@ -70,49 +70,7 @@
 		</ul>
 	</md-content>
 </md-sidenav>
-
-<md-sidenav  class="md-sidenav-left md-whiteframe-z2"  id="sidebar-compare" md-component-id="comparaSidenav">
-	<md-toolbar class="md-theme-light" ng-controller="compareSidebarCTL">
-		<a href="#" ng-click="close()" id="close-button-compara"><i class="icon-tache-01"></i></a>
-		<h3>Compara escuelas</h3>
-	</md-toolbar>
-	<md-content >
-		<div class="block search-box">
-			<p><label for="search_input"><strong>Busca una escuela</strong></label></p>
-			<p><input type="text" placeholder="Nombre de la escuela"></p>
-		</div>
-		<div class="block to-compare">
-			<p><label><strong>Escuelas para comparar</strong></label></p>
-			<ul>
-				<li>
-					<a href="#" class="check on"><i class="icon-check-01"></i></a>
-					<p><strong>Mi patria es primero</strong></p>
-					<p><i class="icon-mapa"></i> Chihuahua, Chihuahua, Calle No. 22</p>
-				</li>
-				<li>
-					<a href="#" class="check on"><i class="icon-check-01"></i></a>
-					<p><strong>Mi patria es primero</strong></p>
-					<p><i class="icon-mapa"></i> Chihuahua, Chihuahua, Calle No. 22</p>
-				</li>
-			</ul>
-			<a href="#" class="button-bordered">Comparar</a>
-		</div>
-		<div class="block visited">
-			<p><label><strong>Escuelas visitadas</strong></label></p>
-			<p>Selecciona alguna para comparar</p>
-			<ul>
-				<li>
-					<a href="#" class="check"><i class="icon-check-01"></i></a>
-					<p><strong>Mi patria es primero</strong></p>
-					<p><i class="icon-mapa"></i> Chihuahua, Chihuahua, Calle No. 22</p>
-				</li>
-				<li>
-					<a href="#" class="check"><i class="icon-check-01"></i></a>
-					<p><strong>Mi patria es primero</strong></p>
-					<p><i class="icon-mapa"></i> Chihuahua, Chihuahua, Calle No. 22</p>
-				</li>
-			</ul>
-			<a href="#" class="button-bordered">Comparar</a>
-		</div>
-	</md-content>
-</md-sidenav>
+<script type="text/ng-template" id="comparaSidebar.html">
+	<?php $this->include_template('comparaSidebar','directives'); ?>
+</script>
+<div compara-sidebar></div>

@@ -136,6 +136,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #sidebar-compare li .check i{display: none;}
 #sidebar-compare li .check.on i{display: inline-block;}
 #sidebar-compare p{line-height: 1.4;font-size: 13px}
+#sidebar-compare a{color:white;font-weight:bold;}
 #sidebar-compare .block{padding: 15px}
 #sidebar-compare .search-box{background: #0267C9}
 #sidebar-compare .search-box input[type="text"]{background: transparent;border: 0; color: #fff; border-bottom: 1px solid #fff; width: 85%;} 
@@ -841,6 +842,9 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 .h3-text-datos{width: auto;font-size: 13px;color: white;display: table-cell;vertical-align: middle;text-align: left;margin: 0 auto}
 .num-datos{width: 60px;height: 100%;float: left;color:#286FBB;color: white;}
 .centrar-text{margin: 0 auto}
+.active{background-color: #00ADF3;color: white;}
+#header .menu .active strong,#header .menu .active i,#header .menu a.active{color: white}
+.none{background-color: white}
 /*turno.php*/
 .semaforos-buscador{ display: block; margin: 0 0 0 -1px;}
 /*Pixel Perfec*/
