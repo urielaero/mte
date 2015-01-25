@@ -24,8 +24,8 @@ class main extends controler{
 		$this->angular = false;
 		if($this->config->theme == 'mtev1'){
 			$this->get_data_compara_float();
-			$this->load_entidades();
 		}
+		$this->load_entidades();
 	}
 
 	/** 
