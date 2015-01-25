@@ -60,8 +60,8 @@ md-tabs.md-default-theme md-tabs-ink-bar:before{
 	border-width: 0 7.5px 8px 7.5px;
 	border-color: transparent transparent #007bff transparent;
 }
-.leaflet-popup-content-wrapper, .leaflet-popup-tip{background: none;box-shadow: none}
-.leaflet-container a.leaflet-popup-close-button{color: #5D5D5D;top: 15px;right: 21px;z-index: 99}
+.leaflet-popup-content-wrapper, .leaflet-popup-tip{background: none!important;box-shadow: none!important}
+.leaflet-container a.leaflet-popup-close-button{color: #5D5D5D!important;top: 15px!important;right: 21px!important;z-index: 99!important}
 
 /*Header*/
 #header{background: #fff}
@@ -238,7 +238,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #content .container .menu-top .profile-title p{background: #30A5F5;color: #fff;font-weight: 700;padding: 5px 20px;/*text-transform: uppercase;*/}
 #content .container .menu-top .compare-link{background: #F6911B;color: #fff;min-height: 60px;position: relative;text-align: center;}
 #content .container .menu-top .compare-link a{color: #fff;font-size: 18px;font-weight: 700;}
-#content .container .menu-top .compare-link i{font-size: 44px;font-size: 20px;margin-left: -48px; margin-bottom: 8px; display: block;}
+#content .container .menu-top .compare-link i{font-size: 44px;margin-left: -17px;  display: block;}
 #content .container .menu-top .tabs{position: relative;min-height: 60px}
 #content .container .menu-top md-tabs{height: 100%;left: 0;position: absolute;top: 0}
 #content .container .menu-top md-tabs .md-header{height: 100%}
@@ -440,14 +440,18 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #content .container.profile .content_chart{overflow:hidden;width:351px;display:inline-block;height:145px;}
 
 /*infobox*/
-.infoBox{width:236px;color:white;background:#5D5D5D;position:relative;}
-.infoBox:before{content:'';display:block;position:absolute;left:50%;bottom:-12px;width: 0;height:0;border-left:13px solid transparent;border-right: 13px solid transparent;border-top: 13px solid #5d5d5d;margin-left:-13px;}
+.infoBox{width:236px;color:white;background:#fff;position:relative;}
+.infoBox:before{content:'';display:block;position:absolute;left:50%;bottom:-12px;width: 0;height:0;border-left:13px solid transparent;border-right: 13px solid transparent;border-top: 13px solid #fff;margin-left:-13px;}
 .infoBox a{padding:11px 13px;color:white!important;background-color:#0BA14A;font-size:13px!important;line-height:19px!important;display:block;}
-.infoBox p{padding:2px 12px;}
-.infoBox .rank{font-size:21px;margin:5px 2px 0 5px;float:left;}
+.infoBox p{margin: 0!important}
+.infoBox .name{background: #00A3F8;font-weight: 700;position: relative;padding: 8px 10px}
+.infoBox .name.esc-name{padding: 8px 10px 8px 40px}
+.infoBox .rank-cont{background: #049CED}
+.infoBox .rank{background: #008FDD;font-size:11px;font-weight: 700;padding: 6px;text-align: center;}
 .infoBox .cup{background-image: url(http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/comparador_posicion_mapa.png);width:17px;height:17px;margin:14px 0 0;float:left;}
-.infoBox .pos{float:left;font-size:9px;width:70px;margin:12px 0 0 1px;line-height:11px;}
-.infoBox .semafo{width:26px!important;height:26px;background-color:white;border-radius:50%;margin:9px 10px;float:left;background-repeat:no-repeat;background-position:center;}
+.infoBox .pos{background: #049CED;font-size:11px;line-height:11px;padding: 6px}
+.infoBox .address-popup{background: #fff;color: #747474;padding: 12px}
+.infoBox .semafo{display: block;position: absolute;width:26px!important;height:26px;background-color:white;border-radius:50%;background-repeat:no-repeat;background-position:center;left: 5px;top: 5px}
 .infoBox .semafo.sem0{background-image:url(http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/compara_reprobado_map.png);}
 .infoBox .semafo.sem1{background-image:url(http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/compara_panzazo_map.png);}
 .infoBox .semafo.sem2{background-image:url(http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/compara_bien_map.png);}
@@ -455,6 +459,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 .infoBox .semafo.sem4{background-image:url(http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/compara_negro_s.png);}
 .infoBox .semafo.sem5{background-image:url(http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/compara_rojo_s.png);}
 .infoBox .semafo.sem6{background-image:url(http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/perfil_gris_s.png);}
+.infoBox .semafo.sem7{background-image:url(http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/perfil_gris_s.png);}
 
 /*Califica*/
 #content .container.califica{}
@@ -487,6 +492,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #content .container.califica .result .number{background: #009247;color: #fff;font-size: 28px;text-align: center;}
 
 /*Compara/escuelas*/
+#content .container.compare .loader{height:400px;}
 #content .container.compare .menu-top .tabs{height: 80px}
 #content .container.compare .menu-top .tabs .general-tab{background: #E850A7}
 #content .container.compare .menu-top .tabs .results-tab{background: #22B461}
@@ -704,6 +710,8 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #content .container.programa .title .programa-thumb{background: #fff;}
 #content .container.programa .title .programa-thumb img{max-width: 100%;float: left;}
 #content .container.programa .title h1{font-size: 22px;line-height: 1.4;margin: 0;padding: 5px 15px}
+#content .container.programa .title.main-title{background: #DADADA;}
+#content .container.programa .title.main-title h1{background: #FFA02C;}
 #content .container.programa .title.web-page{margin-bottom: 5px}
 #content .container.programa h3.title,
 #content .container.programa .title h3{font-size: 14px;margin: 0;padding: 10px 16px;}
@@ -712,6 +720,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #content .container.programa .description{margin-top: 10px}
 #content .container.programa .description .text{background: #fff;color:#838383;padding: 20px}
 #content .container.programa .description .map-section{margin-top: 5px}
+#content .container.programa #map{height: 500px}
 #content .container.programa .sidebar{margin-top: 0}
 #content .container.programa .sidebar .programs{margin-top: 0}
 

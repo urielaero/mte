@@ -49,7 +49,7 @@
 			<li>
 				<md-button class="md-primary">
 					<a class="md-raised md-primary" href='/compara/escuelas/'>
-						<i class="icon-compara"></i> 2 COMPARA
+						<i class="icon-compara-01"></i> 2 COMPARA
 					</a>
 				</md-button>	
 			</li>
