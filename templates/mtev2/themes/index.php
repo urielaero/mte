@@ -33,7 +33,9 @@
 			'angular-leaflet-directive.min.js',
 			'controllers/controller.js',
 			'controllers/conoceCTL.js',
+			'controllers/comparaCTL.js',
 			'services/userInfo.js',
+			'services/templateData.js',
 			'directives/mteNgSearch.js',
 			'directives/mteTextSearch.js',
 		);

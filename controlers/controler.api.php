@@ -14,13 +14,20 @@ class api extends main{
 	}
 
 	public function escuelas(){
-		//var_dump($this->request('niveles'));
+		//$this->debug = true;
 		$params = new stdClass();
 		if($this->request('sort') == 'Semáforo educativo')
 			$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
-		$params->pagination = 6;
+		else if($this->request('sort') == 'Promedio general')
+			$params->order_by = 'escuelas_para_rankeo.promedio_general DESC';
+		if($this->request('ccts')) $params->ccts = explode(',',$this->request('ccts')); 
+		if($this->request('pagination')) 
+			$params->pagination = $this->request('pagination');
+		else
+			$params->pagination = 6;
 		$this->get_escuelas($params);
-		$this->process_escuelas();
+		if($this->request('cct_count_entidad')) $this->cct_count_entidad();
+		$this->process_escuelas($this->request('detail'));
 		$this->escuelas_digest->pagination = $this->pagination;
 		$this->escuelas_digest->pagination->conn = NULL;
 		echo json_encode($this->escuelas_digest);

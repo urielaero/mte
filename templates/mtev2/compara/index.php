@@ -1,4 +1,4 @@
-<div class='container compare' ng-controller="compareCTL">
+<div class='container compare' ng-controller="comparaCTL">
 	<div class="breadcrumb">
 		<a href="/" class="start"><i class="icon-mejora"></i></a>
 		<a href="/compara">Compara</a>
@@ -42,72 +42,23 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
+						<tr ng-repeat='escuela in escuelas'>
 							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
+								<a ng-href='/escuelas/index/{{escuela.cct}}'><strong ng-bind='escuela.nombre'></strong></a>
+								<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
+								<p><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
 							</td>
-							<td>777</td>
-							<td>739</td>
-							<td>Primaria</td>
-							<td>Matutino</td>
-							<td>Privada</td>
-							<td><strong>1</strong> de <strong>548</strong></td>
+							<td ng-bind='escuela.promedio_espaniol || "--"'></td>
+							<td ng-bind='escuela.promedio_matematicas || "--"'></td>
+							<td>{{escuela.nivel}}</td>
+							<td>{{escuela.turno.nombre}}</td>
+							<td>{{escuela.control}}</td>
+							<td><strong ng-bind='escuela.rank || "--"'></strong> de <strong ng-bind='escuela.entidad_cct_count'></strong></td>
 							<td>
-								<md-button class="md-fab rank1" aria-label="Time"><i class="icon-tache-01"></i></md-button>
-								<p>Excelente</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-							</td>
-							<td>777</td>
-							<td>739</td>
-							<td>Primaria</td>
-							<td>Matutino</td>
-							<td>Privada</td>
-							<td><strong>1</strong> de <strong>548</strong></td>
-							<td>
-								<md-button class="md-fab rank2" aria-label="Time"><i class="icon-check-01"></i></md-button>
-								<p>Bien</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-							</td>
-							<td>777</td>
-							<td>739</td>
-							<td>Primaria</td>
-							<td>Matutino</td>
-							<td>Privada</td>
-							<td><strong>1</strong> de <strong>548</strong></td>
-							<td>
-								<md-button class="md-fab rank3" aria-label="Time"><i class="icon-check-01"></i></md-button>
-								<p>De panzazo</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-							</td>
-							<td>777</td>
-							<td>739</td>
-							<td>Primaria</td>
-							<td>Matutino</td>
-							<td>Privada</td>
-							<td><strong>1</strong> de <strong>548</strong></td>
-							<td>
-								<md-button class="md-fab rank4" aria-label="Time"><i class="icon-tache-01"></i></md-button>
-								<p>Reprobado</p>
+								<md-button ng-class="semaforos[escuela.semaforo].class" class="md-fab" aria-label="Time">
+									<i class="semaforos-buscador" ng-class="semaforos[escuela.semaforo].icon"></i>
+								</md-button>
+								<p>{{semaforos[escuela.semaforo].label}}</p>
 							</td>
 						</tr>
 					</tbody>
@@ -119,81 +70,24 @@
 				<table class="footable">
 					<thead>
 						<tr>
+
 							<th class="footable-first-column">Escuelas</th>
-							<th data-hide="phone">2006</th>
-							<th data-hide="phone">2007</th>
-							<th data-hide="phone">2008</th>
-							<th data-hide="phone">2009</th>
-							<th data-hide="phone">2010</th>
-							<th data-hide="phone">2011</th>
-							<th data-hide="phone">2012</th>
-							<th data-hide="phone">2013</th>
-							<th class="footable-last-column">2014</th>
+							<th 
+								data-hide="phone"
+								ng-bind='year'
+								ng-repeat='(key,year) in years'
+								ng-class='key == years.length-1 ? "" : "footable-last-column"'>
+							</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
+						<tr ng-repeat='escuela in escuelas'>						
 							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
+								<a ng-href='/escuelas/index/{{escuela.cct}}'><strong ng-bind='escuela.nombre'></strong></a>
+								<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
+								<p><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
 							</td>
-							<td>385</td>
-							<td>385</td>
-							<td>542</td>
-							<td>542</td>
-							<td>--</td>
-							<td>542</td>
-							<td>322</td>
-							<td>525</td>
-							<td>418</td>
-						</tr>
-						<tr>
-							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-							</td>
-							<td>385</td>
-							<td>385</td>
-							<td>542</td>
-							<td>542</td>
-							<td>--</td>
-							<td>542</td>
-							<td>322</td>
-							<td>--</td>
-							<td>418</td>
-						</tr>
-						<tr>
-							<td>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-							</td>
-							<td>385</td>
-							<td>--</td>
-							<td>542</td>
-							<td>542</td>
-							<td>--</td>
-							<td>542</td>
-							<td>322</td>
-							<td>--</td>
-							<td>418</td>
-						</tr>
-						<tr>
-							<td>
-								<strong>Jean Piaget</strong>
-								<p><small><i class="icon-conoce-01"></i> Isla mujeres, Quintana Roo</small></p>
-								<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-							</td>
-							<td>385</td>
-							<td>385</td>
-							<td>542</td>
-							<td>542</td>
-							<td>--</td>
-							<td>542</td>
-							<td>322</td>
-							<td>--</td>
-							<td>418</td>
-
+							<td ng-repeat='year in years' ng-bind='escuela.avgs[year] || "--"'></td>
 						</tr>
 					</tbody>
 				</table>

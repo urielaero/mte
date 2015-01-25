@@ -1,7 +1,14 @@
 app.service('userInfo',['$http','$cookieStore', function($http,$cookieStore	) {
 	//$cookieStore.put('schools','');
 	this.schools = $cookieStore.get('schools') || {visited:[],selected:[]};
-	console.log(this.schools);
+	//console.log(this.schools);
+    this.getCCTs = function(){
+        var ccts = [];
+        this.schools.selected.forEach(function(school){
+            ccts.push(school.cct);
+        });
+        return ccts;
+    }
     this.toggleSchool = function(escuela){
     	this.addSchool(escuela,this.schools.selected,true);
     	$cookieStore.put('schools',this.schools);

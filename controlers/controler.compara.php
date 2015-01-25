@@ -15,7 +15,7 @@ class compara extends main{
 		$this->entidades = $this->load_entidades(false);
 		$this->municipios = $this->load_municipios();
 		$this->localidades = $this->load_localidades();
-		if($this->config->theme =='mtev1'){
+		if($this->config->theme == 'mtev1'){
 			$this->load_compara_cookie();
 			$this->get_metadata();
 			$this->breadcrumb = array('#'=> 'Comparador');

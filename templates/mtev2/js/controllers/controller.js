@@ -173,22 +173,6 @@ app.controller("compareSidebarCTL", ['$scope', '$mdSidenav',function ($scope, $m
     };
 }]);
 
-app.controller("compareCTL", ['$scope',function ($scope) {
-	$scope.selectedIndex = 0;
-	$scope.countToggle = 0;
-	$scope.toggleForm = false;
-    $scope.next = function() {
-      $scope.selectedIndex = Math.min($scope.selectedIndex + 1, 2) ;
-    };
-    $scope.previous = function() {
-      $scope.selectedIndex = Math.max($scope.selectedIndex - 1, 0);
-    };
-    $scope.toggleFormEvent = function(){
-    	if($scope.countToggle == 0){
-    		$scope.toggleForm = true;
-    	}
-    }
-}]);
 
 app.controller("faqCTL", ['$scope',function ($scope) {
 	$scope.toggleQuestion = function(e){
