@@ -167,13 +167,6 @@ app.controller("mejoraCTL", ['$scope',function ($scope) {
 }]);
 
 
-app.controller("compareSidebarCTL", ['$scope', '$mdSidenav',function ($scope, $mdSidenav) {
-    $scope.close = function() {
-        $mdSidenav('comparaSidenav').close();
-    };
-}]);
-
-
 app.controller("faqCTL", ['$scope',function ($scope) {
 	$scope.toggleQuestion = function(e){
 		var elem = angular.element(e.target);
