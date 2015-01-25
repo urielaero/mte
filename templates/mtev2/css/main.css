@@ -136,6 +136,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #sidebar-compare li .check i{display: none;}
 #sidebar-compare li .check.on i{display: inline-block;}
 #sidebar-compare p{line-height: 1.4;font-size: 13px}
+#sidebar-compare a{color:white;font-weight:bold;}
 #sidebar-compare .block{padding: 15px}
 #sidebar-compare .search-box{background: #0267C9}
 #sidebar-compare .search-box input[type="text"]{background: transparent;border: 0; color: #fff; border-bottom: 1px solid #fff; width: 85%;} 

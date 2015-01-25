@@ -3,7 +3,7 @@
  <head>
  	<script  src="/templates/mtev2/js/modernizr.js"></script>
 	<meta charset="utf-8"/>
-	<!-- <base href="/"> -->
+	<base href="/">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 	<link rel="shortcut icon" href="<?=$this->config->http_address?>/templates/<?=$this->config->theme?>/img/favicon.ico" />
 	<?php
@@ -36,7 +36,6 @@
 			'controllers/controller.js',
 			'controllers/conoceCTL.js',
 			'controllers/comparaCTL.js',
-			'controllers/compareSidebar.js',
 			'services/userInfo.js',
 			'services/templateData.js',
 			'directives/mteNgSearch.js',

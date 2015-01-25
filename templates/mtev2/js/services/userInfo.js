@@ -1,6 +1,6 @@
 app.service('userInfo',['$rootScope','$http','$cookieStore', function($rootScope,$http,$cookieStore	) {
-	//$cookieStore.put('schools','');
-	
+	//$cookieStore.put(this.cookiename,'');
+	this.cookiename = 'escuelas';
 	//console.log(this.schools);
     this.listeners = [];
     this.getCCTs = function(){
@@ -11,17 +11,18 @@ app.service('userInfo',['$rootScope','$http','$cookieStore', function($rootScope
         return ccts;
     }
     this.getSchools = function(){
-        this.schools = $cookieStore.get('schools') || {visited:[],selected:[]};
+        this.schools = $cookieStore.get(this.cookiename) || {visited:[],selected:[]};
+        console.log(this.schools);
         return this.schools;
     }
     this.toggleSchool = function(escuela){
     	this.addSchool(escuela,this.schools.selected,true);
-    	$cookieStore.put('schools',this.schools);
+    	$cookieStore.put(this.cookiename,this.schools);
         this.emit('userInfo.schoolsChange');
     }
     this.visitSchool = function(escuela){
     	this.addSchool(escuela,this.schools.visited,false);
-    	$cookieStore.put('schools',this.schools);
+    	$cookieStore.put(this.cookiename,this.schools);
     }
     this.isSelected = function(escuela){
     	return this.indexOf(escuela,this.schools.selected) >= 0;
