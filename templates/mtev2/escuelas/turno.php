@@ -103,9 +103,19 @@
 		</div>-->
 	</div>
 	<?php if($this->escuela->nivel->nombre == 'PREESCOLAR'){ ?>
-	<div flex="25" flex-sm="100">
+	<div flex="25" class="semaphore" flex-sm="100">
 		<div class="section-image">
 			<img src="/templates/mtev1/img/cubitos.png" alt="Preescolar">			
+		</div>
+		<div class="options space-between" layout="row" layout-md="column">
+			<div flex="49" class="option">
+					<p><i class="icon-print-01"></i></p>
+					<p>Imprimir</p>
+			</div>
+			<div flex="49" class="option">
+					<p><i class="icon-share-01"></i></p>
+					<p>Compartir</p>
+			</div>
 		</div>
 	</div>	
 	<?php 

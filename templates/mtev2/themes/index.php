@@ -11,7 +11,8 @@
 			"perfect-scrollbar.min.css",
 			"fontello.css",
 			"fontello-ie7.css",
-			"footable.core.min.css"
+			"footable.core.min.css",
+			"leaflet.css",
 		);
 		$js_scripts = array(
 			"jquery-1.11.1.min.js",
