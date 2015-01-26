@@ -238,10 +238,10 @@ ul.dropdown-menu li p{line-height: 1.2}
 #content .container .breadcrumb{margin-bottom: 10px}
 #content .container .breadcrumb a{border: 1px solid #05A6EE;color: #05A6EE;padding: 4px 6px}
 #content .container .breadcrumb a + a{margin-left: -4px}
-#content .container .breadcrumb a.start{background: #05A6EE;color: #fff;}
+#content .container .breadcrumb a.start{background: #05A6EE;color: #fff;position: relative;}
+#content .container .breadcrumb a.start:after{content:'';position:absolute;top:0;right:-14px;display:block;border-top: 14px solid #F4F4F4;border-bottom: 14px solid #F4F4F4;border-left: 15px solid #05A6EE}
+#content .container .breadcrumb :nth-child(2){position:relative;margin-right: 5px;padding-left: 20px}
 
-#content .container .breadcrumb :nth-child(2){position:relative;margin-right: 5px}
-#content .container .breadcrumb :nth-child(2):after{position:absolute;top:0;left:0;content:'';display:block;border-top: 14px solid #F4F4F4;border-bottom: 14px solid #F4F4F4;border-left: 15px solid #05A6EE}
 /*Pagination*/
 #content .container .pagination a{background: transparent;border: 2px solid #636363;color: #636363;padding: 4px 8px;text-align: center;}
 #content .container .pagination a + a{margin-left: 4px}
@@ -277,7 +277,7 @@ ul.dropdown-menu li p{line-height: 1.2}
 #content .container .comment-form input[type="email"],
 #content .container .comment-form input[type="text"]{background: #fff;border: 0;padding: 6px;}
 #content .container .comment-form .md-button,
-#content .container .comment-form .check {color: #fff;background: #F3910C;-webkit-flex: 0 0 49%; -ms-flex: 0 0 49%; flex: 0 0 49%; max-width: 49%;}
+#content .container .comment-form .check {color: #fff;background: #F3910C;-webkit-flex: 0 0 49%; -ms-flex: 0 0 49%; flex: 0 0 49%; max-width: 49%; text-transform: none;}
 #content .container .comment-form md-checkbox{margin: 5px;overflow: hidden;}
 #content .container .comment-form md-checkbox .md-label{font-size: 10px; line-height: 1.4; padding: 2px; }
 #content .container .comment-form p{font-size: 11px}
@@ -595,9 +595,9 @@ ul.dropdown-menu li p{line-height: 1.2}
 #content .container.post .post-title h1{font-size: 22px;padding: 0 15px}
 #content .container.post .post-content{background: #fff;color: #808080;;margin-top: 20px;padding: 35px}
 #content .container.post .post-content h2{color: #18B3DF;margin: 0;/*text-transform: uppercase;*/}
-#content .container.post .post-content p{margin-bottom: 10px;line-height: 1.4}
+#content .container.post .post-content p{margin-bottom: 10px;line-height: 1.4; text-align: justify;}
 #content .container.post .post-content a.link{color: #E9036F}
-#content .container.post .post-content ul{margin-left: 10%}
+#content .container.post .post-content ul{margin-left: 10%; text-align: justify;}
 #content .container.post .post-content ul li:before{content: "\002022";color: #E9036F;font-size: 16px;font-weight: 700;margin-right: 5px;}
 #content .container.post .post-content .charts-images img{height: 365px;width: 32%;}
 #content .container.post .post-content .charts-images img + img{margin-left: 2%}
@@ -744,6 +744,7 @@ ul.dropdown-menu li p{line-height: 1.2}
 #content .container #sidebar.mejora-sidebar .write-us .button-bordered{margin-top: 6px;padding: 6px;}
 
 /*Programas buscador*/
+#content .container.programas .breadcrumb{padding: 0}
 #content .container.programas .post-title{margin-bottom: 15px}
 #content .container.programas .post-title .icon-container{background: #7A3AB5;font-size: 26px}
 #content .container.programas .post-title{background: #8C49CC;color: #fff;/*text-transform: uppercase;*/}
@@ -862,7 +863,7 @@ ul.dropdown-menu li p{line-height: 1.2}
 .icotelefono-contactanos{width: 40px;display: table;}
 .telefono-contactanos{width: 100px;display: table;}
 .h3-contactanos{display: table-cell;vertical-align: middle;}
-.h3-contactanos-contacto{display: table-cell;vertical-align: middle;text-transform: uppercase;font-size: 15px}
+.h3-contactanos-contacto{display: table-cell;vertical-align: middle;/*text-transform: uppercase;*/font-size: 18px}
 .cont-breadcrumb-contacto{width: 100%;max-width: 925px;margin: 0 auto }
 .ico-contact{background-color:#00C15E}
 .form-contacto{background-color: white}

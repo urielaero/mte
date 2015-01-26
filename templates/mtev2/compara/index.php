@@ -50,7 +50,7 @@
 								<td>
 									<a ng-href='/escuelas/index/{{escuela.cct}}'><strong ng-bind='escuela.nombre'></strong></a>
 									<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
-									<p><small><i class="icon-enlace-01" ng-show='escuela.turno.nombre' ></i> {{escuela.turno.nombre}}</small></p>
+									<!--<p><small><i class="icon-enlace-01" ng-show='escuela.turno.nombre' ></i> {{escuela.turno.nombre}}</small></p>-->
 								</td>
 								<td ng-bind='escuela.promedio_espaniol || "--"'></td>
 								<td ng-bind='escuela.promedio_matematicas || "--"'></td>
@@ -89,7 +89,7 @@
 								<td>
 									<a ng-href='/escuelas/index/{{escuela.cct}}'><strong ng-bind='escuela.nombre'></strong></a>
 									<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
-									<p><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
+									<!--<p><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>-->
 								</td>
 								<td ng-repeat='year in years' ng-bind='escuela.avgs[year] || "--"'></td>
 							</tr>
@@ -144,18 +144,14 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td class="school"><a href="/escuelas/index/24SBC0059C">Soldado Damian Carmona</a></td>
-								<td class="rank">25%</td>
-								<td class="rank">48%</td>
-								<td class="rank">27%</td>
-								<td class="rank">0%</td>
-								<td class="rank">62%</td>
-								<td class="rank">32%</td>
-								<td class="rank">6%</td>
-								<td class="rank">0%</td>
-								<td class="rank">81</td>
-								<td class="rank">0%</td>
+							<tr ng-repeat='escuela in escuelas'>
+								<td class="school"><a ng-href="/escuelas/index/{{escuela.cct}}" ng-bind='escuela.nombre'></a></td>
+								<td class="rank" ng-repeat='score in escuela.stats[statsYear].esp track by $index' ng-bind='getPCT(score,escuela)'></td>
+								<td class="rank" ng-repeat='score in escuela.stats[statsYear].mat track by $index' ng-bind='getPCT(score,escuela)'></td>
+								<td ng-show='!escuela.stats[statsYear].esp' ng-repeat='blank in ["--","--","--","--"] track by $index' ng-bind='blank'></td>
+								<td ng-show='!escuela.stats[statsYear].mat' ng-repeat='blank in ["--","--","--","--"] track by $index' ng-bind='blank'></td>
+								<td class="rank" ng-bind='escuela.stats[statsYear].alumnos || "--"'></td>
+								<td class="rank" ng-bind='getPCT(escuela.poco_confiables,escuela) || "--"'></td>
 							</tr>
 						</tbody>
 					</table>				
@@ -196,6 +192,6 @@
 			</div>
 		</form>
 	</div> -->
-		<a href="#" class="add-school">Agregar otra escuela</a>	
+		<a href="" ng-click='toggleComparador()' class="add-school">Agregar otra escuela</a>	
 	</div>
 </div>

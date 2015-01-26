@@ -382,5 +382,35 @@ class escuela extends memcached_table{
             }
         }
     }
+    // Genera un arreglo de estadisticas para una escuela.
+    // suma los turnos
+    // para la tabla de resultados por alumno, ejecutar despues de yearAvgs (para tener los enlaces cargados)
+    public function yearStats(){
+        if($this->enlaces){
+            $scores = [];
+            foreach($this->enlaces as $enlace){
+                if(!isset($scores[$enlace->anio])){
+                    $scores[$enlace->anio] = new stdClass();
+                    $scores[$enlace->anio]->mat = [0,0,0,0];
+                    $scores[$enlace->anio]->esp = [0,0,0,0];
+                    $scores[$enlace->anio]->esp = [0,0,0,0];
+                    $scores[$enlace->anio]->alumnos = 0;
+                } 
+
+                $scores[$enlace->anio]->mat[0] += $enlace->alumnos_en_nivel0_matematicas;
+                $scores[$enlace->anio]->mat[1] += $enlace->alumnos_en_nivel1_matematicas;
+                $scores[$enlace->anio]->mat[2] += $enlace->alumnos_en_nivel2_matematicas;
+                $scores[$enlace->anio]->mat[3] += $enlace->alumnos_en_nivel3_matematicas;
+
+                $scores[$enlace->anio]->esp[0] += $enlace->alumnos_en_nivel0_espaniol;
+                $scores[$enlace->anio]->esp[1] += $enlace->alumnos_en_nivel1_espaniol;
+                $scores[$enlace->anio]->esp[2] += $enlace->alumnos_en_nivel2_espaniol;
+                $scores[$enlace->anio]->esp[3] += $enlace->alumnos_en_nivel3_espaniol;
+
+                $scores[$enlace->anio]->alumnos += $enlace->alumnos_que_contestaron_total;
+            }
+            $this->stats = $scores;
+        }
+    }
 }
 ?>

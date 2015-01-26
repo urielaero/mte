@@ -15,6 +15,8 @@ class compara extends main{
 		$this->entidades = $this->load_entidades(false);
 		$this->municipios = $this->load_municipios();
 		$this->localidades = $this->load_localidades();
+		$this->page_title = "Conoce tu escuela";
+		$this->meta_description = "Consulta información sobre las características de las escuelas de México. Datos de contacto, información sobre desempeño, infraestructura, programas de apoyo y conoce las opiniones de otros padres de familia.";
 		if($this->config->theme == 'mtev1'){
 			$this->load_compara_cookie();
 			$this->get_metadata();
@@ -23,10 +25,9 @@ class compara extends main{
 			$this->header_folder = 'compara';				
 			$this->principal = true;
 			$this->title_header = 'Conoce tu escuela';
-			$this->meta_description = "Consulta información sobre las características de las escuelas de México. Datos de contacto, información sobre desempeño, infraestructura, programas de apoyo y conoce las opiniones de otros padres de familia.";
 			if(!$this->get('search')){ 
 				$this->get_location();
-				$params = new stdClass();
+				$params = new StdClass();
 				$params->entidad = $this->user_location->id; 
 				if($this->config->search_location)
 					$this->resultados_title = 'Mejores escuelas en '.$this->capitalize($this->user_location->nombre);
@@ -65,6 +66,7 @@ class compara extends main{
 				$this->include_theme('index','resultados-escuela');
 			}
 		}else if($this->config->theme == 'mtev2'){
+			$this->header_folder = 'compara';
 			$this->include_theme('index','resultados-escuela');
 		}
 	}
