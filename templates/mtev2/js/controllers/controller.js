@@ -4,6 +4,9 @@ app.controller("headerCTL", ['$scope','$timeout','$mdSidenav',function ($scope, 
 	$scope.toggleLeft = function() {
 		$mdSidenav('left').toggle();
 	};
+    $scope.toggleComparador = function() {
+        $mdSidenav('comparaSidenav').toggle();
+    };
 }]);
 
 app.controller("sidebarCTL", ['$scope','$timeout','$mdSidenav',function ($scope, $timeout, $mdSidenav) {

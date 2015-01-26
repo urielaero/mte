@@ -7,9 +7,14 @@
 		<div flex="25" flex-sm="100" id="filters">
 			<form>
 				<label>Escuela o biblioteca</label>
-				<div layout="row" class="text-field">
-					<input type="text" flex="80" placeholder="Ej. Jean Piaget">
-					<input type="submit" value="" flex="20">
+				<div layout="row" class="text-field ">
+					<div class="cont-icon-text-field">
+						<input type="text" flex="80" placeholder="Ej. Jean Piaget">
+						<input type="submit" value="" flex="20" class="">
+					</div>
+					<div class="icono-text-field">
+						<div class=""></div>
+					</div>
 				</div>
 				<label>Estado</label>
 				<select>
