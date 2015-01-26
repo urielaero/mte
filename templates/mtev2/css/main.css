@@ -593,9 +593,9 @@ ul.dropdown-menu li p{line-height: 1.2}
 #content .container.post .post-title h1{font-size: 22px;padding: 0 15px}
 #content .container.post .post-content{background: #fff;color: #808080;;margin-top: 20px;padding: 35px}
 #content .container.post .post-content h2{color: #18B3DF;margin: 0;/*text-transform: uppercase;*/}
-#content .container.post .post-content p{margin-bottom: 10px;line-height: 1.4}
+#content .container.post .post-content p{margin-bottom: 10px;line-height: 1.4; text-align: justify;}
 #content .container.post .post-content a.link{color: #E9036F}
-#content .container.post .post-content ul{margin-left: 10%}
+#content .container.post .post-content ul{margin-left: 10%; text-align: justify;}
 #content .container.post .post-content ul li:before{content: "\002022";color: #E9036F;font-size: 16px;font-weight: 700;margin-right: 5px;}
 #content .container.post .post-content .charts-images img{height: 365px;width: 32%;}
 #content .container.post .post-content .charts-images img + img{margin-left: 2%}

@@ -39,7 +39,7 @@
 		<p>Para poder generar calificaciones, asignamos una calificación intermedia para cada una de esas categorías similar a las calificaciones que vemos en primaria y secundaria para estar en cada uno de esos rangos. Asignamos entonces ese resultado intermedio a cada uno de los alumnos dependiendo de los rangos en los que se reporta que se ubicó su calificación.</p>
 		<p>Con estos resultados pudimos continuar con la metodología descrita para educación básica, en donde agrupamos por materia, por grado, y finalmente por centro escolar ponderando los resultados de matemáticas y español con un peso de 80-20. Las calificaciones globales se utilizaron para generar las posiciones estatales y nacionales. </p>
 		<p>Al momento de graficar los resultados por centro escolar, la distribución para educación media superior fue muy similar a las distribuciones para primaria y secundaria, lo que facilitó que se siguiera la misma metodología en la asignación de cortes para los distintos niveles de calidad.</p>
-		<p>Para el 2013, los cortes para bachillerato son: </p>
+		<p>Para el 2014, los cortes para bachillerato son: </p>
 		<p>632 &lt; Excelente </p>
 		<p>580 &lt; Bien &lt; 632 </p>
 		<p>551 &lt; De panzazo &lt; 580 </p>
