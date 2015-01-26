@@ -245,7 +245,7 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container .breadcrumb a + a{margin-left: -4px}
 #content .container .breadcrumb a.start{background: #05A6EE;color: #fff;position: relative;}
 #content .container .breadcrumb a.start:after{content:'';position:absolute;top:0;right:-14px;display:block;border-top: 14px solid #F4F4F4;border-bottom: 14px solid #F4F4F4;border-left: 15px solid #05A6EE}
-#content .container .breadcrumb :nth-child(2){position:relative;margin-right: 5px;padding-left: 20px}
+#content .container .breadcrumb :nth-child(2){position:relative;/*margin-right: 5px;*/padding-left: 20px}
 
 /*Pagination*/
 #content .container .pagination a{background: transparent;border: 2px solid #636363;color: #636363;padding: 4px 8px;text-align: center;}
@@ -454,6 +454,8 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.profile .section-image img{margin:30px 0;width: 85%}
 
 /*Perfil biblioteca*/
+#content .container.profile.profile-biblioteca .profile-title{width: 100%}
+
 #content .container.profile .section-image img{margin-top: 25px}
 #content .container.profile #profile-content .sidebar .box-yesno{background-color: #E9068B;color: #fff;font-size: 15px;margin-top: 10px;padding: 10px;text-align: center;}
 #content .container.profile #profile-content .sidebar .box-yesno.orange{background-color: #F6911B}
