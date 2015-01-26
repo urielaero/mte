@@ -50,7 +50,7 @@
 								<td>
 									<a ng-href='/escuelas/index/{{escuela.cct}}'><strong ng-bind='escuela.nombre'></strong></a>
 									<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
-									<p><small><i class="icon-enlace-01" ng-show='escuela.turno.nombre' ></i> {{escuela.turno.nombre}}</small></p>
+									<!--<p><small><i class="icon-enlace-01" ng-show='escuela.turno.nombre' ></i> {{escuela.turno.nombre}}</small></p>-->
 								</td>
 								<td ng-bind='escuela.promedio_espaniol || "--"'></td>
 								<td ng-bind='escuela.promedio_matematicas || "--"'></td>
@@ -89,7 +89,7 @@
 								<td>
 									<a ng-href='/escuelas/index/{{escuela.cct}}'><strong ng-bind='escuela.nombre'></strong></a>
 									<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
-									<p><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
+									<!--<p><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>-->
 								</td>
 								<td ng-repeat='year in years' ng-bind='escuela.avgs[year] || "--"'></td>
 							</tr>
