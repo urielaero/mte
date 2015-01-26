@@ -1,8 +1,8 @@
 app.service('userInfo',['$rootScope','$http','$cookieStore', function($rootScope,$http,$cookieStore	) {
-	//$cookieStore.put(this.cookiename,'');
-	this.cookiename = 'escuelas';
-	//console.log(this.schools);
-    this.listeners = [];
+    this.init = function(){
+        this.listeners = [];
+        this.getSchools();
+    }
     this.getCCTs = function(){
         var ccts = [];
         this.schools.selected.forEach(function(school){
@@ -11,18 +11,17 @@ app.service('userInfo',['$rootScope','$http','$cookieStore', function($rootScope
         return ccts;
     }
     this.getSchools = function(){
-        this.schools = $cookieStore.get(this.cookiename) || {visited:[],selected:[]};
-        console.log(this.schools);
+        this.schools = $cookieStore.get('schools') || {visited:[],selected:[]};
         return this.schools;
     }
     this.toggleSchool = function(escuela){
     	this.addSchool(escuela,this.schools.selected,true);
-    	$cookieStore.put(this.cookiename,this.schools);
+    	$cookieStore.put('schools',this.schools);
         this.emit('userInfo.schoolsChange');
     }
     this.visitSchool = function(escuela){
     	this.addSchool(escuela,this.schools.visited,false);
-    	$cookieStore.put(this.cookiename,this.schools);
+    	$cookieStore.put('schools',this.schools);
     }
     this.isSelected = function(escuela){
     	return this.indexOf(escuela,this.schools.selected) >= 0;
@@ -58,6 +57,6 @@ app.service('userInfo',['$rootScope','$http','$cookieStore', function($rootScope
             listener.$emit('userInfo.schoolsChange',data);
         });
     }
-    this.getSchools();
+    this.init();    
     
 }]);

@@ -1,3 +1,7 @@
+<script type='text/javascript'>
+    window.escuela = <?= json_encode($this->escuelaSummary) ?>;
+</script>
+
 <?php
 $escuela_per_turnos = array();
 if(!empty($this->escuela->rank)){
@@ -29,6 +33,7 @@ if(!empty($this->escuela->rank)){
 	$escuela_per_turnos[] = $tmp;
 }
 ?>
+
 
 <div class="container profile profile-escuela" ng-controller="escuelaCTL">
 	<div class="breadcrumb perfect-breadcrumb">
@@ -85,10 +90,18 @@ if(!empty($this->escuela->rank)){
         $this->escuela_per_turno_index = $i;
 	?>
 	        <div role="tabpanel" id="profile-content" aria-labelledby="tab<?=$i?>" ng-switch-when="<?=$i?>" md-swipe-left="next()" md-swipe-right="previous()" >
-			<?php 
-				$this->include_template('turno','escuelas');
-			?>
+				<?php $this->include_template('turno','escuelas'); ?>
 	        </div>
 	<?php } ?>
     </ng-switch>
+
+    <script type="text/ng-template" id="mteNgSearch.html">
+		<?php $this->include_template('mteNgSearch','directives'); ?>
+	</script>
+	<script type="text/ng-template" id="mteTextSearch.html">
+		<?php $this->include_template('mteTextSearch','directives'); ?>
+	</script>
+	
+	
+
 </div>

@@ -276,7 +276,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 /*Tabla global de comparacion*/
 #content .container .compare-table{margin-top: 10px}
 #content .container .compare-table table{border-spacing: 2px;}
-#content .container .compare-table th{background: #C8C8C8;color: #4C4C4C;font-size: 18px;padding: 25px;width: 22%}
+#content .container .compare-table th{background: #C8C8C8;color: #4C4C4C;font-size: 18px;padding: 25px;}
 #content .container .compare-table th + th{background: #1CA5F5;color: #fff;font-size: 12px;font-weight: 700;text-align: center;width: auto}
 #content .container .compare-table table th,
 #content .container .compare-table table td,
@@ -284,14 +284,14 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #content .container .compare-table table td p small{font-size: 10px}
 #content .container .compare-table table td{background: #E2E2E2;color: #4C4C4C;font-size: 12px;padding: 12px}
 #content .container .compare-table table td.link{padding:0;}
-#content .container .compare-table table .link > a{display: block;width: 100%;height: 100%;padding:12px; transition: background .5s linear;}
+#content .container .compare-table table .link > a{padding:12px; transition: background .5s linear;}
 #content .container .compare-table table .link > a:hover{background:#1CA5F5;color:white;cursor: pointer;}
 #content .container .compare-table table .link > a:hover a{color:white;}
 #content .container .compare-table table td a{color:#4C4C4C;}
 #content .container .compare-table table td + td{background: #ECECEC;text-align: center;padding: 0;vertical-align: middle;}
 #content .container .compare-table table .footable-row-detail-cell{background: #1B97ED;color: #fff}
-
-#content .container .compare-table table td .md-button{box-shadow: none;color: #4C4C4C;cursor: default;height: 32px;width: 32px;}
+#content .container .compare-table table td .md-button,
+#content .container .compare-table table th .md-button{box-shadow: none;color: #4C4C4C;cursor: default;height: 32px;width: 32px;}
 
 /*Carlos Barahona*/
 #content .container .compare-table table td .md-button.rank9{background: #D92FEC;color: #FFFFFF;}/*biblioteca*/
@@ -301,9 +301,13 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #content .container .compare-table table td .md-button.rank6{background: #FF5D60;color: #FFFFFF}/*poco confiable*/
 #content .container .compare-table table td .md-button.rank5{background: #FF5E63;color: #FFFFFF;}/*no toma la prueba enlace*/
 /*Carlos Barahona*/
+#content .container .compare-table table th .md-button.rank4,
 #content .container .compare-table table td .md-button.rank4{background: #0BBC3A;color: #4C4C4C}
+#content .container .compare-table table th .md-button.rank3,
 #content .container .compare-table table td .md-button.rank3{background: #FBFF00;color: #4C4C4C}
+#content .container .compare-table table th .md-button.rank2,
 #content .container .compare-table table td .md-button.rank2{background: #FA9200;color: #4C4C4C}
+#content .container .compare-table table th .md-button.rank1,
 #content .container .compare-table table td .md-button.rank1{background: #ED4F43;color: #4C4C4C}
 #content .container .compare-table .footable.breakpoint>tbody>tr>td>span.footable-toggle:before{
 	content: '\e809';
@@ -322,6 +326,12 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 	margin-left: .2em;
 }
 
+/*Tabla desempeno por alumno*/
+#content .container .compare-table.student-table tr + tr th{background: #F3910C;color: #fff;font-size: 12px;font-weight: 700;text-align: center;width: auto}
+#content .container .compare-table.student-table tr th + th{background: #F3910C;}
+#content .container .compare-table.student-table th{padding: 10px}
+#content .container .compare-table.student-table th p{line-height: 1.2}
+#content .container .compare-table.student-table table th .md-button{border: 1px solid #4C4C4C}
 
 /*Perfil escuela*/
 #content .container.profile{}
@@ -418,9 +428,9 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #content .container.profile .section-image{background: #fff;padding: 24px 0;text-align: center;}
 #content .container.profile .section-image h3{color: #339DD1;font-size: 24px}
 #content .container.profile .section-image img{margin:30px 0;width: 85%}
+
 /*Perfil biblioteca*/
 #content .container.profile .section-image img{margin-top: 25px}
-
 #content .container.profile #profile-content .sidebar .box-yesno{background-color: #E9068B;color: #fff;font-size: 15px;margin-top: 10px;padding: 10px;text-align: center;}
 #content .container.profile #profile-content .sidebar .box-yesno.orange{background-color: #F6911B}
 #content .container.profile #profile-content .sidebar .box-yesno.green{background-color: #16A452;}
@@ -520,7 +530,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 	max-width: 48%;	
 }
 #content .container.compare .search-form .s-btn.green-button{background: #22B461}
-
+#content .container.compare #map{height: 450px}
 
 /*Compara resultados*/
 #content .container.results #filters{
@@ -528,8 +538,12 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 	-ms-flex: 0 0 28%;
 	flex: 0 0 28%;
 	max-width: 28%;
+	padding:0 30px 0 0;
 }
-#content .container.results.mteNgSearch{width:100%;max-width:1450px;padding:0 20px;}
+
+#content .cont-semaforos-results{margin-top: -15px;width:100%;max-width:1450px;padding: 0 20px}
+#content .mteNgSearch{width:100%;max-width:100%;}
+#content .mteNgSearch .breadcrumb{padding:0 20px;}
 #content .container.results #filters .text-field input{border: 0;padding: 10px}
 #content .container.results #filters .text-field input[type="submit"]{background: #00AFF0 url(../img/lupa_blanca.png) center no-repeat;background-size: 20px}
 #content .container.results #filters select{display: block; background: #fff; color: #636363;width: 100%; border: 0; padding: 6px 8px;}
@@ -542,6 +556,18 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #content .container.results #results .order-by label{float: right;font-weight: 700;margin-top: 6px;margin-right: 6px}
 #content .container.results #results .compare-button{background: #20B45E;color: #fff;font-weight: 700;float: left;margin-top: 10px;width: 25%;padding: 5px;text-align: center;}
 #content .container.results #results .pagination{float: right;margin-top: 10px;}
+
+#content .container.results .cont-datos-escuela{width: 100%;height: 100%;}
+#content .container.results .cont-ico-compara{margin:0 10px 0 0;}
+#content .container.results .h3-iconmejora{color: #00AFF0;}
+#content .container.results .datos-escuela{}
+#content .container.results .mejora-icon{font-size: 10px;}
+#content .container.results .circulo-icon-mejora{display:block;width: 20px;height: 20px;border-radius: 50% 50% 50% 50%;border:solid 2px #1CA5F5;}
+#content .container.results .cont-datos-escuela:hover .circulo-icon-mejora{border: 2px solid white;}
+#content .container.results .cont-datos-escuela:hover .mejora-icon{color: white;}
+
+
+
 
 /*Post(normal)*/
 #content .container.post{}
@@ -808,7 +834,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 /*Carlos Barahona*/
 .contact{width: 887px}
 .header-form-contactanos{height: 50px;background-color: #00B759;}
-.items-header-contact{float: left;text-align: center;margin-right: 6px;height: 100%;color: white;}
+.items-header-contact{float: left;text-align: center;height: 100%;color: white;}
 .contactanos-contactanos{background-color: #3E6DF3;width: 170px;display: table;}
 .mail-contactanos{width: 50px;display: table;}
 .correo-contactanos{width: 240px;display: table;}
@@ -816,18 +842,13 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 .telefono-contactanos{width: 100px;display: table;}
 .h3-contactanos{display: table-cell;vertical-align: middle;}
 .h3-contactanos-contacto{display: table-cell;vertical-align: middle;text-transform: uppercase;font-size: 15px}
-
-.ico-contact{background-color:#00C160}
+.cont-breadcrumb-contacto{width: 100%;max-width: 925px;margin: 0 auto }
+.ico-contact{background-color:#00C15E}
 .form-contacto{background-color: white}
 .enviar-btn-contactos{background-color: #3E6DF3;width: 200px;float: left;}
-.cont-datos-escuela{width: 100%;height: 100%;}
-.cont-ico-compara{height: 80px;display: table;float: left;}
-.h3-iconmejora{display: table-cell;vertical-align: middle;text-align: center;color: #00AFF0;}
-.datos-escuela{width: 162px;height: 80px;float: left;display: table;}
-.datos-esc{display: table-cell;vertical-align: middle;}
-.mejora-icon{font-size: 10px;}
-.circulo-icon-mejora{width: 20px;height: 20px;border-radius: 50% 50% 50% 50%;border:solid 2px #1CA5F5;}
-.mi-link{height: 80px}
+
+
+
 
 /*turno.php*/
 .cont-info-turno{background-color:blue;text-align: center;}
@@ -854,7 +875,10 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 .perfect-menu-row{margin-top: 10px}	
 .forms-contactanos{background-color: #F6F6F6;margin-top: -10px;margin-left: 5px;}
 .boton-contatos{width: 200px;}
-.cont-semaforos-results{margin-top: -15px}
+
 /*.container .row-links a i{margin: auto; font-size: 50px; margin-top: -10px;}*/
 /*Pixel Perfec*/	
+@media (max-width: 480px) { 
+	.visited{display: none;} 
+}
 /*Carlos Barahona*/

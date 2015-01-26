@@ -50,7 +50,7 @@
 				<div class="cont-datos">
 					<div class="seccion-datos">
 						<div class="icono-datos">
-							<h3 class="h3-icono-turno"><i class="icon-numeroalumnos"></i></h3>
+							<h3 class="h3-icono-turno"><i class="icon-alumnos"></i></h3>
 						</div>
 						<div class="text-datos"><h3 class="h3-text-datos">Número de Alumnos</h3></div>
 						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->total_evaluados?></h3></div>
@@ -72,7 +72,7 @@
 				<div class="cont-datos">
 					<div class="seccion-datos">
 						<div class="icono-datos">
-							<h3 class="h3-icono-turno"><i class="icon-grupos"></i></h3>
+							<h3 class="h3-icono-turno"><i class="icon-grupo"></i></h3>
 						</div>
 						<div class="text-datos"><h3 class="h3-text-datos">Grupos</h3></div>
 						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->total_evaluados?></h3></div>
@@ -430,86 +430,11 @@ EOD;
 			</ul>
 			<?php } ?>
 		</div>
-
-		<div class="compare-table">
-			<table class="footable">
-				<thead>
-					<tr>
-						<th class="footable-first-column">Escuelas similares</th>
-						<th data-hide="phone">Nivel Escolar</th>
-						<th data-hide="phone">Turno</th>
-						<th data-hide="phone">Privada/publica</th>
-						<th class="footable-last-column">Semáforo Educativo</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							<strong>Jean Piaget</strong>
-							<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
-							<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-						</td>
-						<td>Primaria</td>
-						<td>Matutino</td>
-						<td>Privada</td>
-						<td>
-							<md-button class="md-fab rank1" aria-label="Time"><i class="icon-tache-01"></i></md-button>
-							<p>Excelente</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<strong>Jean Piaget</strong>
-							<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
-							<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-						</td>
-						<td>Primaria</td>
-						<td>Matutino</td>
-						<td>Privada</td>
-						<td>
-							<md-button class="md-fab rank2" aria-label="Time"><i class="icon-check-01"></i></md-button>
-							<p>Bien</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<strong>Jean Piaget</strong>
-							<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
-							<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-						</td>
-						<td>Primaria</td>
-						<td>Matutino</td>
-						<td>Privada</td>
-						<td>
-							<md-button class="md-fab rank3" aria-label="Time"><i class="icon-check-01"></i></md-button>
-							<p>De panzazo</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<strong>Jean Piaget</strong>
-							<p><small><i class="icon-conoce-01"></i> Isla Mujeres Quintana Roo</small></p>
-							<p><small><i class="icon-enlace-01"></i> Matutino</small></p>
-						</td>
-						<td>Primaria</td>
-						<td>Matutino</td>
-						<td>Privada</td>
-						<td>
-							<md-button class="md-fab rank4" aria-label="Time"><i class="icon-tache-01"></i></md-button>
-							<p>Reprobado</p>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<a href="#" class="compare-button">Comparar</a>
-			<div class="pagination">
-				<a href="#">1</a>
-				<a href="#">2</a>
-				<a href="#">3</a>
-				<a href="#">&gt;</a>
-				<a href="#">Últimas &gt;</a>
-			</div>
-			<div class="clear"></div>	
+		<div mte-ng-search
+			class="compare-table" 
+			show-search='false' 
+			params='relatedSchoolParams' 
+			table-title='Escuelas similares'>
 		</div>
 
 	</div>

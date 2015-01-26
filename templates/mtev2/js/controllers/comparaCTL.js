@@ -16,7 +16,52 @@ app.controller("comparaCTL", ['$scope','$http','userInfo','templateData',functio
             //console.log(response);
             $scope.escuelas = response.data.escuelas;
             $scope.loading = false;
+            console.log('load map');
+            $scope.loadMap(response.data.escuelas);
         });
     }
+    $scope.center = {
+        zoom:12
+    };
+    $scope.markers = {lat:0,lng:0}
+    $scope.loadMap = function(data){
+        console.log('load map inside');
+        var markers = data.map(function(escuela){
+
+            var marker = {
+                lat: parseFloat(escuela.latitud),
+                lng: parseFloat(escuela.longitud)
+            };
+            var icon = escuela.semaforo;
+            marker.icon ={
+                    iconUrl:'http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/pins_'+icon+'.png',
+                    iconSize:[28, 57]
+            };
+            marker.message = "<div class='infoBox'>"+
+                            "<a class='name esc-name' href='/escuelas/index/"+escuela.cct+"' >"+
+                            escuela.nombre+
+                            "<span class='semafo sem"+escuela.semaforo+"'></span>"+
+                            "</a>"+
+                            "<div layout='row' class='rank-cont'><div class='rank' flex='20'>"+escuela.rank+"</div>"+
+                            "<div class='pos' flex='80'>Posición nivel estatal</div></div>"+
+                            "<div class='address-popup'><p>"+escuela.direccion+"</p></div>"+
+                            ""+
+                            "</div>";
+            return marker;
+        });
+        angular.extend($scope,{
+            center:{
+                lat : 22.1564699, 
+                lng : -100.9855409, 
+                zoom: 5
+            },
+            defaults:{
+                scrollWheelZoom: false
+            },
+            markers:markers.filter(function(e){
+                return e;
+            })
+        });
+    };
     $scope.getEscuelas();
 }]);
