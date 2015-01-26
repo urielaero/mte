@@ -1,7 +1,7 @@
 <div class="container post">
 	<div class="breadcrumb">
 		<a href="#" class="start"><i class="icon-mejora"></i></a>
-		<a href="#">Aviso de Privacidad</a>
+		<a href="#">Aviso legal y de privacidad</a>
 	</div>
 	<div layout="row" class="post-title">
 		<div flex="10" class="icon-container" hide-sm>
@@ -9,7 +9,7 @@
 				<i class="icon-preguntas-01"></i>
 			</div>
 		</div>
-		<h1 flex="90"><strong>Aviso de privacidad</strong></h1>
+		<h1 flex="90"><strong>Aviso legal y de privacidad</strong></h1>
 	</div>
 	<div class="post-content">
 		<p>Los datos solicitados en www.mejoratuescuela.org son tratados por el Instituo Mexicano para la Competitividad A.C (IMCO). <a href="#" class="link">www.imco.org.mx</a></p>
