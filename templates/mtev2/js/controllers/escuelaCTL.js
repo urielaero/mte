@@ -12,9 +12,6 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav',function ($scope, $mdSidena
 
     }
     //console.log($scope.relatedSchoolParams);
-    $scope.toggleLeft = function() {
-        $mdSidenav('comparaSidenav').toggle();
-    };
     $scope.next = function() {
       $scope.selectedIndex = Math.min($scope.selectedIndex + 1, 2) ;
     };

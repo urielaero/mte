@@ -1,6 +1,7 @@
 <md-sidenav  class="md-sidenav-left md-whiteframe-z2"  id="sidebar-compare" md-component-id="comparaSidenav" layout='column'>
 	<md-toolbar class="md-theme-light" >
 		<a href="" ng-click="close()" id="close-button-compara"><i class="icon-tache-01"></i></a>
+		<p class="compara-icon-wrap"><i class="icon-compara-01"></i></p>
 		<h3>Compara escuelas</h3>
 	</md-toolbar>
 	<md-content layout='column' flex >
