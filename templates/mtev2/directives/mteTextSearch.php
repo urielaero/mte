@@ -1,5 +1,5 @@
 <label>Escuela o bibilioteca</label>
-<div layout="column" class="text-field">
+<div  class="text-field">
     <div class="contenedor-text-field">
         <div class="cont-input-text-field">
             <input type="text" 
