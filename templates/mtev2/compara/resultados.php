@@ -28,7 +28,7 @@
 				<select>
 					<option value="">Todos</option>
 				</select>
-				<label>Nivel escolar</label>
+				<label>Nivel escolar o tipo de establecimiento</label>
 				<p><md-checkbox aria-label="Checkbox 1">Prescolar</md-checkbox></p>
 				<p><md-checkbox aria-label="Checkbox 1">Primaria</md-checkbox></p>
 				<p><md-checkbox aria-label="Checkbox 1">Secundaria</md-checkbox></p>

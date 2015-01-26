@@ -15,7 +15,7 @@
 				<label>Localidad</label>
 				<select ng-model='localidad' ng-change='$scope.pagination.current_page = 1;getEscuelas();' ng-disabled='!localidades[1]	' ng-options='localidad as localidad.nombre.capitalize() for localidad in localidades' ></select>
 
-				<label>Nivel escolar</label>
+				<label>Nivel escolar o tipo de establecimiento</label>
 				<p><md-checkbox ng-change='checkBoxChange()' ng-disabled='loading' ng-repeat='nivel in niveles' ng-model='nivel.checked' aria-label="Checkbox 1" >{{nivel.label}}</md-checkbox></p>
 				<label>Turno</label>
 				<p><md-checkbox ng-change='checkBoxChange()' ng-disabled='loading' ng-repeat='turno in turnos' ng-model='turno.checked' aria-label="Checkbox 1" >{{turno.label}}</md-checkbox></p>
@@ -42,7 +42,7 @@
 					<thead>
 						<tr>
 							<th class="footable-first-column" ng-bind='tableTitle'></th>
-							<th data-hide="phone">Nivel escolar</th>
+							<th data-hide="phone">Nivel escolar o tipo de establecimiento</th>
 							<th data-hide="phone">Turno</th>
 							<th data-hide="phone">Privada / Pública</th>
 							<th style="max-width: 130px" class="footable-last-column">Semáforo educativo</th>
@@ -62,7 +62,7 @@
 										<span flex class="datos-escuela">
 											<strong  ng-bind='escuela.nombre'></strong>
 											<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
-											<p ng-show='escuela.turno.nombre'><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
+											<!--<p ng-show='escuela.turno.nombre'><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>-->
 											<br ng-hide='escuela.turno.nombre' />
 										</span>
 									</a>

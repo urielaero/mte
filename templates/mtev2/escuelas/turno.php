@@ -52,7 +52,7 @@
 						<div class="icono-datos">
 							<h3 class="h3-icono-turno"><i class="icon-alumnos"></i></h3>
 						</div>
-						<div class="text-datos"><h3 class="h3-text-datos">Número de Alumnos</h3></div>
+						<div class="text-datos"><h3 class="h3-text-datos">Número de alumnos</h3></div>
 						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->total_evaluados?></h3></div>
 					</div>
 				</div>
