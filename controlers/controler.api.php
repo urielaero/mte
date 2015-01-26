@@ -16,6 +16,16 @@ class api extends main{
 	public function escuelas(){
 		//$this->debug = true;
 		$params = new stdClass();
+
+		if($this->request('term') && isset($this->config->solr_server)){
+			$params->term = $this->request('term');
+			$p = $this->request('p')?$this->request('p'):1;
+			$this->get_escuelas_new($params,$p);
+			$res = array('escuelas' => $this->escuelas);
+			echo json_encode($res);
+			return;
+		}
+
 		if($this->request('sort') == 'Semáforo educativo')
 			$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,(select max(id)+1 from escuelas)), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
 		else if($this->request('sort') == 'Promedio general')
