@@ -74,3 +74,12 @@
 	<?php $this->include_template('comparaSidebar','directives'); ?>
 </script>
 <div compara-sidebar></div>
+<div id="toggle-compara" ng-controller="headerCTL">
+	<div ng-click="toggleComparador()">
+		<div class="top">
+			<p><a href="#"><i class="icon-compara-01"></i></a></p>
+			<p><a href="#">Comparar</a></p>
+		</div>
+		<div class="num">0</div>		
+	</div>
+</div>
