@@ -148,8 +148,10 @@
 								<td class="school"><a ng-href="/escuelas/index/{{escuela.cct}}" ng-bind='escuela.nombre'></a></td>
 								<td class="rank" ng-repeat='score in escuela.stats[statsYear].esp track by $index' ng-bind='getPCT(score,escuela)'></td>
 								<td class="rank" ng-repeat='score in escuela.stats[statsYear].mat track by $index' ng-bind='getPCT(score,escuela)'></td>
-								<td class="rank" ng-bind='escuela.stats[statsYear].alumnos'></td>
-								<td class="rank" ng-bind='getPCT(escuela.poco_confiables,escuela)'></td>
+								<td ng-show='!escuela.stats[statsYear].esp' ng-repeat='blank in ["--","--","--","--"] track by $index' ng-bind='blank'></td>
+								<td ng-show='!escuela.stats[statsYear].mat' ng-repeat='blank in ["--","--","--","--"] track by $index' ng-bind='blank'></td>
+								<td class="rank" ng-bind='escuela.stats[statsYear].alumnos || "--"'></td>
+								<td class="rank" ng-bind='getPCT(escuela.poco_confiables,escuela) || "--"'></td>
 							</tr>
 						</tbody>
 					</table>				
@@ -190,6 +192,6 @@
 			</div>
 		</form>
 	</div> -->
-		<a href="#" class="add-school">Agregar otra escuela</a>	
+		<a href="" ng-click='toggleComparador()' class="add-school">Agregar otra escuela</a>	
 	</div>
 </div>

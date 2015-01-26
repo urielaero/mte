@@ -1,11 +1,13 @@
-app.controller("comparaCTL", ['$scope','$http','userInfo','templateData',function ($scope,$http,userInfo,templateData){
+app.controller("comparaCTL", ['$scope','$http','userInfo','templateData','$mdSidenav',function ($scope,$http,userInfo,templateData,$mdSidenav){
     $scope.escuelas = [];
     $scope.semaforos = templateData.getVar('semaforos');
     $scope.years = templateData.getVar('enlaceYears');
     $scope.loading = true;
     $scope.statsYear = 2012;
 
-
+    $scope.toggleComparador = function() {
+        $mdSidenav('comparaSidenav').toggle();
+    };
     $scope.getPCT = function(score,escuela){
         var pct = (score/escuela.stats[$scope.statsYear].alumnos) * 100;
         return pct.toFixed(1)+'%';
