@@ -11,7 +11,7 @@
             };
 
             $scope.onSelect = function($item){
-		window.location = '/escuelas/index/'+$item.cct;
+                window.location = '/escuelas/index/'+$item.cct;
             }; 
     };
     controller.$inject = ['$scope','$http','$location'];
@@ -21,7 +21,12 @@
             scope : {
                 model : '=',
             },
-            templateUrl : 'mteTextSearch.html'
+            templateUrl: function (elem, attr){ 
+                if(attr.temp === 'headerTextSearch'){
+                    return 'headerTextSearch.html';
+                }
+                return 'mteTextSearch.html'
+            }
         };
     };
     app.directive('mteTextSearch', directive);
