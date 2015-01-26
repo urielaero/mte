@@ -1,3 +1,38 @@
+<script type='text/javascript'>
+    window.escuela = <?= json_encode($this->escuelaSummary) ?>;
+</script>
+<?php
+$escuela_per_turnos = array();
+if(!empty($this->escuela->rank)){
+	foreach($this->escuela->rank as $rank){
+		$tmp = new stdClass();
+		$tmp->nombre_icon = $rank->turno[0]->nombre=='VESPERTINO'?'vespertino-01':strtolower($rank->turno[0]->nombre);
+		$tmp->nombre = $this->capitalize($rank->turno[0]->nombre);
+		$tmp->turnos_eval = $rank->turnos_eval;
+		$tmp->rank = isset($rank->rank_entidad) ? number_format($rank->rank_entidad ,0): '--';
+		$tmp->rank_total = number_format($this->entidad_cct_count,0);
+		$tmp->total_evaluados = $rank->total_evaluados?$rank->total_evaluados:'N/D';
+		$tmp->pct_reprobados = $rank->pct_reprobados?$rank->pct_reprobados:'N/D';
+		$tmp->semaforo =  $this->config->semaforos[$rank->semaforo];
+		$tmp->chart_ma = $this->escuela->matematicas_charts && isset($this->escuela->matematicas_charts[$rank->turnos_eval])?$this->escuela->matematicas_charts[$rank->turnos_eval]:'';
+		$tmp->chart_es = $this->escuela->espaniol_charts && isset($this->escuela->espaniol_charts[$rank->turnos_eval])?$this->escuela->espaniol_charts[$rank->turnos_eval]:'';
+		$escuela_per_turnos[] = $tmp;
+	}
+}else{	
+	$tmp = new stdClass();
+	$tmp->nombre_icon = 'matutino';
+	$tmp->nombre = $this->capitalize('matutino');
+        $tmp->rank = isset($this->escuela->rank_entidad) ? number_format($this->escuela->rank_entidad ,0): '--';
+	$tmp->rank_total = number_format($this->entidad_cct_count,0);
+	$tmp->total_evaluados = isset($this->escuela->total_evaluados)?$this->escuela->total_evaluados:'N/D';
+	$tmp->pct_reprobados = isset($this->escuela->pct_reprobados)?$this->escuela->pct_reprobados:'N/D';
+	$tmp->chart_ma = $this->escuela->line_chart_matematicas;
+	$tmp->chart_es = $this->escuela->line_chart_espaniol;
+	$tmp->semaforo = false;
+	$escuela_per_turnos[] = $tmp;
+}
+?>
+
 <div class="container califica" ng-controller="escuelaCTL">
 	<div class="breadcrumb">
 		<a href="#" class="start"><i class="icon-mejora"></i></a>
@@ -15,251 +50,33 @@
 						</div>
 					</div>
 					<div flex="75" flex-sm="100">
-						<h1>Octavio Paz Locazon</h1>
-						<p>Posición estatal 3 de 95</p>
+						<h1><?=$this->capitalize($this->escuela->nombre)?></h1>
+				    	<?php foreach($escuela_per_turnos as $i=>$escuela){?>
+							<p ng-if="selectedIndex==<?=$i?>">Posición estatal <?=$escuela->rank?> <span>de</span> <?=number_format($this->entidad_cct_count,0)?></p>
+					<?php } ?>
 					</div>
 				</div>			
 			</div>
 			<div class="tabs" flex="30" flex-sm="100">
 			    <md-tabs md-selected="selectedIndex">
-			    	<md-tab id="matutino-tab" aria-controls="tab1-content">
-			    		<i class="icon-matutino"></i>
-			        	Matutino
-			      	</md-tab>
-			      	<md-tab id="vespertino-tab" aria-controls="tab2-content">
-			      		<i class="icon-vespertino-01"></i>
-			        	Vespertino
-			      	</md-tab>
+		    	<?php foreach($escuela_per_turnos as $i=>$escuela){?>
+				    	<md-tab id="<?=$escuela->nombre_icon?>-tab" aria-controls="tab<?=$i?>-content">
+				    		<i class="icon-<?=$escuela->nombre_icon?>"></i>
+				        	<?=$escuela->nombre?>
+				      	</md-tab>
+				<?php } ?>
 			    </md-tabs>				
 			</div>
 		</div>
 	</div>
     <ng-switch on="selectedIndex" class="tabpanel-container">
-        <div role="tabpanel" id="califica-content" aria-labelledby="tab1" ng-switch-when="0" md-swipe-left="next()" md-swipe-right="previous()" >
-			<h1 class="green-title">Califica tu escuela seleccionando para cada campo una calificación del <strong>1-10</strong>.<br/>Estas calificaciones se promedian para generar la calificación general de tu escuela</h1>
-			
-			<div class="questions-box space-between" layout="row" layout-sm="column">
-				<div class="question" flex-sm="100" >
-					<div class="question-content">
-		        		<div class="question-title q1" layout="row">
-		        			<div class="icon-container" flex="20">
-								<div  class="icon-wrapper vertical-align-center horizontal-align-center">
-									<i class="icon-check-01"></i>
-								</div>		        				
-		        			</div>
-		        			<h3 flex="80">Asistencia de los maestros</h3>
-		        		</div>
-			        	<div class="text">
-							<p>¿Los maestros faltan a clases constantemente o siempre estan en el aula?</p>
-							<p>1 = "Faltan constantemente"</p>
-							<p>10 = "Nunca faltan"</p>
-						</div>
-						<div class="ans-row" layout="row">
-							<div flex class="ans">1</div>
-							<div flex class="ans">2</div>
-							<div flex class="ans">3</div>
-							<div flex class="ans">4</div>
-							<div flex class="ans">5</div>
-							<div flex class="ans">6</div>
-							<div flex class="ans">7</div>
-							<div flex class="ans">8</div>
-							<div flex class="ans">9</div>
-							<div flex class="ans">10</div>
-						</div>			
-					</div>
-				</div>
-				<div class="question" flex-sm="100" >
-					<div class="question-content">
-		        		<div class="question-title q1" layout="row">
-		        			<div class="icon-container" flex="20">
-								<div  class="icon-wrapper vertical-align-center horizontal-align-center">
-									<i class="icon-programaapoyo-01"></i>
-								</div>		        				
-		        			</div>
-		        			<h3 flex="80">Preparación de los maestros</h3>
-		        		</div>
-			        	<div class="text">
-							<p>¿Qué tan preparados y capacitados están los maestros de tu escuela?</p>
-							<p>1 = "Poco preparados" </p>
-							<p>10 = "Muy preparados"</p>
-						</div>
-						<div class="ans-row" layout="row">
-							<div flex class="ans">1</div>
-							<div flex class="ans">2</div>
-							<div flex class="ans">3</div>
-							<div flex class="ans">4</div>
-							<div flex class="ans">5</div>
-							<div flex class="ans">6</div>
-							<div flex class="ans">7</div>
-							<div flex class="ans">8</div>
-							<div flex class="ans">9</div>
-							<div flex class="ans">10</div>
-						</div>			
-					</div>
-				</div>
-			</div>
-
-			<div class="questions-box space-between" layout="row" layout-sm="column">
-				<div class="question" flex-sm="100" >
-					<div class="question-content">
-		        		<div class="question-title q2" layout="row">
-		        			<div class="icon-container" flex="20">
-								<div  class="icon-wrapper vertical-align-center horizontal-align-center">
-									<i class="icon-escuela-01"></i>
-								</div>		        				
-		        			</div>
-		        			<h3 flex="80">Infraestructura de la escuela</h3>
-		        		</div>
-			        	<div class="text">
-							<p>¿La escuela cuenta con las instalaciones necesarias para dar clases?</p>
-							<p>1 = "Inadecuadas"</p>
-							<p>10 = "Muy buenas"</p>
-						</div>
-						<div class="ans-row" layout="row">
-							<div flex class="ans">1</div>
-							<div flex class="ans">2</div>
-							<div flex class="ans">3</div>
-							<div flex class="ans">4</div>
-							<div flex class="ans">5</div>
-							<div flex class="ans">6</div>
-							<div flex class="ans">7</div>
-							<div flex class="ans">8</div>
-							<div flex class="ans">9</div>
-							<div flex class="ans">10</div>
-						</div>			
-					</div>
-				</div>
-				<div class="question" flex-sm="100" >
-					<div class="question-content">
-		        		<div class="question-title q2" layout="row">
-		        			<div class="icon-container" flex="20">
-								<div  class="icon-wrapper vertical-align-center horizontal-align-center">
-									<i class="icon-familia-01"></i>
-								</div>		        				
-		        			</div>
-		        			<h3 flex="80">Relación con padres de familia</h3>
-		        		</div>
-			        	<div class="text">
-							<p>¿Cómo es la relación de los maestros y director con los padres de familia?</p>
-							<p>1 = "Mala"</p>
-							<p>10 = "Muy buena"</p>
-						</div>
-						<div class="ans-row" layout="row">
-							<div flex class="ans">1</div>
-							<div flex class="ans">2</div>
-							<div flex class="ans">3</div>
-							<div flex class="ans">4</div>
-							<div flex class="ans">5</div>
-							<div flex class="ans">6</div>
-							<div flex class="ans">7</div>
-							<div flex class="ans">8</div>
-							<div flex class="ans">9</div>
-							<div flex class="ans">10</div>
-						</div>			
-					</div>
-				</div>
-			</div>
-
-			<div class="questions-box space-between" layout="row" layout-sm="column">
-				<div class="question" flex-sm="100" >
-					<div class="question-content">
-		        		<div class="question-title q3" layout="row">
-		        			<div class="icon-container" flex="20">
-								<div  class="icon-wrapper vertical-align-center horizontal-align-center">
-									<i class="icon-buscar-01"></i>
-								</div>		        				
-		        			</div>
-		        			<h3 flex="80">Honestidad y transparencia</h3>
-		        		</div>
-			        	<div class="text">
-							<p>¿Las evaluaciones y exámenes se administran de manera honesta y transparente?</p>
-							<p>1 = "Hay copia y trampa" </p>
-							<p>10 = "Con honestidad"</p>
-						</div>
-						<div class="ans-row" layout="row">
-							<div flex class="ans">1</div>
-							<div flex class="ans">2</div>
-							<div flex class="ans">3</div>
-							<div flex class="ans">4</div>
-							<div flex class="ans">5</div>
-							<div flex class="ans">6</div>
-							<div flex class="ans">7</div>
-							<div flex class="ans">8</div>
-							<div flex class="ans">9</div>
-							<div flex class="ans">10</div>
-						</div>			
-					</div>
-				</div>
-				<div class="question" flex-sm="100" >
-					<div class="question-content">
-		        		<div class="question-title q3" layout="row">
-		        			<div class="icon-container" flex="20">
-								<div  class="icon-wrapper vertical-align-center horizontal-align-center">
-									<i class="icon-desk-01"></i>
-								</div>		        				
-		        			</div>
-		        			<h3 flex="80">Participación de padres de familia</h3>
-		        		</div>
-			        	<div class="text">
-							<p>¿Los padres de familia participan de manera activa y organizada en la escuela?</p>
-							<p>1 = "No participan"</p>
-							<p>10 = "Participación activa"</p>
-						</div>
-						<div class="ans-row" layout="row">
-							<div flex class="ans">1</div>
-							<div flex class="ans">2</div>
-							<div flex class="ans">3</div>
-							<div flex class="ans">4</div>
-							<div flex class="ans">5</div>
-							<div flex class="ans">6</div>
-							<div flex class="ans">7</div>
-							<div flex class="ans">8</div>
-							<div flex class="ans">9</div>
-							<div flex class="ans">10</div>
-						</div>			
-					</div>
-				</div>
-			</div>
-
-			<div class="result" layout="row">
-				<div flex="70" class="desc">En promedio, calificas a tu escuela con:</div>
-				<div flex="30" class="number">8</div>
-			</div>
-			
-			<form action="/" method="GET" class="comment-form">
-				<div layout="row" ng-click="toggleFormEvent()">
-					<div flex="10" class="icon-container" hide-sm>
-						<i class="icon-comentario-01"></i>
-					</div>						
-					<textarea flex="90" flex-sm="100" placeholder="Deja un comentario de esta escuela aquí"></textarea>
-				</div>
-				<div class="extra animated fadeInDown" ng-show="toggleForm">
-					<div class="fields" layout="row" layout-margin layout-fill layout-padding>
-						<input type="text" name="nombre" flex placeholder="Nombre">
-						<input type="email" name="correo" flex placeholder="Correo electrónico">
-						<select flex>
-							<option value="">¿Quién eres?</option>
-						</select>
-					</div>
-					<div class="sumbit-fields space-between" layout="row" layout-sm="column">
-						<div class="captcha" flex="33" flex-sm="100"></div>
-						<div flex="66" flex-sm="100">
-							<div layout="row" class="space-between">
-								<md-button type="submit" class="md-raised" flex="49">Enviar</md-button>
-								<div flex="49" class="check">
-									<md-checkbox name="check" value="1" aria-label="Checkbox 1">*Quiero que mi nombre se publique junto con mi comentario</md-checkbox>
-								</div>
-							</div>
-							<div class="msg">
-								<p>*Tu correo electronico NO aparecerá con tu comentario.</p>
-								<p>Si no quieres que tu comentario se publique en el perfil de la escuela, escribenos a:contacto@mejoratuesceual.org</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</form>
-        </div>
-        <div role="tabpanel" id="profile-content" aria-labelledby="tab1" ng-switch-when="1" md-swipe-left="next()" md-swipe-right="previous()" >
-		</div>
-    </ng-switch>
+    	<?php foreach($escuela_per_turnos as $i=>$escuela){
+		$this->escuela_per_turno = $escuela;
+        $this->escuela_per_turno_index = $i;
+	?>
+	        <div role="tabpanel" id="califica-content" aria-labelledby="tab1" ng-switch-when="0" md-swipe-left="next()" md-swipe-right="previous()" >
+				<?php $this->include_template('califica_turno','califica_tu_escuela'); ?>
+	        </div>
+	<?php } ?>
+    </ng-switch>	
 </div>

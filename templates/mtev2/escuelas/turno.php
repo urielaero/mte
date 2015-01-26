@@ -14,7 +14,7 @@
 					<div flex="65">
 						<h4>Califica tu escuela</h4>
 					</div>
-					<a href="#" class="full-size-link"></a>
+					<a href="califica_tu_escuela/califica/<?=$this->escuela->cct?>" class="full-size-link"></a>
 				</div>
 				<div class="block">
 					<ul>

@@ -32,9 +32,8 @@ class califica_tu_escuela extends main{
 		$this->title_header = 'Califica tu escuela';
 		$this->subtitle_header = 'Una vez que conoces y has comparado tu escuela, te invitamos a<br />que califiques algunos aspectos de la misma. Las calificaciones<br />ayudan a detectar áreas de mejora y a reconocer los<br />logros alcanzados.';
 		$this->header_folder = 'compara';
-		
 		if($this->escuela_info()){
-			$tipo_encuesta = 'escuelas';	
+			$tipo_encuesta = 'escuelas';
 			if(preg_match('/^..BB/', $this->escuela->cct)){
 				$tipo_encuesta = 'bibliotecas';
 				$this->title_header = 'Califica tu biblioteca';
@@ -51,6 +50,15 @@ class califica_tu_escuela extends main{
 			$aux->search_clause = "tipo_pregunta = {$tipo_pregunta->id}";
 			$this->preguntas = $aux->read('id,titulo,pregunta,descripcion_valor_minimo,descripcion_valor_maximo');
 			$this->tipo_encuesta = $tipo_encuesta;
+
+			//Objeto para mtev2
+			$this->escuelaSummary = new stdClass();
+			$this->escuelaSummary->nombre = $this->escuela->nombre;
+			$this->escuelaSummary->nivel = $this->escuela->nivel->id;
+			$this->escuelaSummary->turno = $this->escuela->turno->id;
+			$this->escuelaSummary->municipio = $this->escuela->municipio->id;
+			$this->escuelaSummary->localidad = $this->escuela->localidad->id;
+
 			$this->include_theme('index','califica');
 		
 		}else{
@@ -96,6 +104,7 @@ class califica_tu_escuela extends main{
 				$this->instruction = '¿Qué escuela quieres calificar?';
 				$this->instruction2 = 'Búscala aquí';
 			}
+			echo 'hasta aca';
 			$this->include_theme('index','index');
 		}
 	}

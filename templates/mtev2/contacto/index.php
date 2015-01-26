@@ -23,9 +23,14 @@
 			<input type="mail" class="mail-input forms-contactanos" placeholder="Correo electrónico" flex="45">
 		</div>
 		<textarea placeholder="Mensaje" class=" forms-contactanos" cols="30" rows="7"></textarea>
-		<p >
+		<div class="cont-boton-contactos">
+			<div id="boton-contactos">
+				<input style="height: 50px;margin-top: -1px;margin-left: 0px;float: left;width: 100%;"type="submit" value="Enviar" >
+			</div>			
+		</div>
+		<!--<p >
 			<input class="boton-contatos" type="submit" value="Enviar" >
 			<div class="clear"></div>
-		</p>
+		</p>-->
 	</form>
 </div>
