@@ -36,6 +36,7 @@
 			'controllers/controller.js',
 			'controllers/conoceCTL.js',
 			'controllers/comparaCTL.js',
+			'controllers/escuelaCTL.js',
 			'services/userInfo.js',
 			'services/templateData.js',
 			'directives/mteNgSearch.js',
