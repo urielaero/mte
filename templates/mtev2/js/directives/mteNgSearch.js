@@ -106,8 +106,15 @@ var controller = function ($scope,$http,userInfo,templateData) {
             if(controles.length == 1) $scope.params.control = controles[0];
             var turnos = $scope.processCheckBoxes($scope.turnos);
             if(turnos.length == 1) $scope.params.turno = turnos[0];
+            if(termSearch) $scope.params.term = termSearch;
 
         };
+        var termSearch = false;
+        $scope.termSearch = function(term){
+            termSearch = term || false;
+            $scope.getEscuelas();
+        };
+
         $scope.loadDefaults = function(){
             // Todo cargar estos datos mediant un servicio
             if($scope.showSearch){

@@ -15,6 +15,11 @@
         $scope.onSelect = function($item){
             window.location = '/escuelas/index/'+$item.cct;
         }; 
+
+        $scope.search = function(){
+            if($scope.term)
+                $scope.term({term:$scope.text});
+        };
     };
     controller.$inject = ['$scope','$http','$location','userInfo'];
     var directive = function () {
@@ -22,6 +27,7 @@
             controller : controller,
             scope : {
                 model : '=',
+                term:'&'
             },
             templateUrl: function (elem, attr){ 
                 if(attr.temp == 'undefined'){
