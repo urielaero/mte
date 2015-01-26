@@ -17,7 +17,7 @@ class api extends main{
 		//$this->debug = true;
 		$params = new stdClass();
 		if($this->request('sort') == 'Semáforo educativo')
-			$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
+			$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,(select max(id)+1 from escuelas)), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
 		else if($this->request('sort') == 'Promedio general')
 			$params->order_by = 'escuelas_para_rankeo.promedio_general DESC';
 		if($this->request('ccts')) $params->ccts = explode(',',$this->request('ccts')); 
