@@ -71,7 +71,7 @@
 						</div>
 					</div>
 					<div flex="90">
-						<h3>Contácto</h3>			
+						<h3>Contacto</h3>			
 					</div>					
 				</div>
 				<div class="text">
