@@ -2,7 +2,11 @@
 	<div layout="row" layout-sm="column" class="space-between">
 		<div ng-show='showSearch' flex="25" flex-sm="100" id="filters">
 			<form>
-				<div mte-text-search object='textSearch' ></div>
+				<label>Escuela o biblioteca</label>
+				<div layout="row" class="text-field">
+					<input type="text" flex="80" placeholder="Ej. Jean Piaget">
+					<input type="submit" value="" flex="20">
+				</div>
 
 				<label>Estado</label>
 				<select ng-model='entidad' ng-disabled='loading' ng-change='entidadChange()' ng-options='entidad as entidad.nombre.capitalize() for entidad in entidades' ></select>

@@ -53,7 +53,7 @@ class compara extends main{
 			}else{
 				$params = isset($params)?$params:new stdClass();
 				$params->pagination = 6;
-				$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
+				$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,(select max(id)+1 from escuelas)), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
 				$this->get_escuelas($params);
 				$this->set_info_user_search(isset($this->pagination->total_results) ? $this->pagination->total_results : 0);
 				$this->process_escuelas();
@@ -166,7 +166,7 @@ class compara extends main{
 			$name_entidad = $this->user_location->nombre;
 		}
 		$params->pagination = 6;
-		$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
+		$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,(select max(id)+1 from escuelas)), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
 		$this->get_escuelas($params);
 		$this->process_escuelas();
 		$this->cct_count_entidad();
