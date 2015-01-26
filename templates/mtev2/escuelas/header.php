@@ -18,7 +18,10 @@
 						<p><?=$this->subtitle_header?></p>
 					</h1>
 				</div>
-				<?php $this->include_template('simple_search','global'); ?>
+				<script type="text/ng-template" id="headerTextSearch.html">
+					<?php $this->include_template('headerTextSearch','directives'); ?>
+				</script>
+				<div mte-text-search object='textSearch' temp="headerTextSearch" ></div>
 			</div>
 			<div class="clear"></div>
 		</div>
