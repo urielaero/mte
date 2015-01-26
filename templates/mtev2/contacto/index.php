@@ -2,12 +2,10 @@
 <div class="cont-breadcrumb-contacto">
 	<div class="container results mteNgSearch">
 		<div class="breadcrumb">
-			<a class="start " href="#">
-				<i class="icon-home-01"></i>
+			<a class="start start2-2" href="#">
+				<i class="icon-escuela-01"></i>
 			</a>
-			<a class="start mibread" href="#">
-				<a href="#">Contácto</a>
-			</a>
+			<a href="#">Contáctanos</a>
 		</div>
 	</div>
 </div>
