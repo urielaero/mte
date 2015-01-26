@@ -46,8 +46,8 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat='escuela in escuelas'>
-								<td class='link'>
-									<a layout='row' ng-href='/escuelas/index/{{escuela.cct}}' class="cont-datos-escuela">
+								<td class='link' >
+									<a layout='row' flex ng-href='/escuelas/index/{{escuela.cct}}' class="cont-datos-escuela">
 										<span class="cont-ico-compara" layout='row' layout-align='center center'>
 											<span class="h3-iconmejora">
 												<span class="circulo-icon-mejora" ng-click='toggleSchool(escuela,$event)'  >
@@ -59,6 +59,7 @@
 											<strong  ng-bind='escuela.nombre'></strong>
 											<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
 											<p ng-show='escuela.turno.nombre'><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
+											<br ng-hide='escuela.turno.nombre' />
 										</span>
 									</a>
 
@@ -67,7 +68,7 @@
 							<td ng-show='escuela.turno.nombre'>{{escuela.turno.nombre.capitalize()}}</td>
 							<td ng-show='!escuela.turno.nombre'>No Aplica</td>
 							<td>{{escuela.control}}</td>
-							<td style="max-width:130px">
+							<td style="max-width:172px">
 								<md-button ng-class="semaforos[escuela.semaforo].class" class="md-fab" aria-label="Time">
 									<i class="semaforos-buscador" ng-class="semaforos[escuela.semaforo].icon"></i>
 								</md-button>
