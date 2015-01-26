@@ -92,7 +92,7 @@ md-tabs.md-default-theme md-tabs-ink-bar:before{
 	transition: height .2s;
 }
 #header .menu a.principal:hover:after{height:100%}
-#header .menu a.logo{width:auto;margin:6px 18px 0 14px;padding:0;background-color:transparent;}
+#header .menu a.logo{width:auto;margin:10px 4px 0 6px;padding:0;background-color:transparent;}
 #header .menu a.logo:before{background-color:transparent;}
 #header .menu a.logo:hover{background-color:transparent;}
 #header .menu a.logo img{max-width: 90%}
@@ -699,7 +699,7 @@ ul.dropdown-menu li p{line-height: 1.2}
 
 
 /*Contact*/
-#content .container.contact{background: #00AFF0}
+#content .container.contact{background: #00AFF0;width:886px;}
 #content .container.contact form{padding: 25px}
 #content .container.contact form input{border: 0;padding: 12px 8px}
 #content .container.contact form .text-input,
