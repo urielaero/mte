@@ -3,6 +3,13 @@ app.controller("comparaCTL", ['$scope','$http','userInfo','templateData',functio
     $scope.semaforos = templateData.getVar('semaforos');
     $scope.years = templateData.getVar('enlaceYears');
     $scope.loading = true;
+    $scope.statsYear = 2012;
+
+
+    $scope.getPCT = function(score,escuela){
+        var pct = (score/escuela.stats[$scope.statsYear].alumnos) * 100;
+        return pct.toFixed(1)+'%';
+    }
     $scope.getEscuelas = function(){
         var ccts = userInfo.getCCTs().join(',');
         var params  = {
@@ -13,11 +20,10 @@ app.controller("comparaCTL", ['$scope','$http','userInfo','templateData',functio
             detail : true,
         };
         $http({method:'POST',url:'/api/escuelas',data:params}).then(function(response){
-            //console.log(response);
+            console.log(response);
             $scope.escuelas = response.data.escuelas;
             $scope.loading = false;
-            console.log('load map');
-            $scope.loadMap(response.data.escuelas);
+            //$scope.loadMap(response.data.escuelas);
         });
     }
     $scope.center = {

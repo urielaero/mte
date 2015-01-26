@@ -1,5 +1,7 @@
 app.service('userInfo',['$rootScope','$http','$cookieStore', function($rootScope,$http,$cookieStore	) {
+
     this.init = function(){
+        this.cookieName = 'mte.escuelas.comparador';
         this.listeners = [];
         this.getSchools();
     }
@@ -11,12 +13,12 @@ app.service('userInfo',['$rootScope','$http','$cookieStore', function($rootScope
         return ccts;
     }
     this.getSchools = function(){
-        this.schools = $cookieStore.get('schools') || {visited:[],selected:[]};
+        this.schools = $cookieStore.get(this.cookieName) || {visited:[],selected:[]};
         return this.schools;
     }
     this.toggleSchool = function(escuela){
     	this.addSchool(escuela,this.schools.selected,true);
-    	$cookieStore.put('schools',this.schools);
+    	$cookieStore.put(this.cookieName,this.schools);
         this.emit('userInfo.schoolsChange');
     }
     this.visitSchool = function(escuela){

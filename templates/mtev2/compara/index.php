@@ -144,18 +144,12 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td class="school"><a href="/escuelas/index/24SBC0059C">Soldado Damian Carmona</a></td>
-								<td class="rank">25%</td>
-								<td class="rank">48%</td>
-								<td class="rank">27%</td>
-								<td class="rank">0%</td>
-								<td class="rank">62%</td>
-								<td class="rank">32%</td>
-								<td class="rank">6%</td>
-								<td class="rank">0%</td>
-								<td class="rank">81</td>
-								<td class="rank">0%</td>
+							<tr ng-repeat='escuela in escuelas'>
+								<td class="school"><a ng-href="/escuelas/index/{{escuela.cct}}" ng-bind='escuela.nombre'></a></td>
+								<td class="rank" ng-repeat='score in escuela.stats[statsYear].esp track by $index' ng-bind='getPCT(score,escuela)'></td>
+								<td class="rank" ng-repeat='score in escuela.stats[statsYear].mat track by $index' ng-bind='getPCT(score,escuela)'></td>
+								<td class="rank" ng-bind='escuela.stats[statsYear].alumnos'></td>
+								<td class="rank" ng-bind='getPCT(escuela.poco_confiables,escuela)'></td>
 							</tr>
 						</tbody>
 					</table>				

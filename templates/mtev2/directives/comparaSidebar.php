@@ -27,7 +27,7 @@
 			</md-content>
 			<a href="/compara/escuelas" class="button-bordered">Comparar</a>
 		</md-content>
-		<md-content class="block visited ">
+		<md-content class="block visited">
 			<p><label><strong>Escuelas visitadas</strong></label></p>
 			<p ng-show='schools.visited.lenght > 0'>Selecciona alguna para comparar</p>
 			<md-content style='background:none' flex>
@@ -52,6 +52,6 @@
 			<p><a href=""><i class="icon-compara-01"></i></a></p>
 			<p><a href="">Comparar</a></p>
 		</div>
-		<div class="num">0</div>		
+		<div class="num" ng-bind='schools.selected.length'></div>		
 	</div>
 </div>
