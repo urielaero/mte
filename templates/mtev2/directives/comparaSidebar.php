@@ -7,7 +7,8 @@
 	<md-content layout='column' flex >
 		<md-content class="block search-box" layout='column'>
 			<p><label for="search_input"><strong>Busca una escuela</strong></label></p>
-			<p><input type="text" placeholder="Nombre de la escuela"></p>
+			<p><div mte-text-search object='textSearch' temp="comparaTextSearch" ></div></p>
+
 		</md-content>
 		<md-content class="block to-compare" flex layout='column'>
 			<p><label><strong>Escuelas para comparar</strong></label></p>

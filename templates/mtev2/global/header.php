@@ -73,4 +73,7 @@
 <script type="text/ng-template" id="comparaSidebar.html">
 	<?php $this->include_template('comparaSidebar','directives'); ?>
 </script>
+<script type="text/ng-template" id="comparaTextSearch.html">
+	<?php $this->include_template('comparaTextSearch','directives'); ?>
+</script>
 <div compara-sidebar></div>
