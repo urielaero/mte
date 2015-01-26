@@ -13,6 +13,7 @@ class mejora extends main{
 		/* Obtiene los datos necesarios para el correcto funcionamiento de las vistas. */
 		$this->common_mejora();
 		$this->page_title = 'Herramientas de mejora - Mejora tu Escuela';
+		$this->header_folder = 'mejora';
 		$this->include_theme('index','index');
 	}
 
