@@ -25,7 +25,7 @@ app.controller("comparaCTL", ['$scope','$http','userInfo','templateData','$mdSid
             console.log(response);
             $scope.escuelas = response.data.escuelas;
             $scope.loading = false;
-            //$scope.loadMap(response.data.escuelas);
+            $scope.loadMap(response.data.escuelas);
         });
     }
     $scope.center = {
