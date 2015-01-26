@@ -78,7 +78,7 @@
 				</table>
 			</div>
 			<a href="/compara/escuelas/" class="compare-button" ng-show='hasSelected()'>Comparar</a>
-			<div class="pagination">			
+			<div ng-show='showSearch' class="pagination">			
 
 				<a href="" 
 				   ng-show='pagination.current_page - 3 > 1' 

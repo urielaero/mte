@@ -160,17 +160,25 @@ class escuelas extends main{
             if (isset($this->escuela->calificaciones) && $this->escuela->calificaciones) {
                 $this->preguntas = $aux->getPreguntasConPromedio($this->escuela->cct);
             } else {
-		$tipo_encuesta = 'escuelas';	
-		if(preg_match('/^..BB/', $this->escuela->cct)){
-			$tipo_encuesta = 'bibliotecas';
-		}
-		$tipo_p = new tipo_pregunta(NULL,$this->conn);
-		$tipo_p->search_clause = "nombre = '{$tipo_encuesta}'";
-		$tipo_preguntas = $tipo_p->read('id,nombre');
-		$tipo_pregunta = $tipo_preguntas[0];
-		$aux->search_clause = "tipo_pregunta = {$tipo_pregunta->id}";
+				$tipo_encuesta = 'escuelas';	
+				if(preg_match('/^..BB/', $this->escuela->cct)){
+					$tipo_encuesta = 'bibliotecas';
+				}
+				$tipo_p = new tipo_pregunta(NULL,$this->conn);
+				$tipo_p->search_clause = "nombre = '{$tipo_encuesta}'";
+				$tipo_preguntas = $tipo_p->read('id,nombre');
+				$tipo_pregunta = $tipo_preguntas[0];
+				$aux->search_clause = "tipo_pregunta = {$tipo_pregunta->id}";
                 $this->preguntas = $aux->read('id,titulo');
             }
+			//Objeto para mtev2
+			$this->escuelaSummary = new stdClass();
+			$this->escuelaSummary->nombre = $this->escuela->nombre;
+			$this->escuelaSummary->nivel = $this->escuela->nivel->id;
+			$this->escuelaSummary->turno = $this->escuela->turno->id;
+			$this->escuelaSummary->municipio = $this->escuela->municipio->id;
+			$this->escuelaSummary->localidad = $this->escuela->localidad->id;
+
 			return true;
 		}else{
 			return false;

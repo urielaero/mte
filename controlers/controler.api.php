@@ -25,6 +25,7 @@ class api extends main{
 			$params->pagination = $this->request('pagination');
 		else
 			$params->pagination = 6;
+		if($this->request('limit')) $params->limit = $this->request('limit');
 		$this->get_escuelas($params);
 		if($this->request('cct_count_entidad')) $this->cct_count_entidad();
 		$this->process_escuelas($this->request('detail'));

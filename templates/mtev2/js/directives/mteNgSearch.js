@@ -4,6 +4,7 @@ var controller = function ($scope,$http,userInfo,templateData) {
         $scope.init = function(){
             $scope.showSearch = typeof($scope.showSearch) == 'undefined' ? true : $scope.showSearch;
             $scope.loadDefaults();
+            //console.log($scope.params);
             $scope.getEscuelas();
         }
         //Funciones que usan el servicio de usuario (comparacion)
@@ -155,6 +156,7 @@ var controller = function ($scope,$http,userInfo,templateData) {
             scope : {
                 objects : '=?',
                 showSearch : '=?',
+                params : '=?',
                 tableTitle : '@',
             },
             templateUrl : 'mteNgSearch.html'

@@ -1,3 +1,7 @@
+<script type='text/javascript'>
+    window.escuela = <?= json_encode($this->escuelaSummary) ?>;
+</script>
+
 <?php
 $escuela_per_turnos = array();
 if(!empty($this->escuela->rank)){
@@ -29,6 +33,7 @@ if(!empty($this->escuela->rank)){
 	$escuela_per_turnos[] = $tmp;
 }
 ?>
+
 
 <div class="container profile profile-escuela" ng-controller="escuelaCTL">
 	<div class="breadcrumb perfect-breadcrumb">

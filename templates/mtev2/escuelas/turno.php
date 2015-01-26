@@ -430,7 +430,12 @@ EOD;
 			</ul>
 			<?php } ?>
 		</div>
-		<div class="compare-table" mte-ng-search show-search='false' table-title='Escuelas similares'></div>
+		<div mte-ng-search
+			class="compare-table" 
+			show-search='false' 
+			params='relatedSchoolParams' 
+			table-title='Escuelas similares'>
+		</div>
 
 	</div>
 	<div flex="25" flex-sm="100" class="sidebar">
