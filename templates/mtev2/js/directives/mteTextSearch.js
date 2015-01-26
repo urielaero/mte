@@ -2,7 +2,6 @@
     var controller = function($scope,$http,$location,userInfo){ 
         $scope.getSchool = function(name){
             return $http({method:'POST',url:'/api/escuelas',data:{term:name,solr:true}}).then(function(res){
-                console.log(res.data);
                 if(res.data && res.data.escuelas)
                     return res.data.escuelas;
                 return [];
