@@ -41,7 +41,7 @@
 					if($this->programa->id==5) $datoExtra = " (datos del 2012)";
 				 ?>
 					<h1><strong><?php echo $this->programa->nombre.$datoExtra; ?></strong></h1>
-					<p><strong>Tema especifico que atiende el programa: <?php echo $this->programa->tema_especifico; ?></strong></p>				
+					<p><strong>Tema específico que atiende el programa: <?php echo $this->programa->tema_especifico; ?></strong></p>				
 				</div>
 			</div>
 			<div class="description">
