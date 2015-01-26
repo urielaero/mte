@@ -878,4 +878,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 
 /*.container .row-links a i{margin: auto; font-size: 50px; margin-top: -10px;}*/
 /*Pixel Perfec*/	
+@media (max-width: 480px) { 
+	.visited{display: none;} 
+}
 /*Carlos Barahona*/
