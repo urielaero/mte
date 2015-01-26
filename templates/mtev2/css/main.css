@@ -834,7 +834,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 /*Carlos Barahona*/
 .contact{width: 887px}
 .header-form-contactanos{height: 50px;background-color: #00B759;}
-.items-header-contact{float: left;text-align: center;margin-right: 6px;height: 100%;color: white;}
+.items-header-contact{float: left;text-align: center;height: 100%;color: white;}
 .contactanos-contactanos{background-color: #3E6DF3;width: 170px;display: table;}
 .mail-contactanos{width: 50px;display: table;}
 .correo-contactanos{width: 240px;display: table;}
@@ -842,10 +842,11 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 .telefono-contactanos{width: 100px;display: table;}
 .h3-contactanos{display: table-cell;vertical-align: middle;}
 .h3-contactanos-contacto{display: table-cell;vertical-align: middle;text-transform: uppercase;font-size: 15px}
-
-.ico-contact{background-color:#00C160}
+.cont-breadcrumb-contacto{width: 100%;max-width: 925px;margin: 0 auto }
+.ico-contact{background-color:#00C15E}
 .form-contacto{background-color: white}
 .enviar-btn-contactos{background-color: #3E6DF3;width: 200px;float: left;}
+
 
 
 
@@ -856,7 +857,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 .datos-counters-3{background-color: #2F86DC;text-align: center;display: inline-block;}
 .cont-datos{display: table;text-align: center;width: 100%;height: 80px;}
 .seccion-datos{width: 210px;height: 70px;margin: 0 auto;margin-top: 5px;}
-.icono-datos{width: 40px;height: 100%;float: left;color:#286FBB;display: table#content .mteNgSearch}
+.icono-datos{width: 40px;height: 100%;float: left;color:#286FBB;display: table}
 .h3-icono-turno{width: auto;font-size: 20px;display: table-cell;vertical-align: middle;margin: 0 auto;color: white}
 .text-datos{width: 90px;height: 100%;float: left;color:#286FBB;display: table}
 .h3-text-datos{width: auto;font-size: 13px;color: white;display: table-cell;vertical-align: middle;text-align: left;margin: 0 auto}
