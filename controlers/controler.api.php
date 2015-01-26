@@ -17,7 +17,7 @@ class api extends main{
 		//$this->debug = true;
 		$params = new stdClass();
 
-		if($this->request('term') && isset($this->config->solr_server)){
+		if($this->request('term') && $this->request('solr') && isset($this->config->solr_server)){
 			$params->term = $this->request('term');
 			$p = $this->request('p')?$this->request('p'):1;
 			$this->get_escuelas_new($params,$p);
