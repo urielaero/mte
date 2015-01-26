@@ -52,7 +52,7 @@ class resultados_nacionales extends main{
 		for($i=0;$i<count($niveles);$i++){
 			$params = new stdClass();
 			$params->entidad = $this->entidad->id;
-			$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC';
+			$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,(select max(id)+1 from escuelas)), escuelas_para_rankeo.rank_entidad ASC';
 			$params->limit = '0,5';
 			$params->nivel = $niveles[$i];
 			$this->get_escuelas($params);

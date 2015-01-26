@@ -22,7 +22,7 @@ class escuelas extends main{
 			$params->limit = '8 OFFSET 0';
 			$params->localidad = $this->escuela->localidad->id;
 			$params->nivel = $this->escuela->nivel->id;
-			$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC';
+			$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,(select max(id)+1 from escuelas)), escuelas_para_rankeo.rank_entidad ASC';
 			$this->load_compara_cookie();
 			$this->get_escuelas($params);
 			if($this->compara_cookie){

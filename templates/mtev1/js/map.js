@@ -42,6 +42,33 @@ $().ready(function(){
 });
 
 function initialize_map(turno){
+    turno = turno || window.location.hash || '#100';
+    var data = $.parseJSON($("#map-data").html()),
+	cctNow = $('.hidden.CCT').text(),
+    rank1 = data.escuelas[data.escuelas.length-1] || {},
+    rank2 = data.escuelas[data.escuelas.length-2] || {};
+    if(!data || !data.escuelas) return;
+    for(var i=0;i<data.escuelas.length;i++){
+        var escuela = data.escuelas[i];
+        if(escuela.cct == cctNow && (rank1.cctRank || rank2.cctRank)){
+            if(escuela.cctRank != turno){
+                data.escuelas.splice(i--,1);
+            }
+        }
+    }
+    if(data.escuelas.length == 1){
+        data.centerlat = data.escuelas[0].latitud;
+        data.centerlong = data.escuelas[0].longitud;
+    }
+    var center = new google.maps.LatLng(data.centerlat,data.centerlong),
+    mapOptions = {zoom: data.zoom,center: center,mapTypeId:google.maps.MapTypeId.ROADMAP},
+    map = new google.maps.Map(document.getElementById("mapa"), mapOptions);
+	for(var i=0;i<data.escuelas.length;i++) add_marker(data.escuelas[i],map);
+}
+
+
+
+function initialize_map_back(turno){
 	turno = turno || false
 	var data = $.parseJSON($("#map-data").html())
 	, uniqueEscuela
@@ -78,11 +105,13 @@ function initialize_map(turno){
 	for(x in data.escuelas) add_marker(data.escuelas[x],map);
 }
 function add_marker(escuela,map){
-	var position = new google.maps.LatLng(escuela.latitud,escuela.longitud);
-	if(typeof($('#map-selected').val()) != 'undefined'){
-		var icon = $('#map-selected').val() == escuela.cct ? escuela.semaforo : escuela.semaforo+'op';
+	var position = new google.maps.LatLng(escuela.latitud,escuela.longitud),
+    map_selected_val = $('#map-selected').val(),
+    icon;
+	if(map_selected_val != undefined){
+		icon = map_selected_val == escuela.cct ? escuela.semaforo : escuela.semaforo+'o';
 	}else{
-		var icon = escuela.semaforo;
+		icon = escuela.semaforo;
 	};
 	var urlCdn = "http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/pins_"
 	//var urlCdn = "/templates/mtev1/img/pins/nuevos/pins_"

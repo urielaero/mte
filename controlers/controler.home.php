@@ -33,7 +33,7 @@ class home extends main{
 		//$params->order_by = ' ISNULL(escuelas.rank_entidad), escuelas.rank_entidad ASC, escuelas.promedio_general DESC';
 		$params = new stdClass();
 		
-		$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC';
+		$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,(select max(id)+1 from escuelas)), escuelas_para_rankeo.rank_entidad ASC';
 		$this->nivel_5 = $params->nivel = $niveles[rand(0,2)];
 		$params->entidad = $this->user_location->id;
 		$params->limit = '5 OFFSET 0';
@@ -147,7 +147,7 @@ class home extends main{
 		$params = new stdClass();
 		$this->nivel_5 = $params->nivel = $niveles[rand(0,2)];
 		$name_entidad = $this->request('name_entidad');
-		$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,1), escuelas_para_rankeo.rank_entidad ASC';
+		$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,(select max(id)+1 from escuelas)), escuelas_para_rankeo.rank_entidad ASC';
 		$entidad = new entidad(NULL,$this->conn);
 		$entidad->search_clause = " LOWER(entidades.nombre) = LOWER('$name_entidad')";
 		//TODO: pg_query falla con comillas dobles!

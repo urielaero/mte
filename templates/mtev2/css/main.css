@@ -92,7 +92,7 @@ md-tabs.md-default-theme md-tabs-ink-bar:before{
 	transition: height .2s;
 }
 #header .menu a.principal:hover:after{height:100%}
-#header .menu a.logo{width:auto;margin:6px 18px 0 14px;padding:0;background-color:transparent;}
+#header .menu a.logo{width:auto;margin:10px 4px 0 6px;padding:0;background-color:transparent;}
 #header .menu a.logo:before{background-color:transparent;}
 #header .menu a.logo:hover{background-color:transparent;}
 #header .menu a.logo img{max-width: 90%}
@@ -127,7 +127,9 @@ md-tabs.md-default-theme md-tabs-ink-bar:before{
 md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #sidebar-compare{background: #1EA7ED;color: #fff;position: fixed;z-index: 99999}
 #sidebar-compare md-toolbar.md-default-theme{background: #0054AC!important;font-weight: 700;position: relative;text-align: center;}
-#sidebar-compare md-toolbar h3{font-size: 18px;text-align: center;}
+#sidebar-compare md-toolbar .compara-icon-wrap{line-height: 1;margin-top: 10px}
+#sidebar-compare md-toolbar .compara-icon-wrap i{margin-left: -14px;font-size: 45px}
+#sidebar-compare md-toolbar h3{font-size: 18px;line-height: 1;margin: 0 0 10px;text-align: center;}
 #sidebar-compare #close-button-compara{color: #fff;position: absolute;right: 15px;top: 10px;font-size: 14px;font-weight: 700}
 #sidebar-compare label{font-size: 16px}
 #sidebar-compare ul{margin-top: 10px}
@@ -147,6 +149,21 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #sidebar-compare .to-compare{background: #22B5FF}
 #sidebar-compare .visited{background: #1EA7ED}
 #sidebar-compare .button-bordered{margin-top: 15px;font-weight: 700;text-align: center;}
+
+/*Boton comparador*/
+#toggle-compara{cursor: pointer;font-weight: 700;position: fixed;right: 0;top: 48%;z-index: 9999999999}
+#toggle-compara .top{background: #0055AC;color: #fff;padding: 15px;text-align: center;}
+#toggle-compara .top p{line-height: 1}
+#toggle-compara .top a{color: #fff}
+#toggle-compara .top i{font-size: 34px;margin-left: -14px}
+#toggle-compara .num{background: #22B5FF;color: #fff;text-align: center;}
+
+/*Auto-complete*/
+ul.dropdown-menu{background: #fff;color: #868686;position: absolute;width: 100%;z-index: 999999}
+ul.dropdown-menu li{cursor: pointer;font-size: 12px;padding: 6px;padding-left: 50px;position: relative;}
+ul.dropdown-menu li + li{border-top:1px solid #D1D1D1;}
+ul.dropdown-menu li  i{position: absolute; left: 4px; top: 5px; font-size: 32px;}
+ul.dropdown-menu li p{line-height: 1.2}
 
 #content .container{margin: 25px auto;max-width: 900px}
 #content .icon-container{position: relative;}
@@ -684,7 +701,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 
 
 /*Contact*/
-#content .container.contact{background: #00AFF0}
+#content .container.contact{background: #00AFF0;width:886px;}
 #content .container.contact form{padding: 25px}
 #content .container.contact form input{border: 0;padding: 12px 8px}
 #content .container.contact form .text-input,
@@ -821,6 +838,8 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 	/*Buscador*/
 	#content .container.results #results .compare-button{display: block;float: none;margin: 10px auto;width: auto}
 
+	#toggle-compara{display: none;}
+
 }
 
 @media (max-width: 380px){
@@ -869,7 +888,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #header .menu .active strong,#header .menu .active i,#header .menu a.active{color: white}
 .none{background-color: white}
 .contenedor-text-field{width: 100%;height: 100%;}
-.cont-input-text-field{width: 80%;float: left;}
+.cont-input-text-field{position: relative;width: 80%;float: left;}
 .cont-input-text-field input{width: 100%}
 .icono-text-field{float: left;width: 20%;height: 100%;max-height: 40px;background-color: #1CA5F5}
 .cont-ico-field{width: 100%;height: 100%;display: table}

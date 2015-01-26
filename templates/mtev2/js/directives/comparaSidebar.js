@@ -16,7 +16,9 @@
         $scope.toggleSchool = function(escuela){
             userInfo.toggleSchool(escuela);
         };
-        
+        $scope.toggleComparador = function() {
+            $mdSidenav('comparaSidenav').toggle();
+        };
     };
     controller.$inject = ['$scope','$mdSidenav','userInfo'];
     var directive = function () {
