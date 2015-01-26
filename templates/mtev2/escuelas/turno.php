@@ -72,7 +72,7 @@
 				<div class="cont-datos">
 					<div class="seccion-datos">
 						<div class="icono-datos">
-							<h3 class="h3-icono-turno"><i class="icon-grupo"></i></h3>
+							<h3 class="h3-icono-turno"><i class="icon-programas-sociedad"></i></h3>
 						</div>
 						<div class="text-datos"><h3 class="h3-text-datos">Grupos</h3></div>
 						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->total_evaluados?></h3></div>
