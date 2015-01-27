@@ -710,7 +710,6 @@ ul.dropdown-menu li.active a{color: #fff}
 
 
 /*Contact*/
-#content .container.contact{background: #00AFF0;width:886px;}
 #content .container.contact form{padding: 25px}
 #content .container.contact form input{border: 0;padding: 12px 8px}
 #content .container.contact form .text-input,
@@ -722,6 +721,14 @@ ul.dropdown-menu li.active a{color: #fff}
 }
 #content .container.contact form textarea{border: 0;margin-top: 15px;padding: 8px;resize:none;width: 100%;}
 #content .container.contact form input[type="submit"]{background: #3E6DF3;color: #fff;margin-top: 15px;text-align: center;font-size: 19px;float: right;padding: 15px;width: 20%;}
+#content .container.contact .items-header-contact{background-color: #00B759;text-align: center;color: white;}
+#content .container.contact .contactanos-contactanos{background-color: #3E6DF3;}
+
+#content .container.contact .h3-contactanos-contacto{font-size: 18px;margin: 0;padding: 15px}
+#content .container.contact .cont-breadcrumb-contacto{width: 100%;max-width: 948px;margin: 0 auto;margin-top: -10px }
+#content .container.contact .ico-contact{background-color:#00C15E}
+#content .container.contact .form-contacto{background-color: #fff}
+
 /*Mejora*/
 #content .container #mejora-content{-webkit-flex: 0 0 68%; -ms-flex: 0 0 68%; flex: 0 0 68%; max-width: 68%; }
 #content .container #mejora-content .menu-top .tabs{height: 80px;margin-bottom: 15px}
@@ -854,6 +861,7 @@ ul.dropdown-menu li.active a{color: #fff}
 	#content .container.post .post-content{padding: 20px}
 	#content .container.post .post-content ul{margin-left: 0}
 
+
 	ul.dropdown-menu{max-width: 240px}
 	#toggle-compara{display: none;}
 
@@ -870,23 +878,7 @@ ul.dropdown-menu li.active a{color: #fff}
 }
 
 /*Carlos Barahona*/
-.contact{width: 100%;max-width: 887px}
-.header-form-contactanos{height: 50px;background-color: #00B759;margin-top: -5px}
-.items-header-contact{float: left;text-align: center;height: 100%;color: white;}
-.contactanos-contactanos{background-color: #3E6DF3;width: 170px;display: table;}
-.mail-contactanos{width: 60px;display: table;}
-.correo-contactanos{width: 240px;display: table;}
-.icotelefono-contactanos{width: 70px;display: table;}
-.telefono-contactanos{width: 100px;display: table;}
-.h3-contactanos{display: table-cell;vertical-align: middle;}
-.h3-contactanos-contacto{display: table-cell;vertical-align: middle;/*text-transform: uppercase;*/font-size: 18px}
-.cont-breadcrumb-contacto{width: 100%;max-width: 948px;margin: 0 auto;margin-top: -10px }
-.ico-contact{background-color:#00C15E}
-.form-contacto{background-color: white;height: 350px;width: 100%}
-.enviar-btn-contactos{background-color: #3E6DF3;width: 200px;float: left;}
-.cont-boton-contactos{width: 250px;float: right; ;height: 50px;background-color: black;margin-top: 60px}
-#boton-contactos{width: 250px ;height: 50px;background-color: #3E6DF3;float: right;}
-.input-boton-contatos{height: 50px;margin-top: -1px;margin-left: 0px;float: left;width: 100%;}
+
 
 
 
