@@ -87,6 +87,7 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav',function ($scope, $mdSidena
                             ""+
                             "</div>";
             var icon = currentCct==current.cct?current.semaforo:current.semaforo+'o';
+            console.log(icon);
             current.icon ={
                     iconUrl:'http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/pins_'+icon+'.png',
                     iconSize:[28, 57],

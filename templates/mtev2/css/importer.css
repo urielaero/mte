@@ -1,4 +1,5 @@
 @import url('reset.css'); 
+@import url('stickyFooter.css'); 
 @import url('main.css'); 
 @import url('../js/bower_components/angular-material/angular-material.css');
 /*@import url('stickyFooter.css');*/

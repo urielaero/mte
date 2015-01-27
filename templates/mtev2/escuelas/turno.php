@@ -14,7 +14,7 @@
 					<div flex="65">
 						<h4>Califica tu escuela</h4>
 					</div>
-					<a href="#" class="full-size-link"></a>
+					<a href="califica_tu_escuela/califica/<?=$this->escuela->cct?>" class="full-size-link"></a>
 				</div>
 				<div class="block">
 					<ul>
@@ -105,7 +105,7 @@
 	<?php if($this->escuela->nivel->nombre == 'PREESCOLAR'){ ?>
 	<div flex="25" class="semaphore" flex-sm="100">
 		<div class="section-image">
-			<img src="/templates/mtev1/img/cubitos.png" alt="Preescolar">			
+			<img src="/templates/mtev2/img/cubitos.png" alt="Preescolar">			
 		</div>
 		<div class="options space-between" layout="row" layout-md="column">
 			<div flex="49" class="option">

@@ -245,7 +245,7 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container .breadcrumb a + a{margin-left: -4px}
 #content .container .breadcrumb a.start{background: #05A6EE;color: #fff;position: relative;}
 #content .container .breadcrumb a.start:after{content:'';position:absolute;top:0;right:-14px;display:block;border-top: 14px solid #F4F4F4;border-bottom: 14px solid #F4F4F4;border-left: 15px solid #05A6EE}
-#content .container .breadcrumb :nth-child(2){position:relative;margin-right: 5px;padding-left: 20px}
+#content .container .breadcrumb :nth-child(2){position:relative;/*margin-right: 5px;*/padding-left: 20px}
 
 /*Pagination*/
 #content .container .pagination a{background: transparent;border: 2px solid #636363;color: #636363;padding: 4px 8px;text-align: center;}
@@ -454,6 +454,8 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.profile .section-image img{margin:30px 0;width: 85%}
 
 /*Perfil biblioteca*/
+#content .container.profile.profile-biblioteca .profile-title{width: 100%}
+
 #content .container.profile .section-image img{margin-top: 25px}
 #content .container.profile #profile-content .sidebar .box-yesno{background-color: #E9068B;color: #fff;font-size: 15px;margin-top: 10px;padding: 10px;text-align: center;}
 #content .container.profile #profile-content .sidebar .box-yesno.orange{background-color: #F6911B}
@@ -518,7 +520,8 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.califica .question-content{background: #fff;color: #676968;font-weight: 700;}
 #content .container.califica .question-content .text{padding: 20px 15px}
 #content .container.califica .question-content .text h3{margin: 0}
-#content .container.califica .question-content .ans{background: #BBBBBC;color: #fff;cursor: pointer;padding: 10px;text-align: center;}
+#content .container.califica .question-content .ans-row{padding: 10px}
+#content .container.califica .question-content .ans{background: #BBBBBC;border-radius: 50%;color: #fff;cursor: pointer;padding: 7px;text-align: center;}
 #content .container.califica .question-content .ans + .ans{border-left: 1px solid}
 #content .container.califica .question-content .ans:hover{background: #30B6FD;color: #fff}
 #content .container.califica .result{background: #1CA344;color: #fff;font-weight: 700;margin: 20px auto;text-align: center;}
@@ -824,7 +827,9 @@ ul.dropdown-menu li.active a{color: #fff}
 	/*Breadcrumb*/
 	#content .container .breadcrumb a + a:before{content: '> ';border: 0}
 	#content .container .breadcrumb a.start{color: #05A6EE;background: none}
+	#content .container .breadcrumb a.start:after{display: none;}
 	#content .container .breadcrumb a{border: 0}
+	#content .container .breadcrumb :nth-child(2){padding-left: 0}
 
 	/*Profile*/
 	#content .container.profile .menu .menu-row .profile-title .title-container div[flex="75"]{width: 100%}
@@ -844,6 +849,7 @@ ul.dropdown-menu li.active a{color: #fff}
 	/*Buscador*/
 	#content .container.results #results .compare-button{display: block;float: none;margin: 10px auto;width: auto}
 
+	ul.dropdown-menu{max-width: 240px}
 	#toggle-compara{display: none;}
 
 }
