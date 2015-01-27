@@ -859,7 +859,7 @@ ul.dropdown-menu li.active a{color: #fff}
 }
 
 /*Carlos Barahona*/
-.contact{width: 887px}
+.contact{width: 100%;max-width: 887px}
 .header-form-contactanos{height: 50px;background-color: #00B759;margin-top: -5px}
 .items-header-contact{float: left;text-align: center;height: 100%;color: white;}
 .contactanos-contactanos{background-color: #3E6DF3;width: 170px;display: table;}
