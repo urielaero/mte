@@ -1,21 +1,38 @@
-
-<div class="cont-breadcrumb-contacto">
-	<div class="container results mteNgSearch">
-		<div class="breadcrumb">
-			<a class="start start2-2" href="#">
-				<i class="icon-escuela-01"></i>
-			</a>
-			<a href="#">Contáctanos</a>
-		</div>
-	</div>
-</div>
 <div class='container contact'>
-	<div class="header-form-contactanos">
-		<div class="items-header-contact contactanos-contactanos"><h3 class="h3-contactanos-contacto">¡Contáctanos!</h3></div>
-		<div class="items-header-contact ico-contact mail-contactanos"><h1 class="h3-contactanos"><i class="icon-mail-01"></i></h1></div>
-		<div class="items-header-contact correo-contactanos"><h4 class="h3-contactanos">contacto@mejoratuescuela.org</h4></div>
-		<div class="items-header-contact ico-contact icotelefono-contactanos"><h1 class="h3-contactanos"><i class="icon-telefono-01"></i></h1></div>
-		<div class="items-header-contact telefono-contactanos"><h4 class="h3-contactanos">(55)-5985-1017</h4></div>
+	<div class="breadcrumb">
+		<a class="start start2-2" href="#">
+			<i class="icon-escuela-01"></i>
+		</a>
+		<a href="#">Contáctanos</a>
+	</div>
+	<div class="header-form-contactanos" layout="row" layout-sm="column">
+		<div class="items-header-contact contactanos-contactanos" flex="30" flex-sm="100">
+			<h3 class="h3-contactanos-contacto">¡Contáctanos!</h3>
+		</div>
+		<div flex="35" flex-sm="100">
+			<div layout="row">
+				<div flex="20" class="icon-container items-header-contact ico-contact mail-contactanos">
+					<div class="icon-wrapper vertical-align-center horizontal-align-center">
+						<i class="icon-mail-01"></i>
+					</div>
+				</div>				
+				<div flex="80" class="items-header-contact correo-contactanos">
+					<h4 class="h3-contactanos">contacto@mejoratuescuela.org</h4>
+				</div>
+			</div>
+		</div>
+		<div flex="35" flex-sm="100">
+			<div layout="row">
+				<div flex="20" class="icon-container items-header-contact ico-contact icotelefono-contactanos">
+					<div class="icon-wrapper vertical-align-center horizontal-align-center">
+						<i class="icon-telefono-01"></i>
+					</div>
+				</div>					
+				<div flex="80" class="items-header-contact telefono-contactanos">
+					<h4 class="h3-contactanos">(55)-5985-1017</h4>
+				</div>
+			</div>
+		</div>
 	</div>
 	<form action="#" class="form-contacto">
 		<div layout="row" class="space-between">
@@ -23,14 +40,7 @@
 			<input type="mail" class="mail-input forms-contactanos" placeholder="Correo electrónico" flex="45">
 		</div>
 		<textarea placeholder="Mensaje" class=" forms-contactanos" cols="30" rows="7"></textarea>
-		<div class="cont-boton-contactos">
-			<div id="boton-contactos">
-				<input style="height: 50px;margin-top: -1px;margin-left: 0px;float: left;width: 100%;"type="submit" value="Enviar" >
-			</div>			
-		</div>
-		<!--<p >
-			<input class="boton-contatos" type="submit" value="Enviar" >
-			<div class="clear"></div>
-		</p>-->
+		<input type="submit" value="Enviar" >
+		<div class="clear"></div>
 	</form>
 </div>

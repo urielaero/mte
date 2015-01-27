@@ -1,4 +1,4 @@
-<div class='container about' ng-controller="escuelaCTL">
+<div class='container about'>
 	<div class="breadcrumb">
 		<a href="#" class="start"><i class="icon-mejora"></i></a>
 		<a href="#">Quiénes somos</a>
