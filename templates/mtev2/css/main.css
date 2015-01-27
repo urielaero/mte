@@ -702,7 +702,8 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.about .about-content #phone-tab,
 #content .container.about .about-content .phone-content{background: #E90C8F;color: #fff;}
 #content .container.about .about-content #mail-tab,
-#content .container.about .about-content .mail-content{backgroundok: #8F49CD;color: #fff}
+#content .container.about .about-content .mail-content,
+#content .container.about .about-content .mail-content{background: #8F49CD;color: #fff}
 #content .container.about .about-content .tab-content{padding: 20px;}
 #content .container.about .about-content .tab-content p{margin-bottom: 0}
 #content .container.about .about-content .tab-content a{color: #fff;text-decoration: underline;}
@@ -848,6 +849,10 @@ ul.dropdown-menu li.active a{color: #fff}
 
 	/*Buscador*/
 	#content .container.results #results .compare-button{display: block;float: none;margin: 10px auto;width: auto}
+
+	/*Metodologia*/
+	#content .container.post .post-content{padding: 20px}
+	#content .container.post .post-content ul{margin-left: 0}
 
 	ul.dropdown-menu{max-width: 240px}
 	#toggle-compara{display: none;}
