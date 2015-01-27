@@ -49,10 +49,15 @@
 		<p>Las siguientes gráficas muestran las distribuciones teóricas para los distintos niveles educativos. Los cortes, y por lo tanto, niveles de calidad educativa se identifican por color (verde= excelente, amarillo= bien, naranja= de panzazo, rojo= reprobado)</p>
 		
 		<p class="charts-images">
-				<?php $this->print_img_tag('metodologia/Primaria2012Ultimo.png');
-				$this->print_img_tag('metodologia/Secundaria2012Ultimo.png');
-				$this->print_img_tag('metodologia/Bachillerato2013.png');
-				?>
+				<a href="http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/metodologia_Primaria2012Ultimo.png">
+					<?php $this->print_img_tag('metodologia/Primaria2012Ultimo.png');?>
+				</a>
+				<a href="#http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/metodologia_Secundaria2012Ultimo.png">
+					<?php $this->print_img_tag('metodologia/Secundaria2012Ultimo.png');?>
+				</a>
+				<a href="http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/metodologia_Bachillerato2013.png">
+					<?php $this->print_img_tag('metodologia/Bachillerato2013.png');?>					
+				</a>	
 		</p>
 
 		<h3><strong>Metodología para determinar los resultados por estado</strong></h3>

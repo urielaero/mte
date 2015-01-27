@@ -728,6 +728,8 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.contact .cont-breadcrumb-contacto{width: 100%;max-width: 948px;margin: 0 auto;margin-top: -10px }
 #content .container.contact .ico-contact{background-color:#00C15E}
 #content .container.contact .form-contacto{background-color: #fff}
+#content .container.contact .forms-contactanos{background-color: #F6F6F6;}
+
 
 /*Mejora*/
 #content .container #mejora-content{-webkit-flex: 0 0 68%; -ms-flex: 0 0 68%; flex: 0 0 68%; max-width: 68%; }
@@ -860,7 +862,10 @@ ul.dropdown-menu li.active a{color: #fff}
 	/*Metodologia*/
 	#content .container.post .post-content{padding: 20px}
 	#content .container.post .post-content ul{margin-left: 0}
+	#content .container.post .post-content .charts-images img{width: auto;height: auto;max-width: 100%}
 
+	/*Contacto*/
+	#content .container.contact form input[type="submit"]{float: none;width: 100%}
 
 	ul.dropdown-menu{max-width: 240px}
 	#toggle-compara{display: none;}
@@ -914,7 +919,6 @@ td.link .footable-toggle{display: none!important}
 .prefect-sub-header{margin-top: -5px}
 .container .perfect-breadcrumb{ margin-top: -13px}
 .perfect-menu-row{margin-top: 10px}	
-.forms-contactanos{background-color: #F6F6F6;margin-top: -10px;margin-left: 5px;}
 .boton-contatos{width: 200px;}
 /*.container .row-links a i{margin: auto; font-size: 50px; margin-top: -10px;}*/
 /*Pixel Perfec*/	
