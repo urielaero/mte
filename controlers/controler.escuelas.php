@@ -82,9 +82,11 @@ class escuelas extends main{
 			else if( preg_match('/^..BB/', $this->escuela->cct ) ){
 				
 				$tmp = $this->escuelas_digest->escuelas;
-				foreach($tmp as $k=>$esc){
-					if(!preg_match('/^..BB/',$k))
-						unset($this->escuelas_digest->escuelas[$k]);
+				if($this->config->theme != 'mtev2'){
+					foreach($tmp as $k=>$esc){
+						if(!preg_match('/^..BB/',$k))
+							unset($this->escuelas_digest->escuelas[$k]);
+					}
 				}
 				$this->title_header = 'Conoce tu biblioteca';
 				$this->subtitle_header = 'El primer paso para poder mejorar biblioteca es saber cómo está. Te invitamos a que conozcas y compartas esta información.';
