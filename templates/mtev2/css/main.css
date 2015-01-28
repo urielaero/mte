@@ -894,8 +894,8 @@ ul.dropdown-menu li.active a{color: #fff}
 .top:hover{width: 120px;  -moz-transition:all 2s;-webkit-transition:all 2.5s;-o-transition:all 2.5s;transition:all 2.5s;}
 .top p a .top-icono{display: block;font-size: 30px;transform: rotate(90deg);transition: 2.5s ease;-moz-transition: 2.5s ease; /* Firefox */-webkit-transition: 2.5s ease; /* Chrome - Safari */-o-transition: 2.5s ease; /* Opera */}
 .top:hover .top-icono{transform: rotate(360deg);opacity: 0;	}
-.top:hover .texto-top{display: block;transform: rotate(360deg);opacity: 1;}
-.texto-top{opacity: 0;margin-top: -10px;transition: 2.5s ease;-moz-transition: 2.5s ease; /* Firefox */-webkit-transition: 2.5s ease; /* Chrome - Safari */-o-transition: 2.5s ease; /* Opera */}
+.top:hover .texto-top{display: block;transform: rotate(360deg);opacity: 1;margin-bottom: 20px}
+.texto-top{opacity: 0;transition: 2.5s ease;-moz-transition: 2.5s ease; /* Firefox */-webkit-transition: 2.5s ease; /* Chrome - Safari */-o-transition: 2.5s ease; /* Opera */}
 
 /*turno.php*/
 .cont-info-turno{background-color:blue;text-align: center;}
