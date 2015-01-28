@@ -906,37 +906,21 @@ ul.dropdown-menu li.active a{color: #fff}
  	-webkit-transition: 2.5s ease; /* Chrome - Safari */
  	-o-transition: 2.5s ease; /* Opera */}
 
-.top:hover .top-icono{transform: rotate(360deg);transition: 2.5s ease;
- 	-moz-transition: 2.5s ease; /* Firefox */
- 	-webkit-transition: 2.5s ease; /* Chrome - Safari */
- 	-o-transition: 2.5s ease; /* Opera */
-        
+.top:hover .top-icono{transform: rotate(360deg);
     opacity: 0;
-    -webkit-transition: opacity 2.5s ease-in-out;
-    -moz-transition: opacity 2.5s ease-in-out;
-    -ms-transition: opacity 2.5s ease-in-out;
-    -o-transition: opacity 2.5s ease-in-out;
-    transition: opacity 2.5s ease-in-out;
 	
 }
 
 .top:hover .texto-top{display: block;
-transform: rotate(360deg);transition: 2.5s ease;
- 	-moz-transition: 2.5s ease; /* Firefox */
- 	-webkit-transition: 2.5s ease; /* Chrome - Safari */
- 	-o-transition: 2.5s ease; /* Opera */
-    opacity: 1;
-    -webkit-transition: opacity 2.5s ease-in-out;
-    -moz-transition: opacity 2.5s ease-in-out;
-    -ms-transition: opacity 2.5s ease-in-out;
-    -o-transition: opacity 2.5s ease-in-out;
-    transition: opacity 2.5s ease-in-out;
+transform: rotate(360deg);
+opacity: 1;
 }
 .texto-top{opacity: 0;margin-top: -10px
     transition: 2.5s ease;
  	-moz-transition: 2.5s ease; /* Firefox */
  	-webkit-transition: 2.5s ease; /* Chrome - Safari */
- 	-o-transition: 2.5s ease; /* Opera */}}
+ 	-o-transition: 2.5s ease; /* Opera */
+ }
 
 /*turno.php*/
 .cont-info-turno{background-color:blue;text-align: center;}
