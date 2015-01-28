@@ -48,7 +48,7 @@
 	</md-content>
 </md-sidenav>
 <div id="toggle-compara">
-	<div ng-click="toggleComparador()">
+	<div id="top" ng-click="toggleComparador()">
 		<div class="top">
 			<p><a href=""><i class="icon-compara-01 top-icono"></i></a></p>
 			<p class="texto-top"><a href="">Comparar</a></p>
