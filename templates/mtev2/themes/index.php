@@ -33,6 +33,7 @@
 			'charts.js',
 			'leaflet.js',
 			'angular-leaflet-directive.min.js',
+			'app.js',
 			'controllers/controller.js',
 			'controllers/conoceCTL.js',
 			'controllers/comparaCTL.js',

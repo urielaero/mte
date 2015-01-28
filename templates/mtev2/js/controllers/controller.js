@@ -1,5 +1,3 @@
-var app = angular.module("mejoratuescuela",['ngMaterial','perfect_scrollbar','leaflet-directive','ngCookies','ui.bootstrap']);
-
 app.controller("headerCTL", ['$scope','$timeout','$mdSidenav',function ($scope, $timeout, $mdSidenav) {
 	$scope.toggleLeft = function() {
 		$mdSidenav('left').toggle();

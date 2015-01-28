@@ -1,11 +1,15 @@
 (function () {
+//Pako: falta injectar $routeprovider aqui y en app.js instalalo con bower (bower install angular-route? (bower.io/search)) 
 var controller = function ($scope,$http,userInfo,templateData) {                
         //inicializa la directiva
         $scope.init = function(){
             $scope.showSearch = typeof($scope.showSearch) == 'undefined' ? true : $scope.showSearch;
+            //Pako: antes de cargar los defaults deberia leer el url y setear $scope.params si es relevante
             $scope.loadDefaults();
             //console.log($scope.params);
             $scope.getEscuelas();
+            //Pako: setear aqui la ruta basada en los parametros de busqueda ($scope.params)
+
         }
         //Funciones que usan el servicio de usuario (comparacion)
         //recibe una escuela y regresa la clase apropiada para el icono de comparar
@@ -68,6 +72,7 @@ var controller = function ($scope,$http,userInfo,templateData) {
             if($scope.showSearch) $scope.buildParams();
             //console.log($scope.params);
             $scope.loading = true;
+            // Pako: aqui es un buen lugar para setear la ruta
             $http({method:'POST',url:'/api/escuelas',data:$scope.params}).then(function(response){
                 //console.log(response.data);
                 $scope.pagination = response.data.pagination;
@@ -155,7 +160,7 @@ var controller = function ($scope,$http,userInfo,templateData) {
         }
         $scope.init();
     };
-    
+    //Pako: falta injectar $routeprovider aqui y en app.js instalalo con bower (bower install angular-route? (bower.io/search)) 
     controller.$inject = ['$scope','$http','userInfo','templateData'];
     var directive = function () {
         return {
