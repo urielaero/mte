@@ -1,4 +1,10 @@
 <div class='container mejora' ng-controller="mejoraCTL">
+	<div class="breadcrumb">
+		<a class="start start2-2" href="#">
+			<i class="icon-escuela-01"></i>
+		</a>
+		<a href="#">Mejora</a>
+	</div>
 	<div layout="row" layout-sm="column" class="space-between">
 		<div flex="65" flex-sm="100" id="mejora-content">
 			<div class="menu-top">

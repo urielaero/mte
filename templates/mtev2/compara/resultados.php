@@ -57,7 +57,7 @@
 							<th class="footable-first-column">Escuelas</th>
 							<th data-hide="phone">Nivel escolar</th>
 							<th data-hide="phone">Turno</th>
-							<th data-hide="phone">Privada / Pública</th>
+							<th style="display: block;">Privada / Pública</th>
 							<th class="footable-last-column">Semáforo educativo</th>
 						</tr>
 					</thead>
