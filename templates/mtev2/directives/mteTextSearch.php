@@ -1,6 +1,6 @@
 <label>Escuela o bibilioteca</label>
-<div layout="column" class="text-field">
-    <div class="contenedor-text-field">
+<div  class="text-field">
+    <form class="contenedor-text-field" ng-submit="search()">
         <div class="cont-input-text-field">
             <input type="text" 
             flex="100" 
@@ -10,19 +10,20 @@
             typeahead="escuela.nombre for escuela in getSchool($viewValue) | filter:$viewValue"
             typeahead-template-url="typeahead-template.html"
             typeahead-on-select='onSelect($item)'
+            typeahead-focus-first='false'
             />
         </div>
 
         <div class="icono-text-field">
            <div class="cont-ico-field">
-                <h5 class="ico-text-field"><i class="icon-buscar-01"></i></h5>
-            </div>
+                <h5 class="ico-text-field" ng-click="search()"><i class="icon-buscar-01"></i></h5>
+           </div>
         </div>
         <div class='clear'></div>
         <!--
             <input type="submit" value="" flex="20">
         -->
-    </div>
+    </form>
 </div>
 <script type="text/ng-template" id="typeahead-template.html">
     <a tabindex="-1">

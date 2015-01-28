@@ -1,8 +1,7 @@
 (function () {
     var controller = function($scope,$http,$location,userInfo){ 
         $scope.getSchool = function(name){
-            return $http({method:'POST',url:'/api/escuelas',data:{term:name}}).then(function(res){
-                console.log(res.data);
+            return $http({method:'POST',url:'/api/escuelas',data:{term:name,solr:true}}).then(function(res){
                 if(res.data && res.data.escuelas)
                     return res.data.escuelas;
                 return [];
@@ -16,6 +15,11 @@
         $scope.onSelect = function($item){
             window.location = '/escuelas/index/'+$item.cct;
         }; 
+
+        $scope.search = function(){
+            if($scope.term)
+                $scope.term({term:$scope.text});
+        };
     };
     controller.$inject = ['$scope','$http','$location','userInfo'];
     var directive = function () {
@@ -23,6 +27,7 @@
             controller : controller,
             scope : {
                 model : '=',
+                term:'&'
             },
             templateUrl: function (elem, attr){ 
                 if(attr.temp == 'undefined'){
