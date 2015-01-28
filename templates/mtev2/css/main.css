@@ -840,7 +840,7 @@ ul.dropdown-menu li.active a{color: #fff}
 	#content .container .breadcrumb a.start{color: #05A6EE;background: none}
 	#content .container .breadcrumb a.start:after{display: none;}
 	#content .container .breadcrumb a{border: 0}
-	#content .container .breadcrumb :nth-child(2){padding-left: 0}
+	#content .container .breadcrumb :nth-child(2){padding-left: 0;border-left: none}
 
 	/*Profile*/
 	#content .container.profile .menu .menu-row .profile-title .title-container div[flex="75"]{width: 100%}

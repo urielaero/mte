@@ -1,4 +1,8 @@
 <div class='container home'>
+<div class="breadcrumb">
+		<a href="#" class="start"><i class="icon-mejora"></i></a>
+		<a href="#">Home</a>
+	</div>
 	<div layout="row" layout-sm="column" class="space-between">
 		<div flex="65" flex-sm="100" id="home-content">
 			<div class="video-container">

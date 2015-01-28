@@ -14,7 +14,7 @@
 			<div class="column-right" flex="60" flex-sm="100">
 				<div class='titles'>
 					<h1>
-						<strong ><?=$this->title_header?></strong>
+						<strong  class="strong-quienes"><?=$this->title_header?></strong>
 						<p><?=$this->subtitle_header?></p>
 					</h1>
 				</div>
