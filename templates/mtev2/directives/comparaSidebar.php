@@ -50,8 +50,8 @@
 <div id="toggle-compara">
 	<div ng-click="toggleComparador()">
 		<div class="top">
-			<p><a href=""><i class="icon-compara-01"></i></a></p>
-			<p><a href="">Comparar</a></p>
+			<p><a href=""><i class="icon-compara-01 top-icono"></i></a></p>
+			<p class="texto-top"><a href="">Comparar</a></p>
 		</div>
 		<div class="num" ng-bind='schools.selected.length'></div>		
 	</div>
