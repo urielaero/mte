@@ -162,10 +162,10 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #toggle-compara .num{background: #22B5FF;color: #fff;text-align: center;}
 
 #toggle-compara .top{width: 40px;  -moz-transition:all .2s;-webkit-transition:all .2s;-o-transition:all .2s;transition:all .2s;}
-#toggle-compara div:hover .top{width: 120px;  -moz-transition:all .2s;-webkit-transition:all .2s;-o-transition:all .2s;transition:all .2s;}
-#toggle-compara .top p a .top-icono{display: block;padding-top: 5px;padding-bottom: 5px;;position: relative;left: 55%;font-size: 30px;margin-top:-15px;transform: rotate(90deg);transition: .2s linear;-moz-transition: .2s linear; /* Firefox */-webkit-transition: .2s linear; /* Chrome - Safari */-o-transition: .2s linear; /* Opera */}
-#toggle-compara #top:hover .top-icono{transform: rotate(0deg);left: 2%;}
-#toggle-compara  div:hover .texto-top{display: block;opacity: 1;}
+#toggle-compara .top .top-icono{display: block;padding-top: 5px;padding-bottom: 5px;;position: relative;left: 55%;font-size: 30px;margin-top:-15px;transform: rotate(90deg);transition: .2s linear;-moz-transition: .2s linear; /* Firefox */-webkit-transition: .2s linear; /* Chrome - Safari */-o-transition: .2s linear; /* Opera */}
+#toggle-compara:hover .top{width: 120px;  -moz-transition:all .2s;-webkit-transition:all .2s;-o-transition:all .2s;transition:all .2s;}
+#toggle-compara:hover .top-icono{transform: rotate(0deg);position: static;}
+#toggle-compara:hover .texto-top{display: block;opacity: 1;}
 #toggle-compara .texto-top{opacity: 0;transition: .2s linear;-moz-transition: .2s linear; /* Firefox */-webkit-transition: .2s linear; /* Chrome - Safari */-o-transition: .2s linear; /* Opera */}
 
 
