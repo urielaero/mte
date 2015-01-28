@@ -155,11 +155,19 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 
 /*Boton comparador*/
 #toggle-compara{cursor: pointer;font-weight: 700;position: fixed;right: 0;top: 48%;z-index: 9999999999}
-#toggle-compara .top{background: #0055AC;color: #fff;padding: 15px;text-align: center;}
+#toggle-compara .top{background: #0055AC;color: #fff;padding: 15px;text-align: center;50px}
 #toggle-compara .top p{line-height: 1}
 #toggle-compara .top a{color: #fff}
 #toggle-compara .top i{font-size: 34px;margin-left: -14px}
 #toggle-compara .num{background: #22B5FF;color: #fff;text-align: center;}
+
+#toggle-compara .top{width: 80px;  -moz-transition:all .2s;-webkit-transition:all .2s;-o-transition:all .2s;transition:all .2s;}
+#toggle-compara .top:hover{width: 120px;  -moz-transition:all .2s;-webkit-transition:all .2s;-o-transition:all .2s;transition:all .2s;}
+#toggle-compara .top p a .top-icono{display: block;font-size: 30px;transform: rotate(90deg);transition: .2s linear;-moz-transition: .2s linear; /* Firefox */-webkit-transition: .2s linear; /* Chrome - Safari */-o-transition: .2s linear; /* Opera */}
+#toggle-compara .top:hover .top-icono{transform: rotate(0deg);}
+#toggle-compara .top:hover .texto-top{display: block;opacity: 1;}
+#toggle-compara .texto-top{opacity: 0;transition: .2s linear;-moz-transition: .2s linear; /* Firefox */-webkit-transition: .2s linear; /* Chrome - Safari */-o-transition: .2s linear; /* Opera */}
+
 
 /*Auto-complete*/
 ul.dropdown-menu{background: #fff;color: #868686;position: absolute;width: 100%;z-index: 999999}
@@ -890,12 +898,6 @@ ul.dropdown-menu li.active a{color: #fff}
 .header-form-contactanos{background-color: #00B759;width: 100%;max-width: 900px}
 .form-contacto{height: 500px}
 
-.top{width: 80px;  -moz-transition:all .5s;-webkit-transition:all .5s;-o-transition:all .5s;transition:all .5s;}
-.top:hover{width: 120px;  -moz-transition:all .5s;-webkit-transition:all .5s;-o-transition:all .5s;transition:all .5s;}
-.top p a .top-icono{display: block;font-size: 30px;transform: rotate(90deg);transition: .5s linear;-moz-transition: .5s linear; /* Firefox */-webkit-transition: .5s linear; /* Chrome - Safari */-o-transition: .5s linear; /* Opera */}
-.top:hover .top-icono{transform: rotate(0deg);}
-.top:hover .texto-top{display: block;opacity: 1;margin-bottom: 20px}
-.texto-top{opacity: 0;transition: .5s linear;-moz-transition: .5s linear; /* Firefox */-webkit-transition: .5s linear; /* Chrome - Safari */-o-transition: .5s linear; /* Opera */}
 
 /*turno.php*/
 .cont-info-turno{background-color:blue;text-align: center;}
