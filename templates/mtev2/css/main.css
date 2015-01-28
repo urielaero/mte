@@ -416,9 +416,11 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.profile #profile-content .additional-info .scroll-links{margin-top: 10px}
 #content .container.profile #profile-content .additional-info .scroll-links .link{line-height: 1.4;text-transform: initial; padding: 4px;text-align: center;max-width: 48%;-webkit-flex: 0 0 48%; -ms-flex: 0 0 48%; flex: 0 0 48%;}
 #content .container.profile #profile-content .additional-info .scroll-links .link[flex="32"]{max-width: 32%;-webkit-flex: 0 0 32%; -ms-flex: 0 0 32%; flex: 0 0 32%;}
-#content .container.profile #profile-content .additional-info .scroll-links .desempeno-tab{border:2px solid #8E62C1;color:#8E62C1;}
+#content .container.profile #profile-content .additional-info .scroll-links .desempeno-tab{/*border:2px solid #8E62C1;color:#8E62C1;*/;border: 2px solid #F400A4;color: #F400A4;font-weight: 700}/*Carlos Barahona*/
+#content .container.profile #profile-content .additional-info .scroll-links .desempeno-tab:hover{background-color:  #F400A4;color: white;}
 #content .container.profile #profile-content .additional-info .scroll-links .infraestructura-tab{border:2px solid #E850A7;color:#E850A7;}
-#content .container.profile #profile-content .additional-info .scroll-links .comentarios-tab{border:2px solid #0BBC3A;color:#0BBC3A;}
+#content .container.profile #profile-content .additional-info .scroll-links .comentarios-tab{border:2px solid #0BBC3A;color:#0BBC3A;font-weight: 700}
+#content .container.profile #profile-content .additional-info .scroll-links .comentarios-tab:hover{background-color:  #0BBC3A;color: white;font-weight: 700}
 
 
 #content .container.profile #profile-content .additional-info .desempeno h2{background: #8E62C1;color: #fff;font-size: 14px;font-weight: 700;padding: 6px 12px;}
