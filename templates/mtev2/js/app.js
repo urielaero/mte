@@ -1,4 +1,18 @@
-var app = angular.module("mejoratuescuela",['ngMaterial','perfect_scrollbar','leaflet-directive','ngCookies','ui.bootstrap']);
+angular.module('mteFilters', []).
+	filter('htmlToPlaintext', function() {
+	return function(text) {
+	  return angular.element(text).text();
+	}
+})
+.filter('replaceWithCdnUrl', function() {
+	return function(text, cdnUrl, blogUrl) {
+		console.log(text.replace(blogUrl,cdnUrl));
+	  return text.replace(blogUrl,cdnUrl);
+	}
+});
+
+  
+var app = angular.module("mejoratuescuela",['ngMaterial','perfect_scrollbar','leaflet-directive','ngCookies','ui.bootstrap','mteFilters']);
 
 
 /*

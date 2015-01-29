@@ -8,24 +8,23 @@
 			<div class="video-container">
 				<iframe width="595" height="335" src="//www.youtube.com/embed/G4FOZyoB74Y" frameborder="0" allowfullscreen="" id="home-video"></iframe>
 			</div>
-			<div class="space-between" id="blog-posts" layout="row">
-				<div class="post">
+			<div ng-controller="blogCTL" class="space-between" id="blog-posts" layout="row">
+				<script>
+					window.blogAddress = '<?php echo $this->config->blog_address ?>';
+				</script>
+				<div class="post" ng-repeat="post in posts">
 					<div class="post-image">
-						<a href="#"><img src="/templates/mtev2/img/blogpost1.png" alt=""></a>
+						<a href="#" ng-if="post.thumbnail_images.large.url">
+							<img src="{{post.thumbnail_images.large.url}}" alt="{{post.thumbnail_images.description}}">
+						</a>
+						<a href="#" ng-if="!post.thumbnail_images.large.url">
+							<img src="{{post.attachments[0].url | replaceWithCdnUrl:cdnUrl:blogAddress}}" alt="{{post.attachments[0].description}}">
+						</a>
 						<div class="clear"></div>
 					</div>
 					<div class="description">
-						<h3><a href="#">Consejos de Participación y Asociación de Padres, ¿son lo mismo?</a></h3>
-					</div>
-				</div>
-				<div class="post">
-					<div class="post-image">
-						<a href="#"><img src="/templates/mtev2/img/blogpost2.jpg" alt=""></a>
-						<div class="clear"></div>
-					</div>
-					<div class="description">
-						<h3><a href="#">Día de muertos en México</a></h3>
-						<p>El día de muertos es una de las tradiciones más importantes y antiguas en el país. Cada año, el 1 y 2 de noviembre se levantan altares para honrar a los difuntos.</p>
+						<h3><a href="#">{{post.title}}</a></h3>
+						<p>{{post.excerpt | htmlToPlaintext}}</p>
 					</div>
 				</div>
 				<a href="#" class="button-bordered">Consulta más información en nuestro blog</a>
