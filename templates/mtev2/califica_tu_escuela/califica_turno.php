@@ -11,7 +11,9 @@ $icons = array(
         );
 
 
-if($this->preguntas){
+if($this->preguntas){?>
+    <div ng-init="calificacion.total='<?=count($this->preguntas)?>'"></div>
+    <?php
     foreach($this->preguntas as $i=>$pregunta){ 
         if(!($i%2))
             echo '<div class="questions-box space-between" layout="row" layout-sm="column">'
@@ -31,17 +33,15 @@ if($this->preguntas){
 				<p>1 = "<?=$pregunta->descripcion_valor_minimo?>"</p>
 				<p>10 = "<?=$pregunta->descripcion_valor_maximo?>"</p>
 			</div>
-			<div class="ans-row" layout="row">
-				<div flex class="ans">1</div>
-				<div flex class="ans">2</div>
-				<div flex class="ans">3</div>
-				<div flex class="ans">4</div>
-				<div flex class="ans">5</div>
-				<div flex class="ans">6</div>
-				<div flex class="ans">7</div>
-				<div flex class="ans">8</div>
-				<div flex class="ans">9</div>
-				<div flex class="ans">10</div>
+			<div class="ans-row" layout="row" ng-cloak>
+				<div flex 
+					class="ans" 
+					ng-repeat="i in range track by $index"
+					ng-class="{'on': $index+1 == calificacion.calificaciones[<?=$i?>] }"
+					ng-click="califica($index+1,<?=$i?>)"
+					>
+					{{$index+1}}
+				</div>
 			</div>			
 		</div>
 	</div>
@@ -54,7 +54,7 @@ if($this->preguntas){
 ?>
 <div class="result" layout="row">
 	<div flex="70" class="desc">En promedio, calificas a tu escuela con:</div>
-	<div flex="30" class="number">8</div>
+	<div flex="30" class="number" ng-cloak>{{promedio}}</div>
 </div>
 
 <form action="/" method="GET" class="comment-form">

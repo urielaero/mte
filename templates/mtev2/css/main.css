@@ -535,7 +535,8 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.califica .question-content .ans-row{padding: 10px}
 #content .container.califica .question-content .ans{background: #BBBBBC;border-radius: 50%;color: #fff;cursor: pointer;padding: 7px;text-align: center;}
 #content .container.califica .question-content .ans + .ans{border-left: 1px solid}
-#content .container.califica .question-content .ans:hover{background: #30B6FD;color: #fff}
+#content .container.califica .question-content .ans:hover,
+#content .container.califica .question-content .ans.on{background: #30B6FD;color: #fff}
 #content .container.califica .result{background: #1CA344;color: #fff;font-weight: 700;margin: 20px auto;text-align: center;}
 #content .container.califica .result p{}
 #content .container.califica .result .desc{font-weight: 400;font-size: 16px;padding: 15px;text-align: left;}
