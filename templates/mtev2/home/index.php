@@ -31,7 +31,7 @@
 						<p>{{post.excerpt | htmlToPlaintext}}</p>
 					</div>
 				</div>
-				<a href="#" class="button-bordered">Consulta más información en nuestro blog</a>
+				<a href="<?php echo $this->config->blog_address ?>" class="button-bordered">Consulta más información en nuestro blog</a>
 			</div>
 		</div>
 		<?php $this->include_template('sidebar','home');  ?>
