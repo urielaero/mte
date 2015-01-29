@@ -606,6 +606,10 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.results .cont-datos-escuela:hover .circulo-icon-mejora{border: 2px solid white;}
 #content .container.results .cont-datos-escuela:hover .mejora-icon{color: white;}
 
+.titles .Mejora-Tu-Escuela{margin-top: 10px}
+.titles .Mejora-Tu-Escuela p strong{font-size: 17px}
+.titles .Mejora-Tu-Escuela p {font-size: 17px;}
+
 
 
 
