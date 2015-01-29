@@ -1,12 +1,9 @@
+<script type="text/ng-template" id="mteSuscribe.html">
+	<?php $this->include_template('mteSuscribe','directives'); ?>
+</script>
 		<div flex="30" flex-sm="100" id="sidebar">
-			<div class="email-box">
-				<h4><strong><i class="icon-mail-01"></i> Mantente informado</strong></h4>
-				<form action="#">
-					<input type="text">
-					<input type="submit" value="Suscríbete" class="button-bordered">
-					<md-checkbox aria-label="Checkbox 1"></md-checkbox><a href="#">Aviso de privacidad</a>
-				</form>
-			</div>
+			<div mte-suscribe></div>
+
 			<div class="box box-orange">
 				<a target="blank" href="<?=$this->config->blog_address?>" class="full-size-link"></a>
 				<div layout="row">

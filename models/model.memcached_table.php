@@ -5,7 +5,7 @@ class memcached_table extends table{
 		if(class_exists('Memcache')){
 			$memcache = new Memcache;
 			#Site shouldn't die just because memcached isn't working, right?
-			$memcache->connect('10.208.226.251', 11211);
+			$memcache->connect('10.209.40.127', 11211);
 			$this->execute = false;
 			parent::read($fields);
 			$this->execute = true;

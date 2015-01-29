@@ -13,6 +13,12 @@ class api extends main{
 		echo json_encode($json);
 	}
 
+    public function subscribe(){
+        $res = $this->newsletter(true);
+        $json = array('status'=>$res);
+		echo json_encode($json);
+    }
+
 	public function escuelas(){
 		//$this->debug = true;
 		$params = new stdClass();
