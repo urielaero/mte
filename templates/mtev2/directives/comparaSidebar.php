@@ -33,8 +33,8 @@
 			<p ng-show='schools.visited.length > 0'>Selecciona alguna para comparar</p>
 			<md-content style='background:none' flex>
 				<ul ng-show='schools.visited.length > 0'>
-					<li ng-repeat='escuela in schools.visited'>
-						<a href="" class="check on"></i></a>
+					<li ng-show='!isSelected(escuela)' ng-repeat='escuela in schools.visited'>
+						<a href="" class="check on" ng-click='selectSchool(escuela)' ></i></a>
 						<p><strong ng-bind='escuela.nombre'></strong></p>
 						<p><i class="icon-mapa"></i> {{escuela.localidad}}, {{escuela.entidad}}</p>
 					</li>

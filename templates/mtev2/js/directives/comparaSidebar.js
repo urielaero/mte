@@ -3,12 +3,20 @@
         
         //Agregamos un listener a nuestro service para mantener nuestros datos actualizados
         $scope.schools = userInfo.getSchools();
-        
+
         userInfo.addListener($scope);
         $scope.$on('userInfo.schoolsChange',function(e,schools){
             console.log('event received'+e);
             $scope.schools = userInfo.getSchools();
         });
+
+        $scope.selectSchool = function(escuela){
+            userInfo.toggleSchool(escuela);
+        }
+
+        $scope.isSelected = function(escuela){
+            return userInfo.isSelected(escuela);
+        }
 
         $scope.close = function() {
             $mdSidenav('comparaSidenav').close();
