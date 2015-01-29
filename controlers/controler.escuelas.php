@@ -171,6 +171,8 @@ class escuelas extends main{
             }
 			//Objeto para mtev2
 			$this->escuelaSummary = new stdClass();
+			$this->escuelaSummary->id = $this->escuela->id;
+			$this->escuelaSummary->cct = $this->escuela->cct;
 			$this->escuelaSummary->nombre = $this->capitalize($this->escuela->nombre);
 			$this->escuelaSummary->nivel = $this->escuela->nivel->id;
 			$this->escuelaSummary->turno = $this->escuela->turno->id;
