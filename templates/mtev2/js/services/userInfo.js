@@ -1,8 +1,8 @@
 app.service('userInfo',['$rootScope','$http','$cookieStore', function($rootScope,$http,$cookieStore	) {
 
     this.init = function(){
-        this.cookieName = 'mte.escuelas.comparador';
-        $cookieStore.put(this.cookieName,false);
+        this.cookieName = 'mte.escuelas.comparador2';
+        //$cookieStore.put(this.cookieName,false);
         this.listeners = [];
         this.getSchools();
     }
@@ -23,8 +23,10 @@ app.service('userInfo',['$rootScope','$http','$cookieStore', function($rootScope
         this.emit('userInfo.schoolsChange');
     }
     this.visitSchool = function(escuela){
+        console.log(this.schools);
     	this.addSchool(escuela,this.schools.visited,false);
     	$cookieStore.put(this.cookieName,this.schools);
+        console.log(this.schools);
         this.emit('userInfo.schoolsChange');
     }
     this.isSelected = function(escuela){

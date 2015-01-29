@@ -6,7 +6,7 @@
 
         userInfo.addListener($scope);
         $scope.$on('userInfo.schoolsChange',function(e,schools){
-            console.log('event received'+e);
+            //console.log('event received',e);
             $scope.schools = userInfo.getSchools();
         });
 
