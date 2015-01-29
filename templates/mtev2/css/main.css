@@ -285,7 +285,7 @@ ul.dropdown-menu li.active a{color: #fff}
 
 /*Comment form*/
 #content .container .comment-form .icon-container{background: #F3910C;padding: 10px 0;text-align: center;}
-#content .container .comment-form .icon-container i{color: #fff;font-size: 40px;}
+#content .container .comment-form .icon-container i{color: #fff;font-size: 40px;margin-top: -5px}
 #content .container .comment-form textarea{border: 0;color:#6C6C6C;padding: 20px;resize: none;}
 #content .container .comment-form .fields{background: #F76907;margin-bottom: 6px;padding: 6px}
 #content .container .comment-form select,
