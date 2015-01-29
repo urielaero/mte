@@ -368,10 +368,10 @@
 			<h2 layout="row">
 				<div flex="50">Comentarios</div>
 				<div flex="50">
-					<div layout="row" class="total">
+					<div layout="row" class="total" flex="100">
 						<div flex="20" class="icon-box"><i class="icon-desk-01"></i></div>
 						<div flex="60">Total de personas que evaluaron esta escuela</div>
-						<div flex="20"><strong><?=isset($this->escuela->calificaciones)?count($this->escuela->calificaciones):0 ?></strong></div>
+						<div flex="100"><strong><?=isset($this->escuela->calificaciones)?count($this->escuela->calificaciones):0 ?></strong></div>
 				</div>
 			</h2>
 			<div class="table-top" layout="row">

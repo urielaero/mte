@@ -1,16 +1,25 @@
-app.controller("escuelaCTL", ['$scope', '$mdSidenav',function ($scope, $mdSidenav) {
-	$scope.selectedIndex = 0;
+app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope, $mdSidenav,userInfo) {
+	
+    $scope.selectedIndex = 0;
 	$scope.countToggle = 0;
 	$scope.toggleForm = false;
     $scope.escuela = escuela;
     $scope.relatedSchoolParams = {
-        nivel : $scope.escuela.nivel,
-        turno : $scope.escuela.turno,
-        localidad : $scope.escuela.localidad,
+        nivel : $scope.escuela.nivel.id,
+        turno : $scope.escuela.turno.id,
+        localidad : $scope.escuela.localidad.id,
         limit : 6,
         sort : 'Semáforo educativo',
 
     }
+    userInfo.visitSchool({
+      id : $scope.escuela.id,
+      cct : $scope.escuela.cct,
+      nombre : $scope.escuela.nombre,
+      entidad : $scope.escuela.entidad.nombre,  
+      localidad : $scope.escuela.localidad.nombre,
+      municipio : $scope.escuela.municipio.nombre,
+    });
     //console.log($scope.relatedSchoolParams);
     $scope.next = function() {
       $scope.selectedIndex = Math.min($scope.selectedIndex + 1, 2) ;
@@ -119,4 +128,25 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav',function ($scope, $mdSidena
             300           
         );
     }
+
+    //califica...
+    
+    $scope.range = [0,0,0,0,0,0,0,0,0,0];
+    $scope.calificacion = {
+        calificaciones:[],
+    };
+    $scope.promedio = 0;
+    $scope.califica = function(i,q){
+        $scope.calificacion.calificaciones[q] = i;
+        var sum = 0,
+        promedio;
+        for(var i=0;i<$scope.calificacion.calificaciones.length;i++){
+            if($scope.calificacion.calificaciones[i])
+                sum += $scope.calificacion.calificaciones[i];
+        }
+        promedio = sum/$scope.calificacion.total;
+        console.log(promedio);
+		promedio = promedio.toString().length>3?promedio.toFixed(1):promedio;
+        $scope.promedio = promedio;
+    };
 }]);
