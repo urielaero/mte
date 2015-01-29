@@ -23,7 +23,7 @@ app.service('userInfo',['$rootScope','$http','$cookieStore', function($rootScope
         this.emit('userInfo.schoolsChange');
     }
     this.visitSchool = function(escuela){
-    	this.addSchool(escuela,this.schools.visited,true);
+    	this.addSchool(escuela,this.schools.visited,false);
     	$cookieStore.put(this.cookieName,this.schools);
         this.emit('userInfo.schoolsChange');
     }
