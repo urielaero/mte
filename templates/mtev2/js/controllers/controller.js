@@ -11,6 +11,21 @@ app.controller("sidebarCTL", ['$scope','$timeout','$mdSidenav',function ($scope,
 }]);
 
 
+app.controller("blogCTL", ['$scope', '$http',function ($scope, $http) {
+    $scope.cdnUrl = 'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/';
+    $scope.blogAddress = window.blogAddress;
+    $scope.posts = [];
+    $scope.getPosts = function(){
+        $http({
+            method:'GET',
+            url: $scope.blogAddress + '/api/get_category_posts/?category_slug=portada&count=2'
+        }).then(function(response){
+            $scope.posts = response.data.posts;
+        });
+    }
+    $scope.getPosts();
+}]);
+
 app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
 	
 	$scope.replaceURLWithHTMLLinks = function(text) {

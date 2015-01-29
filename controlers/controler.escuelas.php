@@ -171,11 +171,20 @@ class escuelas extends main{
             }
 			//Objeto para mtev2
 			$this->escuelaSummary = new stdClass();
-			$this->escuelaSummary->nombre = $this->escuela->nombre;
+			$this->escuelaSummary->nombre = $this->capitalize($this->escuela->nombre);
 			$this->escuelaSummary->nivel = $this->escuela->nivel->id;
 			$this->escuelaSummary->turno = $this->escuela->turno->id;
-			$this->escuelaSummary->municipio = $this->escuela->municipio->id;
-			$this->escuelaSummary->localidad = $this->escuela->localidad->id;
+			$this->escuelaSummary->municipio = new stdClass();
+			$this->escuelaSummary->municipio->id = $this->escuela->municipio->id;
+			$this->escuelaSummary->municipio->nombre = $this->capitalize($this->escuela->municipio->nombre);
+
+			$this->escuelaSummary->localidad = new stdClass();
+			$this->escuelaSummary->localidad->id = $this->escuela->localidad->id;
+			$this->escuelaSummary->localidad->nombre = $this->capitalize($this->escuela->localidad->nombre);
+
+			$this->escuelaSummary->entidad = new stdClass();
+			$this->escuelaSummary->entidad->id = $this->escuela->entidad->id;
+			$this->escuelaSummary->entidad->nombre = $this->capitalize($this->escuela->entidad->nombre);
 
 			return true;
 		}else{

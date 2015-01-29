@@ -906,6 +906,29 @@ class main extends controler{
 		return true;
 	}
 
+	public function newsletter($inJson = false){
+		$location = "/home/";
+		if($this->request('aviso')){
+			$correo = $this->request('correo');
+			$news = new newsletters(NULL,$this->conn);
+			$news->create('email_input',array($correo),'id');
+			$location = $news->id ? "/home/index?news=true" : "/home/index?news=false";
+		}
+        if($news->id){
+		    $this->send_email(
+    			$correo,
+    			'Mejora tu escuela',
+    			'Ha sido registrado correctamente en http://www.mejoratuescuela.org',
+    			'contacto@mejoratuescuela.org',
+    			'www.mejoratuescuela.org'
+    		);
+        }
+        if(!$inJson)
+    		header("location: $location");
+        else{
+            return (isset($news) && isset($news->id))?true:false;
+        }
+	}
 
 }
 ?>
