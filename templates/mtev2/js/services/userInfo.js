@@ -2,6 +2,7 @@ app.service('userInfo',['$rootScope','$http','$cookieStore', function($rootScope
 
     this.init = function(){
         this.cookieName = 'mte.escuelas.comparador';
+        $cookieStore.put(this.cookieName,false);
         this.listeners = [];
         this.getSchools();
     }
@@ -22,8 +23,9 @@ app.service('userInfo',['$rootScope','$http','$cookieStore', function($rootScope
         this.emit('userInfo.schoolsChange');
     }
     this.visitSchool = function(escuela){
-    	this.addSchool(escuela,this.schools.visited,false);
-    	$cookieStore.put('schools',this.schools);
+    	this.addSchool(escuela,this.schools.visited,true);
+    	$cookieStore.put(this.cookieName,this.schools);
+        this.emit('userInfo.schoolsChange');
     }
     this.isSelected = function(escuela){
     	return this.indexOf(escuela,this.schools.selected) >= 0;
@@ -56,7 +58,7 @@ app.service('userInfo',['$rootScope','$http','$cookieStore', function($rootScope
     this.emit = function(event,data){
         this.listeners.forEach(function(listener){
             //console.log('emmiting '+event);
-            listener.$emit('userInfo.schoolsChange',data);
+            listener.$emit(event,data);
         });
     }
     this.init();    

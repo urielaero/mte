@@ -57,7 +57,7 @@
 										<span flex class="datos-escuela">
 											<strong  ng-bind='escuela.nombre'></strong>
 											<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
-											<!--<p ng-show='escuela.turno.nombre'><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>-->
+											<p ng-show='escuela.turno.nombre'><small><i class="icon-enlace-01"></i> {{escuela.turno.nombre}}</small></p>
 											<br ng-hide='escuela.turno.nombre' />
 										</span>
 									</a>

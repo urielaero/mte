@@ -1,16 +1,25 @@
-app.controller("escuelaCTL", ['$scope', '$mdSidenav',function ($scope, $mdSidenav) {
-	$scope.selectedIndex = 0;
+app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope, $mdSidenav,userInfo) {
+	
+    $scope.selectedIndex = 0;
 	$scope.countToggle = 0;
 	$scope.toggleForm = false;
     $scope.escuela = escuela;
     $scope.relatedSchoolParams = {
-        nivel : $scope.escuela.nivel,
-        turno : $scope.escuela.turno,
-        localidad : $scope.escuela.localidad,
+        nivel : $scope.escuela.nivel.id,
+        turno : $scope.escuela.turno.id,
+        localidad : $scope.escuela.localidad.id,
         limit : 6,
         sort : 'Semáforo educativo',
 
     }
+    userInfo.visitSchool({
+      id : $scope.escuela.id,
+      cct : $scope.escuela.cct,
+      nombre : $scope.escuela.nombre,
+      entidad : $scope.escuela.entidad.nombre,  
+      localidad : $scope.escuela.localidad.nombre,
+      municipio : $scope.escuela.municipio.nombre,
+    });
     //console.log($scope.relatedSchoolParams);
     $scope.next = function() {
       $scope.selectedIndex = Math.min($scope.selectedIndex + 1, 2) ;

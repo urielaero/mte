@@ -30,11 +30,11 @@
 		</md-content>
 		<md-content class="block visited">
 			<p><label><strong>Escuelas visitadas</strong></label></p>
-			<p ng-show='schools.visited.lenght > 0'>Selecciona alguna para comparar</p>
+			<p ng-show='schools.visited.length > 0'>Selecciona alguna para comparar</p>
 			<md-content style='background:none' flex>
 				<ul ng-show='schools.visited.length > 0'>
 					<li ng-repeat='escuela in schools.visited'>
-						<a href="" class="check on"><i class="icon-check-01"></i></a>
+						<a href="" class="check on"></i></a>
 						<p><strong ng-bind='escuela.nombre'></strong></p>
 						<p><i class="icon-mapa"></i> {{escuela.localidad}}, {{escuela.entidad}}</p>
 					</li>

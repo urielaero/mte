@@ -1,8 +1,9 @@
 (function () {
     var controller = function ($scope, $mdSidenav,userInfo) {
-    
+        
         //Agregamos un listener a nuestro service para mantener nuestros datos actualizados
         $scope.schools = userInfo.getSchools();
+        
         userInfo.addListener($scope);
         $scope.$on('userInfo.schoolsChange',function(e,schools){
             console.log('event received'+e);
