@@ -10,6 +10,10 @@
 			</div>
 			<div ng-controller="blogCTL" class="space-between" id="blog-posts" layout="row">
 				<script>
+					<?php 
+						$response = json_decode(file_get_contents($this->config->blog_address.'/api/get_category_posts/?category_slug=portada&count=2'));
+					?>
+					window.responseBlog = <?=json_encode($response)?>;
 					window.blogAddress = '<?php echo $this->config->blog_address ?>';
 				</script>
 				<div class="post" ng-repeat="post in posts">

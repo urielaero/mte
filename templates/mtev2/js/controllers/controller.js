@@ -16,14 +16,14 @@ app.controller("blogCTL", ['$scope', '$http',function ($scope, $http) {
     $scope.blogAddress = window.blogAddress;
     $scope.posts = [];
     $scope.getPosts = function(){
-        $http({
-            method:'GET',
-            url: $scope.blogAddress + '/api/get_category_posts/?category_slug=portada&count=2'
-        }).then(function(response){
+        $http.jsonp(
+            $scope.blogAddress + '/api/get_category_posts/?category_slug=portada&count=2'
+        ).then(function(response){
             $scope.posts = response.data.posts;
         });
     }
-    $scope.getPosts();
+    //$scope.getPosts();
+    $scope.posts = window.responseBlog.posts;
 }]);
 
 app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
@@ -43,7 +43,7 @@ app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
 	$scope.twitterIni = function(){
 	    var username =  "mejoratuescuela";
 		var page_proxy = '/home/twitter';	
-        $http({method: 'GET', url: page_proxy})
+        $http({method: 'POST', url: page_proxy})
         .success(function(tweets){
             tweets.forEach(function(tweet,index) {
             	//tweets[index] = $scope.replaceMentions($scope.replaceHashTags($scope.replaceURLWithHTMLLinks(tweet.text)));
