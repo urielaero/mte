@@ -128,4 +128,25 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
             300           
         );
     }
+
+    //califica...
+    
+    $scope.range = [0,0,0,0,0,0,0,0,0,0];
+    $scope.calificacion = {
+        calificaciones:[],
+    };
+    $scope.promedio = 0;
+    $scope.califica = function(i,q){
+        $scope.calificacion.calificaciones[q] = i;
+        var sum = 0,
+        promedio;
+        for(var i=0;i<$scope.calificacion.calificaciones.length;i++){
+            if($scope.calificacion.calificaciones[i])
+                sum += $scope.calificacion.calificaciones[i];
+        }
+        promedio = sum/$scope.calificacion.total;
+        console.log(promedio);
+		promedio = promedio.toString().length>3?promedio.toFixed(1):promedio;
+        $scope.promedio = promedio;
+    };
 }]);
