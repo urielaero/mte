@@ -1,142 +1,35 @@
 <h1 class="green-title">Califica tu escuela seleccionando para cada campo una calificación del <strong>1-10</strong>.<br/>Estas calificaciones se promedian para generar la calificación general de tu escuela</h1>
 
-<div class="questions-box space-between" layout="row" layout-sm="column">
-	<div class="question" flex-sm="100" >
-		<div class="question-content">
-    		<div class="question-title q1" layout="row">
-    			<div class="icon-container" flex="20">
-					<div  class="icon-wrapper vertical-align-center horizontal-align-center">
-						<i class="icon-check-01"></i>
-					</div>		        				
-    			</div>
-    			<h3 flex="80">Asistencia de los maestros</h3>
-    		</div>
-        	<div class="text">
-				<p>¿Los maestros faltan a clases constantemente o siempre estan en el aula?</p>
-				<p>1 = "Faltan constantemente"</p>
-				<p>10 = "Nunca faltan"</p>
-			</div>
-			<div class="ans-row" layout="row">
-				<div flex class="ans">1</div>
-				<div flex class="ans">2</div>
-				<div flex class="ans">3</div>
-				<div flex class="ans">4</div>
-				<div flex class="ans">5</div>
-				<div flex class="ans">6</div>
-				<div flex class="ans">7</div>
-				<div flex class="ans">8</div>
-				<div flex class="ans">9</div>
-				<div flex class="ans">10</div>
-			</div>			
-		</div>
-	</div>
-	<div class="question" flex-sm="100" >
-		<div class="question-content">
-    		<div class="question-title q1" layout="row">
-    			<div class="icon-container" flex="20">
-					<div  class="icon-wrapper vertical-align-center horizontal-align-center">
-						<i class="icon-programaapoyo-01"></i>
-					</div>		        				
-    			</div>
-    			<h3 flex="80">Preparación de los maestros</h3>
-    		</div>
-        	<div class="text">
-				<p>¿Qué tan preparados y capacitados están los maestros de tu escuela?</p>
-				<p>1 = "Poco preparados" </p>
-				<p>10 = "Muy preparados"</p>
-			</div>
-			<div class="ans-row" layout="row">
-				<div flex class="ans">1</div>
-				<div flex class="ans">2</div>
-				<div flex class="ans">3</div>
-				<div flex class="ans">4</div>
-				<div flex class="ans">5</div>
-				<div flex class="ans">6</div>
-				<div flex class="ans">7</div>
-				<div flex class="ans">8</div>
-				<div flex class="ans">9</div>
-				<div flex class="ans">10</div>
-			</div>			
-		</div>
-	</div>
-</div>
+<?php
+$icons = array(
+            "icon-programaapoyo-01",
+            "icon-check-01",
+            "icon-familia-01",
+            "icon-escuela-01",
+            "icon-desk-01",
+            "icon-buscar-01",
+        );
 
-<div class="questions-box space-between" layout="row" layout-sm="column">
-	<div class="question" flex-sm="100" >
-		<div class="question-content">
-    		<div class="question-title q2" layout="row">
-    			<div class="icon-container" flex="20">
-					<div  class="icon-wrapper vertical-align-center horizontal-align-center">
-						<i class="icon-escuela-01"></i>
-					</div>		        				
-    			</div>
-    			<h3 flex="80">Infraestructura de la escuela</h3>
-    		</div>
-        	<div class="text">
-				<p>¿La escuela cuenta con las instalaciones necesarias para dar clases?</p>
-				<p>1 = "Inadecuadas"</p>
-				<p>10 = "Muy buenas"</p>
-			</div>
-			<div class="ans-row" layout="row">
-				<div flex class="ans">1</div>
-				<div flex class="ans">2</div>
-				<div flex class="ans">3</div>
-				<div flex class="ans">4</div>
-				<div flex class="ans">5</div>
-				<div flex class="ans">6</div>
-				<div flex class="ans">7</div>
-				<div flex class="ans">8</div>
-				<div flex class="ans">9</div>
-				<div flex class="ans">10</div>
-			</div>			
-		</div>
-	</div>
-	<div class="question" flex-sm="100" >
-		<div class="question-content">
-    		<div class="question-title q2" layout="row">
-    			<div class="icon-container" flex="20">
-					<div  class="icon-wrapper vertical-align-center horizontal-align-center">
-						<i class="icon-familia-01"></i>
-					</div>		        				
-    			</div>
-    			<h3 flex="80">Relación con padres de familia</h3>
-    		</div>
-        	<div class="text">
-				<p>¿Cómo es la relación de los maestros y director con los padres de familia?</p>
-				<p>1 = "Mala"</p>
-				<p>10 = "Muy buena"</p>
-			</div>
-			<div class="ans-row" layout="row">
-				<div flex class="ans">1</div>
-				<div flex class="ans">2</div>
-				<div flex class="ans">3</div>
-				<div flex class="ans">4</div>
-				<div flex class="ans">5</div>
-				<div flex class="ans">6</div>
-				<div flex class="ans">7</div>
-				<div flex class="ans">8</div>
-				<div flex class="ans">9</div>
-				<div flex class="ans">10</div>
-			</div>			
-		</div>
-	</div>
-</div>
 
-<div class="questions-box space-between" layout="row" layout-sm="column">
+if($this->preguntas){
+    foreach($this->preguntas as $i=>$pregunta){ 
+        if(!($i%2))
+            echo '<div class="questions-box space-between" layout="row" layout-sm="column">'
+        ?>
 	<div class="question" flex-sm="100" >
 		<div class="question-content">
-    		<div class="question-title q3" layout="row">
+    		<div class="question-title q<?=intval(($i+2)/2)?>" layout="row">
     			<div class="icon-container" flex="20">
 					<div  class="icon-wrapper vertical-align-center horizontal-align-center">
-						<i class="icon-buscar-01"></i>
+						<i class="<?=isset($icons[$i])?$icons[$i]:$icons[0]?>"></i>
 					</div>		        				
     			</div>
-    			<h3 flex="80">Honestidad y transparencia</h3>
+    			<h3 flex="80"><?=$pregunta->titulo?></h3>
     		</div>
         	<div class="text">
-				<p>¿Las evaluaciones y exámenes se administran de manera honesta y transparente?</p>
-				<p>1 = "Hay copia y trampa" </p>
-				<p>10 = "Con honestidad"</p>
+				<p><?=$pregunta->pregunta?></p>
+				<p>1 = "<?=$pregunta->descripcion_valor_minimo?>"</p>
+				<p>10 = "<?=$pregunta->descripcion_valor_maximo?>"</p>
 			</div>
 			<div class="ans-row" layout="row">
 				<div flex class="ans">1</div>
@@ -152,37 +45,13 @@
 			</div>			
 		</div>
 	</div>
-	<div class="question" flex-sm="100" >
-		<div class="question-content">
-    		<div class="question-title q3" layout="row">
-    			<div class="icon-container" flex="20">
-					<div  class="icon-wrapper vertical-align-center horizontal-align-center">
-						<i class="icon-desk-01"></i>
-					</div>		        				
-    			</div>
-    			<h3 flex="80">Participación de padres de familia</h3>
-    		</div>
-        	<div class="text">
-				<p>¿Los padres de familia participan de manera activa y organizada en la escuela?</p>
-				<p>1 = "No participan"</p>
-				<p>10 = "Participación activa"</p>
-			</div>
-			<div class="ans-row" layout="row">
-				<div flex class="ans">1</div>
-				<div flex class="ans">2</div>
-				<div flex class="ans">3</div>
-				<div flex class="ans">4</div>
-				<div flex class="ans">5</div>
-				<div flex class="ans">6</div>
-				<div flex class="ans">7</div>
-				<div flex class="ans">8</div>
-				<div flex class="ans">9</div>
-				<div flex class="ans">10</div>
-			</div>			
-		</div>
-	</div>
-</div>
 
+    <?php 
+        if($i%2==1)
+            echo "</div>";
+    }
+}
+?>
 <div class="result" layout="row">
 	<div flex="70" class="desc">En promedio, calificas a tu escuela con:</div>
 	<div flex="30" class="number">8</div>

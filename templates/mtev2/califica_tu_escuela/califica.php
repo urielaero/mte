@@ -35,10 +35,10 @@ if(!empty($this->escuela->rank)){
 
 <div class="container califica" ng-controller="escuelaCTL">
 	<div class="breadcrumb">
-		<a href="#" class="start"><i class="icon-mejora"></i></a>
-		<a href="#">Escuela</a>
-		<a href="#">Guanajuato</a>
-		<a href="#">Preparatoria Carlos Navarro</a>
+		<a href="/" class="start"><i class="icon-mejora"></i></a>
+		<?php foreach($this->breadcrumb as $url => $breadcrumb){ ?>
+			<a <?=$url!="#"?"href='$url'":"" ?>><?=$breadcrumb ?></a>
+		<?php } ?>
 	</div>
 	<div class="menu-top">
 		<div layout="row" layout-sm="column" class="menu-row">
