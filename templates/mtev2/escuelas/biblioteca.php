@@ -51,7 +51,7 @@
 								</div>
 							</div>
 							<div flex="65">
-								<h4>Califica tu escuela</h4>
+								<h4>Califica tu biblioteca</h4>
 							</div>
 							<a href="califica_tu_escuela/califica/<?=$this->escuela->cct?>" class="full-size-link"></a>
 						</div>
@@ -81,7 +81,7 @@
 		</div>			
 		<div class="additional-info space-between" layout="row" layout-sm="column">
 			<div class="data" flex="73" flex-sm="100">
-				<div mte-califica></div>
+				<div mte-califica tipo="'biblioteca'"></div>
 		        <div  class="comentarios tables-box" id="comentarios">
 					<?php
 						$cp = 0;

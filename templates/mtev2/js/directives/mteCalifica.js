@@ -1,5 +1,8 @@
 (function () {
-    var controller = function($scope,$http){ 
+    var controller = function($scope,$http){
+        if(!$scope.tipo){
+            $scope.tipo = 'escuela';
+        } 
         $scope.input = {
             json:true
         };
@@ -33,7 +36,8 @@
             controller : controller,
             scope : {
                 promedio: '=?',
-                calificacion: '=?'
+                calificacion: '=?',
+                tipo: '=?',
             },
             templateUrl: 'mteCalifica.html'
         };
