@@ -114,7 +114,6 @@ class calificacion extends table{
             $sql .= "({$pregunta},{$this->id},$calificacion),";
         }
         $sql = rtrim($sql,",");
-
         pg_query($this->conn,$sql);
     }
 

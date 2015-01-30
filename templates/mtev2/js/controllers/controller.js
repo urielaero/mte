@@ -11,19 +11,30 @@ app.controller("sidebarCTL", ['$scope','$timeout','$mdSidenav',function ($scope,
 }]);
 
 
-app.controller("blogCTL", ['$scope', '$http',function ($scope, $http) {
+app.controller("blogCTL", ['$scope', '$http', '$timeout', '$rootScope',function ($scope, $http, $timeout, $rootScope) {
     $scope.cdnUrl = 'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/';
     $scope.blogAddress = window.blogAddress;
     $scope.posts = [];
     $scope.getPosts = function(){
-        $http({
-            method:'GET',
-            url: $scope.blogAddress + '/api/get_category_posts/?category_slug=portada&count=2'
-        }).then(function(response){
+        $http.jsonp(
+            $scope.blogAddress + '/api/get_category_posts/?category_slug=portada&count=2&callback=JSON_CALLBACK'
+        ).then(function(response){
             $scope.posts = response.data.posts;
         });
     }
+    /*$scope.posts = [
+        'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/wp-content/uploads//2015/01/MTE_270115_OJO.png',
+        'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/wp-content/uploads//2015/01/miamigofiel_matamoros.jpg',
+        'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/wp-content/uploads//2015/01/shutterstock_206017312.jpg',
+        'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/wp-content/uploads//2015/01/MTE_19012015_TipsEscuela.png',
+        'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/wp-content/uploads//2015/01/shutterstock_199100342.jpg'
+    ];*/
+    $scope.showMoreBtn = false;
     $scope.getPosts();
+    $timeout(function () {
+       $rootScope.$broadcast('masonry.reload');
+       $scope.showMoreBtn = true;
+       }, 2000);
 }]);
 
 app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
@@ -43,7 +54,7 @@ app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
 	$scope.twitterIni = function(){
 	    var username =  "mejoratuescuela";
 		var page_proxy = '/home/twitter';	
-        $http({method: 'GET', url: page_proxy})
+        $http({method: 'POST', url: page_proxy})
         .success(function(tweets){
             tweets.forEach(function(tweet,index) {
             	//tweets[index] = $scope.replaceMentions($scope.replaceHashTags($scope.replaceURLWithHTMLLinks(tweet.text)));
@@ -56,14 +67,25 @@ app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
 
 
 
-app.controller("mejoraCTL", ['$scope',function ($scope) {
+app.controller("mejoraCTL", ['$scope','$http','$timeout','$rootScope',function ($scope, $http, $timeout, $rootScope) {
 	$scope.countToggle = 0;
 	$scope.toggleForm = false;
-    $scope.toggleFormEvent = function(){
-    	if($scope.countToggle == 0){
-    		$scope.toggleForm = true;
-    	}
+    $scope.cdnUrl = 'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/';
+    $scope.blogAddress = window.blogAddress;
+    $scope.posts = [];
+    $scope.getPosts = function(){
+        $http.jsonp(
+            $scope.blogAddress + '/api/get_category_posts/?category_slug=mejora&count=8&callback=JSON_CALLBACK'
+        ).then(function(response){
+            $scope.posts = response.data.posts;
+        });
     }
+    $scope.showMoreBtn = false;
+    $scope.getPosts();
+    $timeout(function () {
+       $rootScope.$broadcast('masonry.reload');
+       $scope.showMoreBtn = true;
+       }, 2000);
 }]);
 
 
@@ -149,6 +171,31 @@ app.controller("programaCTL", ['$scope',function ($scope) {
                 return e;
             })
         });
+    };
+}]);
+
+app.controller("calificaCTL", ['$scope',function ($scope) {
+    $scope.selectedIndex = 0;
+    $scope.range = [0,0,0,0,0,0,0,0,0,0];
+    $scope.calificacion = {
+        calificaciones:[],
+        preguntas:[]
+    };
+    $scope.promedio = 0;
+    $scope.califica = function(i,q){
+        $scope.calificacion.calificaciones[q] = i;
+        var sum = 0,
+        promedio;
+        for(var i=0;i<$scope.calificacion.total;i++){
+            if($scope.calificacion.calificaciones[i])
+                sum += $scope.calificacion.calificaciones[i];
+            else
+                $scope.calificacion.calificaciones[i] = 0;
+        }
+        promedio = sum/$scope.calificacion.total;
+        promedio = promedio.toString().length>3?promedio.toFixed(1):promedio;
+        $scope.promedio = promedio;
+
     };
 }]);
 

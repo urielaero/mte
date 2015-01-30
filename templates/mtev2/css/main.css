@@ -189,15 +189,16 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container #sidebar{-webkit-flex: 0 0 30%; -ms-flex: 0 0 30%; flex: 0 0 30%; max-width: 30%; }
 #content .container #home-video{width: 100%}
 #content .container #blog-posts{flex-wrap:wrap;}
-#content .container #blog-posts .post{-webkit-flex: 0 0 49%; -ms-flex: 0 0 49%; flex: 0 0 49%; max-width: 49%; }
-#content .container #blog-posts .post .post-image{overflow: hidden;}
+#content .container #blog-posts .post{-webkit-flex: 0 0 49%; -ms-flex: 0 0 49%; flex: 0 0 49%; max-width: 49%;margin-bottom: 20px; position: relative;}
+#content .container #blog-posts .post .post-image{overflow: hidden;max-width: 100%}
 #content .container #blog-posts .post .post-image img{float: left;max-width: 100%;-webkit-transition: all .4s ease; -moz-transition: all .4s ease; -o-transition: all .4s ease; -ms-transition: all .4s ease; width: 100%}
 #content .container #blog-posts .post:hover .post-image img{-webkit-transform: scale(1.1); -moz-transform: scale(1.1);-o-transform: scale(1.1);transform: scale(1.1);}
 #content .container #blog-posts .post .description{background: #F6911B;color: #fff;padding: 12px 20px}
 #content .container #blog-posts .post .description h3{margin: 0;line-height: 1.4}
 #content .container #blog-posts .post .description a{color: #fff}
 #content .container #blog-posts .post .description p{line-height: 1.4}
-#content .container #blog-posts .post + .post .description{background: #00AFF0}
+#content .container #blog-posts .post:nth-child(2n+0) .description{background: #00AFF0}
+#content .container #blog-posts .post[flex-sm="100"]{width: 100%}
 #content .container #blog-posts .button-bordered{border: 2px solid #20B45E;color: #20B45E;font-weight: 700;margin: 10px auto;max-width: none;text-align: center;width: 100%}
 
 /*Sidebar(home)*/
@@ -285,7 +286,7 @@ ul.dropdown-menu li.active a{color: #fff}
 
 /*Comment form*/
 #content .container .comment-form .icon-container{background: #F3910C;padding: 10px 0;text-align: center;}
-#content .container .comment-form .icon-container i{color: #fff;font-size: 40px;}
+#content .container .comment-form .icon-container i{color: #fff;font-size: 40px;margin-top: -5px}
 #content .container .comment-form textarea{border: 0;color:#6C6C6C;padding: 20px;resize: none;}
 #content .container .comment-form .fields{background: #F76907;margin-bottom: 6px;padding: 6px}
 #content .container .comment-form select,
@@ -449,7 +450,7 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.profile #profile-content .additional-info .infraestructura .table-top .i-cont{background: #E8299A;}
 
 #content .container.profile #profile-content .additional-info .comentarios h2{background: #0BBC3A;color: #fff;font-size: 14px;font-weight: 700;padding: 6px 12px;}
-#content .container.profile #profile-content .additional-info .comentarios h2 .total{background: #009247;font-size: 12px;line-height: 1.2;padding: 4px}
+#content .container.profile #profile-content .additional-info .comentarios h2 .total{background: #009247;font-size: 12px;line-height: 1.2;padding: 4px;padding-top: 5px;height: 100%}
 #content .container.profile #profile-content .additional-info .comentarios h2 .total .icon-box{text-align: center;font-size: 30px}
 #content .container.profile #profile-content .additional-info .comentarios h2 .total div + div + div{text-align: center;font-size: 20px}
 #content .container.profile #profile-content .additional-info .comentarios .table-top .i-cont{background: #00A650;}
@@ -541,6 +542,7 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.califica .result p{}
 #content .container.califica .result .desc{font-weight: 400;font-size: 16px;padding: 15px;text-align: left;}
 #content .container.califica .result .number{background: #009247;color: #fff;font-size: 28px;text-align: center;}
+#content .container.califica .form-success{color:white;}
 
 /*Compara/escuelas*/
 #content .container.compare .loader{height:400px;}
@@ -605,6 +607,10 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.results .circulo-icon-mejora{display:block;width: 20px;height: 20px;border-radius: 50% 50% 50% 50%;border:solid 2px #1CA5F5;}
 #content .container.results .cont-datos-escuela:hover .circulo-icon-mejora{border: 2px solid white;}
 #content .container.results .cont-datos-escuela:hover .mejora-icon{color: white;}
+
+.titles .Mejora-Tu-Escuela{margin-top: 10px}
+.titles .Mejora-Tu-Escuela p strong{font-size: 17px}
+.titles .Mejora-Tu-Escuela p {font-size: 17px;}
 
 
 
@@ -909,8 +915,8 @@ ul.dropdown-menu li.active a{color: #fff}
 .datos-counters-3{background-color: #2F86DC;text-align: center;display: inline-block;}
 .cont-datos{display: table;text-align: center;width: 100%;height: 80px;}
 .seccion-datos{width: 220px;height: 70px;margin: 0 auto;margin-top: 5px;}
-.icono-datos{width: 50px;height: 100%;float: left;color:#286FBB;display: table}
-.h3-icono-turno{width: auto;font-size: 20px;display: table-cell;vertical-align: middle;margin: 0 auto;color: white;font-size: 40px}
+.icono-datos{width: 50px;height: 100%;float: left;color:#2870BA;display: table}
+.h3-icono-turno{width: auto;font-size: 20px;display: table-cell;vertical-align: middle;margin: 0 auto;color: #2870BA;font-size: 40px}
 .text-datos{width: 80px;height: 100%;float: left;color:#286FBB;display: table;margin-left: 15px}
 .h3-text-datos{font-size: 13px;color: white;display: table-cell;vertical-align: middle;text-align: left;margin: 0 auto;max-width: 80px}
 .num-datos{width: 40px;height: 100%;float: left;color:#286FBB;color: white;}

@@ -22,7 +22,7 @@ if(!empty($this->escuela->rank)){
 	$tmp = new stdClass();
 	$tmp->nombre_icon = 'matutino';
 	$tmp->nombre = $this->capitalize('matutino');
-        $tmp->rank = isset($this->escuela->rank_entidad) ? number_format($this->escuela->rank_entidad ,0): '--';
+    $tmp->rank = isset($this->escuela->rank_entidad) ? number_format($this->escuela->rank_entidad ,0): '--';
 	$tmp->rank_total = number_format($this->entidad_cct_count,0);
 	$tmp->total_evaluados = isset($this->escuela->total_evaluados)?$this->escuela->total_evaluados:'N/D';
 	$tmp->pct_reprobados = isset($this->escuela->pct_reprobados)?$this->escuela->pct_reprobados:'N/D';
@@ -33,7 +33,7 @@ if(!empty($this->escuela->rank)){
 }
 ?>
 
-<div class="container califica" ng-controller="escuelaCTL">
+<div class="container califica" ng-controller="calificaCTL">
 	<div class="breadcrumb">
 		<a href="/" class="start"><i class="icon-mejora"></i></a>
 		<?php foreach($this->breadcrumb as $url => $breadcrumb){ ?>
@@ -42,7 +42,7 @@ if(!empty($this->escuela->rank)){
 	</div>
 	<div class="menu-top">
 		<div layout="row" layout-sm="column" class="menu-row">
-			<div class="profile-title" flex="70" flex-sm="100">
+			<div class="profile-title" flex="100" flex-sm="100">
 				<div class="title-container" layout="row">
 					<div flex="25" class="icon-container" hide-sm>
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
@@ -57,6 +57,7 @@ if(!empty($this->escuela->rank)){
 					</div>
 				</div>			
 			</div>
+            <!--
 			<div class="tabs" flex="30" flex-sm="100">
 			    <md-tabs md-selected="selectedIndex">
 		    	<?php foreach($escuela_per_turnos as $i=>$escuela){?>
@@ -67,6 +68,7 @@ if(!empty($this->escuela->rank)){
 				<?php } ?>
 			    </md-tabs>				
 			</div>
+            -->
 		</div>
 	</div>
     <ng-switch on="selectedIndex" class="tabpanel-container">

@@ -26,6 +26,9 @@
 			'bower_components/angular-material/angular-material.min.js',
 			'bower_components/angular-cookies/angular-cookies.min.js',
 			'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+			'bower_components/imagesloaded/imagesloaded.pkgd.min.js',
+			'bower_components/masonry/dist/masonry.pkgd.min.js',
+			'bower_components/angular-masonry/angular-masonry.js',
 			'perfect-scrollbar.min.js',
 			'footable.js',
 			'perfect-scrollbar.with-mousewheel.min.js',
@@ -44,6 +47,7 @@
 			'directives/mteTextSearch.js',
 			'directives/comparaSidebar.js',
 			'directives/mteSuscribe.js',
+			'directives/mteCalifica.js',
 		);
 		if($this->location == 'escuelas'){
 			//$js_scripts[] = 'school-charts.js'; // si no hay cambios en el js no renderizara 

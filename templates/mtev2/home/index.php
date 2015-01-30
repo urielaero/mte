@@ -8,26 +8,28 @@
 			<div class="video-container">
 				<iframe width="595" height="335" src="//www.youtube.com/embed/G4FOZyoB74Y" frameborder="0" allowfullscreen="" id="home-video"></iframe>
 			</div>
-			<div ng-controller="blogCTL" class="space-between" id="blog-posts" layout="row">
-				<script>
-					window.blogAddress = '<?php echo $this->config->blog_address ?>';
-				</script>
-				<div class="post" ng-repeat="post in posts">
-					<div class="post-image">
-						<a href="#" ng-if="post.thumbnail_images.large.url">
-							<img src="{{post.thumbnail_images.large.url}}" alt="{{post.thumbnail_images.description}}">
-						</a>
-						<a href="#" ng-if="!post.thumbnail_images.large.url">
-							<img src="{{post.attachments[0].url | replaceWithCdnUrl:cdnUrl:blogAddress}}" alt="{{post.attachments[0].description}}">
-						</a>
-						<div class="clear"></div>
-					</div>
-					<div class="description">
-						<h3><a href="#">{{post.title}}</a></h3>
-						<p>{{post.excerpt | htmlToPlaintext}}</p>
+			<script>
+				window.blogAddress = '<?php echo $this->config->blog_address ?>';
+			</script>			
+			<div ng-controller="blogCTL" class="space-between" id="blog-posts">
+				<div masonry='{gutter:5,isInitLayout: false}' >
+					<div class="post masonry-brick" flex-sm="100" column-width="100" ng-if="posts" ng-repeat="post in posts">
+						<div class="post-image">
+							<a ng-href="{{post.url}}" ng-if="post.thumbnail_images.large.url">
+								<img ng-src="{{post.thumbnail_images.large.url}}" alt="{{post.thumbnail_images.description}}">
+							</a>
+							<a ng-href="{{post.url}}" ng-if="!post.thumbnail_images.large.url">
+								<img ng-src="{{post.attachments[0].url | replaceWithCdnUrl:cdnUrl:blogAddress}}" alt="{{post.attachments[0].description}}">
+							</a>
+							<div class="clear"></div>
+						</div>
+						<div class="description">
+							<h3><a ng-href="{{post.url}}">{{post.title}}</a></h3>
+							<p>{{post.excerpt | htmlToPlaintext}}</p>
+						</div>
 					</div>
 				</div>
-				<a href="#" class="button-bordered">Consulta más información en nuestro blog</a>
+				<a ng-show="showMoreBtn" href="<?php echo $this->config->blog_address ?>" class="button-bordered">Consulta más información en nuestro blog</a>
 			</div>
 		</div>
 		<?php $this->include_template('sidebar','home');  ?>

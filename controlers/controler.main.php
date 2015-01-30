@@ -897,9 +897,9 @@ class main extends controler{
 	}
 
 	protected function isValidCalificaForm(){
-		$check = array('e_mail'=>0,'mail'=>0,'correo'=>0,'email'=>1,'ocupacion'=>1,'cct'=>1,'last_name'=>1,'comentario'=>1,'recaptcha_challenge_field'=>1);
+		$check = array('e_mail'=>0,'mail'=>0,'correo'=>0,'email'=>1,'ocupacion'=>1,'cct'=>1,'last_name'=>1,'comentario'=>1);
 		foreach($check as $field => $f){
-			if(($f && $this->post($field)=='') || !$f && $this->post($field) != ''){
+			if(($f && ($this->post($field)=='' || !$this->post($field))) || !$f && $this->post($field) != ''){
 				return false;
 			}
 		}
