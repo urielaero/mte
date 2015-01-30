@@ -18,7 +18,7 @@
 				    		<p><strong>Herramientas de mejora</strong></p>
 				      	</md-tab>
 				      	<md-tab id="programs-tab" aria-controls="tab2-content">
-				      		<i class="icon-mail-01"></i>
+				      		<i class="icon-programaapoyo-01"></i>
 				      		<p><strong>Programas de apoyo</strong></p>
 				      	</md-tab>
 				    </md-tabs>				
@@ -40,11 +40,15 @@
 								</div>
 								<div class="description">
 									<h3><a ng-href="{{post.url}}">{{post.title}}</a></h3>
-									<p>{{post.excerpt | htmlToPlaintext}}</p>
+								</div>
+								<div class="more" layout="row">
+									<a href="{{post.url}}" flex>Leer más</a>
+									<a ng-href="{{post.url}}" target="_blank" flex ng-if="post.thumbnail_images.large.url"><i class="icon-descargas-01"></i></a>
+									<a ng-href="{{post.url}}" target="_blank" flex ng-if="!post.thumbnail_images.large.url"><i class="icon-descargas-01"></i></a>
 								</div>
 							</div>
 						</div>
-						<a ng-show="showMoreBtn" href="<?php echo $this->config->blog_address ?>" class="button-bordered">Consulta más información</a>
+						<a ng-show="showMoreBtn" ng-click="getPosts()" class="button-bordered">Consulta más información</a>
 					</div>
 				</div>
         		<div role="tabpanel" class="tab-content programs-content" aria-labelledby="tab1" ng-switch-when="1" md-swipe-left="next()" md-swipe-right="previous()" >

@@ -3,8 +3,8 @@
 </script>
 		<div flex="30" flex-sm="100" id="sidebar" class="mejora-sidebar">
 
-			<form class="search-form" layout="row" layout-sm="column">
-				<input type="text" placeholder="Busca una infografía" flex="80">
+			<form action="http://blog.mejoratuescuela.org/" method="GET" accept-charset="utf-8"  class="search-form" layout="row" layout-sm="column">
+				<input type="text" name="s" autocomplete="off" placeholder="Busca una infografía" flex="80">
 				<input type="submit" value="" flex="20">
 			</form>
 			<div mte-suscribe></div>

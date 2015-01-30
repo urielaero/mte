@@ -104,7 +104,6 @@ class califica_tu_escuela extends main{
 				$this->instruction = '¿Qué escuela quieres calificar?';
 				$this->instruction2 = 'Búscala aquí';
 			}
-			echo 'hasta aca';
 			$this->include_theme('index','index');
 		}
 	}

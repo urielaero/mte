@@ -1,6 +1,9 @@
 <script type='text/javascript'>
     window.escuela = <?= json_encode($this->escuelaSummary) ?>;
 </script>
+<script type="text/ng-template" id="mteCalifica.html">
+	<?php $this->include_template('mteCalificaPerfil','directives'); ?>
+</script>
 <script type="text/ng-template" id="mteNgSearch.html">
 	<?php $this->include_template('mteNgSearch','directives'); ?>
 </script>
@@ -38,7 +41,7 @@
 		<div class="space-between" layout="row" layout-sm="column">
 			<div class="main-info" flex="73" flex-sm="100">
 				<div layout="row" layout-sm="column">
-					<leaflet id="map" center="center" markers="markers"  flex="50"
+					<leaflet id="map" center="center" markers="markers"  flex="50" flex-sm="100"
 		            ng-init='loadMap(<?=json_encode($this->escuelas_digest)?>,"<?=$this->escuela->cct?>")'></leaflet>	
 					<div class="info" flex="50" flex-sm="100">
 						<div class="califica" layout="row">
@@ -78,39 +81,7 @@
 		</div>			
 		<div class="additional-info space-between" layout="row" layout-sm="column">
 			<div class="data" flex="73" flex-sm="100">
-				<form action="/" method="GET" class="comment-form">
-					<div layout="row" ng-click="toggleFormEvent()">
-						<div flex="10" class="icon-container" hide-sm>
-							<i class="icon-comentario-01"></i>
-						</div>						
-						<textarea flex="90" flex-sm="100" placeholder="Deja un comentario sobre esta escuela"></textarea>
-					</div>
-					<div class="extra animated fadeInDown" ng-show="toggleForm">
-						<div class="fields" layout="row" layout-margin layout-fill layout-padding>
-							<input type="text" name="nombre" flex placeholder="Nombre">
-							<input type="email" name="correo" flex placeholder="Correo electrónico">
-							<select flex>
-								<option value="">¿Quien eres?</option>
-							</select>
-						</div>
-						<div class="sumbit-fields space-between" layout="row" layout-sm="column">
-							<div class="captcha" flex="33" flex-sm="100"></div>
-							<div flex="66" flex-sm="100">
-								<div layout="row" class="space-between">
-									<md-button type="submit" class="md-raised" flex="49">Enviar</md-button>
-									<div flex="49" class="check">
-										<md-checkbox name="check" value="1" aria-label="Checkbox 1">*Quiero que mi nombre se publique junto con mi comentario</md-checkbox>
-									</div>
-								</div>
-								<div class="msg">
-									<p>*Tu correo electronico NO aparecerá con tu comentario.</p>
-									<p>Si no quieres que tu comentario se publique en el perfil de la escuela, escribenos a:contacto@mejoratuesceual.org</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</form>
-
+				<div mte-califica></div>
 		        <div  class="comentarios tables-box" id="comentarios">
 					<?php
 						$cp = 0;
@@ -129,12 +100,12 @@
 						}
 					?>
 
-					<h2 layout="row">
-						<div flex="50">Comentarios</div>
-						<div flex="50">
+					<h2 layout="row" layout-sm="column">
+						<div flex="50" flex-sm="100">Comentarios</div>
+						<div flex="50" flex-sm="100">
 							<div layout="row" class="total">
 								<div flex="20" class="icon-box"><i class="icon-desk-01"></i></div>
-								<div flex="60">Total de personas que evaluaron esta escuela</div>
+								<div flex="60">Total de personas que evaluaron esta biblioteca</div>
 								<div flex="20"><strong><?=isset($this->escuela->calificaciones)?count($this->escuela->calificaciones):0 ?></strong></div>
 						</div>
 					</h2>

@@ -6,7 +6,6 @@ angular.module('mteFilters', []).
 })
 .filter('replaceWithCdnUrl', function() {
 	return function(text, cdnUrl, blogUrl) {
-		console.log(text.replace(blogUrl,cdnUrl));
 	  return text.replace(blogUrl,cdnUrl);
 	}
 });

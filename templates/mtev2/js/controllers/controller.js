@@ -73,11 +73,16 @@ app.controller("mejoraCTL", ['$scope','$http','$timeout','$rootScope',function (
     $scope.cdnUrl = 'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/';
     $scope.blogAddress = window.blogAddress;
     $scope.posts = [];
+    $scope.postsPage = 1;
     $scope.getPosts = function(){
+        var page = $scope.postsPage;
+        console.log(page);
         $http.jsonp(
-            $scope.blogAddress + '/api/get_category_posts/?category_slug=mejora&count=8&callback=JSON_CALLBACK'
+            $scope.blogAddress + '/api/get_category_posts/?category_slug=mejora&count=8&page='+page+'&callback=JSON_CALLBACK'
         ).then(function(response){
-            $scope.posts = response.data.posts;
+            //$scope.posts = response.data.posts;
+            $scope.posts.push.apply($scope.posts, response.data.posts);
+            $scope.postsPage++;
         });
     }
     $scope.showMoreBtn = false;
@@ -85,7 +90,7 @@ app.controller("mejoraCTL", ['$scope','$http','$timeout','$rootScope',function (
     $timeout(function () {
        $rootScope.$broadcast('masonry.reload');
        $scope.showMoreBtn = true;
-       }, 2000);
+    }, 2000);
 }]);
 
 

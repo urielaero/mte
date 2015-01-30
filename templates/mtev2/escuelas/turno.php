@@ -2,7 +2,7 @@
 <div class="space-between" layout="row" layout-sm="column">
 	<div class="main-info" flex="73" flex-sm="100">
 		<div layout="row" layout-sm="column">
-			<leaflet id="map" center="center" markers="markers"  flex="50"
+			<leaflet id="map" center="center" markers="markers"  flex="50" flex-sm="100"
             ng-init='loadMap(<?=json_encode($this->escuelas_digest)?>,"<?=$this->escuela->cct?>")'></leaflet>	
 			<div class="info" flex="50" flex-sm="100">
 				<div class="califica" layout="row">
@@ -204,14 +204,14 @@
 					</div>
 				</div>								
 			</div>
-			<div class="chart-block mate" layout="row">
-				<div class="purple" flex="25">
+			<div class="chart-block mate" layout="row" layout-sm="column">
+				<div class="purple" flex="25" flex-sm="100">
 					<p class="i-cont"><i class="icon-calculadora-01"></i></p>
 					<p>Resultados</p>
 					<p>ENLACE</p>
 					<div class="label"><p>Matemáticas</p></div>
 				</div>
-				<div flex="75" class="chart" 
+				<div flex="75" flex-sm="100" class="chart" 
 				ng-init='chart[<?=$this->escuela_per_turno_index?>].matematicas=<?=json_encode($this->escuela_per_turno->chart_ma)?>'
 				>
 					<div id='profile-line-chart-matematicas' class="content_chart"></div>
@@ -229,14 +229,14 @@
 				
 				</div>
 			</div>
-			<div class="chart-block espanol" layout="row">
-				<div class="purple" flex="25">
+			<div class="chart-block espanol" layout="row" layout-sm="column">
+				<div class="purple" flex="25" flex-sm="100">
 					<p class="i-cont"><i class="icon-enlace-01"></i></p>
 					<p>Resultados</p>
 					<p>ENLACE</p>
 					<div class="label"><p>Español</p></div>
 				</div>
-				<div flex="75" class="chart"
+				<div flex="75" flex-sm="100" class="chart"
 				ng-init='chart[<?=$this->escuela_per_turno_index?>].espaniol=<?=json_encode($this->escuela_per_turno->chart_es)?>'
 				>
 					<div id='profile-line-chart-espaniol' class="content_chart"></div>
@@ -262,7 +262,7 @@
 			?>
 				<h2>Infraestructura escolar <span>Información correspondiente al ciclo 2013/2014</span></h2>
 				<div class="table-top" layout="row">
-					<div flex="10" flex-sm="15" class="i-cont"><i class="icon-instalaciones-01"></i></div>
+					<div flex="10" flex-sm="10" class="i-cont"><i class="icon-instalaciones-01"></i></div>
 					<div flex="65" flex-sm="65"><p>Instalaciones</p></div>
 					<div flex="25" flex-sm="25"><p>En esta escuela</p></div>
 				</div>
@@ -278,7 +278,7 @@
 					<tr><td>Tazas sanitarios</td><td><?=$infra['Tazas sanitarias']?></td></tr>
 				</table>
 				<div class="table-top" layout="row">
-					<div flex="10" flex-sm="15" class="i-cont"><i class="icon-servicios-01"></i></div>
+					<div flex="10" flex-sm="10" class="i-cont"><i class="icon-servicios-01"></i></div>
 					<div flex="65" flex-sm="65"><p>Servicios</p></div>
 					<div flex="25" flex-sm="25"><p>En esta escuela</p></div>
 				</div>
@@ -297,7 +297,7 @@
 					<tr><td>Télefono</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
 				</table>
 				<div class="table-top" layout="row">
-					<div flex="10" flex-sm="15" class="i-cont"><i class="icon-seguridad-01"></i></div>
+					<div flex="10" flex-sm="10" class="i-cont"><i class="icon-seguridad-01"></i></div>
 					<div flex="65" flex-sm="65"><p>Seguridad</p></div>
 					<div flex="25" flex-sm="25"><p>En esta escuela</p></div>
 				</div>
@@ -333,9 +333,9 @@
 				}
 			?>
 
-			<h2 layout="row">
-				<div flex="50">Comentarios</div>
-				<div flex="50">
+			<h2 layout="row" layout-sm="column">
+				<div flex="50" flex-sm="100">Comentarios</div>
+				<div flex="50" flex-sm="100">
 					<div layout="row" class="total" flex="100">
 						<div flex="20" class="icon-box"><i class="icon-desk-01"></i></div>
 						<div flex="60">Total de personas que evaluaron esta escuela</div>
@@ -343,14 +343,14 @@
 				</div>
 			</h2>
 			<div class="table-top" layout="row">
-				<div flex="10" flex-sm="15" class="i-cont"><i class="icon-estrella-01"></i></div>
+				<div flex="10" flex-sm="10" class="i-cont"><i class="icon-estrella-01"></i></div>
 				<div flex="90" flex-sm="85"><p>Calificación global de la escuela según usuarios</p></div>
 			</div>
 			<table>
 				<tr><td>Calificación global</td><td><?=$pro?></td></tr>
 			</table>
 			<div class="table-top" layout="row">
-				<div flex="10" flex-sm="15" class="i-cont"><i class="icon-pregunta-01"></i></div>
+				<div flex="10" flex-sm="10" class="i-cont"><i class="icon-pregunta-01"></i></div>
 				<div flex="90" flex-sm="85"><p>Calificación promedio por pregunta</p></div>
 			</div>
 			<table>
@@ -366,7 +366,7 @@
 			?>
 			</table>
 			<div class="table-top" layout="row">
-				<div flex="10" flex-sm="15" class="i-cont"><i class="icon-comentario2-01"></i></div>
+				<div flex="10" flex-sm="10" class="i-cont"><i class="icon-comentario2-01"></i></div>
 				<div flex="90" flex-sm="85"><p>Calificación promedio por pregunta</p></div>
 			</div>
 
