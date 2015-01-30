@@ -28,14 +28,14 @@
 			</md-content>
 			<a href="/compara/escuelas" class="button-bordered">Comparar</a>
 		</md-content>
-		<md-content class="block visited">
+		<md-content class="block visited" flex>
 			<p><label><strong>Escuelas visitadas</strong></label></p>
 			<p ng-show='schools.visited.length > 0'>Selecciona alguna para comparar</p>
 			<md-content style='background:none' flex>
 				<ul ng-show='schools.visited.length > 0'>
 					<li ng-show='!isSelected(escuela)' ng-repeat='escuela in schools.visited'>
 						<a href="" class="check on" ng-click='selectSchool(escuela)' ></i></a>
-						<p><strong ng-bind='escuela.nombre'></strong></p>
+						<p><a ng-href='/escuelas/index/{{escuela.cct}}'><strong ng-bind='escuela.nombre'></strong></p></p>
 						<p><i class="icon-mapa"></i> {{escuela.localidad}}, {{escuela.entidad}}</p>
 					</li>
 				</ul>
