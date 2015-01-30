@@ -47,6 +47,7 @@
 			'directives/mteTextSearch.js',
 			'directives/comparaSidebar.js',
 			'directives/mteSuscribe.js',
+			'directives/mteCalifica.js',
 		);
 		if($this->location == 'escuelas'){
 			//$js_scripts[] = 'school-charts.js'; // si no hay cambios en el js no renderizara 

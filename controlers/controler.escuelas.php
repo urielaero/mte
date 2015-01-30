@@ -201,9 +201,12 @@ class escuelas extends main{
 	public function calificar(){
 		$captcha = new Recaptcha($this->config->recaptcha_public_key,$this->config->recaptcha_private_key);
 		$calificacion = new stdClass();
-		if($this->isValidCalificaForm() && $captcha->check_answer($this->config->http_address,
-			$this->post('recaptcha_challenge_field'),
-			$this->post('recaptcha_response_field'))){
+		if($this->isValidCalificaForm() && 
+            ($captcha->check_answer($this->config->http_address,
+			    $this->post('recaptcha_challenge_field'),
+    			$this->post('recaptcha_response_field')
+            ) || $this->config->theme == 'mtev2')
+          ){
 				$comment = strip_tags($this->post('comentario'));
 				$accept_name = ($this->post('accept')!=null) ? 1 : 0;
 				$calificacion = new calificacion(NULL,$this->conn);
@@ -234,6 +237,14 @@ class escuelas extends main{
 		}else{
 			$typeE = "invalid";
 		}
+    
+        if($this->request('json')){
+            if(isset($calificacion->id))
+                echo json_encode(array("success"=>true,"id"=>$calificacion->id));
+            else
+                echo json_encode(array("success"=>false));
+            return; 
+        }
 
 		$location = $calificacion->id ? "/escuelas/index/".$this->post('cct')."#calificaciones" : "/escuelas/index/".$this->post('cct')."/e=ce#calificaciones#".(isset($typeE)?$typeE:'');
        		header("location: $location");

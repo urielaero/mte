@@ -174,6 +174,31 @@ app.controller("programaCTL", ['$scope',function ($scope) {
     };
 }]);
 
+app.controller("calificaCTL", ['$scope',function ($scope) {
+    $scope.selectedIndex = 0;
+    $scope.range = [0,0,0,0,0,0,0,0,0,0];
+    $scope.calificacion = {
+        calificaciones:[],
+        preguntas:[]
+    };
+    $scope.promedio = 0;
+    $scope.califica = function(i,q){
+        $scope.calificacion.calificaciones[q] = i;
+        var sum = 0,
+        promedio;
+        for(var i=0;i<$scope.calificacion.total;i++){
+            if($scope.calificacion.calificaciones[i])
+                sum += $scope.calificacion.calificaciones[i];
+            else
+                $scope.calificacion.calificaciones[i] = 0;
+        }
+        promedio = sum/$scope.calificacion.total;
+        promedio = promedio.toString().length>3?promedio.toFixed(1):promedio;
+        $scope.promedio = promedio;
+
+    };
+}]);
+
 ///Global functions
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
