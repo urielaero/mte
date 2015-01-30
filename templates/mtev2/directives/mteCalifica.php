@@ -4,8 +4,11 @@
 		input.tk = '<?=$this->getSimulatedToken($this->simulateP)?>';
 		input.cct = '<?=$this->get('id')?>'
 	">
-	<div ng-show="success" flex="100" class="icon-container">
+	<div ng-show="success" flex="100" class="icon-container form-success">
 		<h3>Escuela calificada correctamente.</h3>
+	</div>
+	<div ng-show="error" flex="100" class="icon-container form-success">
+		<h3>Ocurrio un error, intentalo de nuevo.</h3>
 	</div>
 	<div layout="row" ng-click="toggleForm = true">
 		<div flex="10" class="icon-container" hide-sm>

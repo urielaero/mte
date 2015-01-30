@@ -10,6 +10,7 @@
             if($scope.calificacion){
                 $scope.input.calificaciones = $scope.calificacion.calificaciones;
                 $scope.input.preguntas = $scope.calificacion.preguntas;
+                $scope.input.calificacion = $scope.promedio;
             }
 
             $http({
@@ -18,6 +19,11 @@
                 url:'/escuelas/calificar'
             }).then(function(res){
                 $scope.success = res.data.success;
+                $scope.error = $scope.success?false:true;
+                if($scope.error){
+                    onlyOne = false;
+                    $scope.toggleForm = true;
+                }
             });
         };
 
