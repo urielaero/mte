@@ -375,7 +375,6 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.profile .icon-wrapper{height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
 #content .container.profile #profile-content{margin-top: 10px}
 #content .container.profile #profile-content .main-info{-webkit-flex: 0 0 73%; -ms-flex: 0 0 73%; flex: 0 0 73%; max-width: 73%;}
-#content .container.profile #profile-content .main-info #map{min-height: 220px}
 #content .container.profile #profile-content .main-info .info .califica{position: relative;}
 #content .container.profile #profile-content .main-info .info .califica .icon-container{background: #FF7312;color: #fff;font-size: 38px;}
 #content .container.profile #profile-content .main-info .info .califica h4{background: #F66806;color: #fff;font-weight: 700;padding: 25px 8px;margin: 0;text-align: center;}
@@ -871,6 +870,7 @@ ul.dropdown-menu li.active a{color: #fff}
 	#content .container.profile .menu .compare-link .icon-wrapper{height: auto;position: relative;left: 0;top: 0}
 	#content .container.profile .menu md-tabs .md-header{height: 65px}
 	#content .container.profile .menu .compare-link{height: auto;padding: 5px 10px}
+	#content .container.profile #profile-content .main-info #map{min-height: 220px}
 	#content .container.profile #profile-content .semaphore .options .option{padding: 0px 5px;}
 	#content .container.profile #profile-content .additional-info .data .comment-form md-checkbox .md-label{font-size: 12px}
 	#content .container.profile #profile-content .additional-info .data .comment-form .msg{padding: 4px}

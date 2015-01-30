@@ -13,9 +13,12 @@
 			</div>
 			<div class="column-right" flex="60" flex-sm="100">
 				<div class='titles'>
-					<h1><strong>Conoce tu escuela</strong></h1>
-					<p>El primer paso para poder mejorar tu centro escolar es saber cómo está.</p>
-					<p>Te invitamos a que conozcas y compartas esta información.</p>
+					<h1><strong><?php echo isset($this->title_header)?$this->title_header:'Compara tu escuela' ?></strong></h1>
+					<p><?php echo isset($this->subtitle_header) ?$this->subtitle_header:'
+						El primer paso para poder mejorar tu centro escolar es saber cómo <br />
+						está. Te invitamos a que conozcas y compartas esta información.';
+					?>
+					</p>
 				</div>
 				<script type="text/ng-template" id="headerTextSearch.html">
 					<?php $this->include_template('headerTextSearch','directives'); ?>

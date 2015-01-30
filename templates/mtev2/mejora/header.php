@@ -13,12 +13,12 @@
 			</div>
 			<div class="column-right" flex="60" flex-sm="100">
 				<div class='titles'>
-				    <div class="Mejora-Tu-Escuela">
-				    	<p><strong>MejoraTuEscuela.org</strong> es una plataforma de participación ciudadana para transformar la educación en México </p>
-				    </div>
-					<!--<h1><strong>Mejora tu escuela</strong></h1>
-					<p>Aquí encontrarás herramientas para que actúes como agente de cambio positivo en tu comunidad educativa. ¡Participa e involúcrate!</p>
-				     -->
+					<h1><strong><?php echo isset($this->title_header)?$this->title_header:'Compara tu escuela' ?></strong></h1>
+					<p><?php echo isset($this->subtitle_header) ?$this->subtitle_header:'
+						El primer paso para poder mejorar tu centro escolar es saber cómo <br />
+						está. Te invitamos a que conozcas y compartas esta información.';
+					?>
+					</p>
 				</div>
 				<script type="text/ng-template" id="headerTextSearch.html">
 					<?php $this->include_template('headerTextSearch','directives'); ?>
