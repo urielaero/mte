@@ -285,7 +285,7 @@ ul.dropdown-menu li.active a{color: #fff}
 
 /*Comment form*/
 #content .container .comment-form .icon-container{background: #F3910C;padding: 10px 0;text-align: center;}
-#content .container .comment-form .icon-container i{color: #fff;font-size: 40px;}
+#content .container .comment-form .icon-container i{color: #fff;font-size: 40px;margin-top: -5px}
 #content .container .comment-form textarea{border: 0;color:#6C6C6C;padding: 20px;resize: none;}
 #content .container .comment-form .fields{background: #F76907;margin-bottom: 6px;padding: 6px}
 #content .container .comment-form select,
@@ -605,6 +605,10 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.results .circulo-icon-mejora{display:block;width: 20px;height: 20px;border-radius: 50% 50% 50% 50%;border:solid 2px #1CA5F5;}
 #content .container.results .cont-datos-escuela:hover .circulo-icon-mejora{border: 2px solid white;}
 #content .container.results .cont-datos-escuela:hover .mejora-icon{color: white;}
+
+.titles .Mejora-Tu-Escuela{margin-top: 10px}
+.titles .Mejora-Tu-Escuela p strong{font-size: 17px}
+.titles .Mejora-Tu-Escuela p {font-size: 17px;}
 
 
 

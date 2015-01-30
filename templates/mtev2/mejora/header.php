@@ -13,8 +13,12 @@
 			</div>
 			<div class="column-right" flex="60" flex-sm="100">
 				<div class='titles'>
-					<h1><strong>Mejora tu escuela</strong></h1>
+				    <div class="Mejora-Tu-Escuela">
+				    	<p><strong>MejoraTuEscuela.org</strong> es una plataforma de participación ciudadana para transformar la educación en México </p>
+				    </div>
+					<!--<h1><strong>Mejora tu escuela</strong></h1>
 					<p>Aquí encontrarás herramientas para que actúes como agente de cambio positivo en tu comunidad educativa. ¡Participa e involúcrate!</p>
+				     -->
 				</div>
 				<script type="text/ng-template" id="headerTextSearch.html">
 					<?php $this->include_template('headerTextSearch','directives'); ?>
