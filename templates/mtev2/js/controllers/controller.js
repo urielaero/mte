@@ -23,7 +23,9 @@ app.controller("blogCTL", ['$scope', '$http',function ($scope, $http) {
         });
     }
     //$scope.getPosts();
-    $scope.posts = window.responseBlog.posts;
+    if(window.responseBlog){
+        $scope.posts = window.responseBlog.posts;
+    }
 }]);
 
 app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {

@@ -8,15 +8,15 @@
 			<div class="video-container">
 				<iframe width="595" height="335" src="//www.youtube.com/embed/G4FOZyoB74Y" frameborder="0" allowfullscreen="" id="home-video"></iframe>
 			</div>
+			<script>
+				<?php 
+					$response = json_decode(file_get_contents($this->config->blog_address.'/api/get_category_posts/?category_slug=portada&count=2'));
+				?>
+				window.responseBlog = <?=json_encode($response)?>;
+				window.blogAddress = '<?php echo $this->config->blog_address ?>';
+			</script>			
 			<div ng-controller="blogCTL" class="space-between" id="blog-posts" layout="row">
-				<script>
-					<?php 
-						$response = json_decode(file_get_contents($this->config->blog_address.'/api/get_category_posts/?category_slug=portada&count=2'));
-					?>
-					window.responseBlog = <?=json_encode($response)?>;
-					window.blogAddress = '<?php echo $this->config->blog_address ?>';
-				</script>
-				<div class="post" ng-repeat="post in posts">
+				<div class="post" ng-if="posts" ng-repeat="post in posts">
 					<div class="post-image">
 						<a href="#" ng-if="post.thumbnail_images.large.url">
 							<img src="{{post.thumbnail_images.large.url}}" alt="{{post.thumbnail_images.description}}">
