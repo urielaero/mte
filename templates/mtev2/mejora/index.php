@@ -43,8 +43,8 @@
 								</div>
 								<div class="more" layout="row">
 									<a href="{{post.url}}" flex>Leer más</a>
-									<a ng-href="{{post.url}}" target="_blank" flex ng-if="post.thumbnail_images.large.url"><i class="icon-descargas-01"></i></a>
-									<a ng-href="{{post.url}}" target="_blank" flex ng-if="!post.thumbnail_images.large.url"><i class="icon-descargas-01"></i></a>
+									<a ng-href="{{post.thumbnail_images.large.url}}" target="_blank" flex ng-if="post.thumbnail_images.large.url"><i class="icon-descargas-01"></i></a>
+									<a ng-href="{{post.attachments[0].url | replaceWithCdnUrl:cdnUrl:blogAddress}}" target="_blank" flex ng-if="!post.thumbnail_images.large.url"><i class="icon-descargas-01"></i></a>
 								</div>
 							</div>
 						</div>
