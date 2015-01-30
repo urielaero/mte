@@ -11,21 +11,30 @@ app.controller("sidebarCTL", ['$scope','$timeout','$mdSidenav',function ($scope,
 }]);
 
 
-app.controller("blogCTL", ['$scope', '$http',function ($scope, $http) {
+app.controller("blogCTL", ['$scope', '$http', '$timeout', '$rootScope',function ($scope, $http, $timeout, $rootScope) {
     $scope.cdnUrl = 'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/';
     $scope.blogAddress = window.blogAddress;
     $scope.posts = [];
     $scope.getPosts = function(){
         $http.jsonp(
-            $scope.blogAddress + '/api/get_category_posts/?category_slug=portada&count=2'
+            $scope.blogAddress + '/api/get_category_posts/?category_slug=portada&count=2&callback=JSON_CALLBACK'
         ).then(function(response){
             $scope.posts = response.data.posts;
         });
     }
-    //$scope.getPosts();
-    if(window.responseBlog){
-        $scope.posts = window.responseBlog.posts;
-    }
+    /*$scope.posts = [
+        'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/wp-content/uploads//2015/01/MTE_270115_OJO.png',
+        'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/wp-content/uploads//2015/01/miamigofiel_matamoros.jpg',
+        'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/wp-content/uploads//2015/01/shutterstock_206017312.jpg',
+        'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/wp-content/uploads//2015/01/MTE_19012015_TipsEscuela.png',
+        'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/wp-content/uploads//2015/01/shutterstock_199100342.jpg'
+    ];*/
+    $scope.showMoreBtn = false;
+    $scope.getPosts();
+    $timeout(function () {
+       $rootScope.$broadcast('masonry.reload');
+       $scope.showMoreBtn = true;
+       }, 2000);
 }]);
 
 app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
@@ -58,14 +67,25 @@ app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
 
 
 
-app.controller("mejoraCTL", ['$scope',function ($scope) {
+app.controller("mejoraCTL", ['$scope','$http','$timeout','$rootScope',function ($scope, $http, $timeout, $rootScope) {
 	$scope.countToggle = 0;
 	$scope.toggleForm = false;
-    $scope.toggleFormEvent = function(){
-    	if($scope.countToggle == 0){
-    		$scope.toggleForm = true;
-    	}
+    $scope.cdnUrl = 'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/';
+    $scope.blogAddress = window.blogAddress;
+    $scope.posts = [];
+    $scope.getPosts = function(){
+        $http.jsonp(
+            $scope.blogAddress + '/api/get_category_posts/?category_slug=mejora&count=8&callback=JSON_CALLBACK'
+        ).then(function(response){
+            $scope.posts = response.data.posts;
+        });
     }
+    $scope.showMoreBtn = false;
+    $scope.getPosts();
+    $timeout(function () {
+       $rootScope.$broadcast('masonry.reload');
+       $scope.showMoreBtn = true;
+       }, 2000);
 }]);
 
 

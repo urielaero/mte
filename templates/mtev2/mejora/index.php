@@ -1,3 +1,6 @@
+<script>
+	window.blogAddress = '<?php echo $this->config->blog_address ?>';
+</script>			
 <div class='container mejora' ng-controller="mejoraCTL">
 	<div class="breadcrumb">
 		<a class="start start2-2" href="#">
@@ -23,34 +26,25 @@
 			</div>
     		<ng-switch on="selectedIndex" class="tabpanel-container">
         		<div role="tabpanel" class="tab-content tools-content" aria-labelledby="tab1" ng-switch-when="0" md-swipe-left="next()" md-swipe-right="previous()" >
-					<div class="space-between" id="blog-posts" layout="row">
-						<div class="post">
-							<div class="post-image">
-								<a href="#"><img src="/templates/mtev2/img/blogpost1.png" alt=""></a>
-								<div class="clear"></div>
-							</div>
-							<div class="description">
-								<h3><a href="#">Consejos de Participación y Asociación de Padres, ¿son lo mismo?</a></h3>
-							</div>
-							<div layout="row" class="more">
-								<a href="#" flex="50">Leer más</a>
-								<a href="#" flex="50"><i class="icon-descargas-01"></i></a>
-							</div>
-						</div>
-						<div class="post">
-							<div class="post-image">
-								<a href="#"><img src="/templates/mtev2/img/blogpost2.jpg" alt=""></a>
-								<div class="clear"></div>
-							</div>
-							<div class="description">
-								<h3><a href="#">Día de muertos en México</a></h3>
-							</div>
-							<div layout="row" class="more">
-								<a href="#" flex="50">Leer más</a>
-								<a href="#" flex="50"><i class="icon-descargas-01"></i></a>
+					<div class="space-between" id="blog-posts">
+						<div masonry='{gutter:5,isInitLayout: false}' >
+							<div class="post masonry-brick" flex-sm="100" column-width="100" ng-if="posts" ng-repeat="post in posts">
+								<div class="post-image">
+									<a ng-href="{{post.url}}" ng-if="post.thumbnail_images.large.url">
+										<img ng-src="{{post.thumbnail_images.large.url}}" alt="{{post.thumbnail_images.description}}">
+									</a>
+									<a ng-href="{{post.url}}" ng-if="!post.thumbnail_images.large.url">
+										<img ng-src="{{post.attachments[0].url | replaceWithCdnUrl:cdnUrl:blogAddress}}" alt="{{post.attachments[0].description}}">
+									</a>
+									<div class="clear"></div>
+								</div>
+								<div class="description">
+									<h3><a ng-href="{{post.url}}">{{post.title}}</a></h3>
+									<p>{{post.excerpt | htmlToPlaintext}}</p>
+								</div>
 							</div>
 						</div>
-						<a href="#" class="button-bordered">Consulta más información</a>
+						<a ng-show="showMoreBtn" href="<?php echo $this->config->blog_address ?>" class="button-bordered">Consulta más información</a>
 					</div>
 				</div>
         		<div role="tabpanel" class="tab-content programs-content" aria-labelledby="tab1" ng-switch-when="1" md-swipe-left="next()" md-swipe-right="previous()" >

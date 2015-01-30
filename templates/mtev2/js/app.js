@@ -12,7 +12,7 @@ angular.module('mteFilters', []).
 });
 
   
-var app = angular.module("mejoratuescuela",['ngMaterial','perfect_scrollbar','leaflet-directive','ngCookies','ui.bootstrap','mteFilters']);
+var app = angular.module("mejoratuescuela",['ngMaterial','perfect_scrollbar','leaflet-directive','ngCookies','ui.bootstrap','wu.masonry','mteFilters']);
 
 
 /*
