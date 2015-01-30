@@ -465,7 +465,7 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.profile .section-image{background: #fff;padding: 24px 0;text-align: center;}
 #content .container.profile .section-image h3{color: #339DD1;font-size: 24px}
 #content .container.profile .section-image img{margin:30px 0;width: 85%}
-
+#content .container.profile .form-success{color:white;}
 /*Perfil biblioteca*/
 #content .container.profile.profile-biblioteca .profile-title{width: 100%}
 

@@ -7,7 +7,7 @@
         $scope.califica = function(){
             if(onlyOne) return;
             onlyOne = true;
-            if($scope.calificacion){
+            if($scope.calificacion && $scope.calificacion.calificaciones.length){
                 $scope.input.calificaciones = $scope.calificacion.calificaciones;
                 $scope.input.preguntas = $scope.calificacion.preguntas;
                 $scope.input.calificacion = $scope.promedio;
@@ -26,10 +26,6 @@
                 }
             });
         };
-
-        $scope.$on('califica::promedio',function(e,data){
-            console.log(e,data);
-        });
     };
     controller.$inject = ['$scope','$http'];
     var directive = function () {

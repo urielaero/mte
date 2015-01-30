@@ -2,6 +2,10 @@
     window.escuela = <?= json_encode($this->escuelaSummary) ?>;
 </script>
 
+<script type="text/ng-template" id="mteCalifica.html">
+	<?php $this->include_template('mteCalificaPerfil','directives'); ?>
+</script>
+
 <?php
 $escuela_per_turnos = array();
 if(!empty($this->escuela->rank)){
