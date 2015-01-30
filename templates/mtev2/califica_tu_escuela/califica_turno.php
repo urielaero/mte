@@ -2,7 +2,11 @@
 	<?php $this->include_template('mteCalifica','directives'); ?>
 </script>
 
-<h1 class="green-title">Califica tu escuela seleccionando para cada campo una calificación del <strong>1-10</strong>.<br/>Estas calificaciones se promedian para generar la calificación general de tu escuela</h1>
+<?php if($this->tipo_encuesta == 'bibliotecas'){ ?>
+	<h1 class="green-title">Califica tu biblioteca seleccionando para cada campo una calificación del <strong>1-10</strong>.<br/>Estas calificaciones se promedian para generar la calificación general de tu biblioteca</h1>
+<?php }else{ ?>
+	<h1 class="green-title">Califica tu escuela seleccionando para cada campo una calificación del <strong>1-10</strong>.<br/>Estas calificaciones se promedian para generar la calificación general de tu escuela</h1>
+<?php } ?>
 
 <?php
 $icons = array(
@@ -57,8 +61,16 @@ if($this->preguntas){?>
 }
 ?>
 <div class="result" layout="row">
-	<div flex="70" class="desc">En promedio, calificas a tu escuela con:</div>
+	<?php if($this->tipo_encuesta == 'bibliotecas'){ ?>
+		<div flex="70" class="desc">En promedio, calificas a tu biblioteca con:</div>
+	<?php }else{ ?>
+		<div flex="70" class="desc">En promedio, calificas a tu escuela con:</div>
+	<?php } ?>
 	<div flex="30" class="number" ng-cloak>{{promedio}}</div>
 </div>
 
-<div mte-califica promedio="promedio" calificacion="calificacion" ></div>
+<?php if($this->tipo_encuesta == 'bibliotecas'){ ?>
+	<div mte-califica promedio="promedio" calificacion="calificacion" tipo="'biblioteca'"></div>
+<?php }else{ ?>
+	<div mte-califica promedio="promedio" calificacion="calificacion"></div>
+<?php } ?>
