@@ -40,7 +40,7 @@ class califica_tu_escuela extends main{
 				$this->subtitle_header = 'Una vez que conoces y has comparado tu biblioteca, te invitamos a<br />que califiques algunos aspectos de la misma. Las calificaciones<br />ayudan a detectar áreas de mejora y a reconocer los<br />logros alcanzados.';
 			}
 
-			$this->breadcrumb = array('/califica-tu-escuela/'=>'Califica tu escuela','#'=>$this->escuela->nombre);
+			$this->breadcrumb = array('/califica-tu-escuela/'=>'Califica tu escuela','/escuelas/index/'.$this->escuela->cct=>$this->escuela->nombre);
 			$this->simulateP = rand()%15;
 			$tipo_p = new tipo_pregunta(NULL,$this->conn);
 			$tipo_p->search_clause = "nombre = '{$tipo_encuesta}'";
