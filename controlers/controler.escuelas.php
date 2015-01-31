@@ -206,6 +206,7 @@ class escuelas extends main{
 			    $this->post('recaptcha_challenge_field'),
     			$this->post('recaptcha_response_field')
             ) || $this->config->theme == 'mtev2')
+            || $this->post('optional_comement')
           ){
 				$comment = strip_tags($this->post('comentario'));
 				$accept_name = ($this->post('accept')!=null) ? 1 : 0;
@@ -216,19 +217,24 @@ class escuelas extends main{
 			                'body' => $comment
 				)) && $this->isTokenSimulatesValid()){
 					//$calificacion->debug = true;
-
-					$calificacion->create('nombre,email,id_cct,cct,comentario,ocupacion,calificacion,user_agent,acepta_nombre',array(
-						$this->post('nombre'),
-						$this->post('email'),
-						"0",
-						$this->post('cct'),
-						$comment,
-						$this->post('ocupacion'),
-						stripslashes($this->post('calificacion')),
-						$_SERVER['HTTP_USER_AGENT'],
-						$accept_name
-					),'id');
-					if($this->post("calificaciones")) $calificacion->setCalificaciones($this->post('preguntas'),$this->post('calificaciones'));				
+                    if($this->request('nombre')){
+    					$calificacion->create('nombre,email,id_cct,cct,comentario,ocupacion,calificacion,user_agent,acepta_nombre',array(
+    						$this->post('nombre'),
+    						$this->post('email'),
+    						"0",
+    						$this->post('cct'),
+    						$comment,
+    						$this->post('ocupacion'),
+    						stripslashes($this->post('calificacion')),
+    						$_SERVER['HTTP_USER_AGENT'],
+    						$accept_name
+    					),'id');
+                    }
+					if($this->post("calificaciones")) $calificacion->setCalificaciones($this->post('preguntas'),$this->post('calificaciones'));	
+                    if($this->request('json') && $this->request('optional_comement') && !$this->request('nombre')){
+                        $calificacion->id = true;
+                    
+                    }
 				}else{					
 					//spam
 					$typeE = "sp";//spam
