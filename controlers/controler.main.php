@@ -782,6 +782,84 @@ class main extends controler{
 		echo "<img src='$img' alt='$alt' $class />";
 	}
 
+	private function createCustomSchoolArray($sql,&$escuelas){
+		$result = $result = pg_query($this->conn, $sql);
+	    $i = 0;
+	    if ($result) {
+	        while ($row = pg_fetch_assoc($result)){
+	            $escuela = new escuela($row['id'],$this->conn);
+	            $escuela->cct = $row['cct'];
+	            $escuela->nombre = $row['nombre'];
+	            $escuela->codigopostal = $row['codigopostal'];
+	            $escuela->telefono = $row['telefono'];
+	            $escuela->correoelectronico = $row['correoelectronico'];
+	            $escuela->paginaweb = $row['paginaweb'];
+	            $escuela->domicilio = $row['domicilio'];
+	            $escuela->latitud = $row['latitud'];
+	            $escuela->longitud = $row['longitud'];
+	            $escuela->turno = new turno(isset($row['turnos_id']) ? $row['turnos_id'] : "",$this->conn);
+	            $escuela->turno->nombre = isset($row['turnos_nombre']) ? $row['turnos_nombre'] : "";
+	            $escuela->localidad = new localidad(isset($row['localidades_id']) ? $row['localidades_id'] : "",$this->conn);
+	            $escuela->localidad->nombre = isset($row['localidades_nombre']) ? $row['localidades_nombre'] : "";
+	            $escuela->entidad = new entidad(isset($row['entidades_id']) ? $row['entidades_id'] : "",$this->conn);
+	            $escuela->entidad->nombre = isset($row['entidades_nombre']) ? $row['entidades_nombre'] : "";
+	            $escuela->nivel = new nivel(isset($row['niveles_id']) ? $row['niveles_id'] : "",$this->conn);
+	            $escuela->nivel->nombre = isset($row['niveles_nombre']) ? $row['niveles_nombre'] : "";
+	            $escuela->promedio_matematicas = isset($row['rank_promedio_matematicas']) ? $row['rank_promedio_matematicas'] : "";
+	            $escuela->promedio_espaniol = isset($row['rank_promedio_espaniol']) ? $row['rank_promedio_espaniol'] : "";
+	            $escuela->promedio_general = isset($row['rank_promedio_general']) ? $row['rank_promedio_general'] : "";
+	            $escuela->rank_nacional = isset($row['rank_rank_nacional']) ? $row['rank_rank_nacional'] : "";
+	            $escuela->rank_entidad = isset($row['rank_rank_entidad']) ? $row['rank_rank_entidad'] : "";
+	            $escuela->total_evaluados = isset($row['rank_total_evaluados']) ? $row['rank_total_evaluados'] : "";
+	            $escuela->poco_confiables = isset($row['rank_poco_confiables']) ? $row['rank_poco_confiables'] : "";
+	            $escuela->turnos_eval = isset($row['rank_turnos_eval']) ? $row['rank_turnos_eval'] : "";
+	            $escuela->eval_entre_programados = isset($row['rank_eval_entre_programados']) ? $row['rank_eval_entre_programados'] : "";
+	            $escuela->anio = isset($row['rank_anio']) ? $row['rank_anio'] : 0;
+	            $escuela->control = new control(isset($row['controles_id']) ? $row['controles_id'] : "",$this->conn);
+	            $escuela->control->nombre = isset($row['controles_nombre']) ? $row['controles_nombre'] : "";
+	            $escuela->municipio = new municipio(isset($row['municipios_id']) ? $row['municipios_id'] : "",$this->conn);
+	            $escuela->municipio->nombre = isset($row['municipios_nombre']) ? $row['municipios_nombre'] : "";
+
+	            if (isset($params->one_turn) && $params->one_turn) {
+	                $already_on_list = false;
+	                foreach($escuelas as $escuela_temp) {
+	                    if ($escuela_temp->cct == $escuela->cct) {
+	                        $already_on_list = true;
+	                    }
+	                }
+	                if (!$already_on_list) {
+	                    $escuelas[$i++] = $escuela;
+	                }
+	            } else {
+	                $escuelas[$i++] = $escuela;
+	            }
+	        }
+	        return true;
+    	}
+    	return false;
+	}
+
+	private function checkMemcached($sql,&$escuelas){
+		if(class_exists('Memcache')){
+			$memcache = new Memcache;
+			$memcache->connect($this->config->memcache_host, 11211);
+			$this->execute = false;
+			$this->execute = true;
+			$query_hash = sha1($sql);
+			if($result = $memcache->get($query_hash)){
+				$escuelas = $result;
+				foreach($escuelas as $escuela) $escuela->conn = $this->conn;
+				return true;
+			}else{
+				$this->createCustomSchoolArray($sql,$escuelas);
+		        $memcache->set($query_hash,$escuelas,false,0);
+		    }
+			return true;
+		}else{
+			return $this->createCustomSchoolArray($sql,$escuelas);
+		}
+	}
+
     private function process_custom_get_escuelas($escuelas,$params) {
         $sql = "select
                         escuelas.id,escuelas.cct,escuelas.nombre,escuelas.codigopostal,escuelas.telefono,escuelas.correoelectronico,escuelas.paginaweb,escuelas.domicilio,escuelas.latitud,escuelas.longitud,
@@ -824,59 +902,61 @@ class main extends controler{
         }
 
         $result = pg_query($this->conn, $sql);
-
         $this->escuelas = array();
-        $i = 0;
-        if ($result) {
-            while ($row = pg_fetch_assoc($result)){
-                $escuela = new escuela($row['id'],$this->conn);
-                $escuela->cct = $row['cct'];
-                $escuela->nombre = $row['nombre'];
-                $escuela->codigopostal = $row['codigopostal'];
-                $escuela->telefono = $row['telefono'];
-                $escuela->correoelectronico = $row['correoelectronico'];
-                $escuela->paginaweb = $row['paginaweb'];
-                $escuela->domicilio = $row['domicilio'];
-                $escuela->latitud = $row['latitud'];
-                $escuela->longitud = $row['longitud'];
-                $escuela->turno = new turno(isset($row['turnos_id']) ? $row['turnos_id'] : "",$this->conn);
-                $escuela->turno->nombre = isset($row['turnos_nombre']) ? $row['turnos_nombre'] : "";
-                $escuela->localidad = new localidad(isset($row['localidades_id']) ? $row['localidades_id'] : "",$this->conn);
-                $escuela->localidad->nombre = isset($row['localidades_nombre']) ? $row['localidades_nombre'] : "";
-                $escuela->entidad = new entidad(isset($row['entidades_id']) ? $row['entidades_id'] : "",$this->conn);
-                $escuela->entidad->nombre = isset($row['entidades_nombre']) ? $row['entidades_nombre'] : "";
-                $escuela->nivel = new nivel(isset($row['niveles_id']) ? $row['niveles_id'] : "",$this->conn);
-                $escuela->nivel->nombre = isset($row['niveles_nombre']) ? $row['niveles_nombre'] : "";
-                $escuela->promedio_matematicas = isset($row['rank_promedio_matematicas']) ? $row['rank_promedio_matematicas'] : "";
-                $escuela->promedio_espaniol = isset($row['rank_promedio_espaniol']) ? $row['rank_promedio_espaniol'] : "";
-                $escuela->promedio_general = isset($row['rank_promedio_general']) ? $row['rank_promedio_general'] : "";
-                $escuela->rank_nacional = isset($row['rank_rank_nacional']) ? $row['rank_rank_nacional'] : "";
-                $escuela->rank_entidad = isset($row['rank_rank_entidad']) ? $row['rank_rank_entidad'] : "";
-                $escuela->total_evaluados = isset($row['rank_total_evaluados']) ? $row['rank_total_evaluados'] : "";
-                $escuela->poco_confiables = isset($row['rank_poco_confiables']) ? $row['rank_poco_confiables'] : "";
-                $escuela->turnos_eval = isset($row['rank_turnos_eval']) ? $row['rank_turnos_eval'] : "";
-                $escuela->eval_entre_programados = isset($row['rank_eval_entre_programados']) ? $row['rank_eval_entre_programados'] : "";
-                $escuela->anio = isset($row['rank_anio']) ? $row['rank_anio'] : 0;
-                $escuela->control = new control(isset($row['controles_id']) ? $row['controles_id'] : "",$this->conn);
-                $escuela->control->nombre = isset($row['controles_nombre']) ? $row['controles_nombre'] : "";
-                $escuela->municipio = new municipio(isset($row['municipios_id']) ? $row['municipios_id'] : "",$this->conn);
-                $escuela->municipio->nombre = isset($row['municipios_nombre']) ? $row['municipios_nombre'] : "";
+        $this->checkMemcached($sql,$this->escuelas);
 
-                if (isset($params->one_turn) && $params->one_turn) {
-                    $already_on_list = false;
-                    foreach($this->escuelas as $escuela_temp) {
-                        if ($escuela_temp->cct == $escuela->cct) {
-                            $already_on_list = true;
-                        }
-                    }
-                    if (!$already_on_list) {
-                        $this->escuelas[$i++] = $escuela;
-                    }
-                } else {
-                    $this->escuelas[$i++] = $escuela;
-                }
-            }
-        }
+        // $this->escuelas = array();
+        // $i = 0;
+        // if ($result) {
+        //     while ($row = pg_fetch_assoc($result)){
+        //         $escuela = new escuela($row['id'],$this->conn);
+        //         $escuela->cct = $row['cct'];
+        //         $escuela->nombre = $row['nombre'];
+        //         $escuela->codigopostal = $row['codigopostal'];
+        //         $escuela->telefono = $row['telefono'];
+        //         $escuela->correoelectronico = $row['correoelectronico'];
+        //         $escuela->paginaweb = $row['paginaweb'];
+        //         $escuela->domicilio = $row['domicilio'];
+        //         $escuela->latitud = $row['latitud'];
+        //         $escuela->longitud = $row['longitud'];
+        //         $escuela->turno = new turno(isset($row['turnos_id']) ? $row['turnos_id'] : "",$this->conn);
+        //         $escuela->turno->nombre = isset($row['turnos_nombre']) ? $row['turnos_nombre'] : "";
+        //         $escuela->localidad = new localidad(isset($row['localidades_id']) ? $row['localidades_id'] : "",$this->conn);
+        //         $escuela->localidad->nombre = isset($row['localidades_nombre']) ? $row['localidades_nombre'] : "";
+        //         $escuela->entidad = new entidad(isset($row['entidades_id']) ? $row['entidades_id'] : "",$this->conn);
+        //         $escuela->entidad->nombre = isset($row['entidades_nombre']) ? $row['entidades_nombre'] : "";
+        //         $escuela->nivel = new nivel(isset($row['niveles_id']) ? $row['niveles_id'] : "",$this->conn);
+        //         $escuela->nivel->nombre = isset($row['niveles_nombre']) ? $row['niveles_nombre'] : "";
+        //         $escuela->promedio_matematicas = isset($row['rank_promedio_matematicas']) ? $row['rank_promedio_matematicas'] : "";
+        //         $escuela->promedio_espaniol = isset($row['rank_promedio_espaniol']) ? $row['rank_promedio_espaniol'] : "";
+        //         $escuela->promedio_general = isset($row['rank_promedio_general']) ? $row['rank_promedio_general'] : "";
+        //         $escuela->rank_nacional = isset($row['rank_rank_nacional']) ? $row['rank_rank_nacional'] : "";
+        //         $escuela->rank_entidad = isset($row['rank_rank_entidad']) ? $row['rank_rank_entidad'] : "";
+        //         $escuela->total_evaluados = isset($row['rank_total_evaluados']) ? $row['rank_total_evaluados'] : "";
+        //         $escuela->poco_confiables = isset($row['rank_poco_confiables']) ? $row['rank_poco_confiables'] : "";
+        //         $escuela->turnos_eval = isset($row['rank_turnos_eval']) ? $row['rank_turnos_eval'] : "";
+        //         $escuela->eval_entre_programados = isset($row['rank_eval_entre_programados']) ? $row['rank_eval_entre_programados'] : "";
+        //         $escuela->anio = isset($row['rank_anio']) ? $row['rank_anio'] : 0;
+        //         $escuela->control = new control(isset($row['controles_id']) ? $row['controles_id'] : "",$this->conn);
+        //         $escuela->control->nombre = isset($row['controles_nombre']) ? $row['controles_nombre'] : "";
+        //         $escuela->municipio = new municipio(isset($row['municipios_id']) ? $row['municipios_id'] : "",$this->conn);
+        //         $escuela->municipio->nombre = isset($row['municipios_nombre']) ? $row['municipios_nombre'] : "";
+
+        //         if (isset($params->one_turn) && $params->one_turn) {
+        //             $already_on_list = false;
+        //             foreach($this->escuelas as $escuela_temp) {
+        //                 if ($escuela_temp->cct == $escuela->cct) {
+        //                     $already_on_list = true;
+        //                 }
+        //             }
+        //             if (!$already_on_list) {
+        //                 $this->escuelas[$i++] = $escuela;
+        //             }
+        //         } else {
+        //             $this->escuelas[$i++] = $escuela;
+        //         }
+        //     }
+        // }
     }
 
 	public function getSimulatedToken($p,$pk = 0.345){
