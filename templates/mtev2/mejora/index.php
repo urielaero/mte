@@ -26,15 +26,12 @@
 			</div>
     		<ng-switch on="selectedIndex" class="tabpanel-container">
         		<div role="tabpanel" class="tab-content tools-content" aria-labelledby="tab1" ng-switch-when="0" md-swipe-left="next()" md-swipe-right="previous()" >
-					<div class="space-between" id="blog-posts">
-						<div masonry='{gutter:5,isInitLayout: false}' >
-							<div class="post masonry-brick" flex-sm="100" column-width="100" ng-if="posts" ng-repeat="post in posts">
+					<div class="space-between" id="blog-posts" >
+						<div masonry='{gutter:5,isInitLayout: false}'>
+							<div class="post masonry-brick" flex-sm="100" column-width="100" ng-repeat="post in posts">
 								<div class="post-image">
-									<a ng-href="{{post.url}}" ng-if="post.thumbnail_images.large.url">
-										<img ng-src="{{post.thumbnail_images.large.url}}" alt="{{post.thumbnail_images.description}}">
-									</a>
-									<a ng-href="{{post.url}}" ng-if="!post.thumbnail_images.large.url">
-										<img ng-src="{{post.attachments[0].url | replaceWithCdnUrl:cdnUrl:blogAddress}}" alt="{{post.attachments[0].description}}">
+									<a ng-href="{{post.url}}">
+										<img  ng-src="{{post.image}}" alt="{{post.image.description}}">
 									</a>
 									<div class="clear"></div>
 								</div>
@@ -43,12 +40,14 @@
 								</div>
 								<div class="more" layout="row">
 									<a href="{{post.url}}" flex>Leer más</a>
-									<a ng-href="{{post.thumbnail_images.large.url}}" target="_blank" flex ng-if="post.thumbnail_images.large.url"><i class="icon-descargas-01"></i></a>
-									<a ng-href="{{post.attachments[0].url | replaceWithCdnUrl:cdnUrl:blogAddress}}" target="_blank" flex ng-if="!post.thumbnail_images.large.url"><i class="icon-descargas-01"></i></a>
+									<a ng-href="{{post.image}}" target="_blank" flex ><i class="icon-descargas-01"></i></a>
 								</div>
 							</div>
 						</div>
-						<a ng-show="showMoreBtn" ng-click="getPosts()" class="button-bordered">Consulta más información</a>
+						<div layout='row' ng-show='loading' flex flex-sm="100" layout-align='center center'>
+							<md-progress-circular md-mode="indeterminate"></md-progress-circular>
+						</div>
+						<a ng-click="getPosts()" class="button-bordered">Consulta más información</a>
 					</div>
 				</div>
         		<div role="tabpanel" class="tab-content programs-content" aria-labelledby="tab1" ng-switch-when="1" md-swipe-left="next()" md-swipe-right="previous()" >

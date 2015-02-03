@@ -11,30 +11,43 @@ app.controller("sidebarCTL", ['$scope','$timeout','$mdSidenav',function ($scope,
 }]);
 
 
-app.controller("blogCTL", ['$scope', '$http', '$timeout', '$rootScope',function ($scope, $http, $timeout, $rootScope) {
+app.controller("blogCTL", ['$scope', '$http', '$timeout', '$rootScope', '$filter',function ($scope, $http, $timeout, $rootScope, $filter) {
     $scope.cdnUrl = 'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/';
     $scope.blogAddress = window.blogAddress;
     $scope.posts = [];
+    $scope.loading = true;
     $scope.getPosts = function(){
+        var page = $scope.postsPage;
+        $scope.loading = true;
         $http.jsonp(
             $scope.blogAddress + '/api/get_category_posts/?category_slug=portada&count=2&callback=JSON_CALLBACK'
         ).then(function(response){
-            $scope.posts = response.data.posts;
+            response.data.posts.forEach(function(p){
+                var img = '';
+                if(typeof p.thumbnail_images!='undefined' && typeof p.thumbnail_images.large.url != 'undefined'){
+                    img = p.thumbnail_images.large.url;
+
+                }else if(p.attachments[0]!='undefined'){
+                    img = p.attachments[0].url;                    
+                }
+                var imgObj; 
+                img = $filter('replaceWithCdnUrl')(img,$scope.cdnUrl, $scope.blogAddress);
+                imgObj = new Image();
+                imgObj.src = img;
+                angular.element(imgObj).on('load', function (event) {
+                    p.image = img;
+                    $scope.posts.push(p);
+                    //TODO: Revisar una alternativa a apply
+                    $scope.$apply();
+                    if($scope.posts.length % 2 == 0){
+                        $scope.loading = false;
+                    }
+                });
+            });
         });
     }
-    /*$scope.posts = [
-        'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/wp-content/uploads//2015/01/MTE_270115_OJO.png',
-        'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/wp-content/uploads//2015/01/miamigofiel_matamoros.jpg',
-        'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/wp-content/uploads//2015/01/shutterstock_206017312.jpg',
-        'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/wp-content/uploads//2015/01/MTE_19012015_TipsEscuela.png',
-        'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/wp-content/uploads//2015/01/shutterstock_199100342.jpg'
-    ];*/
-    $scope.showMoreBtn = false;
+
     $scope.getPosts();
-    $timeout(function () {
-       $rootScope.$broadcast('masonry.reload');
-       $scope.showMoreBtn = true;
-       }, 2000);
 }]);
 
 app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
@@ -67,33 +80,54 @@ app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
 
 
 
-app.controller("mejoraCTL", ['$scope','$http','$timeout','$rootScope','$window',function ($scope, $http, $timeout, $rootScope, $window) {
+app.controller("mejoraCTL", ['$scope','$http','$timeout','$rootScope','$window','$filter',function ($scope, $http, $timeout, $rootScope, $window, $filter) {
 	$scope.countToggle = 0;
 	$scope.toggleForm = false;
     $scope.cdnUrl = 'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/';
     $scope.blogAddress = window.blogAddress;
     $scope.posts = [];
     $scope.postsPage = 1;
+    $scope.maxPostCount = 4;
+    $scope.loading = true;
     $scope.getPosts = function(){
         var page = $scope.postsPage;
-        console.log(page);
+        $scope.loading = true;
         $http.jsonp(
-            $scope.blogAddress + '/api/get_category_posts/?category_slug=mejora&count=8&page='+page+'&callback=JSON_CALLBACK'
+            $scope.blogAddress + '/api/get_category_posts/?category_slug=mejora&count=4&page='+page+'&callback=JSON_CALLBACK'
         ).then(function(response){
-            //$scope.posts = response.data.posts;
-            $scope.posts.push.apply($scope.posts, response.data.posts);
+            response.data.posts.forEach(function(p){
+                var img = '';
+                if(typeof p.thumbnail_images!='undefined' && typeof p.thumbnail_images.large.url != 'undefined'){
+                    img = p.thumbnail_images.large.url;
+
+                }else if(p.attachments[0]!='undefined'){
+                    img = p.attachments[0].url;                    
+                }
+                var imgObj; 
+                img = $filter('replaceWithCdnUrl')(img,$scope.cdnUrl, $scope.blogAddress);
+                imgObj = new Image();
+                imgObj.src = img;
+                angular.element(imgObj).on('load', function (event) {
+                    p.image = img;
+                    $scope.posts.push(p);
+                    //TODO: Revisar una alternativa a apply
+                    $scope.$apply();
+                    if($scope.posts.length % $scope.maxPostCount == 0){
+                        $scope.loading = false;
+                    }
+                });
+            });
             $scope.postsPage++;
         });
     }
-    $scope.showMoreBtn = false;
+
     $scope.getPosts();
-    $timeout(function () {
-       $rootScope.$broadcast('masonry.reload');
-       $scope.showMoreBtn = true;
-    }, 2000);
+
     $scope.goTo = function(url){
         $window.location.href = url;
     }
+
+
 }]);
 
 

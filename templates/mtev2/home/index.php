@@ -12,14 +12,11 @@
 				window.blogAddress = '<?php echo $this->config->blog_address ?>';
 			</script>			
 			<div ng-controller="blogCTL" class="space-between" id="blog-posts">
-				<div masonry='{gutter:5,isInitLayout: false}' >
-					<div class="post masonry-brick" flex-sm="100" column-width="100" ng-if="posts" ng-repeat="post in posts">
+				<div masonry='{gutter:5,isInitLayout: false}'>
+					<div class="post masonry-brick" flex-sm="100" column-width="100" ng-repeat="post in posts">
 						<div class="post-image">
-							<a ng-href="{{post.url}}" ng-if="post.thumbnail_images.large.url">
-								<img ng-src="{{post.thumbnail_images.large.url}}" alt="{{post.thumbnail_images.description}}">
-							</a>
-							<a ng-href="{{post.url}}" ng-if="!post.thumbnail_images.large.url">
-								<img ng-src="{{post.attachments[0].url | replaceWithCdnUrl:cdnUrl:blogAddress}}" alt="{{post.attachments[0].description}}">
+							<a ng-href="{{post.url}}">
+								<img  ng-src="{{post.image}}" alt="{{post.image.description}}">
 							</a>
 							<div class="clear"></div>
 						</div>
@@ -28,6 +25,9 @@
 							<p>{{post.excerpt | htmlToPlaintext}}</p>
 						</div>
 					</div>
+				</div>
+				<div layout='row' ng-show='loading' flex flex-sm="100" layout-align='center center'>
+					<md-progress-circular md-mode="indeterminate"></md-progress-circular>
 				</div>
 				<a ng-show="showMoreBtn" href="<?php echo $this->config->blog_address ?>" class="button-bordered">Consulta más información en nuestro blog</a>
 			</div>
