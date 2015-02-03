@@ -36,11 +36,10 @@
 	</div>
 	<form action='/contacto/enviar/' method='POST' class="form-contacto">
 		<?php 	if(isset($this->contact_status) && $this->contact_status)
-				echo '<h3 class="msj" >Gracias, tu mensaje enviado</h3>';
+				echo '<h3 class="msj" >Gracias, tu mensaje se ha enviado</h3>';
 			else if(isset($this->contact_status) && !$this->contact_status)
 				echo '<h3 class="msj" >Hubo un error, intentalo de nuevo</h3>';
 		?>
-		<h3 class="msj" >Error</h3>
 		<div layout="row" class="space-between">
 			<input type="text" class="text-input forms-contactanos" name='nombre' required="" placeholder="Nombre" flex="45">
 			<input type="mail" class="mail-input forms-contactanos" name='email' required="" placeholder="Correo electrónico" flex="45">
