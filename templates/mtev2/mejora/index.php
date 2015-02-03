@@ -17,7 +17,7 @@
 				    		<i class="icon-matutino"></i>
 				    		<p><strong>Herramientas de mejora</strong></p>
 				      	</md-tab>
-				      	<md-tab id="programs-tab" aria-controls="tab2-content">
+				      	<md-tab id="programs-tab" ng-click="goTo('<?php echo $this->config->http_address; ?>mejora/programas')" aria-controls="tab2-content">
 				      		<i class="icon-programaapoyo-01"></i>
 				      		<p><strong>Programas de apoyo</strong></p>
 				      	</md-tab>

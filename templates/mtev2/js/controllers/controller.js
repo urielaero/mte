@@ -67,7 +67,7 @@ app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
 
 
 
-app.controller("mejoraCTL", ['$scope','$http','$timeout','$rootScope',function ($scope, $http, $timeout, $rootScope) {
+app.controller("mejoraCTL", ['$scope','$http','$timeout','$rootScope','$window',function ($scope, $http, $timeout, $rootScope, $window) {
 	$scope.countToggle = 0;
 	$scope.toggleForm = false;
     $scope.cdnUrl = 'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/';
@@ -91,6 +91,9 @@ app.controller("mejoraCTL", ['$scope','$http','$timeout','$rootScope',function (
        $rootScope.$broadcast('masonry.reload');
        $scope.showMoreBtn = true;
     }, 2000);
+    $scope.goTo = function(url){
+        $window.location.href = url;
+    }
 }]);
 
 
