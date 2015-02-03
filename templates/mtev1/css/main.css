@@ -2039,8 +2039,8 @@ iframe[src="about:blank"]{display:none;}
 
 #main-banner.banners_escuelas{margin-top:29px;}
 
+
 /*boton beta*/
-#cont-botonbeta{width: 100%;height: 100%;position: absolute;z-index: 100;position: fixed;top: 0;display: table}
 #Boton-beta{width: 100%;max-width: 470px;height: 280px;position: absolute;z-index: 100;top:26%;background-color: #01AEF3;position: fixed;display: table-cell;vertical-align: middle;margin: 0 auto;left: 0;right: 0;box-shadow}
 .header-botonbeta{width: 100%;height: 100px;text-align: center;background-color: white}
 #logo-beta{display: inline-block;margin-top: 15px}
@@ -2052,4 +2052,4 @@ iframe[src="about:blank"]{display:none;}
 #btn-ver-ahora{width: 100%;height: 34px;max-width: 212px;border: 4px solid white;margin: 0 auto;margin-top: 12px;}
 .text-ver-ahora{width: 100%;height: 34px;max-width: 212px;border: 4px solid white;color: white;font-size: 18px}
 #enlace-btnbeta{display: inline-block;width: 100%;max-width: 245px;margin-left: 9px}
-.borde-cont-boton-beta{-webkit-box-shadow: -5px -5px 5px 5px rgba(50, 50, 50, 0.75);-moz-box-shadow:    -5px -5px 5px 0px rgba(50, 50, 50, 0.75);box-shadow: -5px -5px 5px 0px rgba(50, 50, 50, 0.75);}
+.borde-cont-boton-beta{background-image: url(../img/prensa/sombra_cuadro.png);background-repeat:no-repeat;background-position:center;background-size: 100% 100%; }
