@@ -901,7 +901,7 @@ class main extends controler{
             echo $sql."<br><br><br>";
         }
 
-        $result = pg_query($this->conn, $sql);
+        // $result = pg_query($this->conn, $sql);
         $this->escuelas = array();
         $this->checkMemcached($sql,$this->escuelas);
 
