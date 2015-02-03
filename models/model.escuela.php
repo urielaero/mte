@@ -240,19 +240,40 @@ class escuela extends memcached_table{
 			}
 		}
 	}
-	public function get_turnos(){
-        $sql = "select distinct e.turnos_eval,t.nombre from escuelas_para_rankeo e inner join turnos t on t.id = e.turnos_eval where e.id ={$this->id}";
+    private function createSchoolData(&$sql){
         $q = pg_query($this->conn,$sql);
         #if the search don't return any column but there was no error, a insert/update/delete query was used.
         if( pg_num_rows($q)==0 )
             $resp = true;
         else{
             while ($row =pg_fetch_assoc($q) ){
-                $turno = new stdClass();
-                $turno->id = $row['turnos_eval'];
-                $turno->nombre = $row['nombre'];
-                $this->turnos[] = $turno;
+                $salida = new stdClass();
+                $salida->id = $row['turnos_eval'];
+                $salida->nombre = $row['nombre'];
+                return $salida;
             }
+        }
+        return NULL;
+    }
+	public function get_turnos($memcache_host = NULL){
+        $sql = "select distinct e.turnos_eval,t.nombre from escuelas_para_rankeo e inner join turnos t on t.id = e.turnos_eval where e.id ={$this->id}";
+        if($memcache_host!=NULL && class_exists('Memcache')){
+            $memcache = new Memcache;
+            $memcache->connect($memcache_host, 11211);
+            $this->execute = true;
+            $query_hash = sha1($sql);
+            if($result = $memcache->get($query_hash)){
+                $this->turnos[] = $result;
+                //foreach($escuelas as $escuela) $escuela->conn = $this->conn;
+                return true;
+            }else{
+                $turnos = $this->createSchoolData($sql);
+                $this->turnos[] = $turnos;
+                $memcache->set($query_hash,$turnos,false,0);
+            }
+            return true;
+        }else{
+            $this->turnos[] = $this->createSchoolData($sql);
         }
     }
     public function get_charts(){

@@ -137,7 +137,7 @@ class escuelas extends main{
 			");
 			#$this->debug = true;
             $this->escuela->get_mongo_info($this->mongo_connect());
-            $this->escuela->get_turnos();
+            $this->escuela->get_turnos($this->config->memcache_host);
 			$this->escuela->get_semaforos();
             $this->escuela->get_charts();
             $this->escuela->clean_ranks();
