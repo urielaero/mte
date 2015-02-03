@@ -91,6 +91,16 @@ class mejora extends main{
 		if(!($this->get('nivel') || $this->get('estado') )){
 			$this->load_programas();
 		}
+		//Poner los programas en un formato para que sea mas facil manipular con angular y no se envien datos inecesarios
+		if($this->config->theme == 'mtev2'){
+			$this->entidades = $this->load_entidades();
+			$api = new api($this->config);
+			$fields = ['id','nombre','m_collection','tema_especifico','zonas','lista_niveles','lista_entidades','federal'];
+
+			$pftemp = $api->jsonify($this->programas_federales, $fields);
+			$posctemp = $api->jsonify($this->programas_osc, $fields);
+			$this->programas_json = array_merge($posctemp,$pftemp);
+		}
 		$this->include_theme('index','programas');
 	}
 
