@@ -1,4 +1,8 @@
-<div class="cont-semaforos-results">
+<script type='text/javascript'>
+    window.programas = <?= json_encode($this->programas_json)?>;
+    window.entidades = <?= json_encode($this->entidades)?>;
+</script>
+<div class="cont-semaforos-results" ng-controller='programasCTL'>
 	<div class='container results programas mteNgSearch' >
 		<div class="breadcrumb">
 			<a href="#" class="start"><i class="icon-mejora"></i></a>
@@ -17,89 +21,57 @@
 				<form>
 					<label>Programa</label>
 					<div layout="row" class="text-field">
-						<input type="text" flex="80" placeholder="Ej. Programa escuela segura">
+						<input type="text" ng-model='params.text' flex="80" placeholder="Ej. Programa escuela segura">
 						<input type="submit" value="" flex="20">
 					</div>
 					<label>Tema de enfoque</label>
-					<select>
-						<option value="">Calidad de servicio educativo</option>
-					</select>
+					<select ng-model='params.tema' ng-options='tema as tema for tema in temas' ></select>
 					<label>Zonas de impacto</label>
-					<select>
-						<option value="">Aguascalientes</option>
-					</select>
+					<select ng-model='params.zona' ng-options='zona as zona.nombre.capitalize() for zona in zonas' ></select>
 					<label>Nivel escolar</label>
-					<p><md-checkbox aria-label="Checkbox 1">Prescolar</md-checkbox></p>
-					<p><md-checkbox aria-label="Checkbox 1">Primaria</md-checkbox></p>
-					<p><md-checkbox aria-label="Checkbox 1">Secundaria</md-checkbox></p>
-					<p><md-checkbox aria-label="Checkbox 1">Bachillerato</md-checkbox></p>
+					<p ng-repeat='nivel in niveles' ><md-checkbox ng-model='params.niveles[nivel.id]' aria-label="nivel.label">{{nivel.label}}</md-checkbox></p>
 					<label>Programas</label>
-					<p><md-checkbox aria-label="Checkbox 1">Federales</md-checkbox></p>
-					<p><md-checkbox aria-label="Checkbox 1">De organización de la sociedad civil</md-checkbox></p>
+					<p ng-repeat='control in controles' ><md-checkbox ng-model='params.controles[control.id]'aria-label="control.label">{{control.label}}</md-checkbox></p>
 				</form>
 			</div>
 			<div flex="70" flex-sm="100" id="results">
-				<div layout="row" layout-sm="column">
+				<!-- <div layout="row" layout-sm="column">
 					<h2 flex="40" flex-sm="100">34,598 Resultados</h2>
 					<div class="order-by" flex="60" flex-sm="100">
 						<select><option>Orden alfabético</option></select>
 						<label>Ordenar por:</label>
 						<div class="clear"></div>
 					</div>
-				</div>
+				</div> -->
 				<div class="compare-table">
 					<table class="footable">
 						<thead>
 							<tr>
-								<th class="footable-first-column">Programas</th>
-								<th data-hide="phone">Nivel escolar</th>
+								<th class="footable-first-column">Programa</th>
+								<th data-hide="phone">Zona de cobertura</th>
 								<th class="footable-last-column">Federal | Organización civil</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
+							<tr ng-repeat='programa in programas | programasFilter:params'>
 								<td>
-									<strong>Programa escuela de calidad</strong>
-									<p><small><i class="icon-conoce-01"></i> Jesus Barajas, Colima</small></p>
+									<a ng-href='/programas/index/{{programa.id}}'><strong ng-bind='programa.nombre' ></strong></a>
+									<p><small><i class="icon-conoce-01"></i> <span ng-bind='programa.tema_especifico'></span></small></p>
 								</td>
-								<td>Bachillerato</td>
-								<td>Organización de la sociedad civil</td>
-							</tr>
-							<tr>
-								<td>
-									<strong>Programa escuela de calidad</strong>
-									<p><small><i class="icon-conoce-01"></i> Jesus Barajas, Colima</small></p>
-								</td>
-								<td>Bachillerato</td>
-								<td>Organización de la sociedad civil</td>
-							</tr>
-							<tr>
-								<td>
-									<strong>Programa escuela de calidad</strong>
-									<p><small><i class="icon-conoce-01"></i> Jesus Barajas, Colima</small></p>
-								</td>
-								<td>Bachillerato</td>
-								<td>Organización de la sociedad civil</td>
-							</tr>
-							<tr>
-								<td>
-									<strong>Programa escuela de calidad</strong>
-									<p><small><i class="icon-conoce-01"></i> Jesus Barajas, Colima</small></p>
-								</td>
-								<td>Bachillerato</td>
-								<td>Organización de la sociedad civil</td>
+								<td ng-bind='programa.zonas'></td>
+								<td ng-bind='controles[programa.federal].label'></td>
 							</tr>
 
 						</tbody>
 					</table>
 				</div>
-				<div class="pagination">
+				<!-- <div class="pagination">
 					<a href="#">1</a>
 					<a href="#">2</a>
 					<a href="#">3</a>
 					<a href="#">&gt;</a>
 					<a href="#">Últimas &gt;</a>
-				</div>	
+				</div>	 -->
 			</div>
 		</div>
 	</div>	

@@ -630,9 +630,9 @@ class main extends controler{
     protected function load_programas(){
     	$q = new programa(NULL,$this->conn);
     	$q->search_clause =  'federal = \'1\'';
-    	$this->programas_federales = $q->read('id,nombre,m_collection,tema_especifico');
+    	$this->programas_federales = $q->read('id,nombre,m_collection,tema_especifico,zonas,lista_niveles,federal,lista_entidades');
     	$q->search_clause = 'federal = \'0\'';
-    	$this->programas_osc = $q->read('id,nombre,m_collection,tema_especifico');
+    	$this->programas_osc = $q->read('id,nombre,m_collection,tema_especifico,zonas,lista_niveles,federal,lista_entidades');
     }
 
 

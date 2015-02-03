@@ -34,13 +34,19 @@
 			</div>
 		</div>
 	</div>
-	<form action="#" class="form-contacto">
+	<form action='/contacto/enviar/' method='POST' class="form-contacto">
+		<?php 	if(isset($this->contact_status) && $this->contact_status)
+				echo '<h3 class="msj" >Gracias, tu mensaje se ha enviado</h3>';
+			else if(isset($this->contact_status) && !$this->contact_status)
+				echo '<h3 class="msj" >Hubo un error, intentalo de nuevo</h3>';
+		?>
 		<div layout="row" class="space-between">
-			<input type="text" class="text-input forms-contactanos" placeholder="Nombre" flex="45">
-			<input type="mail" class="mail-input forms-contactanos" placeholder="Correo electrónico" flex="45">
+			<input type="text" class="text-input forms-contactanos" name='nombre' required="" placeholder="Nombre" flex="45">
+			<input type="mail" class="mail-input forms-contactanos" name='email' required="" placeholder="Correo electrónico" flex="45">
 		</div>
-		<textarea placeholder="Mensaje" class=" forms-contactanos" cols="30" rows="7"></textarea>
+		<textarea placeholder="Mensaje" class=" forms-contactanos" cols="30" name='mensaje' required="" rows="7"></textarea>
 		<input class="boton-contactos-enviar" type="submit" value="Enviar" >
+		<?php echo $this->get_captcha(); ?>
 		<div class="clear"></div>
 	</form>
 </div>

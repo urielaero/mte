@@ -41,6 +41,7 @@
 			'controllers/conoceCTL.js',
 			'controllers/comparaCTL.js',
 			'controllers/escuelaCTL.js',
+			'controllers/programasCTL.js',
 			'services/userInfo.js',
 			'services/templateData.js',
 			'directives/mteNgSearch.js',

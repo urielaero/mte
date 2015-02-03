@@ -68,7 +68,8 @@ class api extends main{
 		
 	}
 
-	
+	// Realmente lo que hace esta funcion es acotar los objetos para solo incluir especificacion especificada, 
+	// con la limitante de solo tener 1 nivel de profundidad
 	public function jsonify($objects,$fields){
 		$json = [];
 		foreach($objects as $object){
