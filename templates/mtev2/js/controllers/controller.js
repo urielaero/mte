@@ -112,7 +112,6 @@ app.controller("mejoraCTL", ['$scope','$http','$timeout','$rootScope','$window',
                     $scope.posts.push(p);
                     //TODO: Revisar una alternativa a apply
                     $scope.$apply();
-                    console.log($scope.posts.length % $scope.maxPostCount);
                     if($scope.posts.length % $scope.maxPostCount == 0){
                         $scope.loading = false;
                     }
