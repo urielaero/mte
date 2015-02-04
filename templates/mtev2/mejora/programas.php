@@ -36,7 +36,7 @@
 			</div>
 			<div ng-if="!currentPrograms.length" flex flex-sm="100" id="message-not-found">
 				<h2><strong>No se encontraron resultados</strong></h2>
-				<p>Te sugerimos realizar una búsqueda mas avanzada</p>
+				<p>Te sugerimos realizar una búsqueda más avanzada</p>
 			</div>
 			<div ng-hide='!currentPrograms.length' flex="70" flex-sm="100" id="results">
 				<!-- <div layout="row" layout-sm="column">
