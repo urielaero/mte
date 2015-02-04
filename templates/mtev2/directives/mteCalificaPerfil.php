@@ -1,16 +1,19 @@
-<form 	class="comment-form"	
+<div class="form-success" ng-show="success">
+	<p><i class="icon-check-01"></i></p>
+	<h3 ng-if="tipo!='biblioteca'">Escuela calificada correctamente.</h3>
+	<h3 ng-if="tipo=='biblioteca'">Biblioteca calificada correctamente.</h3>	
+
+</div>
+<div class="form-success" ng-show="error">
+	<p><i class="icon-tache-01"></i></p>
+	<h3>Ocurrio un error, intentalo de nuevo.</h3>
+</div>
+<form  ng-show="!error && !success"	class="comment-form"	
 	ng-submit="califica()"
         ng-init="
 		input.tk = '<?=$this->getSimulatedToken($this->simulateP)?>';
 		input.cct = '<?=$this->get('id')?>'
 	">
-	<div ng-show="success" flex="100" class="icon-container form-success">
-		<h3 ng-if="tipo!='biblioteca'">Escuela calificada correctamente.</h3>
-		<h3 ng-if="tipo=='biblioteca'">Biblioteca calificada correctamente.</h3>
-	</div>
-	<div ng-show="error" flex="100" class="icon-container form-success">
-		<h3>Ocurrio un error, intentalo de nuevo.</h3>
-	</div>
 	<div layout="row" ng-click="toggleForm = true">
 		<div flex="10" class="icon-container" hide-sm>
 			<i class="icon-comentario-01"></i>

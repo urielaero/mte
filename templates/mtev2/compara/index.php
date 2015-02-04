@@ -3,7 +3,12 @@
 		<a href="/" class="start"><i class="icon-mejora"></i></a>
 		<a href="/compara">Compara</a>
 	</div>
-	<div layout='row' ng-show='loading' class='loader' layout-align='center center'>
+	<div ng-if="!escuelasResponse" class="message">
+		<h2><strong>No hay escuelas para comparar</strong></h2>
+		<p>Te sugerimos primero buscar escuelas</p>
+		<a href='' ng-click="toggleComparador()" class="search-schools"><strong>Buscar escuelas para comparar</strong></a>
+	</div>
+	<div layout='row' ng-show='loading && escuelasResponse' class='loader' layout-align='center center'>
 		<md-progress-circular md-mode="indeterminate"  class="md-accent"></md-progress-circular>
 	</div>
 	<div ng-show='!loading'>	
