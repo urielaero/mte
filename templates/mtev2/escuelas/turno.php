@@ -110,7 +110,7 @@
 		<div class="options space-between" layout="row" layout-md="column">
 			<div flex="49" class="option">
 					<p><i class="icon-print-01"></i></p>
-					<p>Imprimir</p>
+					<p ng-click="print();">Imprimir</p>
 			</div>
 			<div flex="49" class="option">
 					<p><i class="icon-share-01"></i></p>
@@ -161,7 +161,7 @@
 		<div class="options space-between" layout="row" layout-md="column">
 			<div flex="49" class="option">
 					<p><i class="icon-print-01"></i></p>
-					<p>Imprimir</p>
+					<p ng-click="print();">Imprimir</p>
 			</div>
 			<div flex="49" class="option">
 					<p><i class="icon-share-01"></i></p>

@@ -127,5 +127,9 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
             },
             300           
         );
+    };
+
+    $scope.print = function(){
+    	window.print();
     }
 }]);
