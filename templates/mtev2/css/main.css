@@ -290,6 +290,13 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container .comment-form .icon-container i{color: #fff;font-size: 40px;margin-top: -5px}
 #content .container .comment-form textarea{border: 0;color:#6C6C6C;padding: 20px;resize: none;}
 #content .container .comment-form .fields{background: #F76907;margin-bottom: 6px;padding: 6px}
+#content .container.califica .comment-form .success,
+#content .container.califica .comment-form .check,
+#content .container.califica .comment-form md-checkbox,
+#content .container.califica .comment-form .extra.animated,
+#content .container.califica .comment-form .icon-container,
+#content .container.califica .comment-form .fields{background:#1A84E8;}
+#content .container.califica .comment-form md-checkbox.md-default-theme .md-icon{border-color:white;}
 #content .container .comment-form select,
 #content .container .comment-form input[type="email"],
 #content .container .comment-form input[type="text"]{background: #fff;border: 0;padding: 6px;}
