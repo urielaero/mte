@@ -585,10 +585,13 @@ ul.dropdown-menu li.active a{color: #fff}
 }
 #content .container.compare .search-form .s-btn.green-button{background: #22B461}
 #content .container.compare #map{height: 450px}
-#content .container.compare .message{color: #8D8D8D;margin: 80px 0;text-align: center;}
-#content .container.compare .message h2{line-height: 1.4;margin: 0;}
-#content .container.compare .message p{font-size: 20px;line-height: 1.4}
-#content .container.compare .message a.search-schools{background: #00ADF2;color: #fff;display: block;margin: 20px auto;max-width: 265px;padding: 10px 20px}
+
+/*Mensaje no hay resultados*/
+#content #message-not-found{color: #8D8D8D;margin: 80px 0;text-align: center;}
+#content #message-not-found h2{line-height: 1.4;margin: 0;}
+#content #message-not-found p{font-size: 20px;line-height: 1.4}
+#content #message-not-found a.search-schools{background: #00ADF2;color: #fff;display: block;margin: 20px auto;max-width: 265px;padding: 10px 20px}
+#content #message-not-found img{display: block;margin: 20px auto;max-width: 80%;}
 
 /*Compara resultados*/
 #content .container.results #filters{
