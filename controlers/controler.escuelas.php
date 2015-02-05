@@ -205,9 +205,8 @@ class escuelas extends main{
             ($captcha->check_answer($this->config->http_address,
 			    $this->post('recaptcha_challenge_field'),
     			$this->post('recaptcha_response_field')
-            ) || $this->config->theme == 'mtev2')
-            || $this->post('optional_comement')
-          ){
+            )
+          )){
 				$comment = strip_tags($this->post('comentario'));
 				$accept_name = ($this->post('accept')!=null) ? 1 : 0;
 				$calificacion = new calificacion(NULL,$this->conn);
@@ -247,6 +246,8 @@ class escuelas extends main{
         if($this->request('json')){
             if(isset($calificacion->id))
                 echo json_encode(array("success"=>true,"id"=>$calificacion->id));
+            else if($typeE == 'invalid')
+                echo json_encode(array("success"=>false,"captcha"=>true));
             else
                 echo json_encode(array("success"=>false));
             return; 

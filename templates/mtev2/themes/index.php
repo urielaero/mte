@@ -29,6 +29,8 @@
 			'bower_components/imagesloaded/imagesloaded.pkgd.min.js',
 			'bower_components/masonry/dist/masonry.pkgd.min.js',
 			'bower_components/angular-masonry/angular-masonry.js',
+			'bower_components/angular-masonry/angular-masonry.js',
+			'bower_components/recapcha/angular-re-captcha.js',
 			'perfect-scrollbar.min.js',
 			'footable.js',
 			'perfect-scrollbar.with-mousewheel.min.js',

@@ -316,6 +316,8 @@ ul.dropdown-menu li.active a{color: #fff}
 	transition-duration:  .5s;
 	transition-timing-function:  cubic-bezier(0,  1,  0.5,  1);
 }
+#content .container.califica .captcha_show{margin-top:10px;}
+#content .container.califica .captcha_show .msg p{font-size:17px;color:#8B8B8B;}
 
 /*Tabla global de comparacion*/
 #content .container .compare-table{margin-top: 10px}
@@ -776,10 +778,16 @@ ul.dropdown-menu li.active a{color: #fff}
 margin: 0 !important;
 width: 200px !important;
 }
-.recaptchatable .recaptcha_r1_c1, .recaptchatable .recaptcha_r3_c1, .recaptchatable .recaptcha_r3_c2, .recaptchatable .recaptcha_r7_c1, .recaptchatable .recaptcha_r8_c1, .recaptchatable .recaptcha_r3_c3, .recaptchatable .recaptcha_r2_c1, .recaptchatable .recaptcha_r4_c1, .recaptchatable .recaptcha_r4_c2, .recaptchatable .recaptcha_r4_c4, .recaptchatable .recaptcha_image_cell {background: none !important;}
-#content form .recaptchatable #recaptcha_image #recaptcha_challenge_image{width:211px!important;height:46px;margin-top:-7px!important}
+.recaptchatable .recaptcha_r1_c1, .recaptchatable .recaptcha_r3_c1,
+.recaptchatable .recaptcha_r3_c2, .recaptchatable .recaptcha_r7_c1,
+.recaptchatable .recaptcha_r8_c1, .recaptchatable .recaptcha_r3_c3,
+.recaptchatable .recaptcha_r2_c1, .recaptchatable .recaptcha_r4_c1,
+.recaptchatable .recaptcha_r4_c2, .recaptchatable .recaptcha_r4_c4,
+.recaptchatable, #recaptcha_area tr, #recaptcha_area td, #recaptcha_area th,
+.recaptchatable .recaptcha_image_cell {background: #7E7E7E !important;}
+#content form .recaptchatable #recaptcha_image #recaptcha_challenge_image{width:211px!important;height:46px;margin-top:-7px!important;margin-left:-5px !important}
 #recaptcha_widget_div{margin-top:12px;background:#7E7E7E;padding:0px 0px 0 6px;margin-left:7px;width:218px;height:99px;margin-bottom:11px;}
-form #recaptcha_area,form #recaptcha_table{width:190px !important;}
+form #recaptcha_area,form #recaptcha_table{width:229px !important;}
 #content .container input#recaptcha_response_field{margin-top:-20px!important;width:116px!important;margin-left:-7px!important;border-radius:5px;height:36px;}
 #header .container #recaptcha_switch_audio_btn,
 #header .container #recaptcha_whatsthis_btn,
@@ -788,7 +796,8 @@ form #recaptcha_area,form #recaptcha_table{width:190px !important;}
 #content .container #recaptcha_whatsthis_btn,
 #content .container #recaptcha_reload_btn{margin-top:-14px!important;margin-left:-48px!important;display:block;}
 #content .container #recaptcha_reload_btn{margin-top:-18px!important;}
-#content .container .recaptcha_input_area{width:110px!important;margin-right:49px!important;}
+#content .container
+.recaptcha_input_area{width:110px!important;margin-right:49px!important;height:37px!important;margin-left:14px!important;}
 #recaptcha_area td{position:relative;}
 #content .container #recaptcha_switch_audio_btn{position:absolute;top:9px;}
 #content .container #recaptcha_switch_img_btn{top:-4px;left:-48px;}

@@ -2,9 +2,15 @@
 	<p><i class="icon-check-01"></i></p>
 	<h3>Comentario enviado al equipo de MTE</h3>
 </div>
-<div class="form-success" ng-show="error">
+<div class="form-success" ng-show="error && !error_captcha">
 	<p><i class="icon-tache-01"></i></p>
 	<h3>Ocurrio un error, intentalo de nuevo.</h3>
+</div>
+<div class="form-success" ng-show="error && error_captcha" 
+    ng-click="error =false;"
+    >
+	<p><i class="icon-tache-01"></i></p>
+	<h3>Ocurrio un error con el captcha, intentalo de nuevo.</h3>
 </div>
 
 <form  ng-show="!error && !success" class="comment-form" 
@@ -42,6 +48,19 @@
 		</div>
 	</div>
 	<span ng-init="input.last_name='<?=$this->simulateP?>'"></span>
+    <div layout="row" class="captcha_show">
+        <div flex="30" 
+             re-captcha 
+             ng-model="captcha" >
+        </div>
+
+		<div class="msg" flex="70">
+			<p>*Tu correo electronico NO aparecerá con tu comentario.</p>
+			<p>Si no quieres que tu comentario se publique en el perfil de la
+            escuela, escribenos a:<strong>contacto@mejoratuesceual.org</strong></p>
+            
+		</div>
+    </div>
 	<div layout="row" class="" layout-margin layout-fill layout-padding layout-align="center">
 		<md-button class="success" ng-show="!toggleForm && !success" type="submit" flex="100" >Enviar calificación</md-button>
 		<md-button class="success" ng-show="toggleForm && !success" type="submit" flex="100" >Enviar calificación y comentario</md-button>
@@ -52,5 +71,6 @@
 				<div class="msg">
 					<p>*Tu correo electronico NO aparecerá con tu comentario.</p>
 					<p>Si no quieres que tu comentario se publique en el perfil de la escuela, escribenos a:contacto@mejoratuesceual.org</p>
--->
 				</div>
+
+-->

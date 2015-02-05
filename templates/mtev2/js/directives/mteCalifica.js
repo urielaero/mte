@@ -8,6 +8,12 @@
         };
         var onlyOne = false;
         $scope.califica = function(commentOptional){
+            if($scope.captcha){
+                $scope.input.recaptcha_challenge_field = $scope.captcha.challenge;
+                $scope.input.recaptcha_response_field = $scope.captcha.response;
+            }
+
+            console.log('input',$scope.input);
             if(onlyOne) return;
             onlyOne = true;
             if($scope.calificacion && $scope.calificacion.calificaciones.length){
@@ -23,8 +29,10 @@
                 data:$scope.input,
                 url:'/escuelas/calificar'
             }).then(function(res){
+                console.log(res);
                 $scope.success = res.data.success;
                 $scope.error = $scope.success?false:true;
+                $scope.error_captcha = res.data.captcha;
                 if($scope.error){
                     onlyOne = false;
                     //$scope.toggleForm = true;
