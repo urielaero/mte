@@ -101,6 +101,7 @@ class escuelas extends main{
 				}
 			}
 		}else{
+			exit('sakui');
 			header('HTTP/1.0 404 Not Found');
 		}
 	}
@@ -109,7 +110,7 @@ class escuelas extends main{
 	* Lee la información de la escuela con CCT en la url: host/escuelas/index/CCT, sí la información de esta escuela esta 
 	* en la base de datos el atributo 'escuela' contendrá los datos de esta y un booleano verdadero es devuelto en caso contrario se devuelve un falso.
 	*/
-	public function escuela_info($id=false){
+	public function escuela_info($id=false) {
 		if(!$id)
 			$id = $this->get('id');
 		$this->escuela = new escuela($id,$this->conn);
@@ -122,7 +123,7 @@ class escuelas extends main{
         $this->escuela->key = 'id';
         $this->escuela->has_many_keys["enlaces"] = "id_cct";
         //$this->escuela->has_many_keys["calificaciones"] = "id_cct";
-        if(isset($this->escuela->cct)){
+        if( isset($this->escuela->cct) ){
 			$this->escuela->read("
 				id,nombre,domicilio,paginaweb,
 				entidad=>nombre,entidad=>id,municipio=>id,municipio=>nombre,localidad=>nombre,localidad=>id,
@@ -136,62 +137,63 @@ class escuelas extends main{
 				rank=>promedio_general,rank=>promedio_matematicas,rank=>promedio_espaniol,rank=>total_evaluados,rank=>pct_reprobados,rank=>poco_confiables,rank=>turnos_eval,rank=>rank_entidad,rank=>rank_nacional,rank=>anio, rank=>eval_entre_programados
 			");
 			#$this->debug = true;
-            $this->escuela->get_mongo_info($this->mongo_connect());
-            $this->escuela->get_turnos($this->config->memcache_host);
-			$this->escuela->get_semaforos();
-            $this->escuela->get_charts();
-            $this->escuela->clean_ranks();
-			
-			$this->entidad_cct_count = 0;
-            if($this->escuela->nivel->id == 12  || $this->escuela->nivel->id ==  13 || $this->escuela->nivel->id == 22 || $this->escuela->nivel->id == 21){
-				$nivel = "numero_escuelas_".strtolower($this->escuela->nivel->nombre);
+			if(ctype_digit($this->escuela->id)){
+	            $this->escuela->get_mongo_info($this->mongo_connect());
+	            $this->escuela->get_turnos($this->config->memcache_host);
+				$this->escuela->get_semaforos();
+	            $this->escuela->get_charts();
+	            $this->escuela->clean_ranks();
 				
-				$entidad_info = new entidad($this->escuela->entidad->id,$this->conn);
-				$entidad_info->debug = false;
-				if($this->escuela->nivel->id == 21)
-					$nivel='numero_escuelas_bachillerato';
-				$entidad_info->read($nivel);
-				if($this->escuela->nivel->id == 12  || $this->escuela->nivel->id ==  13 || $this->escuela->nivel->id == 22 || $this->escuela->nivel->id == 21)
-					$this->entidad_cct_count = $entidad_info->$nivel;
-            }
-            $aux = new pregunta(NULL,$this->conn);
-            if (isset($this->escuela->calificaciones) && $this->escuela->calificaciones) {
-                $this->preguntas = $aux->getPreguntasConPromedio($this->escuela->cct);
-            } else {
-				$tipo_encuesta = 'escuelas';	
-				if(preg_match('/^..BB/', $this->escuela->cct)){
-					$tipo_encuesta = 'bibliotecas';
-				}
-				$tipo_p = new tipo_pregunta(NULL,$this->conn);
-				$tipo_p->search_clause = "nombre = '{$tipo_encuesta}'";
-				$tipo_preguntas = $tipo_p->read('id,nombre');
-				$tipo_pregunta = $tipo_preguntas[0];
-				$aux->search_clause = "tipo_pregunta = {$tipo_pregunta->id}";
-                $this->preguntas = $aux->read('id,titulo');
-            }
-			//Objeto para mtev2
-			$this->escuelaSummary = new stdClass();
-			$this->escuelaSummary->id = $this->escuela->id;
-			$this->escuelaSummary->cct = $this->escuela->cct;
-			$this->escuelaSummary->nombre = $this->capitalize($this->escuela->nombre);
-			$this->escuelaSummary->nivel = $this->escuela->nivel->id;
-			$this->escuelaSummary->turno = $this->escuela->turno->id;
-			$this->escuelaSummary->municipio = new stdClass();
-			$this->escuelaSummary->municipio->id = $this->escuela->municipio->id;
-			$this->escuelaSummary->municipio->nombre = $this->capitalize($this->escuela->municipio->nombre);
+				$this->entidad_cct_count = 0;
+	            if($this->escuela->nivel->id == 12  || $this->escuela->nivel->id ==  13 || $this->escuela->nivel->id == 22 || $this->escuela->nivel->id == 21){
+					$nivel = "numero_escuelas_".strtolower($this->escuela->nivel->nombre);
+					
+					$entidad_info = new entidad($this->escuela->entidad->id,$this->conn);
+					$entidad_info->debug = false;
+					if($this->escuela->nivel->id == 21)
+						$nivel='numero_escuelas_bachillerato';
+					$entidad_info->read($nivel);
+					if($this->escuela->nivel->id == 12  || $this->escuela->nivel->id ==  13 || $this->escuela->nivel->id == 22 || $this->escuela->nivel->id == 21)
+						$this->entidad_cct_count = $entidad_info->$nivel;
+	            }
+	            $aux = new pregunta(NULL,$this->conn);
+	            if (isset($this->escuela->calificaciones) && $this->escuela->calificaciones) {
+	                $this->preguntas = $aux->getPreguntasConPromedio($this->escuela->cct);
+	            } else {
+					$tipo_encuesta = 'escuelas';	
+					if(preg_match('/^..BB/', $this->escuela->cct)){
+						$tipo_encuesta = 'bibliotecas';
+					}
+					$tipo_p = new tipo_pregunta(NULL,$this->conn);
+					$tipo_p->search_clause = "nombre = '{$tipo_encuesta}'";
+					$tipo_preguntas = $tipo_p->read('id,nombre');
+					$tipo_pregunta = $tipo_preguntas[0];
+					$aux->search_clause = "tipo_pregunta = {$tipo_pregunta->id}";
+	                $this->preguntas = $aux->read('id,titulo');
+	            }
+				//Objeto para mtev2
+				$this->escuelaSummary = new stdClass();
+				$this->escuelaSummary->id = $this->escuela->id;
+				$this->escuelaSummary->cct = $this->escuela->cct;
+				$this->escuelaSummary->nombre = $this->capitalize($this->escuela->nombre);
+				$this->escuelaSummary->nivel = $this->escuela->nivel->id;
+				$this->escuelaSummary->turno = $this->escuela->turno->id;
+				$this->escuelaSummary->municipio = new stdClass();
+				$this->escuelaSummary->municipio->id = $this->escuela->municipio->id;
+				$this->escuelaSummary->municipio->nombre = $this->capitalize($this->escuela->municipio->nombre);
 
-			$this->escuelaSummary->localidad = new stdClass();
-			$this->escuelaSummary->localidad->id = $this->escuela->localidad->id;
-			$this->escuelaSummary->localidad->nombre = $this->capitalize($this->escuela->localidad->nombre);
+				$this->escuelaSummary->localidad = new stdClass();
+				$this->escuelaSummary->localidad->id = $this->escuela->localidad->id;
+				$this->escuelaSummary->localidad->nombre = $this->capitalize($this->escuela->localidad->nombre);
 
-			$this->escuelaSummary->entidad = new stdClass();
-			$this->escuelaSummary->entidad->id = $this->escuela->entidad->id;
-			$this->escuelaSummary->entidad->nombre = $this->capitalize($this->escuela->entidad->nombre);
+				$this->escuelaSummary->entidad = new stdClass();
+				$this->escuelaSummary->entidad->id = $this->escuela->entidad->id;
+				$this->escuelaSummary->entidad->nombre = $this->capitalize($this->escuela->entidad->nombre);
 
-			return true;
-		}else{
-			return false;
+				return true;
+			}
 		}
+		return false;
 	}
 
 	/**
