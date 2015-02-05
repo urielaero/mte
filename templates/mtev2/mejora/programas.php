@@ -37,6 +37,7 @@
 			<div ng-if="!currentPrograms.length" flex flex-sm="100" id="message-not-found">
 				<h2><strong>No se encontraron resultados</strong></h2>
 				<p>Te sugerimos realizar una búsqueda más avanzada</p>
+				<p><img src="/templates/mtev2/img/buscando.png" alt=""></p>
 			</div>
 			<div ng-hide='!currentPrograms.length' flex="70" flex-sm="100" id="results">
 				<!-- <div layout="row" layout-sm="column">
