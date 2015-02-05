@@ -492,6 +492,7 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.profile #profile-content .sidebar .box-yesno .no{display: inline-block;margin-top: 8px}
 #content .container.profile #profile-content .sidebar .box-yesno .circle{border: 2px solid #fff;border-radius: 50%;display: block;height: 14px;width: 14px}
 #content .container.profile #profile-content .sidebar .box-yesno .on .circle{background: #fff}
+#content .container.profile #profile-content .share_show i{color:white;}
 
 /*charts escuela*/
 #content .container.profile .chart .legend_chart{display:inline-block;vertical-align:top;margin-top:19px;background:#ECECEC;width:80px;height:127px;padding-top:15px;}

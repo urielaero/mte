@@ -1,4 +1,14 @@
-<?php $controles = array(1=>'Pública', 2=>'Privada'); ?>
+<?php $controles = array(1=>'Pública', 2=>'Privada'); 
+//share
+$url_logo = $this->config->http_address."templates/".$this->config->theme."/img/logo_mejora.png";
+$url = $this->config->http_address.$this->location;
+$url = $url."/index/".$this->get('id');
+$title = "El perfil de ".$this->capitalize($this->escuela->nombre);
+$description = $title;
+$urlFb = $url."#facebook";
+$urlTwitter = $url."#twitter";
+$urlMail = $url."#mail";
+?>
 <div class="space-between" layout="row" layout-sm="column">
 	<div class="main-info" flex="73" flex-sm="100">
 		<div layout="row" layout-sm="column">
@@ -112,9 +122,20 @@
 					<p><i class="icon-print-01"></i></p>
 					<p ng-click="print();">Imprimir</p>
 			</div>
-			<div flex="49" class="option">
+			<div flex="49" class="option" ng-click="show_share = true">
+				<span ng-if="!show_share">
 					<p><i class="icon-share-01"></i></p>
 					<p>Compartir</p>
+				</span>
+				<span ng-if="show_share" class="share_show">
+					<a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?=$urlFb?>&p[images][0]=<?=$url_logo?>&p[title]=<?=$title?>&p[summary]=<?=$description?>" target='_blank'>
+						<i class="icon-fb-01"></i>
+					</a>
+					<a href="http://twitter.com/home?status=<?=$title." ".$urlTwitter," por @mejoratuescuela"?> " target='_blank' >
+						<i class="icon-twitter-01-01"></i>
+					
+					</a>
+				</span>
 			</div>
 		</div>
 	</div>	
@@ -163,9 +184,20 @@
 					<p><i class="icon-print-01"></i></p>
 					<p ng-click="print();">Imprimir</p>
 			</div>
-			<div flex="49" class="option">
+			<div flex="49" class="option" ng-click="show_share = true">
+				<span ng-if="!show_share">
 					<p><i class="icon-share-01"></i></p>
 					<p>Compartir</p>
+				</span>
+				<span ng-if="show_share" class="share_show">
+					<a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?=$urlFb?>&p[images][0]=<?=$url_logo?>&p[title]=<?=$title?>&p[summary]=<?=$description?>" target='_blank'>
+						<i class="icon-fb-01"></i>
+					</a>
+					<a href="http://twitter.com/home?status=<?=$title." ".$urlTwitter," por @mejoratuescuela"?> " target='_blank' >
+						<i class="icon-twitter-01-01"></i>
+					
+					</a>
+				</span>
 			</div>
 		</div>
 	</div>
