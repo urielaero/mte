@@ -500,9 +500,9 @@ ul.dropdown-menu li.active a{color: #fff}
 /*#content .container.profile #profile-content .share_show div{padding:25px 18px;}*/
 #content .container.profile #profile-content .share_show i{color:white;}
 #content .container.profile #profile-content .share_show a{margin:0 auto;font-size:29px;}
-#content .container.profile #profile-content .share_show .share_fb{background:#3194FB;padding:28px 58px 25px 17px}
-#content .container.profile #profile-content .share_show .share_twitter{background:#2D8BEC;padding:29px 59px 25px 17px;}
-#content .container.profile #profile-content .share_show .share_email{background:#2984E0;padding:28px 29px 5px 15px;}
+#content .container.profile #profile-content .share_show .share_fb{background:#3194FB;padding:14px 58px 17px 17px}
+#content .container.profile #profile-content .share_show .share_twitter{background:#2D8BEC;padding:15px 59px 0 17px;}
+#content .container.profile #profile-content .share_show .share_email{background:#2984E0;padding:15px 29px 0 15px;}
 
 
 /*charts escuela*/
