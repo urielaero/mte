@@ -39,7 +39,7 @@
 			</select>
 		</div>
 		<div class="sumbit-fields space-between" layout="row" layout-sm="column">
-			<div class="captcha" flex="33" flex-sm="100"></div>
+			<div class="captcha" flex="33" flex-sm="100" re-captcha ng-model="captcha"  ></div>
 			<div flex="66" flex-sm="100">
 				<div layout="row" class="space-between">
 					<md-button type="submit" class="md-raised" flex="49">Enviar</md-button>
