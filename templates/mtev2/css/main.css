@@ -329,7 +329,7 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container .compare-table table td p{line-height: 1.2;}
 #content .container .compare-table table td p small{font-size: 10px}
 #content .container .compare-table table td{background: #E2E2E2;color: #4C4C4C;font-size: 12px;padding: 12px}
-#content .container .compare-table table td.link{padding:0;}
+#content .container .compare-table table td.link{padding:0!important;}
 #content .container .compare-table table .link > a{padding:12px; transition: background .5s linear;}
 #content .container .compare-table table .link > a:hover{background:#1CA5F5;color:white;cursor: pointer;}
 #content .container .compare-table table .link > a:hover a{color:white;}
@@ -418,7 +418,7 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.profile #profile-content .semaphore ul li.on .label{color: #fff}
 #content .container.profile #profile-content .semaphore .options{margin-top: 20px}
 #content .container.profile #profile-content .semaphore .options .option{
-	background: #1CA5F5;color: #fff;font-size: 18px;text-align: center;padding: 30px 5px;
+	background: #1CA5F5;color: #fff;cursor: pointer;font-size: 18px;text-align: center;padding: 30px 5px;
 	-webkit-flex: 0 0 49%; -ms-flex: 0 0 49%; flex: 0 0 49%; max-width: 49%;
 }
 #content .container.profile #profile-content .additional-info{margin-top: 10px}
@@ -881,7 +881,7 @@ form #recaptcha_area,form #recaptcha_table{width:229px !important;}
 #footer .menu a{font-weight: 700;font-size: 14px;/*text-transform: uppercase;*/}
 
 /*Error 404*/
-#main.e404{background: #00AEF5}
+#main.e404{background: #00AEF5!important}
 #content .container.e404{color: #fff;text-align: center;}
 #content .container.e404 h1{font-size: 50px;font-weight: 700;line-height: 48px}
 #content .container.e404 p{font-size: 18px}

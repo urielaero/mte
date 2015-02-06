@@ -1,3 +1,13 @@
+<?php 
+$url_logo = $this->config->http_address."templates/".$this->config->theme."/img/logo_mejora.png";
+$url = $this->config->http_address.$this->location;
+$url = $url."/index/".$this->get('id');
+$title = "El perfil de ".$this->capitalize($this->escuela->nombre);
+$description = $title;
+$urlFb = $url."#facebook";
+$urlTwitter = $url."#twitter";
+$urlMail = $url."#mail";
+?>
 <script type='text/javascript'>
     window.escuela = <?= json_encode($this->escuelaSummary) ?>;
 </script>
@@ -167,14 +177,38 @@ EOD;
 				</div>
 			</div>
 			<div flex="25" flex-sm="100" class="semaphore">
-				<div class="options space-between" layout="row" layout-md="column">
-					<div flex="49" class="option">
-							<p><i class="icon-print-01"></i></p>
-							<p>Imprimir</p>
+				<div class="share_options">
+					<div class="options space-between" layout="row" layout-md="column">
+						<div flex="49" class="option">
+								<p><i class="icon-print-01"></i></p>
+								<p ng-click="print();">Imprimir</p>
+						</div>
+						<div flex="49" class="option" ng-click="show_share = !show_share">
+							<span>
+								<p><i class="icon-share-01"></i></p>
+								<p>Compartir</p>
+								</span>
+						</div>
 					</div>
-					<div flex="49" class="option">
-							<p><i class="icon-share-01"></i></p>
-							<p>Compartir</p>
+					<div  class="share_show" layout="row" layout-md="column" ng-show="show_share">
+						<div flex="30" class="share_fb">
+							<a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?=$urlFb?>&p[images][0]=<?=$url_logo?>&p[title]=<?=$title?>&p[summary]=<?=$description?>" target='_blank'>
+								<i class="icon-fb-01"></i>
+							</a>
+					
+						</div>
+						<div flex="30" class="share_twitter"> 
+							<a href="http://twitter.com/home?status=<?=$title." ".$urlTwitter," por @mejoratuescuela"?> " target='_blank' >
+								<i class="icon-twitter-01-01"></i>
+						
+							</a>		
+						</div>
+						<div flex="30" class="share_email">
+							<a href="mailto:?subject=<?=$title?>&amp;body=<?=$description.": ".$urlMail?>" target='_blank'>
+								<i class="icon-mail-01"></i>
+						
+							</a>		
+						</div>
 					</div>
 				</div>
 			</div>

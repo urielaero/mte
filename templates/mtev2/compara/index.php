@@ -4,8 +4,8 @@
 		<a href="/compara">Compara</a>
 	</div>
 	<div ng-if="!escuelasResponse" id="message-not-found">
-		<h2><strong>No hay escuelas para comparar</strong></h2>
-		<p>Te sugerimos primero buscar escuelas</p>
+		<h2><strong>No has seleccionado escuelas para comparar</strong></h2>
+		<!--<p>Te sugerimos primero buscar escuelas</p>-->
 		<a href='' ng-click="toggleComparador()" class="search-schools"><strong>Buscar escuelas para comparar</strong></a>
 	</div>
 	<div layout='row' ng-show='loading && escuelasResponse' class='loader' layout-align='center center'>

@@ -123,7 +123,7 @@ $urlMail = $url."#mail";
 						<p><i class="icon-print-01"></i></p>
 						<p ng-click="print();">Imprimir</p>
 				</div>
-				<div flex="49" class="option" ng-click="show_share = true">
+				<div flex="49" class="option" ng-click="show_share = !show_share">
 					<span>
 						<p><i class="icon-share-01"></i></p>
 						<p>Compartir</p>
@@ -198,7 +198,7 @@ $urlMail = $url."#mail";
 						<p><i class="icon-print-01"></i></p>
 						<p ng-click="print();">Imprimir</p>
 				</div>
-				<div flex="49" class="option" ng-click="show_share = true">
+				<div flex="49" class="option" ng-click="show_share = !show_share">
 					<span>
 						<p><i class="icon-share-01"></i></p>
 						<p>Compartir</p>
