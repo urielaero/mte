@@ -494,6 +494,9 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.profile #profile-content .sidebar .box-yesno .no{display: inline-block;margin-top: 8px}
 #content .container.profile #profile-content .sidebar .box-yesno .circle{border: 2px solid #fff;border-radius: 50%;display: block;height: 14px;width: 14px}
 #content .container.profile #profile-content .sidebar .box-yesno .on .circle{background: #fff}
+#content .container.profile #profile-content .share_options{position:relative;}
+#content .container.profile #profile-content .share_show{background:#3194FB;position:absolute;max-width:100%;}
+#content .container.profile #profile-content .share_show div{padding:28px}
 #content .container.profile #profile-content .share_show i{color:white;}
 
 /*charts escuela*/

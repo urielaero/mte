@@ -51,15 +51,20 @@
     <div layout="row" class="captcha_show">
         <div flex="30" 
              re-captcha 
-             ng-model="captcha" >
+             ng-model="captcha" 
+	     flex-md="50"
+	     flex-sm="50"
+	     >
+	     
         </div>
 
-		<div class="msg" flex="70">
+		<div class="msg" flex="70" flex-md="40" flex-sm="50">
 			<p>*Tu correo electronico NO aparecerá con tu comentario.</p>
 			<p>Si no quieres que tu comentario se publique en el perfil de la
             escuela, escribenos a:<strong>contacto@mejoratuesceual.org</strong></p>
             
 		</div>
+	<div class="clear"></div>
     </div>
 	<div layout="row" class="" layout-margin layout-fill layout-padding layout-align="center">
 		<md-button class="success" ng-show="!toggleForm && !success" type="submit" flex="100" >Enviar calificación</md-button>
