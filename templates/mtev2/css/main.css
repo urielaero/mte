@@ -495,9 +495,15 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.profile #profile-content .sidebar .box-yesno .circle{border: 2px solid #fff;border-radius: 50%;display: block;height: 14px;width: 14px}
 #content .container.profile #profile-content .sidebar .box-yesno .on .circle{background: #fff}
 #content .container.profile #profile-content .share_options{position:relative;}
-#content .container.profile #profile-content .share_show{background:#3194FB;position:absolute;max-width:100%;}
-#content .container.profile #profile-content .share_show div{padding:28px}
+#content .container.profile #profile-content .share_show{background:#2984E0;position:absolute;max-width:100%;margin-top:7px;}
+#content .container.profile #profile-content .share_show:before{content:"";width:0;height:0;border-style:solid;border-width:0 10px 10px 10px;border-color: transparent transparent #2984E0 transparent;position:absolute;right:26px;top:-6px;}
+/*#content .container.profile #profile-content .share_show div{padding:25px 18px;}*/
 #content .container.profile #profile-content .share_show i{color:white;}
+#content .container.profile #profile-content .share_show a{margin:0 auto;font-size:29px;}
+#content .container.profile #profile-content .share_show .share_fb{background:#3194FB;padding:28px 58px 25px 17px}
+#content .container.profile #profile-content .share_show .share_twitter{background:#2D8BEC;padding:31px 59px 11px 18px;}
+#content .container.profile #profile-content .share_show .share_email{background:#2984E0;padding:30px 29px 32px 15px;}
+
 
 /*charts escuela*/
 #content .container.profile .chart .legend_chart{display:inline-block;vertical-align:top;margin-top:19px;background:#ECECEC;width:80px;height:127px;padding-top:15px;}
