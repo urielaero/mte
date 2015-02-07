@@ -63,7 +63,7 @@ $urlMail = $url."#mail";
 							<h3 class="h3-icono-turno"><i class="icon-alumnos"></i></h3>
 						</div>
 						<div class="text-datos"><h3 class="h3-text-datos">Número de alumnos</h3></div>
-						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->total_evaluados?></h3></div>
+						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->censo?$this->escuela_per_turno->censo->alumnos:'N/D'?></h3></div>
 					</div>
 				</div>
 			</div>
@@ -74,7 +74,7 @@ $urlMail = $url."#mail";
 							<h3 class="h3-icono-turno"><i class="icon-personal"></i></h3>
 						</div>
 						<div class="text-datos"><h3 class="h3-text-datos">Total de personal</h3></div>
-						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->total_evaluados?></h3></div>
+						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->censo?$this->escuela_per_turno->censo->personal:'N/D'?></h3></div>
 					</div>
 				</div>
 			</div>
@@ -85,7 +85,7 @@ $urlMail = $url."#mail";
 							<h3 class="h3-icono-turno"><i class="icon-escritorio-01"></i></h3>
 						</div>
 						<div class="text-datos"><h3 class="h3-text-datos">Grupos</h3></div>
-						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->total_evaluados?></h3></div>
+						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->censo?$this->escuela_per_turno->censo->grupos:'N/D'?></h3></div>
 					</div>
 				</div>
 			</div>
