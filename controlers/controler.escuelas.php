@@ -45,7 +45,7 @@ class escuelas extends main{
 			$this->process_escuelas();
 			$this->cct_count_entidad();
 			$this->get_metadata();
-			$this->load_programas();
+			#$this->load_programas();
 			//$this->escuelas_digest = new stdClass();
 			$this->escuelas_digest->zoom = 16;
 			$this->escuelas_digest->centerlat = $this->escuela->latitud;
