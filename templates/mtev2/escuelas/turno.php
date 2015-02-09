@@ -352,7 +352,7 @@ $urlMail = $url."#mail";
 					<?php $on = $infra['Servicio de internet'] ?>
 					<tr><td>Servicio de internet</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
 					<?php $on = $infra['Teléfono'] ?>
-					<tr><td>Télefono</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
+					<tr><td>Teléfono</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
 				</table>
 				<div class="table-top" layout="row">
 					<div flex="10" flex-sm="10" class="i-cont"><i class="icon-seguridad-01"></i></div>
