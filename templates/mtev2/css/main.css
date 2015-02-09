@@ -1,4 +1,4 @@
-html{background:#F4F4F4!important}
+about-texthtml{background:#F4F4F4!important}
 body{font-family:'Open Sans', sans-serif;background:#F4F4F4!important;font-size: 14px}
 
 /*General*/
@@ -743,7 +743,7 @@ ul.dropdown-menu li.active a{color: #fff}
 /*About Us*/
 #content .container.about .about-content{color: #808080;;margin-top: 20px;max-width: 68%;}
 #content .container.about .about-content p{margin-bottom: 10px;line-height: 1.4}
-#content .container.about .about-content .about-text{background: #fff;padding: 35px}
+#content .container.about .about-content .about-text{background: #fff;padding: 35px;text-align: justify;}
 #content .container.about .about-content .logos{text-align: justify;vertical-align: middle;}
 #content .container.about .about-content .logos img{max-width: 100%;margin-left: 10px;float: left;}
 #content .container.about .about-content .logos img + img{float: right;}
@@ -1004,7 +1004,19 @@ td.link .footable-toggle{display: none!important}
 a.principal i.icon-califica2-01{margin-left: 20px}
 
 /*turno.php*/
-.semaforos-buscador{ display: block; margin: 0 0 0 -1px;}
+#cont-iconos-semaforo{}
+#boton-semaforo-compara{text-align: center;border-radius: 50% 50% 50% 50%;margin: 0 auto;height: 32px;width: 32px}
+#boton-semaforo-compara.rank4{background-color: #00C65A}
+#boton-semaforo-compara.rank2{background-color: #F18C00}
+#boton-semaforo-compara.rank1{background-color: #EF4E44}
+#boton-semaforo-compara.rank3{background-color: #F7FC02}
+
+#semaforos-buscador{width: 32px;height:  32px;border-radius: 50% 50% 50% 50%;display: table}
+#semaforos-buscador-icono{display: table-cell;vertical-align: middle;}
+#semaforos-buscador-icono.icon-notomaenlace, #semaforos-buscador-icono.icon-notodoslosanos, #semaforos-buscador-icono.icon-pococonfiable{font-size: 20px;color: white}
+#semaforos-buscador-icono.icon-notomaenlace{background-color: #FF5F5E;border-radius: 50% 50% 50% 50%}
+#semaforos-buscador-icono.icon-pococonfiable,#semaforos-buscador-icono.icon-pococonfiable{background-color: green;border-radius: 50% 50% 50% 50%}
+#semaforos-buscador-icono.icon-notodoslosanos{background-color: #317FDC;border-radius: 50% 50% 50% 50%}
 /*Pixel Perfec*/
 .perfect-menu{margin-bottom: 0px;}
 .prefect-sub-header{margin-top: -5px}

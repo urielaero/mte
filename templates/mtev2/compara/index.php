@@ -44,7 +44,7 @@
 								<th data-hide="phone">Calificación español</th>
 								<th data-hide="phone">Calificiación matemáticas</th>
 								<th data-hide="phone">Nivel escolar</th>
-								<th data-hide="phone">Turno</th>
+								<th data-hide="phone">Turno Matutino/Vespertino</th>
 								<th class="privadapublica">Privada pública</th>
 								<th>Posicion estatal</th>
 								<th class="footable-last-column">Semáforo educativo</th>
@@ -64,8 +64,8 @@
 								<td>{{escuela.control}}</td>
 								<td><strong ng-bind='escuela.rank || "--"'></strong> de <strong ng-bind='escuela.entidad_cct_count'></strong></td>
 								<td>
-									<md-button ng-class="semaforos[escuela.semaforo].class" class="md-fab" aria-label="Time">
-										<i class="semaforos-buscador" ng-class="semaforos[escuela.semaforo].icon"></i>
+									<md-button id="boton-semaforo-compara" ng-class="semaforos[escuela.semaforo].class" class="md-fab" aria-label="Time">
+										<i id="semaforos-buscador" ng-class="semaforos[escuela.semaforo].icon"></i>
 									</md-button>
 									<p>{{semaforos[escuela.semaforo].label}}</p>
 								</td>

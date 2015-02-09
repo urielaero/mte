@@ -72,10 +72,12 @@
 							<td ng-show='escuela.turno.nombre'>{{escuela.turno.nombre.capitalize()}}</td>
 							<td ng-show='!escuela.turno.nombre'>No Aplica</td>
 							<td>{{escuela.control}}</td>
-							<td style="max-width:172px">
-								<md-button ng-class="semaforos[escuela.semaforo].class" class="md-fab" aria-label="Time">
-									<i class="semaforos-buscador" ng-class="semaforos[escuela.semaforo].icon"></i>
-								</md-button>
+							<td  style="max-width:172px">
+								<div id="boton-semaforo-compara" ng-class="semaforos[escuela.semaforo].class" >
+								  <div id="semaforos-buscador">
+									<i id="semaforos-buscador-icono" ng-class="semaforos[escuela.semaforo].icon"></i>
+								  </div>
+								</div>
 								<p>{{semaforos[escuela.semaforo].label}}</p>
 							</td>
 						</tr>
