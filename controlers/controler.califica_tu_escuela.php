@@ -62,6 +62,10 @@ class califica_tu_escuela extends main{
 			$this->include_theme('index','califica');
 		
 		}else{
+			if($this->config->theme == "mtev2"){
+				$this->include_theme('index','index');
+				return;
+			}
 			#header("location: /compara/");
 			$this->breadcrumb = array('#'=>'Califica');
 			//$this->load_compara_cookie();
@@ -118,12 +122,10 @@ class califica_tu_escuela extends main{
 		$this->escuela->fields['cct'] = $this->get('id');
 		//$this->escuela->control->id
 		$this->escuela->read("cct,nombre,nivel=>nombre,turno=>nombre,entidad=>nombre,control=>id");
-		return true;
-		if(isset($this->escuela->cct)){
+		//return true;
+		if(isset($this->escuela->cct))
 			return true;
-		}else{
-			return false;
-		}
+		return false;
 	}
 
 	/**

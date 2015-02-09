@@ -241,6 +241,15 @@ app.controller("calificaCTL", ['$scope',function ($scope) {
     };
 }]);
 
+app.controller("calificaIndexCTL", ['$scope','userInfo',function($scope,userInfo){
+    console.log(userInfo);
+    var visited_cct = userInfo.getCCTs('visited');
+    $scope.byCCT = {
+        ccts:visited_cct.toString(),
+        sort : 'Semáforo educativo'
+    };
+}]);
+
 ///Global functions
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
