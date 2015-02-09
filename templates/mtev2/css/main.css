@@ -1004,19 +1004,20 @@ td.link .footable-toggle{display: none!important}
 a.principal i.icon-califica2-01{margin-left: 20px}
 
 /*turno.php*/
+/*iconos semaforo*/
 #cont-iconos-semaforo{}
 #boton-semaforo-compara{text-align: center;border-radius: 50% 50% 50% 50%;margin: 0 auto;height: 32px;width: 32px}
 #boton-semaforo-compara.rank4{background-color: #00C65A}
 #boton-semaforo-compara.rank2{background-color: #F18C00}
 #boton-semaforo-compara.rank1{background-color: #EF4E44}
 #boton-semaforo-compara.rank3{background-color: #F7FC02}
-
 #semaforos-buscador{width: 32px;height:  32px;border-radius: 50% 50% 50% 50%;display: table}
 #semaforos-buscador-icono{display: table-cell;vertical-align: middle;}
 #semaforos-buscador-icono.icon-notomaenlace, #semaforos-buscador-icono.icon-notodoslosanos, #semaforos-buscador-icono.icon-pococonfiable{font-size: 20px;color: white}
 #semaforos-buscador-icono.icon-notomaenlace{background-color: #FF5F5E;border-radius: 50% 50% 50% 50%}
 #semaforos-buscador-icono.icon-pococonfiable,#semaforos-buscador-icono.icon-pococonfiable{background-color: green;border-radius: 50% 50% 50% 50%}
 #semaforos-buscador-icono.icon-notodoslosanos{background-color: #317FDC;border-radius: 50% 50% 50% 50%}
+/*iconos semaforo*/
 /*Pixel Perfec*/
 .perfect-menu{margin-bottom: 0px;}
 .prefect-sub-header{margin-top: -5px}
