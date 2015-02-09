@@ -6,9 +6,10 @@ app.service('userInfo',['$rootScope','$http','$cookieStore', function($rootScope
         this.listeners = [];
         this.getSchools();
     }
-    this.getCCTs = function(){
+    this.getCCTs = function(type){
+        type = type || 'selected';
         var ccts = [];
-        this.schools.selected.forEach(function(school){
+        this.schools[type].forEach(function(school){
             ccts.push(school.cct);
         });
         return ccts;
