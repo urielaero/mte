@@ -73,11 +73,13 @@
 							<td ng-show='!escuela.turno.nombre'>No Aplica</td>
 							<td>{{escuela.control}}</td>
 							<td  style="max-width:172px">
+							<!-- los iconos ya se alinean bien de esta forma si se cambia por md-button se desalinean Carlos Barahona-->
 								<div id="boton-semaforo-compara" ng-class="semaforos[escuela.semaforo].class" >
 								  <div id="semaforos-buscador">
 									<i id="semaforos-buscador-icono" ng-class="semaforos[escuela.semaforo].icon"></i>
 								  </div>
 								</div>
+							<!--Carlos Barahona-->
 								<p>{{semaforos[escuela.semaforo].label}}</p>
 							</td>
 						</tr>
