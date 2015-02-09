@@ -42,11 +42,11 @@
 							<tr>
 								<th class="footable-first-column">Escuelas</th>
 								<th data-hide="phone">Calificación español</th>
-								<th data-hide="phone">Calificiación matemáticas</th>
+								<th data-hide="phone">Calificación matemáticas</th>
 								<th data-hide="phone">Nivel escolar</th>
 								<th data-hide="phone">Turno</th>
 								<th class="privadapublica">Privada pública</th>
-								<th>Posicion estatal</th>
+								<th>Posición estatal</th>
 								<th class="footable-last-column">Semáforo educativo</th>
 							</tr>
 						</thead>
