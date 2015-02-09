@@ -32,7 +32,7 @@ $urlMail = $url."#mail";
 						<li>Nivel: <?=$this->capitalize($this->escuela->nivel->nombre)?></li>
 						<li>Turno: <?=$this->capitalize($this->escuela->turno->nombre)?></li>
 						<li><?=$controles[$this->escuela->control->id]?></li>
-						<li>Télefonos: <?=$this->escuela->telefono?></li>
+						<li>Teléfonos: <?=$this->escuela->telefono?></li>
 						<?php if(isset($this->escuela->correoelectronico) && $this->escuela->correoelectronico){?>
 							<li>Correo electrónico:<?=$this->escuela->correoelectronico?> </li>
 						<?php } ?>
@@ -331,9 +331,9 @@ $urlMail = $url."#mail";
 					<?php $on = $infra['Áreas deportivas y recreativas'] ?>
 					<tr><td>Patio o plaza cívica</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
 
-					<tr><td>Sala de computo</td><td><?=$infra['Aulas de cómputo']?></td></tr>
+					<tr><td>Sala de cómputo</td><td><?=$infra['Aulas de cómputo']?></td></tr>
 					<tr><td>Cuartos para baño o sanitarios</td><td><?=$infra['Cuartos para baños o sanitarios']?></td></tr>
-					<tr><td>Tazas sanitarios</td><td><?=$infra['Tazas sanitarias']?></td></tr>
+					<tr><td>Tazas sanitarias</td><td><?=$infra['Tazas sanitarias']?></td></tr>
 				</table>
 				<div class="table-top" layout="row">
 					<div flex="10" flex-sm="10" class="i-cont"><i class="icon-servicios-01"></i></div>
@@ -342,13 +342,13 @@ $urlMail = $url."#mail";
 				</div>
 				<table>
 					<?php $on = $infra['Energía eléctrica'] ?>
-					<tr><td>Energia eléctrica</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
+					<tr><td>Energía eléctrica</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
 					<?php $on = $infra['Servicio de agua de la red pública'] ?>
 					<tr><td>Servicio de agua de la red pública</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
 					<?php $on = $infra['Drenaje'] ?>
 					<tr><td>Drenaje</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
 					<?php $on = $infra['Cisterna o aljibe'] ?>
-					<tr><td>Cisterna o alijibe</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
+					<tr><td>Cisterna o aljibe</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
 					<?php $on = $infra['Servicio de internet'] ?>
 					<tr><td>Servicio de internet</td><td><i class="<?=$on=='S'?$check:$uncheck?>"></i></td></tr>
 					<?php $on = $infra['Teléfono'] ?>
