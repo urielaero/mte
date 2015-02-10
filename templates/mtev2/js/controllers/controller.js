@@ -24,11 +24,17 @@ app.controller("blogCTL", ['$scope', '$http', '$timeout', '$rootScope', '$filter
         ).then(function(response){
             response.data.posts.forEach(function(p){
                 var img = '';
-                if(typeof p.thumbnail_images!='undefined' && typeof p.thumbnail_images.large.url != 'undefined'){
-                    img = p.thumbnail_images.large.url;
-
-                }else if(p.attachments[0]!='undefined'){
+                if(typeof p.thumbnail_images!='undefined'){
+                    if(typeof p.thumbnail_images.large != 'undefined'){
+                        img = p.thumbnail_images.large.url;
+                    }
+                    else if(typeof p.thumbnail_images.full != 'undefined'){
+                        img = p.thumbnail_images.full.url;
+                    }                    
+                }else if(p.attachments[0]!='undefined' && p.attachments.length > 0){
                     img = p.attachments[0].url;                    
+                }else{
+                    img = '';
                 }
                 var imgObj; 
                 img = $filter('replaceWithCdnUrl')(img,$scope.cdnUrl, $scope.blogAddress);
@@ -97,11 +103,17 @@ app.controller("mejoraCTL", ['$scope','$http','$timeout','$rootScope','$window',
         ).then(function(response){
             response.data.posts.forEach(function(p){
                 var img = '';
-                if(typeof p.thumbnail_images!='undefined' && typeof p.thumbnail_images.large.url != 'undefined'){
-                    img = p.thumbnail_images.large.url;
-
-                }else if(p.attachments[0]!='undefined'){
+                if(typeof p.thumbnail_images!='undefined'){
+                    if(typeof p.thumbnail_images.large != 'undefined'){
+                        img = p.thumbnail_images.large.url;
+                    }
+                    else if(typeof p.thumbnail_images.full != 'undefined'){
+                        img = p.thumbnail_images.full.url;
+                    }
+                }else if(p.attachments[0]!='undefined' && p.attachments.length > 0){
                     img = p.attachments[0].url;                    
+                }else{
+                    img = '';
                 }
                 var imgObj; 
                 img = $filter('replaceWithCdnUrl')(img,$scope.cdnUrl, $scope.blogAddress);
