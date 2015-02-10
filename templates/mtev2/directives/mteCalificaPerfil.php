@@ -49,7 +49,7 @@
 				</div>
 				<div class="msg">
 					<p>*Tu correo electrónico NO aparecerá con tu comentario.</p>
-					<p>Si no quieres que tu comentario se publique en el perfil de la escuela, escribenos a:contacto@mejoratuesceual.org</p>
+					<p>Si no quieres que tu comentario se publique en el perfil de la escuela, escríbenos a:contacto@mejoratuescuela.org</p>
 				</div>
 			</div>
 		</div>

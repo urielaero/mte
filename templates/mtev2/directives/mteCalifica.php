@@ -61,7 +61,7 @@
 		<div class="msg" flex="70" flex-md="40" flex-sm="50">
 			<p>*Tu correo electrónico NO aparecerá con tu comentario.</p>
 			<p>Si no quieres que tu comentario se publique en el perfil de la
-            escuela, escribenos a:<strong>contacto@mejoratuesceual.org</strong></p>
+            escuela, escríbenos a:<strong>contacto@mejoratuescuela.org</strong></p>
             
 		</div>
 	<div class="clear"></div>

@@ -104,6 +104,7 @@ class compara extends main{
 	public function escuelas(){
 		$this->header_folder = 'compara';
 		$this->page_title = "Compara tu escuela | Mejora tu Escuela";
+		$this->subtitle_header = 'Esta herramienta te ayuda a comparar la calidad <br />educativa de tu escuela con la de otras <br />similares o cercanas.';
 		if($this->config->theme == 'mtev2'){
 			$this->include_theme('index','index');
 			return true;
@@ -114,7 +115,6 @@ class compara extends main{
 		$this->load_municipios();
 		$this->load_localidades();
 		
-		$this->subtitle_header = 'Esta herramienta te ayuda a comparar la calidad <br />educativa de tu escuela con la de otras <br />similares o cercanas.';
 		$this->draw_map = true;
 		$this->load_compara_cookie();
 		$params = new stdClass();

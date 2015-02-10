@@ -121,7 +121,7 @@ $urlMail = $url."#mail";
 					</h2>
 					<div class="table-top" layout="row">
 						<div flex="10" flex-sm="15" class="i-cont"><i class="icon-estrella-01"></i></div>
-						<div flex="90" flex-sm="85"><p>Calificación global de la escuela según usuarios</p></div>
+						<div flex="90" flex-sm="85"><p>Calificación global de la biblioteca según usuarios</p></div>
 					</div>
 					<table>
 						<tr><td>Calificación global</td><td><?=$pro?></td></tr>
