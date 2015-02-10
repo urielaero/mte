@@ -26,7 +26,7 @@
 					<br/>ó usa la busqueda al principio de este recuadro.
 				</p>
 			</md-content>
-			<a href="/compara/escuelas" class="button-bordered">Comparar</a>
+			<a href="/compara/escuelas" target="_self" class="button-bordered">Comparar</a>
 		</md-content>
 		<md-content class="block visited" flex>
 			<p><label><strong>Escuelas visitadas</strong></label></p>

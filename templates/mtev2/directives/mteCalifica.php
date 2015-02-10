@@ -1,17 +1,25 @@
-<form   class="comment-form" 
+<div class="form-success" ng-show="success" >
+	<p><i class="icon-check-01"></i></p>
+	<h3>Comentario enviado al equipo de MTE</h3>
+</div>
+<div class="form-success" ng-show="error && !error_captcha">
+	<p><i class="icon-tache-01"></i></p>
+	<h3>Ocurrio un error, intentalo de nuevo.</h3>
+</div>
+<div class="form-success" ng-show="error && error_captcha" 
+    ng-click="error =false;"
+    >
+	<p><i class="icon-tache-01"></i></p>
+	<h3>Ocurrio un error con el captcha, intentalo de nuevo.</h3>
+</div>
+
+<form  ng-show="!error && !success" class="comment-form" 
 	ng-submit="califica(true)"
         ng-init="
 		input.tk = '<?=$this->getSimulatedToken($this->simulateP)?>';
 		input.cct = '<?=$this->get('id')?>'
 	">
-	<div ng-show="success" flex="100" class="icon-container form-success">
-		<h3 ng-if="tipo!='biblioteca'">Escuela calificada correctamente.</h3>
-		<h3 ng-if="tipo=='biblioteca'">Biblioteca calificada correctamente.</h3>
-	</div>
-	<div ng-show="error" flex="100" class="icon-container form-success">
-		<h3>Ocurrio un error, intentalo de nuevo.</h3>
-	</div>
-	<div layout="row" ng-click="toggleForm = true">
+	<div layout="row" ng-click="toggleForm = true" ng-show="!success">
 		<div flex="10" class="icon-container" hide-sm>
 			<i class="icon-comentario-01"></i>
 		</div>						
@@ -35,25 +43,39 @@
 				<option value='ciudadano'>Ciudadano</option>
 			</select>
 		</div>
-		<div class="sumbit-fields space-between" layout="row" layout-sm="column">
-			<div class="captcha" flex="33" flex-sm="100"></div>
-			<div flex="66" flex-sm="100">
-				<div layout="row" class="space-between">
-					<md-button type="submit" class="md-raised" flex="49">Enviar calificación y comentario</md-button>
-					<div flex="49" class="check">
-						<md-checkbox name="accept" ng-model="input.accept" value="1" aria-label="Checkbox 1">*Quiero que mi nombre se publique junto con mi comentario</md-checkbox>
-					</div>
-				</div>
-				<div class="msg">
-					<p>*Tu correo electronico NO aparecerá con tu comentario.</p>
-					<p>Si no quieres que tu comentario se publique en el perfil de la escuela, escribenos a:contacto@mejoratuesceual.org</p>
-				</div>
-			</div>
+		<div flex="100" class="check">
+			<md-checkbox name="accept" ng-model="input.accept" value="1" aria-label="Checkbox 1">*Quiero que mi nombre se publique junto con mi comentario</md-checkbox>
 		</div>
 	</div>
 	<span ng-init="input.last_name='<?=$this->simulateP?>'"></span>
-	<div layout="row" layout-margin layout-fill layout-padding>
-		<md-button ng-show="!toggleForm && !success" type="submit" flex="100" flex-sm="100">Enviar Calificacion</md-button>
+    <div layout="row" class="captcha_show">
+        <div flex="30" 
+             re-captcha 
+             ng-model="captcha" 
+	     flex-md="50"
+	     flex-sm="50"
+	     >
+	     
+        </div>
+
+		<div class="msg" flex="70" flex-md="40" flex-sm="50">
+			<p>*Tu correo electrónico NO aparecerá con tu comentario.</p>
+			<p>Si no quieres que tu comentario se publique en el perfil de la
+            escuela, escribenos a:<strong>contacto@mejoratuesceual.org</strong></p>
+            
+		</div>
+	<div class="clear"></div>
+    </div>
+	<div layout="row" class="" layout-margin layout-fill layout-padding layout-align="center">
+		<md-button class="success" ng-show="!toggleForm && !success" type="submit" flex="100" >Enviar calificación</md-button>
+		<md-button class="success" ng-show="toggleForm && !success" type="submit" flex="100" >Enviar calificación y comentario</md-button>
 	
 	</div>
 </form>
+<!--
+				<div class="msg">
+					<p>*Tu correo electrónico NO aparecerá con tu comentario.</p>
+					<p>Si no quieres que tu comentario se publique en el perfil de la escuela, escribenos a:contacto@mejoratuesceual.org</p>
+				</div>
+
+-->

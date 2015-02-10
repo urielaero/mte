@@ -11,7 +11,14 @@ angular.module('mteFilters', []).
 });
 
   
-var app = angular.module("mejoratuescuela",['ngMaterial','perfect_scrollbar','leaflet-directive','ngCookies','ui.bootstrap','wu.masonry','mteFilters']);
+var app = angular.module("mejoratuescuela",['ngMaterial','perfect_scrollbar','leaflet-directive','ngCookies','ui.bootstrap','wu.masonry','mteFilters','reCAPTCHA']);
+
+app.config(function(reCAPTCHAProvider){
+    reCAPTCHAProvider.setPublicKey('6Ld2f-gSAAAAADZPAdAtqt7waHZfvdgATp5CQI4a');
+    reCAPTCHAProvider.setOptions({
+        theme: 'blackglass'
+    });
+});
 
 
 /*

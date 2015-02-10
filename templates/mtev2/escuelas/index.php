@@ -8,11 +8,25 @@
 
 <?php
 $escuela_per_turnos = array();
+$turnos = array();
+if(isset($this->escuela->censo) && isset($this->escuela->censo["turnos"])){
+	foreach($this->escuela->censo["turnos"] as $t){
+		$turnos[$t->nombre] = $t;
+	}
+}
+$turnos_nombre = array();
+if(isset($this->escuela->turnos)){
+	foreach($this->escuela->turnos as $t){
+
+		$turnos_nombre[$t->id] = $t->nombre;
+	}
+}
 if(!empty($this->escuela->rank)){
 	foreach($this->escuela->rank as $rank){
 		$tmp = new stdClass();
-		$tmp->nombre_icon = $rank->turno[0]->nombre=='VESPERTINO'?'vespertino-01':strtolower($rank->turno[0]->nombre);
-		$tmp->nombre = $this->capitalize($rank->turno[0]->nombre);
+		$nombre_turno = $turnos_nombre[$rank->turnos_eval];
+		$tmp->nombre_icon = $nombre_turno=='VESPERTINO'?'vespertino-01':strtolower($nombre_turno);
+		$tmp->nombre = $this->capitalize($nombre_turno);
 		$tmp->turnos_eval = $rank->turnos_eval;
 		$tmp->rank = isset($rank->rank_entidad) ? number_format($rank->rank_entidad ,0): '--';
 		$tmp->rank_total = number_format($this->entidad_cct_count,0);
@@ -21,6 +35,10 @@ if(!empty($this->escuela->rank)){
 		$tmp->semaforo =  $this->config->semaforos[$rank->semaforo];
 		$tmp->chart_ma = $this->escuela->matematicas_charts && isset($this->escuela->matematicas_charts[$rank->turnos_eval])?$this->escuela->matematicas_charts[$rank->turnos_eval]:'';
 		$tmp->chart_es = $this->escuela->espaniol_charts && isset($this->escuela->espaniol_charts[$rank->turnos_eval])?$this->escuela->espaniol_charts[$rank->turnos_eval]:'';
+		if(count($turnos) && isset($turnos[$nombre_turno]))
+			$tmp->censo = $turnos[$nombre_turno];
+		else
+			$tmp->censo = false;
 		$escuela_per_turnos[] = $tmp;
 	}
 }else{	
@@ -34,6 +52,7 @@ if(!empty($this->escuela->rank)){
 	$tmp->chart_ma = $this->escuela->line_chart_matematicas;
 	$tmp->chart_es = $this->escuela->line_chart_espaniol;
 	$tmp->semaforo = false;
+	$tmp->censo = false;
 	$escuela_per_turnos[] = $tmp;
 }
 ?>

@@ -48,7 +48,7 @@ class main extends controler{
 					if($escuela->longitud < $minlong) $minlong = $escuela->longitud;
 					else if($escuela->longitud > $maxlong) $maxlong = $escuela->longitud;
 				}
-				$escuela->get_turnos();
+				$escuela->get_turnos($this->config->memcache_host);
 				$escuela->get_semaforos();
 				if($detail){ 
 					$escuela->yearAvgs();
@@ -782,7 +782,7 @@ class main extends controler{
 		echo "<img src='$img' alt='$alt' $class />";
 	}
 
-	private function createCustomSchoolArray($sql,&$escuelas){
+	private function createCustomSchoolArray(&$sql,&$escuelas){
 		$result = $result = pg_query($this->conn, $sql);
 	    $i = 0;
 	    if ($result) {

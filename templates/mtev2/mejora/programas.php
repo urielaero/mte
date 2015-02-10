@@ -34,7 +34,12 @@
 					<p ng-repeat='control in controles' ><md-checkbox ng-model='params.controles[control.id]'aria-label="control.label">{{control.label}}</md-checkbox></p>
 				</form>
 			</div>
-			<div flex="70" flex-sm="100" id="results">
+			<div ng-if="!currentPrograms.length" flex flex-sm="100" id="message-not-found">
+				<h2><strong>No se encontraron resultados</strong></h2>
+				<p>Te sugerimos realizar una búsqueda más avanzada</p>
+				<p><img src="/templates/mtev2/img/buscando.png" alt=""></p>
+			</div>
+			<div ng-hide='!currentPrograms.length' flex="70" flex-sm="100" id="results">
 				<!-- <div layout="row" layout-sm="column">
 					<h2 flex="40" flex-sm="100">34,598 Resultados</h2>
 					<div class="order-by" flex="60" flex-sm="100">
@@ -53,7 +58,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat='programa in programas | programasFilter:params'>
+							<tr ng-repeat='programa in currentPrograms = (programas | programasFilter:params)'>
 								<td>
 									<a ng-href='/programas/index/{{programa.id}}'><strong ng-bind='programa.nombre' ></strong></a>
 									<p><small><i class="icon-conoce-01"></i> <span ng-bind='programa.tema_especifico'></span></small></p>

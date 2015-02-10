@@ -1,16 +1,19 @@
-<form 	class="comment-form"	
+<div class="form-success" ng-show="success">
+	<p><i class="icon-check-01"></i></p>
+	<h3 ng-if="tipo!='biblioteca'">Escuela calificada correctamente.</h3>
+	<h3 ng-if="tipo=='biblioteca'">Biblioteca calificada correctamente.</h3>	
+
+</div>
+<div class="form-success" ng-show="error">
+	<p><i class="icon-tache-01"></i></p>
+	<h3>Ocurrio un error, intentalo de nuevo.</h3>
+</div>
+<form  ng-show="!error && !success"	class="comment-form"	
 	ng-submit="califica()"
         ng-init="
 		input.tk = '<?=$this->getSimulatedToken($this->simulateP)?>';
 		input.cct = '<?=$this->get('id')?>'
 	">
-	<div ng-show="success" flex="100" class="icon-container form-success">
-		<h3 ng-if="tipo!='biblioteca'">Escuela calificada correctamente.</h3>
-		<h3 ng-if="tipo=='biblioteca'">Biblioteca calificada correctamente.</h3>
-	</div>
-	<div ng-show="error" flex="100" class="icon-container form-success">
-		<h3>Ocurrio un error, intentalo de nuevo.</h3>
-	</div>
 	<div layout="row" ng-click="toggleForm = true">
 		<div flex="10" class="icon-container" hide-sm>
 			<i class="icon-comentario-01"></i>
@@ -36,7 +39,7 @@
 			</select>
 		</div>
 		<div class="sumbit-fields space-between" layout="row" layout-sm="column">
-			<div class="captcha" flex="33" flex-sm="100"></div>
+			<div class="captcha" flex="33" flex-sm="100" re-captcha ng-model="captcha"  ></div>
 			<div flex="66" flex-sm="100">
 				<div layout="row" class="space-between">
 					<md-button type="submit" class="md-raised" flex="49">Enviar</md-button>
@@ -45,7 +48,7 @@
 					</div>
 				</div>
 				<div class="msg">
-					<p>*Tu correo electronico NO aparecerá con tu comentario.</p>
+					<p>*Tu correo electrónico NO aparecerá con tu comentario.</p>
 					<p>Si no quieres que tu comentario se publique en el perfil de la escuela, escribenos a:contacto@mejoratuesceual.org</p>
 				</div>
 			</div>

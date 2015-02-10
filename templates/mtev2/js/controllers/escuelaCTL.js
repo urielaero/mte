@@ -69,6 +69,11 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
     };
     $scope.markers = {lat:0,lng:0}
     $scope.loadMap = function(data,currentCct){
+        if(!data.escuelas.map && data.escuelas){
+            data.escuelas = Object.keys(data.escuelas).map(function(es){
+                return data.escuelas[es];
+            })
+        }
         var markers = data.escuelas.map(function(escuela,i,arr){
             var e = escuela.cct,
             escuelaRank1 = arr[arr.length-1] || {},
@@ -127,5 +132,9 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
             },
             300           
         );
+    };
+
+    $scope.print = function(){
+    	window.print();
     }
 }]);

@@ -19,10 +19,15 @@
 
 			</form>
 		</div>
-		<div layout='row' ng-show='loading' flex flex-sm="100" layout-align='center center'>
+		<div ng-if="!escuelasResponse" flex flex-sm="100" id="message-not-found">
+			<h2><strong>No se encontraron resultados</strong></h2>
+			<p>Te sugerimos realizar una búsqueda más avanzada</p>
+			<p><img src="/templates/mtev2/img/buscando.png" alt=""></p>
+		</div>
+		<div layout='row' ng-show='loading && escuelasResponse' flex flex-sm="100" layout-align='center center'>
 			<md-progress-circular md-mode="indeterminate"></md-progress-circular>
 		</div>
-		<div ng-hide='loading' flex flex-sm="100" id="results">
+		<div ng-hide='loading || !escuelasResponse' flex flex-sm="100" id="results">
 			<div ng-show='showSearch' layout="row" layout-sm="column">
 				<h2 flex="40" flex-sm="100">{{numberFormat(pagination.count)}} Resultado<span ng-show='pagination.count > 1'>s</span></h2>
 				<div class="order-by" flex="60" flex-sm="100">

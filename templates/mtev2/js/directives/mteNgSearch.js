@@ -6,6 +6,7 @@ var controller = function ($scope,$http,userInfo,templateData) {
             $scope.showSearch = typeof($scope.showSearch) == 'undefined' ? true : $scope.showSearch;
             //Pako: antes de cargar los defaults deberia leer el url y setear $scope.params si es relevante
             $scope.loadDefaults();
+            $scope.escuelasResponse = true;
             //console.log($scope.params);
             $scope.getEscuelas();
             //Pako: setear aqui la ruta basada en los parametros de busqueda ($scope.params)
@@ -78,6 +79,14 @@ var controller = function ($scope,$http,userInfo,templateData) {
                 $scope.pagination = response.data.pagination;
                 $scope.escuelas = response.data.escuelas;
                 $scope.loading = false;
+                if(response.data.escuelas){
+                    $scope.escuelasResponse = true;
+                    console.log('hay data');
+                }else{
+                    $scope.escuelasResponse = false;
+                    console.log('no hay data');
+
+                }
             });
         }
         $scope.numberFormat = function(number){
@@ -152,6 +161,7 @@ var controller = function ($scope,$http,userInfo,templateData) {
 
             $scope.tableTitle = $scope.tableTitle || 'Escuelas';
             $scope.loading = true;
+            $scope.escuelasResponse = false;
             $scope.pagination = {count:0,current_page:1};
             $scope.sortOptions = ['Semáforo educativo','Nombre de la escuela'];
             $scope.sort = $scope.sortOptions[0];
