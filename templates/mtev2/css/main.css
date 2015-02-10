@@ -1,4 +1,4 @@
-html{background:#F4F4F4!important;height: 100%}
+html,body{height: auto!important;/*height: 100%!important;*/min-height: 100%!important}
 body{font-family:'Open Sans', sans-serif;background:#F4F4F4!important;font-size: 14px}
 
 /*General*/
