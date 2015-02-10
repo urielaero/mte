@@ -101,8 +101,12 @@ class escuelas extends main{
 				}
 			}
 		}else{
-			exit('sakui');
+			//exit('sakui');
 			header('HTTP/1.0 404 Not Found');
+			$this->is404 = true;
+			$this->include_theme('index','e404');
+			exit();	
+
 		}
 	}
 	/**

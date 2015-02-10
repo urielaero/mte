@@ -758,6 +758,7 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.about .about-content .tab-content{padding: 20px;}
 #content .container.about .about-content .tab-content p{margin-bottom: 0}
 #content .container.about .about-content .tab-content a{color: #fff;text-decoration: underline;}
+#content .container.about .tabs{min-height: 0}
 
 
 /*Contact*/
@@ -955,6 +956,10 @@ form #recaptcha_area,form #recaptcha_table{width:229px !important;}
 
 	/*Contacto*/
 	#content .container.contact form input[type="submit"]{float: none;width: 100%}
+
+
+	/*About*/
+	#content .container.about .tabs{min-height: 75px}
 
 	ul.dropdown-menu{max-width: 240px}
 	#toggle-compara{display: none;}

@@ -106,11 +106,11 @@ $e404 = $this->get('action') == 'e404' ? 'e404' : '';
 	js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=1496831027206997&version=v2.0";
 	fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
- 	<div id="wrap"><div id="main" class="clearfix <?=$e404?>"><div id="topBackRepeat"> 		
+ 	<div id="wrap"><div id="main" class="clearfix <?php if($this->is404) echo 'e404';?>"><div id="topBackRepeat"> 		
 		<div id='header'>
 			<?php 
 			$this->include_template('header','global'); 
-			if($this->get('action') != 'e404'){
+			if(!$this->is404){
 				$this->include_template('header',$this->header_folder); 
 			}
 			?>
@@ -120,7 +120,7 @@ $e404 = $this->get('action') == 'e404' ? 'e404' : '';
 		</div>
 	</div></div></div>	
 	<?php 
-		if($this->get('action') == 'e404'){
+		if($this->is404){
 			$this->include_template('footer-e404','home'); 
 		}else{
 			$this->include_template('footer','global'); 
