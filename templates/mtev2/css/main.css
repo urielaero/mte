@@ -985,3 +985,9 @@ a.principal i.icon-califica2-01{margin-left: 20px}
 	.privadapublica{display: block;}
 }
 /*Carlos Barahona*/
+
+/*semaforo*/
+#cont-samaforo-icono{width: 100%;height: 202px;background-color: #8E27AE;display: table;text-align: center;}
+.cont-samaforo-icono{display: table-cell;vertical-align: middle;width: 90%;margin-bottom: 0 auto}
+#icono-semaphore{font-size: 80px;color: white;}
+.h5-semaforo-on{color: white;,margin: 0 auto;font-weight: 700;width: 100%;text-align: center;}

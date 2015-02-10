@@ -2038,3 +2038,18 @@ body #content .container #recaptcha_reload_btn{margin-top:-18px!important;}
 iframe[src="about:blank"]{display:none;}
 
 #main-banner.banners_escuelas{margin-top:29px;}
+
+
+/*boton beta*/
+#Boton-beta{width: 100%;max-width: 470px;height: 280px;position: absolute;z-index: 100;top:26%;background-color: #01AEF3;position: fixed;display: table-cell;vertical-align: middle;margin: 0 auto;left: 0;right: 0;box-shadow}
+.header-botonbeta{width: 100%;height: 100px;text-align: center;background-color: white}
+#logo-beta{display: inline-block;margin-top: 15px}
+#cerrar-beta{position: absolute;top: 9px;right: 16px}
+#prueba-text{width: 100%;margin: 0 auto;color: white;text-align: center;}
+.p-pruebatext{text-align: center;font-size: 29px;}
+.bold-pruebatext{font-weight: 700;margin-top: 27px;font-size: 29px;}
+.mejora-text{font-size: 27px;margin-top: -23px}
+#btn-ver-ahora{width: 100%;height: 34px;max-width: 212px;border: 4px solid white;margin: 0 auto;margin-top: 12px;}
+.text-ver-ahora{width: 100%;height: 34px;max-width: 212px;border: 4px solid white;color: white;font-size: 18px}
+#enlace-btnbeta{display: inline-block;width: 100%;max-width: 245px;margin-left: 9px}
+.borde-cont-boton-beta{background-image: url(../img/prensa/sombra_cuadro.png);background-repeat:no-repeat;background-position:center;background-size: 100% 100%; }
