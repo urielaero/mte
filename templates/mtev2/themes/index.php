@@ -91,7 +91,7 @@
 <?php
 $canonical = $this->config->http_address.(isset($_GET['controler'])?$_GET['controler']:'').(isset($_GET['action'])?"/".$_GET['action']:'').(isset($_GET['id'])?"/".$_GET['id']:'');					
 $e404 = $this->get('action') == 'e404' ? 'e404' : '';
-
+$this->is404 = isset($this->is404)?$this->is404:false;
 ?>
 	<meta property='og:title' content='Mejora tu escuela'>
 	<meta property='og:url' content='<?=$canonical?>'>
