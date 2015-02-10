@@ -13,6 +13,7 @@
 		class="compare-table" 
 		show-search='false' 
 		params='byCCT' 
+		click= 'click(event)'
 		table-title='Escuelas visitadas'>
 	</div>
 </div>

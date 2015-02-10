@@ -168,7 +168,13 @@ var controller = function ($scope,$http,userInfo,templateData) {
             $scope.semaforos = templateData.getVar('semaforos');
             
         }
+
+	$scope.clickSchool = function($event){
+		$scope.click && $scope.click({event:$event});	
+	};
+
         $scope.init();
+
     };
     //Pako: falta injectar $routeprovider aqui y en app.js instalalo con bower (bower install angular-route? (bower.io/search)) 
     controller.$inject = ['$scope','$http','userInfo','templateData'];
@@ -180,6 +186,7 @@ var controller = function ($scope,$http,userInfo,templateData) {
                 showSearch : '=?',
                 params : '=?',
                 tableTitle : '@',
+		click : '&'
             },
             templateUrl : 'mteNgSearch.html'
         };

@@ -63,6 +63,20 @@ class califica_tu_escuela extends main{
 		
 		}else{
 			if($this->config->theme == "mtev2"){
+				$this->simulateP = rand()%15;
+				$this->preload_preguntas = array();
+				$this->preload_type = array("escuelas","bibliotecas");
+				foreach($this->preload_type as $tipo_encuesta){
+				
+					$tipo_p = new tipo_pregunta(NULL,$this->conn);
+					$tipo_p->search_clause = "nombre = '{$tipo_encuesta}'";
+					$tipo_preguntas = $tipo_p->read('id,nombre');
+					$tipo_pregunta = $tipo_preguntas[0];
+					$aux = new pregunta(NULL,$this->conn);
+					$aux->search_clause = "tipo_pregunta = {$tipo_pregunta->id}";
+					$this->preload_preguntas[] = $aux->read('id,titulo,pregunta,descripcion_valor_minimo,descripcion_valor_maximo');
+					$this->tipo_encuesta = $tipo_encuesta;
+				}
 				$this->include_theme('index','index');
 				return;
 			}

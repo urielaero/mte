@@ -51,7 +51,7 @@
 					<tbody>
 						<tr ng-repeat='escuela in escuelas'>
 								<td class='link' >
-									<a layout='row' flex ng-href='/escuelas/index/{{escuela.cct}}' class="cont-datos-escuela">
+									<a layout='row' flex ng-href='/escuelas/index/{{escuela.cct}}' ng-click="clickSchool($event)" class="cont-datos-escuela">
 										<span class="cont-ico-compara" layout='row' layout-align='center center'>
 											<span class="h3-iconmejora">
 												<span class="circulo-icon-mejora" ng-click='toggleSchool(escuela,$event)'  >

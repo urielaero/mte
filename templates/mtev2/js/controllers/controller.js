@@ -248,6 +248,10 @@ app.controller("calificaIndexCTL", ['$scope','userInfo',function($scope,userInfo
         ccts:visited_cct.toString(),
         sort : 'Semáforo educativo'
     };
+
+    $scope.click = function($event){
+    	$event.preventDefault();
+    }
 }]);
 
 ///Global functions
