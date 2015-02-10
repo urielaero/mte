@@ -143,6 +143,8 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
     $scope.comparar = function(){
         userInfo.toggleSchool(currentSchool); 
         $scope.isSelected = userInfo.isSelected(currentSchool);
+	if($scope.isSelected)
+		location.href = '/compara/escuelas/';
     };
 
 
