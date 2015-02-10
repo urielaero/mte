@@ -677,6 +677,19 @@ $(document).ready(function(){
     	var label = $(this).find('#name-input').val()+filters;
     	ga('send', 'event', 'búsqueda', category,label);
     });
+
+    $('#cont-botonbeta #cerrar-beta').on('click',function(e){
+    	e.preventDefault();
+	$.cookie('beta_template',0,{expires:1});
+    	$('#cont-botonbeta').remove();
+    });
+
+    $('#cont-botonbeta #enlace-btnbeta').on('click',function(e){
+    	e.preventDefault();
+	$.cookie('beta_template',1,{expires:1});
+    	$(this).children().text('Cargando...');
+	location.reload();
+    });
 });
 
 var page_of_blog = 1;
