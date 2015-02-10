@@ -1,4 +1,4 @@
-about-texthtml{background:#F4F4F4!important}
+html{background:#F4F4F4!important;height: 100%}
 body{font-family:'Open Sans', sans-serif;background:#F4F4F4!important;font-size: 14px}
 
 /*General*/
@@ -744,6 +744,7 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.about .about-content{color: #808080;;margin-top: 20px;max-width: 68%;}
 #content .container.about .about-content p{margin-bottom: 10px;line-height: 1.4}
 #content .container.about .about-content .about-text{background: #fff;padding: 35px;text-align: justify;}
+
 #content .container.about .about-content .logos{text-align: justify;vertical-align: middle;}
 #content .container.about .about-content .logos img{max-width: 100%;margin-left: 10px;float: left;}
 #content .container.about .about-content .logos img + img{float: right;}
