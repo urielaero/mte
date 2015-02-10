@@ -8,6 +8,15 @@ $description = $title;
 $urlFb = $url."#facebook";
 $urlTwitter = $url."#twitter";
 $urlMail = $url."#mail";
+if($this->escuela->nivel->id == 11){
+	$num_alumnos = $this->escuela->censo['num_alumnos']?$this->escuela->censo['num_alumnos']:'N/D';
+	$num_personal = $this->escuela->censo['num_personal']?$this->escuela->censo['num_personal']:'N/D';
+	$num_grupos = $this->escuela->censo['num_grupos']?$this->escuela->censo['num_grupos']:'N/D';
+}else{
+	$num_alumnos = $this->escuela_per_turno->censo?$this->escuela_per_turno->censo->alumnos:'N/D';
+	$num_personal = $this->escuela_per_turno->censo?$this->escuela_per_turno->censo->personal:'N/D';
+	$num_grupos = $this->escuela_per_turno->censo?$this->escuela_per_turno->censo->grupos:'N/D';
+}
 ?>
 <div class="space-between" layout="row" layout-sm="column">
 	<div class="main-info" flex="73" flex-sm="100">
@@ -63,7 +72,7 @@ $urlMail = $url."#mail";
 							<h3 class="h3-icono-turno"><i class="icon-alumnos"></i></h3>
 						</div>
 						<div class="text-datos"><h3 class="h3-text-datos">Número de alumnos</h3></div>
-						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->censo?$this->escuela_per_turno->censo->alumnos:'N/D'?></h3></div>
+						<div class="num-datos"><h3 class="h3-num-datos"><?=$num_alumnos?></h3></div>
 					</div>
 				</div>
 			</div>
@@ -74,7 +83,7 @@ $urlMail = $url."#mail";
 							<h3 class="h3-icono-turno"><i class="icon-personal"></i></h3>
 						</div>
 						<div class="text-datos"><h3 class="h3-text-datos">Total de personal</h3></div>
-						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->censo?$this->escuela_per_turno->censo->personal:'N/D'?></h3></div>
+						<div class="num-datos"><h3 class="h3-num-datos"><?=$num_personal?></h3></div>
 					</div>
 				</div>
 			</div>
@@ -85,7 +94,7 @@ $urlMail = $url."#mail";
 							<h3 class="h3-icono-turno"><i class="icon-escritorio-01"></i></h3>
 						</div>
 						<div class="text-datos"><h3 class="h3-text-datos">Grupos</h3></div>
-						<div class="num-datos"><h3 class="h3-num-datos"><?=$this->escuela_per_turno->censo?$this->escuela_per_turno->censo->grupos:'N/D'?></h3></div>
+						<div class="num-datos"><h3 class="h3-num-datos"><?=$num_grupos?></h3></div>
 					</div>
 				</div>
 			</div>
@@ -485,7 +494,7 @@ $urlMail = $url."#mail";
 							$pt += $calificacion->calificacion;
 						}
 					}
-					$pro = $pt/$cp;
+					$pro = $cp>0?$pt/$cp:0;
 					$pro = number_format($pro,2);
 				}else{
 					$pro = "n/a";
