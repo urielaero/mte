@@ -23,16 +23,6 @@ class main extends controler{
 		$this->draw_charts = false; 
 		$this->angular = false;
 
-		//beta
-		$beta_template = $this->cookie('beta_template');
-		if($beta_template !== false)
-			$this->config->beta_button = false;
-
-		if($beta_template == "1"){
-			$this->config->jsonMode = true;
-			$this->config->theme = 'mtev2';
-		}
-
 		if($this->config->theme == 'mtev1'){
 			$this->get_data_compara_float();
 		}
