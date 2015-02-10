@@ -274,7 +274,7 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container .menu-top .profile-title h1{background: #30B6FD;color: #fff;font-size: 1.4em;font-weight: 700;line-height: 1.4;margin: 0;padding: 20px}
 #content .container .menu-top .profile-title p{background: #30A5F5;color: #fff;font-weight: 700;padding: 5px 20px;/*text-transform: uppercase;*/}
 #content .container .menu-top .compare-link{background: #F6911B;color: #fff;min-height: 75px;position: relative;text-align: center;}
-#content .container .menu-top .compare-link a{color: #fff;font-size: 18px;font-weight: 700;}
+#content .container .menu-top .compare-link a{color: #fff;font-size: 18px;font-weight: 400;}
 #content .container .menu-top .compare-link i{font-size: 44px;margin-left: -17px;  display: block;}
 #content .container .menu-top .tabs{position: relative;min-height: 75px}
 #content .container .menu-top md-tabs{height: 100%;left: 0;position: absolute;top: 0}

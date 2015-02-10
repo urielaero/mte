@@ -96,11 +96,15 @@ if(!empty($this->escuela->rank)){
 			    </md-tabs>				
 			</div>
 			<div flex="15" flex-sm="100" class="compare-link">
-				<a href="" class="full-size-link"></a>
+				<a ng-click="comparar()" class="full-size-link"></a>
 				<div class="icon-wrapper vertical-align-center horizontal-align-center">
 					<div flex="column">
 						<div><i class="icon-compara-01"></i></div>
-						<div><a href="">Comparar</a></div>
+						<div>
+							<a href="" ng-show="!isSelected">Comparar</a>
+							<a href="" ng-show="isSelected">Dejar de comparar</a>
+						</div>
+
 					</div>
 				</div>
 

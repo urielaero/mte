@@ -12,14 +12,15 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
         sort : 'Semáforo educativo',
 
     }
-    userInfo.visitSchool({
+    var currentSchool = { 
       id : $scope.escuela.id,
       cct : $scope.escuela.cct,
       nombre : $scope.escuela.nombre,
       entidad : $scope.escuela.entidad.nombre,  
       localidad : $scope.escuela.localidad.nombre,
       municipio : $scope.escuela.municipio.nombre,
-    });
+    };
+    userInfo.visitSchool(currentSchool);
     //console.log($scope.relatedSchoolParams);
     $scope.next = function() {
       $scope.selectedIndex = Math.min($scope.selectedIndex + 1, 2) ;
@@ -136,5 +137,13 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
 
     $scope.print = function(){
     	window.print();
-    }
+    };
+
+    $scope.isSelected = userInfo.isSelected(currentSchool);
+    $scope.comparar = function(){
+        userInfo.toggleSchool(currentSchool); 
+        $scope.isSelected = userInfo.isSelected(currentSchool);
+    };
+
+
 }]);
