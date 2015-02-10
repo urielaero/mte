@@ -1,3 +1,4 @@
+<?php $this->include_template('botonBeta','global');?>
 <div class='container home'>
 	<div class='column'>
 		<div class='video'>

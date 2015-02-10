@@ -55,7 +55,7 @@ class escuelas extends main{
 			$this->set_turno_map();
 			$this->header_folder = 'escuelas';
 			$this->draw_map = true;
-			$this->page_title = $this->capitalize($this->escuela->nombre).' - '.$this->escuela->cct.' - Mejora tu Escuela';
+			$this->page_title = $this->capitalize($this->escuela->nombre).' - '.$this->escuela->cct.' | Mejora tu Escuela';
 			$this->resultados_title = 'Escuelas similares <span>| Cercanas</span>';
 			$this->breadcrumb = array(
 				'/compara/'=>'Escuelas',

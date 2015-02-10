@@ -15,7 +15,7 @@ class compara extends main{
 		$this->entidades = $this->load_entidades(false);
 		$this->municipios = $this->load_municipios();
 		$this->localidades = $this->load_localidades();
-		$this->page_title = "Conoce tu escuela";
+		$this->page_title = "Conoce tu escuela | Mejora tu Escuela";
 		$this->meta_description = "Consulta información sobre las características de las escuelas de México. Datos de contacto, información sobre desempeño, infraestructura, programas de apoyo y conoce las opiniones de otros padres de familia.";
 		if($this->config->theme == 'mtev1'){
 			$this->load_compara_cookie();
@@ -102,6 +102,8 @@ class compara extends main{
 	* Lee la información de las escuelas para mostrar la tabla de comparación
 	*/
 	public function escuelas(){
+		$this->header_folder = 'compara';
+		$this->page_title = "Compara tu escuela | Mejora tu Escuela";
 		if($this->config->theme == 'mtev2'){
 			$this->include_theme('index','index');
 			return true;
@@ -112,7 +114,6 @@ class compara extends main{
 		$this->load_municipios();
 		$this->load_localidades();
 		
-		$this->header_folder = 'compara';		
 		$this->subtitle_header = 'Esta herramienta te ayuda a comparar la calidad <br />educativa de tu escuela con la de otras <br />similares o cercanas.';
 		$this->draw_map = true;
 		$this->load_compara_cookie();

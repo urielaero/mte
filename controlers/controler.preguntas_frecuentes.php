@@ -11,7 +11,7 @@ class preguntas_frecuentes extends main{
 	*/
 	public function index(){
 		$this->breadcrumb = array('#'=>'Preguntas frecuentes');
-		$this->page_title = 'Preguntas frecuentes - Mejora tu Escuela';
+		$this->page_title = 'Preguntas frecuentes | Mejora tu Escuela';
 		$this->include_theme('index','index');		
 	}
 }

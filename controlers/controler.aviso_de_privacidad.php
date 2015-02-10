@@ -10,7 +10,7 @@ class aviso_de_privacidad extends main{
 	*/
 	public function index(){
 		$this->breadcrumb = array('#'=>'Aviso legal y de privacidad');
-		$this->page_title = 'Aviso de Privacidad - Mejora tu Escuela';
+		$this->page_title = 'Aviso de Privacidad | Mejora tu Escuela';
 		$this->include_theme('index','index');
 	}
 }

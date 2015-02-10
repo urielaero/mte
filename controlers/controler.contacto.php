@@ -9,7 +9,8 @@ class contacto extends main{
 	* Se encarga de mostrar la vista adecuada al usuario
 	*/
 	public function index(){
-		$this->header_folder ='contacto';		
+		$this->header_folder ='contacto';
+		$this->page_title = 'Contáctanos | Mejora tu Escuela';
 		$this->breadcrumb = array('#'=>'Contacto');
 		$this->debug = true;
 		$this->include_theme('index','index');
@@ -33,6 +34,7 @@ class contacto extends main{
 			);
 		}
 		$this->header_folder ='contacto';
+		$this->page_title = 'Contáctanos | Mejora tu Escuela';
 		$this->include_theme('index','index');
 	}
 }
