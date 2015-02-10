@@ -680,15 +680,19 @@ $(document).ready(function(){
 
     $('#cont-botonbeta #cerrar-beta').on('click',function(e){
     	e.preventDefault();
-	$.cookie('beta_template',0,{expires:1});
+        $.cookie('beta_template',0,{expires:1});
+        var user_agent = window.navigator && window.navigator.userAgent;
+        ga('send', 'event', 'beta_button', 'no-beta', user_agent);
     	$('#cont-botonbeta').remove();
     });
 
     $('#cont-botonbeta #enlace-btnbeta').on('click',function(e){
     	e.preventDefault();
-	$.cookie('beta_template',1,{expires:1});
+        $.cookie('beta_template',1,{expires:1});
     	$(this).children().text('Cargando...');
-	location.reload();
+        var user_agent = window.navigator && window.navigator.userAgent;
+        ga('send', 'event', 'beta_button', 'beta', user_agent);
+        location.reload();
     });
 });
 
