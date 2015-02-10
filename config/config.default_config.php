@@ -8,6 +8,8 @@ class default_config{
                 $this->default_controler = 'home';
                 $this->default_action = 'index';
                 $this->blog_address = 'http://blog.mejoratuescuela.org/';
+                $this->controler404 = 'home';
+                $this->action404 = 'e404';
                 //Security
                 $this->secured = false;
 

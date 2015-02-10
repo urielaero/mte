@@ -170,8 +170,15 @@ class home extends main{
 	}
 
 	public function e404(){
-		$this->header_folder = '';
-		$this->include_theme('index','e404');
+		if($this->config->theme == 'mtev2'){
+			$this->is404 = true;
+			$this->header_folder = '';
+			header('HTTP/1.0 404 Not Found');
+			$this->include_theme('index','e404');
+			exit();	
+		}else{
+			$this->include_theme('index','index');
+		}
 	}
 
 }

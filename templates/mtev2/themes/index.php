@@ -87,12 +87,6 @@
 	<meta property='og:image:type' content='image/png'>
 	<meta property='og:image' content='http://www.mejoratuescuela.org/templates/mtev1/img/logo200_200.jpg' />	
 	<meta property='og:description' content='MejoraTuEscuela.org es una plataforma que busca promover la participación ciudadana para transformar la educación en México' />
-	
-<?php
-$canonical = $this->config->http_address.(isset($_GET['controler'])?$_GET['controler']:'').(isset($_GET['action'])?"/".$_GET['action']:'').(isset($_GET['id'])?"/".$_GET['id']:'');					
-$e404 = $this->get('action') == 'e404' ? 'e404' : '';
-
-?>
 	<meta property='og:title' content='Mejora tu escuela'>
 	<meta property='og:url' content='<?=$canonical?>'>
 	<link rel="canonical" href="<?=$canonical?>" />
