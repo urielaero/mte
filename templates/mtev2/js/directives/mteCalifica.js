@@ -1,8 +1,5 @@
 (function () {
     var controller = function($scope,$http){
-        if(!$scope.tipo){
-            $scope.tipo = 'escuela';
-        } 
         $scope.input = {
             json:true
         };

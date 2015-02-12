@@ -169,8 +169,8 @@ var controller = function ($scope,$http,userInfo,templateData) {
             
         }
 
-	$scope.clickSchool = function($event){
-		$scope.click && $scope.click({event:$event});	
+	$scope.clickSchool = function($event,escuela){
+		$scope.click && $scope.click({event:{e:$event,escuela:escuela}});	
 	};
 
         $scope.init();

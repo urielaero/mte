@@ -72,5 +72,5 @@ if($this->preguntas){?>
 <?php if($this->tipo_encuesta == 'bibliotecas'){ ?>
 	<div mte-califica promedio="promedio" calificacion="calificacion" tipo="'biblioteca'"></div>
 <?php }else{ ?>
-	<div mte-califica promedio="promedio" calificacion="calificacion"></div>
+	<div mte-califica promedio="promedio" calificacion="calificacion" tipo="'escuela'"></div>
 <?php } ?>

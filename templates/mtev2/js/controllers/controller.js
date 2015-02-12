@@ -254,15 +254,15 @@ app.controller("calificaCTL", ['$scope',function ($scope) {
 }]);
 
 app.controller("calificaIndexCTL", ['$scope','userInfo',function($scope,userInfo){
-    console.log(userInfo);
     var visited_cct = userInfo.getCCTs('visited');
     $scope.byCCT = {
         ccts:visited_cct.toString(),
         sort : 'Semáforo educativo'
     };
 
-    $scope.click = function($event){
-    	$event.preventDefault();
+    $scope.click = function(data){
+    	data.e.preventDefault();
+        $scope.tipo = "escuela"
     }
 }]);
 
