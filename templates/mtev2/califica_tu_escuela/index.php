@@ -10,6 +10,12 @@
 	<?php $this->include_template('mteCalifica','directives'); ?>
 </script>
 <div class="container califica" ng-controller="calificaIndexCTL">
+	<div class='container results mteNgSearch'>
+		<div class="breadcrumb">
+			<a href="#" class="start"><i class="icon-mejora"></i></a>
+			<a href="#">Califica</a>
+		</div>
+	</div>
 	<h1 class="green-title" ng-show="!tipo">
 		<strong>No has seleccionado escuelas para calificar</strong> 
 		<br />

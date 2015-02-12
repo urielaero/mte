@@ -2,7 +2,7 @@
 	<div id="button-menu-mobile" ng-click="toggleLeft()">
 		<hr><hr><hr>
 	</div>
-	<div class='container'>
+	<div id="header1" class='container'>
 		<div layout="row" class="row-links">
 			<a flex="25" flex-sm="100" href='/' class='logo'><img src='/templates/mtev2/img/logo_mejora.png' alt='logo_mejora_tu_escuela' /></a>
 			<a flex="13" class="principal perfect-principal <?php if(strstr($_SERVER['REQUEST_URI'], 'compara/escuelas')){ echo 'none';}elseif(strstr($_SERVER['REQUEST_URI'], 'compara')){ echo 'active';} ?>  " href='/compara/' hide-sm>
@@ -25,6 +25,14 @@
 				<a target="_blank" href="https://www.facebook.com/MejoraTuEscuela"><i class="icon-fb-01"></i></a>
 				<a target="_blank" href="https://twitter.com/mejoratuescuela"><i class="icon-twitter-01-01"></i></a>
 
+			</div>
+			<div id="cont-boton-regresar">
+				<div id="imagen-regresar" class="cont-regresar">
+					<img class="img-regresar" src="/templates/mtev2/img/volver.png">
+				</div>
+				<div id="text-regresar" class="cont-regresar">
+					<h5 class="text-regresar">volver a la <br/> versión anterior</h5>
+				</div>
 			</div>
 			<div class='clear'></div>
 		</div>

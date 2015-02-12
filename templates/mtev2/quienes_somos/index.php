@@ -1,7 +1,7 @@
 <div class='container about'>
 	<div class="breadcrumb">
 		<a href="#" class="start"><i class="icon-mejora"></i></a>
-		<a href="#">Quiénes somos</a>
+		<a href="#">¿Quiénes somos?</a>
 	</div>
 	<div layout="row" layout-sm="column" class="space-between">
 		<div flex="65" flex-sm="100" class="about-content">
