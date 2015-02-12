@@ -10,7 +10,6 @@
             
             preguntas = $scope.preloadpreguntas[newV]
             if(preguntas){
-                console.log(preguntas);
                 for(var i=0;i<preguntas.length;i+=2){
                     $scope.preguntas.push([preguntas[i],preguntas[i+1]])
                 }
@@ -33,7 +32,6 @@
             promedio = sum/preguntas.length;
             promedio = promedio.toString().length>3?promedio.toFixed(1):promedio;
             $scope.promedio = promedio;
-            console.log($scope.promedio);
 
             $scope.info_calificacion = {
                 calificaciones:$scope.calificaciones,
@@ -47,7 +45,8 @@
             controller : controller,
             scope : {
                 tipo: '=',
-                preloadpreguntas:'='
+                preloadpreguntas:'=',
+		cct: '='
             },
             templateUrl: 'mteCalificaPreguntas.html'
         };

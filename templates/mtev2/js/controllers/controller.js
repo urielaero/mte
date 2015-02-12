@@ -253,16 +253,26 @@ app.controller("calificaCTL", ['$scope',function ($scope) {
     };
 }]);
 
-app.controller("calificaIndexCTL", ['$scope','userInfo',function($scope,userInfo){
+app.controller("calificaIndexCTL",['$scope','userInfo','$location',function($scope,userInfo,$location){
     var visited_cct = userInfo.getCCTs('visited');
-    $scope.byCCT = {
+    var byCCT = {
         ccts:visited_cct.toString(),
         sort : 'Semáforo educativo'
     };
 
+    if(visited_cct.length)
+    	$scope.byCCT = byCCT;
+
+    var isBiblioteca = /^..BB/;
     $scope.click = function(data){
     	data.e.preventDefault();
-        $scope.tipo = "escuela"
+        $location.path('/califica_tu_escuela/califica/'+data.escuela.cct);
+        $scope.selectCCT = data.escuela.cct;
+        if(isBiblioteca.test(data.escuela.cct))
+            $scope.tipo = 'biblioteca';
+        else
+            $scope.tipo = "escuela";
+        
     }
 }]);
 

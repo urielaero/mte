@@ -328,6 +328,7 @@ ul.dropdown-menu li.active a{color: #fff}
 }
 #content .container.califica .captcha_show{margin-top:10px;}
 #content .container.califica .captcha_show .msg p{font-size:17px;color:#8B8B8B;}
+#content .container.califica .califica_buscar a{background:#F3910C;padding:11px;color:white;}
 
 /*Tabla global de comparacion*/
 #content .container .compare-table{margin-top: 10px}
