@@ -26,11 +26,11 @@
 				<a target="_blank" href="https://twitter.com/mejoratuescuela"><i class="icon-twitter-01-01"></i></a>
 
 			</div>
-			<div id="cont-boton-regresar">
+			<div id="cont-boton-regresar" ng-click="back_v1()">
 				<div id="imagen-regresar" class="cont-regresar">
 					<img class="img-regresar" src="/templates/mtev2/img/volver.png">
 				</div>
-				<div id="text-regresar" class="cont-regresar">
+				<div id="text-regresar" class="cont-regresar" >
 					<h5 class="text-regresar">volver a la <br/> versión anterior</h5>
 				</div>
 			</div>

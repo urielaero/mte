@@ -1,7 +1,14 @@
-app.controller("headerCTL", ['$scope','$timeout','$mdSidenav',function ($scope, $timeout, $mdSidenav) {
+app.controller("headerCTL", ['$scope','$timeout','$mdSidenav','$cookieStore', function ($scope, $timeout, $mdSidenav,$cookieStore) {
 	$scope.toggleLeft = function() {
 		$mdSidenav('left').toggle();
 	};
+        $scope.back_v1 = function(){
+        var user_agent = window.navigator && window.navigator.userAgent;
+        ga('send', 'event', 'beta_button', 'no-beta', user_agent);
+        $cookieStore.remove('beta_template','0');
+        location.reload();
+    };
+
 }]);
 
 app.controller("sidebarCTL", ['$scope','$timeout','$mdSidenav',function ($scope, $timeout, $mdSidenav) {
@@ -285,4 +292,5 @@ $(document).ready(function(){
     $('.footable tr td').click(function(){
         $(this).trigger('footable_toggle_row');
     });
+
 });
