@@ -13,6 +13,8 @@ class resultados_nacionales extends main{
 		$this->header_folder = 'compara';
 		$this->title_header = 'Resultados por estado';
 		$this->subtitle_header = 'Revisa los resultados educativos de tu estado y cómo se comparan con el promedio nacional.  En el perfil de tu estado también podrás encontrar tablas de las mejores escuelas primarias, secundarias y bachilleratos.';
+		//Cambio provisional de template
+		if($this->config->theme == 'mtev2') $this->config->theme = 'mtev1';
 		$this->include_theme('index','index');
 	}
 
@@ -35,6 +37,8 @@ class resultados_nacionales extends main{
 			//$this->load_petition();
 			$this->load_escuelas();
 			$this->petition_data = $this->load_estado_petitions($this->entidad->nombre);
+			//Cambio provisional de template
+			if($this->config->theme == 'mtev2') $this->config->theme = 'mtev1';			
 			$this->include_theme('index','entidad');
 		}else{
 			$this->index();
