@@ -4,6 +4,8 @@
             json:true
         };
         var onlyOne = false;
+        
+
         $scope.califica = function(commentOptional){
             if($scope.captcha){
                 $scope.input.recaptcha_challenge_field = $scope.captcha.challenge;
@@ -19,6 +21,10 @@
             }
             if(commentOptional)
                 $scope.input.optional_comement = true;
+
+            if($scope.cct){
+                $scope.input.cct = $scope.cct;  
+            }
 
             $http({
                 method:'POST',
@@ -43,6 +49,7 @@
                 promedio: '=?',
                 calificacion: '=?',
                 tipo: '=?',
+                cct:'='
             },
             templateUrl: 'mteCalifica.html'
         };

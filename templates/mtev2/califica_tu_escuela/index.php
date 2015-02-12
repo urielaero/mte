@@ -10,7 +10,7 @@
 	<?php $this->include_template('mteCalifica','directives'); ?>
 </script>
 <div class="container califica" ng-controller="calificaIndexCTL">
-	<h1 class="green-title" ng-show="!tipo">
+	<h1 class="green-title" ng-show="!tipo && byCCT">
 		<strong>No has seleccionado escuelas para calificar</strong> 
 		<br />
 		Selecciona alguna de la lista
@@ -21,10 +21,10 @@
 		params='byCCT' 
 		click= 'click(event)'
 		table-title='Escuelas visitadas'
-		ng-show="!tipo"
+		ng-show="!tipo && byCCT"
 		>
 	</div>
-	<div ng-show="tipo">
-		<div mte-califica-preguntas tipo="tipo" preloadpreguntas='<?=json_encode($this->preload_preguntas)?>'></div>
+	<div ng-show="tipo && byCCT">
+		<div mte-califica-preguntas tipo="tipo" cct="selectCCT" preloadpreguntas='<?=json_encode($this->preload_preguntas)?>'></div>
 	</div>
 </div>

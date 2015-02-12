@@ -40,5 +40,5 @@
 		<div flex="70" class="desc">En promedio, calificas a tu biblioteca con:</div>
 		<div flex="30" class="number" ng-cloak>{{promedio}}</div>
 	</div>
-	<div mte-califica promedio="promedio" calificacion="info_calificacion" tipo="tipo"></div>
+	<div mte-califica promedio="promedio" calificacion="info_calificacion" tipo="tipo" cct="cct"></div>
 </div>

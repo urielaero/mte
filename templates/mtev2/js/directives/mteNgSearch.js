@@ -74,6 +74,7 @@ var controller = function ($scope,$http,userInfo,templateData) {
             //console.log($scope.params);
             $scope.loading = true;
             // Pako: aqui es un buen lugar para setear la ruta
+	    if($scope.params)
             $http({method:'POST',url:'/api/escuelas',data:$scope.params}).then(function(response){
                 //console.log(response.data);
                 $scope.pagination = response.data.pagination;
