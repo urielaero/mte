@@ -266,7 +266,7 @@ app.controller("calificaIndexCTL",['$scope','userInfo','$location',function($sco
     var isBiblioteca = /^..BB/;
     $scope.click = function(data){
     	data.e.preventDefault();
-        $location.path('/califica_tu_escuela/califica/'+data.escuela.cct);
+        //$location.path('/califica_tu_escuela/califica/'+data.escuela.cct);
         $scope.selectCCT = data.escuela.cct;
         if(isBiblioteca.test(data.escuela.cct))
             $scope.tipo = 'biblioteca';
