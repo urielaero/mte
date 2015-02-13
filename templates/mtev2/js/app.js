@@ -20,12 +20,6 @@ app.config(function(reCAPTCHAProvider){
     });
 });
 
-app.config(['$locationProvider',function($locationProvider){
-    var isCalifica = /califica\/$/;
-    if(isCalifica.test(location.href)){
-        $locationProvider.html5Mode(true);
-    }
-}]);
 
 /*
 no implementado
