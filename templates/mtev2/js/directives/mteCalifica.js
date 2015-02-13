@@ -40,6 +40,16 @@
                 }
             });
         };
+        
+        $scope.$watch('cct',function(newV,oldV){
+            if(newV != oldV && newV){
+                $scope.success = false;
+                $scope.error = false;
+                onlyOne = false;        
+            }
+        });
+        
+
     };
     controller.$inject = ['$scope','$http'];
     var directive = function () {

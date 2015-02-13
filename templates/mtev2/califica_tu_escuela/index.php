@@ -12,8 +12,8 @@
 <div class="container califica" ng-controller="calificaIndexCTL">
 	<div class='container results mteNgSearch'>
 		<div class="breadcrumb">
-			<a href="#" class="start"><i class="icon-mejora"></i></a>
-			<a href="/califica">Califica</a>
+			<a href="/" class="start"><i class="icon-mejora"></i></a>
+			<a ng-click="tipo = false" >Califica</a>
 		</div>
 	</div>
 	<h1 class="green-title" ng-show="!tipo">
