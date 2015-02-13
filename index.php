@@ -22,10 +22,10 @@ if($beta_template !== false)
 if($beta_template == "1"){
 	$config->jsonMode = true;
 	$config->theme = 'mtev2';
-}//elseif(!$beta_template){
-	//$config->beta_button = true;
-	//$config->theme="mtev1";
-//}
+}elseif(!$beta_template){
+	$config->beta_button = true;
+	$config->theme="mtev1";
+}
 
 
 $mxnphp = new mxnphp($config);
