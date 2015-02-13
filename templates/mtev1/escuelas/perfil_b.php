@@ -1,3 +1,4 @@
+<?php $this->include_template('botonBeta','global');?>
 <div class='perfil container B'>
     <?php 
     if(isset($this->escuela->programas['escuelas_de_excelencia']) || isset($this->escuela->ganador_disena_el_cambio))

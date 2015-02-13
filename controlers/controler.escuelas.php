@@ -63,6 +63,14 @@ class escuelas extends main{
 				'/compara/?search=true&municipio='.$this->escuela->municipio->id.'&entidad='.$this->escuela->entidad->id.'#resultados' => $this->capitalize($this->escuela->municipio->nombre),
 				'#'=> $this->capitalize($this->escuela->nombre)
 			);
+			if($this->config->theme =='mtev2'){
+				$this->breadcrumb = array(
+					'/compara/'=>'Escuelas',
+					'/compara/?search=true&entidad='.$this->escuela->entidad->id.'#resultados' => $this->capitalize($this->escuela->entidad->nombre),
+					'/compara/?search=true&municipio='.$this->escuela->municipio->id.'&entidad='.$this->escuela->entidad->id.'#resultados' => $this->capitalize($this->escuela->municipio->nombre),
+					'/escuelas/index/'.$this->escuela->cct => $this->capitalize($this->escuela->nombre)
+				);
+			}
 			//$this->include_theme('index','index');
 			$this->title_header = 'Conoce tu escuela';
 			$this->subtitle_header = 'El primer paso para poder mejorar tu centro escolar es saber cómo está. Te invitamos a que conozcas y compartas esta información.';
