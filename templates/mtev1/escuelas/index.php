@@ -1,3 +1,4 @@
+<?php $this->include_template('botonBeta','global');?>
 <div class='perfil container'>
 	<div class='head'>
 		<?php $rank = isset($this->escuela->rank_entidad) ? $this->escuela->rank_entidad : '--' ?>
