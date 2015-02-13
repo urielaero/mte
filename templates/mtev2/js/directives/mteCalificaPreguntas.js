@@ -5,15 +5,18 @@
         $scope.preguntas = [];
         var preguntas;
         $scope.$watch('tipo',function(newV,oldV){
-            if(!$scope.preloadpreguntas)
+            if(!$scope.preloadpreguntas || !$scope.tipo)
                 return;
             
             preguntas = $scope.preloadpreguntas[newV]
+            $scope.preguntas = [];
             if(preguntas){
                 for(var i=0;i<preguntas.length;i+=2){
                     $scope.preguntas.push([preguntas[i],preguntas[i+1]])
                 }
             }
+            $scope.promedio = 0;
+            $scope.calificaciones = [];
         });
 
         $scope.promedio = 0;

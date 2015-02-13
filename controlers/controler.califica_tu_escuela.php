@@ -63,6 +63,7 @@ class califica_tu_escuela extends main{
 		
 		}else{
 			if($this->config->theme == "mtev2"){
+				$this->breadcrumb = array('/califica-tu-escuela/'=>'Califica tu escuela');
 				$this->simulateP = rand()%15;
 				$this->preload_preguntas = array();
 				$preload_type = array("escuelas","bibliotecas");
