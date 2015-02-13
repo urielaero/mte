@@ -60,10 +60,16 @@
 						</thead>
 						<tbody>
 							<tr ng-repeat='programa in currentPrograms = (programas | programasFilter:params)'>
-								<td id="contenedor-programas">
-									<div id="imagen-programa"><img class="imagen-programa" ng-src='http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com//programas_{{programa.id}}.jpg' /></div>
-									<a ng-href='/programas/index/{{programa.id}}'><strong ng-bind='programa.nombre' ></strong></a>
-									<p><small><i class="icon-conoce-01"></i> <span ng-bind='programa.tema_especifico'></span></small></p>
+								<td class="contenedor-programas-img">
+									<div id="imagen-programa">
+										<img class="imagen-programa" ng-src='http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com//programas_{{programa.id}}.jpg' />
+									</div>
+									<div id="info-programa">
+										<div class="info-programa">
+											<a id="titulo-programa" ng-href='/programas/index/{{programa.id}}'><strong ng-bind='programa.nombre' ></strong></a>
+											<p><small><i class="icon-conoce-01"></i> <span ng-bind='programa.tema_especifico'></span></small></p>
+										</div>
+									</div>
 									<!--<img ng-src='/templates/mtev2/img/programas/{{programa.id}}.jpg' />
 									<a ng-href='/programas/index/{{programa.id}}'><strong ng-bind='programa.nombre' ></strong></a>
 									<p><small><i class="icon-conoce-01"></i> <span ng-bind='programa.tema_especifico'></span></small></p>-->
