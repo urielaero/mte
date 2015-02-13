@@ -14,7 +14,7 @@ class programas extends main{
 		$this->programa_info();
         $this->load_programas();
 		$this->title_header = 'Programas';
-        $this->page_title = 'Programas';
+        $this->page_title = $this->programa->nombre.' | Mejora tu Escuela';
 		$this->header_folder = 'compara';
 		$this->breadcrumb = array('/mejora/programas/'=>'Programas');
 		$this->subtitle_header = '

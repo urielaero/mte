@@ -15,7 +15,7 @@
 	<div class="breadcrumb">
 		<a href="/" class="start"><i class="icon-mejora"></i></a>
 		<a href="/mejora/programas">Programas</a>
-		<a href="/programas/index/<?= $this->programa->id?>">Programa escuela segura</a>
+		<a href="/programas/index/<?= $this->programa->id?>"><?=$this->programa->nombre?></a>
 	</div>
 	<div layout="row" layout-sm="column" class="space-between">
 		<div flex="75" flex-sm="100" class="programa-content">

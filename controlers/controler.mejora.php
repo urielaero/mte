@@ -47,6 +47,7 @@ class mejora extends main{
 
 	public function programas(){
 		$this->common_mejora();
+		$this->page_title = 'Programas de apoyo | Mejora tu Escuela';
 		$nivel = array('primaria'=>'PR','secundaria'=> 'ES','bachillerato'=> 'BH','preescolar'=>'JN');
 		$filtroF = array();
 		$filtro = array();
