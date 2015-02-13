@@ -60,7 +60,7 @@ if(!empty($this->escuela->rank)){
 
 <div class="container profile profile-escuela" ng-controller="escuelaCTL">
 	<div class="breadcrumb perfect-breadcrumb">
-		<a href="/" class="start"><i class="icon-mejora"></i></a>
+		<a href="/home" class="start"><i class="icon-mejora"></i></a>
 		<?php foreach($this->breadcrumb as $url => $breadcrumb){ ?>
 			<a href="<?=$url ?>"><?=$breadcrumb ?></a>
 		<?php } ?>

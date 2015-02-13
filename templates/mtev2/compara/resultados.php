@@ -1,7 +1,7 @@
 <div class='container results' ng-controller="comparaCTL">
 	<div class="breadcrumb">
 		<a href="#" class="start"><i class="icon-mejora"></i></a>
-		<a href="#">Conoce</a>
+		<a href="/compara">Conoce</a>
 	</div>
 	<div layout="row" layout-sm="column" class="space-between">
 		<div flex="25" flex-sm="100" id="filters">

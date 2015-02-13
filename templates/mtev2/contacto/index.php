@@ -3,7 +3,7 @@
 		<a class="start start2-2" href="#">
 			<i class="icon-escuela-01"></i>
 		</a>
-		<a href="#">Contacto</a>
+		<a href="/contacto">Contacto</a>
 	</div>
 	<div class="header-form-contactanos" layout="row" layout-sm="column">
 		<div class="items-header-contact contactanos-contactanos" flex="20" flex-sm="100">

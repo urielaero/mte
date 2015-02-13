@@ -4,8 +4,8 @@ app.controller("headerCTL", ['$scope','$timeout','$mdSidenav','$cookieStore', fu
 	};
         $scope.back_v1 = function(){
         var user_agent = window.navigator && window.navigator.userAgent;
-        ga('send', 'event', 'beta_button', 'no-beta', user_agent);
-        $cookieStore.remove('beta_template','0');
+        ga('send', 'event', 'beta_button', 'return_to_v1', user_agent);
+        $cookieStore.remove('beta_template',0);
         location.reload();
     };
 

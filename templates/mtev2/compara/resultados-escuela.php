@@ -13,7 +13,7 @@
 	<div class='container results mteNgSearch'>
 		<div class="breadcrumb">
 			<a href="#" class="start"><i class="icon-mejora"></i></a>
-			<a href="#">Comparador</a>
+			<a href="/compara">Comparador</a>
 		</div>
 	</div>
 	<div class="cont-semaforos-results" mte-ng-search objects='{municipios:municipios,entidades:entidades,localidades:localidades}'></div>

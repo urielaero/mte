@@ -1,7 +1,7 @@
 <div class='container compare' ng-controller="comparaCTL">
 	<div class="breadcrumb">
 		<a href="/" class="start"><i class="icon-mejora"></i></a>
-		<a href="/compara" id="ahref-breadcumb">Comparador</a>
+		<a href="/compara/escuelas/" id="ahref-breadcumb">Comparador</a>
 	</div>
 	<div ng-if="!escuelasResponse" id="message-not-found">
 		<h2><strong>No has seleccionado escuelas para comparar</strong></h2>
