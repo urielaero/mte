@@ -164,7 +164,7 @@ md-backdrop.md-opaque.md-default-theme{position: fixed!important}
 #sidebar-compare .button-bordered{margin-top: 15px;font-weight: 700;text-align: center;}
 
 /*Boton comparador*/
-#toggle-compara{cursor: pointer;font-weight: 700;position: fixed;right: 0;top: 48%;z-index: 9999999999}
+#toggle-compara{cursor: pointer;font-weight: 700;position: fixed;right: 0;top: 62%;z-index: 9999999999}
 #toggle-compara .top{background: #0055AC;color: #fff;padding: 15px;text-align: center;50px}
 #toggle-compara .top p{line-height: 1}
 #toggle-compara .top a{color: #fff}
