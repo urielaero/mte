@@ -1,15 +1,26 @@
 (function () {
 //Pako: falta injectar $routeprovider aqui y en app.js instalalo con bower (bower install angular-route? (bower.io/search)) 
-var controller = function ($scope,$http,userInfo,templateData) {                
+var controller = function ($scope,$http,userInfo,templateData,$location) {                
         //inicializa la directiva
+
+        var termSearch = false;
         $scope.init = function(){
             $scope.showSearch = typeof($scope.showSearch) == 'undefined' ? true : $scope.showSearch;
             //Pako: antes de cargar los defaults deberia leer el url y setear $scope.params si es relevante
             $scope.loadDefaults();
             $scope.escuelasResponse = true;
             //console.log($scope.params);
-            $scope.getEscuelas();
             //Pako: setear aqui la ruta basada en los parametros de busqueda ($scope.params)
+            if($scope.urls){
+                var search = $location.search();
+                termSearch = search.term;
+                if(search.entidad)
+                    $scope.entidad = entidades.filter(function(ent){
+                        if(ent.id == search.entidad)
+                            return ent
+                    })[0];
+            }
+            $scope.getEscuelas();
 
         }
         //Funciones que usan el servicio de usuario (comparacion)
@@ -74,10 +85,12 @@ var controller = function ($scope,$http,userInfo,templateData) {
             //console.log($scope.params);
             $scope.loading = true;
             // Pako: aqui es un buen lugar para setear la ruta
-	    if(!$scope.params){
-	    	$scope.escuelasResponse = false;
-		return;
-	    }
+            if(!$scope.params){
+                $scope.escuelasResponse = false;
+                return;
+            }
+            if($scope.urls)
+                $location.search($scope.params);
             $http({method:'POST',url:'/api/escuelas',data:$scope.params}).then(function(response){
                 //console.log(response.data);
                 $scope.pagination = response.data.pagination;
@@ -111,6 +124,7 @@ var controller = function ($scope,$http,userInfo,templateData) {
             return items;
         }
         $scope.buildParams = function(){
+            console.log($scope.entidad);
             $scope.params  = {
                 entidad : $scope.entidad.id || null,
                 municipio : $scope.municipio.id || null,
@@ -127,7 +141,6 @@ var controller = function ($scope,$http,userInfo,templateData) {
             if(termSearch) $scope.params.term = termSearch;
 
         };
-        var termSearch = false;
         $scope.termSearch = function(term){
             termSearch = term || false;
             $scope.getEscuelas();
@@ -181,7 +194,7 @@ var controller = function ($scope,$http,userInfo,templateData) {
 
     };
     //Pako: falta injectar $routeprovider aqui y en app.js instalalo con bower (bower install angular-route? (bower.io/search)) 
-    controller.$inject = ['$scope','$http','userInfo','templateData'];
+    controller.$inject = ['$scope','$http','userInfo','templateData','$location'];
     var directive = function () {
         return {
             controller : controller,
@@ -190,7 +203,8 @@ var controller = function ($scope,$http,userInfo,templateData) {
                 showSearch : '=?',
                 params : '=?',
                 tableTitle : '@',
-		click : '&'
+                click : '&',
+                urls : '=?',
             },
             templateUrl : 'mteNgSearch.html'
         };

@@ -16,5 +16,5 @@
 			<a href="/compara">Comparador</a>
 		</div>
 	</div>
-	<div class="cont-semaforos-results" mte-ng-search objects='{municipios:municipios,entidades:entidades,localidades:localidades}'></div>
+	<div class="cont-semaforos-results" mte-ng-search objects='{municipios:municipios,entidades:entidades,localidades:localidades}' urls="1"></div>
 </div>
