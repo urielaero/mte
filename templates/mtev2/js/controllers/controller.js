@@ -23,6 +23,7 @@ app.controller("blogCTL", ['$scope', '$http', '$timeout', '$rootScope', '$filter
     $scope.blogAddress = window.blogAddress;
     $scope.posts = [];
     $scope.loading = true;
+    var imgReg = /src="((http:\/\/.+)jpg)"/;
     $scope.getPosts = function(){
         var page = $scope.postsPage;
         $scope.loading = true;
@@ -40,8 +41,8 @@ app.controller("blogCTL", ['$scope', '$http', '$timeout', '$rootScope', '$filter
                     }                    
                 }else if(p.attachments[0]!='undefined' && p.attachments.length > 0){
                     img = p.attachments[0].url;                    
-                }else{
-                    img = '';
+                }else if(p.content){
+                    img = p.content.match(imgReg)[1];
                 }
                 var imgObj; 
                 img = $filter('replaceWithCdnUrl')(img,$scope.cdnUrl, $scope.blogAddress);
