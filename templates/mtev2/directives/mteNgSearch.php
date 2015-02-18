@@ -2,7 +2,7 @@
 	<div layout="row" layout-sm="column" class="space-between">
 		<div ng-show='showSearch' flex="25" flex-sm="100" id="filters">
 			<form>
-				<div mte-text-search term='termSearch(term)' temp="mteTextSearch"></div>
+				<div mte-text-search term='termSearch(term)' temp="mteTextSearch" urls='1'></div>
 				<label>Estado</label>
 				<select ng-model='entidad' ng-disabled='loading' ng-change='entidadChange()' ng-options='entidad as entidad.nombre.capitalize() for entidad in entidades' ></select>
 				<label>Municipio</label>

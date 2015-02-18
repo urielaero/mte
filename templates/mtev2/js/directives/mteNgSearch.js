@@ -1,9 +1,26 @@
 (function () {
 //Pako: falta injectar $routeprovider aqui y en app.js instalalo con bower (bower install angular-route? (bower.io/search)) 
 var controller = function ($scope,$http,userInfo,templateData,$location) {                
-        //inicializa la directiva
 
-        var termSearch = false;
+        var termSearch = false,
+        getOneFilter = function(list,id){
+            if(list && id)
+                return list.filter(function(e){
+                    if(e.id == id)
+                        return e;
+                })[0];
+        },
+        checkIfSelect = function(list,ids){
+            if(list && ids){
+                ids = ids.split(',');
+                list.forEach(function(e){
+                    if(ids.indexOf(e.id.toString())!=-1)
+                        e.checked = true;
+                });
+            }
+        
+        };
+        //inicializa la directiva
         $scope.init = function(){
             $scope.showSearch = typeof($scope.showSearch) == 'undefined' ? true : $scope.showSearch;
             //Pako: antes de cargar los defaults deberia leer el url y setear $scope.params si es relevante
@@ -14,11 +31,16 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
             if($scope.urls){
                 var search = $location.search();
                 termSearch = search.term;
-                if(search.entidad)
-                    $scope.entidad = entidades.filter(function(ent){
-                        if(ent.id == search.entidad)
-                            return ent
-                    })[0];
+                if(search.localidad) $scope.localidad = {id:search.localidad};
+                if(search.entidad) $scope.entidad = getOneFilter(entidades,search.entidad); 
+                if(search.municipio) $scope.municipio = getOneFilter(municipios,search.municipio);
+                if(search.sort) $scope.sort = search.sort;
+                $scope.pagination.current_page = search.p || 1;
+                checkIfSelect($scope.niveles,search.niveles);
+                checkIfSelect($scope.turnos,search.turno);
+                checkIfSelect($scope.controles,search.control);
+                $scope.getLocalidades(search.localidad);
+                
             }
             $scope.getEscuelas();
 
@@ -48,9 +70,10 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
         }
 
         // Cargar localidades desde el API cuando cambia la entidad o municipio
-        $scope.getLocalidades = function(){
+        $scope.getLocalidades = function(select){
             $scope.localidades = [{nombre:'Todas'}];
-            $scope.localidad = $scope.localidades[0];
+            if(!select)
+                $scope.localidad = $scope.localidades[0];
             var params  = {
                 entidad : $scope.entidad.id || null,
                 municipio : $scope.municipio.id || null,
@@ -58,7 +81,14 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
             $http({method:'POST',url:'/api/localidades',data:params}).then(function(response){
                 $scope.loading = false;
                 $scope.localidades = $scope.localidades.concat(response.data);
-                $scope.localidad = $scope.localidades[0];
+                if(select){
+                    $scope.localidad = $scope.localidades.filter(function(e){
+                        if(e.id == select)
+                            return e;
+                    })[0]; 
+                }else{
+                    $scope.localidad = $scope.localidades[0];
+                }
             });
         }
 
@@ -98,10 +128,8 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
                 $scope.loading = false;
                 if(response.data.escuelas){
                     $scope.escuelasResponse = true;
-                    console.log('hay data');
                 }else{
                     $scope.escuelasResponse = false;
-                    console.log('no hay data');
 
                 }
             });
@@ -124,7 +152,6 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
             return items;
         }
         $scope.buildParams = function(){
-            console.log($scope.entidad);
             $scope.params  = {
                 entidad : $scope.entidad.id || null,
                 municipio : $scope.municipio.id || null,
@@ -132,7 +159,6 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
                 p : $scope.pagination.current_page || 1,
                 sort : $scope.sort,
             };
-           // console.log($scope.params);
             $scope.params.niveles = $scope.processCheckBoxes($scope.niveles).join(',');
             var controles = $scope.processCheckBoxes($scope.controles);
             if(controles.length == 1) $scope.params.control = controles[0];

@@ -9,7 +9,6 @@
 
         };
         $scope.toggleSchool = function(escuela){
-            console.log('toggleSchool');
             userInfo.toggleSchool(escuela);
         };
         $scope.onSelect = function($item){
@@ -20,6 +19,11 @@
             if($scope.term)
                 $scope.term({term:$scope.text});
         };
+
+        if($scope.urls){
+		    var search = $location.search();
+            $scope.text = search.term;
+        }
     };
     controller.$inject = ['$scope','$http','$location','userInfo'];
     var directive = function () {
@@ -27,7 +31,8 @@
             controller : controller,
             scope : {
                 model : '=',
-                term:'&'
+                term:'&',
+		urls:'=?'
             },
             templateUrl: function (elem, attr){ 
                 if(attr.temp == 'undefined'){
