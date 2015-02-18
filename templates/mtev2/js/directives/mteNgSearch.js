@@ -66,7 +66,7 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
 
         // Cuando cambia un checkbox en el comparador re-cargamos las escuelas
         $scope.checkBoxChange = function(){
-            $scope.getEscuelas();
+            $scope.getEscuelas(true);
         }
 
         // Cargar localidades desde el API cuando cambia la entidad o municipio
@@ -99,7 +99,7 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
 
             $scope.pagination.current_page = 1;
             $scope.getLocalidades();
-            $scope.getEscuelas();
+            $scope.getEscuelas(true);
         }
         $scope.municipioChange = function(){
             if($scope.localidad && $scope.entidad.id != $scope.localidad.id){
@@ -107,10 +107,11 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
             }
             $scope.pagination.current_page = 1;
             $scope.getLocalidades();
-            $scope.getEscuelas();
+            $scope.getEscuelas(true);
         }
         
-        $scope.getEscuelas = function(){
+        $scope.getEscuelas = function(reset){
+            if(reset) $scope.pagination.current_page = 1;
             if($scope.showSearch) $scope.buildParams();
             //console.log($scope.params);
             $scope.loading = true;
@@ -119,8 +120,10 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
                 $scope.escuelasResponse = false;
                 return;
             }
+
             if($scope.urls)
                 $location.search($scope.params);
+                
             $http({method:'POST',url:'/api/escuelas',data:$scope.params}).then(function(response){
                 //console.log(response.data);
                 $scope.pagination = response.data.pagination;
@@ -169,7 +172,7 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
         };
         $scope.termSearch = function(term){
             termSearch = term || false;
-            $scope.getEscuelas();
+            $scope.getEscuelas(true);
         };
 
         $scope.loadDefaults = function(){
