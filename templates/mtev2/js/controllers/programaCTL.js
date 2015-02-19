@@ -97,7 +97,6 @@ app.controller("programaCTL", ['$scope', '$http', '$compile',function ($scope, $
         //Se hace una peticion ajax usando los parametros en la variable params
         var params = {id:$scope.programaId, es: stateId, skip: $scope.skip};
         $http({method:'POST',url:'/programas/estado-escuelas',data:params}).then(function(response){
-            console.log(response.data);
             $scope.escuelas = $scope.escuelas.concat(response.data);
             $scope.skip+=20;
             $scope.loading = false;
@@ -105,7 +104,6 @@ app.controller("programaCTL", ['$scope', '$http', '$compile',function ($scope, $
     }
     $scope.$on('leafletDirectiveMarker.click', function(e, args) {
         // Args will contain the marker name and other relevant information
-        console.log(args);
         var markerName = args.leafletEvent.target.options.name; //has to be set above
         var $container = $(args.leafletEvent.target._popup._container).find('.leaflet-popup-content'); 
         $container.empty();
