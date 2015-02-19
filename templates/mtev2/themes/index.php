@@ -44,6 +44,7 @@
 			'controllers/comparaCTL.js',
 			'controllers/escuelaCTL.js',
 			'controllers/programasCTL.js',
+			'controllers/programaCTL.js',
 			'controllers/fileCTL.js',
 			'services/userInfo.js',
 			'services/templateData.js',
@@ -111,7 +112,7 @@ $this->is404 = isset($this->is404)?$this->is404:false;
  	<?php
  		$customClass = '';
  		if($this->is404) $customClass = 'e404';
- 		elseif($this->get('controler') == 'datos-abiertos' || $this->get('controler') == 'bases'){
+ 		elseif($this->get('controler') == 'datos-abiertos'){
  			$customClass = 'mtev1-background';
  		} 
  	?>

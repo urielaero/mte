@@ -50,8 +50,18 @@ class programas extends main{
         $this->get_escuelas($params);
     	$skip +=20;
     	$this->url_more_cct = "id={$programa}&es={$estado}&skip={$skip}";
-        $this->include_template("estado_escuelas","programas/partial");
+        if($this->config->theme == 'mtev2'){
+            $api = new api($this->config);
+            $escuelasJson = $api->jsonify($this->escuelas,["cct","nombre"]);
+            foreach($escuelasJson as $key => $field){
+                $escuelasJson[$key]->nombre = $this->capitalize($escuelasJson[$key]->nombre);
+            }
+            echo json_encode($escuelasJson);
+        }else{
+            $this->include_template("estado_escuelas","programas/partial");
+        }
     }
+
 
     /**
      * requiere m_collection seteado

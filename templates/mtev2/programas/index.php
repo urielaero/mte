@@ -11,6 +11,7 @@
     ?>
 	<script type='text/javascript'>
 	    window.entidadesParticipantes = <?= $array_estados_js?>;
+	    window.programaId = <?php echo $this->programa->id ?>;
 	</script>	
 	<div class="breadcrumb">
 		<a href="/" class="start"><i class="icon-mejora"></i></a>
@@ -93,6 +94,23 @@
 						</div>					
 					</div>
 					<leaflet id="map" center="center" markers="markers" ng-init='loadMap(states)'></leaflet>										
+				</div>
+				<div id="escuelas-programas">
+					<div>					
+						<div id="titulo-escuelas-programas">
+							<h6 class="titulo-escuelas-programas"><strong>Escuelas en donde está este programa.</strong>Ciclo escolar 2013 | 2014</h6>
+						</div>
+						<div id="programa-escuela" data-ng-repeat="escuela in escuelas">
+							<h6 class="programa-escuelas"><a data-ng-href="/escuelas/index/{{escuela.cct}}">{{escuela.nombre}}</a></h6>
+							<div class="datos-escuela-pro">
+								<i class="icon-conoce-01 icon-direccion"></i><div class="direccion-escuela">{{currentState.name}}</div>
+							</div>
+						</div>
+					</div>
+					<div class="loading-circle" data-ng-show="loading" layout='row' ng-show='true' flex flex-sm="100" layout-align='center center'>
+						<md-progress-circular md-mode="indeterminate"></md-progress-circular>
+					</div>
+					<a data-ng-show="escuelas.length>0" href="" data-ng-click="loadEscuelasPorEntidad(currentState.id,currentState.name)" class="button-bordered show-more-btn">Ver más escuelas</a>
 				</div>
 			</div>
 		</div>
