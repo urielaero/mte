@@ -786,6 +786,18 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.programas .post-title{background: #8C49CC;color: #fff;/*text-transform: uppercase;*/}
 #content .container.programas .post-title h1{font-size: 22px;padding: 0 15px}
 
+/*Programas Escuelas Carlos Barahona */
+#titulo-escuelas-programas{width: 100%;height: 40px;background:#3193FB;display: table;clear: both;}
+.titulo-escuelas-programas{display: table-cell;vertical-align: middle;color: white;margin-left: 10px}
+#programa-escuela{background: #E1E1E1;width: 100%;height: auto;display: table;margin-top: 5px;}
+.programa-escuelas{}
+.info-escuela-programas{text-align: center;}
+.programa-escuelas{margin-top: 0px;font-weight: 700;margin-bottom: 0;margin-left: 5px;padding-top: 5px}
+.datos-escuela-pro{width: 100%;height: 20px;padding-bottom: 5px}
+.icon-direccion{float: left;margin-left: 5px;color: #6F6F6F}
+.direccion-escuela{float: left;font-size: 10px;margin-top: -2px;color: #6F6F6F}
+/*Programas Escuelas Carlos Barahona */
+
 /*Programas, detalle del programa*/
 #content .container.programa .programa-content{-webkit-flex: 0 0 73%; -ms-flex: 0 0 73%; flex: 0 0 73%; max-width: 73%;}
 #content .container.programa .title{background: #FFA02C;color: #fff;margin: 0}

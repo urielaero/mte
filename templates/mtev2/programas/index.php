@@ -94,6 +94,29 @@
 					</div>
 					<leaflet id="map" center="center" markers="markers" ng-init='loadMap(states)'></leaflet>										
 				</div>
+				<div id="escuelas-programas">
+					<div id="titulo-escuelas-programas">
+						<h6 class="titulo-escuelas-programas"><strong>Escuelas en donde está este programa.</strong>Ciclo escolar 2013 | 2014</h6>
+					</div>
+					<div id="programa-escuela">
+						<h6 class="programa-escuelas">Niños de Mexico</h6>
+						<div class="datos-escuela-pro">
+							<i class="icon-conoce-01 icon-direccion"></i><div class="direccion-escuela">Distrito Federal</div>
+						</div>
+					</div>
+					<div id="programa-escuela">
+						<h6 class="programa-escuelas">Estado de Mexico</h6>
+						<div class="datos-escuela-pro">
+							<i class="icon-conoce-01 icon-direccion"></i><div class="direccion-escuela">Estado de Mexico</div>
+						</div>
+					</div>
+					<div id="programa-escuela">
+						<h6 class="programa-escuelas">San Luis</h6>
+						<div class="datos-escuela-pro">
+							<i class="icon-conoce-01 icon-direccion"></i><div class="direccion-escuela">San Luis Potosi</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div flex="25" flex-sm="100" class="sidebar">
