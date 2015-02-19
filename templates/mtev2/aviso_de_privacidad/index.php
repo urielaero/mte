@@ -12,7 +12,7 @@
 		<h1 flex="90"><strong>Aviso legal y de privacidad</strong></h1>
 	</div>
 	<div class="post-content">
-		<p>Los datos solicitados en www.mejoratuescuela.org son tratados por el Instituo Mexicano para la Competitividad A.C (IMCO). <a href="#" class="link">www.imco.org.mx</a></p>
+		<p>Los datos solicitados en www.mejoratuescuela.org son tratados por el Instituo Mexicano para la Competitividad A.C (IMCO). <a href="//www.imco.org.mx" class="link" target="_blank">www.imco.org.mx</a></p>
 		<p>Para más información, escríbenos a: <a href="#" class="link">contacto@mejoratuescuela.org</a></p>
 		<p>Los datos personales que recopilamos son utilizados para los siguientes propósitos:</p>
 		<ul>
