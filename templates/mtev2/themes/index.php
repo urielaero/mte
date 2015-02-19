@@ -44,6 +44,7 @@
 			'controllers/comparaCTL.js',
 			'controllers/escuelaCTL.js',
 			'controllers/programasCTL.js',
+			'controllers/fileCTL.js',
 			'services/userInfo.js',
 			'services/templateData.js',
 			'directives/mteNgSearch.js',
@@ -70,9 +71,9 @@
 			//$js_scripts[] = 'map.js';
 		}
 		if($this->angular){
-			echo '<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.3/angular.min.js"></script>';
+			//echo '<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.3/angular.min.js"></script>';
 			$js_scripts[] = 'censo2014Archivos.js';
-			$js_scripts[] = 'angularApp.js';
+			//$js_scripts[] = 'angularApp.js';
 		}
 		//var_dump($js_scripts);
 		$cssmin = new mxnphp_min($this->config,$css_scripts,"css","css-min-mte");
@@ -107,7 +108,15 @@ $this->is404 = isset($this->is404)?$this->is404:false;
 	js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=1496831027206997&version=v2.0";
 	fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
- 	<div id="wrap"><div id="main" class="clearfix <?php if($this->is404) echo 'e404';?>"><div id="topBackRepeat"> 		
+ 	<?php
+ 		$customClass = '';
+ 		if($this->is404) $customClass = 'e404';
+ 		elseif($this->get('controler') == 'datos-abiertos' || $this->get('controler') == 'bases'){
+ 			$customClass = 'mtev1-background';
+ 		} 
+ 	?>
+
+ 	<div id="wrap"><div id="main" class="clearfix <?php echo $customClass;?>"><div id="topBackRepeat"> 		
 		<div id='header'>
 			<?php 
 			$this->include_template('header','global'); 
