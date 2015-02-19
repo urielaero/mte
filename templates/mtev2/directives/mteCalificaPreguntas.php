@@ -1,6 +1,6 @@
 <div ng-cloak>
 
-	<h1 class="green-title">Califica tu {{tipo}} seleccionando para cada campo una calificación del <strong>1-10</strong>.<br/>Estas calificaciones se promedian para generar la calificación de la escuela según usuarios.</h1>
+	<h1 class="green-title">Califica tu {{tipo}} seleccionando para cada campo una calificación del <strong>1-10</strong>.<br/>Estas calificaciones se promedian para generar la calificación de la {{tipo}} según usuarios.</h1>
 
         <!--if(!($i%2))-->
          <div ng-repeat="pregunta in preguntas" class="questions-box space-between" layout="row" layout-sm="column">
