@@ -16,5 +16,18 @@
 			<a href="/compara">Comparador</a>
 		</div>
 	</div>
-	<div class="cont-semaforos-results" mte-ng-search objects='{municipios:municipios,entidades:entidades,localidades:localidades}' urls="1"></div>
+	<?php if($this->get('search')){
+		$vars = array('term','control','nivel','entidad','municipio','localidad','search');
+		$params = array();
+		foreach($vars as $v){
+			if(($tmp = $this->get($v)))
+				$params[$v] = $tmp;
+		}
+		?>
+		
+		<div class="cont-semaforos-results" mte-ng-search objects='{municipios:municipios,entidades:entidades,localidades:localidades}' params='<?=json_encode($params)?>'></div>
+		
+	<?php }else{ ?>
+		<div class="cont-semaforos-results" mte-ng-search objects='{municipios:municipios,entidades:entidades,localidades:localidades}' urls="1"></div>
+	<?php } ?>
 </div>

@@ -109,10 +109,11 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
             $scope.getLocalidades();
             $scope.getEscuelas(true);
         }
-        
+       
+        var reload = false;
         $scope.getEscuelas = function(reset){
             if(reset) $scope.pagination.current_page = 1;
-            if($scope.showSearch) $scope.buildParams();
+            if($scope.showSearch && !($scope.params && $scope.params.search)) $scope.buildParams();
             //console.log($scope.params);
             $scope.loading = true;
             // Pako: aqui es un buen lugar para setear la ruta
@@ -123,6 +124,26 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
 
             if($scope.urls)
                 $location.search($scope.params);
+
+            if($scope.params && $scope.params.search){
+                if(reload){
+                    var params = {};
+                    angular.extend(params,$scope.params);
+                    $scope.buildParams();
+                    var url = '#?';
+                    for(var k in $scope.params){
+                        if(params[k])
+                            $scope.params[k] = params[k];
+
+                        if($scope.params[k])
+                            url += k+'='+$scope.params[k] + '&';
+                    }
+                    location.href = '/compara/'+url;
+                    return;
+                }
+                reload = true;
+            }
+
                 
             $http({method:'POST',url:'/api/escuelas',data:$scope.params}).then(function(response){
                 //console.log(response.data);
