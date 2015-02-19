@@ -3,7 +3,7 @@
 </script>
 
 <?php if($this->tipo_encuesta == 'bibliotecas'){ ?>
-	<h1 class="green-title">Califica tu biblioteca seleccionando para cada campo una calificación del <strong>1-10</strong>.<br/>Estas calificaciones se promedian para generar la calificación de la escuela según usuarios.</h1>
+	<h1 class="green-title">Califica tu biblioteca seleccionando para cada campo una calificación del <strong>1-10</strong>.<br/>Estas calificaciones se promedian para generar la calificación de la biblioteca según usuarios.</h1>
 <?php }else{ ?>
 	<h1 class="green-title">Califica tu escuela seleccionando para cada campo una calificación del <strong>1-10</strong>.<br/>Estas calificaciones se promedian para generar la calificación de la escuela según usuarios.</h1>
 <?php } ?>
