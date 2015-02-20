@@ -64,10 +64,14 @@
 								<td>{{escuela.control}}</td>
 								<td><strong ng-bind='escuela.rank || "--"'></strong> de <strong ng-bind='escuela.entidad_cct_count'></strong></td>
 								<td>
-									<md-button id="boton-semaforo-compara" ng-class="semaforos[escuela.semaforo].class" class="md-fab" aria-label="Time">
-										<i id="semaforos-buscador" ng-class="semaforos[escuela.semaforo].icon"></i>
-									</md-button>
-									<p>{{semaforos[escuela.semaforo].label}}</p>
+							<!-- los iconos ya se alinean bien de esta forma si se cambia por md-button se desalinean Carlos Barahona-->
+								<div id="boton-semaforo-compara" ng-class="semaforos[escuela.semaforo].class" >
+								  <div id="semaforos-buscador">
+									<i id="semaforos-buscador-icono" ng-class="semaforos[escuela.semaforo].icon"></i>
+								  </div>
+								</div>
+							<!--Carlos Barahona-->
+								<p>{{semaforos[escuela.semaforo].label}}</p>
 								</td>
 							</tr>
 						</tbody>
