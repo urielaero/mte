@@ -10,4 +10,5 @@ a2dissite default-ssl.conf
 cp /etc/php5/apache2/php.ini /etc/php5/apache2/php.ini.bk
 cat /etc/php5/apache2/php.ini.bk| sed -r "s/^short_open_tag( |=|Off)+$/short_open_tag = On/"> /etc/php5/apache2/php.ini
 su -c "cd; git clone https://github.com/mekler/mxnphp.git" -s /bin/sh mte
+ln -s /home/mte/mejoratuescuela /var/www/mejoratuescuela
 service apache2 restart
