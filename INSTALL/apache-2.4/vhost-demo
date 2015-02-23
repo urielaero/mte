@@ -1,14 +1,14 @@
 <VirtualHost *:80>
-   DocumentRoot "/var/www/mte"
-   ServerName  mysite.com
-   ServerAlias www.mysite.com
-   ServerAdmin admin@localhost
-   SetEnv APPLICATION_ENV "sample_config"
-      <Directory "/var/www/mte-v1.0">
-              Allow from all
-              AllowOverride All
-              #Order allow,deny
-              Require all granted
-      </Directory>
+    DocumentRoot "/var/www/html/mejoratuescuela"
+    ServerName  mejoratuescuela.org
+    ServerAlias www.mejoratuescuela.org
+    ServerAlias *.sienlace2014.com
+    ServerAdmin admin@localhost
+   SetEnv APPLICATION_ENV "production_config"
+   <Directory "/var/www/html/mejoratuescuela">
+           Allow from all
+           AllowOverride All
+           Order allow,deny
+   </Directory>
    DirectoryIndex index.html index.php
 </VirtualHost>
