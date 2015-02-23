@@ -1,0 +1,32 @@
+<files *.js.gz>
+  AddType "text/javascript" .gz
+  AddEncoding gzip .gz
+</files>
+<files *.css.gz>
+  AddType "text/css" .gz
+  AddEncoding gzip .gz
+</files>
+
+
+php_value magic_quotes_gpc Off
+php_value max_execution_time 200
+php_value max_input_time 200
+
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} sienlace2014\.(com|com\.mx|org\.mx|mx|org)
+RewriteCond %{HTTP_HOST}   !^$
+RewriteRule ^(.*)$ http://www.mejoratuescuela/peticiones/sienlace [R=301,L]
+
+#RewriteCond %{HTTP_HOST} !^www\.
+#RewriteRule ^(.*)$ http://mte.spaceshiplabs.com/$1 [R=301,L]
+
+RewriteBase /
+#RewriteRule ^sienlace$ http://www.mejoratuescuela.org/peticiones/sienlace [QSA,R,L]
+#RewriteRule ^califica-tu-escuela/?$ ?controler=compara [QSA,L]
+RewriteRule ^sienlace/?$ http://www.mejoratuescuela/peticiones/sienlace [R=301,L]
+RewriteRule ^([-_\w]+)/?$ ?controler=$1 [QSA,L]
+RewriteRule ^([-_\w]+)/([-_\w]+)/?$ ?controler=$1&action=$2 [QSA,L]
+RewriteRule ^([-_\w]+)/([-_\w]+)/([-_\w]+)/?$ ?controler=$1&action=$2&id=$3 [L]
+RewriteRule ^([-_\w]+)/([-_\w]+)/([-_\w]+)/e=(\w)+/?$ ?controler=$1&action=$2&id=$3&error=$4 [L]
+
