@@ -1,11 +1,11 @@
 <VirtualHost *:80>
-    DocumentRoot "/var/www/html/mejoratuescuela"
+    DocumentRoot "/var/www/mejoratuescuela"
     ServerName  mejoratuescuela.org
     ServerAlias www.mejoratuescuela.org
     ServerAlias *.sienlace2014.com
     ServerAdmin admin@localhost
    SetEnv APPLICATION_ENV "production_config"
-   <Directory "/var/www/html/mejoratuescuela">
+   <Directory "/var/www/mejoratuescuela">
            Allow from all
            AllowOverride All
            Order allow,deny
