@@ -349,6 +349,21 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container .compare-table table .footable-row-detail-cell{background: #1B97ED;color: #fff}
 #content .container .compare-table table td .md-button,
 #content .container .compare-table table th .md-button{box-shadow: none;color: #4C4C4C;cursor: default;height: 32px;width: 32px;}
+/*Carlos Barahona implementacion para movil*/
+.boton-filtrar{height: 30px; background: #1CA5F5;cursor:pointer;margin-top: 5px}
+#titulo-filtrar{float: left;width: 80%;height: 100%;display: table;}
+.titulo-filtrar{display: table-cell;vertical-align: middle;color: white;font-weight: 700;font-size: 15px;padding-left:10px }
+#icono-filtrar{float: left;width: 20%;height: 100%;display: table;text-align: center;padding: 1}
+.icono-filtrar{width: 20px;height: 20px;margin-top: 3px}
+
+#cont-ubicacion{background: transparent;height: auto}
+
+#cont-ubicacion.ng-hide{opacity: 1; display: block!important;}
+
+#cont-ubicacion.ng-hide .label-nivel{opacity: 0; height: 0px}
+
+
+/*Carlos Barahona implementacion para movil*/
 
 /*Carlos Barahona*/
 #content .container .compare-table table td .md-button.rank9{background: #D92FEC;color: #FFFFFF;}/*biblioteca*/

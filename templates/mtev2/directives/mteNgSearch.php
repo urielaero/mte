@@ -1,21 +1,68 @@
 <div class='container results mteNgSearch'>
 	<div layout="row" layout-sm="column" class="space-between">
-		<div ng-show='showSearch' flex="25" flex-sm="100" id="filters">
+		<div ng-show='showSearch' flex="25" flex-sm="100" id="filters" >
 			<form>
 				<div mte-text-search term='termSearch(term)' temp="mteTextSearch" urls='1'></div>
-				<label>Estado</label>
-				<select ng-model='entidad' ng-disabled='loading' ng-change='entidadChange()' ng-options='entidad as entidad.nombre.capitalize() for entidad in entidades' ></select>
-				<label>Municipio</label>
-				<select ng-model='municipio' ng-disabled='loading' ng-change='municipioChange()' ng-options='municipio as municipio.nombre for municipio in municipios | municipiosFilter:entidad' ></select>
-				<label>Localidad</label>
-				<select ng-model='localidad' ng-change='$scope.pagination.current_page = 1;getEscuelas();' ng-disabled='!localidades[1]	' ng-options='localidad as localidad.nombre.capitalize() for localidad in localidades' ></select>
 
-				<label>Nivel escolar o tipo de establecimiento</label>
+				<div hide-gt-sm id="ubicacion-btn" class="boton-filtrar" flex ng-click="estadoVisibility = !estadoVisibility">
+					<div id="titulo-filtrar">
+						<h5 class="titulo-filtrar">Ubicación</h5>
+					</div>
+					<div id="icono-filtrar">
+						<img class="icono-filtrar" src="/templates/mtev2/img/MAS.png">
+					</div>
+				</div>
+
+				<div id="cont-ubicacion" hide-sm ng-hide="estadoVisibility">
+					<label>Estado</label>
+					<select ng-model='entidad' ng-disabled='loading' ng-change='entidadChange()' ng-options='entidad as entidad.nombre.capitalize() for entidad in entidades' ></select>
+					<label>Municipio</label>
+					<select ng-model='municipio' ng-disabled='loading' ng-change='municipioChange()' ng-options='municipio as municipio.nombre for municipio in municipios | municipiosFilter:entidad' ></select>
+					<label>Localidad</label>
+					<select ng-model='localidad' ng-change='$scope.pagination.current_page = 1;getEscuelas();' ng-disabled='!localidades[1]	' ng-options='localidad as localidad.nombre.capitalize() for localidad in localidades' ></select>
+				</div>
+
+				<div hide-gt-sm id="ubicacion-btn" class="boton-filtrar" flex ng-click="nivelVisibility = !nivelVisibility">
+					<div id="titulo-filtrar">
+						<h5 class="titulo-filtrar">Nivel Escolar</h5>
+					</div>
+					<div id="icono-filtrar">
+						<img class="icono-filtrar" src="/templates/mtev2/img/MAS.png">
+					</div>
+				</div>
+
+			<div id="cont-ubicacion" hide-sm ng-hide="nivelVisibility">
+				<label class="label-nivel">Nivel escolar o tipo de establecimiento</label>
 				<p><md-checkbox ng-change='checkBoxChange()' ng-disabled='loading' ng-repeat='nivel in niveles' ng-model='nivel.checked' aria-label="Checkbox 1" >{{nivel.label}}</md-checkbox></p>
-				<label>Turno</label>
+			</div>
+
+			<div hide-gt-sm id="ubicacion-btn" class="boton-filtrar" flex ng-click="turnoVisibility = !turnoVisibility">
+					<div id="titulo-filtrar">
+						<h5 class="titulo-filtrar">Turno</h5>
+					</div>
+					<div id="icono-filtrar">
+						<img class="icono-filtrar" src="/templates/mtev2/img/MAS.png">
+					</div>
+			</div>
+
+			<div id="cont-ubicacion" hide-sm ng-hide="turnoVisibility">
+				<label class="label-nivel">Turno</label>
 				<p><md-checkbox ng-change='checkBoxChange()' ng-disabled='loading' ng-repeat='turno in turnos' ng-model='turno.checked' aria-label="Checkbox 1" >{{turno.label}}</md-checkbox></p>
-				<label>Sector</label>
+			</div>
+
+			<div hide-gt-sm id="ubicacion-btn" class="boton-filtrar" flex ng-click="sectorVisibility = !sectorVisibility">
+					<div id="titulo-filtrar">
+						<h5 class="titulo-filtrar">Sector</h5>
+					</div>
+					<div id="icono-filtrar">
+						<img class="icono-filtrar" src="/templates/mtev2/img/MAS.png">
+					</div>
+			</div>
+
+			<div id="cont-ubicacion" hide-sm ng-hide="sectorVisibility">
+				<label class="label-nivel">Sector</label>
 				<p><md-checkbox ng-change='checkBoxChange()' ng-disabled='loading' ng-repeat='control in controles' ng-model='control.checked' aria-label="Checkbox 1" >{{control.label}}</md-checkbox></p>
+			</div>
 
 			</form>
 		</div>
