@@ -1,0 +1,13 @@
+<VirtualHost *:80>
+    DocumentRoot "/var/www/blog"
+    ServerName  blog.mejoratuescuela.org
+
+    ServerAdmin admin@localhost
+       SetEnv APPLICATION_ENV "production_config"
+       <Directory "/var/www/blog">
+               Allow from all
+               AllowOverride All
+               Order allow,deny
+       </Directory>
+       DirectoryIndex index.html index.php
+</VirtualHost>
