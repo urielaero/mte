@@ -63,6 +63,8 @@ md-tabs.md-default-theme md-tabs-ink-bar:before{
 .leaflet-popup-content-wrapper, .leaflet-popup-tip{background: none!important;box-shadow: none!important}
 .leaflet-container a.leaflet-popup-close-button{color: #5D5D5D!important;top: 15px!important;right: 21px!important;z-index: 99!important}
 
+p,a,li,td,h1,h2,h3{-webkit-user-select:all!important;-moz-user-select:all!important;-ms-user-select:all!important;user-select:all!important; }
+
 /*Header*/
 #header{background: #fff}
 #header .menu{background-color:white;height:90px;z-index: 2;position: relative;}
