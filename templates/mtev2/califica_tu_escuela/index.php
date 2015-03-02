@@ -31,7 +31,7 @@
 		>
 	</div>
 	<div layout="row" layout-margin layout-fill layout-padding layout-align="center" class="califica_buscar">
-		<a href="/conoce/" ng-show="!byCCT" flex="30" class="vertical-align-center horizontal-align-center">Búscar escuelas</a>
+		<a href="/compara/" ng-show="!byCCT" flex="30" class="vertical-align-center horizontal-align-center">Búscar escuelas</a>
 	</div>
 	<div ng-show="tipo && byCCT">
 		<div mte-califica-preguntas tipo="tipo" cct="selectCCT" preloadpreguntas='<?=json_encode($this->preload_preguntas)?>'></div>
