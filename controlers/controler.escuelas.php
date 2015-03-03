@@ -127,6 +127,12 @@ class escuelas extends main{
 			if(ctype_digit($this->escuela->id)){
 				#hay una escuela y puedo mostrarla como sugerencia.
 			}*/
+			if(ctype_digit($this->escuela->id)){
+				#hay una escuela y puedo mostrarla como sugerencia.
+				$this->escuela_info($this->escuela->id,false);
+				if($this->escuela->id != $this->escuela->cct)
+					$this->suggestion = true;
+			}
 			header('HTTP/1.0 404 Not Found');
 			$this->is404 = true;
 			$this->include_theme('index','e404');
@@ -139,20 +145,22 @@ class escuelas extends main{
 	* Lee la información de la escuela con CCT en la url: host/escuelas/index/CCT, sí la información de esta escuela esta 
 	* en la base de datos el atributo 'escuela' contendrá los datos de esta y un booleano verdadero es devuelto en caso contrario se devuelve un falso.
 	*/
-	public function escuela_info($id=false) {
+	public function escuela_info($id=false,$useCCT=true){
 		if(!$id)
 			$id = $this->get('id');
 		$this->escuela = new escuela($id,$this->conn);
 		#$this->escuela->debug = true;
 		$this->escuela->has_many_order_by['calificaciones'] = 'calificaciones.timestamp DESC';
-		$this->escuela->key = 'cct';
-        $this->escuela->cct = $id;
-		$this->escuela->fields['cct'] = $id;
+		if($useCCT){
+			$this->escuela->key = 'cct';
+			$this->escuela->cct = $id;
+			$this->escuela->fields['cct'] = $id;	
+		}
 		$this->escuela->read("id,cct,calificaciones=>calificacion,calificaciones=>id,calificaciones=>likes,calificaciones=>comentario,calificaciones=>nombre,calificaciones=>ocupacion,calificaciones=>timestamp,calificaciones=>activo,calificaciones=>acepta_nombre");
         $this->escuela->key = 'id';
         $this->escuela->has_many_keys["enlaces"] = "id_cct";
         //$this->escuela->has_many_keys["calificaciones"] = "id_cct";
-        if( isset($this->escuela->cct) ){
+        if( isset($this->escuela->cct) && $this->escuela->cct != $this->escuela->id){
 			$this->escuela->read("
 				id,nombre,domicilio,paginaweb,
 				entidad=>nombre,entidad=>id,municipio=>id,municipio=>nombre,localidad=>nombre,localidad=>id,

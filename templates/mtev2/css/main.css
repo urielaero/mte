@@ -939,11 +939,14 @@ form #recaptcha_area,form #recaptcha_table{width:229px !important;}
 #content .container.e404 h1{font-size: 50px;font-weight: 700;line-height: 48px}
 #content .container.e404 p{font-size: 18px}
 #content .container.e404 .e404-image{display: block;margin: 10px auto;max-width: 100%}
-#content .container.e404 .button-bordered{font-size: 24px;margin-top: -15%;}
+#content .container.e404 .button-bordered{font-size: 24px;/*margin-top: -15%;*/}
 #footer.bottom-e404{background: #009FE1;padding: 12px 0}
 #footer.bottom-e404 .container.e404 .link{color: #fff;font-size: 18px;float: left;text-align: center;width: 33%;}
 #footer.bottom-e404 .container.e404 .link a{color: #fff}
 #footer.bottom-e404 .container.e404 .link i{font-size: 28px}
+#content .container.e404.escuelas h2{font-size:1.8em;margin-top:-17%}
+#content .container.e404.escuelas .suggestion{max-width:409px;margin-bottom:44px;}
+#content .container.e404.escuelas .suggestion p{font-size:14px;text-align:left;margin:9px 0 -5px 30px;}
 
 @media(max-width: 960px){
 	#content{padding: 0 12px}
