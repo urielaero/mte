@@ -127,8 +127,9 @@ class escuelas extends main{
 			if(ctype_digit($this->escuela->id)){
 				#hay una escuela y puedo mostrarla como sugerencia.
 			}*/
+			$this->suggestion = false;
 			if(ctype_digit($this->escuela->id)){
-				#hay una escuela y puedo mostrarla como sugerencia.
+				//hay una escuela y puedo mostrarla como sugerencia.
 				$this->escuela_info($this->escuela->id,false);
 				if($this->escuela->id != $this->escuela->cct)
 					$this->suggestion = true;

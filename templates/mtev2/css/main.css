@@ -946,7 +946,9 @@ form #recaptcha_area,form #recaptcha_table{width:229px !important;}
 #footer.bottom-e404 .container.e404 .link i{font-size: 28px}
 #content .container.e404.escuelas h2{font-size:1.8em;margin-top:-17%}
 #content .container.e404.escuelas .suggestion{max-width:409px;margin-bottom:44px;}
-#content .container.e404.escuelas .suggestion p{font-size:14px;text-align:left;margin:9px 0 -5px 30px;}
+#content .container.e404.escuelas .suggestion p{font-size:14px;text-align:left;margin:9px 0 -5px 2em;}
+#content .container.e404.escuelas .suggestion p + p{margin:0 0 0 2em;}
+#content .container.e404.escuelas .suggestion p img{margin-right:.4em;}
 
 @media(max-width: 960px){
 	#content{padding: 0 12px}
