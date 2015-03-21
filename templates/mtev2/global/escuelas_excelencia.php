@@ -1,4 +1,4 @@
-<?php  if( $this->escuela->ganador_disena_el_cambio){ ?>
+<?php  if( $this->escuela->programas){ ?>
 <div id="escuelas-excelencia" ng-hide="excelencia">
 	<div ng-click="excelecia" class="cerrar-excelencia">
 		<img class="cerrar-ex" src="/templates/mtev2/img/cerrar.png">
