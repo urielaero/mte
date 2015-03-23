@@ -25,7 +25,7 @@ if(!empty($this->escuela->rank)){
 		$tmp = new stdClass();
 		$nombre_turno = $turnos_nombre[$rank->turnos_eval];
 		$tmp->nombre_icon = $nombre_turno=='VESPERTINO'?'vespertino-01':strtolower($nombre_turno);
-		$tmp->nombre = $this->capitalize($nombre_turno);
+		$tmp->nombre = $this->capitalize($this->escuela->turno->nombre);
 		$tmp->turnos_eval = $rank->turnos_eval;
 		$tmp->rank = isset($rank->rank_entidad) ? number_format($rank->rank_entidad ,0): '--';
 		$tmp->rank_total = number_format($this->entidad_cct_count,0);
@@ -38,6 +38,11 @@ if(!empty($this->escuela->rank)){
 			$tmp->censo = $turnos[$nombre_turno];
 		else
 			$tmp->censo = false;
+		
+		if(count($turnos) == 1){
+			$keys = array_keys($turnos);
+			$tmp->censo = $turnos[$keys[0]];
+		}
 		$escuela_per_turnos[] = $tmp;
 	}
 }else{	
