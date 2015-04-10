@@ -269,77 +269,8 @@ if($this->escuela->nivel->id == 11){
 		</div>
 
 
-		</div>
-<!--		<ul>
-			<li class="rank1<?=$on=='Excelente'?' on':''?>">
-				<div layout="row">
-					<div flex="70" class="label">Excelente</div>
-					<div flex="30" class="circle">
-				        <md-button class="md-fab" aria-label="Time"><i class="icon-check-01"></i></md-button>									
-					</div>
-				</div>
-			</li>
-			<li class="rank2<?=$on=='Bien'?' on':''?>">
-				<div layout="row">
-					<div flex="70" class="label">Bien</div>
-					<div flex="30" class="circle">
-				        <md-button class="md-fab" aria-label="Time"><i class="icon-check-01"></i></md-button>									
-					</div>
-				</div>
-			</li>
-			<li class="rank3<?=$on=='De panzazo'?' on':''?>">
-				<div layout="row">
-					<div flex="70" class="label">De panzazo</div>
-					<div flex="30" class="circle">
-				        <md-button class="md-fab" aria-label="Time"><i class="icon-tache-01"></i></md-button>									
-					</div>
-				</div>
-			</li>
-			<li class="rank4<?=$on=='Reprobado'?' on':''?>">
-				<div layout="row">
-					<div flex="70" class="label">Reprobado</div>
-					<div flex="30" class="circle">
-				        <md-button class="md-fab" aria-label="Time"><i class="icon-tache-01"></i></md-button>									
-					</div>
-				</div>
-			</li>
-		</ul>
-		<div class="share_options">
-			<div class="options space-between" layout="row" layout-md="column">
-				<div flex="49" class="option">
-						<p><i class="icon-print-01"></i></p>
-						<p ng-click="print();">Imprimir</p>
-				</div>
-				<div flex="49" class="option" ng-click="show_share = !show_share">
-					<span>
-						<p><i class="icon-share-01"></i></p>
-						<p>Compartir</p>
-						</span>
-				</div>
-			</div>
-			<div  class="share_show" layout="row" layout-md="column" ng-show="show_share">
-				<div flex="30" class="share_fb">
-					<a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?=$urlFb?>&p[images][0]=<?=$url_logo?>&p[title]=<?=$title?>&p[summary]=<?=$description?>" target='_blank'>
-						<i class="icon-fb-01"></i>
-					</a>
-			
-				</div>
-				<div flex="30" class="share_twitter"> 
-					<a href="http://twitter.com/home?status=<?=$title." ".$urlTwitter," por @mejoratuescuela"?> " target='_blank' >
-						<i class="icon-twitter-01-01"></i>
-				
-					</a>		
-				</div>
-				<div flex="30" class="share_email">
-					<a href="mailto:?subject=<?=$title?>&amp;body=<?=$description.": ".$urlMail?>" target='_blank'>
-						<i class="icon-mail-01"></i>
-				
-					</a>		
-				</div>
-			</div>
-		</div>
 	</div>
-	<?php } ?> -->
+	<?php } ?> 
 </div>
 <div class="additional-info space-between" layout="row" layout-sm="column">
 	<div class="data" flex="73" flex-sm="100">
