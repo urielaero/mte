@@ -106,6 +106,7 @@ class compara extends main{
 		$this->page_title = "Compara tu escuela | Mejora tu Escuela";
 		$this->subtitle_header = 'Esta herramienta te ayuda a comparar la calidad <br />educativa de tu escuela con la de otras <br />similares o cercanas.';
 		if($this->config->theme == 'mtev2'){
+			$this->draw_map = true;
 			$this->include_theme('index','index');
 			return true;
 		}

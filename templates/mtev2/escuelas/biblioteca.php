@@ -51,7 +51,7 @@ $urlMail = $url."#mail";
 		<div class="space-between" layout="row" layout-sm="column">
 			<div class="main-info" flex="73" flex-sm="100">
 				<div layout="row" layout-sm="column">
-					<leaflet id="map" center="center" markers="markers"  flex="50" flex-sm="100"
+					<leaflet id="map" center="center" markers="markers" layers="layers" flex="50" flex-sm="100"
 		            ng-init='loadMap(<?=json_encode($this->escuelas_digest)?>,"<?=$this->escuela->cct?>")'></leaflet>	
 					<div class="info" flex="50" flex-sm="100">
 						<div class="califica" layout="row">

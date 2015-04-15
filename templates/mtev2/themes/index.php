@@ -60,7 +60,6 @@
 			//correctamente el min.
 			echo '<script type="text/javascript" src="https://www.google.com/jsapi"></script>';
 			echo '<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css">';
-
 		}
 		if($this->draw_charts){
 			//$js_scripts[] = 'entidad-charts.js';
@@ -68,6 +67,7 @@
 		}
 		if($this->draw_map){
 			echo '<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlzbyX3J7GwOXdoRwMDfYVbqxNG1D9Jy0&sensor=true"></script>';
+			array_push($js_scripts, 'leaflet-googlemaps.js');			
 			//$js_scripts[] = 'infobox_packed.js';
 			//$js_scripts[] = 'map.js';
 		}

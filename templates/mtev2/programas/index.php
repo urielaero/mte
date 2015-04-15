@@ -93,7 +93,7 @@
 							<h3>Zonas de cobertura nacional</h3>			
 						</div>					
 					</div>
-					<leaflet id="map" center="center" markers="markers" ng-init='loadMap(states)'></leaflet>										
+					<leaflet id="map" center="center" markers="markers" layers="layers" ng-init='loadMap(states)'></leaflet>										
 				</div>
 				<div id="escuelas-programas">
 					<div>					

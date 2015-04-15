@@ -22,6 +22,7 @@ class programas extends main{
 			promover la participación ciudadana para transformar <br />
 			la educación en México.';
         $this->header_folder = 'mejora';
+        $this->draw_map = true;
 		$this->include_theme('index','index');
 	}
 

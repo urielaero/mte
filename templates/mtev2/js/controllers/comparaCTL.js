@@ -37,6 +37,15 @@ app.controller("comparaCTL", ['$scope','$http','userInfo','templateData','$mdSid
         zoom:12
     };
     $scope.markers = {lat:0,lng:0}
+    $scope.layers = {
+        baselayers: {
+            googleRoadmap: {
+                name: 'Google Streets',
+                layerType: 'ROADMAP',
+                type: 'google'
+            }
+        }
+    };     
     $scope.loadMap = function(data){
         var markers = data.map(function(escuela){
 

@@ -12,6 +12,15 @@ app.controller("programaCTL", ['$scope', '$http', '$compile',function ($scope, $
         zoom:12
     };
     $scope.markers = {lat:0,lng:0};
+    $scope.layers = {
+        baselayers: {
+            googleRoadmap: {
+                name: 'Google Streets',
+                layerType: 'ROADMAP',
+                type: 'google'
+            }
+        }
+    };     
     $scope.loadMap = function(states){
         var static_coords = [
             {"lat" : 0, "lng" : 0},
@@ -35,7 +44,7 @@ app.controller("programaCTL", ['$scope', '$http', '$compile',function ($scope, $
             {"lat" : 21.7513844, "lng" : -104.8454619 }, //Nayarit
             {"lat" : 25.592172, "lng" : -99.99619469999999 }, //Nuevo León
             {"lat" : 17.0594169, "lng" : -96.7216219 }, //Oaxaca
-            {"lat" : 25.4249499, "lng" : -101.2892991 }, //Puebla
+            {"lat" : 19.0412893, "lng" : -98.192966}, //Puebla
             {"lat" : 20.5887932, "lng" : -100.3898881 }, //Querétaro
             {"lat" : 19.1817393, "lng" : -88.4791376 },//Quintana Roo
             {"lat" : 22.1564699, "lng" : -100.9855409 },//San Luis Potosí
