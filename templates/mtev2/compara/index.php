@@ -167,7 +167,6 @@
 				</div>
 			</div>
 			<div role="tabpanel" class="tab-content phone-content" aria-labelledby="tab1" ng-switch-when="3" md-swipe-left="next()" md-swipe-right="previous()" >
-				<?php var_dump($this->draw_map); ?>
 				<div id="map">
 					<leaflet id="map" center="center" markers="markers" layers="layers"></leaflet>	
 				</div>
