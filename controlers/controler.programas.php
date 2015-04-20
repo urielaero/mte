@@ -48,14 +48,16 @@ class programas extends main{
         #$params->order_by = "ISNULL(escuelas.rank_entidad), escuelas.rank_entidad ASC, escuelas.promedio_general DESC";
         $params->one_turn = true;
         $params->order_by = "escuelas.nombre ASC";
+        $params->entidad = $estado;
         $this->get_escuelas($params);
     	$skip +=20;
     	$this->url_more_cct = "id={$programa}&es={$estado}&skip={$skip}";
         if($this->config->theme == 'mtev2'){
             $api = new api($this->config);
-            $escuelasJson = $api->jsonify($this->escuelas,["cct","nombre"]);
+            $escuelasJson = $api->jsonify($this->escuelas,["cct","nombre","municipio"]);
             foreach($escuelasJson as $key => $field){
                 $escuelasJson[$key]->nombre = $this->capitalize($escuelasJson[$key]->nombre);
+                $escuelasJson[$key]->municipio = $this->capitalize($escuelasJson[$key]->municipio->nombre);
             }
             echo json_encode($escuelasJson);
         }else{

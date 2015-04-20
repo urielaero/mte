@@ -120,6 +120,10 @@ app.controller("programaCTL", ['$scope', '$http', '$compile',function ($scope, $
         var linkFunction = $compile(angular.element(html));             
         var linkedDOM = linkFunction($scope); 
         $container.append(linkedDOM);
-    });     
+    });   
+    $scope.capitalizeFirstLetter = function (string) {
+        string = string.toLowerCase();
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }  
 
 }]);
