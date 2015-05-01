@@ -75,8 +75,9 @@
 			</p>
 			<div class="question-content">
 				<p>Las calificaciones individuales de tu hij@ son independientes del desempeño de la escuela en conjunto o de su calidad educativa. En la boleta de calificaciones de la escuela, tu hij@ puede tener resultados muy altos, pero eso no quiere decir que está cumpliendo con los estándares nacionales de aprendizaje o que la escuela, en su conjunto, los esté cumpliendo. Te sugerimos revisar los resultados de tu hij@ en la prueba ENLACE, su calificación te puede dar un mejor estimado de su nivel de aprendizaje comparad@ con otros estudiantes de su edad. Puedes conocer los resultados en:</p>
-				<p>Para primaria y secundaria: <a href="http://bit.ly/1dAOfs6">http://bit.ly/1dAOfs6</a></p>
-				<p>Y para bachillerato en: <a href="http://bit.ly/15t9pWS">http://bit.ly/15t9pWS</a></p>
+				<p>Para primaria y secundaria: <a href=" http://www.enlace.sep.gob.mx/ba/"> http://www.enlace.sep.gob.mx/ba/</a></p>
+				<p>Y para bachillerato en: <a href="http://www.enlace.sep.gob.mx/ms/">http://www.enlace.sep.gob.mx/ms/
+				</a></p>
 			</div>
 		</li>
 		<li>
