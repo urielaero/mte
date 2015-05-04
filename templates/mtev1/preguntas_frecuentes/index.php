@@ -73,8 +73,8 @@
 				<h3>6. ¿Por qué mi escuela tiene una mala calificación en el semáforo educativo si mi hij@ está obteniendo buenas calificaciones en la escuela?
 				</h3>
 				<p>Las calificaciones individuales de tu hij@ son independientes del desempeño de la escuela en conjunto o de su calidad educativa. En la boleta de calificaciones de la escuela, tu hij@ puede tener resultados muy altos, pero eso no quiere decir que está cumpliendo con los estándares nacionales de aprendizaje o que la escuela, en su conjunto, los esté cumpliendo. Te sugerimos revisar los resultados de tu hij@ en la prueba ENLACE, su calificación te puede dar un mejor estimado de su nivel de aprendizaje comparad@ con otros estudiantes de su edad. Puedes conocer los resultados en:<br />
-				Para primaria y secundaria: <a href="http://bit.ly/1dAOfs6">http://bit.ly/1dAOfs6</a><br />
-				Y para bachillerato en: <a href="http://bit.ly/15t9pWS">http://bit.ly/15t9pWS</a> 
+				Para primaria y secundaria: <a href="http://www.enlace.sep.gob.mx/ba/">http://www.enlace.sep.gob.mx/ba/</a><br />
+				Y para bachillerato en: <a href="http://www.enlace.sep.gob.mx/ms/">http://www.enlace.sep.gob.mx/ms/</a> 
 				</p>
 				<a name="pregunta7"></a>
 				<h3>7. ¿Qué quiere decir el triángulo negro junto al nombre de mi escuela (o en el lugar del semáforo educativo)?</h3>
