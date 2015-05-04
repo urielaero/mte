@@ -114,7 +114,7 @@
 				</div>
 			</div>
 		</div>
-		<div flex="25" flex-sm="100" class="sidebar">
+		<div flex="25" flex-sm="100" class="sidebar trivial222">
 			<div class="programs">
 				<h5>Programas federales</h5>
 				<ul>
