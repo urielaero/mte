@@ -4,7 +4,7 @@ app.controller("fileController", function ($scope) {
 	$scope.entidades.forEach(function(entidad){
 		entidad.census = 'Centros';
 		entidad.format = 'win';
-		entidad.service = 'g';
+		entidad.service = 'r';
 	});
 	$scope.options = [
 		'Centros',
