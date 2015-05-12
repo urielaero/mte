@@ -274,7 +274,7 @@ if($this->escuela->nivel->id == 11){
 </div>
 <div class="additional-info space-between" layout="row" layout-sm="column">
 	<div class="data" flex="73" flex-sm="100">
-		<div mte-califica></div>
+		<!-- <div mte-califica></div> -->
 		<form action="/" method="GET" class="comment-form">
 			<div layout="row" ng-click="toggleFormEvent()">
 				<div flex="10" class="icon-container" hide-sm>
