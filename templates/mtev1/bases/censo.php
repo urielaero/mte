@@ -64,11 +64,15 @@
 					<div class='clear'></div>
 				</td>
 				<td class='services'>
+					<!--
 						<div class='service'>
 							<div class='checkbox' ng-click='entidad.service = "g"' ng-class='entidad.service == "g" ? "selected":""'></div>
 							<div class='icon google'></div>
 							<p>Google</p>
 						</div>
+					-->
+
+						<div class="tmp"></div>
 						<div class='service'>
 							<div class='checkbox' ng-click='entidad.service = "r"' ng-class='entidad.service == "r" ? "selected":""'></div>
 							<div class='icon rackspace'></div>
