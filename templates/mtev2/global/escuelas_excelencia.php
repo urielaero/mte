@@ -11,6 +11,6 @@
 	</div>
 	<h3 class="text-excelencia2">"Escuela de Excelencia para</h3>
 	<h3 class="text-excelencia4">Abatir el Rezago Educativo"</h3>
-	<h6 class="text-excelencia3">Haz click para conocer más</h6>
+	<h6 class="text-excelencia3"><a href="/programas/index/26">Haz click para conocer más</a></h6>
 </div>
 <?php } ?>

@@ -602,11 +602,11 @@ ul.dropdown-menu li.active a{color: #fff}
 
 /*excelencia carlos barahona*/
 #cont-escuelas-excelencia{}
-#escuelas-excelencia{width: 100%;max-width: 340px;height: 265px;background:#24AF5C;position: absolute;z-index: 10000;text-align: center;right: 0}
+#escuelas-excelencia{min-width: 209px;background:#24AF5C;position: absolute;z-index: 10000;text-align: center;right: 0;width:16%;top:336px}
 .text-excelencia{font-weight: 700; color: white;text-transform: uppercase;margin-top: -2px}
-.text-excelencia2{ color: white;font-weight: 300;font-size: 20px;margin-top: -3px}
-.text-excelencia4{ color: white;margin-top: -24px;font-weight: 300;font-size: 20px}
-.text-excelencia3{font-weight: 700; color: white;margin-top: -17px;font-size: 15px;}
+.text-excelencia2{ color: white;font-weight: 300;font-size: 16px;margin-top: -3px}
+.text-excelencia4{ color: white;margin-top: -24px;font-weight: 300;font-size: 16px}
+.text-excelencia3 a{font-weight: 700; color: white;margin-top: -17px;font-size: 15px;}
 #biblioteca-excelencia{width: 60px;height: 60px;background: white;border-radius: 50% 50% 50% 50% ;margin: 0 auto;display: table;}
 .biblioteca-excelencia{display: table-cell;vertical-align: middle;}
 #excelencia-icono{font-size: 36px;color: #24AF5C}

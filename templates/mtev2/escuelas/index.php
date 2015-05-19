@@ -66,6 +66,10 @@ if(!empty($this->escuela->rank)){
 }
 ?>
 
+<?php 
+  if(isset($this->escuela->programas['escuelas_de_excelencia']) || isset($this->escuela->ganador_disena_el_cambio))
+      $this->include_template('escuelas_excelencia','global');
+?>
 
 <div class="container profile profile-escuela" ng-controller="escuelaCTL">
 	<div class="breadcrumb perfect-breadcrumb">
@@ -75,10 +79,7 @@ if(!empty($this->escuela->rank)){
 		<?php } ?>
 	</div>
 	<div class="menu-top">
-  <?php 
-    if(isset($this->escuela->programas['escuelas_de_excelencia']) || isset($this->escuela->ganador_disena_el_cambio))
-        $this->include_template('escuelas_excelencia','global');
-    ?>
+
 		<div layout="row" layout-sm="column" class="menu-row perfect-menu-row">
 			<div class="profile-title" flex="55" flex-sm="100">
 				<div class="title-container" layout="row">
