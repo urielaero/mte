@@ -536,11 +536,11 @@ ul.dropdown-menu li.active a{color: #fff}
 
 
 /*charts escuela*/
-#content .container.profile .chart .legend_chart{display:inline-block;vertical-align:top;margin-top:19px;background:#ECECEC;width:80px;height:127px;padding-top:15px;}
-#content .container.profile .chart .legend_chart p{margin-left:23px;font-size:15px;line-height:14px;margin-bottom:5px;color:#A7A7A7;}
+#content .container.profile .chart .legend_chart{display:inline-block;vertical-align:top;margin-top:19px;background:#ECECEC;width:80px;height:133px;padding-top:15px;}
+#content .container.profile .chart .legend_chart p{margin-left:23px;font-size:15px;line-height:14px;margin-bottom:5px;color:#A7A7A7;font-weight:bold}
 #content .container.profile .legend_chart p .circle{width:13px;height:13px;display:inline-block;vertical-align:top;background:white;border-radius:50%;margin-right:6px;}
 #content .container.profile .legend_chart .under{margin:-8px 0 9px 8px;font-size:21px;color:#919191;}
-#content .container.profile .legend_chart .under + p{margin:0 0 0 0px;font-size:14px;text-align:center;}
+#content .container.profile .legend_chart .under + p{margin:0 0 0 0px;font-size:14px;text-align:center;color:#929292;font-weight:600;padding-bottom:20px;}
 #content .container.profile .content_chart{overflow:hidden;width:351px;display:inline-block;height:145px;}
 
 /*infobox*/
