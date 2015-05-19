@@ -1,6 +1,6 @@
 <?php  if( $this->escuela->programas){ ?>
-<div id="escuelas-excelencia" ng-hide="excelencia">
-	<div ng-click="excelecia" class="cerrar-excelencia">
+<div id="escuelas-excelencia" ng-show="excelencia" ng-init="excelencia=true">
+	<div ng-click="excelencia=false" class="cerrar-excelencia">
 		<img class="cerrar-ex" src="/templates/mtev2/img/cerrar.png">
 	</div>
 	<h6 class="text-excelencia">esta escuela fue <br/> seleccionada para el programa:</h6>
