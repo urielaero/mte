@@ -977,8 +977,10 @@ class main extends controler{
 		return false;
 	}
 
-	protected function isValidCalificaForm(){
-		$check = array('e_mail'=>0,'mail'=>0,'correo'=>0,'email'=>1,'ocupacion'=>1,'cct'=>1,'last_name'=>1,'comentario'=>1);
+	protected function isValidCalificaForm($check = false){
+		if(!$check)
+			$check = array('email'=>1,'ocupacion'=>1,'cct'=>1,'last_name'=>1,'comentario'=>1);
+		$check = array_merge($check,array('e_mail'=>0,'mail'=>0,'correo'=>0));
 		foreach($check as $field => $f){
 			if(($f && ($this->post($field)=='' || !$this->post($field))) || !$f && $this->post($field) != ''){
 				return false;

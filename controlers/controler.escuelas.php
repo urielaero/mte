@@ -241,7 +241,11 @@ class escuelas extends main{
 	public function calificar(){
 		$captcha = new Recaptcha($this->config->recaptcha_public_key,$this->config->recaptcha_private_key);
 		$calificacion = new stdClass();
-		if($this->isValidCalificaForm() && 
+		$check = false;
+		if(!$this->post("email")){
+			$check = array('cct'=>1);
+		}
+		if($this->isValidCalificaForm($check) && 
             ($captcha->check_answer($this->config->http_address,
 			    $this->post('recaptcha_challenge_field'),
     			$this->post('recaptcha_response_field')
@@ -257,6 +261,7 @@ class escuelas extends main{
 				)) && $this->isTokenSimulatesValid()){
 					//$calificacion->debug = true;
                     if($this->request('nombre')){
+		    
     					$calificacion->create('nombre,email,id_cct,cct,comentario,ocupacion,calificacion,user_agent,acepta_nombre',array(
     						$this->post('nombre'),
     						$this->post('email'),
@@ -269,7 +274,22 @@ class escuelas extends main{
     						$accept_name
     					),'id');
                     }
-					if($this->post("calificaciones")) $calificacion->setCalificaciones($this->post('preguntas'),$this->post('calificaciones'));	
+					if($this->request("calificaciones")){
+						if(!isset($calificacion->id)){
+							$calificacion->create('id_cct,cct,email,nombre,ocupacion,comentario,user_agent',
+								array(
+									"0",
+									$this->request("cct"),
+									"_optional",
+									"_optional",
+									"_optional",
+									"_optional",
+									$_SERVER["HTTP_USER_AGENT"]
+								),"id"
+							);
+						}
+						$calificacion->setCalificaciones($this->request("preguntas"),$this->request("calificaciones"));
+					}
                     if($this->request('json') && $this->request('optional_comement') && !$this->request('nombre')){
                         $calificacion->id = true;
                     
