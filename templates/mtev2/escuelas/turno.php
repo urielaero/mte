@@ -456,7 +456,6 @@ if($this->escuela->nivel->id == 11){
 				if($this->escuela->calificaciones){
 					foreach($this->escuela->calificaciones as $calificacion){
 						if(isset($calificacion->calificacion)){
-							var_dump($calificacion->calificacion);
 							$cp++;
 							$pt += $calificacion->calificacion;
 						}
