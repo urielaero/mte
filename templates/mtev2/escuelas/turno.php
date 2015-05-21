@@ -419,6 +419,19 @@ if($this->escuela->nivel->id == 11){
 
         <div  class="comentarios tables-box" id="comentarios">
 			<?php
+			$pro = "n/a";
+			if(isset($this->preguntas)){
+				$sm = 0;
+				$l = 0;
+				foreach($this->preguntas as $pregunta){
+					if(!isset($pregunta->promedio))
+						continue;
+					$sm += $pregunta->promedio;
+					$l++;
+				}
+				$pro = $sm / $l;
+				$pro = number_format($pro,2);
+			}else{//Ya no deberia de venir asi.
 				$cp = 0;
 				$pt = 0;
 				if($this->escuela->calificaciones){
@@ -433,6 +446,9 @@ if($this->escuela->nivel->id == 11){
 				}else{
 					$pro = "n/a";
 				}
+			
+			
+			}
 			?>
 
 			<h2 layout="row" layout-sm="column">

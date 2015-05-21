@@ -207,7 +207,7 @@ class escuelas extends main{
 					$tipo_preguntas = $tipo_p->read('id,nombre');
 					$tipo_pregunta = $tipo_preguntas[0];
 					$aux->search_clause = "tipo_pregunta = {$tipo_pregunta->id}";
-	                $this->preguntas = $aux->read('id,titulo');
+					$this->preguntas = $aux->read('id,titulo');
 	            }
 				//Objeto para mtev2
 				$this->escuelaSummary = new stdClass();
