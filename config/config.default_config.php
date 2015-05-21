@@ -13,6 +13,10 @@ class default_config{
                 //Security
                 $this->secured = false;
 
+		//mocha test
+		$this->front_test = false;
+
+
                 //Sofware
                 $this->document_root = $_SERVER['DOCUMENT_ROOT']."/";
                 $this->lang = "en";

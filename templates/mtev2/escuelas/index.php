@@ -3,7 +3,7 @@
 </script>
 
 <script type="text/ng-template" id="mteCalifica.html">
-	<?php $this->include_template('mteCalificaPerfil','directives'); ?>
+	<?php $this->include_template('mteCalificaPerfil2','directives'); ?>
 </script>
 
 <?php

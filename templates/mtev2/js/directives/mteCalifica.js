@@ -26,15 +26,14 @@
                 $scope.input.cct = $scope.cct;  
             }
 
-	    $scope.input.calificaciones = JSON.stringify($scope.input.calificaciones);
-	    $scope.input.preguntas = JSON.stringify($scope.input.preguntas);
+            $scope.input.calificaciones = JSON.stringify($scope.input.calificaciones);
+            $scope.input.preguntas = JSON.stringify($scope.input.preguntas);
 
             $http({
                 method:'POST',
                 data:$scope.input,
                 url:'/escuelas/calificar'
             }).then(function(res){
-	    	console.log(res);
                 $scope.success = res.data.success;
                 $scope.error = $scope.success?false:true;
                 $scope.error_captcha = res.data.captcha;

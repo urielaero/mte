@@ -19,7 +19,7 @@ $beta_template = isset($_COOKIE['beta_template'])?$_COOKIE['beta_template']:fals
 if($beta_template !== false)
 	$config->beta_button = false;
 
-if($beta_template == "1"){
+if($beta_template == "1" || $config->theme=="mtev2"){
 	$config->jsonMode = true;
 	$config->theme = 'mtev2';
 }elseif(!$beta_template){

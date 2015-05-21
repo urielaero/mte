@@ -241,10 +241,8 @@ class escuelas extends main{
 	public function calificar(){
 		$captcha = new Recaptcha($this->config->recaptcha_public_key,$this->config->recaptcha_private_key);
 		$calificacion = new stdClass();
-		$check = false;
-		if(!$this->post("email")){
-			$check = array('cct'=>1);
-		}
+		$check = array('cct'=>1);
+        $typeE = false;
 		if($this->isValidCalificaForm($check) && 
             ($captcha->check_answer($this->config->http_address,
 			    $this->post('recaptcha_challenge_field'),
@@ -309,7 +307,7 @@ class escuelas extends main{
             else if($typeE == 'invalid')
                 echo json_encode(array("success"=>false,"captcha"=>true));
             else
-                echo json_encode(array("success"=>false));
+                echo json_encode(array("success"=>false,"error"=>$typeE,"simul"=>$this->isTokenSimulatesValid()));
             return; 
         }
 

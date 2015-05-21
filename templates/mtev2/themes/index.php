@@ -76,6 +76,17 @@
 			$js_scripts[] = 'censo2014Archivos.js';
 			//$js_scripts[] = 'angularApp.js';
 		}
+		if(isset($this->config->front_test) && $this->config->front_test){
+			$mocha = array(
+				"bower_components/chai/chai.js",
+				"bower_components/mocha/mocha.js",
+				"test/setup.js",
+				"test/perfil.js",
+				"test/run.js"
+			);
+			$js_scripts = array_merge($js_scripts,$mocha);
+		}
+
 		//var_dump($js_scripts);
 		$cssmin = new mxnphp_min($this->config,$css_scripts,"css","css-min-mte");
 		$jsmin = new mxnphp_min($this->config,$js_scripts,"js","js-min-mte");
@@ -101,6 +112,11 @@ $this->is404 = isset($this->is404)?$this->is404:false;
 	<link rel="canonical" href="<?=$canonical?>" />
  </head>
  <body ng-app="mejoratuescuela" ng-cloak>
+	<?php 
+	if(isset($this->config->front_test) && $this->config->front_test){
+		echo '<div id="mocha"></div>';
+	}?>
+
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
 	var js, fjs = d.getElementsByTagName(s)[0];
