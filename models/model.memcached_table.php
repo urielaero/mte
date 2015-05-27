@@ -2,7 +2,7 @@
 class memcached_table extends table{
 	function read($fields){
 		//$time_start = microtime(true);
-		if(class_exists('Memcache')){
+		if(class_exists('Memcache') && false){
 			$memcache = new Memcache;
 			#Site shouldn't die just because memcached isn't working, right?
 			$memcache->connect('10.209.40.127', 11211);

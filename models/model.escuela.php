@@ -260,7 +260,7 @@ class escuela extends memcached_table{
     }
 	public function get_turnos($memcache_host = NULL){
         $sql = "select distinct e.turnos_eval,t.nombre from escuelas_para_rankeo e inner join turnos t on t.id = e.turnos_eval where e.id ={$this->id}";
-        if($memcache_host!=NULL && class_exists('Memcache')){
+        if($memcache_host!=NULL && class_exists('Memcache') && false){
             $memcache = new Memcache;
             $memcache->connect($memcache_host, 11211);
             $this->execute = true;
