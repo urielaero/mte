@@ -42,8 +42,8 @@ class escuelas extends main{
 			$this->escuelas = array_unique($this->escuelas);
 
 
-			$this->process_escuelas();
-			$this->cct_count_entidad();
+			$this->process_escuelas();//esta y la que sigue
+			$this->cct_count_entidad();//hace que se atrace hasta 22.
 			$this->get_metadata();
 			$this->load_programas();
 			//$this->escuelas_digest = new stdClass();
