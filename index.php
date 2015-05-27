@@ -1,7 +1,7 @@
 <?php
 //error_reporting(0);
 #error_reporting(E_ALL ^ E_DEPRECATED ^ E_WARNING);
-$time_start = microtime(true);
+//$time_start = microtime(true);
 ini_set('post_max_size', '5M');
 ini_set('upload_max_filesize', '5M');
 $env = getenv('APPLICATION_ENV');
@@ -32,7 +32,9 @@ if($beta_template == "1" || $config->theme=="mtev2"){
 $mxnphp = new mxnphp($config);
 $mxnphp->load_model();
 $mxnphp->load_controler();
+/*
 $time_end = microtime(true);
 $time = $time_end - $time_start;
 echo 'Total time: '.$time.' s<br/>';
+*/
 ?>
