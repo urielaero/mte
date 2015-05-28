@@ -117,8 +117,7 @@
 
 								</td>
 							<td>{{escuela.nivel}}</td>
-							<td ng-show='escuela.turno.nombre'>{{escuela.turno.nombre.capitalize()}}</td>
-							<td ng-show='!escuela.turno.nombre'>No Aplica</td>
+							<td >{{escuela.turno.nombre?escuela.turno.nombre.capitalize():"No Aplica"}}</td>
 							<td>{{escuela.control}}</td>
 							<td  style="max-width:172px">
 							<!-- los iconos ya se alinean bien de esta forma si se cambia por md-button se desalinean Carlos Barahona-->
