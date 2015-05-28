@@ -15,7 +15,7 @@ require_once "config/config.$config_name.php";
 $config = new $config_name();
 require_once $config->mxnphp_dir."/scripts/autoload.php";
 
-//beta
+/*
 $beta_template = isset($_COOKIE['beta_template'])?$_COOKIE['beta_template']:false;
 if($beta_template !== false)
 	$config->beta_button = false;
@@ -27,7 +27,7 @@ if($beta_template == "1" || $config->theme=="mtev2"){
 	$config->beta_button = true;
 	$config->theme="mtev1";
 }
-
+*/
 
 $mxnphp = new mxnphp($config);
 $mxnphp->load_model();
