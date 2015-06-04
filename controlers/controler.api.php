@@ -16,6 +16,8 @@ class api extends main{
     public function subscribe(){
         $res = $this->newsletter(true);
         $json = array('status'=>$res);
+	header("Access-Control-Allow-Origin: *"); 
+	header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept"); 
 		echo json_encode($json);
     }
 
