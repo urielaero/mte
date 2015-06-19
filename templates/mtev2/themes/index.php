@@ -31,6 +31,7 @@
 			'bower_components/angular-masonry/angular-masonry.js',
 			'bower_components/angular-masonry/angular-masonry.js',
 			'bower_components/angular-re-captcha/angular-re-captcha.js',
+			'bower_components/ngSmoothScroll/angular-smooth-scroll.min.js',
 			'perfect-scrollbar.min.js',
 			'footable.js',
 			'perfect-scrollbar.with-mousewheel.min.js',

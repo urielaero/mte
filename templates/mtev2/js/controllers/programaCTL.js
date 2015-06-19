@@ -1,4 +1,4 @@
-app.controller("programaCTL", ['$scope', '$http', '$compile',function ($scope, $http, $compile) {
+app.controller("programaCTL", ['$scope', '$http', '$compile', '$location', '$anchorScroll', function ($scope, $http, $compile, $location, $anchorScroll) {
     $scope.states = window.entidadesParticipantes;
     $scope.programaId = window.programaId;
     $scope.loading = false;
@@ -67,7 +67,7 @@ app.controller("programaCTL", ['$scope', '$http', '$compile',function ($scope, $
                             "<a class='name' href='#' >"+
                             state.nombre+
                             "</a>"+
-                            "<div class='address-popup'><p >Participa en "+state.count_participa+" escuelas</p><a href='' ng-click='loadEscuelasPorEntidad("+state.id+", \""+ state.nombre +"\")'>Ver lista de escuelas</a></div>"+
+                            "<div class='address-popup'><p >Participa en "+state.count_participa+" escuelas</p><a href='' ng-click='loadEscuelasPorEntidad("+state.id+", \""+ state.nombre +"\")' scroll-to='result-escuelas-programas' >Ver lista de escuelas</a></div>"+
                             ""+
                             "</div>";
             return mark;
@@ -89,6 +89,7 @@ app.controller("programaCTL", ['$scope', '$http', '$compile',function ($scope, $
 
     $scope.loadEscuelasPorEntidad = function(stateId,stateName){
         $scope.loading = true;
+
         if($scope.currentState.id == ''){
             $scope.currentState.id = stateId;
             $scope.skip = 0;
@@ -109,6 +110,8 @@ app.controller("programaCTL", ['$scope', '$http', '$compile',function ($scope, $
             $scope.escuelas = $scope.escuelas.concat(response.data);
             $scope.skip+=20;
             $scope.loading = false;
+	    $location.hash('result-escuelas-programas');
+	    $anchorScroll();
         });
     }
     $scope.$on('leafletDirectiveMarker.click', function(e, args) {

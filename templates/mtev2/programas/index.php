@@ -95,6 +95,7 @@
 					</div>
 					<leaflet id="map" center="center" markers="markers" layers="layers" ng-init='loadMap(states)'></leaflet>										
 				</div>
+				<a id="result-escuelas-programas"></a>
 				<div id="escuelas-programas">
 					<div>					
 						<div id="titulo-escuelas-programas">
