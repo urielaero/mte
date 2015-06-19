@@ -95,7 +95,6 @@
 					</div>
 					<leaflet id="map" center="center" markers="markers" layers="layers" ng-init='loadMap(states)'></leaflet>										
 				</div>
-				<a id="result-escuelas-programas"></a>
 				<div id="escuelas-programas">
 					<div>					
 						<div id="titulo-escuelas-programas">
@@ -113,6 +112,7 @@
 					</div>
 					<a data-ng-show="escuelas.length>0" href="" data-ng-click="loadEscuelasPorEntidad(currentState.id,currentState.name)" class="button-bordered show-more-btn">Ver más escuelas</a>
 				</div>
+				<a id="result-escuelas-programas"></a>
 			</div>
 		</div>
 		<div flex="25" flex-sm="100" class="sidebar trivial222">
