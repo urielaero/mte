@@ -1,5 +1,4 @@
 <?php
-//error_reporting(0);
 #error_reporting(E_ALL ^ E_DEPRECATED ^ E_WARNING);
 //$time_start = microtime(true);
 ini_set('post_max_size', '5M');
