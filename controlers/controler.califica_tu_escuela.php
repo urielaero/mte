@@ -48,6 +48,7 @@ class califica_tu_escuela extends main{
 			$tipo_pregunta = $tipo_preguntas[0];
 			$aux = new pregunta(NULL,$this->conn);
 			$aux->search_clause = "tipo_pregunta = {$tipo_pregunta->id}";
+			$aux->order_by = ' id ASC';
 			$this->preguntas = $aux->read('id,titulo,pregunta,descripcion_valor_minimo,descripcion_valor_maximo');
 			$this->tipo_encuesta = $tipo_encuesta;
 
