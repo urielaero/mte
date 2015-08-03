@@ -259,8 +259,9 @@ class escuelas extends main{
 				)) && $this->isTokenSimulatesValid()){
 					//$calificacion->debug = true;
                     if($this->request('nombre')){
+					$ip = $_SERVER['REMOTE_ADDR']?:($_SERVER['HTTP_X_FORWARDED_FOR']?:$_SERVER['HTTP_CLIENT_IP']);
 		    
-    					$calificacion->create('nombre,email,id_cct,cct,comentario,ocupacion,calificacion,user_agent,acepta_nombre',array(
+    					$calificacion->create('nombre,email,id_cct,cct,comentario,ocupacion,calificacion,user_agent,acepta_nombre,ip',array(
     						$this->post('nombre'),
     						$this->post('email'),
     						"0",
@@ -269,7 +270,8 @@ class escuelas extends main{
     						$this->post('ocupacion'),
     						stripslashes($this->post('calificacion')),
     						$_SERVER['HTTP_USER_AGENT'],
-    						$accept_name
+    						$accept_name,
+						$ip
     					),'id');
                     }
 					if($this->request("calificaciones")){
