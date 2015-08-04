@@ -258,8 +258,14 @@ class escuelas extends main{
 			                'body' => $comment
 				)) && $this->isTokenSimulatesValid()){
 					//$calificacion->debug = true;
+
+			$ip = isset($_SERVER['HTTP_X_CLUSTER_CLIENT_IP']) ? $_SERVER['HTTP_X_CLUSTER_CLIENT_IP']: $_SERVER['REMOTE_ADDR'];
+			if(!$ip){
+				$ip = $_SERVER['REMOTE_ADDR']?:($_SERVER['HTTP_X_FORWARDED_FOR']?:$_SERVER['HTTP_CLIENT_IP']);
+			}
+
                     if($this->request('nombre')){
-					$ip = $_SERVER['REMOTE_ADDR']?:($_SERVER['HTTP_X_FORWARDED_FOR']?:$_SERVER['HTTP_CLIENT_IP']);
+
 		    
     					$calificacion->create('nombre,email,id_cct,cct,comentario,ocupacion,calificacion,user_agent,acepta_nombre,ip',array(
     						$this->post('nombre'),
@@ -276,7 +282,7 @@ class escuelas extends main{
                     }
 					if($this->request("calificaciones")){
 						if(!isset($calificacion->id)){
-							$calificacion->create('id_cct,cct,email,nombre,ocupacion,comentario,user_agent',
+							$calificacion->create('id_cct,cct,email,nombre,ocupacion,comentario,user_agent,ip',
 								array(
 									"0",
 									$this->request("cct"),
@@ -284,7 +290,8 @@ class escuelas extends main{
 									"_optional",
 									"_optional",
 									"_optional",
-									$_SERVER["HTTP_USER_AGENT"]
+									$_SERVER["HTTP_USER_AGENT"],
+									$ip
 								),"id"
 							);
 						}
