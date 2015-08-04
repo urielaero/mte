@@ -1,6 +1,4 @@
 <?php
-#error_reporting(E_ALL ^ E_DEPRECATED ^ E_WARNING);
-//$time_start = microtime(true);
 ini_set('post_max_size', '5M');
 ini_set('upload_max_filesize', '5M');
 $env = getenv('APPLICATION_ENV');
