@@ -17,6 +17,8 @@ class compara extends main{
 		$this->localidades = $this->load_localidades();
 		$this->page_title = "Conoce tu escuela | Mejora tu Escuela";
 		$this->meta_description = "Consulta información sobre las características de las escuelas de México. Datos de contacto, información sobre desempeño, infraestructura, programas de apoyo y conoce las opiniones de otros padres de familia.";
+
+		$this->title_header = 'Conoce tu escuela';
 		if($this->config->theme == 'mtev1'){
 			$this->load_compara_cookie();
 			$this->get_metadata();
@@ -24,7 +26,6 @@ class compara extends main{
 			$this->resultados_title = 'Resultados';
 			$this->header_folder = 'compara';				
 			$this->principal = true;
-			$this->title_header = 'Conoce tu escuela';
 			if(!$this->get('search')){ 
 				$this->get_location();
 				$params = new StdClass();
