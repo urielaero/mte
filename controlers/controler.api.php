@@ -23,9 +23,12 @@ class api extends main{
 
 	public function escuelas(){
 		//$this->debug = true;
+		header("Access-Control-Allow-Origin: *");
+		header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 		$params = new stdClass();
 
 		if($this->request('term') && $this->request('solr') && isset($this->config->solr_server)){
+			//var_dump("solr");
 			$params->term = $this->request('term');
 			$p = $this->request('p')?$this->request('p'):1;
 			$this->get_escuelas_new($params,$p);
