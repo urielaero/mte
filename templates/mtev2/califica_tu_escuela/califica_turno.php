@@ -16,6 +16,10 @@ $icons = array(
             "icon-escuela-01",
             "icon-desk-01",
             "icon-buscar-01",
+	    "img saludable",
+	    "img participacion",
+	    "img alimentacion",
+	    "img ambiente"
         );
 
 

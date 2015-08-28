@@ -1227,3 +1227,9 @@ text-align: justify;}
 #content .mtev1-theme .bases .file-table .state td:nth-child(4){width:269px;}
 #content .mtev1-theme .bases .file-table .state td:nth-child(5){width:85px;}
 #content .ct-link a{color:white;}
+
+#content .question-title i.img{background-size: 29px; width: 60px; height:60px;}
+#content .question-title i.img.saludable{background: transparent url(../img/encuesta/saludable.png) center no-repeat;}
+#content .question-title i.img.participacion{background: transparent url(../img/encuesta/participacion.png) center no-repeat;}
+#content .question-title i.img.alimentacion{background: transparent url(../img/encuesta/alimentacion.png) center no-repeat;}
+#content .question-title i.img.ambiente{background: transparent url(../img/encuesta/ambiente.png) center no-repeat;}
