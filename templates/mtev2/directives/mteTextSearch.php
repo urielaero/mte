@@ -28,7 +28,7 @@
 <script type="text/ng-template" id="typeahead-template.html">
     <a tabindex="-1">
         <i class="icon-escuela-01"></i>
-        <strong><span bind-html-unsafe="match.model.nombre"></span> (<span bind-html-unsafe="match.model.nivel"></span>)</strong>
+        <strong><span bind-html-unsafe="match.model.nombre"></span> (<span bind-html-unsafe="match.model.nom_nivel || match.model.nivel"></span>)</strong>
         <p><span bind-html-unsafe="match.model.direccion" class="small"></span></p>
     </a>
 </script>
