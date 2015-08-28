@@ -1,11 +1,17 @@
-app.controller("programasCTL", ['$scope',function ($scope) {
+app.controller("programasCTL", ['$scope', '$location',function ($scope, $location) {
 
-	$scope.init = function(){
+	$scope.init = function(params){
+		params = params || {};
+		params.temaIndex = 0;
 		$scope.programas = programas;
 		$scope.zonas = [{nombre:'Nacional'}].concat(entidades);
 		$scope.temas = ['Todos'];
-		$scope.programas.forEach(function(programa){
-			if(programa.tema_especifico	 != '') $scope.temas.push(programa.tema_especifico);
+		$scope.programas.forEach(function(programa, i){
+			if(programa.tema_especifico != ''){
+				$scope.temas.push(programa.tema_especifico);
+				if(params.tema && params.tema == programa.tema_especifico)
+					params.temaIndex = i;
+			}
 		});
 		$scope.controles = {
 			'0' : {
@@ -37,7 +43,7 @@ app.controller("programasCTL", ['$scope',function ($scope) {
 			},
 		}
 		$scope.params = {
-			tema : $scope.temas[0],
+			tema : $scope.temas[params.temaIndex],
 			zona : $scope.zonas[0],
 			niveles : [],
 			controles : [],
@@ -45,7 +51,9 @@ app.controller("programasCTL", ['$scope',function ($scope) {
 		};
 	}
 	//console.log($scope.programas);
-	$scope.init();
+	var search = $location.search();
+	console.log('s', search);
+	$scope.init(search);
 }]);
 app.filter('programasFilter', function () {
   return function (programas,params) {

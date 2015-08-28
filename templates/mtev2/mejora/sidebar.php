@@ -21,7 +21,7 @@
 				</div>
 			</div>
 			<div class="box box-green">
-				<a href="#" class="full-size-link"></a>
+				<a href="/mejora/programas" class="full-size-link"></a>
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
@@ -32,7 +32,7 @@
 				</div>
 			</div>
 			<div class="box box-purple">
-				<a href="#" class="full-size-link"></a>				
+				<a href="" class="full-size-link"></a>				
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
@@ -46,12 +46,9 @@
 				<p class="icon-p"><i class="icon-comentario-01"></i></p>
 				<p>Si te interesa algún otro tema que no aparezca en nuestra sección</p>
 				<div class="write-us">
-					<p class="trigger" ng-click="toggleFormEvent()">Escríbenos</p>
-					<form action="#" ng-show="toggleForm">
-						<input type="text" placeholder="Mensaje">
-						<input type="email" placeholder="Tu correo">
-						<input type="submit" class="button-bordered" value="Envía al equipo de MTE">
-					</form>
+					<p class="trigger ct-link">
+						<a href="/contacto">Escríbenos</a>
+					</p>
 				</div>
 			</div>
 		</div>
