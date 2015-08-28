@@ -50,9 +50,7 @@ app.controller("programasCTL", ['$scope', '$location',function ($scope, $locatio
 			text : '',
 		};
 	}
-	//console.log($scope.programas);
 	var search = $location.search();
-	console.log('s', search);
 	$scope.init(search);
 }]);
 app.filter('programasFilter', function () {
