@@ -2,6 +2,9 @@
 	<?php $this->include_template('mteSuscribe','directives'); ?>
 </script>
 		<div flex="30" flex-sm="100" id="sidebar">
+			<a layout-fill href='http://convocatoriaeducaccion.mejoratuescuela.org/' hide-sm>
+				<img style='width:100%'src='/templates/mtev2/img/educaccion.jpg'>
+			</a>
 			<div mte-suscribe></div>
 
 			<div class="box box-orange">
