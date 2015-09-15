@@ -577,6 +577,10 @@ EOD;
 						<div flex="75"><a href="/programas/index/<?php echo $programa->id ?>"><?=$programa->nombre?></a></div>
 					</li>
 				<? } ?>
+                    <span class="hidden banner-school-osc"><li layout='row'class='on'>
+						<div flex="25"><i class="icon-"></i></div>
+						<div flex="75"><a href="http://convocatoriaeducaccion.mejoratuescuela.org/">Papás y mamás en educación.</a></div>
+					</li></span>
 			</ul>
 		</div>
 	</div>

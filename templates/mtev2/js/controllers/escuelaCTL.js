@@ -169,6 +169,7 @@ app.controller("schoolBannerCTL", ['$scope', function ($scope) {
             firebaseEntries.orderByChild("cct").equalTo(cct).on('value', function(snapshot){
                 var school = snapshot.val();
                 if(school && Object.keys(school) && Object.keys(school).length){
+                    angular.element('.banner-school-osc').removeClass('hidden')
                     $scope.school.show = true;
                     window.showFromFirebase = true;
                     $scope.$apply();
