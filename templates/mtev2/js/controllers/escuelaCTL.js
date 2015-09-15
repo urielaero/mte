@@ -164,6 +164,7 @@ app.controller("schoolBannerCTL", ['$scope', function ($scope) {
     $scope.load = function(cct){
         if(window.showFromFirebase){
             $scope.school.show = true;
+            angular.element('.banner-school-osc').removeClass('hidden')
         }else if(cct && window.Firebase){
             var firebaseEntries = new Firebase('https://caminoalexito.firebaseio.com/').child('entries'); 
             firebaseEntries.orderByChild("cct").equalTo(cct).on('value', function(snapshot){

@@ -87,15 +87,17 @@ if(!empty($this->escuela->rank)){
 			<a href="<?=$url ?>"><?=$breadcrumb ?></a>
 		<?php } ?>
 	</div>
-	<div class="school-banner-form-md" show-md show-sm layout="row" hide-gt-md layout-fill layout-wrap ng-controller="schoolBannerCTL"  ng-init="load('<?=$this->escuela->cct ?>')">
-		<a href="http://convocatoriaeducaccion.mejoratuescuela.org/" class="full-size-link"></a>
-		<div class="school-banner-content" flex="50">
-			<div class="school-banner">
-				<img src="/templates/mtev2/img/programas/29.png" alt="">
+	<span class="banner-school-osc">
+		<div class="school-banner-form-md" show-md show-sm layout="row" hide-gt-md layout-fill layout-wrap>
+			<a href="http://convocatoriaeducaccion.mejoratuescuela.org/" class="full-size-link"></a>
+			<div class="school-banner-content" flex="50">
+				<div class="school-banner">
+					<img src="/templates/mtev2/img/programas/29.png" alt="">
+				</div>
 			</div>
+			<p flex="50">Escuela <br> participante</p>
 		</div>
-		<p flex="50">Escuela <br> participante</p>
-	</div>
+	</span>
 	<div class="menu-top">
 
 		<div layout="row" layout-sm="column" class="menu-row perfect-menu-row">
