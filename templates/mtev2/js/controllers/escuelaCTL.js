@@ -169,8 +169,10 @@ app.controller("schoolBannerCTL", ['$scope', function ($scope) {
             var firebaseEntries = new Firebase('https://caminoalexito.firebaseio.com/').child('entries'); 
             firebaseEntries.orderByChild("cct").equalTo(cct).on('value', function(snapshot){
                 var school = snapshot.val();
+                console.log("school", school);
                 if(school && Object.keys(school) && Object.keys(school).length){
-                    angular.element('.banner-school-osc').removeClass('hidden')
+                    angular.element('.banner-school-osc').removeClass('hidden');
+                    angular.element('.banner-school-osc-not').addClass('hidden'); 
                     $scope.school.show = true;
                     window.showFromFirebase = true;
                     $scope.$apply();
