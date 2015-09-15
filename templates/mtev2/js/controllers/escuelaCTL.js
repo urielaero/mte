@@ -162,6 +162,7 @@ app.controller("schoolBannerCTL", ['$scope', function ($scope) {
     };
 
     $scope.load = function(cct){
+    	return;
         if(window.showFromFirebase){
             $scope.school.show = true;
             angular.element('.banner-school-osc').removeClass('hidden')
