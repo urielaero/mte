@@ -1233,3 +1233,15 @@ text-align: justify;}
 #content .question-title i.img.participacion{background: transparent url(../img/encuesta/participacion.png) center no-repeat;}
 #content .question-title i.img.alimentacion{background: transparent url(../img/encuesta/alimentacion.png) center no-repeat;}
 #content .question-title i.img.ambiente{background: transparent url(../img/encuesta/ambiente.png) center no-repeat;}
+
+/*Banner programa educacion*/
+.school-banner-form{position: relative}
+.school-banner-form-md{display: none;}
+.school-banner-form .school-banner-content{position: absolute;right: 0;top: 25px;}
+.school-banner{background: #276FB7;}
+.school-banner img{padding: 15px 25px;}
+.school-banner-form-md p, .school-banner-content p{background: #F6921A;color: white;text-align: center;font-size: 25px; line-height: 27px; padding: 15px 0 21px 0; font-weight:700;} 
+.school-banner-form-md .school-banner{text-align: center;}
+.school-banner-form-md .school-banner img{padding: 7px; width: 25%;}
+.school-banner-form-md .school-banner-content{background: #276FB7}
+#main #content [layout].hidden-school{display: hidden!important}

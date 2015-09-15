@@ -19,6 +19,7 @@
 			"jquery-1.11.1.min.js",
 			'school-charts.js',
 			'imagesloaded.pkgd.min.js',
+			'bower_components/firebase/firebase.js',
 			'bower_components/angular/angular.min.js',
 			'bower_components/angular-animate/angular-animate.min.js',
 			'bower_components/angular-aria/angular-aria.min.js',

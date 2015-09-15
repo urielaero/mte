@@ -70,6 +70,14 @@ if(!empty($this->escuela->rank)){
   if(isset($this->escuela->programas['escuelas_de_excelencia']) || isset($this->escuela->ganador_disena_el_cambio))
       $this->include_template('escuelas_excelencia','global');
 ?>
+<div class="school-banner-form"  layout="column" hide-md hide-sm ng-controller="schoolBannerCTL"  ng-init="load('<?=$this->escuela->cct ?>')">
+	<div class="school-banner-content" ng-if="school.show">
+		<div class="school-banner">
+			<img src="/templates/mtev2/img/programas/29.png" alt="">
+		</div>
+		<p>Escuela <br> participante</p>
+	</div>
+</div>
 
 <div class="container profile profile-escuela" ng-controller="escuelaCTL">
 	<div class="breadcrumb perfect-breadcrumb">
@@ -77,6 +85,14 @@ if(!empty($this->escuela->rank)){
 		<?php foreach($this->breadcrumb as $url => $breadcrumb){ ?>
 			<a href="<?=$url ?>"><?=$breadcrumb ?></a>
 		<?php } ?>
+	</div>
+	<div class="school-banner-form-md" show-md show-sm layout="row" hide-gt-md layout-fill layout-wrap ng-controller="schoolBannerCTL"  ng-init="load('<?=$this->escuela->cct ?>')">
+		<div class="school-banner-content" flex="50">
+			<div class="school-banner">
+				<img src="/templates/mtev2/img/programas/29.png" alt="">
+			</div>
+		</div>
+		<p flex="50">Escuela <br> participante</p>
 	</div>
 	<div class="menu-top">
 

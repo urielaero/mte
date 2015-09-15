@@ -1,5 +1,4 @@
 app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope, $mdSidenav,userInfo) {
-	
     $scope.selectedIndex = 0;
 	$scope.countToggle = 0;
 	$scope.toggleForm = false;
@@ -155,6 +154,27 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
 	if($scope.isSelected)
 		location.href = '/compara/escuelas/';
     };
+}]);
 
+app.controller("schoolBannerCTL", ['$scope', function ($scope) {
+    $scope.school = {
+        show: false
+    };
 
+    $scope.load = function(cct){
+        if(window.showFromFirebase){
+            $scope.school.show = true;
+        }else if(cct && window.Firebase){
+            var firebaseEntries = new Firebase('https://caminoalexito.firebaseio.com/').child('entries'); 
+            firebaseEntries.orderByChild("cct").equalTo(cct).on('value', function(snapshot){
+                var school = snapshot.val();
+                if(school && Object.keys(school) && Object.keys(school).length){
+                    $scope.school.show = true;
+                    window.showFromFirebase = true;
+                    $scope.$apply();
+                }
+            });
+        }
+    };
+	
 }]);
