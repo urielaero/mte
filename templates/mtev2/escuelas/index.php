@@ -69,17 +69,20 @@ if(!empty($this->escuela->rank)){
 <?php 
   if(isset($this->escuela->programas['escuelas_de_excelencia']) || isset($this->escuela->ganador_disena_el_cambio))
       $this->include_template('escuelas_excelencia','global');
-?>
-<div class="school-banner-form"  layout="column" hide-md hide-sm ng-controller="schoolBannerCTL"  ng-init="load('<?=$this->escuela->cct ?>')">
-	<div class="school-banner-content" ng-if="school.show">
-		<a href="http://convocatoriaeducaccion.mejoratuescuela.org/" class="full-size-link"></a>
-		<div class="school-banner">
-			<img src="/templates/mtev2/img/programas/29.png" alt="">
-		</div>
-		<p>Escuela <br> participante</p>
-	</div>
-</div>
 
+$educaccion = isset($this->escuela->programas["educaccion"]);
+if($educaccion){
+?>
+	<div class="school-banner-form"  layout="column" hide-md hide-sm>
+		<div class="school-banner-content">
+			<a href="http://convocatoriaeducaccion.mejoratuescuela.org/" class="full-size-link"></a>
+			<div class="school-banner">
+				<img src="/templates/mtev2/img/programas/29.png" alt="">
+			</div>
+			<p>Escuela <br> participantess</p>
+		</div>
+	</div>
+<?php } ?>
 <div class="container profile profile-escuela" ng-controller="escuelaCTL">
 	<div class="breadcrumb perfect-breadcrumb">
 		<a href="/home" class="start"><i class="icon-mejora"></i></a>
@@ -87,6 +90,7 @@ if(!empty($this->escuela->rank)){
 			<a href="<?=$url ?>"><?=$breadcrumb ?></a>
 		<?php } ?>
 	</div>
+	<?php if($educaccion){ ?>
 	<span class="banner-school-osc">
 		<div class="school-banner-form-md" show-md show-sm layout="row" hide-gt-md layout-fill layout-wrap>
 			<a href="http://convocatoriaeducaccion.mejoratuescuela.org/" class="full-size-link"></a>
@@ -98,6 +102,7 @@ if(!empty($this->escuela->rank)){
 			<p flex="50">Escuela <br> participante</p>
 		</div>
 	</span>
+	<?php } ?>
 	<div class="menu-top">
 
 		<div layout="row" layout-sm="column" class="menu-row perfect-menu-row">

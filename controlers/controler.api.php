@@ -87,5 +87,26 @@ class api extends main{
 		return $json;
 	}
 
+	public function suscribeEducacion(){
+		//update mongoinfo 
+		$cct = $this->request('cct');
+		$this->escuela = new escuela($cct, $this->conn);
+		$this->escuela->key = 'cct';
+		$this->escuela->cct = $cct;
+		$this->escuela->fields['cct'] = $cct;
+		$this->escuela->read("id,cct");
+		header('Access-Control-Allow-Origin: *'); 
+		header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept'); 
+
+		$json = array('error' => 'notFound');
+		if($this->escuela->id != $this->escuela->cct){
+	            	if($this->escuela->setEducAccion($this->mongo_connect())){
+				$json = array('status'=>'ok', 'cct' => $cct);
+			}	
+		}
+
+		echo json_encode($json);
+    	}
+
 }
 ?>

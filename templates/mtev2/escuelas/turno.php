@@ -577,14 +577,20 @@ EOD;
 						<div flex="75"><a href="/programas/index/<?php echo $programa->id ?>"><?=$programa->nombre?></a></div>
 					</li>
 				<? } ?>
+				<?php 
+				   $educaccion = isset($this->escuela->programas["educaccion"])? true:false;
+				   if($educaccion){
+				?>
+       			             <span class="banner-school-osc"><li layout='row'class='on'>
+						<div flex="25"><i class="icon-"></i></div>
+						<div flex="75"><a href="http://convocatoriaeducaccion.mejoratuescuela.org/">Papás y mamás en EducAcción de Fundación Televisa</a></div>
+					</li></span>
+				<?php }else{ ?>
        			             <span class="banner-school-osc-not"><li layout='row'>
 						<div flex="25"><i class="icon-"></i></div>
 						<div flex="75"><a href="http://convocatoriaeducaccion.mejoratuescuela.org/">Papás y mamás en EducAcción de Fundación Televisa</a></div>
 					</li></span>
-       			             <span class="hidden banner-school-osc"><li layout='row'class='on'>
-						<div flex="25"><i class="icon-"></i></div>
-						<div flex="75"><a href="http://convocatoriaeducaccion.mejoratuescuela.org/">Papás y mamás en EducAcción de Fundación Televisa</a></div>
-					</li></span>
+				<?php } ?>
 			</ul>
 		</div>
 	</div>
