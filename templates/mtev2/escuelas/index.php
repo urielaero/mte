@@ -79,7 +79,7 @@ if($educaccion){
 			<div class="school-banner">
 				<img src="/templates/mtev2/img/programas/29.png" alt="">
 			</div>
-			<p>Escuela <br> participantess</p>
+			<p>Escuela <br> participante</p>
 		</div>
 	</div>
 <?php } ?>
