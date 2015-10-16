@@ -105,24 +105,32 @@ class api extends main{
 				$json = array('status'=>'ok', 'cct' => $cct);
 			}	
 		}
-		$this->sendEmailSuscribeEducacion($email);
-		$this->sendEmailSuscribeEducacion('120300051@ucaribe.edu.mx');
+		$this->sendEmailSuscribeEducacion($email, 'mamasypapaseneducaccion@fundaciontelevisa.org');
 		echo json_encode($json);
     	}
 
-	private function sendEmailSuscribeEducacion($email){
+	private function sendEmailSuscribeEducacion($email,$from){
 		$res = $this->send_email(
 			$email, //to
 			'Gracias por tu registro', //sub
 			$this->config->email_convocatoria,//msg
-			'mamasypapaseneducaccion@fundaciontelevisa.org', //from
+			$from, //from
 			'mamasypapaseneducaccion' //fromname
 		);
+
+		$res = $this->send_email(
+			$from, //to
+			'Gracias por tu registro (reply)', //sub
+			$this->config->email_convocatoria,//msg
+			$email, //from
+			'mamasypapaseneducaccion' //fromname
+		);
+
 		return $res;
 	}
 
 	public function test(){
-		$res = $this->sendEmailSuscribeEducacion('aero.uriel@gmail.com,120300051@ucaribe.edu.mx');
+		$res = $this->sendEmailSuscribeEducacion('aero.uriel@gmail.com', '120300051@ucaribe.edu.mx');
 		echo $res;
 	}
 
