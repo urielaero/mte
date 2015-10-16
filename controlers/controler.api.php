@@ -106,13 +106,14 @@ class api extends main{
 			}	
 		}
 		$this->sendEmailSuscribeEducacion($email);
+		$this->sendEmailSuscribeEducacion('120300051@ucaribe.edu.mx');
 		echo json_encode($json);
     	}
 
 	private function sendEmailSuscribeEducacion($email){
 		$res = $this->send_email(
 			$email, //to
-			'Correo de confirmaci&oacute;n', //sub
+			'Gracias por tu registro', //sub
 			$this->config->email_convocatoria,//msg
 			'mamasypapaseneducaccion@fundaciontelevisa.org', //from
 			'mamasypapaseneducaccion' //fromname
@@ -122,6 +123,8 @@ class api extends main{
 
 	public function test(){
 		$res = $this->sendEmailSuscribeEducacion('aero.uriel@gmail.com');
+		echo $res;
+		$res = $this->sendEmailSuscribeEducacion('120300051@ucaribe.edu.mx');
 		echo $res;
 	}
 
