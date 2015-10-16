@@ -123,7 +123,7 @@ class api extends main{
 			'Gracias por tu registro (reply)', //sub
 			$this->config->email_convocatoria,//msg
 			$email, //from
-			'mamasypapaseneducaccion' //fromname
+			$email //fromname
 		);
 
 		return $res;
