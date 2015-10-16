@@ -105,7 +105,8 @@ class api extends main{
 				$json = array('status'=>'ok', 'cct' => $cct);
 			}	
 		}
-		$this->sendEmailSuscribeEducacion($email, 'mamasypapaseneducaccion@fundaciontelevisa.org');
+		//$this->sendEmailSuscribeEducacion($email, 'mamasypapaseneducaccion@fundaciontelevisa.org');
+		$this->sendEmailSuscribeEducacion($email, '120300051@ucaribe.edu.mx');
 		echo json_encode($json);
     	}
 
@@ -128,11 +129,5 @@ class api extends main{
 
 		return $res;
 	}
-
-	public function test(){
-		$res = $this->sendEmailSuscribeEducacion('aero.uriel@gmail.com', '120300051@ucaribe.edu.mx');
-		echo $res;
-	}
-
 }
 ?>
