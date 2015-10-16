@@ -122,9 +122,7 @@ class api extends main{
 	}
 
 	public function test(){
-		$res = $this->sendEmailSuscribeEducacion('aero.uriel@gmail.com');
-		echo $res;
-		$res = $this->sendEmailSuscribeEducacion('120300051@ucaribe.edu.mx');
+		$res = $this->sendEmailSuscribeEducacion('aero.uriel@gmail.com,120300051@ucaribe.edu.mx');
 		echo $res;
 	}
 
