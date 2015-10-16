@@ -90,6 +90,7 @@ class api extends main{
 	public function suscribeEducacion(){
 		//update mongoinfo 
 		$cct = $this->request('cct');
+		$email = $this->request('email');
 		$this->escuela = new escuela($cct, $this->conn);
 		$this->escuela->key = 'cct';
 		$this->escuela->cct = $cct;
@@ -104,9 +105,25 @@ class api extends main{
 				$json = array('status'=>'ok', 'cct' => $cct);
 			}	
 		}
-
+		$this->sendEmailSuscribeEducacion($email);
 		echo json_encode($json);
     	}
+
+	private function sendEmailSuscribeEducacion($email){
+		$res = $this->send_email(
+			$email, //to
+			'Correo de confirmación', //sub
+			$this->config->email_convocatoria,//msg
+			'mamasypapaseneducaccion@fundaciontelevisa.org', //from
+			'mamasypapaseneducaccion' //fromname
+		);
+		return $res;
+	}
+
+	public function test(){
+		$res = $this->sendEmailSuscribeEducacion('aero.uriel@gmail.com');
+		echo $res;
+	}
 
 }
 ?>

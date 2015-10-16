@@ -82,9 +82,28 @@ class default_config{
                         "class" : "rank9"
                     }
                 ]');
-        }
 
-                
-               
+
+		$this->email_convocatoria = <<<EOT
+<h1>¡Gracias por tu registro para participar en la convocatoria Papás y Mamás en EducAcción!</h1>
+
+<p>Con este correo confirmamos que recibimos tus datos.</p>
+
+<h2>¿Qué sigue?</h2>
+<p>
+Entre el 1ero de enero y el 31 de marzo del 2016 tendrás que enviar información y documentación sobre la implementación de tu proyecto.  Lo que lograron y los cambios a partir de su participación en la escuela.
+<br>
+Después de eso se hará una primera selección de escuelas para participar en una votación pública para seleccionar a las escuelas ganadoras.
+<br>
+Las escuelas ganadoras recibirán apoyos complementarios de Fundación Televisa y su historia será compartida con el país al inicio del ciclo escolar 2016 en el programa Primero Noticias.
+<br>
+Si tienes preguntas favor de responder a este correo (mamasypapaseneducaccion@fundaciontelevisa.org) O llamar al: (55) 5261-3277 con Yolanda Gudiño.
+</p>
+EOT;
+
+
+
+
+        }               
 }
 ?>
