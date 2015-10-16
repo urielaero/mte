@@ -112,7 +112,7 @@ class api extends main{
 	private function sendEmailSuscribeEducacion($email){
 		$res = $this->send_email(
 			$email, //to
-			'Correo de confirmación', //sub
+			'Correo de confirmaci&oacute;n', //sub
 			$this->config->email_convocatoria,//msg
 			'mamasypapaseneducaccion@fundaciontelevisa.org', //from
 			'mamasypapaseneducaccion' //fromname
