@@ -128,5 +128,57 @@ class api extends main{
 
 		return $res;
 	}
+
+	/*Api tuberia de denuncias*/
+
+	private function sendPublicHeadersAndResponse($data){
+		header('Access-Control-Allow-Origin: *'); 
+		header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept'); 
+		echo json_encode($data);
+	}
+
+	public function create_denuncia(){
+		$data = $this->request("data");
+		$req = json_decode($data, true);
+		$tuberia = new tuberia_denuncia($this->mongo_connect());
+		$denuncia = $tuberia->save($req);
+		if($denuncia){
+			$denuncia["success"] = true;
+		}else{
+			$denuncia = array("error" => "no save");
+		}
+		$this->sendPublicHeadersAndResponse($denuncia);
+	}
+
+	public function update_denuncia(){
+		$data = $this->request("data");
+		$req = json_decode($data, true);
+		$denuncia = array("error" => "no token");
+		if(isset($req["token"])){
+			$tuberia = new tuberia_denuncia($this->mongo_connect());
+			$denuncia = $tuberia->update($req);
+			if($denuncia){
+				$denuncia["success"] = true;
+			}else{
+				$denuncia = array("error" => "token not found");
+			}	
+		}
+		$this->sendPublicHeadersAndResponse($denuncia);
+		
+	}
+
+	public function read_denuncia(){
+		$data = $this->request("data");
+		$req = json_decode($data, true);
+		$denuncia = array("error" => "no token");
+		if(isset($req["token"])){
+			$tuberia = new tuberia_denuncia($this->mongo_connect());
+			$denuncia = $tuberia->findByToken($req["token"]);
+			if(!$denuncia){
+				$denuncia = array("error" => "token not found");
+			}
+		}
+		$this->sendPublicHeadersAndResponse($denuncia);
+	}
 }
 ?>
