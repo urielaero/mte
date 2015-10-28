@@ -140,14 +140,19 @@ class api extends main{
 	public function create_denuncia(){
 		$data = $this->request("data");
 		$req = json_decode($data, true);
-		$tuberia = new tuberia_denuncia($this->mongo_connect());
-		$denuncia = $tuberia->save($req);
-		if($denuncia){
-			$denuncia["success"] = true;
-		}else{
-			$denuncia = array("error" => "no save");
+		$denuncia = array("error" => "email required");
+		if($req && isset($req["email"])){
+			$tuberia = new tuberia_denuncia($this->mongo_connect());
+			$denuncia = $tuberia->save($req);
+			if($denuncia){
+				$denuncia["success"] = true;
+			}else{
+				$denuncia = array("error" => "no save");
+			}
 		}
+
 		$this->sendPublicHeadersAndResponse($denuncia);
+
 	}
 
 	public function update_denuncia(){
