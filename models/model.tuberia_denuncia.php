@@ -9,9 +9,14 @@ class tuberia_denuncia{
     public function update($data){
         $db = $this->mongo->selectDB("mte_tuberia");
         $coll = $db->selectCollection("denuncias");
-        $update = $coll->update(array("token"=> $data["token"]), $data);
+        $token = $data["token"];
+        $denuncia = $coll->findOne(array("token" => $token));
+        if(!$denuncia)
+            return false;
+        $default = array_merge($denuncia, $data);
+        $update = $coll->update(array("token"=> $data["token"]), $default);
         if($update["updatedExisting"]){
-            return $data;
+            return $default;
         }
         return false;
     }
