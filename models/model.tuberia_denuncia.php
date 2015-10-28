@@ -1,8 +1,7 @@
 <?php
 
 class tuberia_denuncia{
-
-	public function tuberia_denuncia($mongoClient){
+    public function tuberia_denuncia($mongoClient){
         $this->mongo = $mongoClient;
     }
 
@@ -49,6 +48,19 @@ class tuberia_denuncia{
             return $denuncia; 
         }
         return false;
+    }
+
+    public function findByEmail($email){
+        $db = $this->mongo->selectDB("mte_tuberia");
+        $coll = $db->selectCollection("denuncias");
+        $cursor = $coll->find(array("email" => $email));
+        $denuncias = array();
+        foreach($cursor as $doc){
+            $doc["id"] = $doc["_id"]->{'$id'};
+            unset($doc["_id"]);
+            $denuncias[] = $doc;
+        }
+        return $denuncias;
     }
 }
 

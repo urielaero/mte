@@ -185,5 +185,44 @@ class api extends main{
 		}
 		$this->sendPublicHeadersAndResponse($denuncia);
 	}
+
+	public function export_denuncias(){
+		$data = $this->request("data");
+		$req = json_decode($data, true);
+		$email = $req["email"];
+		if($email){
+			$tuberia = new tuberia_denuncia($this->mongo_connect());
+			$denuncias = $tuberia->findByEmail($email);
+			$res = array("success" => true, "total" => count($denuncias));
+			$this->sendPublicHeadersAndResponse($res);
+			$this->send_denuncias($email, $denuncias);
+		}else{
+			$this->sendPublicHeadersAndResponse(array("error" => "email not found"));
+		}
+	}
+
+	private function send_denuncias($email, $denuncias){
+		$html = "<p>Accede para editar:</p>";
+		$urlBase = "http://staging.tuberia.divshot.io/edit#";
+		foreach($denuncias as $i => $den){
+			$index = $i + 1;
+			$html.=" <a href='{$urlBase}{$den["token"]}'>Editar #{$index} {$urlBase}{$den["token"]} </a> <br/> <br/>";
+		}
+		//echo $html;
+		//return true;
+		$this->send_email(
+			//$email, //to
+			"aero.uriel@gmail.com",
+			"Denuncias", //sub
+			$html,//msg
+			"system@mejoratuescuela.org", //from
+			"Mejora tu escuela" //fromname
+		);
+	
+	}
+
+	public function test(){
+		$this->send_email("aero.uriel@gmail.com", "test from sendgrid", "<p>Hola mundo cruel</p>", "system@mejoratuescuela.org", "mte");
+	}
 }
 ?>
