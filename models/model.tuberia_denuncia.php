@@ -16,6 +16,8 @@ class tuberia_denuncia{
         $default = array_merge($denuncia, $data);
         $update = $coll->update(array("token"=> $data["token"]), $default);
         if($update["updatedExisting"]){
+            $default["id"] = $default["_id"]->{'$id'};
+            unset($default["_id"]);
             return $default;
         }
         return false;
