@@ -203,16 +203,13 @@ class api extends main{
 
 	private function send_denuncias($email, $denuncias){
 		$html = "<p>Accede para editar:</p>";
-		$urlBase = "http://staging.tuberia.divshot.io/edit#";
+		$urlBase = "http://staging.tuberia.divshot.io/caso/";
 		foreach($denuncias as $i => $den){
 			$index = $i + 1;
 			$html.=" <a href='{$urlBase}{$den["token"]}'>Editar #{$index} {$urlBase}{$den["token"]} </a> <br/> <br/>";
 		}
-		//echo $html;
-		//return true;
 		$this->send_email(
-			//$email, //to
-			"aero.uriel@gmail.com",
+			$email, //to
 			"Denuncias", //sub
 			$html,//msg
 			"system@mejoratuescuela.org", //from
