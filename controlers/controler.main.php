@@ -681,33 +681,22 @@ class main extends controler{
     }
 
     public function send_email($to,$subject,$message,$from,$from_name,$attachment_path = false, $attachment_name = false, $logo_path = false, $logo_name = false, $isHtml = true){
-		$url = 'http://sendgrid.com/';
-		$params = array(
-		    'api_user'  => $this->config->send_grid_user,
-		    'api_key'   => $this->config->send_grid_key,
-		    'to'        => $to,
-			'subject'   => $subject,
-			'html'      => $message,
-		    //'text'      => '',
-		    'from'      => $from
-		  );
+        require('library/sendgrid-php/sendgrid-php.php');
+        $sendgrid = new SendGrid($this->config->send_grid_key, array('raise_exceptions' => false));
+        $email = new SendGrid\Email();
+        $email
+            ->addTo($to)
+            ->setFrom($from)
+            ->setSubject($subject)
+            ->setHtml($message);
 
-
-		$request =  $url.'api/mail.send.json';
-
-		$session = curl_init($request);
-		curl_setopt ($session, CURLOPT_POST, true);
-		curl_setopt ($session, CURLOPT_POSTFIELDS, $params);
-		curl_setopt($session, CURLOPT_HEADER, false);
-		curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
-		
-		$response = json_decode(curl_exec($session));
-		curl_close($session);
-		if($response->message!="success"){
-			$response = parent::send_email($to,$subject,$message,$from,$from_name);
-		}
-		return $response;
-	}
+        $res = $sendgrid->send($email);
+        $response = $res->getCode()==200?true:false;
+        if(!$response){
+            $response = parent::send_email($to,$subject,$message,$from,$from_name);
+        }
+        return $response;
+    }
 
 	public function set_banners(){
 	    $banners = array("FACEBOOK.jpg"=>array("home","https://www.facebook.com/MejoraTuEscuela"),"mejora2.jpg"=>array("mejora","http://blog.mejoratuescuela.org/?s=lectura"),"mejora4.jpg" => array("mejora","http://blog.mejoratuescuela.org/en-que-te-debes-fijar-de-la-infraestructura-de-la-escuela/"),"mejora1.jpg"=>array("mejora","http://blog.mejoratuescuela.org/?s=programa+apoyo"), "mejora3.jpg"=>array("mejora","http://blog.mejoratuescuela.org/?s=bullying"),"sienlace.png"=>array("home","http://www.mejoratuescuela.org/peticiones/sienlace"));

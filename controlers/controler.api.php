@@ -208,18 +208,19 @@ class api extends main{
 			$index = $i + 1;
 			$html.=" <a href='{$urlBase}{$den["token"]}'>Editar #{$index} {$urlBase}{$den["token"]} </a> <br/> <br/>";
 		}
-		$this->send_email(
+		$res = $this->send_email(
 			$email, //to
 			"Denuncias", //sub
 			$html,//msg
 			"system@mejoratuescuela.org", //from
 			"Mejora tu escuela" //fromname
 		);
-	
+		return $res;
 	}
 
 	public function test(){
-		$this->send_email("aero.uriel@gmail.com", "test from sendgrid", "<p>Hola mundo cruel</p>", "system@mejoratuescuela.org", "mte");
+		$res = $this->send_email("aero.uriel@gmail.com", "test from sendgrid", "<p>Hola mundo cruel</p>", "system@mejoratuescuela.org", "mte");
+
 	}
 }
 ?>
