@@ -134,7 +134,7 @@ class pregunta extends table {
         $sql = "select p.id,p.titulo,SUM(cp.calificacion_pregunta)/COUNT(cp.calificacion_pregunta) as promedio from preguntas p
                 left join calificaciones_preguntas cp on cp.pregunta = p.id
                 left join calificaciones c on c.id = cp.calificacion
-                where c.cct = '{$escuela}'
+                where c.cct = '{$escuela}' and c.activo = 1
                 group by  p.id,p.titulo";
 
         $result = pg_query($this->conn,$sql);
