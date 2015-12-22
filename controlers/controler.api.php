@@ -193,9 +193,11 @@ class api extends main{
 		if($email){
 			$tuberia = new tuberia_denuncia($this->mongo_connect());
 			$denuncias = $tuberia->findByEmail($email);
-			$res = array("success" => true, "total" => count($denuncias));
+			$denunciasLen = count($denuncias);
+			$res = array("success" => true, "total" => $denunciasLen);
 			$this->sendPublicHeadersAndResponse($res);
-			$this->send_denuncias($email, $denuncias);
+			if($denunciasLen)
+				$this->send_denuncias($email, $denuncias);
 		}else{
 			$this->sendPublicHeadersAndResponse(array("error" => "email not found"));
 		}
@@ -206,7 +208,15 @@ class api extends main{
 		$urlBase = "http://staging.tuberia.divshot.io/caso/";
 		foreach($denuncias as $i => $den){
 			$index = $i + 1;
-			$html.=" <a href='{$urlBase}{$den["token"]}'>Editar #{$index} {$urlBase}{$den["token"]} </a> <br/> <br/>";
+			$type = $this->capitalize($den["dTypeSlug"]);
+			$date = $this->format_date($den["startDate"]);
+			$cct = $den["cct"];
+			$name = $this->get_school_name($cct);
+			$html.=" <p>
+					$type, $date, $name ($cct). Editar:
+					<a href='{$urlBase}{$den["token"]}'>{$urlBase}{$den["token"]} </a> <br/> <br/>
+				</p>
+			";
 		}
 		$res = $this->send_email(
 			$email, //to
@@ -219,8 +229,26 @@ class api extends main{
 	}
 
 	public function test(){
-		$res = $this->send_email("aero.uriel@gmail.com", "test from sendgrid", "<p>Hola mundo cruel</p>", "system@mejoratuescuela.org", "mte");
+		//$res = $this->send_email("aero.uriel@gmail.com", "test from sendgrid", "<p>Hola mundo cruel</p>", "system@mejoratuescuela.org", "mte");
+		$email = "aero.uriel@gmail.com";
+		$tuberia = new tuberia_denuncia($this->mongo_connect());
+		$denuncias = $tuberia->findByEmail($email);
+		$res = $this->send_denuncias($email, $denuncias);
+		echo $res;
+	}
 
+	private function format_date($date){
+		$d = date_create($date);
+		return date_format($d, 'd-m-Y');
+	}
+
+	private function get_school_name($cct){
+		$this->escuela = new escuela($cct, $this->conn);
+		$this->escuela->key = 'cct';
+		$this->escuela->cct = $cct;
+		$this->escuela->fields['cct'] = $cct;
+		$this->escuela->read("nombre");
+		return $this->escuela->nombre;
 	}
 }
 ?>
