@@ -176,11 +176,12 @@ class escuelas extends main{
 			");
 			#$this->debug = true;
 			if(ctype_digit($this->escuela->id)){
-	            $this->escuela->get_mongo_info($this->mongo_connect());
-	            $this->escuela->get_turnos($this->config->memcache_host);
+				$this->escuela->get_mongo_info($this->mongo_connect());
+				$memcache_host = isset($this->config->memcache_host) ? $this->config->memcache_host : NULL;
+				$this->escuela->get_turnos($memcache_host);
 				$this->escuela->get_semaforos();
-	            $this->escuela->get_charts();
-	            $this->escuela->clean_ranks();
+				$this->escuela->get_charts();
+				$this->escuela->clean_ranks();
 				
 				$this->entidad_cct_count = 0;
 	            if($this->escuela->nivel->id == 12  || $this->escuela->nivel->id ==  13 || $this->escuela->nivel->id == 22 || $this->escuela->nivel->id == 21){

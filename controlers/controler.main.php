@@ -49,7 +49,8 @@ class main extends controler{
 					if($escuela->longitud < $minlong) $minlong = $escuela->longitud;
 					else if($escuela->longitud > $maxlong) $maxlong = $escuela->longitud;
 				}
-				$escuela->get_turnos($this->config->memcache_host);
+				$memcache_host = isset($this->config->memcache_host) ? $this->config->memcache_host : NULL;
+				$escuela->get_turnos($memcache_host);
 				$escuela->get_semaforos();
 				if($detail){ 
 					$escuela->yearAvgs();
