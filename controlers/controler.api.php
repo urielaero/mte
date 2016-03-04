@@ -142,6 +142,7 @@ class api extends main{
 		$req = json_decode($data, true);
 		$denuncia = array("error" => "email required");
 		if($req && isset($req["email"])){
+			$req["entidadId"] = $this->get_entidad_id($req["cct"]);
 			$tuberia = new tuberia_denuncia($this->mongo_connect());
 			$denuncia = $tuberia->save($req);
 			if($denuncia){
@@ -226,6 +227,17 @@ class api extends main{
 			"Mejora tu escuela" //fromname
 		);
 		return $res;
+	}
+
+	private function get_entidad_id($cct){
+		$escuela = new escuela($cct, $this->conn);
+		$escuela->key = 'cct';
+		$escuela->cct = $cct;
+		$escuela->fields['cct'] = $cct;
+		$escuela->read("id,cct,entidad=>id");
+		if (isset($escuela->entidad))
+			return $escuela->entidad->id;
+		return null;
 	}
 
 	public function test(){
