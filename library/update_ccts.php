@@ -55,18 +55,18 @@ class Update_ccts extends controler{
         $relations = $this->get_dict_from_rels($rels);
         $relations_ids = $relations["ids"];
         $relations_names = $relations["names"];
-        $sql = "";
+        #$sql = "";
         if (($gestor = fopen($from_file, "r")) !== FALSE) {
             while (($datos = fgetcsv($gestor, 1000, ",")) !== FALSE) {
                 $data = $this->format_data($datos, $values, $alias_cases);
                 if ($data) {
                     $action = $this->update_insert($root_field, $data, $table, $values, $relations_ids);
-                    $sql .= $this->generate_sql($action, $root_field, $data, $table, $relations_names, $alias_cases);
+                    echo $this->generate_sql($action, $root_field, $data, $table, $relations_names, $alias_cases);
                 }
             }
             fclose($gestor);
         }
-        return $sql;
+        #return $sql;
         
     }
 
@@ -114,10 +114,8 @@ class Update_ccts extends controler{
         $query = "";
         if ($action == "update") {
             $query = "UPDATE $table SET $update WHERE $root_field = '{$data[$root_field]}';\n";
-            echo $query;
         } else if ($action == "insert"){
             $query = "INSERT INTO $table ($insert_into) VALUES ($insert_values);\n";
-            echo $query;
         }
         return $query; 
     }
@@ -229,11 +227,12 @@ function estini2_csv($config) {
                     "alias" => array("subnivel" => $alias_subnivel, "control" => $alias_control),
                     "default" => array("into" => "idmunicipio, idlocalidad, idcolonia", "values" => "0, 0, 0")
                    );
-    $sql = $update->sql_update_or_insert("estini_supervisores/ESTINI_2.csv", "escuelas_2013", $estini_values, "clavecct", $rels, $alias_cases);
-    #echo "INSERT INTO subniveles VALUES(41, 'INICIAL INDIGENA', 0);
-    #        INSERT INTO niveles VALUES(14, 'SECUNDARIA TECNICA', 0);
-    #        INSERT INTO niveles VALUES(15, 'TELESECUNDARIA', 0);";
-    echo $sql;
+    echo "INSERT INTO subniveles VALUES(41, 'INICIAL INDIGENA', 0); \n";
+    echo "INSERT INTO niveles VALUES(14, 'SECUNDARIA TECNICA', 0); \n";
+    echo "INSERT INTO niveles VALUES(15, 'TELESECUNDARIA', 0); \n";
+    $update->sql_update_or_insert("estini_supervisores/ESTINI_2.csv", "escuelas_2013", $estini_values, "clavecct", $rels, $alias_cases);
+    echo "............";
+    exit();
 }
 
 estini2_csv($config);
