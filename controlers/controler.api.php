@@ -137,12 +137,15 @@ class api extends main{
 		echo json_encode($data);
 	}
 
+	/*Denuncias*/
+
 	public function create_denuncia(){
 		$data = $this->request("data");
 		$req = json_decode($data, true);
 		$denuncia = array("error" => "email required");
 		if($req && isset($req["email"])){
-			$req["entidadId"] = $this->get_entidad_id($req["cct"]);
+			if (!$req["entidadId"])
+				$req["entidadId"] = $this->get_entidad_id($req["cct"]);
 			$tuberia = new tuberia_denuncia($this->mongo_connect());
 			$denuncia = $tuberia->save($req);
 			if($denuncia){
