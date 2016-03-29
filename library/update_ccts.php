@@ -51,22 +51,26 @@ class Update_ccts extends controler{
 
     }
 
-    public function sql_update_or_insert($from_file, $table, $values, $root_field, $rels =array(), $alias_cases=array()) {
+    public function sql_update_or_insert($from_file, $table, $values, $root_field, $rels =array(), $alias_cases=array(), $only_insert=false) {
         $relations = $this->get_dict_from_rels($rels);
         $relations_ids = $relations["ids"];
         $relations_names = $relations["names"];
-        #$sql = "";
+        $sql = "";
         if (($gestor = fopen($from_file, "r")) !== FALSE) {
             while (($datos = fgetcsv($gestor, 1000, ",")) !== FALSE) {
                 $data = $this->format_data($datos, $values, $alias_cases);
                 if ($data) {
-                    $action = $this->update_insert($root_field, $data, $table, $values, $relations_ids);
-                    echo $this->generate_sql($action, $root_field, $data, $table, $relations_names, $alias_cases);
+                    if ($only_insert) {
+                        $action = "insert";
+                    } else {
+                        $action = $this->update_insert($root_field, $data, $table, $values, $relations_ids);
+                    }
+                    $sql .= $this->generate_sql($action, $root_field, $data, $table, $relations_names, $alias_cases);
                 }
             }
             fclose($gestor);
         }
-        #return $sql;
+        return $sql;
         
     }
 
@@ -156,14 +160,18 @@ class Update_ccts extends controler{
             if ($csv[$i] == $key) {
                 return false;
             }
-            $d[$v] = $csv[$i];
-            if (isset($cases[$v])) {
-                $d[$v] = $cases[$v]($d[$v]);
+            if ($v != null) {
+                $d[$v] = $csv[$i];
+                if (isset($cases[$v])) {
+                    $d[$v] = $cases[$v]($d[$v]);
+                }
+                
+                if (isset($alias[$v]) && isset($alias[$v][$d[$v]])) {
+                    $d[$v] = $alias[$v][$d[$v]];
+                }
+                $d[$v] = pg_escape_string(trim($d[$v]));
             }
-            
-            if (isset($alias[$v]) && isset($alias[$v][$d[$v]])) {
-                $d[$v] = $alias[$v][$d[$v]];
-            }
+
             $i++;
         }
         return $d;
@@ -172,7 +180,9 @@ class Update_ccts extends controler{
     private function values_to_string($values) {
         $s = "";
         foreach($values as $key => $v) {
-            $s .= "{$v},";
+            if ($v != null) {
+                $s .= "{$v},";
+            }
         }
         $s = substr($s, 0, strlen($s)-1);
         return $s;
@@ -201,7 +211,7 @@ class Update_ccts extends controler{
     }
 }
 
-function estini2_csv($config) {
+function estini2_escuelas_2013($config) {
     $update = new Update_ccts($config);
     $estini_values = array(
         "ENTIDAD" => "entidad",
@@ -227,13 +237,68 @@ function estini2_csv($config) {
                     "alias" => array("subnivel" => $alias_subnivel, "control" => $alias_control),
                     "default" => array("into" => "idmunicipio, idlocalidad, idcolonia", "values" => "0, 0, 0")
                    );
-    echo "INSERT INTO subniveles VALUES(41, 'INICIAL INDIGENA', 0); \n";
-    echo "INSERT INTO niveles VALUES(14, 'SECUNDARIA TECNICA', 0); \n";
-    echo "INSERT INTO niveles VALUES(15, 'TELESECUNDARIA', 0); \n";
+    //echo "INSERT INTO subniveles VALUES(41, 'INICIAL INDIGENA', 0); \n";
+    //echo "INSERT INTO niveles VALUES(14, 'SECUNDARIA TECNICA', 0); \n";
+    //echo "INSERT INTO niveles VALUES(15, 'TELESECUNDARIA', 0); \n";
     $update->sql_update_or_insert("estini_supervisores/ESTINI_2.csv", "escuelas_2013", $estini_values, "clavecct", $rels, $alias_cases);
     echo "............";
     exit();
 }
 
-estini2_csv($config);
+function estini2_censo_completo_2013($config) {
+    $update = new Update_ccts($config);
+    
+    //csv => db
+    echo "CENSO_COMPLETO_2013";
+    $estini_values = array(
+        "ENTIDAD" => null,
+        "CLAVECCT" => "cct",
+        "NIVEL" => null,
+        "SUBNIVEL" => null,
+        "CONTROL" => null,
+        "CCT_ZONA" => null,
+        "ZONAESCOLA" => null,
+        "INSC_T" => "num_alumnos",
+        "TOT_DOC_P" => "num_personal"
+    );
+
+    $alias_cases = array(
+                        "default" => array("into" => "id_turno", "values" => "0")
+                    );
+
+    $update->sql_update_or_insert("estini_supervisores/ESTINI_2.csv", "censo_completo_2013", $estini_values, "cct", array(), $alias_cases);
+    echo "-----------";
+}
+
+function supervisores($config) {
+    $update = new Update_ccts($config);
+    echo "SUPERVISORES";
+
+    $supervisores_values = array(
+        "ENTIDAD" => "entidad",
+        "ZONA" => "zona",
+        "CLAVECCT" => "cct",
+        "NOMBRECT" => "nombrect",
+        "DOMICILIO" => "domicilio",
+        "COLONIA" => "colonia",
+        "LOCALIDAD" => "localidad",
+        "MUNICIPIO" => "municipio",
+        "CODIGO_POSTAL" => "codigo_postal",
+        "NIVEL" => "nivel",
+        "TELEFONO" => "telefono",
+        "NOMBRE" => "nombre"
+    );
+    $rels = array("colonia" => "colonias", "localidad" => "localidades", "municipio" => "municipios", "nivel" => "niveles");
+    $alias_cases = array(
+                    "cases" => array("nombre" => "trim"));
+    $sql = $update->sql_update_or_insert("estini_supervisores/Supervisores.csv", "supervisores", $supervisores_values, "cct", $rels, $alias_cases, true);
+    //echo $sql;
+    echo "-----------";
+}
+
+//estini2_escuelas_2013($config);
+
+estini2_censo_completo_2013($config); //pendiente en produccion
+//supervisores($config);
+exit();
 ?>
