@@ -23,6 +23,7 @@ class Update_ccts extends controler{
     public function Update_ccts($config) {
         $this->config = $config;
         $this->conn = $this->dbConnect();
+        $this->exists = array();
     }
 
     public function sql_update_ccts($file) {
@@ -51,6 +52,14 @@ class Update_ccts extends controler{
 
     }
 
+    private function exists_field($key) {
+        if (isset($this->exists[$key])) {
+            return true;
+        }
+        $this->exists[$key] = true;
+        return false;
+    }
+
     public function sql_update_or_insert($from_file, $table, $values, $root_field, $rels =array(), $alias_cases=array(), $only_insert=false) {
         $relations = $this->get_dict_from_rels($rels);
         $relations_ids = $relations["ids"];
@@ -65,7 +74,9 @@ class Update_ccts extends controler{
                     } else {
                         $action = $this->update_insert($root_field, $data, $table, $values, $relations_ids);
                     }
-                    $sql .= $this->generate_sql($action, $root_field, $data, $table, $relations_names, $alias_cases);
+                    if (!$this->exists_field($data[$root_field])) {
+                        echo $this->generate_sql($action, $root_field, $data, $table, $relations_names, $alias_cases);
+                    }
                 }
             }
             fclose($gestor);
@@ -87,16 +98,19 @@ class Update_ccts extends controler{
 
     private function generate_sql($action, $root_field, $data, $table, $relations, $alias_cases) {
         foreach($data as $key => $val) {
+            if ($data[$key] == '' && isset($alias_cases["empty_default"][$key])) {
+                $val = $alias_cases["empty_default"][$key];
+                $data[$key] = $val;
+            }
+
             if (isset($relations[$key])) {
                 if (isset($relations[$key][$val])) {
                     $data[$key] = $relations[$key][$val];
                 } else {
                     $this->logger("NO ID EXIST FOR '".$val."' in $key \n");
-                    //exit();
                 }
             }
         }
-
         $update = "";
         $insert_into = "";
         $insert_values = "";
@@ -107,6 +121,10 @@ class Update_ccts extends controler{
         }
 
         foreach($data as $key => $val) {
+            if ($val == '' && isset($alias_cases["empty_default"]) && array_key_exists($key, $alias_cases["empty_default"])) {
+                $val = $alias_cases["empty_default"][$key];
+                $data[$key] = $val;
+            }
             $update .= " $key = '$val',";
             $insert_into .= "$key,";
             $insert_values .= "'$val',";
@@ -169,7 +187,7 @@ class Update_ccts extends controler{
                 if (isset($alias[$v]) && isset($alias[$v][$d[$v]])) {
                     $d[$v] = $alias[$v][$d[$v]];
                 }
-                $d[$v] = pg_escape_string(trim($d[$v]));
+                $d[$v] = trim(pg_escape_string(trim($d[$v])));
             }
 
             $i++;
@@ -242,18 +260,17 @@ function estini2_escuelas_2013($config) {
     //echo "INSERT INTO niveles VALUES(15, 'TELESECUNDARIA', 0); \n";
     $update->sql_update_or_insert("estini_supervisores/ESTINI_2.csv", "escuelas_2013", $estini_values, "clavecct", $rels, $alias_cases);
     echo "............";
-    exit();
 }
 
 function estini2_censo_completo_2013($config) {
     $update = new Update_ccts($config);
     
     //csv => db
-    echo "CENSO_COMPLETO_2013";
+    echo "CENSO_COMPLETO_2013 \n";
     $estini_values = array(
         "ENTIDAD" => null,
         "CLAVECCT" => "cct",
-        "NIVEL" => null,
+        "NIVEL" => "nivel",
         "SUBNIVEL" => null,
         "CONTROL" => null,
         "CCT_ZONA" => null,
@@ -261,18 +278,23 @@ function estini2_censo_completo_2013($config) {
         "INSC_T" => "num_alumnos",
         "TOT_DOC_P" => "num_personal"
     );
-
+    $rels = array("nivel" => "niveles");
     $alias_cases = array(
                         "default" => array("into" => "id_turno", "values" => "0")
                     );
 
-    $update->sql_update_or_insert("estini_supervisores/ESTINI_2.csv", "censo_completo_2013", $estini_values, "cct", array(), $alias_cases);
+    $update->sql_update_or_insert("estini_supervisores/ESTINI_2.csv", "censo_completo_2013", $estini_values, "cct", $rels, $alias_cases);
     echo "-----------";
+}
+
+function clear_tel($string){
+    $no_tel = array("TEL ", "TEL", "TEL.");
+    return trim(str_replace($no_tel, "", $string));
 }
 
 function supervisores($config) {
     $update = new Update_ccts($config);
-    echo "SUPERVISORES";
+    echo "SUPERVISORES \n";
 
     $supervisores_values = array(
         "ENTIDAD" => "entidad",
@@ -288,17 +310,27 @@ function supervisores($config) {
         "TELEFONO" => "telefono",
         "NOMBRE" => "nombre"
     );
-    $rels = array("colonia" => "colonias", "localidad" => "localidades", "municipio" => "municipios", "nivel" => "niveles");
+    $rels = array("nivel" => "niveles");
+    $niveles = array(
+        "Preescolar" => "PREESCOLAR",
+        "Primaria" => "PRIMARIA",
+        "Secundaria" => "SECUNDARIA",
+        "Telesecundaria" => "TELESECUNDARIA"
+    );
     $alias_cases = array(
-                    "cases" => array("nombre" => "trim"));
-    $sql = $update->sql_update_or_insert("estini_supervisores/Supervisores.csv", "supervisores", $supervisores_values, "cct", $rels, $alias_cases, true);
-    //echo $sql;
+                    "cases" => array("telefono"=> "clear_tel"),
+                    "empty_default" => array("nivel" => "NO APLICA", "zona" => "-1"), //exist in csv but empty
+                    "alias" => array("nivel" => $niveles),
+                    );
+    $sql = $update->sql_update_or_insert("estini_supervisores/Supervisores_test.csv", "supervisores", $supervisores_values, "cct", $rels, $alias_cases, true);
+    echo $sql;
     echo "-----------";
 }
+//File ESTINI_2.csv
+estini2_escuelas_2013($config);
+//estini2_censo_completo_2013($config);
 
-//estini2_escuelas_2013($config);
-
-estini2_censo_completo_2013($config); //pendiente en produccion
-//supervisores($config);
+//Supervisores.csv
+//supervisores($config); // completo
 exit();
 ?>
