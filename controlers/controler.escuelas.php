@@ -165,7 +165,7 @@ class escuelas extends main{
 			$this->escuela->read("
 				id,nombre,domicilio,paginaweb,
 				entidad=>nombre,entidad=>id,municipio=>id,municipio=>nombre,localidad=>nombre,localidad=>id,
-				telefono,correoelectronico,
+				telefono,correoelectronico,verificado,
 				turno=>id,turno=>nombre,
 				latitud,longitud,
 				nivel=>nombre,nivel=>id,

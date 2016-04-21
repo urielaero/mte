@@ -20,10 +20,12 @@ class AllModels extends table {
 
 class Update_ccts extends controler{
 
-    public function Update_ccts($config) {
+    public function Update_ccts($config, $noRepeat=true) {
         $this->config = $config;
         $this->conn = $this->dbConnect();
-        $this->exists = array();
+        if ($noRepeat) {
+	        $this->exists = array();
+        }
     }
 
     public function sql_update_ccts($file) {
@@ -53,6 +55,9 @@ class Update_ccts extends controler{
     }
 
     private function exists_field($key) {
+        if (!isset($this->exists)) {
+            return false;
+        }
         if (isset($this->exists[$key])) {
             return true;
         }
@@ -292,6 +297,10 @@ function clear_tel($string){
     return trim(str_replace($no_tel, "", $string));
 }
 
+function null_to_number($string){
+    return $string === "" ? 0 : $string;
+}
+
 function supervisores($config) {
     $update = new Update_ccts($config);
     echo "SUPERVISORES \n";
@@ -327,10 +336,91 @@ function supervisores($config) {
     echo "-----------";
 }
 //File ESTINI_2.csv
-estini2_escuelas_2013($config);
+//estini2_escuelas_2013($config);
 //estini2_censo_completo_2013($config);
 
 //Supervisores.csv
 //supervisores($config); // completo
+
+
+//planea files....
+function rankea_planea_niveles($config) {
+    $update = new Update_ccts($config);
+    $semaforos_values = array(
+        "nombre_semaforo" => "nombre",
+        "clave_semaforo" => "clave"
+    );
+    $sql = $update->sql_update_or_insert("planea/rankeo_planea_niveles_un.csv", "semaforos", $semaforos_values, "clave", array(), array(), true);
+
+}
+
+//rankea_planea_niveles($config);
+
+function rankea_planea_escuelas($config, $year) {
+    $update = new Update_ccts($config);
+    $escuelas_values = array(
+        "cct" => "cct",
+        "entidad" => "entidad",
+        "clave_turno" => "clave_turno",
+        "cct_turno" => NULL,
+        "clave_nivel" => "clave_nivel",
+        "nivel" => NULL,
+        "entidad_nivel" => NULL,
+        "evaluados" => "evaluados",
+        "niv1_esp" => "porcentaje_nivel1_espaniol",
+        "niv2_esp" => "porcentaje_nivel2_espaniol",
+        "niv3_esp" => "porcentaje_nivel3_espaniol",
+        "niv4_esp" => "porcentaje_nivel4_espaniol",
+        "niv1_mat" => "porcentaje_nivel1_matematicas",
+        "niv2_mat" => "porcentaje_nivel2_matematicas",
+        "niv3_mat" => "porcentaje_nivel3_matematicas",
+        "niv4_mat" => "porcentaje_nivel4_matematicas",
+        "score_global" => "score_global",
+        "percentil" => "percentil",
+        "rank_prep" => "rank_prep",
+        "rank_entidad" => "rank_entidad",
+        "semaforo" => "clave_semaforo",
+    );
+    $cases = array(
+        "porcentaje_nivel1_espaniol" => "null_to_number",
+        "porcentaje_nivel2_espaniol" => "null_to_number",
+        "porcentaje_nivel3_espaniol" => "null_to_number",
+        "porcentaje_nivel4_espaniol" => "null_to_number",
+        "porcentaje_nivel1_matematicas" => "null_to_number",
+        "porcentaje_nivel2_matematicas" => "null_to_number",
+        "porcentaje_nivel3_matematicas" => "null_to_number",
+        "porcentaje_nivel4_matematicas" => "null_to_number",
+        "score_global" => "null_to_number",
+        "percentil" => "null_to_number",
+        "rank_prep" => "null_to_number",
+        "rank_entidad" => "null_to_number",
+    );
+    $alias_cases = array(
+                        "cases" => $cases,
+                        "default" => array("into" => "anio", "values" => $year)
+                    );
+
+    $update->sql_update_or_insert("planea/rankeo_planea_escuelas_un.csv", "planea_escuelas ", $escuelas_values, "cct", array(), $alias_cases, true);
+}
+rankea_planea_escuelas($config, 2015);
+
+function rankea_planea_promedios($config, $year) {
+    $update = new Update_ccts($config, false);
+    $promedios_values = array(
+    	"entidad" => "entidad",
+        "clave_nivel" => "clave_nivel",
+        "nombre_nivel" => null, 
+        "materia" => "materia",
+        "entidad_nivel" => null,
+        "niv_1" => "nivel1",
+        "niv_2" => "nivel2",
+        "niv_3" => "nivel3",
+        "niv_4" => "nivel4"
+    );
+    $alias_cases = array("default" => array("into" => "anio", "values" => $year));
+    $update->sql_update_or_insert("planea/rankeo_planea_promedios_un.csv", "planea_promedios", $promedios_values, "entidad", array(), $alias_cases, true);
+}
+
+//rankea_planea_promedios($config, 2015); sql/planea_promedios_values.sql
 exit();
 ?>

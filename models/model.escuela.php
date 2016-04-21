@@ -192,7 +192,7 @@ class escuela extends memcached_table{
 		return mysql_query($sql);		
 	}
 	public function get_mongo_info($client){
-		if($client){
+        if($client){
             $db = $client->selectDB("censo_completo_2013");
             $collection = $db->selectCollection('datos_escuelas_v2');
             $escuelas = $collection->find(array( 'cct_escuelas' => $this->cct))->sort(array('id_turno'=>1));
@@ -212,8 +212,9 @@ class escuela extends memcached_table{
                 }
                 $censo['turnos'][] = $turno;
             }
+
             $this->censo = $censo;
-            if($this->censo && isset($this->censo['telefono'])) $this->telefono = $this->censo['telefono'];
+            if(!$this->verificado && $this->censo && isset($this->censo['telefono'])) $this->telefono = $this->censo['telefono'];
             if($this->censo && isset($this->censo['persona_responsable'])) $this->director = $this->censo['persona_responsable'];
             if($this->censo && isset($this->censo['calle'])) $this->domicilio = $this->censo['calle'].' no.'.$this->censo['numero_dir'];
             if($this->censo && isset($this->censo['calle'])) $this->domicilio = $this->censo['calle'].' no.'.$this->censo['numero_dir'];

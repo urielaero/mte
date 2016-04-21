@@ -31,6 +31,7 @@ if(!empty($this->escuela->rank)){
 		$tmp->rank_total = number_format($this->entidad_cct_count,0);
 		$tmp->total_evaluados = $rank->total_evaluados?$rank->total_evaluados:'N/D';
 		$tmp->pct_reprobados = $rank->pct_reprobados?$rank->pct_reprobados:'N/D';
+		//TODO aqui se seteara si no existe para funcionar en ambos.
 		$tmp->semaforo =  $this->config->semaforos[$rank->semaforo];
 		$tmp->chart_ma = $this->escuela->matematicas_charts && isset($this->escuela->matematicas_charts[$rank->turnos_eval])?$this->escuela->matematicas_charts[$rank->turnos_eval]:'';
 		$tmp->chart_es = $this->escuela->espaniol_charts && isset($this->escuela->espaniol_charts[$rank->turnos_eval])?$this->escuela->espaniol_charts[$rank->turnos_eval]:'';
