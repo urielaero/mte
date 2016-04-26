@@ -1,0 +1,1 @@
+ALTER TABLE escuelas ADD verificado INT NOT NULL DEFAULT 0;
