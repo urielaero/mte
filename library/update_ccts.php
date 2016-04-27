@@ -298,7 +298,7 @@ function clear_tel($string){
 }
 
 function null_to_number($string){
-    return $string === "" ? 0 : $string;
+    return floatval($string);
 }
 
 function supervisores($config) {
@@ -357,7 +357,7 @@ function rankea_planea_niveles($config) {
 //rankea_planea_niveles($config);
 
 function rankea_planea_escuelas($config, $year) {
-    $update = new Update_ccts($config);
+    $update = new Update_ccts($config, false);
     $escuelas_values = array(
         "cct" => "cct",
         "entidad" => "entidad",
@@ -382,6 +382,7 @@ function rankea_planea_escuelas($config, $year) {
         "semaforo" => "clave_semaforo",
     );
     $cases = array(
+        "evaluados" => "null_to_number",
         "porcentaje_nivel1_espaniol" => "null_to_number",
         "porcentaje_nivel2_espaniol" => "null_to_number",
         "porcentaje_nivel3_espaniol" => "null_to_number",
@@ -422,5 +423,5 @@ function rankea_planea_promedios($config, $year) {
 }
 
 //rankea_planea_promedios($config, 2015); sql/planea_promedios_values.sql
-exit();
+//exit();
 ?>

@@ -475,7 +475,19 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.profile #profile-content .additional-info .desempeno .chart-block .purple p{line-height: 1.2}
 #content .container.profile #profile-content .additional-info .desempeno .chart-block .purple .label{background:#7B49AA;bottom: 0;color: #fff;left: 0;margin-top: 10px;padding: 4px;position: absolute;width: 100%}
 #content .container.profile #profile-content .additional-info .desempeno .chart-block .chart{background: #fff;padding: 6px;}
+#content .container.profile .chart-block .planea_nacional .circle{background:#37B85D;}
+#content .container.profile .chart-block .planea_estatal .circle{background:#FFF100;}
+.planea-enlace-buttons{margin: 0.83em 0;}
+.planea-enlace-buttons .to-planea,.planea-enlace-buttons .to-enlace{border: 1px solid white;padding: 6px;color:black;border-radius:0 !important;background: #fff; color: rgba(0, 0, 0, 0.73); font-weight: bold;}
+.semaphore .planea-enlace-buttons{margin-top:0;}
+.planea-enlace-buttons .md-button.md-default-theme:not([disabled]):hover, 
+.to-planea:hover,.to-enlace:hover,
+.to-planea.show-type-data,.to-enlace.show-type-data{background:#1CA5B9;color:white;}
 
+
+
+#content .container.profile .planea .chart .legend_chart p{margin-left: 4px; margin-bottom: 9px; text-align: center;}
+#content .container.profile .planea .chart .legend_chart{width: 107px;}
 
 #content .container.profile #profile-content .additional-info .tables-box .table-top{color: #6E6E6E;font-weight: 700;background: #B7B7B7}
 #content .container.profile #profile-content .additional-info .tables-box .table-top .i-cont{background: #E8299A;color: #fff;font-size: 20px;padding:6px 10px;text-align: center;}

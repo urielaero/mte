@@ -442,18 +442,57 @@ class escuela extends memcached_table{
 
     public function setEducAccion($client){
     	$data = array('cct' => $this->cct, 'programa' => 'educaccion', 'anio'=> new MongoInt32(2015));
-	$db = $client->selectDB("mte_programas");
+        $db = $client->selectDB("mte_programas");
         $coll = $db->selectCollection("normalizados");
         $result = $coll->findOne($data);
-	if($result){
-		return true;
-	}
-	//insert.
-	$res = $coll->insert($data);
-	if(isset($res["ok"])){
-		return true;
-	}
-	return false;
+        if($result){
+            return true;
+        }
+        //insert.
+        $res = $coll->insert($data);
+        if(isset($res["ok"])){
+            return true;
+        }
+        return false;
+    }
+
+    public function get_planea(){
+        $escuela = new planea_escuela($this->cct, $this->conn);
+        $escuela->read("id,cct,evaluados,porcentaje_nivel1_espaniol,porcentaje_nivel2_espaniol,porcentaje_nivel3_espaniol,porcentaje_nivel4_espaniol,porcentaje_nivel1_matematicas,porcentaje_nivel2_matematicas,porcentaje_nivel3_matematicas,porcentaje_nivel4_matematicas,clave_nivel,entidad,clave_semaforo");
+        $promedio = new planea_promedio(null, $this->conn);
+        $promedios = $promedio->promedios($escuela->entidad, $escuela->clave_nivel);//filter by turno ?...
+        $this->planea = new stdClass();
+        $this->planea_charts($escuela, $promedios);
+        $this->planea_semaforo($escuela);
+    }
+
+    private function planea_charts($escuela, $promedios) {        
+        $turno = $this->turno->id;
+        $this->planea->matematicas_charts = $this->make_planea_chart($escuela, $promedios, 'matematicas');
+        $this->planea->espaniol_charts = $this->make_planea_chart($escuela, $promedios, 'espaniol');
+        $this->planea->evaluados = $escuela->evaluados;
+    }
+
+    private function make_planea_chart($escuela, $promedios, $materia) {
+        $title_x = array("nivel", "escuela", "entidad", "nacional");
+        $title_y = array("nivel1", "nivel2", "nivel3", "nivel4");
+        $field = "porcentaje_nivel";
+        $chart = array($title_x);
+        for($i=1;$i<=4;$i++) {
+            $field_name = $field."{$i}_".$materia;
+            $nivel = $title_y[$i-1];
+            $local = $escuela->$field_name;
+            $entidad = $promedios["{$this->entidad}_".$materia]->$nivel;
+            $nacional = $promedios["0_".$materia]->$nivel;
+            $chart[] = array($nivel, floatval($local), floatval($entidad), floatval($nacional));
+        }
+        return $chart;
+    }
+
+    private function planea_semaforo($escuela) {
+        $semaforo = new planea_semaforo($escuela->clave_semaforo, $this->conn);
+        $semaforo->read("nombre");
+        $this->planea->semaforo = $semaforo;
     }
 }
 ?>

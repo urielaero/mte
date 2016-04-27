@@ -182,6 +182,7 @@ class escuelas extends main{
 				$this->escuela->get_semaforos();
 				$this->escuela->get_charts();
 				$this->escuela->clean_ranks();
+				$this->escuela->get_planea();
 				
 				$this->entidad_cct_count = 0;
 	            if($this->escuela->nivel->id == 12  || $this->escuela->nivel->id ==  13 || $this->escuela->nivel->id == 22 || $this->escuela->nivel->id == 21){

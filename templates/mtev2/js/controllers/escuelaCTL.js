@@ -45,6 +45,10 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
 
     $scope.chart_colors = ["#16A452","#339DD1","#E9068B","#F6911B","#990099","#888888"];
     $scope.chart = [];
+    $scope.chart_planea = [];
+    $scope.showPlanea = true;
+    $scope.showEnlace = false;
+    
     $scope.loadCharts = function($event){
         if($event && angular.element($event.target).text().trim()!='Desempeñoacademico')
             return;
@@ -62,6 +66,25 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
                 chart.draw(data, options);
             }
         });    
+
+        var options_planea = {
+            vAxis: {title: '', format: '#\'%\'', minValue: 0, maxValue: 100},
+            hAxis: {title: '2015'},
+            chartArea : {width:295,height:105,left:40,top:10},
+            seriesType: 'bars',
+            legend: {position:'none'},
+            series: {2: {type: 'line'}, 1: {type: 'line'}},
+            colors: ["#00A2E8", "#37B85D", "#FFF100"],
+        };
+        //planea charts
+        Object.keys($scope.chart_planea[index]).forEach(function(materia){
+            var raw_data = $scope.chart_planea[index][materia];
+            if(raw_data){
+                var data = google.visualization.arrayToDataTable(raw_data),
+                chart = new google.visualization.ComboChart(document.getElementById('planea-profile-line-chart-'+materia));
+                chart.draw(data, options_planea);
+            }
+        });  
     };
 
     $scope.center = {

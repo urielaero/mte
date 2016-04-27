@@ -217,4 +217,39 @@ class page_banner extends table{
 		$this->objects['banner'] = 'banner';
 	}
 }
+
+class planea_semaforo extends table {
+    function info() {
+        $this->key = 'clave';
+        $this->table_name = 'planea_semaforos';
+    }
+}
+
+class planea_escuela extends table{
+    function info() {
+		$this->key = 'cct';
+        $this->table_name = 'planea_escuelas';
+    }
+}
+
+class planea_promedio extends table{
+    function info() {
+         $this->table_name = 'planea_promedios';       
+    }
+
+    function promedios($entidad, $clave_nivel) {
+        $this->search_clause = "({$this->table_name}.entidad = {$entidad} AND {$this->table_name}.clave_nivel = {$clave_nivel})";//entidad
+        $this->search_clause .= " OR ({$this->table_name}.entidad = 0 AND {$this->table_name}.clave_nivel = $clave_nivel)";//nacional
+        $promedios = $this->read('entidad,materia,nivel1,nivel2,nivel3,nivel4');
+        $res = array();
+        foreach($promedios as $prod) {
+            $materia = $prod->materia;
+            if ($materia == 'espanol') {
+                $materia = 'espaniol';
+            }
+            $res["{$prod->entidad}_{$materia}"] = $prod;
+        }
+        return $res;
+    }
+}
 ?>

@@ -167,72 +167,19 @@ if($this->escuela->nivel->id == 11){
 		}else{
 	?>
 	<div class="semaphore" flex="25" flex-sm="100">
+		<div layout="row" class="planea-enlace-buttons">
+			<md-button flex ng-click="showEnlace = false; showPlanea = true;" ng-class="showPlanea?'to-planea show-type-data':'to-planea'">PLANEA</md-button>	
+			<md-button flex ng-click="showPlanea = false; showEnlace=true;" ng-class="showEnlace?'to-enlace show-type-data':'to-enlace'">ENLACE</md-button>	
+		</div>
 		<h4>Semáforo educativo</h4>
-		<?php $on = $this->escuela_per_turno->semaforo; ?>
-		<?php
-
-			switch ($on) {
-				case "Prueba ENLACE no disponible para este nivel escolar";
-				case "No toma la prueba ENLACE";
-				case "Esta escuela no toma la prueba ENLACE para todos los años": ?>
-						<div id="cont-samaforo-icono">
-							<div class="cont-samaforo-icono">
-								<i id="icono-semaphore" class="icon-notomaenlace"></i>
-								<h5 class="h5-semaforo-on"><?php echo $on ?></h5>
-							</div>
-						</div>
-			<?php	break;
-			case "Poco confiable": ?>
-						<div id="cont-samaforo-icono">
-							<div class="cont-samaforo-icono">
-								<i id="icono-semaphore" class="icon-pococonfiable"></i>
-								<h5 class="h5-semaforo-on"><?php echo $on ?></h5>
-							</div>
-						</div>
-			<?php	break;
-				case "De panzazo";
-				case "Bien";
-			    case "Reprobado";
-				case "Excelente":
-				 ?>
-				 <ul>
-			<li class="rank1<?=$on=='Excelente'?' on':''?>">
-				<div layout="row">
-					<div flex="70" class="label">Excelente</div>
-					<div flex="30" class="circle">
-				        <md-button class="md-fab" aria-label="Time"><i class="icon-check-01"></i></md-button>									
-					</div>
-				</div>
-			</li>
-			<li class="rank2<?=$on=='Bien'?' on':''?>">
-				<div layout="row">
-					<div flex="70" class="label">Bien</div>
-					<div flex="30" class="circle">
-				        <md-button class="md-fab" aria-label="Time"><i class="icon-check-01"></i></md-button>									
-					</div>
-				</div>
-			</li>
-			<li class="rank3<?=$on=='De panzazo'?' on':''?>">
-				<div layout="row">
-					<div flex="70" class="label">De panzazo</div>
-					<div flex="30" class="circle">
-				        <md-button class="md-fab" aria-label="Time"><i class="icon-tache-01"></i></md-button>									
-					</div>
-				</div>
-			</li>
-			<li class="rank4<?=$on=='Reprobado'?' on':''?>">
-				<div layout="row">
-					<div flex="70" class="label">Reprobado</div>
-					<div flex="30" class="circle">
-				        <md-button class="md-fab" aria-label="Time"><i class="icon-tache-01"></i></md-button>									
-					</div>
-				</div>
-			</li>
-		</ul>
-				
-				<?php break;
-			}
-		?>
+		<div ng-show="showPlanea">
+			<?php $this->escuela_per_turno->current_semaforo = $this->escuela_per_turno->planea_semaforo;
+			$this->include_template('semaphore','escuelas'); ?>
+		</div>
+		<div ng-show="showEnlace">
+			<?php $this->escuela_per_turno->current_semaforo = $this->escuela_per_turno->semaforo;
+			$this->include_template('semaphore','escuelas'); ?>
+		</div>
 		<div class="share_options">
 			<div class="options space-between" layout="row" layout-md="column">
 				<div flex="49" class="option">
@@ -289,10 +236,34 @@ if($this->escuela->nivel->id == 11){
 		    </div>		
 		<?php endif; ?>
 
-
         <div  class="desempeno" id="desempeno">
 			<h2>Desempeño académico matutino</h2>
-			<div class="block" layout="row" layout-sm="column" layout-margin layout-fill layout-padding>
+			<div layout="row" class="planea-enlace-buttons">
+				<md-button flex ng-click="showEnlace = false; showPlanea = true;" ng-class="showPlanea?'to-planea show-type-data':'to-planea'">PLANEA</md-button>	
+				<md-button flex ng-click="showPlanea = false; showEnlace=true;" ng-class="showEnlace?'to-enlace show-type-data':'to-enlace'">ENLACE</md-button>	
+			</div>
+
+			<!--PLANEA -->
+			<div class="block" layout="row" layout-sm="column" layout-margin layout-fill layout-padding ng-if="showPlanea">
+				<div flex>
+					<div layout="row">
+						<div flex="70"><p>Número de alumnos evaluados</p></div>
+						<div flex="30" class="number"><p><?=$this->escuela_per_turno->planea_evaluados?></p></div>
+					</div>
+				</div>
+				<!--
+				<div flex>
+					<div layout="row">
+						<div flex="70"><p>Porcentaje de alumnos en nivel reprobatorio</p></div>
+						<div flex="30" class="number"><p><?=$this->escuela_per_turno->pct_reprobados?>%</p></div>
+					</div>
+				</div>								
+				-->
+			</div>
+
+			<!--Enlace -->
+
+			<div class="block" layout="row" layout-sm="column" layout-margin layout-fill layout-padding ng-if="showEnlace">
 				<div flex>
 					<div layout="row">
 						<div flex="70"><p>Número de alumnos evaluados</p></div>
@@ -306,55 +277,119 @@ if($this->escuela->nivel->id == 11){
 					</div>
 				</div>								
 			</div>
-			<div class="chart-block mate" layout="row" layout-sm="column">
-				<div class="purple" flex="25" flex-sm="100">
-					<p class="i-cont"><i class="icon-calculadora-01"></i></p>
-					<p>Resultados</p>
-					<p>ENLACE</p>
-					<div class="label"><p>Matemáticas</p></div>
-				</div>
-				<div flex="75" flex-sm="100" class="chart" 
-				ng-init='chart[<?=$this->escuela_per_turno_index?>].matematicas=<?=json_encode($this->escuela_per_turno->chart_ma)?>'
-				>
-					<div id='profile-line-chart-matematicas' class="content_chart"></div>
-		                        <div class="legend_chart">
-		                            <div class="wrap_lc">
-		                                <p ng-repeat="year in chart[<?=$this->escuela_per_turno_index?>].matematicas[0]" ng-if="year!='Año'">
-							<span class="circle" style='background:{{chart_colors[$index-1]}}'></span>
-							{{year}}
-						</p>
-		                            </div>
 
-		                            <p class="under">_ _ _ _</p>
-		                            <p>Promedio nacional</p>
-		                        </div>
+
+			<div class="show-type-data-planea" ng-show="showPlanea">
+				<div class="chart-block planea mate" layout="row" layout-sm="column">
+					<div class="purple" flex="25" flex-sm="100">
+						<p class="i-cont"><i class="icon-calculadora-01"></i></p>
+						<p>Resultados</p>
+						<p>Planea</p>
+						<div class="label"><p>Matemáticas</p></div>
+					</div>
+					<div flex="75" flex-sm="100" class="chart" 
+					ng-init='chart_planea[<?=$this->escuela_per_turno_index?>].matematicas=<?=json_encode($this->escuela_per_turno->chart_planea_ma)?>'
+					>
+						<div id='planea-profile-line-chart-matematicas' class="content_chart"></div>
+			                        <div class="legend_chart">
+			                            <div class="wrap_lc">
+			                                <p class="planea_nacional">
+								<span class="circle"></span>
+								Promedio nacional
+							</p>
+			                                <p class="planea_estatal">
+								<span class="circle"></span>
+								Promedio estatal
+							</p>
+			                            </div>
+			                        </div>
+					
+					</div>
+				</div>
+	
+				<div class="chart-block planea espaniol" layout="row" layout-sm="column">
+					<div class="purple" flex="25" flex-sm="100">
+						<p class="i-cont"><i class="icon-enlace-01"></i></p>
+						<p>Resultados</p>
+						<p>Planea</p>
+						<div class="label"><p>Español</p></div>
+					</div>
+					<div flex="75" flex-sm="100" class="chart" 
+					ng-init='chart_planea[<?=$this->escuela_per_turno_index?>].espaniol=<?=json_encode($this->escuela_per_turno->chart_planea_es)?>'
+					>
+						<div id='planea-profile-line-chart-espaniol' class="content_chart"></div>
+			                        <div class="legend_chart">
+			                            <div class="wrap_lc">
+			                                <p class="planea_nacional">
+								<span class="circle"></span>
+								Promedio nacional
+							</p>
+			                                <p class="planea_estatal">
+								<span class="circle"></span>
+								Promedio estatal
+							</p>
+			                            </div>
+						</div>
+					
+					</div>
+			    </div>
+			</div>
+
+			<div class="show-type-data-enlace" ng-show="showEnlace">
+				<div class="chart-block mate" layout="row" layout-sm="column">
+					<div class="purple" flex="25" flex-sm="100">
+						<p class="i-cont"><i class="icon-calculadora-01"></i></p>
+						<p>Resultados</p>
+						<p>ENLACE</p>
+						<div class="label"><p>Matemáticas</p></div>
+					</div>
+					<div flex="75" flex-sm="100" class="chart" 
+					ng-init='chart[<?=$this->escuela_per_turno_index?>].matematicas=<?=json_encode($this->escuela_per_turno->chart_ma)?>'
+					>
+						<div id='profile-line-chart-matematicas' class="content_chart"></div>
+			                        <div class="legend_chart">
+			                            <div class="wrap_lc">
+			                                <p ng-repeat="year in chart[<?=$this->escuela_per_turno_index?>].matematicas[0]" ng-if="year!='Año'">
+								<span class="circle" style='background:{{chart_colors[$index-1]}}'></span>
+								{{year}}
+							</p>
+			                            </div>
+	
+			                            <p class="under">_ _ _ _</p>
+			                            <p>Promedio nacional</p>
+			                        </div>
 				
+					</div>
 				</div>
+				<div class="chart-block espanol" layout="row" layout-sm="column">
+					<div class="purple" flex="25" flex-sm="100">
+						<p class="i-cont"><i class="icon-enlace-01"></i></p>
+						<p>Resultados</p>
+						<p>ENLACE</p>
+						<div class="label"><p>Español</p></div>
+					</div>
+					<div flex="75" flex-sm="100" class="chart"
+					ng-init='chart[<?=$this->escuela_per_turno_index?>].espaniol=<?=json_encode($this->escuela_per_turno->chart_es)?>'
+					>
+						<div id='profile-line-chart-espaniol' class="content_chart"></div>
+			                        <div class="legend_chart">
+			                            <div class="wrap_lc">
+			                                <p ng-repeat="year in chart[<?=$this->escuela_per_turno_index?>].espaniol[0]" ng-if="year!='Año'">
+								<span class="circle" style='background:{{chart_colors[$index-1]}}'></span>
+								{{year}}
+							</p>
+			                            </div>
+	
+			                            <p class="under">_ _ _ _</p>
+			                            <p>Promedio nacional</p>
+			                        </div>
+					</div>
+				</div>
+			
 			</div>
-			<div class="chart-block espanol" layout="row" layout-sm="column">
-				<div class="purple" flex="25" flex-sm="100">
-					<p class="i-cont"><i class="icon-enlace-01"></i></p>
-					<p>Resultados</p>
-					<p>ENLACE</p>
-					<div class="label"><p>Español</p></div>
-				</div>
-				<div flex="75" flex-sm="100" class="chart"
-				ng-init='chart[<?=$this->escuela_per_turno_index?>].espaniol=<?=json_encode($this->escuela_per_turno->chart_es)?>'
-				>
-					<div id='profile-line-chart-espaniol' class="content_chart"></div>
-		                        <div class="legend_chart">
-		                            <div class="wrap_lc">
-		                                <p ng-repeat="year in chart[<?=$this->escuela_per_turno_index?>].espaniol[0]" ng-if="year!='Año'">
-							<span class="circle" style='background:{{chart_colors[$index-1]}}'></span>
-							{{year}}
-						</p>
-		                            </div>
+			
 
-		                            <p class="under">_ _ _ _</p>
-		                            <p>Promedio nacional</p>
-		                        </div>
-				</div>
-			</div>
+			
 		</div>
         
         <div class="infraestructura tables-box" id="infraestructura">
