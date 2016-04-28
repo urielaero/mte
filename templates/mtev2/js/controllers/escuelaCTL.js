@@ -74,7 +74,7 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
             seriesType: 'bars',
             legend: {position:'none'},
             series: {2: {type: 'line'}, 1: {type: 'line'}},
-            colors: ["#00A2E8", "#37B85D", "#FFF100"],
+            colors: ["#00A2E8", "#E80C8F", "#329CD6"],
         };
         //planea charts
         Object.keys($scope.chart_planea[index]).forEach(function(materia){

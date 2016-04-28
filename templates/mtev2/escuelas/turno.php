@@ -293,12 +293,13 @@ if($this->escuela->nivel->id == 11){
 						<div id='planea-profile-line-chart-matematicas' class="content_chart"></div>
 			                        <div class="legend_chart">
 			                            <div class="wrap_lc">
+
+							<span class="planea_nacional circle"></span>
 			                                <p class="planea_nacional">
-								<span class="circle"></span>
 								Promedio nacional
 							</p>
+							<span class="planea_estatal circle"></span>
 			                                <p class="planea_estatal">
-								<span class="circle"></span>
 								Promedio estatal
 							</p>
 			                            </div>
@@ -320,12 +321,13 @@ if($this->escuela->nivel->id == 11){
 						<div id='planea-profile-line-chart-espaniol' class="content_chart"></div>
 			                        <div class="legend_chart">
 			                            <div class="wrap_lc">
+							<span class="planea_nacional circle"></span>
 			                                <p class="planea_nacional">
-								<span class="circle"></span>
 								Promedio nacional
 							</p>
+
+							<span class="planea_estatal circle"></span>
 			                                <p class="planea_estatal">
-								<span class="circle"></span>
 								Promedio estatal
 							</p>
 			                            </div>

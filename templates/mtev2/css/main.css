@@ -475,8 +475,12 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container.profile #profile-content .additional-info .desempeno .chart-block .purple p{line-height: 1.2}
 #content .container.profile #profile-content .additional-info .desempeno .chart-block .purple .label{background:#7B49AA;bottom: 0;color: #fff;left: 0;margin-top: 10px;padding: 4px;position: absolute;width: 100%}
 #content .container.profile #profile-content .additional-info .desempeno .chart-block .chart{background: #fff;padding: 6px;}
-#content .container.profile .chart-block .planea_nacional .circle{background:#37B85D;}
-#content .container.profile .chart-block .planea_estatal .circle{background:#FFF100;}
+#content .container.profile .chart-block .planea_nacional.circle{background:#329CD6;margin:7px 4px 0 7px;}
+#content .container.profile .chart-block .planea_estatal.circle{background:#E80C8F;margin:7px 4px 0 7px;}
+#content .container.profile .chart-block .planea_nacional,
+#content .container.profile .chart-block .planea_estatal{display:inline-block;}
+
+
 .planea-enlace-buttons{margin: 0.83em 0;}
 .planea-enlace-buttons .to-planea,.planea-enlace-buttons .to-enlace{border: 1px solid white;padding: 6px;color:black;border-radius:0 !important;background: #fff; color: rgba(0, 0, 0, 0.73); font-weight: bold;}
 .semaphore .planea-enlace-buttons{margin-top:0;}
@@ -484,10 +488,8 @@ ul.dropdown-menu li.active a{color: #fff}
 .to-planea:hover,.to-enlace:hover,
 .to-planea.show-type-data,.to-enlace.show-type-data{background:#1CA5B9;color:white;}
 
-
-
-#content .container.profile .planea .chart .legend_chart p{margin-left: 4px; margin-bottom: 9px; text-align: center;}
-#content .container.profile .planea .chart .legend_chart{width: 107px;}
+#content .container.profile .planea .chart .legend_chart p{margin-left: 4px; margin-bottom: 9px; text-align:left; font-size:13px;width:62px;margin:0;}
+#content .container.profile .planea .chart .legend_chart{width: 107px; height:92px; margin-top:24px;}
 
 #content .container.profile #profile-content .additional-info .tables-box .table-top{color: #6E6E6E;font-weight: 700;background: #B7B7B7}
 #content .container.profile #profile-content .additional-info .tables-box .table-top .i-cont{background: #E8299A;color: #fff;font-size: 20px;padding:6px 10px;text-align: center;}
@@ -550,7 +552,7 @@ ul.dropdown-menu li.active a{color: #fff}
 /*charts escuela*/
 #content .container.profile .chart .legend_chart{display:inline-block;vertical-align:top;margin-top:19px;background:#ECECEC;width:80px;height:133px;padding-top:15px;}
 #content .container.profile .chart .legend_chart p{margin-left:23px;font-size:15px;line-height:14px;margin-bottom:5px;color:#A7A7A7;font-weight:bold}
-#content .container.profile .legend_chart p .circle{width:13px;height:13px;display:inline-block;vertical-align:top;background:white;border-radius:50%;margin-right:6px;}
+#content .container.profile .legend_chart .circle{width:13px;height:13px;display:inline-block;vertical-align:top;background:white;border-radius:50%;margin-right:6px;}
 #content .container.profile .legend_chart .under{margin:-8px 0 9px 8px;font-size:21px;color:#919191;}
 #content .container.profile .legend_chart .under + p{margin:0 0 0 0px;font-size:14px;text-align:center;color:#929292;font-weight:600;padding-bottom:20px;}
 #content .container.profile .content_chart{overflow:hidden;width:351px;display:inline-block;height:145px;}
