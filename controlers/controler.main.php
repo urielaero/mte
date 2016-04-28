@@ -66,6 +66,7 @@ class main extends controler{
 				$escuelas[$key]->nivel = $this->capitalize($escuela->nivel->nombre);
 				$escuelas[$key]->control = $this->capitalize($escuela->control->nombre);
 				$escuelas[$key]->semaforo = $escuela->semaforo;
+                $escuelas[$key]->planea_semaforo = $escuela->get_planea_semaforo();
 				$escuelas[$key]->promedio_general = $escuela->promedio_general;
 				$escuelas[$key]->promedio_matematicas = $escuela->promedio_matematicas;
 				$escuelas[$key]->promedio_espaniol = $escuela->promedio_espaniol;
@@ -84,6 +85,7 @@ class main extends controler{
 					$escuelas[$key]->avgs = $escuela->avgs;
 				if(isset($escuela->stats))
 					$escuelas[$key]->stats = $escuela->stats;
+
 			}
 			$width = $this->distance($maxlat,$minlong,$maxlat,$maxlong);
 			$height = $this->distance($maxlat,$minlong,$minlat,$minlong);

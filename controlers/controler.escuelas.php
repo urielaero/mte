@@ -478,6 +478,7 @@ class escuelas extends main{
 					$tmp->rank = $rank->rank_entidad;
 					$tmp->rank_nacional = $rank->rank_nacional;
 					$tmp->cctRank = "#".$rank->turnos_eval;
+					$tmp->planea_semaforo = $current->planea_semaforo;
 					$this->escuelas_digest->escuelas[] = $tmp;			
 				}
 			}

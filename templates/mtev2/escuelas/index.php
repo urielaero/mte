@@ -35,7 +35,7 @@ if(!empty($this->escuela->rank)){
 		$tmp->chart_ma = $this->escuela->matematicas_charts && isset($this->escuela->matematicas_charts[$rank->turnos_eval])?$this->escuela->matematicas_charts[$rank->turnos_eval]:'';
 		$tmp->chart_es = $this->escuela->espaniol_charts && isset($this->escuela->espaniol_charts[$rank->turnos_eval])?$this->escuela->espaniol_charts[$rank->turnos_eval]:'';
         
-        //planea
+		//planea
 		$tmp->chart_planea_ma = $this->escuela->planea->matematicas_charts;
 		$tmp->chart_planea_es = $this->escuela->planea->espaniol_charts;
 		$tmp->planea_evaluados = $this->escuela->planea->evaluados;
@@ -65,6 +65,11 @@ if(!empty($this->escuela->rank)){
 	$tmp->chart_ma = $this->escuela->line_chart_matematicas;
 	$tmp->chart_es = $this->escuela->line_chart_espaniol;
 	$tmp->semaforo = false;
+    //planea
+	$tmp->chart_planea_ma = $this->escuela->planea->matematicas_charts;
+	$tmp->chart_planea_es = $this->escuela->planea->espaniol_charts;
+	$tmp->planea_evaluados = $this->escuela->planea->evaluados;
+	$tmp->planea_semaforo = $this->escuela->planea->semaforo->nombre;
 	if(count($turnos) && isset($turnos[$turno]))
 		$tmp->censo = $turnos[$turno];
 	else

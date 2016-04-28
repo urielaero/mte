@@ -100,7 +100,7 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
             }
         }
     }; 
-    $scope.loadMap = function(data,currentCct){
+    $scope.loadMap = function(data,currentCct, planea){
         if(!data.escuelas.map && data.escuelas){
             data.escuelas = Object.keys(data.escuelas).map(function(es){
                 return data.escuelas[es];
@@ -110,7 +110,7 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
             var e = escuela.cct,
             escuelaRank1 = arr[arr.length-1] || {},
             escuelaRank2 = arr[arr.length-2] || {};
-            
+
             if(e.indexOf('#')!=-1)
                 return false;
             var current;
@@ -120,8 +120,13 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
                 current = escuelaRank1.cctRank=="#200"?escuelaRank1:escuelaRank2;
             else
                 current = escuela;
+
+
             current.lat = +current.latitud;
             current.lng = +current.longitud;
+            if (planea) {
+                current.semaforo = current.planea_semaforo;
+            }
             current.message = "<div class='infoBox'>"+
                             "<a class='name esc-name' href='/escuelas/index/"+current.cct+"' >"+
                             current.nombre+
