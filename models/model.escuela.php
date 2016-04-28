@@ -501,7 +501,7 @@ class escuela extends memcached_table{
         $this->planea->semaforo = $semaforo;
     }
 
-    public function get_planea_semaforo() {
+    private function get_planea_semaforo($escuela) {
         $map = array(3 => 1, 2 => 2, 1 => 3, 4 => 5);
         $semaforo = 4;
 
@@ -511,13 +511,19 @@ class escuela extends memcached_table{
         if(preg_match('/^..BB/', $this->cct)){
             return 8;
         }
-        $escuela = new planea_escuela($this->cct, $this->conn);
-        $escuela->read("id,cct,clave_semaforo");
 
         if(array_key_exists($escuela->clave_semaforo, $map)) {
             return $map[$escuela->clave_semaforo];
         }
         return $semaforo;
+    }
+
+    public function get_planea_info() {
+        $escuela = new planea_escuela($this->cct, $this->conn);
+        $escuela->read("id,cct,clave_semaforo,rank_entidad");    
+	$this->planea = new StdClass();
+	$this->planea->rank_entidad = $escuela->rank_entidad;
+	$this->planea->semaforo = $this->get_planea_semaforo($escuela);
     }
 }
 ?>

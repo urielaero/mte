@@ -52,6 +52,7 @@ class main extends controler{
 				$memcache_host = isset($this->config->memcache_host) ? $this->config->memcache_host : NULL;
 				$escuela->get_turnos($memcache_host);
 				$escuela->get_semaforos();
+				$escuela->get_planea_info();
 				if($detail){ 
 					$escuela->yearAvgs();
 					$escuela->yearStats();
@@ -66,7 +67,8 @@ class main extends controler{
 				$escuelas[$key]->nivel = $this->capitalize($escuela->nivel->nombre);
 				$escuelas[$key]->control = $this->capitalize($escuela->control->nombre);
 				$escuelas[$key]->semaforo = $escuela->semaforo;
-                $escuelas[$key]->planea_semaforo = $escuela->get_planea_semaforo();
+				$escuelas[$key]->planea_semaforo = $escuela->planea->semaforo;
+				$escuelas[$key]->planea_rank_entidad = $escuela->planea->rank_entidad;
 				$escuelas[$key]->promedio_general = $escuela->promedio_general;
 				$escuelas[$key]->promedio_matematicas = $escuela->promedio_matematicas;
 				$escuelas[$key]->promedio_espaniol = $escuela->promedio_espaniol;

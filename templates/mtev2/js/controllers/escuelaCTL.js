@@ -126,6 +126,7 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
             current.lng = +current.longitud;
             if (planea) {
                 current.semaforo = current.planea_semaforo;
+		current.rank = current.planea_rank_entidad;
             }
             current.message = "<div class='infoBox'>"+
                             "<a class='name esc-name' href='/escuelas/index/"+current.cct+"' >"+
