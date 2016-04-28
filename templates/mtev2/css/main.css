@@ -485,6 +485,7 @@ ul.dropdown-menu li.active a{color: #fff}
 .planea-enlace-buttons .to-planea,.planea-enlace-buttons .to-enlace{border: 1px solid white;padding: 6px;color:black;border-radius:0 !important;background: #fff; color: rgba(0, 0, 0, 0.73); font-weight: bold;}
 .semaphore .planea-enlace-buttons{margin-top:0;}
 .planea-enlace-buttons .md-button.md-default-theme:not([disabled]):hover, 
+.planea-enlace-buttons md-default-theme:not([disabled]):focus,
 .to-planea:hover,.to-enlace:hover,
 .to-planea.show-type-data,.to-enlace.show-type-data{background:#1CA5B9;color:white;}
 

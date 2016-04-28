@@ -458,10 +458,11 @@ class escuela extends memcached_table{
 
     public function get_planea(){
         $escuela = new planea_escuela($this->cct, $this->conn);
-        $escuela->read("id,cct,evaluados,porcentaje_nivel1_espaniol,porcentaje_nivel2_espaniol,porcentaje_nivel3_espaniol,porcentaje_nivel4_espaniol,porcentaje_nivel1_matematicas,porcentaje_nivel2_matematicas,porcentaje_nivel3_matematicas,porcentaje_nivel4_matematicas,clave_nivel,entidad,clave_semaforo");
+        $escuela->read("id,cct,evaluados,porcentaje_nivel1_espaniol,porcentaje_nivel2_espaniol,porcentaje_nivel3_espaniol,porcentaje_nivel4_espaniol,porcentaje_nivel1_matematicas,porcentaje_nivel2_matematicas,porcentaje_nivel3_matematicas,porcentaje_nivel4_matematicas,clave_nivel,entidad,clave_semaforo,rank_entidad");
         $promedio = new planea_promedio(null, $this->conn);
         $promedios = $promedio->promedios($escuela->entidad, $escuela->clave_nivel);//filter by turno ?...
         $this->planea = new stdClass();
+        $this->planea->rank_entidad = $escuela->rank_entidad;
         $this->planea_charts($escuela, $promedios);
         $this->planea_semaforo($escuela);
     }

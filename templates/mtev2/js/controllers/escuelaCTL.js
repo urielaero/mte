@@ -182,6 +182,10 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
 	if($scope.isSelected)
 		location.href = '/compara/escuelas/';
     };
+
+    $scope.showRankBy = function(type) { //bad propagation of vars...
+        return angular.element('.'+type+'.show-type-data').size();
+    }
 }]);
 
 app.controller("schoolBannerCTL", ['$scope', function ($scope) {

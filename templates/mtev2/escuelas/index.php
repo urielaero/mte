@@ -131,8 +131,9 @@ if($educaccion){
 					<div flex="75" flex-sm="100">
 						<h1><?=$this->capitalize($this->escuela->nombre)?></h1>
 				    	<?php foreach($escuela_per_turnos as $i=>$escuela){?>
-							<p ng-if="selectedIndex==<?=$i?>">Posición estatal <?=$escuela->rank?> <span>de</span> <?=number_format($this->entidad_cct_count,0)?></p>
+							<p ng-show="selectedIndex==<?=$i?> && showRankBy('to-enlace')">Posición estatal <?=$escuela->rank?> <span>de</span> <?=number_format($this->entidad_cct_count,0)?></p>
 					<?php } ?>
+						<p ng-show="showRankBy('to-planea')">Posición estatal <?=$this->escuela->planea->rank_entidad?> <span>de</span> <?=number_format($this->entidad_cct_count,0)?></p>
 					</div>
 				</div>			
 			</div>
