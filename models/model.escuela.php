@@ -477,6 +477,7 @@ class escuela extends memcached_table{
     private function make_planea_chart($escuela, $promedios, $materia) {
         $title_x = array("nivel", "escuela", "entidad", "nacional");
         $title_y = array("nivel1", "nivel2", "nivel3", "nivel4");
+	$names = array("Insuficiente", "Indispensable", "Satisfactorio", "Sobresaliente");
         $field = "porcentaje_nivel";
         $chart = array($title_x);
         for($i=1;$i<=4;$i++) {
@@ -485,7 +486,7 @@ class escuela extends memcached_table{
             $local = $escuela->$field_name;
             $entidad = $promedios["{$this->entidad}_".$materia]->$nivel;
             $nacional = $promedios["0_".$materia]->$nivel;
-            $chart[] = array($nivel, floatval($local), floatval($entidad), floatval($nacional));
+            $chart[] = array($names[$i-1], floatval($local), floatval($entidad), floatval($nacional));
         }
         return $chart;
     }

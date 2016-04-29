@@ -70,7 +70,7 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
         var options_planea = {
             vAxis: {title: '', format: '#\'%\'', minValue: 0, maxValue: 100},
             hAxis: {title: '2015'},
-            chartArea : {width:295,height:105,left:40,top:10},
+            chartArea : {width:305,height:105,left:40,top:10},
             seriesType: 'bars',
             legend: {position:'none'},
             series: {2: {type: 'line'}, 1: {type: 'line'}},
