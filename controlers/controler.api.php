@@ -27,6 +27,13 @@ class api extends main{
 		header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 		$params = new stdClass();
 
+		$type_test = $this->request("type_test");
+		if (!$type_test || $type_test == "planea") {
+			$params->type_test = "planea";
+		} else {
+			$params->type_test = "enlace";
+		}
+
 		if($this->request('term') && $this->request('solr') && isset($this->config->solr_server)){
 			//var_dump("solr");
 			$params->term = $this->request('term');
@@ -37,8 +44,13 @@ class api extends main{
 			return;
 		}
 
-		if($this->request('sort') == 'Semáforo educativo')
-			$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,(select max(id)+1 from escuelas)), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
+		if($this->request('sort') == 'Semáforo educativo') {
+			if ($params->type_test == "enlace")
+				$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,(select max(id)+1 from escuelas)), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
+			else {
+				$params->order_by = 'planea_escuelas.clave_semaforo ASC';
+			}
+		}
 		else if($this->request('sort') == 'Promedio general')
 			$params->order_by = 'escuelas_para_rankeo.promedio_general DESC';
 		if($this->request('ccts')) $params->ccts = explode(',',$this->request('ccts')); 

@@ -102,4 +102,16 @@ app.service('templateData',[ function() {
             checked : false,
         },
     ];
+
+    this.pruebas = [
+        {
+            id: 'planea',
+            label: 'PLANEA',
+            checked: true
+        }, {
+            id: 'enlace',
+            label: 'ENLACE',
+            checked: false
+        }
+    ]
 }]);

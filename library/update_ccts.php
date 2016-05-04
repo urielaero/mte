@@ -356,6 +356,15 @@ function rankea_planea_niveles($config) {
 
 //rankea_planea_niveles($config);
 
+
+function change_semaphore($val) {
+    $value = null_to_number($val);
+    if ($value == 0) {#No tomó la prueba 0->8.
+        return 8;
+    }
+    return $value;
+}
+
 function rankea_planea_escuelas($config, $year) {
     $update = new Update_ccts($config, false);
     $escuelas_values = array(
@@ -395,6 +404,7 @@ function rankea_planea_escuelas($config, $year) {
         "percentil" => "null_to_number",
         "rank_prep" => "null_to_number",
         "rank_entidad" => "null_to_number",
+        "clave_semaforo" => "change_semaphore"
     );
     $alias_cases = array(
                         "cases" => $cases,

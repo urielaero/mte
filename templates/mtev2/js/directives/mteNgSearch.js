@@ -146,7 +146,8 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
 
                 
             $http({method:'POST',url:'/api/escuelas',data:$scope.params}).then(function(response){
-                //console.log(response.data);
+                console.log($scope.params);
+                console.log(response.data);
                 $scope.pagination = response.data.pagination;
                 $scope.escuelas = response.data.escuelas;
                 $scope.loading = false;
@@ -182,6 +183,7 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
                 localidad : $scope.localidad.id || null,
                 p : $scope.pagination.current_page || 1,
                 sort : $scope.sort,
+		type_test: $scope.prueba == 'enlace'? 'enlace': 'planea'
             };
             $scope.params.niveles = $scope.processCheckBoxes($scope.niveles).join(',');
             var controles = $scope.processCheckBoxes($scope.controles);
@@ -212,6 +214,8 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
                     niveles : templateData.getVar('niveles'),
                     turnos : templateData.getVar('turnos'),
                     controles : templateData.getVar('controles'),
+		    pruebas: templateData.getVar('pruebas'),
+		    prueba: 'planea'
                 };
             }else{
                 var defaults = {
@@ -222,6 +226,7 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
                     niveles : [],
                     turnos : [],
                     controles : [],
+		    prueba: 'planea'
                 };
             }            
             angular.extend($scope,defaults);

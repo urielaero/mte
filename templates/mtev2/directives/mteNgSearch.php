@@ -64,6 +64,17 @@
 				<p><md-checkbox ng-change='checkBoxChange()' ng-disabled='loading' ng-repeat='control in controles' ng-model='control.checked' aria-label="Checkbox 1" >{{control.label}}</md-checkbox></p>
 			</div>
 
+			<div hide-sm ng-hide="sectorVisibility" class="type_test">
+				<label class="label-prueba">Tipo de prueba</label>
+				<p>
+					<md-radio-group ng-model="prueba" ng-change="checkBoxChange()">
+						<md-radio-button ng-repeat="prueba in pruebas" ng-value="prueba.id">
+							{{prueba.label}}
+						</md-radio-button>			
+					</md-radio-group>
+				</p>
+			</div>
+
 			</form>
 		</div>
 		<div ng-if="!escuelasResponse" flex flex-sm="100" id="message-not-found">
@@ -119,14 +130,22 @@
 							<td>{{escuela.nivel}}</td>
 							<td >{{escuela.turno.nombre?escuela.turno.nombre.capitalize():"No Aplica"}}</td>
 							<td>{{escuela.control}}</td>
-							<td  style="max-width:172px">
+							<td  style="max-width:172px" ng-show="prueba == 'planea'">
+							<!-- los iconos ya se alinean bien de esta forma si se cambia por md-button se desalinean Carlos Barahona-->
+								<div id="boton-semaforo-compara" ng-class="semaforos[escuela.planea_semaforo].class" >
+								  <div id="semaforos-buscador">
+									<i id="semaforos-buscador-icono" ng-class="semaforos[escuela.planea_semaforo].icon"></i>
+								  </div>
+								</div>
+								<p>{{semaforos[escuela.planea_semaforo].label}}</p>
+							</td>
+							<td  style="max-width:172px" ng-show="prueba == 'enlace'">
 							<!-- los iconos ya se alinean bien de esta forma si se cambia por md-button se desalinean Carlos Barahona-->
 								<div id="boton-semaforo-compara" ng-class="semaforos[escuela.semaforo].class" >
 								  <div id="semaforos-buscador">
 									<i id="semaforos-buscador-icono" ng-class="semaforos[escuela.semaforo].icon"></i>
 								  </div>
 								</div>
-							<!--Carlos Barahona-->
 								<p>{{semaforos[escuela.semaforo].label}}</p>
 							</td>
 						</tr>

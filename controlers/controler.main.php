@@ -264,11 +264,19 @@ class main extends controler{
 		}
 		
 		if(isset($params->rank_nacional)){
-            $q->search_clause .= ' AND escuelas_para_rankeo.rank_nacional >= '.$params->rank_nacional;
+			if ($params->type_test == "enlace") {
+            			$q->search_clause .= ' AND escuelas_para_rankeo.rank_nacional >= '.$params->rank_nacional;
+			}else {
+            			$q->search_clause .= ' AND planea_escuelas.rank_nacional >= '.$params->rank_nacional;
+			}
 		}
 
         if(isset($params->turno)) {
-            $q->search_clause .= " AND escuelas_para_rankeo.turnos_eval = {$params->turno}";
+		if ($params->type_test == "enlace") {
+            		$q->search_clause .= " AND escuelas_para_rankeo.turnos_eval = {$params->turno}";
+		}else {
+            		$q->search_clause .= " AND planea_escuelas.clave_turno = {$params->turno}";
+		}
         }else if($this->request('turno')){
         	$q->search_clause .= " AND escuelas.turno = ".$this->request('turno'); 
         }
@@ -292,9 +300,14 @@ class main extends controler{
 		}
 		
 		$q->debug = isset($this->debug) ? $this->debug : false;
-        $this->process_custom_get_escuelas($q,$params);
+        ////
+	if ($params->type_test == "enlace") {
+		$this->process_custom_get_escuelas($q, $params);
+	} else {
+        	$this->process_custom_get_escuelas_planea($q, $params);
+	}
 
-        if ($this->escuelas && (isset($params->one_turn) && $params->one_turn)) {
+        if ($this->escuelas && (isset($params->one_turn) && $params->one_turn) && $params->type_test == "enlace") {
             $escuelasList = array();
             foreach($this->escuelas as $escuela){
                 $escuelasList[] = $escuela->id;
@@ -854,6 +867,55 @@ class main extends controler{
 			return $this->createCustomSchoolArray($sql,$escuelas);
 		}
 	}
+
+    private function process_custom_get_escuelas_planea($escuelas, $params) {
+        //$this->debug = true;
+        $sql = "select
+                        escuelas.id,escuelas.cct,escuelas.nombre,escuelas.codigopostal,escuelas.telefono,escuelas.correoelectronico,escuelas.paginaweb,escuelas.domicilio,escuelas.latitud,escuelas.longitud,
+                        turnos.nombre turnos_nombre,turnos.id turnos_id,
+                        localidades.nombre localidades_nombre,localidades.id localidades_id,
+                        entidades.nombre entidades_nombre,entidades.id entidades_id,
+                        niveles.nombre niveles_nombre,niveles.id niveles_id,
+                        controles.id controles_id,controles.nombre controles_nombre,
+                        planea_escuelas.cct planea_escuelas_cct, planea_escuelas.id planea_escuelas_id,
+                        municipios.nombre municipios_nombre,municipios.id municipios_id
+                        from escuelas
+                        left join localidades on localidades.id = escuelas.localidad
+                        left join entidades on entidades.id = escuelas.entidad
+                        left join municipios on municipios.id = escuelas.municipio
+                        left join niveles on niveles.id = escuelas.nivel
+                        left join controles on controles.id = escuelas.control
+                        left join planea_escuelas on planea_escuelas.cct = escuelas.cct
+                        left join turnos on turnos.id = planea_escuelas.clave_turno
+                        where TRUE";
+
+        if ($escuelas->search_clause) {
+            $sql .= " AND ".$escuelas->search_clause;
+        }
+
+	$sql .= ' order by ';
+        if ($escuelas->order_by) {
+            $sql .=  $escuelas->order_by.' ,';
+        }
+
+        $sql .= ' planea_escuelas.anio desc';
+	
+        if ($escuelas->limit) {
+            $sql .= ' Limit '.$escuelas->limit;
+        }else{
+        	$sql .= ' Limit 6 OFFSET 0';
+        }
+
+        if ($this->debug) {
+            echo $sql."<br><br><br>";
+        }
+
+        // $result = pg_query($this->conn, $sql);
+        $this->escuelas = array();
+        $this->checkMemcached($sql,$this->escuelas);
+
+    
+    }
 
     private function process_custom_get_escuelas($escuelas,$params) {
         $sql = "select
