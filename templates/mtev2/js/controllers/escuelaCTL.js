@@ -70,11 +70,12 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
         var options_planea = {
             vAxis: {title: '', format: '#\'%\'', minValue: 0, maxValue: 100},
             hAxis: {title: '2015'},
-            chartArea : {width:305,height:105,left:40,top:10},
+            chartArea : {width:325, height:105, left:40, top:10},
             seriesType: 'bars',
             legend: {position:'none'},
             series: {2: {type: 'line'}, 1: {type: 'line'}},
             colors: ["#00A2E8", "#E80C8F", "#329CD6"],
+            tooltip: {isHTML: true}
         };
         //planea charts
         Object.keys($scope.chart_planea[index]).forEach(function(materia){
@@ -82,6 +83,7 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
             if(raw_data){
                 var data = google.visualization.arrayToDataTable(raw_data),
                 chart = new google.visualization.ComboChart(document.getElementById('planea-profile-line-chart-'+materia));
+                data.setColumnProperties(2, {type: 'string', role: 'tooltip'})
                 chart.draw(data, options_planea);
             }
         });  

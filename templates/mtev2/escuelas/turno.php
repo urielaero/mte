@@ -286,7 +286,7 @@ if($this->escuela->nivel->id == 11){
 					<div class="purple" flex="25" flex-sm="100">
 						<p class="i-cont"><i class="icon-calculadora-01"></i></p>
 						<p>Resultados</p>
-						<p>Planea</p>
+						<p>PLANEA</p>
 						<div class="label"><p>Matemáticas</p></div>
 					</div>
 					<div flex="75" flex-sm="100" class="chart" 
@@ -314,7 +314,7 @@ if($this->escuela->nivel->id == 11){
 					<div class="purple" flex="25" flex-sm="100">
 						<p class="i-cont"><i class="icon-enlace-01"></i></p>
 						<p>Resultados</p>
-						<p>Planea</p>
+						<p>PLANEA</p>
 						<div class="label"><p>Español</p></div>
 					</div>
 					<div flex="75" flex-sm="100" class="chart" 

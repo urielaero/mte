@@ -475,9 +475,20 @@ class escuela extends memcached_table{
     }
 
     private function make_planea_chart($escuela, $promedios, $materia) {
-        $title_x = array("nivel", "escuela", "entidad", "nacional");
+        $title_x = array("nivel", "escuela","tooltip", "entidad", "nacional");
         $title_y = array("nivel1", "nivel2", "nivel3", "nivel4");
-	$names = array("Insuficiente", "Indispensable", "Satisfactorio", "Sobresaliente");
+        $names = array("Insuficiente", "Indispensable", "Satisfactorio", "Sobresaliente");
+        $tooltips = array(
+            "Nivel I: Logro insuficiente de los aprendizajes clave del currículum,
+            que refleja carencias fundamentales que dificultarán el aprendizaje 
+            futuro", 
+            "Nivel II: Logro apenas indispensables de los aprendizajes 
+            clave del currículum", 
+            "Nivel III: Logro satisfactorio de los aprendizajes 
+            clave del currículum",
+            "Nivel IV: Logro sobresaliente de los aprendizajes
+            clave del currículum"
+        );
         $field = "porcentaje_nivel";
         $chart = array($title_x);
         for($i=1;$i<=4;$i++) {
@@ -486,7 +497,8 @@ class escuela extends memcached_table{
             $local = $escuela->$field_name;
             $entidad = $promedios["{$this->entidad}_".$materia]->$nivel;
             $nacional = $promedios["0_".$materia]->$nivel;
-            $chart[] = array($names[$i-1], floatval($local), floatval($entidad), floatval($nacional));
+            $tooltip = $tooltips[$i-1].". {$names[$i-1]}: ".floatval($local)." %";
+            $chart[] = array($names[$i-1], floatval($local), $tooltip, floatval($entidad), floatval($nacional));
         }
         return $chart;
     }
@@ -522,9 +534,9 @@ class escuela extends memcached_table{
     public function get_planea_info() {
         $escuela = new planea_escuela($this->cct, $this->conn);
         $escuela->read("id,cct,clave_semaforo,rank_entidad");    
-	$this->planea = new StdClass();
-	$this->planea->rank_entidad = $escuela->rank_entidad;
-	$this->planea->semaforo = $this->get_planea_semaforo($escuela);
+        $this->planea = new StdClass();
+        $this->planea->rank_entidad = $escuela->rank_entidad;
+        $this->planea->semaforo = $this->get_planea_semaforo($escuela);
     }
 }
 ?>
