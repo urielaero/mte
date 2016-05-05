@@ -241,7 +241,7 @@ if($this->escuela->nivel->id == 11){
         <div  class="desempeno" id="desempeno">
 			<h2>Desempeño académico matutino</h2>
 			<div layout="row" class="planea-enlace-buttons">
-				<md-button flex ng-click="showEnlace = false; showPlanea = true;" ng-class="showPlanea?'to-planea show-type-data':'to-planea'">PLANEA</md-button>	
+				<md-button flex ng-click="showEnlace = false; showPlanea = true;" ng-class="showPlanea?'to-planea show-type-data':'to-planea'">PLANEA</md-button>
 				<md-button flex ng-click="showPlanea = false; showEnlace=true;" ng-class="showEnlace?'to-enlace show-type-data':'to-enlace'">ENLACE</md-button>	
 			</div>
 

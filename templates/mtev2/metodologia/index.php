@@ -1,4 +1,4 @@
-<div class="container post">
+<div class="container post" ng-controller="methodologyCTL">
 	<div class="breadcrumb">
 		<a href="#" class="start"><i class="icon-mejora"></i></a>
 		<a href="/metodologia">Metodología</a>
@@ -11,7 +11,12 @@
 		</div>
 		<h1 flex="90"><strong>Metodología</strong></h1>
 	</div>
-	<div class="post-content">
+	<div layout="row" class="planea-enlace-buttons">
+		<md-button flex ng-click="showEnlace = false; showPlanea = true;" ng-class="showPlanea?'to-planea show-type-data':'to-planea'">PLANEA</md-button>
+		<md-button flex ng-click="showPlanea = false; showEnlace=true;" ng-class="showEnlace?'to-enlace show-type-data':'to-enlace'">ENLACE</md-button>	
+	</div>
+	<?php $this->include_template('planea','metodologia'); ?>
+	<div class="post-content" ng-show="showEnlace">
 		<h2>Nota metodológica para educación básica.</h2>
 		
 		<h3><strong>Las calificaciones globales por centro escolar (CCT) se calcularon de la siguiente manera:</strong></h3>

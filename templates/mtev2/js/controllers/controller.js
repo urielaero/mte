@@ -223,3 +223,12 @@ $(document).ready(function(){
     });
 
 });
+
+app.controller("methodologyCTL",['$scope', '$location',function($scope, $location){
+    var search = $location.search();
+    if (search.enlace) {
+        $scope.showEnlace = true;
+        return
+    }
+    $scope.showPlanea = true;
+}]);
