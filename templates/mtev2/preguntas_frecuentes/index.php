@@ -11,7 +11,13 @@
 		</div>
 		<h1 flex="90"><strong>Preguntas frecuentes</strong></h1>
 	</div>
-	<ul class="questions">
+
+	<div layout="row" class="planea-enlace-buttons">
+		<md-button flex ng-click="showEnlace = false; showPlanea = true;" ng-class="showPlanea?'to-planea show-type-data':'to-planea'">PLANEA</md-button>
+		<md-button flex ng-click="showPlanea = false; showEnlace=true;" ng-class="showEnlace?'to-enlace show-type-data':'to-enlace'">ENLACE</md-button>	
+	</div>
+	<?php $this->include_template('planea','preguntas_frecuentes'); ?>
+	<ul class="questions" ng-show="showEnlace">
 		<li>
 			<p class="question" ng-click="toggleQuestion($event)">
 				<span class="number">1.</span> ¿Qué hago si no encuentro mi escuela?

@@ -160,7 +160,9 @@ app.controller("faqCTL", ['$scope',function ($scope) {
 		}else{
 			content.addClass('on');
 		}
-	}
+	};
+
+	$scope.showPlanea = true;
 }]);
 
 
