@@ -146,9 +146,12 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
 
                 
             $http({method:'POST',url:'/api/escuelas',data:$scope.params}).then(function(response){
-                console.log($scope.params);
-                console.log(response.data);
                 $scope.pagination = response.data.pagination;
+                if ($scope.params && $scope.params.type_test == 'enlace') {
+                    $scope.semaforos = $scope.semaforos_enlace;
+                } else {
+                    $scope.semaforos = $scope.semaforos_planea;
+                }
                 $scope.escuelas = response.data.escuelas;
                 $scope.loading = false;
                 if(response.data.escuelas){
@@ -183,7 +186,7 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
                 localidad : $scope.localidad.id || null,
                 p : $scope.pagination.current_page || 1,
                 sort : $scope.sort,
-		type_test: $scope.prueba == 'enlace'? 'enlace': 'planea'
+                type_test: $scope.prueba == 'enlace'? 'enlace': 'planea'
             };
             $scope.params.niveles = $scope.processCheckBoxes($scope.niveles).join(',');
             var controles = $scope.processCheckBoxes($scope.controles);
@@ -237,7 +240,8 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
             $scope.pagination = {count:0,current_page:1};
             $scope.sortOptions = ['Semáforo educativo','Nombre de la escuela'];
             $scope.sort = $scope.sortOptions[0];
-            $scope.semaforos = templateData.getVar('semaforos');
+            $scope.semaforos_enlace = templateData.getVar('semaforos');
+	    $scope.semaforos_planea = templateData.getVar('semaforos_planea');
             
         }
 
