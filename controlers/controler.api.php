@@ -27,12 +27,7 @@ class api extends main{
 		header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 		$params = new stdClass();
 
-		$type_test = $this->request("type_test");
-		if (!$type_test || $type_test == "planea") {
-			$params->type_test = "planea";
-		} else {
-			$params->type_test = "enlace";
-		}
+
 
 		if($this->request('term') && $this->request('solr') && isset($this->config->solr_server)){
 			//var_dump("solr");
@@ -42,6 +37,13 @@ class api extends main{
 			$res = array('escuelas' => $this->escuelas);
 			echo json_encode($res);
 			return;
+		}
+
+		$type_test = $this->request("type_test");
+		if (!$type_test || $type_test == "planea") {
+			$params->type_test = "planea";
+		} else {
+			$params->type_test = "enlace";
 		}
 
 		if($this->request('sort') == 'Semáforo educativo') {
