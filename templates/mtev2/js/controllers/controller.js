@@ -45,7 +45,8 @@ app.controller("blogCTL", ['$scope', '$http', '$timeout', '$rootScope', '$filter
                     img = p.content.match(imgReg)[1];
                 }
                 var imgObj; 
-                img = $filter('replaceWithCdnUrl')(img,$scope.cdnUrl, $scope.blogAddress);
+                //img = $filter('replaceWithCdnUrl')(img,$scope.cdnUrl, $scope.blogAddress);
+		// cdn disabled in wp.
                 imgObj = new Image();
                 imgObj.src = img;
                 angular.element(imgObj).on('load', function (event) {
