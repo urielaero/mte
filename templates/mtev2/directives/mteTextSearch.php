@@ -1,4 +1,4 @@
-<label>Escuela o bibilioteca</label>
+<label>Escuela o biblioteca</label>
 <div  class="text-field">
     <form class="contenedor-text-field" ng-submit="search()">
         <div class="cont-input-text-field">
