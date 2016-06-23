@@ -246,6 +246,16 @@ class api extends main{
 		return $res;
 	}
 
+	public function send_email_contacto(){
+		$this->send_email(
+			$this->config->contact_email,
+			'Correo electrónico desde Ventanilla Escolar de: '.$this->request('email'),
+			$this->request('mensaje'),
+			'system@mejoratuescuela.org',
+			$this->request('nombre'));
+		$this->sendPublicHeadersAndResponse(array('success' => true));
+	}
+
 	private function get_entidad_id($cct){
 		$escuela = new escuela($cct, $this->conn);
 		$escuela->key = 'cct';
