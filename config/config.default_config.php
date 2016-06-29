@@ -104,6 +104,8 @@ Si tienes preguntas favor de responder a este correo (mamasypapaseneducaccion@fu
 </p>
 EOT;
 
+		$this->blackListInfoCct = array("20PJN0160M");
+
 
 
 

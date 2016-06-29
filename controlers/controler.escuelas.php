@@ -18,6 +18,7 @@ class escuelas extends main{
 		}
 		*/
 		if($this->escuela_info()){
+			$this->cleanSensitiveInfo();
 			$params = new stdClass();
 			$params->limit = '8 OFFSET 0';
 			$params->localidad = $this->escuela->localidad->id;
@@ -29,7 +30,7 @@ class escuelas extends main{
 				$temp = $this->escuelas;
 				$params2 = new stdClass();
 				$params2->ccts = $this->compara_cookie;
-                $params2->one_turn = true;
+				$params2->one_turn = true;
 				$this->get_escuelas($params2);
 				$this->escuelas = array_merge($temp,$this->escuelas);
 			}
@@ -484,6 +485,14 @@ class escuelas extends main{
 			}
 		
 		}	
+	}
+
+	private function cleanSensitiveInfo() {
+		if (in_array($this->escuela->cct, $this->config->blackListInfoCct)) {
+			$this->escuela->telefono = "";
+			$this->escuela->correoelectronico = "";
+			$this->escuela->domicilio = "";
+		}
 	}
 }
 ?>
