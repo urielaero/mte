@@ -3,7 +3,10 @@ app.controller("programasCTL", ['$scope', '$location',function ($scope, $locatio
 	$scope.init = function(params){
 		params = params || {};
 		params.temaIndex = 0;
-		$scope.programas = programas;
+		$scope.programas = (programas || []).map(function(pr) {
+                pr.zonas = (pr.zonas || '').replace(/\\r\\n/g, ', ');
+                return pr;
+		});
 		$scope.zonas = [{nombre:'Nacional'}].concat(entidades);
 		$scope.temas = ['Todos'];
 		$scope.programas.forEach(function(programa){
