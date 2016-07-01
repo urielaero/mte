@@ -68,7 +68,7 @@ app.controller("programaCTL", ['$scope', '$http', '$compile', function ($scope, 
             };
             var selectYear = '',
                 count_participa = state.count_participa;
-            if (state.count_participa && state.count_participa.length > 2) {
+            if (state.count_participa && state.count_participa.pop) {
                 $scope.stateByYears['multiple'] = true;
                 selectYear = '<select class="select-year" ng-change="changeYear(selectYear'+state.id+')" ng-model="selectYear'+state.id+'">'
                 selectYear += state.count_participa

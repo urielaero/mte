@@ -97,20 +97,17 @@ class programas extends main{
                             $aux = '0'.$i;
                         }
                         if (count($aux_many_years) > 2) {
-                            /*
-                            db.normalizados.aggregate([
-                                {$match: {programa: 'disena_el_cambio'}},
-                                {$group: {_id: '$anio', count: {$sum: 1}}},
-                                {$sort: {anio: -1}}
-                            ])
-                            */
-                            //$estado_escuelas[$i] = 
                             $group = $c->aggregate(array(
                                 array('$match' => array('programa' => $m_collection, 'cct' => array('$regex' => '^'.$aux.'.*'))),
                                 array('$group' => array('_id' => '$anio', 'count' => array('$sum' => 1))),
                                 array('$sort' => array('_id' => -1))
                             ));
-                            $estado_escuelas[$i] = $group["result"];
+                            $result = $group["result"];
+                            if (count($result)) {
+                                $estado_escuelas[$i] = $group["result"];
+                            } else {
+                                $estado_escuelas[$i] = 0;
+                            }
                         } else if ($max_anio) {
                             $estado_escuelas[$i] = $c->count(array( "anio" => $max_anio , "cct" => array('$regex' => '^'.$aux.'.*'),"programa" => $m_collection ));
                         } else {
