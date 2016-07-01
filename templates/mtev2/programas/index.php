@@ -110,7 +110,7 @@
 					<div class="loading-circle" data-ng-show="loading" layout='row' ng-show='true' flex flex-sm="100" layout-align='center center'>
 						<md-progress-circular md-mode="indeterminate"></md-progress-circular>
 					</div>
-					<a data-ng-show="escuelas.length>0" href="" data-ng-click="loadEscuelasPorEntidad(currentState.id,currentState.name)" class="button-bordered show-more-btn">Ver más escuelas</a>
+					<a data-ng-show="escuelas.length>0 && !noMoreLoader" href="" data-ng-click="loadEscuelasPorEntidad(currentState.id,currentState.name)" class="button-bordered show-more-btn">Ver más escuelas</a>
 				</div>
 				<a id="result-escuelas-programas"></a>
 			</div>

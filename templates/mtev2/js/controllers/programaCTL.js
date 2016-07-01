@@ -21,6 +21,9 @@ app.controller("programaCTL", ['$scope', '$http', '$compile', function ($scope, 
             }
         }
     };     
+
+
+    $scope.stateByYears = {};
     $scope.loadMap = function(states){
         var static_coords = [
             {"lat" : 0, "lng" : 0},
@@ -63,15 +66,49 @@ app.controller("programaCTL", ['$scope', '$http', '$compile', function ($scope, 
                     iconUrl:'http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/pins_3.png',
                     iconSize:[28, 57],
             };
+            var selectYear = '',
+                count_participa = state.count_participa;
+            if (state.count_participa && state.count_participa.length > 2) {
+                $scope.stateByYears['multiple'] = true;
+                selectYear = '<select class="select-year" ng-change="changeYear(selectYear'+state.id+')" ng-model="selectYear'+state.id+'">'
+                selectYear += state.count_participa
+                .filter(function(data) {
+                    return data._id != 0 && data._id != "";
+                })
+                .map(function(data) {
+                    var scopeName = 'selectYear' + state.id,
+                        selected = '';
+                    if (!$scope.stateByYears[scopeName]) {
+                        $scope.stateByYears[scopeName] = {};
+                        selected = 'ng-selected="true"'
+                        $scope[scopeName] = data._id;
+                    }
+                    $scope.stateByYears[scopeName][data._id] = data.count;
+                    return '<option value="'+ data._id +'" '+selected+'>'+ data._id +'</option>'
+                })
+                .join('');
+                selectYear += '</select>';
+                count_participa = '{{stateByYears["selectYear'+state.id+'"][selectYear'+state.id+']}}';
+            }
             mark.message = "<div class='infoBox'>"+
-                            "<a class='name' href='#' >"+
+                            "<a class='name' >"+
                             state.nombre+
+                            selectYear+
                             "</a>"+
-                            "<div class='address-popup'><p >Participa en "+state.count_participa+" escuelas</p><a href='' ng-click='loadEscuelasPorEntidad("+state.id+", \""+ state.nombre +"\")' scroll-to='result-escuelas-programas' duration='1200' >Ver lista de escuelas</a></div>"+
+                            "<div class='address-popup'><p >Participa en "+count_participa+" escuelas</p><a href='' ng-click='loadEscuelasPorEntidad("+state.id+", \""+ state.nombre +"\")' scroll-to='result-escuelas-programas' duration='1200' >Ver lista de escuelas</a></div>"+
                             ""+
                             "</div>";
             return mark;
         });
+
+        $scope.changeYear = function(year) {
+            $scope.skip = 0;
+            $scope.currentState.id = '';
+            $scope.currentState.name = '';
+            $scope.noMoreLoader = false;
+            $scope.escuelas = [];
+        };
+
         angular.extend($scope,{
             center:{
                 lat : 22.1564699, 
@@ -99,7 +136,8 @@ app.controller("programaCTL", ['$scope', '$http', '$compile', function ($scope, 
             //Cuando se cambia de entidad, el arreglo de escuelas se vacia y el
             //offset se reinicia
             $scope.escuelas = [];
-            $scope.skip = 0;    
+            $scope.skip = 0;
+            $scope.noMoreLoader = false;
         }
 
         $scope.currentState.id = stateId;
@@ -107,7 +145,18 @@ app.controller("programaCTL", ['$scope', '$http', '$compile', function ($scope, 
 
         //Se hace una peticion ajax usando los parametros en la variable params
         var params = {id:$scope.programaId, es: stateId, skip: $scope.skip};
+
+        if ($scope.stateByYears.multiple) {
+            params.year = $scope['selectYear'+stateId];
+        }
+
+
         $http({method:'POST',url:'/programas/estado-escuelas',data:params}).then(function(response){
+            if (!response.data && !response.data.length) {
+                $scope.noMoreLoader = true;
+                $scope.loading = false;
+                return;
+            }
             $scope.escuelas = $scope.escuelas.concat(response.data);
             $scope.skip+=20;
             $scope.loading = false;

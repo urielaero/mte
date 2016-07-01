@@ -86,14 +86,32 @@ class programas extends main{
                     $c = $db->selectCollection("normalizados");//pec,jornada_amplia,siat,censo_2013    
                     $max_aux = $c->find(array("programa" => $m_collection))->sort(array ("anio" => -1))->limit(1);
                     $aux = $max_aux->getNext();
+
                     $max_anio = isset($aux['anio']) ? $aux['anio'] : false ;
+
+                    $aux_many_years = $c->distinct("anio", array("programa" => $m_collection));
 
                     for($i=1;$i<=32;$i++) {
                         $aux = $i;
                         if ($i < 10) {
                             $aux = '0'.$i;
                         }
-                        if ($max_anio) {
+                        if (count($aux_many_years) > 2) {
+                            /*
+                            db.normalizados.aggregate([
+                                {$match: {programa: 'disena_el_cambio'}},
+                                {$group: {_id: '$anio', count: {$sum: 1}}},
+                                {$sort: {anio: -1}}
+                            ])
+                            */
+                            //$estado_escuelas[$i] = 
+                            $group = $c->aggregate(array(
+                                array('$match' => array('programa' => $m_collection, 'cct' => array('$regex' => '^'.$aux.'.*'))),
+                                array('$group' => array('_id' => '$anio', 'count' => array('$sum' => 1))),
+                                array('$sort' => array('_id' => -1))
+                            ));
+                            $estado_escuelas[$i] = $group["result"];
+                        } else if ($max_anio) {
                             $estado_escuelas[$i] = $c->count(array( "anio" => $max_anio , "cct" => array('$regex' => '^'.$aux.'.*'),"programa" => $m_collection ));
                         } else {
                             $estado_escuelas[$i] = $c->count(array( "cct" => array('$regex' => '^'.$aux.'.*'),"programa" => $m_collection ));
@@ -145,8 +163,11 @@ class programas extends main{
 
                 $aux = $max_aux->getNext();
                 $max_anio = isset($aux['anio']) ? $aux['anio'] : false ;
-
-                if ($max_anio!==false) {
+                $filter_year = $this->request('year');
+                if ($filter_year) {
+                     $escuelasaux = $c->find(array( 'programa'=>$this->programa->m_collection, "anio" => intval($filter_year) , "cct" => array('$regex' => '^'.$estado_id.'.*') ))->limit($limit)->skip($skip);
+                
+                } else if ($max_anio!==false) {
                     $escuelasaux = $c->find(array( 'programa'=>$this->programa->m_collection, "anio" => $max_anio , "cct" => array('$regex' => '^'.$estado_id.'.*') ))->limit($limit)->skip($skip);
                 } else {
                     $escuelasaux = $c->find(array( 'programa'=>$this->programa->m_collection, "cct" => array('$regex' => '^'.$estado_id.'.*') ))->limit($limit)->skip($skip);
