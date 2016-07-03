@@ -123,9 +123,12 @@ app.controller("mejoraCTL", ['$scope','$http','$timeout','$rootScope','$window',
                     img = p.attachments[0].url;                    
                 }else{
                     img = '';
+		    $scope.posts.push(p);
+		    return ;
                 }
                 var imgObj; 
-                img = $filter('replaceWithCdnUrl')(img,$scope.cdnUrl, $scope.blogAddress);
+                //img = $filter('replaceWithCdnUrl')(img,$scope.cdnUrl, $scope.blogAddress);
+		console.log('oo', img);
                 imgObj = new Image();
                 imgObj.src = img;
                 angular.element(imgObj).on('load', function (event) {
@@ -133,7 +136,9 @@ app.controller("mejoraCTL", ['$scope','$http','$timeout','$rootScope','$window',
                     $scope.posts.push(p);
                     //TODO: Revisar una alternativa a apply
                     $scope.$apply();
-                    if($scope.posts.length % $scope.maxPostCount == 0){
+		    console.log('l', $scope.posts.length);
+		    console.log('p', response.data.posts.length)
+                    if($scope.posts.length == response.data.posts.length){
                         $scope.loading = false;
                     }
                 });
