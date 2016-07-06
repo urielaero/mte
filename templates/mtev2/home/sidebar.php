@@ -6,6 +6,24 @@
 				<img style='width:100%'src='/templates/mtev2/img/educaccion.jpg'>
 			</a>
 			<div mte-suscribe></div>
+            
+            <div class="adsbygoogle-content">
+                <!-- Home Page Right Side 300 x 250 -->
+                <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="ca-pub-4091371715436204"
+                        data-ad-slot="2387485976"
+                        <?php if ( !isset($this->config->ad_mode_test) || $this->config->ad_mode_test ) {?>
+                            data-ad-test="on"
+                        <?php } ?>
+                        data-ad-format="auto">
+                </ins>
+
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            
+            </div>
 
 			<div class="box box-orange">
 				<a href="<?=$this->config->blog_address?>" class="full-size-link"></a>

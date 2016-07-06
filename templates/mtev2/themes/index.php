@@ -139,7 +139,7 @@ $this->is404 = isset($this->is404)?$this->is404:false;
 		<div id='header'>
 			<?php 
 			$this->include_template('header','global'); 
-			if(!$this->is404){
+			if(!$this->is404 && !$this->hide_header){
 				$this->include_template('header',$this->header_folder); 
 			}
 			?>
@@ -157,6 +157,9 @@ $this->is404 = isset($this->is404)?$this->is404:false;
 	?>
 	<?php 
 	$jsmin->tag('js'); 
+
 	?>
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
  </body>
  </html>

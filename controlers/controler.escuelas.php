@@ -18,6 +18,7 @@ class escuelas extends main{
 		}
 		*/
 		if($this->escuela_info()){
+            $this->hide_header = true;
 			$this->cleanSensitiveInfo();
 			$params = new stdClass();
 			$params->limit = '8 OFFSET 0';

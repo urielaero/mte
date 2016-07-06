@@ -20,7 +20,7 @@ if($this->escuela->nivel->id == 11){
 ?>
 
 <div class="space-between" layout="row" layout-sm="column">
-	<div class="main-info" flex="73" flex-sm="100">
+	<div class="main-info" flex="70" flex-sm="100">
 		<div layout="row" layout-sm="column">
 			<leaflet ng-if="showEnlace" id="map" center="center" markers="markers"  layers="layers" flex="50" flex-sm="100"
             ng-init='loadMap(<?=json_encode($this->escuelas_digest)?>,"<?=$this->escuela->cct?>")'></leaflet>	
@@ -168,7 +168,7 @@ if($this->escuela->nivel->id == 11){
 	<?php 
 		}else{
 	?>
-	<div class="semaphore" flex="25" flex-sm="100">
+	<div class="semaphore" flex="30" flex-sm="100">
 		<div layout="row" class="planea-enlace-buttons">
 			<md-button flex ng-click="showEnlace = false; showPlanea = true;" ng-class="showPlanea?'to-planea show-type-data':'to-planea'">PLANEA</md-button>	
 			<md-button flex ng-click="showPlanea = false; showEnlace = true;" ng-class="showEnlace?'to-enlace show-type-data':'to-enlace'">ENLACE</md-button>	
@@ -182,6 +182,30 @@ if($this->escuela->nivel->id == 11){
 			<?php $this->escuela_per_turno->current_semaforo = $this->escuela_per_turno->semaforo;
 			$this->include_template('semaphore','escuelas'); ?>
 		</div>
+
+
+		<div class="adsbygoogle-content">
+			<!-- School Profile Page Right Side 300 x 250 -->
+			<ins class="adsbygoogle"
+				style="display:block"
+				data-ad-client="ca-pub-4091371715436204"
+				data-ad-slot="5340952370"
+				<?php if ( !isset($this->config->ad_mode_test) || $this->config->ad_mode_test ) {?>
+					data-ad-test="on"
+				<?php } ?>
+				data-ad-format="auto">
+			</ins>
+			
+			<script>
+				window.onload = function() {
+					(adsbygoogle = window.adsbygoogle || []).push({});
+				}
+		    	</script>
+		
+		</div>
+
+
+
 		<div class="share_options">
 			<div class="options space-between" layout="row" layout-md="column">
 				<div flex="49" class="option">
@@ -566,7 +590,7 @@ EOD;
 		</div>
 
 	</div>
-	<div flex="25" flex-sm="100" class="sidebar">
+	<div flex="30" flex-sm="100" class="sidebar">
 	<?php $censo_only = array('SECUNDARIA','PREESCOLAR','PRIMARIA');
 	if(isset($this->escuela->censo) && in_array($this->escuela->nivel->nombre,$censo_only)){ ?>
 		<div class="box-yesno ">
