@@ -9,15 +9,14 @@
             
             <div class="adsbygoogle-content">
                 <!-- Home Page Right Side 300 x 250 -->
-                <ins class="adsbygoogle"
-                        style="display:block"
-                        data-ad-client="ca-pub-4091371715436204"
-                        data-ad-slot="2387485976"
+		<ins class="adsbygoogle"
+			style="display:inline-block;width:300px;height:250px"
+			data-ad-client="ca-pub-5016039473129201"
                         <?php if ( !isset($this->config->ad_mode_test) || $this->config->ad_mode_test ) {?>
                             data-ad-test="on"
                         <?php } ?>
-                        data-ad-format="auto">
-                </ins>
+			data-ad-slot="2582850577">
+		</ins>
 
                 <script>
                     (adsbygoogle = window.adsbygoogle || []).push({});
