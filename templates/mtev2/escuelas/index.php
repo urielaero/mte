@@ -95,7 +95,7 @@ if($educaccion){
 		</div>
 	</div>
 <?php } ?>
-<div class="container profile profile-escuela" ng-controller="escuelaCTL">
+<div class="container profile profile-escuela container-ads" ng-controller="escuelaCTL">
 	<div class="breadcrumb perfect-breadcrumb">
 		<a href="/home" class="start"><i class="icon-mejora"></i></a>
 		<?php foreach($this->breadcrumb as $url => $breadcrumb){ ?>

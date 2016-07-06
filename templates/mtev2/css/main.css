@@ -190,7 +190,8 @@ ul.dropdown-menu li p{line-height: 1.2}
 ul.dropdown-menu li a{color: #868686}
 ul.dropdown-menu li.active a{color: #fff}
 
-#content .container{margin: 25px auto;max-width: 1024px}
+#content .container{margin: 25px auto;max-width: 900px}
+#content .container.container-ads{max-width: 1024px;}
 #content .icon-container{position: relative;}
 #content .icon-container .icon-wrapper{height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
 

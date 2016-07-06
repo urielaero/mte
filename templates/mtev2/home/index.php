@@ -1,4 +1,4 @@
-<div class='container home'>
+<div class='container home container-ads'>
 <div class="breadcrumb">
 		<a href="#" class="start"><i class="icon-mejora"></i></a>
 		<a href="#">Home</a>
