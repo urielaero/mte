@@ -188,12 +188,12 @@ if($this->escuela->nivel->id == 11){
 			<!-- School Profile Page Right Side 300 x 250 -->
 			<ins class="adsbygoogle"
 				style="display:block"
-				data-ad-client="ca-pub-4091371715436204"
-				data-ad-slot="5340952370"
+				data-ad-client="ca-pub-5016039473129201"
+				data-ad-slot="7013050172"
 				<?php if ( !isset($this->config->ad_mode_test) || $this->config->ad_mode_test ) {?>
 					data-ad-test="on"
 				<?php } ?>
-				data-ad-format="auto">
+				>
 			</ins>
 			
 			<script>
