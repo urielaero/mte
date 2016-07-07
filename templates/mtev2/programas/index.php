@@ -100,7 +100,7 @@
 						<div id="titulo-escuelas-programas">
 							<h6 class="titulo-escuelas-programas"><strong>Escuelas en donde está este programa.</strong>Ciclo escolar 2013 | 2014</h6>
 						</div>
-						<div id="programa-escuela" data-ng-repeat="escuela in escuelas">
+						<div id="programa-escuela" ng-class="['year-colors', currentYear]" data-ng-repeat="escuela in escuelas">
 							<h6 class="programa-escuelas"><a data-ng-href="/escuelas/index/{{escuela.cct}}">{{escuela.nombre}}</a></h6>
 							<div class="datos-escuela-pro">
 								<i class="icon-conoce-01 icon-direccion"></i><div class="direccion-escuela">{{escuela.municipio}}, {{capitalizeFirstLetter(currentState.name)}}</div>

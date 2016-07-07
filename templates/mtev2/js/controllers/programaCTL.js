@@ -148,6 +148,7 @@ app.controller("programaCTL", ['$scope', '$http', '$compile', function ($scope, 
 
         if ($scope.stateByYears.multiple) {
             params.year = $scope['selectYear'+stateId];
+            $scope.currentYear = 'year_'+params.year;
         }
 
 

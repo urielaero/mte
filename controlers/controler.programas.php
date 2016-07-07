@@ -96,7 +96,7 @@ class programas extends main{
                         if ($i < 10) {
                             $aux = '0'.$i;
                         }
-                        if (count($aux_many_years) > 2) {
+                        if (count($aux_many_years) >= 2 && $aux_many_years[0] && $aux_many_years[1]) {
                             $group = $c->aggregate(array(
                                 array('$match' => array('programa' => $m_collection, 'cct' => array('$regex' => '^'.$aux.'.*'))),
                                 array('$group' => array('_id' => '$anio', 'count' => array('$sum' => 1))),

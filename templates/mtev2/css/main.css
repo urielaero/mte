@@ -1273,3 +1273,22 @@ text-align: justify;}
     height: 205px;
     overflow: hidden;
 }
+
+#content #programa-escuela.year-colors.year_2016{
+    background: #b2d0fe;
+}
+
+#content #programa-escuela.year-colors.year_2016 .direccion-escuela{
+    color: black;
+}
+#content #programa-escuela.year-colors.year_2015{
+    background: #e1e1e1;
+}
+
+#content #programa-escuela.year-colors.year_2014{
+    background: #20b45e;
+}
+
+#content #programa-escuela.year-colors.year_2013{
+    background: #00aff0;
+}
