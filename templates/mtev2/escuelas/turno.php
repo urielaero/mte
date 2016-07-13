@@ -197,9 +197,7 @@ if($this->escuela->nivel->id == 11){
 			</ins>
 			
 			<script>
-				window.onload = function() {
-					(adsbygoogle = window.adsbygoogle || []).push({});
-				}
+				(adsbygoogle = window.adsbygoogle || []).push({});
 		    	</script>
 		
 		</div>
