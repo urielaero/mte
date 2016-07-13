@@ -22,8 +22,10 @@ app.controller("comparaCTL", ['$scope','$http','userInfo','templateData','$mdSid
                 pagination : 1000,
                 cct_count_entidad : true,
                 detail : true,
+		type_test: 'enlace'
             };
             $http({method:'POST',url:'/api/escuelas',data:params}).then(function(response){
+		console.log('res', params);
                 console.log(response);
                 $scope.escuelas = response.data.escuelas;
                 $scope.loading = false;

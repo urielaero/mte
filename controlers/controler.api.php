@@ -53,8 +53,11 @@ class api extends main{
 				$params->order_by = 'planea_escuelas.clave_semaforo ASC';
 			}
 		}
-		else if($this->request('sort') == 'Promedio general')
+		else if($this->request('sort') == 'Promedio general' && $params->type_test == "enlace")
 			$params->order_by = 'escuelas_para_rankeo.promedio_general DESC';
+		else 
+			$params->order_by = 'planea_escuelas.score_global DESC';
+
 		if($this->request('ccts')) $params->ccts = explode(',',$this->request('ccts')); 
 		if($this->request('pagination')) 
 			$params->pagination = $this->request('pagination');
