@@ -1272,6 +1272,7 @@ text-align: justify;}
     width: 300px;
     height: 250px;
     overflow: hidden;
+    margin: 0 auto;
 }
 
 #content #programa-escuela.year-colors.year_2016{
