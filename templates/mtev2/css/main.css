@@ -1280,6 +1280,12 @@ text-align: justify;}
 	margin: 10px auto -20px auto;
 }
 
+.adsbygoogle-content.conoce{
+	width: 728px;
+	height: 90px;
+	margin-top: 7px;
+}
+
 #content #programa-escuela.year-colors.year_2016{
     background: #b2d0fe;
 }
