@@ -1,6 +1,7 @@
 app.controller("comparaCTL", ['$scope','$http','userInfo','templateData','$mdSidenav',function ($scope,$http,userInfo,templateData,$mdSidenav){
     $scope.escuelas = [];
     $scope.semaforos = templateData.getVar('semaforos');
+    $scope.semaforosPlanea = templateData.getVar('semaforos_planea');
     $scope.years = templateData.getVar('enlaceYears');
     $scope.loading = true;
     $scope.escuelasResponse = true;
@@ -22,7 +23,7 @@ app.controller("comparaCTL", ['$scope','$http','userInfo','templateData','$mdSid
                 pagination : 1000,
                 cct_count_entidad : true,
                 detail : true,
-		type_test: 'enlace'
+		type_test: 'planea'
             };
             $http({method:'POST',url:'/api/escuelas',data:params}).then(function(response){
 		console.log('res', params);
@@ -55,6 +56,10 @@ app.controller("comparaCTL", ['$scope','$http','userInfo','templateData','$mdSid
                 lat: parseFloat(escuela.latitud),
                 lng: parseFloat(escuela.longitud)
             };
+
+            escuela.semaforo = escuela.planea_semaforo;
+            escuela.rank = escuela.planea_rank_entidad;
+
             var icon = escuela.semaforo;
             marker.icon ={
                     iconUrl:'http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/pins_'+icon+'.png',

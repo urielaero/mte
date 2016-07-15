@@ -41,12 +41,11 @@
 						<thead>
 							<tr>
 								<th class="footable-first-column">Escuelas</th>
-								<th data-hide="phone">Calificación español</th>
-								<th data-hide="phone">Calificación matemáticas</th>
-								<th data-hide="phone">Nivel escolar</th>
-								<th data-hide="phone">Turno Matutino/Vespertino</th>
+								<th data-hide="phone">Nivel</th>
+								<th data-hide="phone">Turno matutino/vespertino</th>
 								<th class="privadapublica">Privada pública</th>
-								<th>Posición estatal</th>
+								<th data-hide="phone">Posición estatal</th>
+								<th data-hide="phone">Posición nacional</th>
 								<th class="footable-last-column">Semáforo educativo</th>
 							</tr>
 						</thead>
@@ -57,21 +56,20 @@
 									<p><small><i class="icon-conoce-01"></i> {{escuela.localidad}}, {{escuela.entidad}}</small></p>
 									<!--<p><small><i class="icon-enlace-01" ng-show='escuela.turno.nombre' ></i> {{escuela.turno.nombre}}</small></p>-->
 								</td>
-								<td ng-bind='escuela.promedio_espaniol || "--"'></td>
-								<td ng-bind='escuela.promedio_matematicas || "--"'></td>
 								<td>{{escuela.nivel}}</td>
 								<td>{{escuela.turno.nombre.capitalize()}}</td>
 								<td>{{escuela.control}}</td>
+								<td><strong ng-bind='escuela.planea_rank_entidad || "--"'></strong> de <strong ng-bind='escuela.entidad_cct_count'></strong></td>
 								<td><strong ng-bind='escuela.rank || "--"'></strong> de <strong ng-bind='escuela.entidad_cct_count'></strong></td>
 								<td>
 							<!-- los iconos ya se alinean bien de esta forma si se cambia por md-button se desalinean Carlos Barahona-->
-								<div id="boton-semaforo-compara" ng-class="semaforos[escuela.semaforo].class" >
+								<div id="boton-semaforo-compara" ng-class="semaforosPlanea[escuela.planea_semaforo].class" >
 								  <div id="semaforos-buscador">
-									<i id="semaforos-buscador-icono" ng-class="semaforos[escuela.semaforo].icon"></i>
+									<i id="semaforos-buscador-icono" ng-class="semaforosPlanea[escuela.planea_semaforo].icon"></i>
 								  </div>
 								</div>
 							<!--Carlos Barahona-->
-								<p>{{semaforos[escuela.semaforo].label}}</p>
+								<p>{{semaforosPlanea[escuela.planea_semaforo].label}}</p>
 								</td>
 							</tr>
 						</tbody>
@@ -115,52 +113,52 @@
 								<th colspan="4">Español</th>
 								<th colspan="4">Matemáticas</th>
 								<th rowspan="2" class="calificacion">Alumnos que tomaron la prueba</th>
-								<th rowspan="2" class="calificacion">Muestras poco confiables</th>
 							</tr>
 							<tr>
 								<th class="calificacion">
 									<md-button class="md-fab rank1" aria-label="Time"><i class="icon-tache-01"></i></md-button>
-									<p>Reprobado</p>
+									<p>Insuficiente</p>
 								</th>
 								<th class="calificacion">
 									<md-button class="md-fab rank2" aria-label="Time"><i class="icon-tache-01"></i></md-button>
-									<p>De panzazo</p>
+									<p>Indispensable</p>
 								</th>
 								<th class="calificacion">
 									<md-button class="md-fab rank3" aria-label="Time"><i class="icon-check-01"></i></md-button>
-									<p>Bien</p>
+									<p>Satisfactorio</p>
 								</th>
 								<th class="calificacion">
 									<md-button class="md-fab rank4" aria-label="Time"><i class="icon-check-01"></i></md-button>
-									<p>Excelente</p>
+									<p>Sobresaliente</p>
 								</th>
 								<th class="calificacion">
 									<md-button class="md-fab rank1" aria-label="Time"><i class="icon-tache-01"></i></md-button>
-									<p>Reprobado</p>
+									<p>Insuficiente</p>
 								</th>
 								<th class="calificacion">
 									<md-button class="md-fab rank2" aria-label="Time"><i class="icon-tache-01"></i></md-button>
-									<p>De panzazo</p>
+									<p>Indispensable</p>
 								</th>
 								<th class="calificacion">
 									<md-button class="md-fab rank3" aria-label="Time"><i class="icon-check-01"></i></md-button>
-									<p>Bien</p>
+									<p>Satisfactorio</p>
 								</th>
 								<th class="calificacion">
 									<md-button class="md-fab rank4" aria-label="Time"><i class="icon-check-01"></i></md-button>
-									<p>Excelente</p>
+									<p>Sobresaliente</p>
 								</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr ng-repeat='escuela in escuelas'>
 								<td class="school"><a ng-href="/escuelas/index/{{escuela.cct}}" ng-bind='escuela.nombre'></a></td>
-								<td class="rank" ng-repeat='score in escuela.stats[statsYear].esp track by $index' ng-bind='getPCT(score,escuela)'></td>
-								<td class="rank" ng-repeat='score in escuela.stats[statsYear].mat track by $index' ng-bind='getPCT(score,escuela)'></td>
+								<td class="rank" ng-repeat='score in escuela.planea_espaniol_charts track by $index' ng-bind='score[1] + "%"' ng-if="score[1] != 'escuela'"></td>
+
+								<!--<td class="rank" ng-repeat='score in escuela.stats[statsYear].mat track by $index' ng-bind='getPCT(score,escuela)'></td>-->
+								<td class="rank" ng-repeat='score in escuela.planea_matematicas_charts track by $index' ng-bind='score[1] + "%"' ng-if="score[1] != 'escuela'"></td>
 								<td ng-show='!escuela.stats[statsYear].esp' ng-repeat='blank in ["--","--","--","--"] track by $index' ng-bind='blank'></td>
 								<td ng-show='!escuela.stats[statsYear].mat' ng-repeat='blank in ["--","--","--","--"] track by $index' ng-bind='blank'></td>
-								<td class="rank" ng-bind='escuela.stats[statsYear].alumnos || "--"'></td>
-								<td class="rank" ng-bind='getPCT(escuela.poco_confiables,escuela) || "--"'></td>
+								<td class="rank" ng-bind='escuela.planea_evaluados || "--"'></td>
 							</tr>
 						</tbody>
 					</table>				

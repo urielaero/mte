@@ -354,6 +354,7 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .container .compare-table table .footable-row-detail-cell{background: #1B97ED;color: #fff}
 #content .container .compare-table table td .md-button,
 #content .container .compare-table table th .md-button{box-shadow: none;color: #4C4C4C;cursor: default;height: 32px;width: 32px;}
+#content .compare-table.years th + th {max-width: 68px;}
 /*Carlos Barahona implementacion para movil*/
 .boton-filtrar{height: 30px; background: #1CA5F5;cursor:pointer;margin-top: 5px}
 #titulo-filtrar{float: left;width: 80%;height: 100%;display: table;}

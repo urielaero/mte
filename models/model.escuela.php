@@ -465,6 +465,8 @@ class escuela extends memcached_table{
         $this->planea->rank_entidad = $escuela->rank_entidad;
         $this->planea_charts($escuela, $promedios);
         $this->planea_semaforo($escuela);
+        $this->planea->semaforo_clave = $this->get_planea_semaforo($escuela);
+        $this->planea->num_evaluados = $escuela->evaluados;
     }
 
     private function planea_charts($escuela, $promedios) {        
