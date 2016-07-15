@@ -45,7 +45,6 @@
 								<th data-hide="phone">Turno matutino/vespertino</th>
 								<th class="privadapublica">Privada pública</th>
 								<th data-hide="phone">Posición estatal</th>
-								<th data-hide="phone">Posición nacional</th>
 								<th class="footable-last-column">Semáforo educativo</th>
 							</tr>
 						</thead>
@@ -60,7 +59,6 @@
 								<td>{{escuela.turno.nombre.capitalize()}}</td>
 								<td>{{escuela.control}}</td>
 								<td><strong ng-bind='escuela.planea_rank_entidad || "--"'></strong> de <strong ng-bind='escuela.entidad_cct_count'></strong></td>
-								<td><strong ng-bind='escuela.rank || "--"'></strong> de <strong ng-bind='escuela.entidad_cct_count'></strong></td>
 								<td>
 							<!-- los iconos ya se alinean bien de esta forma si se cambia por md-button se desalinean Carlos Barahona-->
 								<div id="boton-semaforo-compara" ng-class="semaforosPlanea[escuela.planea_semaforo].class" >
