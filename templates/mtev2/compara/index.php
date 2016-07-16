@@ -1,4 +1,18 @@
-<div class='container compare' ng-controller="comparaCTL">
+<div class='container compare compare-table' ng-controller="comparaCTL">
+	<div class="adsbygoogle-content compara">
+		<ins class="adsbygoogle"
+			style="display:inline-block;width:728px;height:90px"
+			data-ad-client="ca-pub-5016039473129201"
+			<?php if ( !isset($this->config->ad_mode_test) || $this->config->ad_mode_test ) {?>
+				data-ad-test="on"
+			<?php } ?>
+			data-ad-slot="3983054973"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
+
 	<div class="breadcrumb">
 		<a href="/" class="start"><i class="icon-mejora"></i></a>
 		<a href="/compara/escuelas/" id="ahref-breadcumb">Comparador</a>
@@ -154,8 +168,10 @@
 
 								<!--<td class="rank" ng-repeat='score in escuela.stats[statsYear].mat track by $index' ng-bind='getPCT(score,escuela)'></td>-->
 								<td class="rank" ng-repeat='score in escuela.planea_matematicas_charts track by $index' ng-bind='score[1] + "%"' ng-if="score[1] != 'escuela'"></td>
+								<!--
 								<td ng-show='!escuela.stats[statsYear].esp' ng-repeat='blank in ["--","--","--","--"] track by $index' ng-bind='blank'></td>
 								<td ng-show='!escuela.stats[statsYear].mat' ng-repeat='blank in ["--","--","--","--"] track by $index' ng-bind='blank'></td>
+								-->
 								<td class="rank" ng-bind='escuela.planea_evaluados || "--"'></td>
 							</tr>
 						</tbody>

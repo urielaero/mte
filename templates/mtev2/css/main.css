@@ -196,6 +196,7 @@ ul.dropdown-menu li.active a{color: #fff}
 #content .icon-container .icon-wrapper{height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
 
 #content .container{}
+#content .container.compare-table{margin-top:5px;}
 
 /*Home*/
 #content .container #home-content{-webkit-flex: 0 0 68%; -ms-flex: 0 0 68%; flex: 0 0 68%; max-width: 68%; }
@@ -1285,6 +1286,13 @@ text-align: justify;}
 	width: 728px;
 	height: 90px;
 	margin-top: 7px;
+}
+
+.adsbygoogle-content.compara{
+	width: 728px;
+	height: 90px;
+	margin-top: 0;
+	margin-bottom: 8px;
 }
 
 #content #programa-escuela.year-colors.year_2016{
