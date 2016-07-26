@@ -252,4 +252,30 @@ class planea_promedio extends table{
         return $res;
     }
 }
+
+class escuelas_2013 extends table {
+    function info() {
+    	$this->key = 'clavecct';
+        $this->table_name = 'escuelas_2013';
+    }
+}
+
+class ventanilla_pendientes extends table {
+    function info() {
+        $this->table_name = 'ventanilla_pendientes';
+    }
+}
+
+class supervisor extends table {
+    function info() {
+        $this->table_name = 'supervisores';
+    }
+}
+
+class dif_municipio extends table {
+    function info() {
+        $this->table_name = 'dif_municipios';
+    }	
+}
+
 ?>

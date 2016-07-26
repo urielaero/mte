@@ -63,5 +63,4 @@ class tuberia_denuncia{
         return $denuncias;
     }
 }
-
 ?>
