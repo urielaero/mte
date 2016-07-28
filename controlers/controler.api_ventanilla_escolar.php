@@ -17,7 +17,7 @@ class api_ventanilla_escolar extends main{
         $cct = $this->request('cct');
         $notify = new ventanilla_pendientes(NULL, $this->conn);   
         $notify->create('email, entidad, cct', array($email, $entity, $cct));
-        $this->resJson(array("success"=>true));
+        $this->resJson(array("success" => true));
     }
 
     public function supervisor() {
@@ -44,6 +44,7 @@ class api_ventanilla_escolar extends main{
         if ($find && count($find)) {
             $res["supervisor"] = true;
             $superv = $find[0];
+            $res["cct"] = $superv->cct;
             $res["nombrect"] = $superv->nombrect;
             $res["nombre"] = $superv->nombre;
             $res["domicilio"] = $superv->domicilio;
@@ -76,6 +77,23 @@ class api_ventanilla_escolar extends main{
             $res['email'] = $d->email;
             $res['encargado'] = $d->encargado;
         }
+        $this->resJson($res);
+    }
+
+    public function contraloria_sep() {
+     	$estado = $this->request('entidad') ? intval($this->request('entidad')) : 0;
+        $contraloria = new contraloria_sep($estado, $this->conn);
+        $contraloria->read('secretaria,nombre,domicilio,telefono,responsable,cargo,email');
+        $res = array(
+            'secretaria' => $contraloria->secretaria,
+            'nombre' => $contraloria->nombre,
+            'domicilio' => $contraloria->domicilio,
+            'telefono' => $contraloria->telefono,
+            'responsable' => $contraloria->responsable,
+            'cargo' => $contraloria->cargo,
+            'email' => $contraloria->email
+        );
+
         $this->resJson($res);
     }
 }
