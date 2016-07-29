@@ -164,6 +164,17 @@ class api extends main{
 			if (!$req["entidadId"])
 				$req["entidadId"] = $this->get_entidad_id($req["cct"]);
 			$tuberia = new tuberia_denuncia($this->mongo_connect());
+            $ventanill_denuncia = new ventanilla_denuncia(null, $this->conn);
+            $ventanill_denuncia->create('tipo,cct,entidad,nivelnombre,email,nombre,ocupacion', array(
+                   $req['label'],
+                   $req['cct'],
+                   $req['entidadId'],
+                   $req['nivelName'],
+                   $req['email'],
+                   $req['userName'],
+                   $req['userOccupation']
+                ), 'id');
+            $req["denuncia"] = $ventanill_denuncia->id;
 			$denuncia = $tuberia->save($req);
 			if($denuncia){
 				$denuncia["success"] = true;
@@ -181,8 +192,9 @@ class api extends main{
 		$req = json_decode($data, true);
 		$denuncia = array("error" => "no token");
 		if(isset($req["token"])){
+            $den = $this->update_history($req);
 			$tuberia = new tuberia_denuncia($this->mongo_connect());
-			$denuncia = $tuberia->update($req);
+			$denuncia = $tuberia->update($den);
 			if($denuncia){
 				$denuncia["success"] = true;
 			}else{
@@ -192,6 +204,21 @@ class api extends main{
 		$this->sendPublicHeadersAndResponse($denuncia);
 		
 	}
+
+    public function update_history($denuncia) {
+        foreach($denuncia['history'] as &$history) {
+            if ($history['answer']) { 
+                $aws = new ventanilla_respuesta($history['answer'], $this->conn);
+            } else {
+                $aws = new ventanilla_respuesta(null, $this->conn);
+                $aws->create('denuncia', array($denuncia['denuncia']), 'id');
+                $history['answer'] = $aws->id;
+            }
+            $resp = array_key_exists('text', $history['select']) ? $history['select']['text'] : '';
+            $aws->update('numero,respuesta', array(intval($history['number']), $resp));
+        }
+        return $denuncia;
+    }
 
 	public function read_denuncia(){
 		$data = $this->request("data");

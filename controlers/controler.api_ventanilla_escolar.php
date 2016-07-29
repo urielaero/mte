@@ -96,5 +96,9 @@ class api_ventanilla_escolar extends main{
 
         $this->resJson($res);
     }
+
+    public function calificacion() {
+    
+    }
 }
 ?>

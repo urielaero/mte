@@ -284,4 +284,16 @@ class contraloria_sep extends table {
     }
 }
 
+class ventanilla_denuncia extends table {
+    function info() {
+        $this->table_name = 'ventanilla_denuncias';
+    }
+} 
+
+class ventanilla_respuesta extends table {
+    function info() {
+        $this->table_name = 'ventanilla_respuestas';
+    }
+} 
+
 ?>
