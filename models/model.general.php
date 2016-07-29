@@ -296,4 +296,16 @@ class ventanilla_respuesta extends table {
     }
 } 
 
+class ventanilla_calificacion extends table {
+    function info() {
+        $this->table_name = 'ventanilla_calificaciones';
+    }
+}
+
+class ventanilla_comentario extends table {
+    function info() {
+        $this->table_name = 'ventanilla_comentarios';
+    }
+}
+
 ?>

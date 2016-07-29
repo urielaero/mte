@@ -97,8 +97,30 @@ class api_ventanilla_escolar extends main{
         $this->resJson($res);
     }
 
-    public function calificacion() {
-    
+    public function calificacion() { 
+    	$token = $this->request('token');
+        $calis = $this->request('score') ? json_decode($this->request('score')): array();
+        $comment = $this->request('comment') ? strip_tags($this->request('comment')) : '';
+        $tuberia = new tuberia_denuncia($this->mongo_connect());
+        $denuncia = $tuberia->findByToken($token);
+
+        $c = 0;
+
+        if ($denuncia) {
+            foreach($calis->scores as $cal) {
+                $c++;
+                $ven = new ventanilla_calificacion(null, $this->conn);
+                $ven->create('denuncia,pregunta,calificacion', array($denuncia['denuncia'], $cal->question, $cal->score), 'id');
+            }
+
+            if ($comment and $comment != '')  {
+                $com = new ventanilla_comentario(null, $this->conn); 
+                $com->debug = true;
+                $com->create('denuncia,comentario', array($denuncia['denuncia'], $comment));
+            }
+            
+        }
+        $this->resJson(array('success' => true, 'c'=>$c ));
     }
 }
 ?>
