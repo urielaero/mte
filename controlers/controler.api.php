@@ -69,7 +69,14 @@ class api extends main{
 		$this->process_escuelas($this->request('detail'));
 		$this->escuelas_digest->pagination = $this->pagination;
 		$this->escuelas_digest->pagination->conn = NULL;
-		echo json_encode($this->escuelas_digest);
+
+		$callback = $this->request('callback');
+		$resp = $this->escuelas_digest;
+		if ($callback) {
+			echo "$callback(" . json_encode($resp) . ")";
+			return ;
+		}
+		echo json_encode($resp);
 	}
 	public function serializeAngular(){
 		$headers = getallheaders();
