@@ -101,26 +101,73 @@ class api_ventanilla_escolar extends main{
     	$token = $this->request('token');
         $calis = $this->request('score') ? json_decode($this->request('score')): array();
         $comment = $this->request('comment') ? strip_tags($this->request('comment')) : '';
+        $comment_id = $this->request('commentId');
         $tuberia = new tuberia_denuncia($this->mongo_connect());
         $denuncia = $tuberia->findByToken($token);
 
-        $c = 0;
-
         if ($denuncia) {
             foreach($calis->scores as $cal) {
-                $c++;
-                $ven = new ventanilla_calificacion(null, $this->conn);
-                $ven->create('denuncia,pregunta,calificacion', array($denuncia['denuncia'], $cal->question, $cal->score), 'id');
+                $fields = 'denuncia,pregunta,calificacion,uuid';
+                $data = array($denuncia['denuncia'], $cal->question, $cal->score, $cal->uuid);
+                if ($cal->pid) {
+                    $ven = new ventanilla_calificacion($cal->pid, $this->conn);
+                    $ven->update($fields, $data);
+                } else {
+                    $ven = new ventanilla_calificacion(null, $this->conn);
+                    $ven->create($fields, $data, 'id');
+                }
+
             }
 
             if ($comment and $comment != '')  {
-                $com = new ventanilla_comentario(null, $this->conn); 
-                $com->debug = true;
-                $com->create('denuncia,comentario', array($denuncia['denuncia'], $comment));
+                $c_fields = 'denuncia,comentario';
+                $c_data = array($denuncia['denuncia'], $comment);
+                if ($comment_id) {
+                    $com = new ventanilla_comentario($comment_id, $this->conn);
+                    $com->update($c_fields, $c_data);
+                } else {
+                    $com = new ventanilla_comentario(null, $this->conn); 
+                    $com->create($c_fields, $c_data);               
+                }
+
             }
             
         }
-        $this->resJson(array('success' => true, 'c'=>$c ));
+        $this->resJson(array('success' => true));
+    }
+
+    public function get_calificacion() {
+     	$token = $this->request('token');
+        $tuberia = new tuberia_denuncia($this->mongo_connect());
+        $denuncia = $tuberia->findByToken($token);
+        $query = "denuncia = {$denuncia['denuncia']}";
+        $cal = new ventanilla_calificacion(null, $this->conn);
+        $cal->search_clause = $query;
+        $cals = $cal->read('id,denuncia,pregunta,calificacion,uuid');
+        $res = array();
+        foreach($cals as $cal) {
+            $res['preguntas'][$cal->uuid] = array(
+                'denuncia' => $cal->denuncia,
+                'pregunta' => $cal->pregunta,
+                'pid' => $cal->id,
+                'calificacion' => intval($cal->calificacion),
+                'uuid' => $cal->uuid
+            );
+        }
+
+        $comment = new ventanilla_comentario(null, $this->conn);
+        $comment->search_clause = $query;
+        $com = $comment->read('id,denuncia,comentario');
+        if (count($com)) {
+            $res['comentario'] = array(
+                'text' => $com[0]->comentario,
+                'denuncia' => $com[0]->denuncia,
+                'pid' => $com[0]->id
+            ); 
+            
+        }
+
+        $this->resJson($res);
     }
 }
 ?>
