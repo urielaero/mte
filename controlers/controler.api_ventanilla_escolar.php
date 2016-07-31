@@ -169,5 +169,22 @@ class api_ventanilla_escolar extends main{
 
         $this->resJson($res);
     }
+
+    public function information_fixed() {
+        $type = $this->request('type');
+        $entity = $this->request('entity');
+        $email = $this->request('email');
+        $text_old = $this->request('textOld');
+        $text_new = $this->request('textNew');
+        $mensage = $this->request('mensage');
+        $update = new ventanilla_actualizacion(null, $this->conn);
+        $update->create('tipo,entidad,email,informacion_para_actualizar,information_nueva,comentario',
+            array($type, $entity, $email, $text_old, $text_new, $mensage), 'id');
+        if ($update->id) {
+            $this->resJson(array('success' => true));
+        } else {
+            $this->resJson(array('failed' => 'Problema al guardar'));
+        }
+    }
 }
 ?>

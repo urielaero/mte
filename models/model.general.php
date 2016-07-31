@@ -308,4 +308,10 @@ class ventanilla_comentario extends table {
     }
 }
 
+class ventanilla_actualizacion extends table {
+    function info() {
+        $this->table_name = 'ventanilla_actualizaciones';
+    }
+}
+
 ?>
