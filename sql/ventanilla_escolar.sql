@@ -35,6 +35,7 @@ CREATE TABLE contraloria_sep(
 
 -- COPY contraloria_sep(entidad,secretaria,nombre,domicilio,telefono,responsable,cargo,email) from '/home/uriel/Desktop/contraloria.csv' DELIMITER ',' CSV;
 
+/*
 
 CREATE TABLE ventanilla_calificaciones(
   id SERIAL PRIMARY KEY,
@@ -45,6 +46,7 @@ CREATE TABLE ventanilla_calificaciones(
   cct VARCHAR(50),
   denuncia INTEGER
 );
+*/
 
 CREATE TABLE ventanilla_denuncias(
   id SERIAL PRIMARY KEY,

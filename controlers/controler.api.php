@@ -254,7 +254,7 @@ class api extends main{
 
 	private function send_denuncias($email, $denuncias){
 		$html = "<p>Accede para editar:</p>";
-		$urlBase = "https://spaceship-labs.github.io/tuberia-de-denuncias/#/caso";
+		$urlBase = "https://spaceship-labs.github.io/tuberia-de-denuncias/#/caso/";
 		foreach($denuncias as $i => $den){
 			$index = $i + 1;
 			$type = $this->capitalize($den["dTypeSlug"]);
