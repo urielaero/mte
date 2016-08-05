@@ -216,7 +216,9 @@ class api extends main{
                 $history['answer'] = $aws->id;
             }
             $resp = array_key_exists('text', $history['select']) ? $history['select']['text'] : '';
-            $aws->update('numero,respuesta', array(intval($history['number']), $resp));
+            $resp = substr($resp, 0 , 199);
+            $step = array_key_exists('stepId', $history) ? $history['stepId'] : -1;
+            $aws->update('numero,respuesta,step', array(intval($history['number']), $resp, floatval($step)));
         }
         return $denuncia;
     }

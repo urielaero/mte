@@ -280,7 +280,8 @@ class dif_municipio extends table {
 
 class contraloria_sep extends table {
     function info() {
-         $this->table_name = 'contraloria_sep';   
+        $this->table_name = 'contraloria_sep';   
+        $this->key = 'entidad';
     }
 }
 

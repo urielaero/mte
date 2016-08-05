@@ -64,8 +64,9 @@ CREATE TABLE ventanilla_respuestas(
    id SERIAL PRIMARY KEY, 
    denuncia INTEGER REFERENCES ventanilla_denuncias (id),
    numero INTEGER,
+   step FLOAT,
    timestamp timestamp default current_timestamp,
-   respuesta VARCHAR(50)
+   respuesta VARCHAR(500)
 );
 
 CREATE TABLE ventanilla_calificaciones(
