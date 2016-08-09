@@ -259,7 +259,7 @@ class api extends main{
 		$urlBase = "https://spaceship-labs.github.io/tuberia-de-denuncias/#/caso/";
 		foreach($denuncias as $i => $den){
 			$index = $i + 1;
-			$type = $this->capitalize($den["dTypeSlug"]);
+			$type = $this->capitalize($den["label"]);
 			$date = $this->format_date($den["startDate"]);
 			$cct = $den["cct"];
 			$name = $this->get_school_name($cct);
