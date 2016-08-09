@@ -255,7 +255,7 @@ class api extends main{
 	}
 
 	private function send_denuncias($email, $denuncias){
-		$html = "<p>Accede para editar:</p>";
+		$html = "<p>Hola <br> Haz click en el siguiente enlace para continuar con tu reporte:</p>";
 		$urlBase = "https://spaceship-labs.github.io/tuberia-de-denuncias/#/caso/";
 		foreach($denuncias as $i => $den){
 			$index = $i + 1;
@@ -269,9 +269,11 @@ class api extends main{
 				</p>
 			";
 		}
+
+		$html .= "<br> Saludos cordiales, <br>Equipo de Ventanilla Escolar";
 		$res = $this->send_email(
 			$email, //to
-			"Denuncias", //sub
+			"Continúa con tu reporte de Ventanilla Escolar", //sub
 			$html,//msg
 			"system@mejoratuescuela.org", //from
 			"Mejora tu escuela" //fromname
