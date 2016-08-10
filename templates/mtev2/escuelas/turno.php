@@ -103,6 +103,7 @@ if($this->escuela->nivel->id == 11){
 				</div>
 			</div>
 		</div>
+
 		<!--Carlos Barahona-->
 		<!--<div class="counters " layout="row" layout-sm="column">
 			<div class="cont-counters">
@@ -124,6 +125,25 @@ if($this->escuela->nivel->id == 11){
 				<div flex class="number"><?=$this->escuela_per_turno->total_evaluados?></div>
 			</div></div> 
 		</div>-->
+
+        
+			<a href="https://spaceship-labs.github.io/tuberia-de-denuncias/#/" class="ventanilla-big" layout="row" layout-align="center center">
+                <p flex="50" class="msg">
+                
+                    ¿Buscas información para resolver una problemática en esta escuela?
+                    <br>
+                    <span>Encuéntrala en:</span>
+                
+                </p>
+                <span class="ventanilla" flex="40">
+    				<p>Ventanilla <span class="blue">Escolar</span></p>
+	    			<p class="sub">
+		    			<span class="de">de</span>
+			    		<img src="/templates/mtev2/img/ventanilla.png" alt="">		
+				    </p>
+                </span>
+			</a>
+
 
 		<div class="mte-califica-form" mte-califica></div>
 	</div>

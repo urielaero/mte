@@ -7,22 +7,31 @@
 			</a>
 			<div mte-suscribe></div>
             
-            <div class="adsbygoogle-content">
-                <!-- Home Page Right Side 300 x 250 -->
-		<ins class="adsbygoogle"
-			style="display:inline-block;width:300px;height:250px"
-			data-ad-client="ca-pub-5016039473129201"
-                        <?php if ( !isset($this->config->ad_mode_test) || $this->config->ad_mode_test ) {?>
-                            data-ad-test="on"
-                        <?php } ?>
-			data-ad-slot="2582850577">
-		</ins>
-
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+			<div class="adsbygoogle-content">
+			<!-- Home Page Right Side 300 x 250 -->
+				<ins class="adsbygoogle"
+					style="display:inline-block;width:300px;height:250px"
+					data-ad-client="ca-pub-5016039473129201"
+					<?php if ( !isset($this->config->ad_mode_test) || $this->config->ad_mode_test ) {?>
+						data-ad-test="on"
+					<?php } ?>
+					data-ad-slot="2582850577">
+				</ins>
+	
+				<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
             
-            </div>
+			</div>
+
+			<a href="https://spaceship-labs.github.io/tuberia-de-denuncias/#/" class="ventanilla">
+				<p>Ventanilla <span class="blue">Escolar</span></p>
+				<p class="sub">
+					<span class="de">de</span>
+					<img src="/templates/mtev2/img/ventanilla.png" alt="">		
+				</p>
+
+			</a>
 
 			<div class="box box-orange">
 				<a href="<?=$this->config->blog_address?>" class="full-size-link"></a>
