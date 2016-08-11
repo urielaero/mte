@@ -1314,7 +1314,7 @@ text-align: justify;}
     background: #00aff0;
 }
 
-.ventanilla{border: 2px solid #DADADA; margin-top: 5px; display: block;}
+.ventanilla{border: 2px solid #DADADA; margin-top: 5px; display: block; background: white;}
 .ventanilla p{color: #3BBA8D; font-size: 32px; text-align: center; padding: 25px 0 0;}
 .ventanilla .blue{color: #13A8DF;}
 .ventanilla .de{display: inline-block; vertical-align: top; font-size: 19px; margin-top: 6px; color: #F49731;}
