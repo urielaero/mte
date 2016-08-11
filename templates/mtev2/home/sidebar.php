@@ -24,7 +24,7 @@
             
 			</div>
 
-			<a href="https://spaceship-labs.github.io/tuberia-de-denuncias/#/" class="ventanilla">
+			<a href="http://www.mejoratuescuela.com/ventanilla-escolar/#/" class="ventanilla">
 				<p>Ventanilla <span class="blue">Escolar</span></p>
 				<p class="sub">
 					<span class="de">de</span>

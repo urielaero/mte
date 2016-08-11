@@ -127,7 +127,7 @@ if($this->escuela->nivel->id == 11){
 		</div>-->
 
         
-			<a href="https://spaceship-labs.github.io/tuberia-de-denuncias/#/" class="ventanilla-big" layout="row" layout-align="center center">
+			<a href="http://www.mejoratuescuela.com/ventanilla-escolar/#/" class="ventanilla-big" layout="row" layout-align="center center">
                 <p flex="50" class="msg">
                 
                     ¿Buscas información para resolver una problemática en esta escuela?
