@@ -164,10 +164,11 @@ class escuelas extends main{
         $this->escuela->has_many_keys["enlaces"] = "id_cct";
         //$this->escuela->has_many_keys["calificaciones"] = "id_cct";
         if( isset($this->escuela->cct) && $this->escuela->cct != $this->escuela->id){
+			//verificado,
 			$this->escuela->read("
 				id,nombre,domicilio,paginaweb,
 				entidad=>nombre,entidad=>id,municipio=>id,municipio=>nombre,localidad=>nombre,localidad=>id,
-				telefono,correoelectronico,verificado,
+				telefono,correoelectronico,
 				turno=>id,turno=>nombre,
 				latitud,longitud,
 				nivel=>nombre,nivel=>id,

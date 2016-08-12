@@ -126,7 +126,8 @@ if($this->escuela->nivel->id == 11){
 			</div></div> 
 		</div>-->
 
-        
+       		
+		<!--
 			<a href="http://www.mejoratuescuela.com/ventanilla-escolar/#/" class="ventanilla-big" layout="row" layout-align="center center">
                 <p flex="50" class="msg">
                 
@@ -143,6 +144,7 @@ if($this->escuela->nivel->id == 11){
 				    </p>
                 </span>
 			</a>
+			-->
 
 
 		<div class="mte-califica-form" mte-califica></div>
