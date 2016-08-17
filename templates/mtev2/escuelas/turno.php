@@ -47,7 +47,10 @@ if($this->escuela->nivel->id == 11){
 						<li><?=$controles[$this->escuela->control->id]?></li>
 						<li>Teléfonos: <?=$this->escuela->telefono?></li>
 						<?php if(isset($this->escuela->correoelectronico) && $this->escuela->correoelectronico){?>
-							<li>Correo electrónico:<?=$this->escuela->correoelectronico?> </li>
+							<li>Correo electrónico: <?=$this->escuela->correoelectronico?> </li>
+						<?php } ?>
+						<?php if(isset($this->escuela->paginaweb) && $this->escuela->paginaweb){?>
+							<li>Sitio web: <?=$this->escuela->paginaweb?> </li>
 						<?php } ?>
 					</ul>
 				</div>

@@ -214,7 +214,7 @@ class escuela extends memcached_table{
             }
 
             $this->censo = $censo;
-            if(!$this->verificado && $this->censo && isset($this->censo['telefono'])) $this->telefono = $this->censo['telefono'];
+            if(isset($this->verificado) && !$this->verificado && $this->censo && isset($this->censo['telefono'])) $this->telefono = $this->censo['telefono'];
             if($this->censo && isset($this->censo['persona_responsable'])) $this->director = $this->censo['persona_responsable'];
             if($this->censo && isset($this->censo['calle'])) $this->domicilio = $this->censo['calle'].' no.'.$this->censo['numero_dir'];
             if($this->censo && isset($this->censo['calle'])) $this->domicilio = $this->censo['calle'].' no.'.$this->censo['numero_dir'];
