@@ -28,7 +28,7 @@ app.controller("blogCTL", ['$scope', '$http', '$timeout', '$rootScope', '$filter
         var page = $scope.postsPage;
         $scope.loading = true;
         $http.jsonp(
-            $scope.blogAddress + '/api/get_category_posts/?category_slug=portada&count=2&callback=JSON_CALLBACK'
+            $scope.blogAddress + '/api/get_category_posts/?category_slug=portada&count=4&callback=JSON_CALLBACK'
         ).then(function(response){
             response.data.posts.forEach(function(p){
                 var img = '';
@@ -50,7 +50,7 @@ app.controller("blogCTL", ['$scope', '$http', '$timeout', '$rootScope', '$filter
 
                 if (!img || img === '') {
                     $scope.posts.push(p);
-                    if($scope.posts.length % 2 == 0){
+                    if($scope.posts.length / 4 == 1){
                         $scope.loading = false;
                     }
                     return ;
