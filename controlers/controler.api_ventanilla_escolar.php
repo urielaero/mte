@@ -186,5 +186,54 @@ class api_ventanilla_escolar extends main{
             $this->resJson(array('failed' => 'Problema al guardar'));
         }
     }
+
+    public function consejo_escolar() {
+     	$estado = $this->request('entidad') ? intval($this->request('entidad')) : 0;
+
+        $consejo = new consejo_escolar($estado, $this->conn);
+        $consejo->read('responsables,telefono,email');
+        $res = array(
+            'telefono' => $consejo->telefono,
+            'responsables' => $consejo->responsables,
+            'email' => $consejo->email
+        );
+
+        $this->resJson($res);
+    	
+    }
+
+    public function delegacion_fed_sep() {
+     	$estado = $this->request('entidad') ? intval($this->request('entidad')) : 0;
+
+        $fed = new delegacion_fed_sep($estado, $this->conn);
+        $fed->read('titulo,domicilio,telefono,fax,email');
+        $res = array(
+            'telefono' => $fed->telefono,
+            'titulo' => $fed->titulo,
+            'email' => $fed->email,
+            'fax' => $fed->fax,
+            'domicilio' => $fed->domicilio
+        );
+
+        $this->resJson($res);
+    	
+    }
+
+    public function instituto_infraestructura() {
+     	$estado = $this->request('entidad') ? intval($this->request('entidad')) : 0;
+        $inf = new instituto_infraestructura($estado, $this->conn);
+        $inf->read('instituto,telefono,responsable,email,cargo,domicilio');
+        $res = array(
+            'instituto' => $inf->instituto,
+            'telefono' => $inf->telefono,
+            'responsable' => $inf->responsable,
+            'email' => $inf->email,
+            'cargo' => $inf->cargo,
+            'domicilio' => $inf->domicilio
+        );
+
+        $this->resJson($res);
+    
+    }
 }
 ?>

@@ -315,4 +315,25 @@ class ventanilla_actualizacion extends table {
     }
 }
 
+class consejo_escolar extends table {
+    function info() {
+        $this->table_name = 'consejos_escolares';
+        $this->key = 'entidad';
+    }
+}
+
+class delegacion_fed_sep extends table {
+    function info() {
+        $this->table_name = 'delegaciones_fed_sep';
+        $this->key = 'entidad';
+    }
+}
+
+class instituto_infraestructura extends table {
+    function info() {
+        $this->table_name = 'institutos_infraestructura';
+        $this->key = 'entidad';
+    }
+}
+
 ?>
