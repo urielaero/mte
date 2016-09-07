@@ -2,9 +2,15 @@
 	<?php $this->include_template('mteSuscribe','directives'); ?>
 </script>
 		<div flex="30" flex-sm="100" id="sidebar">
-			<a layout-fill href='http://convocatoriaeducaccion.mejoratuescuela.org/' hide-sm>
-				<img style='width:100%'src='/templates/mtev2/img/educaccion.jpg'>
+
+			<a href="http://www.mejoratuescuela.com/ventanilla-escolar/#/" class="ventanilla">
+				<p>Ventanilla <span class="blue">Escolar</span></p>
+				<p class="sub">
+					<span class="de">de</span>
+					<img src="/templates/mtev2/img/ventanilla.png" alt="">		
+				</p>
 			</a>
+
 			<div mte-suscribe></div>
             
 			<div class="adsbygoogle-content">
@@ -23,15 +29,6 @@
 				</script>
             
 			</div>
-
-			<a href="http://www.mejoratuescuela.com/ventanilla-escolar/#/" class="ventanilla">
-				<p>Ventanilla <span class="blue">Escolar</span></p>
-				<p class="sub">
-					<span class="de">de</span>
-					<img src="/templates/mtev2/img/ventanilla.png" alt="">		
-				</p>
-
-			</a>
 
 			<div class="box box-orange">
 				<a href="<?=$this->config->blog_address?>" class="full-size-link"></a>
