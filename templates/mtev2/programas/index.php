@@ -102,8 +102,13 @@
 						</div>
 						<div id="programa-escuela" ng-class="['year-colors', currentYear]" data-ng-repeat="escuela in escuelas">
 							<h6 class="programa-escuelas"><a data-ng-href="/escuelas/index/{{escuela.cct}}">{{escuela.nombre}}</a></h6>
+								<span class="customMsg" ng-if="escuela.meta && escuela.meta.customLink != ''">
+									<a ng-href="{{escuela.meta.customLink}}" target="_blank">{{escuela.meta.customLinkText}}</a>
+							
+								</span>
 							<div class="datos-escuela-pro">
 								<i class="icon-conoce-01 icon-direccion"></i><div class="direccion-escuela">{{escuela.municipio}}, {{capitalizeFirstLetter(currentState.name)}}</div>
+
 							</div>
 						</div>
 					</div>

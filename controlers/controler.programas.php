@@ -37,7 +37,14 @@ class programas extends main{
         $estado = $this->request('es');
         $skip = $this->request('skip')?$this->request('skip'):0;
         $estado = str_pad($estado,2,'0',STR_PAD_LEFT);
-        $ccts = $this->get_estado_escuelascct($programa,$estado,$skip);
+        $objects = $this->get_estado_escuelascct($programa,$estado,$skip);
+        $ccts = array();
+        $cctsObjects = array();
+        foreach($objects as $ob) {
+            $cct = $ob['cct'];
+            $ccts[] = $cct;
+            $cctsObjects[$cct] = $ob;
+        }
         
         $params = new stdClass();
     	if($skip!=0 && !$ccts){
@@ -58,6 +65,7 @@ class programas extends main{
             foreach($escuelasJson as $key => $field){
                 $escuelasJson[$key]->nombre = $this->capitalize($escuelasJson[$key]->nombre);
                 $escuelasJson[$key]->municipio = $this->capitalize($escuelasJson[$key]->municipio->nombre);
+                $escuelasJson[$key]->meta = $cctsObjects[$escuelasJson[$key]->cct];
             }
             echo json_encode($escuelasJson);
         }else{
@@ -172,7 +180,7 @@ class programas extends main{
                 $i = 0;
                 while($escuelasaux->hasNext()) {
                     $aux = $escuelasaux->getNext();
-                    $escuelas[$i++] = $aux['cct'];
+                    $escuelas[$i++] = $aux;//['cct'];
                 }
             }
 

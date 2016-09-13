@@ -932,7 +932,7 @@ form #recaptcha_area,form #recaptcha_table{width:229px !important;}
 /*Programas Escuelas Carlos Barahona */
 #content .container.programa #titulo-escuelas-programas{width: 100%;height: 40px;background:#3193FB;display: table;clear: both;}
 #content .container.programa .titulo-escuelas-programas{display: table-cell;vertical-align: middle;color: white;margin-left: 10px;padding: 10px}
-#content .container.programa #programa-escuela{background: #E1E1E1;width: 100%;height: auto;display: table;margin-top: 5px;padding: 6px 12px}
+#content .container.programa #programa-escuela{background: #E1E1E1;width: 100%;height: auto;display: table;margin-top: 5px;padding: 6px 12px; position: relative;}
 #content .container.programa .programa-escuelas{}
 #content .container.programa .info-escuela-programas{text-align: center;}
 #content .container.programa .programa-escuelas{margin-top: 0px;font-weight: 700;margin-bottom: 0;margin-left: 5px;padding-top: 5px}
@@ -1338,3 +1338,13 @@ text-align: justify;}
 .ventanilla-big .msg{font-size: 20px; text-align: right; padding: 9px; line-height: normal; color: #E92298;}
 .ventanilla-big .msg span{color: #1CA6FB;}
 .ventanilla-big .ventanilla .sub{margin-top:-13px;}
+
+#programa-escuela .customMsg{
+    position: absolute;
+    right: 6px;
+    top: 10px;
+    background: #0BA14A;
+    padding: 4px;
+}
+
+#programa-escuela .customMsg a{color: white;}
