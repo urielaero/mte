@@ -98,14 +98,22 @@
 				<div id="escuelas-programas">
 					<div>					
 						<div id="titulo-escuelas-programas">
-							<h6 class="titulo-escuelas-programas"><strong>Escuelas en donde está este programa.</strong>Ciclo escolar 2013 | 2014</h6>
+							<h6 class="titulo-escuelas-programas"><strong>Escuelas en donde está este programa.</strong>
+								Ciclo escolar
+								<span ng-show="!ciclos[currentYear]"> 2013 | 2014</span>
+								<span ng-show="ciclos[currentYear]">{{ciclos[currentYear]}}</span>
+							</h6>
 						</div>
 						<div id="programa-escuela" ng-class="['year-colors', currentYear]" data-ng-repeat="escuela in escuelas">
 							<h6 class="programa-escuelas"><a data-ng-href="/escuelas/index/{{escuela.cct}}">{{escuela.nombre}}</a></h6>
-								<span class="customMsg" ng-if="escuela.meta && escuela.meta.customLink != ''">
-									<a ng-href="{{escuela.meta.customLink}}" target="_blank">{{escuela.meta.customLinkText}}</a>
-							
-								</span>
+								<div ng-show="escuela.meta && escuela.meta.customLink && escuela.meta.customLink != ''">
+									<span class="customMsg" >
+										<a ng-href="{{escuela.meta.customLink}}" target="_blank">{{escuela.meta.customLinkText}}</a>
+								
+									</span>
+								
+								</div>
+
 							<div class="datos-escuela-pro">
 								<i class="icon-conoce-01 icon-direccion"></i><div class="direccion-escuela">{{escuela.municipio}}, {{capitalizeFirstLetter(currentState.name)}}</div>
 

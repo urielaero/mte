@@ -99,6 +99,8 @@ class programas extends main{
 
                     $aux_many_years = $c->distinct("anio", array("programa" => $m_collection));
 
+                    $aux_ciclos = $c->distinct('anio', array("ciclo" => true, "programa" => $m_collection));
+
                     for($i=1;$i<=32;$i++) {
                         $aux = $i;
                         if ($i < 10) {
@@ -120,6 +122,14 @@ class programas extends main{
                             $estado_escuelas[$i] = $c->count(array( "anio" => $max_anio , "cct" => array('$regex' => '^'.$aux.'.*'),"programa" => $m_collection ));
                         } else {
                             $estado_escuelas[$i] = $c->count(array( "cct" => array('$regex' => '^'.$aux.'.*'),"programa" => $m_collection ));
+                        }
+
+                        if (count($aux_ciclos)) {
+                            foreach($estado_escuelas[$i] as &$year) {
+                                if (in_array(intval($year["_id"]), $aux_ciclos)) {
+                                    $year["is_ciclo"] = true;
+                                }
+                            }
                         }
                     }
                 //}

@@ -60,6 +60,7 @@ app.controller("programaCTL", ['$scope', '$http', '$compile', function ($scope, 
             {"lat" : 20.7098786, "lng" : -89.0943377 },//Yucatán
             {"lat" : 22.7708555, "lng" : -102.5832426 }// Zacatecas  
         ];
+        $scope.ciclos = {};
         var markers = states.map(function(state){
             var mark = static_coords[state.id];
             mark.icon ={
@@ -84,7 +85,12 @@ app.controller("programaCTL", ['$scope', '$http', '$compile', function ($scope, 
                         $scope[scopeName] = data._id;
                     }
                     $scope.stateByYears[scopeName][data._id] = data.count;
-                    return '<option value="'+ data._id +'" '+selected+'>'+ data._id +'</option>'
+                    var showText = data._id;
+                    if (data.is_ciclo && showText) {
+                        showText = "Ciclo escolar: " + showText + "-" + (showText + 1);
+                        $scope.ciclos['year_' + data._id] = showText;
+                    }
+                    return '<option value="'+ data._id +'" '+selected+'>'+ showText +'</option>'
                 })
                 .join('');
                 selectYear += '</select>';
