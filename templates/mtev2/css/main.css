@@ -569,6 +569,7 @@ ul.dropdown-menu li.active a{color: #fff}
 .infoBox a{padding:11px 13px;color:white!important;background-color:#0BA14A;font-size:13px!important;line-height:19px!important;display:block;}
 .infoBox p{margin: 0!important}
 .infoBox .name{background: #00A3F8;font-weight: 700;position: relative;padding: 8px 10px}
+.infoBox .name.winner{background: #0BA14A;}
 .infoBox .select-year{margin-left: 10px; background: white; border: none; color: #747474;}
 .infoBox .name.esc-name{padding: 8px 10px 8px 40px}
 .infoBox .rank-cont{background: #049CED}

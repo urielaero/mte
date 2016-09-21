@@ -29,7 +29,9 @@ class programas extends main{
 	private function programa_info(){
 		$this->programa = new programa($this->get('id'),$this->conn);
 		$this->programa->read("id,nombre,tema,descripcion,zonas,requisitos,direccion,telefono,mail,telefono_contacto,sitio_web,m_collection,tema_especifico");
-	    $this->programa->entidad_escuelas_count = $this->get_estado_escuelas_count($this->programa->m_collection);
+        $escuelas_count = $this->get_estado_escuelas_count($this->programa->m_collection);
+	    $this->programa->entidad_escuelas_count = $escuelas_count[0];
+        $this->programa->entidad_escuelas_count_link = $escuelas_count[1];
 	}
 
     public function estado_escuelas(){
@@ -80,6 +82,7 @@ class programas extends main{
      * */
     protected function get_estado_escuelas_count($m_collection = false){
         $estado_escuelas = array();
+        $estado_escuelas_count_custom_link = array();
         if (!$m_collection) return $estado_escuelas;
         try {
             $m = $this->mongo_connect();
@@ -101,6 +104,9 @@ class programas extends main{
 
                     $aux_ciclos = $c->distinct('anio', array("ciclo" => true, "programa" => $m_collection));
 
+
+                    $count_custom_link = array('customLinkText' => array('$exists' => true));
+
                     for($i=1;$i<=32;$i++) {
                         $aux = $i;
                         if ($i < 10) {
@@ -119,7 +125,9 @@ class programas extends main{
                                 $estado_escuelas[$i] = 0;
                             }
                         } else if ($max_anio) {
-                            $estado_escuelas[$i] = $c->count(array( "anio" => $max_anio , "cct" => array('$regex' => '^'.$aux.'.*'),"programa" => $m_collection ));
+                            $params_mongo = array( "anio" => $max_anio , "cct" => array('$regex' => '^'.$aux.'.*'),"programa" => $m_collection );
+                            $estado_escuelas[$i] = $c->count($params_mongo);
+                            $estado_escuelas_count_custom_link[$i] = $c->count(array_merge($params_mongo, $count_custom_link));
                         } else {
                             $estado_escuelas[$i] = $c->count(array( "cct" => array('$regex' => '^'.$aux.'.*'),"programa" => $m_collection ));
                         }
@@ -132,6 +140,7 @@ class programas extends main{
                             }
                         }
                     }
+
                 //}
                 $m->close();
             }
@@ -140,10 +149,9 @@ class programas extends main{
                 var_dump($ex);
                 throw $ex;
             }
-            return $estado_escuelas;
         }
 
-        return $estado_escuelas;
+        return array($estado_escuelas, $estado_escuelas_count_custom_link);
     }
 
     protected function get_estado_escuelascct($programa,$estado_id,$skip=0,$limit=20){

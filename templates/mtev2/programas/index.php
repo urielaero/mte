@@ -4,6 +4,9 @@
     foreach ($this->entidades as $key => $estado) {
         if(isset($this->programa->entidad_escuelas_count[$estado->id]) && $this->programa->entidad_escuelas_count[$estado->id] > 0){
         	$estado->count_participa = $this->programa->entidad_escuelas_count[$estado->id];
+            if (count($this->programa->entidad_escuelas_count_link)) {
+                $estado->count_per_link = $this->programa->entidad_escuelas_count_link[$estado->id];
+            }
         	array_push($estados_programa, $estado);
         }
     }

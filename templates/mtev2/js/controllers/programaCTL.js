@@ -69,6 +69,7 @@ app.controller("programaCTL", ['$scope', '$http', '$compile', function ($scope, 
             };
             var selectYear = '',
                 count_participa = state.count_participa;
+
             if (state.count_participa && state.count_participa.pop) {
                 $scope.stateByYears['multiple'] = true;
                 selectYear = '<select class="select-year" ng-change="changeYear(selectYear'+state.id+')" ng-model="selectYear'+state.id+'">'
@@ -96,11 +97,24 @@ app.controller("programaCTL", ['$scope', '$http', '$compile', function ($scope, 
                 selectYear += '</select>';
                 count_participa = '{{stateByYears["selectYear'+state.id+'"][selectYear'+state.id+']}}';
             }
+
+            console.log('asdas', state.count_per_link);
+
+
+            var winner = "" 
+
+            if (state.count_per_link) {
+                winner += "<a class='name winner'>"+ state.count_per_link +" escuelas ganadoras</a>";
+                mark.icon.iconUrl = "/templates/mtev2/img/winner.png";
+            }
+
             mark.message = "<div class='infoBox'>"+
                             "<a class='name' >"+
                             state.nombre+
                             selectYear+
+
                             "</a>"+
+                            winner +
                             "<div class='address-popup'><p >Participa en "+count_participa+" escuelas</p><a href='' ng-click='loadEscuelasPorEntidad("+state.id+", \""+ state.nombre +"\")' scroll-to='result-escuelas-programas' duration='1200' >Ver lista de escuelas</a></div>"+
                             ""+
                             "</div>";
