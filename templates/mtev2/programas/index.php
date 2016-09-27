@@ -1,6 +1,5 @@
 <div class="container programa" ng-controller="programaCTL">
     <?php
-    var_dump($this->programa->m_collection);
     $estados_programa = array();
     foreach ($this->entidades as $key => $estado) {
         if(isset($this->programa->entidad_escuelas_count[$estado->id]) && $this->programa->entidad_escuelas_count[$estado->id] > 0){
@@ -16,8 +15,8 @@
 	<script type='text/javascript'>
 	    window.entidadesParticipantes = <?= $array_estados_js?>;
 	    window.programaId = <?php echo $this->programa->id ?>;
-        window.blogTag = '<?=$this->programa->m_collection ?>';
-		window.blogAddress = '<?=$this->config->blog_address ?>';
+	    window.blogTag = '<?=$this->programa->m_collection ?>';
+	    window.blogAddress = '<?=$this->config->blog_address ?>';
 	</script>	
 	<div class="breadcrumb">
 		<a href="/" class="start"><i class="icon-mejora"></i></a>
