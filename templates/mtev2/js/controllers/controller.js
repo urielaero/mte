@@ -21,16 +21,23 @@ app.controller("sidebarCTL", ['$scope','$timeout','$mdSidenav',function ($scope,
 app.controller("blogCTL", ['$scope', '$http', '$timeout', '$rootScope', '$filter',function ($scope, $http, $timeout, $rootScope, $filter) {
     $scope.cdnUrl = 'http://3027fa229187276fb3fe-8b474283cd3017559b533eb77924d479.r81.cf2.rackcdn.com/';
     $scope.blogAddress = window.blogAddress;
+    var requestUrl = $scope.blogAddress;
+    if (window.blogTag) {
+        requestUrl += '/api/get_tag_posts/?tag_slug='+window.blogTag+'&count=4&callback=JSON_CALLBACK';
+    } else {
+        requestUrl += '/api/get_category_posts/?category_slug=portada&count=4&callback=JSON_CALLBACK';
+    }
     $scope.posts = [];
     $scope.loading = true;
     var imgReg = /src="((http:\/\/.+)jpg)"/;
     $scope.getPosts = function(){
         var page = $scope.postsPage;
         $scope.loading = true;
-        $http.jsonp(
-            $scope.blogAddress + '/api/get_category_posts/?category_slug=portada&count=4&callback=JSON_CALLBACK'
-        ).then(function(response){
-            response.data.posts.forEach(function(p){
+        $http.jsonp(requestUrl).then(function(response){
+            if (response && response.data && response.data.posts) {
+                $scope.showPosts = true;
+            }
+            (response.data.posts || []).forEach(function(p){
                 var img = '';
                 if(typeof p.thumbnail_images!='undefined'){
                     if(typeof p.thumbnail_images.large != 'undefined'){
@@ -69,11 +76,15 @@ app.controller("blogCTL", ['$scope', '$http', '$timeout', '$rootScope', '$filter
                     $scope.posts.push(p);
                     //TODO: Revisar una alternativa a apply
                     $scope.$apply();
-                    if($scope.posts.length % 2 == 0){
+                    if($scope.posts.length % 2 == 0 || $scope.posts.length == response.data.count){
                         $scope.loading = false;
                     }
                 });
             });
+
+            if (window.blogTag && !response.data.posts) {
+                $scope.loading = false;
+            }
         });
     }
 

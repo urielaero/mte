@@ -1,5 +1,6 @@
 <div class="container programa" ng-controller="programaCTL">
     <?php
+    var_dump($this->programa->m_collection);
     $estados_programa = array();
     foreach ($this->entidades as $key => $estado) {
         if(isset($this->programa->entidad_escuelas_count[$estado->id]) && $this->programa->entidad_escuelas_count[$estado->id] > 0){
@@ -15,6 +16,8 @@
 	<script type='text/javascript'>
 	    window.entidadesParticipantes = <?= $array_estados_js?>;
 	    window.programaId = <?php echo $this->programa->id ?>;
+        window.blogTag = '<?=$this->programa->m_collection ?>';
+		window.blogAddress = '<?=$this->config->blog_address ?>';
 	</script>	
 	<div class="breadcrumb">
 		<a href="/" class="start"><i class="icon-mejora"></i></a>
@@ -123,12 +126,35 @@
 							</div>
 						</div>
 					</div>
+				    <a id="result-escuelas-programas"></a>
 					<div class="loading-circle" data-ng-show="loading" layout='row' ng-show='true' flex flex-sm="100" layout-align='center center'>
 						<md-progress-circular md-mode="indeterminate"></md-progress-circular>
 					</div>
 					<a data-ng-show="escuelas.length>0 && !noMoreLoader" href="" data-ng-click="loadEscuelasPorEntidad(currentState.id,currentState.name)" class="button-bordered show-more-btn">Ver más escuelas</a>
 				</div>
-				<a id="result-escuelas-programas"></a>
+                <div>
+    			    <div ng-controller="blogCTL" class="space-between" id="blog-posts">
+                        <h3 ng-show="showPosts" class="title post-show"><strong>Información relacionada</strong></h3>
+    				    <div masonry='{gutter:5,isInitLayout: false}'>
+        					<div class="post masonry-brick" flex-sm="100" column-width="100" ng-repeat="post in posts">
+        						<div class="post-image">
+        							<a ng-href="{{post.url}}">
+        								<img  ng-src="{{post.image}}" alt="{{post.image.description}}">
+        							</a>
+        							<div class="clear"></div>
+        						</div>
+        						<div class="description">
+        							<h3><a ng-href="{{post.url}}">{{post.title}}</a></h3>
+        							<p>{{post.excerpt | htmlToPlaintext}}</p>
+        						</div>
+        					</div>
+        				</div>
+        				<div layout='row' ng-show='loading' flex flex-sm="100" layout-align='center center'>
+        					<md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        				</div>
+        			</div>
+                
+                </div>
 			</div>
 		</div>
 		<div flex="25" flex-sm="100" class="sidebar trivial222">
