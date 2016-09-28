@@ -103,7 +103,7 @@
 				<div id="escuelas-programas">
 					<div>					
 						<div id="titulo-escuelas-programas">
-							<h6 class="titulo-escuelas-programas"><strong>Escuelas en donde está este programa.</strong>
+							<h6 ng-show="escuelas.length" class="titulo-escuelas-programas"><strong>Escuelas en donde está este programa.</strong>
 								Ciclo escolar
 								<span ng-show="!ciclos[currentYear]"> 2013 | 2014</span>
 								<span ng-show="ciclos[currentYear]">{{ciclos[currentYear]}}</span>

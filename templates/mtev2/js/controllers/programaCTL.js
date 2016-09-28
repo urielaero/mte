@@ -98,7 +98,6 @@ app.controller("programaCTL", ['$scope', '$http', '$compile', function ($scope, 
                 count_participa = '{{stateByYears["selectYear'+state.id+'"][selectYear'+state.id+']}}';
             }
 
-            console.log('asdas', state.count_per_link);
 
 
             var winner = "" 

@@ -133,6 +133,9 @@ class programas extends main{
                         }
 
                         if (count($aux_ciclos)) {
+                            if (!is_array($estado_escuelas[$i])) {
+                               $estado_escuelas[$i] = array(array('_id' => $max_anio, 'count' => $estado_escuelas[$i]));
+                            }
                             foreach($estado_escuelas[$i] as &$year) {
                                 if (in_array(intval($year["_id"]), $aux_ciclos)) {
                                     $year["is_ciclo"] = true;
