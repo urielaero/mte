@@ -346,9 +346,8 @@ class main extends controler{
 	* \param $sort establecida "false"
 	*/
 	public function get_escuelas_new($params = false,$page = false,$sort = false){
-		
-		$fq = '(nivel:12 OR nivel:13 OR nivel:22 OR nivel:21)';
-		$q = isset($params->term) && $params->term ? "nombre:".str_replace(' ','~ ',$params->term).'~' : '*:*';
+		$fq = '(nivel:11 OR nivel:12 OR nivel:13 OR nivel:22 OR nivel:21 OR nivel:30 OR nivel:15 OR nivel:14) AND !(direccion:DOMICILIO CONOCIDO OR direccion:CONOCIDO)';
+		$q = isset($params->term) && $params->term ? "(nombre:".str_replace(' ','+ ',$params->term).'* OR nombre:'.str_replace(' ', '~ ', $params->term).'~)' : '*:*';
 		if($params){
 			foreach($params as $key => $param){
 				$fq .= $key != 'term' && $param ? " AND $key:$param" : '';
