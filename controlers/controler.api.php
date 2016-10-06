@@ -9,6 +9,8 @@ class api extends main{
 	}
 
 	public function localidades(){
+		header("Access-Control-Allow-Origin: *"); 
+		header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept"); 
 		$json = $this->load_localidades();
 		echo json_encode($json);
 	}
