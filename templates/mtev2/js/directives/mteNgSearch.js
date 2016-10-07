@@ -125,7 +125,6 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
             if($scope.urls)
                 $location.search($scope.params);
 
-		console.log($scope.params);
             if($scope.params && $scope.params.search){
                 if(reload){
                     var params = {};
@@ -145,7 +144,7 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
                 reload = true;
             }
 
-            console.log($scope.params); 
+                
             $http({method:'POST',url:'/api/escuelas',data:$scope.params}).then(function(response){
                 $scope.pagination = response.data.pagination;
                 if ($scope.params && $scope.params.type_test == 'enlace') {

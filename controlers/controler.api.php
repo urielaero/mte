@@ -31,9 +31,10 @@ class api extends main{
 
 
 
-		if($this->request('term') && $this->request('solr') && isset($this->config->solr_server)){
+		if(($this->request('term') || $this->request('oneCCT')) && $this->request('solr') && isset($this->config->solr_server)){
 			//var_dump("solr");
 			$params->term = $this->request('term');
+			$params->cct = $this->request('oneCCT');
 			$p = $this->request('p')?$this->request('p'):1;
 			$this->get_escuelas_new($params,$p);
 			$res = array('escuelas' => $this->escuelas);
