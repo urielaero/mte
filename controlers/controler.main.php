@@ -219,6 +219,11 @@ class main extends controler{
 		$q->search_clause .= ' TRUE ';
 		
 		$q->search_clause .= $this->request('term') ? " AND LOWER(escuelas.nombre) LIKE LOWER('".$this->request('term')."%') " : '';
+
+		if (isset($params->term_text) && $params->term_text) {
+			$q->search_clause .= " AND escuelas.nombre ILIKE '%{$params->term_text}%'";
+		}
+
 		if(isset($params->entidad) && $params->entidad){
 			$q->search_clause .= " AND escuelas.entidad = '{$params->entidad}' ";
 		}else{

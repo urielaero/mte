@@ -41,6 +41,10 @@ class api extends main{
 			return;
 		}
 
+		if ($this->request('term_like')) {
+			$params->term_text = $this->request('term_like');
+		}
+
 		$type_test = $this->request("type_test");
 		if (!$type_test || $type_test == "planea") {
 			$params->type_test = "planea";
