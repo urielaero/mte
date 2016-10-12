@@ -1263,7 +1263,7 @@ text-align: justify;}
 /*Banner programa educacion*/
 .school-banner-form{position: relative}
 .school-banner-form-md{display: none;}
-.school-banner-form .school-banner-content{position: absolute;right: 50px;top: 47px;}
+.school-banner-form .school-banner-content{position: absolute;right: 0px;top: 5px;}
 .school-banner{background: #276FB7;}
 .school-banner img{padding: 5px 5px; width: 100px}
 .school-banner-form-md p, .school-banner-content p{background: #F6921A;color: white;text-align: center;font-size: 14px; line-height: 20px; padding: 0px 0 2px 0; font-weight:700;} 

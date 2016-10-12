@@ -39,7 +39,7 @@ if($this->escuela->nivel->id == 11){
 					</div>
 					<a href="califica_tu_escuela/califica/<?=$this->escuela->cct?>" class="full-size-link"></a>
 				</div>
-				<div class="block">
+				<div class="block school-banner-form">
 					<ul>
 						<li>Clave: <?=$this->escuela->cct?></li>
 						<li>Nivel: <?=$this->capitalize($this->escuela->nivel->nombre)?></li>
@@ -53,6 +53,24 @@ if($this->escuela->nivel->id == 11){
 							<li>Sitio web: <?=$this->escuela->paginaweb?> </li>
 						<?php } ?>
 					</ul>
+
+
+
+
+					<?php 
+					$educaccion = isset($this->escuela->programas["educaccion"]);
+					if($educaccion){
+					?>
+						<div layout="column">
+							<div class="school-banner-content">
+								<a href="http://convocatoriaeducaccion.mejoratuescuela.org/" class="full-size-link"></a>
+								<div class="school-banner">
+									<img src="/templates/mtev2/img/programas/29.png" alt="">
+								</div>
+								<p>Escuela <br> participante</p>
+							</div>
+						</div>
+					<?php } ?>
 				</div>
 			</div>
 		</div>

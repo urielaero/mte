@@ -83,8 +83,9 @@ if(!empty($this->escuela->rank)){
       $this->include_template('escuelas_excelencia','global');
 
 $educaccion = isset($this->escuela->programas["educaccion"]);
-if($educaccion){
+//if($educaccion){
 ?>
+<!--
 	<div class="school-banner-form"  layout="column" hide-md hide-sm>
 		<div class="school-banner-content">
 			<a href="http://convocatoriaeducaccion.mejoratuescuela.org/" class="full-size-link"></a>
@@ -94,7 +95,8 @@ if($educaccion){
 			<p>Escuela <br> participante</p>
 		</div>
 	</div>
-<?php } ?>
+-->
+<?php //} ?>
 <div class="container profile profile-escuela container-ads" ng-controller="escuelaCTL">
 	<div class="breadcrumb perfect-breadcrumb">
 		<a href="/home" class="start"><i class="icon-mejora"></i></a>
