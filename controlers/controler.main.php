@@ -85,6 +85,8 @@ class main extends controler{
 				$escuelas[$key]->turno->conn = null;
 				$escuelas[$key]->turnos_eval = $escuela->turnos_eval;
 				$escuelas[$key]->poco_confiables = $escuela->poco_confiables;
+
+				$escuelas[$key]->domicilio = $escuela->domicilio;
 				if(isset($escuela->entidad_cct_count))
 					$escuelas[$key]->entidad_cct_count = $escuela->entidad_cct_count;
 				if(isset($escuela->nacional_cct_count))
