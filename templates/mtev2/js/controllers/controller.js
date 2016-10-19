@@ -27,14 +27,20 @@ app.controller("blogCTL", ['$scope', '$http', '$timeout', '$rootScope', '$filter
     } else {
         requestUrl += '/api/get_category_posts/?category_slug=portada&count=4&callback=JSON_CALLBACK';
     }
+
+    if (window.blogTag == "") {
+    	return ;
+    }
+
     $scope.posts = [];
     $scope.loading = true;
     var imgReg = /src="((http:\/\/.+)jpg)"/;
+
     $scope.getPosts = function(){
         var page = $scope.postsPage;
         $scope.loading = true;
         $http.jsonp(requestUrl).then(function(response){
-            if (response && response.data && response.data.posts) {
+            if (response && response.data && response.data.posts && response.data.posts.length) {
                 $scope.showPosts = true;
             }
             (response.data.posts || []).forEach(function(p){
