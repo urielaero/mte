@@ -85,6 +85,14 @@ app.controller("blogCTL", ['$scope', '$http', '$timeout', '$rootScope', '$filter
             if (window.blogTag && !response.data.posts) {
                 $scope.loading = false;
             }
+
+	    setTimeout(function() {
+	    	if ($scope.loading) {
+		    	$scope.loading = false;
+			$scope.$apply();
+		}
+
+	    }, 3000);
         });
     }
 
