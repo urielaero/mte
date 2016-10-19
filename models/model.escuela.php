@@ -440,8 +440,8 @@ class escuela extends memcached_table{
         }
     }
 
-    public function setEducAccion($client){
-    	$data = array('cct' => $this->cct, 'programa' => 'educaccion', 'anio'=> new MongoInt32(2015));
+    public function setEducAccion($client, $year){
+    	$data = array('cct' => $this->cct, 'programa' => 'educaccion', 'anio'=> new MongoInt32(intval($year)));
         $db = $client->selectDB("mte_programas");
         $coll = $db->selectCollection("normalizados");
         $result = $coll->findOne($data);

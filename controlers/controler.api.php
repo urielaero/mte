@@ -116,6 +116,8 @@ class api extends main{
 		//update mongoinfo 
 		$cct = $this->request('cct');
 		$email = $this->request('email');
+		$year = $this->request('year') ? $this->request('year') : 2015;
+		var_dump($year);
 		$this->escuela = new escuela($cct, $this->conn);
 		$this->escuela->key = 'cct';
 		$this->escuela->cct = $cct;
@@ -126,7 +128,7 @@ class api extends main{
 
 		$json = array('error' => 'notFound');
 		if($this->escuela->id != $this->escuela->cct){
-	            	if($this->escuela->setEducAccion($this->mongo_connect())){
+	            	if($this->escuela->setEducAccion($this->mongo_connect(), $year)){
 				$json = array('status'=>'ok', 'cct' => $cct);
 			}	
 		}
