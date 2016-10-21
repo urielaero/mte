@@ -132,7 +132,7 @@ class programas extends main{
                             $estado_escuelas[$i] = $c->count(array( "cct" => array('$regex' => '^'.$aux.'.*'),"programa" => $m_collection ));
                         }
 
-                        if (count($aux_ciclos)) {
+                        if (count($aux_ciclos) && $estado_escuelas[$i] > 0) {
                             if (!is_array($estado_escuelas[$i])) {
                                $estado_escuelas[$i] = array(array('_id' => $max_anio, 'count' => $estado_escuelas[$i]));
                             }
