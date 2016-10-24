@@ -711,7 +711,7 @@ class main extends controler{
     }
 
     public function send_email($to,$subject,$message,$from,$from_name,$attachment_path = false, $attachment_name = false, $logo_path = false, $logo_name = false, $isHtml = true){
-        require('library/sendgrid-php/sendgrid-php.php');
+        require_once('library/sendgrid-php/sendgrid-php.php');
         $sendgrid = new SendGrid($this->config->send_grid_key, array('raise_exceptions' => false));
         $email = new SendGrid\Email();
         $email
