@@ -117,7 +117,6 @@ class api extends main{
 		$cct = $this->request('cct');
 		$email = $this->request('email');
 		$year = $this->request('year') ? $this->request('year') : 2015;
-		var_dump($year);
 		$this->escuela = new escuela($cct, $this->conn);
 		$this->escuela->key = 'cct';
 		$this->escuela->cct = $cct;
