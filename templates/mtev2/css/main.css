@@ -1350,3 +1350,7 @@ text-align: justify;}
 }
 
 #programa-escuela .customMsg a{color: white;}
+
+.educa-conv{background-color: #F7931B; color: white; display: block; text-align: center; padding: 20px; margin-bottom: 6px;}
+.educa-conv p{font-size: 30px; font-weight: bold; line-height: normal;}
+.educa-conv span{font-size: 19px;line-height: normal;}
