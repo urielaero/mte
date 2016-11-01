@@ -152,7 +152,12 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
                 } else {
                     $scope.semaforos = $scope.semaforos_planea;
                 }
-                $scope.escuelas = response.data.escuelas;
+                $scope.escuelas = response.data.escuelas.map(function(sch){
+                    if (sch && sch.nombre) {
+                        sch.nombre = sch.nombre.replace(/[^\w!.&\-,ñ]+/g, ' '); 
+                    }
+                    return sch;
+                });
                 $scope.loading = false;
                 if(response.data.escuelas){
                     $scope.escuelasResponse = true;
