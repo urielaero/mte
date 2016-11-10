@@ -371,10 +371,10 @@ function rankea_planea_escuelas($config, $year) {
         "cct" => "cct",
         "entidad" => "entidad",
         "clave_turno" => "clave_turno",
-        "cct_turno" => NULL,
+        //"cct_turno" => NULL,
         "clave_nivel" => "clave_nivel",
-        "nivel" => NULL,
-        "entidad_nivel" => NULL,
+        //"nivel" => NULL,
+        //"entidad_nivel" => NULL,
         "evaluados" => "evaluados",
         "niv1_esp" => "porcentaje_nivel1_espaniol",
         "niv2_esp" => "porcentaje_nivel2_espaniol",
@@ -411,7 +411,8 @@ function rankea_planea_escuelas($config, $year) {
                         "default" => array("into" => "anio", "values" => $year)
                     );
 
-    $update->sql_update_or_insert("planea/rankeo_planea_escuelas_un.csv", "planea_escuelas ", $escuelas_values, "cct", array(), $alias_cases, true);
+    //$update->sql_update_or_insert("planea/rankeo_planea_escuelas_un.csv", "planea_escuelas ", $escuelas_values, "cct", array(), $alias_cases, true);
+    $update->sql_update_or_insert("planea/update_planea_9_nov.csv", "planea_escuelas ", $escuelas_values, "cct", array(), $alias_cases, true);
 }
 rankea_planea_escuelas($config, 2015);
 

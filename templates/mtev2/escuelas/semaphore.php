@@ -3,7 +3,7 @@
 		case "Prueba ENLACE no disponible para este nivel escolar";
 		case "No toma la prueba ENLACE";
 		case "Esta escuela no toma la prueba ENLACE para todos los años";
-		case "No tomó la prueba":
+		case "No tomó la prueba PLANEA":
 		?>
 				<div id="cont-samaforo-icono">
 					<div class="cont-samaforo-icono">
@@ -15,8 +15,11 @@
 		case "Poco confiable"; 
 		//planea
 		case "No confiable";
+		case "Resultados no confiables";
 		case "No representativo";
+		case "Resultados no representativos";
 		case "Evaluados es menor al 80%":
+		case "El porcentaje de evaluados es menor al 80%";
 		?>
 				<div id="cont-samaforo-icono">
 					<div class="cont-samaforo-icono">
