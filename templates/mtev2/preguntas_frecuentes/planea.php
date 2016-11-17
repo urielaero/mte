@@ -78,7 +78,7 @@
 			Para obtener una calificación global por escuela, las calificaciones  de matemáticas y de español se promediaron ponderando con peso de 80% y 20% respectivamente. Esta calificación se expresó en una escala de 0 a 100 para facilitar su interpretación, donde 100 corresponde a la calificación de la escuela más alta y 0 a la más baja. 
 			<br>
 
-			Si quieres conocer a detalle la metodología detrás de nuestro sitio te invitamos a leer nuestra ficha metodológica <a href="http://comparatuescuela/metodologia">aquí</a>.
+			Si quieres conocer a detalle la metodología detrás de nuestro sitio te invitamos a leer nuestra ficha metodológica <a href="/metodologia">aquí</a>.
 			
 			</p>
 		</div>
@@ -89,7 +89,7 @@
 		</p>
 		<div class="question-content">
 			<p>
-			Para generar las posiciones estatales hacemos una lista de todas las escuelas del estado, de cada nivel educativo, ordenada por sus calificaciones globales. La calificación global de una escuela está basada en un promedio ponderado de sus resultados de matemáticas y español en la prueba PLANEA. Si quieres conocer a detalle la metodología detrás de nuestro sitio te invitamos a leer nuestra ficha metodológica <a href="http://comparatuescuela/metodologia">aquí</a>.
+			Para generar las posiciones estatales hacemos una lista de todas las escuelas del estado, de cada nivel educativo, ordenada por sus calificaciones globales. La calificación global de una escuela está basada en un promedio ponderado de sus resultados de matemáticas y español en la prueba PLANEA. Si quieres conocer a detalle la metodología detrás de nuestro sitio te invitamos a leer nuestra ficha metodológica <a href="/metodologia">aquí</a>.
 			
 			</p>
 		</div>
