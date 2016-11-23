@@ -517,20 +517,18 @@ class escuela extends memcached_table{
     }
 
     private function get_planea_semaforo($escuela) {
-        $map = array(3 => 1, 2 => 2, 1 => 3, 4 => 5);
-        $semaforo = 4;
-
         if($this->nivel->nombre=="PREESCOLAR"){
-            return 7;
+            return 0;
         }
         if(preg_match('/^..BB/', $this->cct)){
+            return 0;
+        }
+
+        if (!$escuela || !isset($escuela->clave_semaforo)) {
             return 8;
         }
 
-        if(array_key_exists($escuela->clave_semaforo, $map)) {
-            return $map[$escuela->clave_semaforo];
-        }
-        return $semaforo;
+        return $escuela->clave_semaforo;
     }
 
     public function get_planea_info() {

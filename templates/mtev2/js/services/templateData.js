@@ -114,7 +114,57 @@ app.service('templateData',[ function() {
             checked: false
         }
     ];
+
     this.semaforos_planea = [
+        {
+            "label" : "Prueba PLANEA no disponible para este nivel escolar",
+            "icon" : "icon-notomaenlace",
+            "class" : "rank8"
+        },
+        {
+            "label" : "Excelente",
+            "icon" : "icon-check-01",
+            "class" : "rank4"
+        },
+        {
+            "label" : "Bien",
+            "icon" : "icon-check-01",
+            "class" : "rank3"
+        },
+        {
+            "label" : "De panzazo",
+            "icon" : "icon-tache-01",
+            "class" : "rank2"
+        },
+        {
+            "label" : "Reprobado",
+            "icon" : "icon-tache-01",
+            "class" : "rank1"
+        },
+        {
+            "label" : "Resultados no confiables",
+            "icon" : "icon-pococonfiable",
+            "class" : "rank6"
+        },
+        {
+            "label" : "Resultados no representativos",
+            "icon" : "icon-pococonfiable",
+            "class" : "rank6"
+        },
+        {
+            "label" : "El porcentaje de evaluados es menor al 80%",
+            "icon" : "icon-pococonfiable",
+            "class" : "rank6"
+        },
+        {
+            "label" : "No tomó la prueba PLANEA",
+            "icon" : "icon-notomaenlace",
+            "class" : "rank8"
+        }
+    ];
+
+
+    this.semaforos_planea_back = [
         {
             "label" : "Reprobado",
             "icon" : "icon-tache-01",
