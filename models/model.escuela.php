@@ -510,8 +510,8 @@ class escuela extends memcached_table{
         $semaforo->read("nombre");
         if(!isset($semaforo->nombre) || $semaforo->nombre == null) {
             $semaforo = new StdClass;
-            $semaforo->nombre = "Resultados no representativos";
-            $semaforo->clave = 6;
+            $semaforo->nombre = "No tomó la prueba PLANEA";
+            $semaforo->clave = 8;
         }
         $this->planea->semaforo = $semaforo;
     }
