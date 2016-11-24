@@ -3,7 +3,7 @@
 </script>
 		<div flex="30" flex-sm="100" id="sidebar">
 
-			<a href="http://www.mejoratuescuela.com/ventanilla-escolar/#/" class="ventanilla">
+			<a href="http://www.mejoratuescuela.org/ventanilla-escolar/#/" class="ventanilla">
 				<p>Ventanilla <span class="blue">Escolar</span></p>
 				<p class="sub">
 					<span class="de">de</span>
