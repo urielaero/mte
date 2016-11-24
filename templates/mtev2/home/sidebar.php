@@ -10,7 +10,7 @@
 					<img src="/templates/mtev2/img/ventanilla.png" alt="">		
 				</p>
 			</a>
-			<a href="http://convocatoriaeducaccion.mejoratuescuela.org" class="educa-conv">
+			<a href="http://educaccion.mejoratuescuela.org/#/" class="educa-conv">
 				<img src="/templates/mtev2/img/educa-logo.png" alt="">
 				<p>Convocatoria</p>
 				<span>2016 - 2017</span>
