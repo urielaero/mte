@@ -332,5 +332,26 @@ class api extends main{
 		$this->escuela->read("nombre");
 		return $this->escuela->nombre;
 	}
+
+
+	public function get_map_info() {
+        $prog = new programas($this->config);
+        $this->load_entidades();
+        $prog->programa_info("45");
+
+        $estados_programa = array();
+        foreach ($this->entidades as $key => $estado) {
+            if(isset($prog->programa->entidad_escuelas_count[$estado->id]) && $prog->programa->entidad_escuelas_count[$estado->id] > 0){
+                $estado->count_participa = $prog->programa->entidad_escuelas_count[$estado->id];
+                if (count($prog->programa->entidad_escuelas_count_link)) {
+                    $estado->count_per_link = $prog->programa->entidad_escuelas_count_link[$estado->id];
+                }
+                array_push($estados_programa, $estado);
+            }
+        }
+
+        $this->sendPublicHeadersAndResponse($estados_programa);
+	
+	}
 }
 ?>

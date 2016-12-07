@@ -26,8 +26,9 @@ class programas extends main{
 		$this->include_theme('index','index');
 	}
 
-	private function programa_info(){
-		$this->programa = new programa($this->get('id'),$this->conn);
+	public function programa_info($id = false){
+		$id = $id ? $id : $this->get('id');
+		$this->programa = new programa($id, $this->conn);
 		$this->programa->read("id,nombre,tema,descripcion,zonas,requisitos,direccion,telefono,mail,telefono_contacto,sitio_web,m_collection,tema_especifico");
         $escuelas_count = $this->get_estado_escuelas_count($this->programa->m_collection);
 	    $this->programa->entidad_escuelas_count = $escuelas_count[0];
