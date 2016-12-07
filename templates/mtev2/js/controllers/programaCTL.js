@@ -1,4 +1,4 @@
-app.controller("programaCTL", ['$scope', '$http', '$compile', function ($scope, $http, $compile) {
+app.controller("programaCTL", ['$scope', '$http', '$compile', '$location', '$anchorScroll', function ($scope, $http, $compile, $location, $anchorScroll) {
     $scope.states = window.entidadesParticipantes;
     $scope.programaId = window.programaId;
     $scope.loading = false;
@@ -22,7 +22,8 @@ app.controller("programaCTL", ['$scope', '$http', '$compile', function ($scope, 
         }
     };     
 
-
+    
+         
     $scope.stateByYears = {};
     $scope.loadMap = function(states){
         var static_coords = [
@@ -141,6 +142,9 @@ app.controller("programaCTL", ['$scope', '$http', '$compile', function ($scope, 
                 return e;
             })
         });
+
+
+
     };
 
     var toResults = false;
@@ -196,5 +200,13 @@ app.controller("programaCTL", ['$scope', '$http', '$compile', function ($scope, 
         string = string.toLowerCase();
         return string.charAt(0).toUpperCase() + string.slice(1);
     }  
+
+    console.log('search', $location.search());
+    var search = $location.search();
+    if (search.state) {
+        $scope.loadEscuelasPorEntidad(search.state, search.name);
+        $location.hash('list');
+        $anchorScroll();
+    }
 
 }]);

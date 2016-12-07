@@ -101,6 +101,7 @@
 					<leaflet id="map" center="center" markers="markers" layers="layers" ng-init='loadMap(states)'></leaflet>										
 				</div>
 				<div id="escuelas-programas">
+				<a id="list"></a>
 					<div>					
 						<div id="titulo-escuelas-programas">
 							<h6 ng-show="escuelas.length" class="titulo-escuelas-programas"><strong>Escuelas en donde está este programa.</strong>	
