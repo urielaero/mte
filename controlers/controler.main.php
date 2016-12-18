@@ -1081,5 +1081,62 @@ class main extends controler{
         }
 	}
 
+	
+	public function format_email_template($template, $keys=array()) {
+		foreach($keys as $key => $val) {
+			$k = "#{{$key}}";
+			$template = str_replace($k, $val, $template);
+		}
+
+		return $template;
+	
+	}
+
+	public function check_for_notifies($for_date=null){
+		$mg_connect = $this->mongo_connect();
+		$tuberia = new tuberia_denuncia($mg_connect);
+        $ventanilla = new ventanilla_respuesta(null, $this->conn);
+        $current_date = $for_date ? $for_date : date_create();
+        $denunces = $ventanilla->findForNotify($current_date);
+        $sends = array();
+        foreach($denunces as $denunce) {
+            $complete = $tuberia->getNotifyData($denunce);
+            $days_rule = $tuberia->findDaysForNotify($complete);
+            if ($tuberia->notificationAvailable($complete["date"], $days_rule, $current_date)) {
+                $sends[] = $complete;
+            }
+        }
+
+        return $sends;
+	}
+
+    public function send_notifies($denunces, $real_send = true) {
+        foreach($denunces as $complete) {
+            $url = $this->config->ventanilla_front_url.$complete["token"];                            
+            $keys = array(
+                "name" => $complete["nombre"],
+                "type" => $complete["label"],
+                "link" => $url 
+            );                                                                                    
+            $template = $this->format_email_template($this->config->email_tuberia, $keys);
+            $send = true;
+            if ($real_send) {
+                $send = $this->send_email(
+                    $complete["email"],
+                    'Continúa con tu reporte de Ventanilla Escolar',
+                    $template,
+                    'contacto@mejoratuescuela.org',
+                    'www.mejoratuescuela.org'
+                );
+            }
+
+            if ($send) {
+                $vent = new ventanilla_respuesta($complete["respuesta_id"], $this->conn);
+				$vent->update('notificado', array('TRUE'));
+            }
+        }
+    
+    }
+
 }
 ?>

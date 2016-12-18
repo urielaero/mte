@@ -295,6 +295,27 @@ class ventanilla_respuesta extends table {
     function info() {
         $this->table_name = 'ventanilla_respuestas';
     }
+
+    public function findForNotify($date) {
+    	$sql = $this->formatQueryForLatest($date);
+        $res = $this->runSQL($sql);
+        $info = array();
+        if ($res) {
+            while ($row = pg_fetch_row($res)) {
+                $r = array("id"=>$row[0], "denuncia" => $row[1], "numero" => $row[2], "date" => $row[3]);
+                $info[] = $r;
+            }
+        }
+        return $info; 
+    }
+
+    public function formatQueryForLatest($date){
+        $day = date_format($date, "Y-m-d");
+        $sql_for_notify = "select DISTINCT ON (\"denuncia\") id from ventanilla_respuestas WHERE timestamp <= '$day 00:00:00'  ORDER BY \"denuncia\", \"timestamp\" DESC NULLS LAST";
+        $sql = "SELECT id,denuncia,numero,timestamp from ventanilla_respuestas where id IN ($sql_for_notify) AND notificado<>TRUE;";
+
+        return $sql;
+    }
 } 
 
 class ventanilla_calificacion extends table {

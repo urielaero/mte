@@ -103,6 +103,16 @@ Las escuelas ganadoras recibirán apoyos complementarios de Fundación Televisa 
 Si tienes preguntas favor de responder a este correo (mamasypapaseneducaccion@fundaciontelevisa.org) O llamar al: (55) 5261-3277 con Yolanda Gudiño.
 </p>
 EOT;
+		$this->email_tuberia = <<<EOT
+<h1>Hola #{name}</h1>
+<p>Ha pasado mucho tiempo desde la última vez que nos contaste cómo va tu reporte de #{type}. ¡Queremos saber qué ha pasado desde entonces! 
+</p>
+<p>Haz click en esta liga y continúa con tu reporte: <a href="#{link}">#{link}</a></p>
+<p>Saludos cordiales,</p>
+<p>Equipo de Ventanilla Escolar</p>
+EOT;
+        
+        $this->ventanilla_front_url = "http://www.mejoratuescuela.com/ventanilla-escolar/#/caso/";
 
 		$this->blackListInfoCct = array("20PJN0160M", "05EJN0168G");
 

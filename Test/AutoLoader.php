@@ -14,7 +14,7 @@ class AutoLoader {
             if ($file->isDir() && !$file->isLink() && !$file->isDot()) {
                 // recurse into directories other than a few special ones
                 self::registerDirectory($file->getPathname());
-            } elseif (substr($file->getFilename(), -4) === '.php') {
+            } else if (substr($file->getFilename(), -4) === '.php') {
                 // save the class name / path of a .php file found
                 $className = substr($file->getFilename(), 0, -4);
 		$className = str_replace("controler.","",$className);

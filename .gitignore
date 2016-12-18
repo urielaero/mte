@@ -9,4 +9,5 @@ htaccess
 .htaccess
 signs/*
 .idea/*
+exports.sh
 templates/mtev2/js/bower_components/*

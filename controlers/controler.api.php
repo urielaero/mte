@@ -80,7 +80,10 @@ class api extends main{
 		echo json_encode($this->escuelas_digest);
 	}
 	public function serializeAngular(){
-		$headers = getallheaders();
+		$headers = array();
+		if (function_exists('getallheaders')) {
+			$headers = getallheaders();
+		}
 		if(isset($headers['Content-Type'])){
 			$ctype = explode(';',$headers['Content-Type']);
 			if($ctype[0] == 'application/json'){
@@ -264,7 +267,7 @@ class api extends main{
 
 	private function send_denuncias($email, $denuncias){
 		$html = "<p>Hola <br> Haz click en el siguiente enlace para continuar con tu reporte:</p>";
-		$urlBase = "http://www.mejoratuescuela.com/ventanilla-escolar/#/caso/";
+		$urlBase = $this->config->ventanilla_front_url;
 		foreach($denuncias as $i => $den){
 			$index = $i + 1;
 			$type = $this->capitalize($den["label"]);
@@ -335,23 +338,24 @@ class api extends main{
 
 
 	public function get_map_info() {
-        $prog = new programas($this->config);
-        $this->load_entidades();
-        $prog->programa_info("45");
+		$prog = new programas($this->config);
+		$this->load_entidades();
+		$prog->programa_info("45");
 
-        $estados_programa = array();
-        foreach ($this->entidades as $key => $estado) {
-            if(isset($prog->programa->entidad_escuelas_count[$estado->id]) && $prog->programa->entidad_escuelas_count[$estado->id] > 0){
-                $estado->count_participa = $prog->programa->entidad_escuelas_count[$estado->id];
-                if (count($prog->programa->entidad_escuelas_count_link)) {
-                    $estado->count_per_link = $prog->programa->entidad_escuelas_count_link[$estado->id];
-                }
-                array_push($estados_programa, $estado);
-            }
-        }
+		$estados_programa = array();
+		foreach ($this->entidades as $key => $estado) {
+			if(isset($prog->programa->entidad_escuelas_count[$estado->id]) && $prog->programa->entidad_escuelas_count[$estado->id] > 0){
+				$estado->count_participa = $prog->programa->entidad_escuelas_count[$estado->id];
+				if (count($prog->programa->entidad_escuelas_count_link)) {
+					$estado->count_per_link = $prog->programa->entidad_escuelas_count_link[$estado->id];
+				}
+				array_push($estados_programa, $estado);
+			}
+		}
 
-        $this->sendPublicHeadersAndResponse($estados_programa);
-	
+		$this->sendPublicHeadersAndResponse($estados_programa);
 	}
+
+
 }
 ?>

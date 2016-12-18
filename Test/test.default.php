@@ -23,6 +23,7 @@ class defaultTest extends PHPUnit_Framework_TestCase{
 		AutoLoader::registerDirectory($this->config->mxnphp_dir."/classes/components");
 		AutoLoader::registerDirectory($this->pathProject."library");
 		AutoLoader::registerClass('turno',$this->pathProject."models/model.general.php");
+		AutoLoader::registerClass('entidad',$this->pathProject."models/model.general.php");
 
 	}
 }
