@@ -1092,9 +1092,9 @@ class main extends controler{
 	
 	}
 
-	public function check_for_notifies($for_date=null){
-		$mg_connect = $this->mongo_connect();
-		$tuberia = new tuberia_denuncia($mg_connect);
+    public function check_for_notifies($for_date=null){
+        $mg_connect = $this->mongo_connect();
+        $tuberia = new tuberia_denuncia($mg_connect);
         $ventanilla = new ventanilla_respuesta(null, $this->conn);
         $current_date = $for_date ? $for_date : date_create();
         $denunces = $ventanilla->findForNotify($current_date);
