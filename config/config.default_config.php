@@ -110,6 +110,9 @@ EOT;
 <p>Haz click en esta liga y continúa con tu reporte: <a href="#{link}">#{link}</a></p>
 <p>Saludos cordiales,</p>
 <p>Equipo de Ventanilla Escolar</p>
+<p>
+    <a href="http://www.mejoratuescuela.com/ventanilla-escolar/#/"><img src="http://www.mejoratuescuela.com/templates/mtev2/img/ventanilla2.png" alt=""></a>
+</p>
 EOT;
         
         $this->ventanilla_front_url = "http://www.mejoratuescuela.com/ventanilla-escolar/#/caso/";

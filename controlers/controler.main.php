@@ -1114,7 +1114,7 @@ class main extends controler{
         foreach($denunces as $complete) {
             $url = $this->config->ventanilla_front_url.$complete["token"];                            
             $keys = array(
-                "name" => $complete["nombre"],
+                "name" => $this->capitalize($complete["nombre"]),
                 "type" => $complete["label"],
                 "link" => $url 
             );                                                                                    
