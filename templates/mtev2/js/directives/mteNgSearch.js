@@ -30,12 +30,14 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
             //Pako: setear aqui la ruta basada en los parametros de busqueda ($scope.params)
             if($scope.urls){
                 var search = $location.search();
+		search.p = parseInt(search.p) || 1;
                 termSearch = search.term;
                 if(search.localidad) $scope.localidad = {id:search.localidad};
                 if(search.entidad) $scope.entidad = getOneFilter(entidades,search.entidad); 
                 if(search.municipio) $scope.municipio = getOneFilter(municipios,search.municipio);
                 if(search.sort) $scope.sort = search.sort;
-                $scope.pagination.current_page = search.p || 1;
+		console.log($scope.pagination, search);
+                $scope.pagination.current_page = search.p; //|| 1;
                 checkIfSelect($scope.niveles,search.niveles);
                 checkIfSelect($scope.turnos,search.turno);
                 checkIfSelect($scope.controles,search.control);
