@@ -161,7 +161,7 @@
 					   &lt; Primeras 
 				</a>
 				<a  href="" 
-					ng-show='pagination.current_page > 3' 
+					ng-show='pagination.current_page > 1' 
 					ng-click='pagination.current_page = pagination.current_page - 1; getEscuelas()' >
 						&lt;
 				</a>				
@@ -191,7 +191,7 @@
 				</a>
 
 				<a  href="" 
-					ng-show='pagination.current_page + 3 <=  pagination.document_pages'
+					ng-show='pagination.current_page + 1 <=  pagination.document_pages'
 					ng-click='pagination.current_page = pagination.current_page + 1; getEscuelas()' >
 						&gt;
 				</a>
