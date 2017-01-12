@@ -129,6 +129,14 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
             if (planea) {
                 current.semaforo = current.planea_semaforo;
                 current.rank = current.planea_rank_entidad;
+                console.log('aqui', current.semaforo);
+                if (current.semaforo == 1) {
+                    current.semaforo = 3;
+                } else if (current.semaforo == 4) {
+                    current.semaforo = 0;
+                } else if (current.semaforo == 3) {
+                    current.semaforo = 1;
+                }
             }
             current.message = "<div class='infoBox'>"+
                             "<a class='name esc-name' href='/escuelas/index/"+current.cct+"' >"+
