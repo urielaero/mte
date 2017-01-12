@@ -162,7 +162,7 @@
 				</a>
 				<a  href="" 
 					ng-show='pagination.current_page > 3' 
-					ng-click='pagination.current_page = pagination.current_page - 3; getEscuelas()' >
+					ng-click='pagination.current_page = pagination.current_page - 1; getEscuelas()' >
 						&lt;
 				</a>				
 				<a  href="" 
@@ -192,7 +192,7 @@
 
 				<a  href="" 
 					ng-show='pagination.current_page + 3 <=  pagination.document_pages'
-					ng-click='pagination.current_page = pagination.current_page + 3; getEscuelas()' >
+					ng-click='pagination.current_page = pagination.current_page + 1; getEscuelas()' >
 						&gt;
 				</a>
 				<a  href="" 

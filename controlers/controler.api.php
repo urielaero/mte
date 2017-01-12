@@ -53,17 +53,22 @@ class api extends main{
 			$params->type_test = "enlace";
 		}
 
-		if($this->request('sort') == 'Semáforo educativo') {
+		$sort = $this->request('sort');
+
+		if($sort == 'Semáforo educativo') {
 			if ($params->type_test == "enlace")
 				$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,(select max(id)+1 from escuelas)), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
 			else {
 				$params->order_by = 'planea_escuelas.clave_semaforo ASC';
 			}
 		}
-		else if($this->request('sort') == 'Promedio general' && $params->type_test == "enlace")
+		else if($sort == 'Promedio general' && $params->type_test == "enlace"){
 			$params->order_by = 'escuelas_para_rankeo.promedio_general DESC';
-		else 
+		}else if($sort == 'Nombre de la escuela') {
+			$params->order_by = "escuelas.nombre ASC";
+		}else{ 
 			$params->order_by = 'planea_escuelas.score_global DESC';
+		}
 
 		if($this->request('ccts')) $params->ccts = explode(',',$this->request('ccts')); 
 		if($this->request('pagination')) 
