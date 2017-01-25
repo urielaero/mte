@@ -103,7 +103,7 @@
 							<th data-hide="phone">Nivel escolar o tipo de establecimiento</th>
 							<th data-hide="phone">Turno</th>
 							<th >Privada / Pública</th>
-							<th style="max-width: 130px" class="footable-last-column">Semáforo educativo</th>
+							<th style="max-width: 130px" class="footable-last-column">Semáforo de Resultados Educativos</th>
 						</tr>
 					</thead>
 					<tbody>

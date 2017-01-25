@@ -55,11 +55,13 @@ class api extends main{
 
 		$sort = $this->request('sort');
 
-		if($sort == 'Semáforo educativo') {
+		if($sort == 'Semáforo de Resultados Educativos') {
 			if ($params->type_test == "enlace")
 				$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,(select max(id)+1 from escuelas)), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
 			else {
-				$params->order_by = 'planea_escuelas.clave_semaforo ASC';
+				//$params->order_by = 'planea_escuelas.clave_semaforo ASC';
+				$params->order_by = ' COALESCE(planea_escuelas.rank_entidad,(select max(id)+1 from escuelas)), planea_escuelas.rank_entidad ASC, planea_escuelas.score_global DESC';
+
 			}
 		}
 		else if($sort == 'Promedio general' && $params->type_test == "enlace"){

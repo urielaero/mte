@@ -60,7 +60,7 @@
 	</li>
 	<li>
 		<p class="question" ng-click="toggleQuestion($event)">
-			<span class="number">5.</span> 5. ¿Cómo se calcula la ubicación de una escuela en el semáforo educativo?
+			<span class="number">5.</span> 5. ¿Cómo se calcula la ubicación de una escuela en el semáforo de resultados educativos?
 		</p>
 		<div class="question-content">
 			<p>
@@ -96,7 +96,7 @@
 	</li>
 	<li>
 		<p class="question" ng-click="toggleQuestion($event)">
-			<span class="number">7.</span> ¿Por qué mi escuela tiene una mala calificación en el semáforo educativo si mi hijo está obteniendo buenas calificaciones en la escuela?
+			<span class="number">7.</span> ¿Por qué mi escuela tiene una mala calificación en el semáforo de resultados educativos si mi hijo está obteniendo buenas calificaciones en la escuela?
 		</p>
 		<div class="question-content">
 			<p>
@@ -122,7 +122,7 @@
 	</li>
 	<li>
 		<p class="question" ng-click="toggleQuestion($event)">
-			<span class="number">8.</span> ¿Qué quiere decir el triángulo negro junto al nombre de mi escuela (o en el lugar del semáforo educativo)?
+			<span class="number">8.</span> ¿Qué quiere decir el triángulo negro junto al nombre de mi escuela (o en el lugar del semáforo de resultados educativo)?
 		</p>
 		<div class="question-content">
 			<p>
@@ -138,7 +138,7 @@
 	</li>
 	<li>
 		<p class="question" ng-click="toggleQuestion($event)">
-			<span class="number">9.</span>¿Qué quiere decir el triángulo gris junto al nombre de mi escuela (o en el lugar del semáforo educativo)? 
+			<span class="number">9.</span>¿Qué quiere decir el triángulo gris junto al nombre de mi escuela (o en el lugar del semáforo de resultados educativo)? 
 		</p>
 		<div class="question-content">
 			<p>El triángulo gris indica que, aunque la escuela tomó la prueba PLANEA, la muestra de alumnos que la respondieron no es representativa de todo el plantel, por lo que sus resultados no necesariamente reflejan la calidad educativa de la escuela en su conjunto. </p>
@@ -146,7 +146,7 @@
 	</li>
 	<li>
 		<p class="question" ng-click="toggleQuestion($event)">
-			<span class="number">10.</span>¿Qué quiere decir el triángulo rojo junto al nombre de mi escuela (o en el lugar del semáforo educativo)? 
+			<span class="number">10.</span>¿Qué quiere decir el triángulo rojo junto al nombre de mi escuela (o en el lugar del semáforo de resultados educativo)? 
 		</p>
 		<div class="question-content">
 			<p>PLANEA utiliza técnicas avanzadas para garantizar el control de calidad de los resultados individuales y por grupo. El INEE identifica como  resultados “poco confiables” cualquier tendencia que indique la existencia de copia, dictado de respuestas y otras prácticas fraudulentas. El símbolo de precaución junto al nombre de una escuela indica que la SEP considera que se encontró un número “excesivo” de respuestas similares entre estudiantes que tomaron la prueba en la misma aula.

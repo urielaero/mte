@@ -8,7 +8,7 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
         turno : $scope.escuela.turno.id,
         localidad : $scope.escuela.localidad.id,
         limit : 6,
-        sort : 'Semáforo educativo',
+        sort : 'Semáforo de Resultados Educativo',
 
     }
     var currentSchool = { 

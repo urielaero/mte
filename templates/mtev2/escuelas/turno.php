@@ -218,7 +218,7 @@ if($this->escuela->nivel->id == 11){
 			<md-button flex ng-click="showEnlace = false; showPlanea = true;" ng-class="showPlanea?'to-planea show-type-data':'to-planea'">PLANEA</md-button>	
 			<md-button flex ng-click="showPlanea = false; showEnlace = true;" ng-class="showEnlace?'to-enlace show-type-data':'to-enlace'">ENLACE</md-button>	
 		</div>
-		<h4>Semáforo educativo</h4>
+		<h4>Semáforo de Resultados Educativos</h4>
 		<div ng-show="showPlanea">
 			<?php $this->escuela_per_turno->current_semaforo = $this->escuela_per_turno->planea_semaforo;
 			$this->include_template('semaphore','escuelas'); ?>

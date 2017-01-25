@@ -59,7 +59,7 @@
 								<th data-hide="phone">Turno matutino/vespertino</th>
 								<th class="privadapublica">Privada pública</th>
 								<th data-hide="phone">Posición estatal</th>
-								<th class="footable-last-column">Semáforo educativo</th>
+								<th class="footable-last-column">Semáforo de Resultados Educativos</th>
 							</tr>
 						</thead>
 						<tbody>

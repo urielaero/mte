@@ -238,7 +238,7 @@ app.controller("calificaIndexCTL",['$scope','userInfo','$location',function($sco
     var visited_cct = userInfo.getCCTs('visited');
     var byCCT = {
         ccts:visited_cct.toString(),
-        sort : 'Semáforo educativo'
+        sort : 'Semáforo de Resultados Educativos'
     };
 
     if(visited_cct.length)

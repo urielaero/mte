@@ -78,7 +78,7 @@
 			</li>
 			<li>
 				2. ¿Cómo se incorporan los indicadores de resultados no confiables?
-				<p>En las bases de datos de educación básica, la SEP incluye un indicador que identifica pruebas de alumnos en donde hay evidencia de prácticas de copia. Estas pruebas las identifica como “no confiables”. A las escuelas en las que más del 10% de los alumnos tienen resultados “no confiables”, MejoraTuEscuela.org les asigna un ícono de “no confiable” en lugar de su calificación correspondiente en el semáforo educativo. Nuestro mensaje en este sentido es que una escuela en donde hay altos porcentajes de copia merece una clasificación mucho peor que una escuela honesta con desempeños malos.</p>
+				<p>En las bases de datos de educación básica, la SEP incluye un indicador que identifica pruebas de alumnos en donde hay evidencia de prácticas de copia. Estas pruebas las identifica como “no confiables”. A las escuelas en las que más del 10% de los alumnos tienen resultados “no confiables”, MejoraTuEscuela.org les asigna un ícono de “no confiable” en lugar de su calificación correspondiente en el semáforo de resultados educativos. Nuestro mensaje en este sentido es que una escuela en donde hay altos porcentajes de copia merece una clasificación mucho peor que una escuela honesta con desempeños malos.</p>
 			</li>
 		</ul>
 	</div>

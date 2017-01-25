@@ -54,10 +54,10 @@
 		</li>
 		<li>
 			<p class="question" ng-click="toggleQuestion($event)">
-				<span class="number">5.</span> ¿Cómo se calcula la ubicación de una escuela en el semáforo educativo?
+				<span class="number">5.</span> ¿Cómo se calcula la ubicación de una escuela en el semáforo de resultados educativos?
 			</p>
 			<div class="question-content">
-				<p>Ya que tenemos los promedios globales de cada escuela, graficamos la distribución de escuelas y generamos los cortes para el semáforo educativo. Los cortes son los siguientes: </p>
+				<p>Ya que tenemos los promedios globales de cada escuela, graficamos la distribución de escuelas y generamos los cortes para el semáforo de resultados educativos. Los cortes son los siguientes: </p>
 				<p><strong>Para primaria 2013:</strong></p>
 				<p>Excelente: calificación por encima de 662 puntos.</p>
 				<p>Bien: por encima de 601 pero menos de 662.</p>
@@ -77,7 +77,7 @@
 		</li>
 		<li>
 			<p class="question" ng-click="toggleQuestion($event)">
-				<span class="number">6.</span> ¿Por qué mi escuela tiene una mala calificación en el semáforo educativo si mi hij@ está obteniendo buenas calificaciones en la escuela?
+				<span class="number">6.</span> ¿Por qué mi escuela tiene una mala calificación en el semáforo de resultados educativos si mi hij@ está obteniendo buenas calificaciones en la escuela?
 			</p>
 			<div class="question-content">
 				<p>Las calificaciones individuales de tu hij@ son independientes del desempeño de la escuela en conjunto o de su calidad educativa. En la boleta de calificaciones de la escuela, tu hij@ puede tener resultados muy altos, pero eso no quiere decir que está cumpliendo con los estándares nacionales de aprendizaje o que la escuela, en su conjunto, los esté cumpliendo. Te sugerimos revisar los resultados de tu hij@ en la prueba ENLACE, su calificación te puede dar un mejor estimado de su nivel de aprendizaje comparad@ con otros estudiantes de su edad. Puedes conocer los resultados en:</p>
@@ -88,7 +88,7 @@
 		</li>
 		<li>
 			<p class="question" ng-click="toggleQuestion($event)">
-				<span class="number">7.</span> ¿Qué quiere decir el triángulo negro junto al nombre de mi escuela (o en el lugar del semáforo educativo)?
+				<span class="number">7.</span> ¿Qué quiere decir el triángulo negro junto al nombre de mi escuela (o en el lugar del semáforo de resultados educativos)?
 			</p>
 			<div class="question-content">
 				<p>El triángulo negro junto al nombre de una escuela indica que la escuela no administra la prueba ENLACE a sus alumnos. Por lo tanto, no tenemos manera de obtener información para definir su calidad educativa. Si este es el caso para tu escuela, te invitamos a que firmes una petición para que la prueba ENLACE se administre a todas las escuelas de tu estado. Encuentra las distintas peticiones aquí.</p>
@@ -96,7 +96,7 @@
 		</li>
 		<li>
 			<p class="question" ng-click="toggleQuestion($event)">
-				<span class="number">8.</span> ¿Qué quiere decir el triángulo gris junto al nombre de mi escuela (o en el lugar del semáforo educativo)?
+				<span class="number">8.</span> ¿Qué quiere decir el triángulo gris junto al nombre de mi escuela (o en el lugar del semáforo de resultados educativos)?
 			</p>
 			<div class="question-content">
 				<p>El triángulo gris indica que no todos los grados de la escuela toman la prueba ENLACE. Para los años que no tenemos resultado se asigna un cero, por lo tanto, el promedio de la escuela tiende a ser muy bajo. Esta situación se puede dar en dos ocasiones:</p>
@@ -106,7 +106,7 @@
 		</li>
 		<li>
 			<p class="question" ng-click="toggleQuestion($event)">
-				<span class="number">9.</span>  ¿Qué quiere decir el triángulo rojo junto al nombre de mi escuela (o en el lugar del semáforo educativo)?
+				<span class="number">9.</span>  ¿Qué quiere decir el triángulo rojo junto al nombre de mi escuela (o en el lugar del semáforo de resultados educativos)?
 			</p>
 			<div class="question-content">
 				<p>La prueba ENLACE utiliza tecnologías avanzadas para garantizar el control de calidad de los resultados individuales y por grupo. La SEP identifica como “copia u otras acciones inaceptables” cualquier tendencia que indique la existencia de copia, dictado de respuestas y otras prácticas fraudulentas. El símbolo de precaución junto al nombre de una escuela indica que la SEP considera más del 10% de las pruebas ENLACE administradas por esa escuela como “no confiables” o “fraudulentas”. </p>
