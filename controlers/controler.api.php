@@ -60,7 +60,7 @@ class api extends main{
 				$params->order_by = ' COALESCE(escuelas_para_rankeo.rank_entidad,(select max(id)+1 from escuelas)), escuelas_para_rankeo.rank_entidad ASC, escuelas_para_rankeo.promedio_general DESC';
 			else {
 				//$params->order_by = 'planea_escuelas.clave_semaforo ASC';
-				$params->order_by = ' COALESCE(planea_escuelas.rank_entidad,(select max(id)+1 from escuelas)), planea_escuelas.rank_entidad ASC, planea_escuelas.score_global DESC';
+				$params->order_by = 'planea_escuelas.clave_semaforo ASC, planea_escuelas.rank_entidad=0, planea_escuelas.rank_entidad ASC, planea_escuelas.score_global DESC';
 
 			}
 		}
