@@ -95,6 +95,12 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
     $scope.markers = {lat:0,lng:0}
     $scope.layers = {
         baselayers: {
+            xyz: {
+                name: 'OpenStreetMap (XYZ)',
+                url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                type: 'xyz'
+            },
+
             googleRoadmap: {
                 name: 'Google Streets',
                 layerType: 'ROADMAP',
