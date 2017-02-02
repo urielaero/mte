@@ -17,6 +17,9 @@ if($this->escuela->nivel->id == 11){
 	$num_personal = $this->escuela_per_turno->censo?$this->escuela_per_turno->censo->personal:'N/D';
 	$num_grupos = $this->escuela_per_turno->censo?$this->escuela_per_turno->censo->grupos:'N/D';
 }
+$num_alumnos = $this->escuela->total_alumnos ? $this->escuela->total_alumnos : $num_alumnos;
+$num_personal = $this->escuela->total_personal ? $this->escuela->total_personal : $num_personal;
+$num_grupos = $this->escuela->total_grupos ? $this->escuela->total_grupos : $num_grupos;
 ?>
 
 <div class="space-between" layout="row" layout-sm="column">

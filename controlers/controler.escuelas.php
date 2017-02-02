@@ -159,14 +159,17 @@ class escuelas extends main{
 			$this->escuela->cct = $id;
 			$this->escuela->fields['cct'] = $id;	
 		}
-		$this->escuela->read("id,cct,calificaciones=>calificacion,calificaciones=>id,calificaciones=>likes,calificaciones=>comentario,calificaciones=>nombre,calificaciones=>ocupacion,calificaciones=>timestamp,calificaciones=>activo,calificaciones=>acepta_nombre");
+		$this->escuela->read("id,status,cct,calificaciones=>calificacion,calificaciones=>id,calificaciones=>likes,calificaciones=>comentario,calificaciones=>nombre,calificaciones=>ocupacion,calificaciones=>timestamp,calificaciones=>activo,calificaciones=>acepta_nombre");
         $this->escuela->key = 'id';
         $this->escuela->has_many_keys["enlaces"] = "id_cct";
         //$this->escuela->has_many_keys["calificaciones"] = "id_cct";
-        if( isset($this->escuela->cct) && $this->escuela->cct != $this->escuela->id){
+	$status = isset($this->escuela->status)?$this->escuela->status->id:false;
+	$show = preg_match('/^..BB/', $this->escuela->cct)?true : ($status==2?false:true);
+        if( isset($this->escuela->cct) && $this->escuela->cct != $this->escuela->id && $show){
 			//verificado,
 			$this->escuela->read("
 				id,nombre,domicilio,paginaweb,
+				total_alumnos,total_personal,total_grupos
 				entidad=>nombre,entidad=>id,municipio=>id,municipio=>nombre,localidad=>nombre,localidad=>id,
 				telefono,correoelectronico,
 				turno=>id,turno=>nombre,

@@ -899,7 +899,7 @@ class main extends controler{
                         left join controles on controles.id = escuelas.control
                         left join planea_escuelas on planea_escuelas.cct = escuelas.cct
                         left join turnos on turnos.id = planea_escuelas.clave_turno
-                        where TRUE";
+                        where TRUE AND status <> 2";
 
         if ($escuelas->search_clause) {
             $sql .= " AND ".$escuelas->search_clause;
