@@ -305,6 +305,7 @@ class main extends controler{
 		}
 		$q->order_by = isset($params->order_by) ? $params->order_by : 'escuelas.nombre';
 		$q->limit= isset($params->limit) ? $params->limit : "10 OFFSET 0";
+		$q->search_clause .= "AND escuelas.status <> 2";
 		
 		if(isset($params->pagination)){
 			$this->pagination = new pagination('escuela',$params->pagination,$q->search_clause,"p",$this->conn);
@@ -899,7 +900,7 @@ class main extends controler{
                         left join controles on controles.id = escuelas.control
                         left join planea_escuelas on planea_escuelas.cct = escuelas.cct
                         left join turnos on turnos.id = planea_escuelas.clave_turno
-                        where TRUE AND status <> 2";
+                        where TRUE";
 
         if ($escuelas->search_clause) {
             $sql .= " AND ".$escuelas->search_clause;
