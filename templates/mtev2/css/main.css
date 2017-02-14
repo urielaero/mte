@@ -1356,3 +1356,18 @@ text-align: justify;}
 .educa-conv span{font-size: 19px;line-height: normal;}
 
 .leaflet-control-layers-toggle{background-image: url(../img/layers.png) !important;}
+
+.video-container{max-width: 99%;}
+.donation .text-content{background-color: #A633AA;}
+.donation .text{text-align:center; padding: 27px 0 22px; font-size: 18px; color: white;}
+.donation .text span{font-size: 24px; font-weight: bold; color: white; line-height: 1px;}
+.donation .crop{background: no-repeat; background-image:url(../img/manos.png); height: 93px;}
+.donation{padding-left: 13px; background:red;margin-bottom: 8px; max-width: 99%; background-color: #9C2B9F;}
+
+.donation-invisibility{visibility: hidden; position: absolute;}
+
+.general.paypal{margin-top: 10px;}
+.general.paypal .crop{width: 100px;background-size: 87px; margin-top: 8px;}
+.general.paypal .text-content{background-color:transparent;margin-top: -27px;}
+.general.paypal .text{padding: 0; font-size: 15px; line-height: normal;}
+.general.paypal .text span{font-size: 19px; display: block; padding: 14px 0 30px;}

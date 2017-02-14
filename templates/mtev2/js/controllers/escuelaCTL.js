@@ -203,6 +203,10 @@ app.controller("escuelaCTL", ['$scope', '$mdSidenav','userInfo',function ($scope
     $scope.showRankBy = function(type) { //bad propagation of vars...
         return angular.element('.'+type+'.show-type-data').size();
     }
+
+    $scope.toPaypal = function() { 
+        jQuery('.donation-invisibility').submit();
+    } 
 }]);
 
 app.controller("schoolBannerCTL", ['$scope', function ($scope) {

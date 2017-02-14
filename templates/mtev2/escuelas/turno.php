@@ -231,6 +231,25 @@ $num_grupos = $this->escuela->total_grupos ? $this->escuela->total_grupos : $num
 			$this->include_template('semaphore','escuelas'); ?>
 		</div>
 
+            <div ng-controller="utilityCTL" class="general paypal">
+	    	<form class="donation-invisibility" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                	<input type="hidden" name="cmd" value="_s-xclick">
+                	<input type="hidden" name="hosted_button_id" value="T32FR8ZKGXYF4">
+                	<input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
+                	<img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+            	</form>
+		<a  ng-click="toPaypal()" href="" class="donation" layout="column" layout-align="space-between center" layout-wrap>
+			<div class="crop" flex ></div>
+			<div flex class="text-content">
+				<p class="text">¿Quieres ayudarnos a seguir 
+				<br>
+				mejorando la educación?
+				<br>
+                    
+				<span>¡Realiza un donativo!</span></p>
+			</div>
+		</a></div>
+
 
 		<div class="adsbygoogle-content">
 			<!-- School Profile Page Right Side 300 x 250 -->
