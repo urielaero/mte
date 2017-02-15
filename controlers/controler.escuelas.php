@@ -163,9 +163,7 @@ class escuelas extends main{
         $this->escuela->key = 'id';
         $this->escuela->has_many_keys["enlaces"] = "id_cct";
         //$this->escuela->has_many_keys["calificaciones"] = "id_cct";
-	$status = isset($this->escuela->status)?$this->escuela->status->id:false;
-	$show = preg_match('/^..BB/', $this->escuela->cct)?true : ($status==2?false:true);
-        if( isset($this->escuela->cct) && $this->escuela->cct != $this->escuela->id && $show){
+        if( isset($this->escuela->cct) && $this->escuela->cct != $this->escuela->id){
 			//verificado,
 			$this->escuela->read("
 				id,nombre,domicilio,paginaweb,
