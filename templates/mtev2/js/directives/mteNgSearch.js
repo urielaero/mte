@@ -162,7 +162,7 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
                     return sch;
                 });
                 $scope.loading = false;
-                if(response.data.escuelas){
+                if(response.data.escuelas && response.data.escuelas.length){
                     $scope.escuelasResponse = true;
                 }else{
                     $scope.escuelasResponse = false;

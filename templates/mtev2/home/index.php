@@ -11,7 +11,7 @@
 			<script>
 				window.blogAddress = '<?php echo $this->config->blog_address ?>';
 			</script>
-            <div ng-controller="utilityCTL"><form class="donation-invisibility" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <div ng-controller="utilityCTL" class="donation-form"><form class="donation-invisibility" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_s-xclick">
                 <input type="hidden" name="hosted_button_id" value="T32FR8ZKGXYF4">
                 <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">

@@ -83,6 +83,9 @@ class api extends main{
 		$this->process_escuelas($this->request('detail'));
 		$this->escuelas_digest->pagination = $this->pagination;
 		$this->escuelas_digest->pagination->conn = NULL;
+		if (!count($this->escuelas_digest->escuelas)) {
+			$this->escuelas_digest->escuelas = array();
+		}
 
 		echo json_encode($this->escuelas_digest);
 	}
