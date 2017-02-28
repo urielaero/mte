@@ -307,7 +307,7 @@ class main extends controler{
 		$q->limit= isset($params->limit) ? $params->limit : "10 OFFSET 0";
 
         if ($params->school_status) {
-		    $q->search_clause .= "AND escuelas.status == {$params->school_status}";
+		    $q->search_clause .= "AND escuelas.status = {$params->school_status}";
         }
 		
 		if(isset($params->pagination)){
