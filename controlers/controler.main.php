@@ -305,7 +305,10 @@ class main extends controler{
 		}
 		$q->order_by = isset($params->order_by) ? $params->order_by : 'escuelas.nombre';
 		$q->limit= isset($params->limit) ? $params->limit : "10 OFFSET 0";
-		$q->search_clause .= "AND escuelas.status <> 2";
+
+        if ($params->school_status) {
+		    $q->search_clause .= "AND escuelas.status == {$params->school_status}";
+        }
 		
 		if(isset($params->pagination)){
 			$this->pagination = new pagination('escuela',$params->pagination,$q->search_clause,"p",$this->conn);

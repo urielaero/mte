@@ -71,6 +71,14 @@ class api extends main{
 		}else{ 
 			$params->order_by = 'planea_escuelas.score_global DESC';
 		}
+        
+        $sc_status = $this->request('schoolStatus');
+        if ($sc_status) {
+            if ($sc_status != -1)
+                $params->school_status = $sc_status;
+        } else {
+            $params->school_status = "1";
+        }
 
 		if($this->request('ccts')) $params->ccts = explode(',',$this->request('ccts')); 
 		if($this->request('pagination')) 

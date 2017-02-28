@@ -30,14 +30,15 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
             //Pako: setear aqui la ruta basada en los parametros de busqueda ($scope.params)
             if($scope.urls){
                 var search = $location.search();
-		search.p = parseInt(search.p) || 1;
+                search.p = parseInt(search.p) || 1;
                 termSearch = search.term;
-		$scope.prueba = search.type_test || $scope.prueba;
+                $scope.schoolStatus = parseInt(search.schoolStatus) || 1;
+                $scope.prueba = search.type_test || $scope.prueba;
                 if(search.localidad) $scope.localidad = {id:search.localidad};
                 if(search.entidad) $scope.entidad = getOneFilter(entidades,search.entidad); 
                 if(search.municipio) $scope.municipio = getOneFilter(municipios,search.municipio);
                 if(search.sort) $scope.sort = search.sort;
-		console.log($scope.pagination, search);
+                console.log($scope.pagination, search);
                 $scope.pagination.current_page = search.p; //|| 1;
                 checkIfSelect($scope.niveles,search.niveles);
                 checkIfSelect($scope.turnos,search.turno);
@@ -133,6 +134,8 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
                     var params = {};
                     angular.extend(params,$scope.params);
                     $scope.buildParams();
+
+                    console.log('load..', $scope.params);
                     var url = '#?';
                     for(var k in $scope.params){
                         if(params[k])
@@ -194,7 +197,8 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
                 localidad : $scope.localidad.id || null,
                 p : $scope.pagination.current_page || 1,
                 sort : $scope.sort,
-                type_test: $scope.prueba == 'enlace'? 'enlace': 'planea'
+                type_test: $scope.prueba == 'enlace'? 'enlace': 'planea',
+                schoolStatus: $scope.schoolStatus
             };
             $scope.params.niveles = $scope.processCheckBoxes($scope.niveles).join(',');
             var controles = $scope.processCheckBoxes($scope.controles);
@@ -225,8 +229,10 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
                     niveles : templateData.getVar('niveles'),
                     turnos : templateData.getVar('turnos'),
                     controles : templateData.getVar('controles'),
-		    pruebas: templateData.getVar('pruebas'),
-		    prueba: 'planea'
+                    pruebas: templateData.getVar('pruebas'),
+                    prueba: 'planea',
+                    estatuses: templateData.getVar('estatuses'),
+                    schoolStatus: 1
                 };
             }else{
                 var defaults = {
@@ -237,7 +243,8 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
                     niveles : [],
                     turnos : [],
                     controles : [],
-		    prueba: 'planea'
+                    prueba: 'planea',
+                    schoolStatus: 1
                 };
             }            
             angular.extend($scope,defaults);
@@ -249,7 +256,7 @@ var controller = function ($scope,$http,userInfo,templateData,$location) {
             $scope.sortOptions = ['Semáforo de Resultados Educativos','Nombre de la escuela'];
             $scope.sort = $scope.sortOptions[0];
             $scope.semaforos_enlace = templateData.getVar('semaforos');
-	    $scope.semaforos_planea = templateData.getVar('semaforos_planea');
+            $scope.semaforos_planea = templateData.getVar('semaforos_planea');
             
         }
 

@@ -1372,4 +1372,5 @@ text-align: justify;}
 .general.paypal .text{padding: 0; font-size: 15px; line-height: normal;}
 .general.paypal .text span{font-size: 19px; display: block; padding: 14px 0 30px;}
 
-.donation-form{display: none;}
+
+.mteNgSearch md-radio-group{user-select: none;} 

@@ -75,6 +75,17 @@
 				</p>
 			</div>
 
+			<div hide-sm ng-hide="sectorVisibility" class="type_test">
+				<label class="label-prueba">Estatus</label>
+				<p>
+					<md-radio-group ng-model="schoolStatus" ng-change="checkBoxChange()">
+						<md-radio-button ng-repeat="st in estatuses" ng-value="st.id">
+							{{st.label}}
+						</md-radio-button>			
+					</md-radio-group>
+				</p>
+			</div>
+
 			</form>
 		</div>
 		<div ng-if="!escuelasResponse" flex flex-sm="100" id="message-not-found">

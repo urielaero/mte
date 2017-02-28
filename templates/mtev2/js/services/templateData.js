@@ -212,4 +212,29 @@ app.service('templateData',[ function() {
         }
     ];
 
+    this.estatuses = [
+    {
+    	label: "Activo",
+	id: 1
+    },
+    {
+    	label: "Baja",
+	id: 2
+    }, 
+    {
+    	label: "Clausura",
+	id: 3
+    },
+    {
+    	label: "Reapertura",
+	id: 4
+    },
+    {
+    	label: "Latencia",
+	id: 5
+    },
+    {
+    	label: "Todos",
+	id: -1
+    }];
 }]);
