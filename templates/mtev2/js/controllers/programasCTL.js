@@ -10,7 +10,8 @@ app.controller("programasCTL", ['$scope', '$location',function ($scope, $locatio
 		$scope.zonas = [{nombre:'Nacional'}].concat(entidades);
 		$scope.temas = ['Todos'];
 		$scope.programas.forEach(function(programa){
-			if(programa.tema_especifico != ''){
+			var ind = $scope.temas.indexOf(programa.tema_especifico) == -1;
+			if(programa.tema_especifico != '' && ind){
 				$scope.temas.push(programa.tema_especifico);
 				if(params.tema && params.tema == programa.tema_especifico)
 					params.temaIndex = $scope.temas.length - 1;
