@@ -15,12 +15,6 @@
 				<div class='titles'>
 					<h1 class="title-donation">
 						<strong>¡Gracias por tu donativo!</strong> 
-                        <span>
-                            <br>
-                            Desde 2013, MejoraTuEscuela.org ha apoyado a más de 
-                            <br>
-                            15 millones de usuarios interesados en la educación.
-                        </span>
 					</h1>
 				</div>
 

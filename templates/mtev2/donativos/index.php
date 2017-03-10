@@ -1,31 +1,30 @@
 <div id="donativos" layout="row" layout-align="center center" ng-controller="donationCTL">
     <div class="text" flex="90">
-        <p>Con tu donación, podremos seguir apoyando en la mejora del sistema educativo en México a los 600 mil usuarios que utilizan el sitio cada mes.</p>
-
-        <br>
-        
-        <p>Si necesitas un recibo de tu donación, escribenos con tus datos (nombre, fecha del donativo, datos fiscales) a 
-        <a class="blue" href="mailto:contacto@mejoratuescuela.org">contacto@mejoratuescuela.org</a>
+        <p>Desde 2013, MejoraTuEscuela.org ha apoyado a más de 16 millones de usuarios interesados en mejorar la educación en México.
         </p>
+
         <br>
         
 
-        <p>MejoraTuEscuela.org es una iniciativa ciudadana, independiente y sin fines de lucro. Todas tus donaciones se utilizarán exclusivamente para el funcionamiento de la plataforma.</p>
-        <br>
-        
+        <p>Gracias a tu donativo podremos seguir enriqueciendo la plataforma con herramientas y datos que apoyen e impulsen la participación de papás, maestros, alumnos y directores en las escuelas en todo el país.</p>
 
-        <p>Nuestro equipo está integrado por miembros del Instituto Mexicano para la Competitividad A.C. (IMCO)
-        con apoyo de la fundación Omidyar Network y US-Mexico Foundation</p>
         <br>
-        
 
-        <p>MejoraTuEscuela.org es una plataforma de todos y para todos los mexicanos. Te invitamos a que la uses y nos ayudes a difundirla.</p>
+        <p>MejoraTuEscuela.org es una iniciativa ciudadana que forma parte del Instituto Mexicano para la Competitividad A.C. (IMCO) una organización de la sociedad civil independiente, apartidista y sin fines de lucro.
+        </p>
+
         <br>
-        
-        
-        <p>Para más información, comunicate a los teléfonos de IMCO con el equipo de MejoraTuEscuela al (55)5985-1017 al 19.</p>
+
+        <p>Este proyecto ha sido posible gracias a apoyos de Omidyar Network, US-Mexico Foundation y a donativos de ciudadanos como tú.
+        </p>
+
         <br>
-        
+
+        <p>MejoraTuEscuela.org es una plataforma de todos y para todos los mexicanos. Te invitamos a que la uses y nos ayudes a difundirla.
+        </p>
+
+        <br>
+
         <p class="blue"><span>¡Gracias!</span></p>
 
         <div class="buttons" layout="row" layout-align="center center">
@@ -36,7 +35,7 @@
                 <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
             </form>
             <a ng-show="!loader" ng-click="toPaypal('.unique')" href="">Donativo unico</a>
-            <a ng-show="!loader" href="">Donativo mensual</a>
+            <a ng-show="0 && !loader" href="">Donativo mensual</a>
 
          </div>
 
