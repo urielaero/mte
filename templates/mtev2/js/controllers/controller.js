@@ -133,14 +133,6 @@ app.controller("twitterCTL", ['$scope','$http',function ($scope,$http) {
 	$scope.twitterIni();
 }]);
 
-
-app.controller('utilityCTL', function($scope) {
-    $scope.toPaypal = function() { 
-        jQuery('.donation-invisibility').submit();
-    } 
-});
-
-
 app.controller("mejoraCTL", ['$scope','$http','$timeout','$rootScope','$window','$filter',function ($scope, $http, $timeout, $rootScope, $window, $filter) {
 	$scope.countToggle = 0;
 	$scope.toggleForm = false;

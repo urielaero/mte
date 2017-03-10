@@ -48,6 +48,7 @@
 			'controllers/programasCTL.js',
 			'controllers/programaCTL.js',
 			'controllers/fileCTL.js',
+			'controllers/donationCTL.js',
 			'services/userInfo.js',
 			'services/templateData.js',
 			'directives/mteNgSearch.js',

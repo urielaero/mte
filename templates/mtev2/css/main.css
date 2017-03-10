@@ -1372,6 +1372,18 @@ text-align: justify;}
 .general.paypal .text{padding: 0; font-size: 15px; line-height: normal;}
 .general.paypal .text span{font-size: 19px; display: block; padding: 14px 0 30px;}
 
-.donation-form{display: none;}
+/*.donation-form{display: none;}*/
 
 .mteNgSearch md-radio-group{user-select: none;} 
+
+#header #sub-header.head-donation .column-right .titles h1.title-donation{padding-left: 57px; font-size:23px; margin-top: 50px;}
+#header #sub-header.head-donation .column-right .titles h1.title-donation strong{font-size: 30px;}
+#header #sub-header.head-donation .column-right .titles h1.title-donation span{display: block; margin-top: -6px; font-weight: 400;}
+
+#donativos .text{padding: 70px 79px;font-weight: 400;}
+#donativos .text p{text-align: justify; font-size: 23px; line-height:normal; color: #7C7C7A;} 
+#donativos .text .blue{text-align: center; color: #17B9F3; font-weight: 600;}
+#donativos .buttons{margin-top: 66px;} 
+#donativos .buttons a{background: #A633AA; padding: 10px 54px; margin: 33px 21px; text-align: center; font-size: 18px; font-weight: bold; width: 278px; color: white;} 
+#donativos .logos .mte{height:62px;}  
+#donativos .logos img{margin-top: 106px;}
