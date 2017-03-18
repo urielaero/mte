@@ -172,160 +172,53 @@ $num_grupos = $this->escuela->total_grupos ? $this->escuela->total_grupos : $num
 
 
 		<div class="mte-califica-form" mte-califica></div>
-	</div>
-	<?php if($this->escuela->nivel->nombre == 'PREESCOLAR'){ ?>
-	<div flex="25" class="semaphore" flex-sm="100">
-		<div class="section-image">
-			<img src="/templates/mtev2/img/cubitos.png" alt="Preescolar">			
-		</div>
-		<div class="share_options">
-			<div class="options space-between" layout="row" layout-md="column">
-				<div flex="49" class="option">
-						<p><i class="icon-print-01"></i></p>
-						<p ng-click="print();">Imprimir</p>
-				</div>
-				<div flex="49" class="option" ng-click="show_share = !show_share">
-					<span>
-						<p><i class="icon-share-01"></i></p>
-						<p>Compartir</p>
-						</span>
-				</div>
-			</div>
-			<div  class="share_show" layout="row" layout-md="column" ng-show="show_share">
-				<div flex="30" class="share_fb">
-					<a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?=$urlFb?>&p[images][0]=<?=$url_logo?>&p[title]=<?=$title?>&p[summary]=<?=$description?>" target='_blank'>
-						<i class="icon-fb-01"></i>
-					</a>
-			
-				</div>
-				<div flex="30" class="share_twitter"> 
-					<a href="http://twitter.com/home?status=<?=$title." ".$urlTwitter," por @mejoratuescuela"?> " target='_blank' >
-						<i class="icon-twitter-01-01"></i>
-				
-					</a>		
-				</div>
-				<div flex="30" class="share_email">
-					<a href="mailto:?subject=<?=$title?>&amp;body=<?=$description.": ".$urlMail?>" target='_blank'>
-						<i class="icon-mail-01"></i>
-				
-					</a>		
-				</div>
-			</div>
-		</div>
-	</div>	
-	<?php 
-		}else{
-	?>
-	<div class="semaphore" flex="30" flex-sm="100">
-		<div layout="row" class="planea-enlace-buttons">
-			<md-button flex ng-click="showEnlace = false; showPlanea = true;" ng-class="showPlanea?'to-planea show-type-data':'to-planea'">PLANEA</md-button>	
-			<md-button flex ng-click="showPlanea = false; showEnlace = true;" ng-class="showEnlace?'to-enlace show-type-data':'to-enlace'">ENLACE</md-button>	
-		</div>
-		<h4>Semáforo de Resultados Educativos</h4>
-		<div ng-show="showPlanea">
-			<?php $this->escuela_per_turno->current_semaforo = $this->escuela_per_turno->planea_semaforo;
-			$this->include_template('semaphore','escuelas'); ?>
-		</div>
-		<div ng-show="showEnlace">
-			<?php $this->escuela_per_turno->current_semaforo = $this->escuela_per_turno->semaforo;
-			$this->include_template('semaphore','escuelas'); ?>
-		</div>
-        <div class="donation-form general paypal">
-            <a href="/donativos" class="donation" layout="column" layout-align="space-between center" layout-wrap>
-                <div class="crop" flex ></div>
-                <div flex class="text-content">
-                    <p class="text">¿Quieres ayudarnos a seguir 
-                    <br>
-                    mejorando la educación?
-                    <br>
-                    <span>¡Realiza un donativo!</span></p>
-                </div>
-            </a>
-        </div>
+		<div class="additional-info space-between" layout="row" layout-sm="column">
+			<div flex="100" flex-sm="100">
+				<?php if($this->escuela->infraestructura): ?>
+					<div layout="row" class="scroll-links space-between">
+						<a href="#desempeno" ng-click="scrollTo('desempeno',$event)" class="link desempeno-tab" flex="32">Desempeño<br/>académico</a>
+						<a href="#infraestructura" ng-click="scrollTo('infraestructura',$event)" class="link infraestructura-tab" flex="32">Infraestructura<br/>escolar</a>
+						<a href="#comentarios" ng-click="scrollTo('comentarios',$event)" class="link comentarios-tab" flex="32">Comentarios y<br/>reportes</a>
+					</div>
+				<?php else: ?>	
+					<div layout="row" class="scroll-links space-between">
+						<a href="#desempeno" ng-click="scrollTo('desempeno',$event)" class="link desempeno-tab" flex="48">Desempeño<br/>académico</a>
+						<a href="#comentarios" ng-click="scrollTo('comentarios',$event)" class="link comentarios-tab" flex="48">Comentarios y<br/>reportes</a>
+					</div>
+				<?php endif; ?>
+				<div  class="desempeno" id="desempeno">
+					<h2>Desempeño académico matutino</h2>
+					<div layout="row" class="planea-enlace-buttons">
+						<md-button flex ng-click="showEnlace = false; showPlanea = true;" ng-class="showPlanea?'to-planea show-type-data':'to-planea'">PLANEA</md-button>
+						<md-button flex ng-click="showPlanea = false; showEnlace=true;" ng-class="showEnlace?'to-enlace show-type-data':'to-enlace'">ENLACE</md-button>	
+					</div>
 
-
-		<div class="adsbygoogle-content">
-			<!-- School Profile Page Right Side 300 x 250 -->
-			<ins class="adsbygoogle"
-				style="display:inline-block;width:300px;height:250px"
-				data-ad-client="ca-pub-5016039473129201"
-				data-ad-slot="2015297378"
-				<?php if ( !isset($this->config->ad_mode_test) || $this->config->ad_mode_test ) {?>
-					data-ad-test="on"
-				<?php } ?>
-				>
-			</ins>
-			
-			<script>
-				(adsbygoogle = window.adsbygoogle || []).push({});
-		    	</script>
-		
-		</div>
-
-
-
-		
-
-	</div>
-	<?php } ?> 
-</div>
-<div class="additional-info space-between" layout="row" layout-sm="column">
-	<div class="data" flex="73" flex-sm="100">
-
-		<?php if($this->escuela->infraestructura): ?>
-		    <div layout="row" class="scroll-links space-between">
-		    	<a href="#desempeno" ng-click="scrollTo('desempeno',$event)" class="link desempeno-tab" flex="32">Desempeño<br/>académico</a>
-		    	<a href="#infraestructura" ng-click="scrollTo('infraestructura',$event)" class="link infraestructura-tab" flex="32">Infraestructura<br/>escolar</a>
-		    	<a href="#comentarios" ng-click="scrollTo('comentarios',$event)" class="link comentarios-tab" flex="32">Comentarios y<br/>reportes</a>
-		    </div>	
-		<?php else: ?>	
-		    <div layout="row" class="scroll-links space-between">
-		    	<a href="#desempeno" ng-click="scrollTo('desempeno',$event)" class="link desempeno-tab" flex="48">Desempeño<br/>académico</a>
-		    	<a href="#comentarios" ng-click="scrollTo('comentarios',$event)" class="link comentarios-tab" flex="48">Comentarios y<br/>reportes</a>
-		    </div>		
-		<?php endif; ?>
-
-        <div  class="desempeno" id="desempeno">
-			<h2>Desempeño académico matutino</h2>
-			<div layout="row" class="planea-enlace-buttons">
-				<md-button flex ng-click="showEnlace = false; showPlanea = true;" ng-class="showPlanea?'to-planea show-type-data':'to-planea'">PLANEA</md-button>
-				<md-button flex ng-click="showPlanea = false; showEnlace=true;" ng-class="showEnlace?'to-enlace show-type-data':'to-enlace'">ENLACE</md-button>	
-			</div>
-
-			<!--PLANEA -->
-			<div class="block" layout="row" layout-sm="column" layout-margin layout-fill layout-padding ng-if="showPlanea">
-				<div flex>
-					<div layout="row">
-						<div flex="70"><p>Número de alumnos evaluados</p></div>
-						<div flex="30" class="number"><p><?=$this->escuela_per_turno->planea_evaluados?></p></div>
+				<!--PLANEA -->
+				<div class="block" layout="row" layout-sm="column" layout-margin layout-fill layout-padding ng-if="showPlanea">
+					<div flex>
+						<div layout="row">
+							<div flex="70"><p>Número de alumnos evaluados</p></div>
+							<div flex="30" class="number"><p><?=$this->escuela_per_turno->planea_evaluados?></p></div>
+							</div>
 					</div>
 				</div>
-				<!--
-				<div flex>
-					<div layout="row">
-						<div flex="70"><p>Porcentaje de alumnos en nivel reprobatorio</p></div>
-						<div flex="30" class="number"><p><?=$this->escuela_per_turno->pct_reprobados?>%</p></div>
-					</div>
-				</div>								
-				-->
-			</div>
 
 			<!--Enlace -->
 
-			<div class="block" layout="row" layout-sm="column" layout-margin layout-fill layout-padding ng-if="showEnlace">
-				<div flex>
-					<div layout="row">
-						<div flex="70"><p>Número de alumnos evaluados</p></div>
-						<div flex="30" class="number"><p><?=$this->escuela_per_turno->total_evaluados?></p></div>
+				<div class="block" layout="row" layout-sm="column" layout-margin layout-fill layout-padding ng-if="showEnlace">
+					<div flex>
+						<div layout="row">
+							<div flex="70"><p>Número de alumnos evaluados</p></div>
+							<div flex="30" class="number"><p><?=$this->escuela_per_turno->total_evaluados?></p></div>
+						</div>
 					</div>
+					<div flex>
+						<div layout="row">
+							<div flex="70"><p>Porcentaje de alumnos en nivel reprobatorio</p></div>
+							<div flex="30" class="number"><p><?=$this->escuela_per_turno->pct_reprobados?>%</p></div>
+						</div>
+					</div>								
 				</div>
-				<div flex>
-					<div layout="row">
-						<div flex="70"><p>Porcentaje de alumnos en nivel reprobatorio</p></div>
-						<div flex="30" class="number"><p><?=$this->escuela_per_turno->pct_reprobados?>%</p></div>
-					</div>
-				</div>								
-			</div>
 
 
 			<div class="show-type-data-planea" ng-show="showPlanea">
@@ -613,46 +506,67 @@ EOD;
 		</div>
 
 	</div>
-	<div flex="30" flex-sm="100" class="sidebar">
+</div>
+	</div>
+	<?php if($this->escuela->nivel->nombre == 'PREESCOLAR'){ ?>
+	<div flex="25" class="semaphore" flex-sm="100">
+		<div class="section-image">
+			<img src="/templates/mtev2/img/cubitos.png" alt="Preescolar">			
+		</div>
+	</div>	
+	<?php 
+		}else{
+	?>
+	<div class="semaphore" flex="30" flex-sm="100">
+		<div layout="row" class="planea-enlace-buttons">
+			<md-button flex ng-click="showEnlace = false; showPlanea = true;" ng-class="showPlanea?'to-planea show-type-data':'to-planea'">PLANEA</md-button>	
+			<md-button flex ng-click="showPlanea = false; showEnlace = true;" ng-class="showEnlace?'to-enlace show-type-data':'to-enlace'">ENLACE</md-button>	
+		</div>
+		<h4>Semáforo de Resultados Educativos</h4>
+		<div ng-show="showPlanea">
+			<?php $this->escuela_per_turno->current_semaforo = $this->escuela_per_turno->planea_semaforo;
+			$this->include_template('semaphore','escuelas'); ?>
+		</div>
+		<div ng-show="showEnlace">
+			<?php $this->escuela_per_turno->current_semaforo = $this->escuela_per_turno->semaforo;
+			$this->include_template('semaphore','escuelas'); ?>
+		</div>
+        <div class="donation-form general paypal">
+            <a href="/donativos" class="donation" layout="column" layout-align="space-between center" layout-wrap>
+                <div class="crop" flex ></div>
+                <div flex class="text-content">
+                    <p class="text">¿Quieres ayudarnos a seguir 
+                    <br>
+                    mejorando la educación?
+                    <br>
+                    <span>¡Realiza un donativo!</span></p>
+                </div>
+            </a>
+        </div>
 
 
-
-		<div class="share_options">
-			<div class="options space-between" layout="row" layout-md="column">
-				<div flex="49" class="option">
-						<p><i class="icon-print-01"></i></p>
-						<p ng-click="print();">Imprimir</p>
-				</div>
-				<div flex="49" class="option" ng-click="show_share = !show_share">
-					<span>
-						<p><i class="icon-share-01"></i></p>
-						<p>Compartir</p>
-						</span>
-				</div>
-			</div>
-			<div  class="share_show" layout="row" layout-md="column" ng-show="show_share">
-				<div flex="30" class="share_fb">
-					<a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?=$urlFb?>&p[images][0]=<?=$url_logo?>&p[title]=<?=$title?>&p[summary]=<?=$description?>" target='_blank'>
-						<i class="icon-fb-01"></i>
-					</a>
+		<div class="adsbygoogle-content">
+			<!-- School Profile Page Right Side 300 x 250 -->
+			<ins class="adsbygoogle"
+				style="display:inline-block;width:300px;height:250px"
+				data-ad-client="ca-pub-5016039473129201"
+				data-ad-slot="2015297378"
+				<?php if ( !isset($this->config->ad_mode_test) || $this->config->ad_mode_test ) {?>
+					data-ad-test="on"
+				<?php } ?>
+				>
+			</ins>
 			
-				</div>
-				<div flex="30" class="share_twitter"> 
-					<a href="http://twitter.com/home?status=<?=$title." ".$urlTwitter," por @mejoratuescuela"?> " target='_blank' >
-						<i class="icon-twitter-01-01"></i>
-				
-					</a>		
-				</div>
-				<div flex="30" class="share_email">
-					<a href="mailto:?subject=<?=$title?>&amp;body=<?=$description.": ".$urlMail?>" target='_blank'>
-						<i class="icon-mail-01"></i>
-				
-					</a>		
-				</div>
-			</div>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+		    	</script>
+		
 		</div>
 
 
+
+
+	<div class="sidebar">
 
 	<?php $censo_only = array('SECUNDARIA','PREESCOLAR','PRIMARIA');
 	if(isset($this->escuela->censo) && in_array($this->escuela->nivel->nombre,$censo_only)){ ?>
@@ -720,4 +634,19 @@ EOD;
 			</ul>
 		</div>
 	</div>
+
+
+
+
+
+
+
+
+
+
+
+		
+
+	</div>
+	<?php } ?> 
 </div>
