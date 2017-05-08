@@ -1,8 +1,12 @@
 <div class="mtev1-theme">
 	<div class="container bases post" ng-controller='fileController'>
-		<img src="http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/banner.jpg" alt="Bases de datos censo" style='margin-bottom:-2px' />
+		<img src="/templates/mtev2/img/bases/banner.jpg" alt="Bases de datos censo" style='margin-bottom:-2px' />
 		<div class='container quienes_somos'><div class='wrap_text'>
-		<p>El pasado 8 de diciembre, la Secretaría de Educación Pública, para dar cumplimiento a uno de los mandatos de la Reforma Educativa, puso en marcha el portal del Sistema de Información y Gestión Educativa, en el cual se da a conocer información sobre el sistema educativo nacional. Este sistema, entre otras cosas, liberó bases de datos adicionales del Censo de Escuelas, Maestros y Alumnos de Educación Básica y Especial, entre las que destaca la base de datos de personal.</p>
+		<p><b>Censo Educativo</b></p>
+		<p>En diciembre de 2013, la Secretaría de Educación Pública, para dar cumplimiento a uno de los mandatos de la Reforma Educativa, puso en marcha el portal del Sistema de Información y Gestión Educativa, en el cual se da a conocer información sobre el sistema educativo nacional. Este sistema, entre otras cosas, liberó bases de datos adicionales del Censo de Escuelas, Maestros y Alumnos de Educación Básica y Especial, entre las que destaca la base de datos de personal.
+		</p>
+		<br>
+		
 
 		<p>Aquí puedes descargar:</p>
 		<ol>
@@ -20,13 +24,22 @@
 			<li><a href="http://storage.googleapis.com/cemabe/TR_CONAFE.DBF.zip">Archivo CONAFE</a>: Datos sobre características del inmueble y centros de trabajo de esta modalidad.</li>
 			<li><a href="http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/Diccionario_CEMABE.xlsx">Descripción de variables de cuestionarios</a></li>
 			<li>Fuente: INEGI. 2014</li>
+			<br>
+			
 			<li>¿No puedes abrir los archivos? Visita nuestra sección de <a href="http://www.mejoratuescuela.org/preguntas-frecuentes#pregunta14" target="_blank">preguntas frecuentes</a>.</li>
 		</ol>
+		<hr>
+		<br>
+		
+		<p><b>Supervisores Escolares</b></p>
+		<p>Como parte de la herramienta Ventanilla Escolar, el equipo de Mejora Tu Escuela elaboró una base de datos con información sobre las supervisiones escolares del país, la cual incluye sus datos de contacto y otros datos generales. La información de esta base de supervisores se obtuvo a través de diversas solicitudes de información a las autoridades educativas de cada estado, realizadas en el primer semestre de 2016. Mejora Tu Escuela hace pública esta base para apoyar a los usuarios del sitio a identificar al supervisor de su plantel, quien es un enlace importante en la resolución de problemáticas en las escuelas. </p>
+		<hr>
+		
 		</div></div>
 
-		<img src="http://3903b795d5baf43f41af-5a4e2dc33f4d93e681c3d4c060607d64.r40.cf1.rackcdn.com/banerdescarga.jpg" alt="pasos" />
+		<img src="/templates/mtev2/img/bases/banerdescarga.jpg" alt="pasos" />
 		<form class='file-search-form' method='get' action='#'   >
-				<label>Bases de datos del censo por estado</label>
+				<label>Bases de datos por estado</label>
 				<input type='text' name='state' ng-model='searchText' placeholder='Buscar estado' />
 				<input type='submit' value='' class='submit' />
 				<div class='clear'></div>
