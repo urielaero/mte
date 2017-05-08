@@ -53,32 +53,19 @@
 						<select ng-options='opt for opt in options' ng-model='entidad.census' ></select>
 					</td>
 					<td>
-						<p class='options'>
-							<span class='checkbox pull-left' ng-click='entidad.format = "win"' ng-class='entidad.format == "win" ? "selected":""'></span>
-							Windows
-						</p>
-						<div class='clear'></div>
-						<p class='options'>
-							<span class='checkbox pull-left' ng-click='entidad.format = "utf"' ng-class='entidad.format == "utf" ? "selected":""'></span>
-							UTF8
+						<br>
+						
+						<p class='options' ng-repeat="(name, format) in formats" ng-show="formatDis(entidad, format, 'r')">
+							<span class='checkbox pull-left' ng-click='entidad.format = format' ng-class='entidad.format == format ? "selected":""'></span>
+							{{name}}
 						</p>
 						<div class='clear'></div>
 					</td>
 					<td class='services'>
-							<div class='service'>
-								<div class='checkbox' ng-click='entidad.service = "g"' ng-class='entidad.service == "g" ? "selected":""'></div>
-								<div class='icon google'></div>
-								<p>Google</p>
-							</div>
-							<div class='service'>
-								<div class='checkbox' ng-click='entidad.service = "r"' ng-class='entidad.service == "r" ? "selected":""'></div>
-								<div class='icon rackspace'></div>
-								<p>Rackspace</p>
-							</div>
-							<div class='service'>
-								<div class='checkbox' ng-click='entidad.service = "a"' ng-class='entidad.service == "a" ? "selected":""'></div>
-								<div class='icon amazon'></div>
-								<p>Amazon</p>
+							<div class='service' ng-repeat="mirror in mirrors" ng-init="mirrorLow = mirror.toLowerCase()" ng-show="formatDis(entidad, entidad.format, mirrorLow.charAt(0))">
+								<div class='checkbox' ng-click='entidad.service = mirrorLow.charAt(0)' ng-class='entidad.service == mirrorLow.charAt(0) ? "selected":""'></div>
+								<div ng-class="['icon', mirrorLow]"></div>
+								<p>{{mirror}}</p>
 							</div>
 					</td>
 					<td class='download'>

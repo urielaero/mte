@@ -20,6 +20,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/tr_inmuebles.csv.zip",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/tr_inmuebles.csv.zip",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/tr_inmuebles.csv.zip",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/supervisores_nac.csv"
   },
   {
     "entidad":1,
@@ -42,6 +43,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/01/01_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/01/01_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/01/01_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_1.csv"
   },
   {
     "entidad":2,
@@ -64,6 +66,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/02/02_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/02/02_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/02/02_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_2.csv"
   },
   {
     "entidad":3,
@@ -86,6 +89,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/03/03_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/03/03_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/03/03_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_3.csv"
   },
   {
     "entidad":4,
@@ -108,6 +112,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/04/04_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/04/04_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/04/04_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_4.csv"
   },
   {
     "entidad":5,
@@ -130,6 +135,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/05/05_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/05/05_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/05/05_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_5.csv"
   },
   {
     "entidad":6,
@@ -152,6 +158,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/06/06_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/06/06_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/06/06_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_6.csv"
   },
   {
     "entidad":7,
@@ -174,6 +181,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/07/07_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/07/07_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/07/07_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_7.csv"
   },
   {
     "entidad":8,
@@ -196,6 +204,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/08/08_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/08/08_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/08/08_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_8.csv"
   },
   {
     "entidad":9,
@@ -218,6 +227,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/09/09_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/09/09_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/09/09_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_9.csv"
   },
   {
     "entidad":10,
@@ -240,6 +250,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/10/10_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/10/10_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/10/10_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_10.csv"
   },
   {
     "entidad":11,
@@ -262,6 +273,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/11/11_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/11/11_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/11/11_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_11.csv"
   },
   {
     "entidad":12,
@@ -284,6 +296,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/12/12_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/12/12_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/12/12_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_12.csv"
   },
   {
     "entidad":13,
@@ -306,6 +319,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/13/13_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/13/13_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/13/13_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_13.csv"
   },
   {
     "entidad":14,
@@ -328,6 +342,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/14/14_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/14/14_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/14/14_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_14.csv"
   },
   {
     "entidad":15,
@@ -350,6 +365,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/15/15_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/15/15_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/15/15_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_15.csv"
   },
   {
     "entidad":16,
@@ -372,6 +388,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/16/16_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/16/16_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/16/16_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_16.csv"
   },
   {
     "entidad":17,
@@ -394,6 +411,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/17/17_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/17/17_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/17/17_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_17.csv"
   },
   {
     "entidad":18,
@@ -416,6 +434,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/18/18_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/18/18_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/18/18_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_18.csv"
   },
   {
     "entidad":19,
@@ -438,6 +457,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/19/19_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/19/19_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/19/19_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_19.csv"
   },
   {
     "entidad":20,
@@ -460,6 +480,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/20/20_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/20/20_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/20/20_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_20.csv"
   },
   {
     "entidad":21,
@@ -482,6 +503,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/21/21_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/21/21_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/21/21_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_21.csv"
   },
   {
     "entidad":22,
@@ -504,6 +526,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/22/22_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/22/22_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/22/22_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_22.csv"
   },
   {
     "entidad":23,
@@ -526,6 +549,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/23/23_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/23/23_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/23/23_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_23.csv"
   },
   {
     "entidad":24,
@@ -548,6 +572,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/24/24_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/24/24_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/24/24_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_24.csv"
   },
   {
     "entidad":25,
@@ -570,6 +595,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/25/25_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/25/25_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/25/25_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_25.csv"
   },
   {
     "entidad":26,
@@ -592,6 +618,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/26/26_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/26/26_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/26/26_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_26.csv"
   },
   {
     "entidad":27,
@@ -614,6 +641,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/27/27_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/27/27_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/27/27_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_27.csv"
   },
   {
     "entidad":28,
@@ -636,6 +664,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/28/28_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/28/28_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/28/28_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_28.csv"
   },
   {
     "entidad":29,
@@ -658,6 +687,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/29/29_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/29/29_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/29/29_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_29.csv"
   },
   {
     "entidad":30,
@@ -680,6 +710,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/30/30_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/30/30_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/30/30_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_30.csv"
   },
   {
     "entidad":31,
@@ -702,6 +733,7 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/31/31_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/31/31_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/31/31_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_31.csv"
   },
   {
     "entidad":32,
@@ -724,5 +756,6 @@ $archivosEntidad = [
     "UTF_INMUEBLES_A":"https://s3-us-west-1.amazonaws.com/cemabe/archivos_csv_utf8/32/32_tr_inmuebles.csv",
     "UTF_INMUEBLES_G":"http://storage.googleapis.com/cemabe/archivos_csv_utf8/32/32_tr_inmuebles.csv",
     "UTF_INMUEBLES_R":"http://9f0fda65d2ce0b27aaf2-105ac619070a816e0b7aa45dafa2da41.r45.cf1.rackcdn.com/cemabe/archivos_csv_utf8/32/32_tr_inmuebles.csv",
+    "SUPERVISORES_R": "http://c48d410e5b26c76a66bc-5ecfdb5845a95c69235f1210102ef61d.r9.cf1.rackcdn.com/sup_32.csv"
   }
 ]
