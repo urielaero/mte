@@ -82,7 +82,7 @@
 							</div>
 					</td>
 					<td class='download'>
-						<p><a ng-href='{{getLink(entidad)}}'></a></p>
+						<p><a ng-href='{{getLink(entidad)}}' download></a></p>
 					</td>
 				</tr>
 			</tbody>
