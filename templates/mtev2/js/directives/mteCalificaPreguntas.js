@@ -1,6 +1,6 @@
 (function () {
     var controller = function($scope,$http){
-        $scope._map = [[0,1],[2,3],[4,5]]
+        $scope._map = [[0,1],[2,3],[4,5], [6,7],[8,9],[10,11],[12,13],[14,15]]
         $scope.icons =["icon-programaapoyo-01","icon-check-01","icon-familia-01","icon-escuela-01","icon-desk-01","icon-buscar-01"];
         $scope.preguntas = [];
         var preguntas;
