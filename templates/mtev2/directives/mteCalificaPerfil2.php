@@ -18,7 +18,9 @@
 		<div flex="10" class="icon-container" hide-sm>
 			<i class="icon-comentario-01"></i>
 		</div>						
-		<textarea flex="90" flex-sm="100" placeholder="Deja un comentario de esta escuela o biblioteca aquí" ng-model="input.comentario"></textarea>
+		<textarea flex="90" flex-sm="100" 
+		placeholder="Deja un comentario de esta escuela o biblioteca aquí &#10;-Sé constructivo &#10;-Utiliza lenguaje respetuoso" 
+		ng-model="input.comentario"></textarea>
 	</div>
 	<div class="extra animated fadeInDown" ng-show="toggleForm">
 		<div class="fields" layout="row" layout-margin layout-fill layout-padding>
