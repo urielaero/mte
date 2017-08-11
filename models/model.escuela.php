@@ -215,9 +215,14 @@ class escuela extends memcached_table{
 
             $this->censo = $censo;
             if(isset($this->verificado) && !$this->verificado && $this->censo && isset($this->censo['telefono'])) $this->telefono = $this->censo['telefono'];
+
             if($this->censo && isset($this->censo['persona_responsable'])) $this->director = $this->censo['persona_responsable'];
-            if($this->censo && isset($this->censo['calle'])) $this->domicilio = $this->censo['calle'].' no.'.$this->censo['numero_dir'];
-            if($this->censo && isset($this->censo['calle'])) $this->domicilio = $this->censo['calle'].' no.'.$this->censo['numero_dir'];
+	    if (isset($this->verificado) && !$this->verificado && $this->censo) {
+		if($this->censo && isset($this->censo['calle'])) $this->domicilio = $this->censo['calle'].' no.'.$this->censo['numero_dir'];
+		if($this->censo && isset($this->censo['calle'])) $this->domicilio = $this->censo['calle'].' no.'.$this->censo['numero_dir'];
+	    
+	    }
+
             #if($this->censo && isset($this->censo['localidad_en_mapa'])) $this->localidad->nombre = $this->censo['localidad_en_mapa'];
             #if($this->censo && isset($this->censo['municipio_en_mapa'])) $this->municipio->nombre = $this->censo['municipio_en_mapa'];
             #if($this->censo && isset($this->censo['edo_en_mapa'])) $this->entidad->nombre = $this->censo['edo_en_mapa'];

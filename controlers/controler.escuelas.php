@@ -166,7 +166,7 @@ class escuelas extends main{
         if( isset($this->escuela->cct) && $this->escuela->cct != $this->escuela->id){
 			//verificado,
 			$this->escuela->read("
-				id,nombre,domicilio,paginaweb,
+				id,nombre,domicilio,paginaweb,verificado,
 				total_alumnos,total_personal,total_grupos
 				entidad=>nombre,entidad=>id,municipio=>id,municipio=>nombre,localidad=>nombre,localidad=>id,
 				telefono,correoelectronico,
