@@ -31,7 +31,7 @@
 					<select ng-model='params.zona' ng-options='zona as zona.nombre.capitalize() for zona in zonas' ></select>
 					<label>Nivel escolar</label>
 					<p ng-repeat='nivel in niveles' ><md-checkbox ng-model='params.niveles[nivel.id]' aria-label="nivel.label">{{nivel.label}}</md-checkbox></p>
-					<label>Programas</label>
+					<label>Tipo de programa</label>
 					<p ng-repeat='control in controles' ><md-checkbox ng-model='params.controles[control.id]'aria-label="control.label">{{control.label}}</md-checkbox></p>
 				</form>
 			</div>
@@ -55,7 +55,7 @@
 							<tr>
 								<th class="footable-first-column">Programa</th>
 								<th data-hide="phone">Zona de cobertura</th>
-								<th class="footable-last-column">Federal | Organización civil</th>
+								<th class="footable-last-column">Gobierno federal | Organización civil</th>
 							</tr>
 						</thead>
 						<tbody>

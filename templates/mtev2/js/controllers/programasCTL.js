@@ -23,7 +23,7 @@ app.controller("programasCTL", ['$scope', '$location',function ($scope, $locatio
 				id : 0,
 			},
 			'1' : {
-				label : 'Federal',
+				label : 'Gobierno federal',
 				id : 1,
 			}
 		};
@@ -65,7 +65,8 @@ app.filter('programasFilter', function () {
     		if(params.tema != prog.tema_especifico) evaluate = false;
     	}
     	if(params.zona.nombre != 'Nacional'){
-    		var entidades = prog.lista_entidades.split(',');
+		var entidades = prog.lista_entidades || '';
+    		entidades = entidades.split(',');
     		var found = false;
     		entidades.forEach(function(entidad){
     			if(entidad == params.zona.id) found = true;
@@ -73,7 +74,8 @@ app.filter('programasFilter', function () {
     		if(!found) evaluate = false;
     	}
     	if(params.niveles.length > 0){
-    		var niveles = prog.lista_niveles.split(',');
+    		var niveles = prog.lista_niveles || ''
+		niveles = niveles.split(',');
     		params.niveles.forEach(function(val,n){
     			if(val && ! niveles.indexOf(n.toString())) evaluate = false;
     		});
