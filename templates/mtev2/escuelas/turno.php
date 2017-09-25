@@ -531,18 +531,6 @@ EOD;
 			<?php $this->escuela_per_turno->current_semaforo = $this->escuela_per_turno->semaforo;
 			$this->include_template('semaphore','escuelas'); ?>
 		</div>
-        <div class="donation-form general paypal">
-            <a href="/donativos" class="donation" layout="column" layout-align="space-between center" layout-wrap>
-                <div class="crop" flex ></div>
-                <div flex class="text-content">
-                    <p class="text">¿Quieres ayudarnos a seguir 
-                    <br>
-                    mejorando la educación?
-                    <br>
-                    <span>¡Realiza un donativo!</span></p>
-                </div>
-            </a>
-        </div>
         <div class="donation-form general paypal safe <?=isset($this->escuela->programas['sismo_seguro'])?"":"hidden"?> ">
             <a href="/programas/index/51" class="donation" layout="column" layout-align="space-between center" layout-wrap>
                 <div class="crop" flex ></div>
@@ -558,6 +546,19 @@ EOD;
                 </div>
             </a>
         </div>
+        <div class="donation-form general paypal">
+            <a href="/donativos" class="donation" layout="column" layout-align="space-between center" layout-wrap>
+                <div class="crop" flex ></div>
+                <div flex class="text-content">
+                    <p class="text">¿Quieres ayudarnos a seguir 
+                    <br>
+                    mejorando la educación?
+                    <br>
+                    <span>¡Realiza un donativo!</span></p>
+                </div>
+            </a>
+        </div>
+
 
 
 		<div class="adsbygoogle-content">
