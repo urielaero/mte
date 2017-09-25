@@ -543,6 +543,21 @@ EOD;
                 </div>
             </a>
         </div>
+        <div class="donation-form general paypal safe <?=isset($this->escuela->programas['sismo_seguro'])?"":"hidden"?> ">
+            <a href="/programas/index/51" class="donation" layout="column" layout-align="space-between center" layout-wrap>
+                <div class="crop" flex ></div>
+                <div flex class="text-content">
+                    <p class="text">
+		    <strong>"Escuela segura después del sismo"</strong>
+		    <br>
+		    <span class="red">YA REANUDÓ CLASES</span>
+		    <strong class="src">Fuente:</strong>
+		    <br>
+		    <span class="source">SEP Federal o autoridad educativa local</span>
+                    </p>
+                </div>
+            </a>
+        </div>
 
 
 		<div class="adsbygoogle-content">
@@ -611,17 +626,14 @@ EOD;
 				<?php
 				foreach($this->programas_osc as $programa){
 					if ($programa->m_collection == 'sismo_seguro') {
-					
-					
 				?>
 					<li layout='row' <?=isset($this->escuela->programas[$programa->m_collection])?"class='on'":""?>>
-		
 						<div flex="25"><i class="icon-"></i></div>
 						<div flex="75"><a href="/programas/index/<?php echo $programa->id ?>"><?=$programa->nombre?></a></div>
 					</li>
 				<? }
 				} ?>
-				<?php 
+				<?php
 				   $educaccion = isset($this->escuela->programas["educaccion"])? true:false;
 				   //fast but bat hidden...
 				   if($educaccion && false){
