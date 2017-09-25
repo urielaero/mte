@@ -591,7 +591,7 @@ EOD;
 			<div class="no <?=$on!='Censado'?'on':'';?>"><span class="circle"></span>No</div>
 		</div>
 	<?php } ?>
-		<div class="programs">
+		<div class="programs hidden">
 			<h5>Programas federales</h5>
 			<ul>
 				<?php
