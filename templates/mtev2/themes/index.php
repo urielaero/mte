@@ -8,7 +8,7 @@
 	<link rel="shortcut icon" href="<?=$this->config->http_address?>/templates/<?=$this->config->theme?>/img/favicon.ico" />
 	<?php
 		$css_scripts = array(
-			"importer.css",
+			"importer.css?date=12",
 			"perfect-scrollbar.min.css",
 			"fontello.css",
 			"fontello-ie7.css",
