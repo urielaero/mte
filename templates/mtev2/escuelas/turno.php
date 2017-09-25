@@ -610,7 +610,7 @@ EOD;
 			<ul>
 				<?php
 				foreach($this->programas_osc as $programa){
-					if ($programa == 'sismo_seguro') {
+					if ($programa->m_collection == 'sismo_seguro') {
 					
 					
 				?>
