@@ -557,9 +557,11 @@ EOD;
                 <div class="crop" flex ></div>
                 <div flex class="text-content">
                     <p class="text">
-		    <strong>"Escuela segura después del sismo"</strong>
-		    <br>
-		    <span class="red">YA REANUDÓ CLASES</span>
+		    <strong>
+		    Escuela CON dictámen para
+		    reanudar clases después del
+		    sismo.
+		    </strong>
 		    <strong class="src">Fuente:</strong>
 		    <br>
 		    <span class="source">SEP Federal o autoridades
