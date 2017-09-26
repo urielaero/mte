@@ -562,6 +562,7 @@ EOD;
 		    reanudar clases después del
 		    sismo.
 		    </strong>
+		    <br>
 		    <strong class="src">Fuente:</strong>
 		    <br>
 		    <span class="source">SEP Federal o autoridades
