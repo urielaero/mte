@@ -1365,6 +1365,7 @@ text-align: justify;}
 .donation{padding-left: 13px; background:red;margin-bottom: 8px; max-width: 99%; background-color: #9C2B9F;}
 
 .safe .donation .crop{background: no-repeat; background-image:url(../img/safe2.png); height: 93px;}
+.un.safe .donation .crop{background: no-repeat; background-image:url(../img/notsafe.png); height: 93px; background-size: 72px;}
 
 .donation-invisibility{visibility: hidden; position: absolute;}
 

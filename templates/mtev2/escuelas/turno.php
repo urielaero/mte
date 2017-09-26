@@ -531,7 +531,28 @@ EOD;
 			<?php $this->escuela_per_turno->current_semaforo = $this->escuela_per_turno->semaforo;
 			$this->include_template('semaphore','escuelas'); ?>
 		</div>
-        <div class="donation-form general paypal safe <?=isset($this->escuela->programas['sismo_seguro'])?"":"hidden"?> ">
+		<?php
+			$show_sismo = isset($this->escuela->programas['sismo_seguro']);
+			$not_safe = !$show_sismo && in_array($this->escuela->entidad->id, array(7, 9,12,13,15,16,17,20,21));
+		?>
+
+        <div class="donation-form general paypal un safe <?=$not_safe?"":"hidden"?> ">
+            <a href="/programas/index/51" class="donation" layout="column" layout-align="space-between center" layout-wrap>
+                <div class="crop" flex ></div>
+                <div flex class="text-content">
+                    <p class="text">
+		    <span class="red">Escuela aún NO tiene dictámen</span>
+			para reanudar clases después del
+		    	sismo.
+		    <strong class="src">Fuente:</strong>
+		    <br>
+		    <span class="source">SEP Federal o autoridades
+		    educativas locales</span>
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="donation-form general paypal safe <?=$show_sismo?"":"hidden"?> ">
             <a href="/programas/index/51" class="donation" layout="column" layout-align="space-between center" layout-wrap>
                 <div class="crop" flex ></div>
                 <div flex class="text-content">
@@ -541,7 +562,8 @@ EOD;
 		    <span class="red">YA REANUDÓ CLASES</span>
 		    <strong class="src">Fuente:</strong>
 		    <br>
-		    <span class="source">SEP Federal o autoridad educativa local</span>
+		    <span class="source">SEP Federal o autoridades
+		    educativas locales</span>
                     </p>
                 </div>
             </a>
