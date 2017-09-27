@@ -1,6 +1,6 @@
 		<?php
 			$show_sismo = isset($this->escuela->programas['sismo_seguro']);
-			$not_safe = !$show_sismo && in_array($this->escuela->entidad->id, array(7, 9,12,13,15,16,17,20,21));
+			$not_safe = !$show_sismo && in_array($this->escuela->entidad->id, array(7, 9,12,13,15,16,17,20,21,29));
 		?>
 
         <div class="donation-form general paypal un safe <?=$not_safe?"":"hidden"?> ">

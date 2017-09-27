@@ -1363,6 +1363,7 @@ text-align: justify;}
 .donation .text span{font-size: 24px; font-weight: bold; color: white; line-height: 1px;}
 .donation .crop{background: no-repeat; background-image:url(../img/manos.png); height: 93px;}
 .donation{padding-left: 13px; background:red;margin-bottom: 8px; max-width: 99%; background-color: #9C2B9F;}
+a.donation{display:block}
 
 .safe .donation .crop{background: no-repeat; background-image:url(../img/safe2.png); height: 93px;}
 .un.safe .donation .crop{background: no-repeat; background-image:url(../img/notsafe.png); height: 93px; background-size: 72px;}
@@ -1370,7 +1371,7 @@ text-align: justify;}
 .donation-invisibility{visibility: hidden; position: absolute;}
 
 .general.paypal{margin-top: 10px;}
-.general.paypal .crop{width: 100px;background-size: 87px; margin-top: 8px;}
+.general.paypal .crop{width: 100px;background-size: 87px; margin: 8px auto}
 .general.paypal .text-content{background-color:transparent;margin-top: -27px;}
 .general.paypal .text{padding: 0; font-size: 15px; line-height: normal;}
 .general.paypal .text span{font-size: 19px; display: block; padding: 14px 0 30px;}
@@ -1378,7 +1379,7 @@ text-align: justify;}
 .general.safe .text-content{margin-top: 0px;}
 .general.safe .crop{width: 67px;background-size: 69px; margin-top: 30px;}
 .general.safe .donation{padding: 0 0 23px 0; margin-bottom: 8px; max-width: 99%; background-color: #05A2EA;}
-.general.safe span.red{color: #C10D88; font-size: 16px; padding-bottom: 19px;}
+.general.safe span.red{color: #C10D88; font-size: 16px; padding-bottom: 19px;line-height: normal;}
 .general.safe .text strong.src{font-size: 12px;}
 .general.safe .text span.source{font-size: 15px; font-weight: 100; line-height: normal; padding-top: 0;}
 .general.safe .text span{padding: 10px;}
