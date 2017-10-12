@@ -12,8 +12,8 @@
 				window.blogAddress = '<?php echo $this->config->blog_address ?>';
 			</script>
 			<a href="/donativos" class="donation" layout="row" layout-align="space-between center" layout-wrap>
-				<div class="crop" flex="20" ></div>
-				<div flex="80" class="text-content">
+				<div class="text-content">
+				<img class="donation-svg" src="/templates/mtev2/img/donativo.svg" alt="">
 					<p class="text">¿Quieres ayudarnos a seguir mejorando la educación?
                     <br>
                     

@@ -1358,8 +1358,8 @@ text-align: justify;}
 .leaflet-control-layers-toggle{background-image: url(../img/layers.png) !important;}
 
 .video-container{max-width: 99%;}
-.donation .text-content{background-color: #A633AA;}
-.donation .text{text-align:center; padding: 27px 0 22px; font-size: 18px; color: white;}
+.donation .text-content{background-color: #A633AA;padding-top:10px;}
+.donation .text{text-align:center; font-size: 18px; color: white;}
 .donation .text span{font-size: 24px; font-weight: bold; color: white; line-height: 1px;}
 .donation .crop{background: no-repeat; background-image:url(../img/manos.png); height: 93px;}
 .donation{padding-left: 13px; background:red;margin-bottom: 8px; max-width: 99%; background-color: #9C2B9F;}
@@ -1399,3 +1399,4 @@ a.donation{display:block}
 #donativos .buttons a{background: #A633AA; padding: 10px 54px; margin: 33px 21px; text-align: center; font-size: 18px; font-weight: bold; width: 278px; color: white;} 
 #donativos .logos .mte{height:62px;}  
 #donativos .logos img{margin-top: 106px;}
+.donation-svg{margin:0 auto;width: 50px; height: 60px; display: block;}
