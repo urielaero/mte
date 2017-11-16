@@ -167,7 +167,7 @@ class escuelas extends main{
 			//verificado,
 			$this->escuela->read("
 				id,nombre,domicilio,paginaweb,verificado,
-				total_alumnos,total_personal,total_grupos
+				total_alumnos,total_personal,total_grupos,
 				entidad=>nombre,entidad=>id,municipio=>id,municipio=>nombre,localidad=>nombre,localidad=>id,
 				telefono,correoelectronico,
 				turno=>id,turno=>nombre,
