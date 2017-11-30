@@ -561,7 +561,7 @@ EOD;
 			<div class="no <?=$on!='Censado'?'on':'';?>"><span class="circle"></span>No</div>
 		</div>
 	<?php } ?>
-		<div class="programs hidden">
+		<div class="programs">
 			<h5>Programas federales</h5>
 			<ul>
 				<?php
@@ -580,14 +580,12 @@ EOD;
 			<ul>
 				<?php
 				foreach($this->programas_osc as $programa){
-					if ($programa->m_collection == 'sismo_seguro') {
 				?>
 					<li layout='row' <?=isset($this->escuela->programas[$programa->m_collection])?"class='on'":""?>>
 						<div flex="25"><i class="icon-"></i></div>
 						<div flex="75"><a href="/programas/index/<?php echo $programa->id ?>"><?=$programa->nombre?></a></div>
 					</li>
-				<? }
-				} ?>
+				<? } ?>
 				<?php
 				   $educaccion = isset($this->escuela->programas["educaccion"])? true:false;
 				   //fast but bat hidden...
