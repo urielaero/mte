@@ -12,17 +12,23 @@ class programas extends main{
 	public function index(){
 		/* Obtiene los datos necesarios para el correcto funcionamiento de las vistas. */
 		$this->programa_info();
-        $this->load_programas();
+		if(!isset($this->programa->nombre)) {
+			$this->header_folder = '';
+			header('HTTP/1.0 404 Not Found');
+			header('Location: /home/e404');
+			exit();	
+		}
+		$this->load_programas();
 		$this->title_header = 'Programas';
-        $this->page_title = $this->programa->nombre.' | Mejora tu Escuela';
+		$this->page_title = $this->programa->nombre.' | Mejora tu Escuela';
 		$this->header_folder = 'compara';
 		$this->breadcrumb = array('/mejora/programas/'=>'Programas');
 		$this->subtitle_header = '
 			MejoraTuEscuela.org es una plataforma que busca <br />
 			promover la participación ciudadana para transformar <br />
 			la educación en México.';
-        $this->header_folder = 'mejora';
-        $this->draw_map = true;
+		$this->header_folder = 'mejora';
+		$this->draw_map = true;
 		$this->include_theme('index','index');
 	}
 
