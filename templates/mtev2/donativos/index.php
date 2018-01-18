@@ -34,7 +34,7 @@
                 <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
                 <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
             </form>
-            <a ng-show="!loader" ng-click="toPaypal('.unique')" href="">Donativo unico</a>
+            <a ng-show="!loader" ng-click="toPaypal('.unique')" href="" ga="'send', 'event', 'donativo', 'click'">Donativo unico</a>
             <a ng-show="0 && !loader" href="">Donativo mensual</a>
 
          </div>

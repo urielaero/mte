@@ -29,23 +29,23 @@
 		<div class="menu-top">
 			<div class="tabs">
 			    <md-tabs md-selected="selectedIndex">
-			    	<md-tab class="general-tab" aria-controls="tab1-content">
+			    	<md-tab class="general-tab" aria-controls="tab1-content" ga="'send', 'event', 'comparador', 'click', 'general'">
 			    		<i class="icon-general-01"></i>
 			    		<p>General</p>
 			      	</md-tab>
-			      	<md-tab class="results-tab" aria-controls="tab2-content">
+			      	<md-tab class="results-tab" aria-controls="tab2-content" ga="'send', 'event', 'comparador', 'click', 'resultados-por-año'">
 			      		<i class="icon-calendar"></i>
 			      		<p>Resultados por año</p>
 			      	</md-tab>
-			    	<md-tab class="student-tab" aria-controls="tab1-content">
+			    	<md-tab class="student-tab" aria-controls="tab1-content"  ga="'send', 'event', 'comparador', 'click', 'desempeño-por-alumno'">
 			    		<i class="icon-student"></i>
 			    		<p>Desempeño por alumno</p>
 			      	</md-tab>
-			      	<md-tab class="map-tab" aria-controls="tab2-content">
+			      	<md-tab class="map-tab" aria-controls="tab2-content"  ga="'send', 'event', 'comparador', 'click', 'mapa'">
 			      		<i class="icon-mapa"></i>
 			      		<p>Mapa</p>
 			      	</md-tab>
-			    </md-tabs>				
+			    </md-tabs>
 			</div>
 		</div>
 		<ng-switch on="selectedIndex" class="tabpanel-container">

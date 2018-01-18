@@ -40,7 +40,7 @@ $not_safe = !$show_sismo && in_array($this->escuela->entidad->id, array(7, 9,12,
 */
 ?>
 <div class="donation-form general paypal">
-    <a href="/donativos" class="donation" layout="column" layout-align="space-between center" layout-wrap>
+    <a ga="'send', 'event', 'perfil', 'click', 'donativos'" href="/donativos" class="donation" layout="column" layout-align="space-between center" layout-wrap>
 	<div class="crop" flex ></div>
 	<div flex class="text-content">
 	    <p class="text">¿Quieres ayudarnos a seguir 

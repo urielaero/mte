@@ -137,7 +137,7 @@ $educaccion = isset($this->escuela->programas["educaccion"]);
 					<?php } ?>
 						<p ng-show="showRankBy('to-planea')">Posición estatal <?=$this->escuela->planea->rank_entidad?> <span>de</span> <?=number_format($this->entidad_cct_count,0)?></p>
 					</div>
-				</div>			
+				</div>
 			</div>
 			<div class="tabs" flex="30" flex-sm="100">
 			    <md-tabs md-selected="selectedIndex" ng-click="loadCharts()">
@@ -147,10 +147,10 @@ $educaccion = isset($this->escuela->programas["educaccion"]);
 				        	<?=$escuela->nombre?>
 				      	</md-tab>
 				<?php } ?>
-			    </md-tabs>				
+			    </md-tabs>
 			</div>
 			<div flex="15" flex-sm="100" class="compare-link">
-				<a ng-click="comparar()" class="full-size-link"></a>
+				<a ga="'send', 'event', 'perfil', isSelected?'seleccionar':'quitar', 'comparar'" ng-click="comparar()" class="full-size-link"></a>
 				<div class="icon-wrapper vertical-align-center horizontal-align-center">
 					<div flex="column">
 						<div><i class="icon-compara-01"></i></div>

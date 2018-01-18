@@ -124,7 +124,7 @@
                                     ng-href='/escuelas/index/{{escuela.cct}}' ng-click="clickSchool($event,escuela)" class="cont-datos-escuela">
 										<span class="cont-ico-compara" layout='row' layout-align='center center'>
 											<span class="h3-iconmejora">
-												<span class="circulo-icon-mejora" ng-click='toggleSchool(escuela,$event)'  >
+												<span class="circulo-icon-mejora" ng-click='toggleSchool(escuela,$event)' ga="'send', 'event', 'seleccionar-para-comparar', 'click'" >
 												   <i ng-class='isChecked(escuela)' class="mejora-icon"></i>
 												</span>
 											</span>
@@ -163,7 +163,7 @@
 					</tbody>
 				</table>
 			</div>
-			<a href="/compara/escuelas/" class="compare-button" ng-show='hasSelected()'>Comparar</a>
+			<a ga="'send', 'event', 'comparar-seleccionados', 'click'" href="/compara/escuelas/" class="compare-button" ng-show='hasSelected()'>Comparar</a>
 			<div ng-show='showSearch' class="pagination">			
 
 				<a href="" 

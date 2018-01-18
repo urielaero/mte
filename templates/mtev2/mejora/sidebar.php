@@ -10,7 +10,7 @@
 			<div mte-suscribe></div>
 
 			<div class="box box-orange">
-				<a href="/mejora/programas#?tema=Infraestructura escolar" class="full-size-link"></a>
+				<a  ga="'send', 'event', 'mejora', 'click', 'mejora-tu-entorno'" href="/mejora/programas#?tema=Infraestructura escolar" class="full-size-link"></a>
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
@@ -21,7 +21,7 @@
 				</div>
 			</div>
 			<div class="box box-green">
-				<a href="/mejora/programas" class="full-size-link"></a>
+				<a ga="'send', 'event', 'mejora', 'click', 'herramientas-de-mejora'" href="/mejora/programas" class="full-size-link"></a>
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">
@@ -32,7 +32,7 @@
 				</div>
 			</div>
 			<div class="box box-purple">
-				<a href="/mejora/programas#?tema=Mejora del desempeño académico" class="full-size-link"></a>				
+				<a ga="'send', 'event', 'mejora', 'click', 'mejora-tu-aprendizaje'" href="/mejora/programas#?tema=Mejora del desempeño académico" class="full-size-link"></a>
 				<div layout="row">
 					<div flex="25" class="icon-container">
 						<div class="icon-wrapper vertical-align-center horizontal-align-center">

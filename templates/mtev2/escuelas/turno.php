@@ -40,7 +40,7 @@ $num_grupos = $this->escuela->total_grupos ? $this->escuela->total_grupos : $num
 					<div flex="65">
 						<h4>Califica tu escuela</h4>
 					</div>
-					<a href="califica_tu_escuela/califica/<?=$this->escuela->cct?>" class="full-size-link"></a>
+					<a ga="'send', 'event', 'perfil', 'click', 'califica_tu_escuela'" href="califica_tu_escuela/califica/<?=$this->escuela->cct?>" class="full-size-link"></a>
 				</div>
 				<div class="block school-banner-form">
 					<ul>
@@ -176,14 +176,14 @@ $num_grupos = $this->escuela->total_grupos ? $this->escuela->total_grupos : $num
 			<div flex="100" flex-sm="100">
 				<?php if($this->escuela->infraestructura): ?>
 					<div layout="row" class="scroll-links space-between">
-						<a href="#desempeno" ng-click="scrollTo('desempeno',$event)" class="link desempeno-tab" flex="32">Desempeño<br/>académico</a>
+						<a ga="'send', 'event', 'perfil', 'click', 'desempeño-académico'" href="#desempeno" ng-click="scrollTo('desempeno',$event)" class="link desempeno-tab" flex="32">Desempeño<br/>académico</a>
 						<a href="#infraestructura" ng-click="scrollTo('infraestructura',$event)" class="link infraestructura-tab" flex="32">Infraestructura<br/>escolar</a>
-						<a href="#comentarios" ng-click="scrollTo('comentarios',$event)" class="link comentarios-tab" flex="32">Comentarios y<br/>reportes</a>
+						<a  ga="'send', 'event', 'perfil', 'click', 'comentarios-reportes'"  href="#comentarios" ng-click="scrollTo('comentarios',$event)" class="link comentarios-tab" flex="32">Comentarios y<br/>reportes</a>
 					</div>
 				<?php else: ?>	
 					<div layout="row" class="scroll-links space-between">
-						<a href="#desempeno" ng-click="scrollTo('desempeno',$event)" class="link desempeno-tab" flex="48">Desempeño<br/>académico</a>
-						<a href="#comentarios" ng-click="scrollTo('comentarios',$event)" class="link comentarios-tab" flex="48">Comentarios y<br/>reportes</a>
+						<a  ga="'send', 'event', 'perfil', 'click', 'desempeño-académico'" href="#desempeno" ng-click="scrollTo('desempeno',$event)" class="link desempeno-tab" flex="48">Desempeño<br/>académico</a>
+						<a  ga="'send', 'event', 'perfil', 'click', 'comentarios-reportes'" href="#comentarios" ng-click="scrollTo('comentarios',$event)" class="link comentarios-tab" flex="48">Comentarios y<br/>reportes</a>
 					</div>
 				<?php endif; ?>
 				<div  class="desempeno" id="desempeno">

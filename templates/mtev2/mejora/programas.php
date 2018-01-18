@@ -23,7 +23,7 @@
 					<label>Programa</label>
 					<div layout="row" class="text-field">
 						<input type="text" ng-model='params.text' flex="80" placeholder="Ej. Programa escuela segura">
-						<input type="submit" value="" flex="20">
+						<input type="submit" value="" flex="20" ga="'send', 'event', 'programas-de-apoyo', 'buscar'">
 					</div>
 					<label>Tema de enfoque</label>
 					<select ng-model='params.tema' ng-options='tema as tema for tema in temas' ></select>
