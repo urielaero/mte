@@ -1,6 +1,6 @@
 <?php
 class memcached_table extends table{
-	function read($fields){
+	function read($fields, &$conn=null){
 		//$time_start = microtime(true);
 		if(class_exists('Memcache') && false){
 			$memcache = new Memcache;

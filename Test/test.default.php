@@ -5,7 +5,7 @@ class defaultTest extends PHPUnit_Framework_TestCase{
 //class defaultTest{
 
 	public function setUp(){
-		$path = __DIR__."/../"; 
+		$path = __DIR__."/../";
 		//export APPLICATION_ENV="name_config"
 		$config_name = getenv('APPLICATION_ENV');
 		if(!$config_name)
@@ -24,6 +24,13 @@ class defaultTest extends PHPUnit_Framework_TestCase{
 		AutoLoader::registerDirectory($this->pathProject."library");
 		AutoLoader::registerClass('turno',$this->pathProject."models/model.general.php");
 		AutoLoader::registerClass('entidad',$this->pathProject."models/model.general.php");
+		AutoLoader::registerClass('kaluz_escuela',$this->pathProject."models/model.kaluz.php");
+		AutoLoader::registerClass('kaluz_estatus_reconstruccion', $this->pathProject."models/model.kaluz.php");
+		AutoLoader::registerClass('kaluz_tipo_dano', $this->pathProject."models/model.kaluz.php");
+		AutoLoader::registerClass('kaluz_escuela_organizacion', $this->pathProject."models/model.kaluz.php");
+		AutoLoader::registerClass('kaluz_organizaciones', $this->pathProject."models/model.kaluz.php");
+		//var_dump('en', new entidad());
+
 
 	}
 }
