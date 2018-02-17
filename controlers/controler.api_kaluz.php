@@ -13,7 +13,15 @@ class api_kaluz extends main{
     }
 
     function find() {
-        $data = $this->schools(array("per_pages" => 500));
+        $where = $this->request_params(array("entidad"));
+        $params = array("per_pages" => 200, "where" => $where);
+        $data = $this->schools($params);
+        $data["meta"] = $params;
+        $this->res_json($data);
+    }
+
+    function group() {
+        $data = $this->counter();
         $this->res_json($data);
     }
 
@@ -44,6 +52,19 @@ class api_kaluz extends main{
         }
         $p = $this->normalize_obj($pagination);
         return array("data" => $objs, "pagination" => $p);
+    }
+
+    function counter($params=array()) {
+        $where = $this->get_array($params, "where", array());
+        $school = new kaluz_escuela(null, $this->conn);
+        $ents = $school->get_entidades();
+        $res = array();
+        foreach($ents as $ent) {
+            $w = array("where" => array("entidad" => $ent));
+            $sc = $this->schools($w);
+            $res[] = array("id" => $ent, "total" => $sc["pagination"]->count);
+        }
+        return $res;
     }
 
     private function check_orgs($sc) {
@@ -97,6 +118,17 @@ class api_kaluz extends main{
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
         echo json_encode($data);
+    }
+
+    private function request_params($params) {
+        $res = array();
+        foreach($params as $p) {
+            $req = $this->request($p);
+            if ($req != null) {
+                $res[$p] = $req;
+            }
+        }
+        return $res;
     }
 }
 ?>

@@ -28,7 +28,7 @@ class apiKaluzTest extends defaultTest{
     }
 
     public function test_get() {
-        $res = $this->controler->get("8161");
+        $res = $this->controler->get("4");
         $sc = $res["data"];
         $this->assertEquals($sc["cct"], "29KTV0029P");
         $this->assertEquals($sc["km_escuela_cercana"], 39.8);
@@ -45,9 +45,16 @@ class apiKaluzTest extends defaultTest{
     }
 
     function test_escuela_organizacion() {
-        $res = $this->controler->get("16304");
+        $res = $this->controler->get("8147");
         $sc = $res["data"];
         $this->assertCount(2, $sc["organizaciones"]);
+    }
+
+    function test_counter_by() {
+        $res = $this->controler->counter();
+        $r = $res[0];
+        $this->assertArrayHasKey("total", $r);
+        $this->assertCount(10, $res);
     }
 }
 

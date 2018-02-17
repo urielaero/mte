@@ -12,6 +12,21 @@ class kaluz_escuela extends table{
 		$this->has_many_keys['kaluz_escuela_organizacion'] = 'kaluz_escuela';
 
 	}
+
+    function get_entidades() {
+        $sql = 'select distinct entidad from kaluz_escuelas';
+        $result = pg_query($this->conn, $sql);
+        $ents = array();
+	    if ($result) {
+            while ($row = pg_fetch_assoc($result)){
+                $e = $row["entidad"];
+                if ($e != null) {
+                    $ents[] = $row["entidad"];
+                }
+            }
+        }
+        return $ents;
+    }
 }
 
 class kaluz_estatus_reconstruccion extends table{
