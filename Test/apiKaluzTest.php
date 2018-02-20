@@ -56,6 +56,14 @@ class apiKaluzTest extends defaultTest{
         $this->assertArrayHasKey("total", $r);
         $this->assertCount(10, $res);
     }
+
+    function test_find_name_as_full_text_search() {
+        $res = $this->controler->schools(array("where" => array("_nombre" => "colón")));
+        $this->assertCount(9, $res["data"]);
+        foreach ($res["data"] as $sc) {
+            $this->assertContains("CRISTOBAL", $sc["nombre"]);
+        }
+    }
 }
 
 ?>

@@ -13,8 +13,9 @@ class api_kaluz extends main{
     }
 
     function find() {
-        $where = $this->request_params(array("entidad"));
-        $params = array("per_pages" => 200, "where" => $where);
+        $where = $this->request_params(array("entidad", "_nombre", "nivel", "nombre"));
+        $per = $this->request("limit")?$this->request('limit'):200;
+        $params = array("per_pages" => $per, "where" => $where);
         $data = $this->schools($params);
         $data["meta"] = $params;
         $this->res_json($data);
@@ -45,10 +46,12 @@ class api_kaluz extends main{
 		$q->search_clause = $this->formate_search($where);
         $pagination = new pagination('kaluz_escuela', $per_pages, $q->search_clause, "p", $this->conn);
         $q->limit = $pagination->limit;
-        $ls = $q->read("id,cct,latitud,longitud,altitud");
+        $ls = $q->read("id,nombre,cct,latitud,longitud,altitud");
         $objs = array();
-        foreach($ls as $sc) {
-            $objs[] = $this->normalize_obj($sc);
+        if ($ls) {
+            foreach($ls as $sc) {
+                $objs[] = $this->normalize_obj($sc);
+            }
         }
         $p = $this->normalize_obj($pagination);
         return array("data" => $objs, "pagination" => $p);
@@ -108,7 +111,12 @@ class api_kaluz extends main{
     private function formate_search($where) {
         $search = "1 = 1 ";
         foreach($where as $k => $f) {
-            $search .= "AND $k = '$f'";
+            $v = pg_escape_string($f);
+            if ($k == "_nombre") {
+                $search .= "AND nombre_searchable_index @@ to_tsquery('spanish', '$f') ";
+            } else {
+                $search .= "AND $k = '$f'";
+            }
         }
 
         return $search;
