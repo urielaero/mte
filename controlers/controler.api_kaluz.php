@@ -13,7 +13,7 @@ class api_kaluz extends main{
     }
 
     function find() {
-        $where = $this->request_params(array("entidad", "_nombre", "nivel", "nombre"));
+        $where = $this->request_params(array("entidad", "_nombre", "nivel", "nombre", "kaluz_estatus_reconstruccion", "kaluz_tipo_dano", "kaluz_organizaciones", "total_alumnos"));
         $per = $this->request("limit")?$this->request('limit'):200;
         $params = array("per_pages" => $per, "where" => $where);
         $data = $this->schools($params);
@@ -46,7 +46,7 @@ class api_kaluz extends main{
 		$q->search_clause = $this->formate_search($where);
         $pagination = new pagination('kaluz_escuela', $per_pages, $q->search_clause, "p", $this->conn);
         $q->limit = $pagination->limit;
-        $ls = $q->read("id,nombre,cct,latitud,longitud,altitud");
+        $ls = $q->read("id,nombre,cct,latitud,longitud,altitud,kaluz_estatus_reconstruccion,kaluz_tipo_dano");
         $objs = array();
         if ($ls) {
             foreach($ls as $sc) {
@@ -110,10 +110,17 @@ class api_kaluz extends main{
 
     private function formate_search($where) {
         $search = "1 = 1 ";
+        $in = array("kaluz_estatus_reconstruccion", "kaluz_tipo_dano");
         foreach($where as $k => $f) {
             $v = pg_escape_string($f);
             if ($k == "_nombre") {
                 $search .= "AND nombre_searchable_index @@ to_tsquery('spanish', '$f') ";
+            } else if(in_array($k, $in)) {
+                $search .= " AND $k in ($v)";
+            } else if ($k == "total_alumnos") {
+                $search .= "AND total_alumnos >= 0 AND total_alumnos <= $v ";
+            } else if($k == "kaluz_organizaciones") {
+                $search .= "AND id in (SELECT kaluz_escuela from kaluz_escuela_organizacion where kaluz_organizacion in ($v) ) ";
             } else {
                 $search .= "AND $k = '$f'";
             }
