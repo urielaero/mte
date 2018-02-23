@@ -28,7 +28,7 @@ class api_kaluz extends main{
 
     function get($id) {
         $school = new kaluz_escuela($id, $this->conn);
-        $school->read("cct,nombre,km_escuela_cercana,total_alumnos,total_personal,longitud,latitud,altitud,
+        $school->read("id,cct,nombre,km_escuela_cercana,total_alumnos,total_personal,longitud,latitud,altitud,
         turno=>nombre,
         entidad=>nombre,entidad=>id,kaluz_tipo_dano=>id,kaluz_tipo_dano=>nombre,
         kaluz_estatus_reconstruccion=>nombre,estatus_reconstruccion=>id,
