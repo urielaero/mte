@@ -114,7 +114,7 @@ class api_kaluz extends main{
         foreach($where as $k => $f) {
             $v = pg_escape_string($f);
             if ($k == "_nombre") {
-                $search .= "AND nombre_searchable_index @@ to_tsquery('spanish', '$f') ";
+                $search .= "AND (nombre_searchable_index @@ to_tsquery('spanish', '$f') OR nombre ILIKE '$f%') ";
             } else if(in_array($k, $in)) {
                 $search .= " AND $k in ($v)";
             } else if ($k == "total_alumnos") {
